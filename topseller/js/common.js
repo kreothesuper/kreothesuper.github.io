@@ -1,19 +1,33 @@
-function addTouchOffsets(event) {
-    var touch = event.touches[0] || event.changedTouches[0];
-    var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
-    event.offsetX = touch.clientX - realTarget.getBoundingClientRect().x;
-    event.offsetY = touch.clientY - realTarget.getBoundingClientRect().y
-    return event.offsetY;
+const setTranslate = (positionY, parallaxItem) => {
+    parallaxItem.style.transform = "translate3d(0, " + positionY + "px, 0)";
 }
+
+const scrollLoop = (scrollTop, parallaxItems) => {
+    let scrollSpeed = .9,
+        yScrollPosition = scrollTop * scrollSpeed;
+    parallaxItems.forEach(parallaxElement => {
+        const parallaxElementCoefficient = +parallaxElement.dataset.coefficient;
+        setTranslate(yScrollPosition * -parallaxElementCoefficient, parallaxElement);
+    });
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // SLIDERS INITS
     const advantagesSlider = new Swiper(".advantages", {
             slidesPerView: 'auto',
-            freeMode: true,
+            freeMode: false,
             scrollbar: {
                 el: ".advantages-scrollbar",
             },
+            mousewheel: {
+                invert: false,
+            },
+            breakpoints:{
+                1100:{
+                    slidesPerView:'auto',
+                }
+            }
         }),
         howSlider = new Swiper(".how", {
             slidesPerView: 3,
@@ -31,13 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 prevEl: ".how-button-prev",
             },
         }),
-        tariffsSlider = new Swiper(".tariffs", {
-            slidesPerView: 'auto',
-            freeMode: true,
-            scrollbar: {
-                el: ".tariffs-scrollbar",
-            },
-        }),
         statisticsSlider = new Swiper(".statistics", {
             slidesPerView: 'auto',
             freeMode: true,
@@ -46,6 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         });
 
+    if(window.innerWidth <= 991){
+        const tariffsSlider = new Swiper(".tariffs", {
+            slidesPerView: 'auto',
+            freeMode: false,
+            spaceBetween:30,
+            scrollbar: {
+                el: ".tariffs-scrollbar",
+            },
+            breakpoints:{
+                991:{
+                    spaceBetween: 0
+                }
+            }
+        });
+    }
 
     // HEADER SETTINGS
     const header = document.querySelector('.header');
@@ -59,26 +81,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }, false);
 
     // POPUP || MENU SETTINGS
-    const popupTriggers = document.querySelectorAll('.popup-trigger'),
-        popupClose = document.querySelectorAll('.popup-close');
+    const popup = document.querySelector('.popup');
 
-    popupTriggers.forEach(element => {
-        element.addEventListener('click', (e) => {
-            e.preventDefault();
+    if (popup) {
+        const popupTriggers = document.querySelectorAll('*[data-popup]'),
+            popupClose = document.querySelectorAll('.popup-close');
 
-            const popup = document.querySelector(`.${element.dataset.popup}`);
-            popup.classList.add('active');
+        popupTriggers.forEach(element => {
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const popup = document.querySelector(`.${element.dataset.popup}`);
+                popup.classList.add('active');
+            });
         });
-    });
 
-    popupClose.forEach(element => {
-        element.addEventListener('click', (e) => {
-            e.preventDefault();
+        popupClose.forEach(element => {
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
 
-            const popup = element.closest('.popup');
-            popup.classList.remove('active');
+                const popup = element.closest('.popup');
+                popup.classList.remove('active');
+            });
         });
-    });
+    }
 
 
     // CIRCLE PIE SETTINGS
@@ -95,72 +121,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
         }, {threshold: 0.5});
-
         observer.observe(pie);
     }
 
 
     // PARALLAX SETTINGS
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                console.log(entry)
-            }
-        })
-    }, {threshold: 0.5});
+    const parallaxItems = document.querySelectorAll('.parallax');
 
+    if (window.innerWidth > 1100) {
+        let scrollTop = 0;
 
-    const firstEl = document.querySelector('.hero');
-    const textEl = document.querySelector(".parallax"),
-        parallaxSecond = document.querySelector('.section-statistics'),
-        parallaxThird = document.querySelector('.section-how'),
-        parallaxFourth = document.querySelector('.section-setup'),
-        parallaxFifth = document.querySelector('.section-tariffs'),
-        parallaxSix = document.querySelector('.section-rate'),
-        parallaxSeven = document.querySelector('.footer');
+        const bodyBottom = document.body.getBoundingClientRect().bottom,
+            lastParallaxBlock = parallaxItems[parallaxItems.length - 1];
 
-    function setTranslate(xPos, yPos, el) {
-        el.style.transform = "translate3d(" + xPos + ", " + yPos + "px, 0)";
-    }
-
-    window.addEventListener("DOMContentLoaded", scrollLoop, false);
-
-    let xScrollPosition;
-    let yScrollPosition;
-
-    function scrollLoop(scrollTop) {
-        xScrollPosition = window.pageXOffset;
-        yScrollPosition = scrollTop * .6;
-
-
-        setTranslate(0, yScrollPosition * -0.3, textEl);
-        setTranslate(0, yScrollPosition * -0.4, parallaxSecond);
-        setTranslate(0, yScrollPosition * -0.45, parallaxThird);
-        setTranslate(0, yScrollPosition * -0.5, parallaxFourth);
-        setTranslate(0, yScrollPosition * -0.53, parallaxFifth);
-        setTranslate(0, yScrollPosition * -0.55, parallaxSix);
-        setTranslate(0, yScrollPosition * -0.56, parallaxSeven);
-
-
-        // We use requestAnimationFrame to target the GPU instead of the CPU
-    }
-
-    let scrollTop = 0;
-
-    const parallaxBlocks = document.querySelectorAll('.parallax'),
-        blockEndScroll = parallaxSeven.getBoundingClientRect().bottom;
-
-    let blockHeight = 0;
-    parallaxBlocks.forEach(element => {
-        blockHeight += element.clientHeight;
-    });
-
-    parallaxBlocks.forEach(element => {
-        observer.observe(element);
-    })
-
-
-    if(window.innerWidth > 1100){
         document.addEventListener('mousewheel', (event) => {
 
             let scrollDeep = event.deltaY;
@@ -171,16 +144,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             scrollTop <= 0 ? scrollTop = 0 : scrollTop;
 
-            if (document.body.getBoundingClientRect().bottom >= parallaxSeven.getBoundingClientRect().bottom){
-                if(scrollDeep > 0){
+            if (bodyBottom >= lastParallaxBlock.getBoundingClientRect().bottom) {
+                if (scrollDeep > 0) {
                     scrollTop -= scrollDeep;
-                }else{
+                } else {
                     scrollTop += scrollDeep;
                 }
             }
 
-            scrollLoop(scrollTop);
-
+            scrollLoop(scrollTop, parallaxItems);
         });
     }
 
