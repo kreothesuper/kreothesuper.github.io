@@ -47,9 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }),
         statisticsSlider = new Swiper(".statistics", {
             slidesPerView: 'auto',
-            freeMode: true,
+            freeMode: false,
+            spaceBetween:15,
             scrollbar: {
                 el: ".statistics-scrollbar",
+            },
+            mousewheel: {
+                invert: false,
             },
         });
 
