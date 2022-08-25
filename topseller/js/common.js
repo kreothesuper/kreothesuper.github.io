@@ -103,12 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.5 });
 
 
-    const parallaxBlocks = document.querySelectorAll('.parallax');
-
-    parallaxBlocks.forEach(element=>{
-        observer.observe(element);
-    })
-
     const firstEl = document.querySelector('.hero');
     const textEl = document.querySelector(".parallax"),
         parallaxSecond = document.querySelector('.section-statistics'),
@@ -150,6 +144,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let scrollTop = 0;
 
+    const parallaxBlocks = document.querySelectorAll('.parallax');
+    let blockHeight = 0;
+    parallaxBlocks.forEach(element=>{
+        blockHeight += element.clientHeight;
+    });
+
+    console.log(blockHeight)
+
+    parallaxBlocks.forEach(element=>{
+        observer.observe(element);
+    })
+
     document.addEventListener('mousewheel', (event) => {
 
         let scrollDeep = event.deltaY;
@@ -159,6 +165,25 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTop += scrollDeep;
 
         scrollTop <= 0 ? scrollTop = 0 : scrollTop;
+        scrollTop * .6 * 0.56>= blockHeight ? scrollTop = blockHeight : scrollTop;
+
+        console.log(scrollTop * .6 * 0.56, blockHeight)
+
+        scrollLoop(scrollTop)
+    });
+
+    document.addEventListener('touchmove', (event) => {
+
+        let scrollDeep = event.deltaY;
+
+        scrollDeep < 0 ? header.classList.remove('hidden') : header.classList.add('hidden');
+
+        scrollTop += scrollDeep;
+
+        scrollTop <= 0 ? scrollTop = 0 : scrollTop;
+        scrollTop * .6 * 0.56>= blockHeight ? scrollTop = blockHeight : scrollTop;
+
+        console.log(scrollTop * .6 * 0.56, blockHeight)
 
         scrollLoop(scrollTop)
     });
