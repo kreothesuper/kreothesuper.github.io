@@ -1,8 +1,8 @@
-function addTouchOffsets (event) {
+function addTouchOffsets(event) {
     var touch = event.touches[0] || event.changedTouches[0];
     var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
-    event.offsetX = touch.clientX-realTarget.getBoundingClientRect().x;
-    event.offsetY = touch.clientY-realTarget.getBoundingClientRect().y
+    event.offsetX = touch.clientX - realTarget.getBoundingClientRect().x;
+    event.offsetY = touch.clientY - realTarget.getBoundingClientRect().y
     return event.offsetY;
 }
 
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // CIRCLE PIE SETTINGS
     const pie = document.querySelector('.pie');
 
-    if(pie){
+    if (pie) {
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     observer.unobserve(pie);
                 }
             })
-        }, { threshold: 0.5 });
+        }, {threshold: 0.5});
 
         observer.observe(pie);
     }
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(entry)
             }
         })
-    }, { threshold: 0.5 });
+    }, {threshold: 0.5});
 
 
     const firstEl = document.querySelector('.hero');
@@ -118,10 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
         parallaxFifth = document.querySelector('.section-tariffs'),
         parallaxSix = document.querySelector('.section-rate'),
         parallaxSeven = document.querySelector('.footer');
-
-    firstEl.addEventListener('scroll',(e)=>{
-       console.log(event);
-    });
 
     function setTranslate(xPos, yPos, el) {
         el.style.transform = "translate3d(" + xPos + ", " + yPos + "px, 0)";
@@ -151,45 +147,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let scrollTop = 0;
 
-    const parallaxBlocks = document.querySelectorAll('.parallax');
+    const parallaxBlocks = document.querySelectorAll('.parallax'),
+        blockEndScroll = parallaxSeven.getBoundingClientRect().bottom;
+
     let blockHeight = 0;
-    parallaxBlocks.forEach(element=>{
+    parallaxBlocks.forEach(element => {
         blockHeight += element.clientHeight;
     });
 
-    console.log(blockHeight)
-
-    parallaxBlocks.forEach(element=>{
+    parallaxBlocks.forEach(element => {
         observer.observe(element);
     })
 
-    document.addEventListener('mousewheel', (event) => {
 
-        let scrollDeep = event.deltaY;
+    if(window.innerWidth > 1100){
+        document.addEventListener('mousewheel', (event) => {
 
-        scrollDeep < 0 ? header.classList.remove('hidden') : header.classList.add('hidden');
+            let scrollDeep = event.deltaY;
 
-        scrollTop += scrollDeep;
+            scrollDeep < 0 ? header.classList.remove('hidden') : header.classList.add('hidden');
 
-        scrollTop <= 0 ? scrollTop = 0 : scrollTop;
+            scrollTop += scrollDeep;
 
-        scrollLoop(scrollTop)
-    });
+            scrollTop <= 0 ? scrollTop = 0 : scrollTop;
 
-    document.addEventListener('touchmove', (event) => {
-        let scrollDeep = addTouchOffsets(event);
+            if (document.body.getBoundingClientRect().bottom >= parallaxSeven.getBoundingClientRect().bottom){
+                if(scrollDeep > 0){
+                    scrollTop -= scrollDeep;
+                }else{
+                    scrollTop += scrollDeep;
+                }
+            }
 
-        console.log(scrollDeep);
+            scrollLoop(scrollTop);
 
-        scrollDeep < 0 ? header.classList.remove('hidden') : header.classList.add('hidden');
+        });
+    }
 
-        scrollTop += scrollDeep;
-
-        scrollTop <= 0 ? scrollTop = 0 : scrollTop;
-        scrollTop * .6 * 0.56>= blockHeight ? scrollTop = blockHeight : scrollTop;
-
-        console.log(scrollTop * .6 * 0.56, blockHeight)
-
-        scrollLoop(scrollTop)
-    });
 });
