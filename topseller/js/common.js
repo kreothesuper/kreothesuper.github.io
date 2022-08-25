@@ -1,3 +1,10 @@
+function addTouchOffsets (event) {
+    var touch = event.touches[0] || event.changedTouches[0];
+    var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+    event.offsetX = touch.clientX-realTarget.getBoundingClientRect().x;
+    event.offsetY = touch.clientY-realTarget.getBoundingClientRect().y
+    return event.offsetY;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     // SLIDERS INITS
@@ -165,16 +172,14 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTop += scrollDeep;
 
         scrollTop <= 0 ? scrollTop = 0 : scrollTop;
-        scrollTop * .6 * 0.56>= blockHeight ? scrollTop = blockHeight : scrollTop;
-
-        console.log(scrollTop * .6 * 0.56, blockHeight)
 
         scrollLoop(scrollTop)
     });
 
     document.addEventListener('touchmove', (event) => {
+        let scrollDeep = addTouchOffsets(event);
 
-        let scrollDeep = event.deltaY;
+        console.log(scrollDeep);
 
         scrollDeep < 0 ? header.classList.remove('hidden') : header.classList.add('hidden');
 
