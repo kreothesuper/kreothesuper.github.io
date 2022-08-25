@@ -1,4 +1,6 @@
+
 document.addEventListener('DOMContentLoaded', () => {
+    // SLIDERS INITS
     const advantagesSlider = new Swiper(".advantages", {
             slidesPerView: 'auto',
             freeMode: true,
@@ -38,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 
+    // HEADER SETTINGS
     const header = document.querySelector('.header');
 
     let lastScrollTop = window.pageYOffset || document.scrollTop;
@@ -48,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }, false);
 
+    // POPUP || MENU SETTINGS
     const popupTriggers = document.querySelectorAll('.popup-trigger'),
         popupClose = document.querySelectorAll('.popup-close');
 
@@ -70,10 +74,92 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+    // CIRCLE PIE SETTINGS
     const pie = document.querySelector('.pie');
 
-    if (pie) {
-        const circle = new CircularProgressBar("pie");
-        circle.initial();
+    if(pie){
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const circle = new CircularProgressBar("pie");
+                    circle.initial();
+
+                    observer.unobserve(pie);
+                }
+            })
+        }, { threshold: 0.5 });
+
+        observer.observe(pie);
     }
+
+
+    // PARALLAX SETTINGS
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                console.log(entry)
+            }
+        })
+    }, { threshold: 0.5 });
+
+
+    const parallaxBlocks = document.querySelectorAll('.parallax');
+
+    parallaxBlocks.forEach(element=>{
+        observer.observe(element);
+    })
+
+    const firstEl = document.querySelector('.hero');
+    const textEl = document.querySelector(".parallax"),
+        parallaxSecond = document.querySelector('.section-statistics'),
+        parallaxThird = document.querySelector('.section-how'),
+        parallaxFourth = document.querySelector('.section-setup'),
+        parallaxFifth = document.querySelector('.section-tariffs'),
+        parallaxSix = document.querySelector('.section-rate'),
+        parallaxSeven = document.querySelector('.footer');
+
+    firstEl.addEventListener('scroll',(e)=>{
+       console.log(event);
+    });
+
+    function setTranslate(xPos, yPos, el) {
+        el.style.transform = "translate3d(" + xPos + ", " + yPos + "px, 0)";
+    }
+
+    window.addEventListener("DOMContentLoaded", scrollLoop, false);
+
+    let xScrollPosition;
+    let yScrollPosition;
+
+    function scrollLoop(scrollTop) {
+        xScrollPosition = window.pageXOffset;
+        yScrollPosition = scrollTop * .6;
+
+
+        setTranslate(0, yScrollPosition * -0.3, textEl);
+        setTranslate(0, yScrollPosition * -0.4, parallaxSecond);
+        setTranslate(0, yScrollPosition * -0.45, parallaxThird);
+        setTranslate(0, yScrollPosition * -0.5, parallaxFourth);
+        setTranslate(0, yScrollPosition * -0.53, parallaxFifth);
+        setTranslate(0, yScrollPosition * -0.55, parallaxSix);
+        setTranslate(0, yScrollPosition * -0.56, parallaxSeven);
+
+
+        // We use requestAnimationFrame to target the GPU instead of the CPU
+    }
+
+    let scrollTop = 0;
+
+    document.addEventListener('mousewheel', (event) => {
+
+        let scrollDeep = event.deltaY;
+
+        scrollDeep < 0 ? header.classList.remove('hidden') : header.classList.add('hidden');
+
+        scrollTop += scrollDeep;
+
+        scrollTop <= 0 ? scrollTop = 0 : scrollTop;
+
+        scrollLoop(scrollTop)
+    });
 });
