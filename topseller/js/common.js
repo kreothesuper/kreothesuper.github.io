@@ -3,7 +3,7 @@ const setTranslate = (positionY, parallaxItem) => {
 }
 
 const scrollLoop = (scrollTop, parallaxItems) => {
-    let scrollSpeed = 1.3,
+    let scrollSpeed = 1.8,
         yScrollPosition = scrollTop * scrollSpeed;
     parallaxItems.forEach(parallaxElement => {
         const parallaxElementCoefficient = +parallaxElement.dataset.coefficient;
@@ -168,5 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollLoop(scrollTop, parallaxItems);
         });
     }
+
 
 });
