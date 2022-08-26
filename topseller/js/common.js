@@ -44,17 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 nextEl: ".how-button-next",
                 prevEl: ".how-button-prev",
             },
-        }),
-        statisticsSlider = new Swiper(".statistics", {
-            slidesPerView: 'auto',
-            freeMode: false,
-            spaceBetween:15,
-            scrollbar: {
-                el: ".statistics-scrollbar",
-            },
-            mousewheel: {
-                invert: false,
-            },
         });
 
     if(window.innerWidth <= 991){
@@ -70,6 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     spaceBetween: 0
                 }
             }
+        });
+    }
+
+    if(window.innerWidth <= 1240){
+        const statisticsSlider = new Swiper(".statistics", {
+            slidesPerView: 'auto',
+            freeMode: false,
+            spaceBetween:15,
+            scrollbar: {
+                el: ".statistics-scrollbar",
+            },
+            mousewheel: {
+                invert: false,
+            },
         });
     }
 
