@@ -11,6 +11,12 @@ const scrollLoop = (scrollTop, parallaxItems) => {
     });
 }
 
+const findParallaxIndex = (el) => {
+    const parallaxArray = [...document.querySelectorAll('.parallax')];
+
+    return parallaxArray.indexOf(el);
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // SLIDERS INITS
@@ -135,12 +141,45 @@ document.addEventListener('DOMContentLoaded', () => {
     // PARALLAX SETTINGS
     const parallaxItems = document.querySelectorAll('.parallax');
 
+    let height = 0;
+    parallaxItems.forEach(element=>{
+        height += element.clientHeight * element.dataset.coefficient;
+    });
+
+    const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
+
+    dataAnchorLinks.forEach(element=>{
+        const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
+        let dataHeight = 0,
+            parallaxIndex = findParallaxIndex(anchorBlock);
+
+        parallaxItems.forEach((elementParallax, indexParallax)=>{
+            indexParallax < parallaxIndex ? dataHeight += elementParallax.clientHeight : null;
+        });
+
+        element.dataset.height = dataHeight;
+    });
+
     if (window.innerWidth > 1100) {
-        let scrollTop = 0;
 
-        const bodyBottom = document.body.getBoundingClientRect().bottom,
-            lastParallaxBlock = parallaxItems[parallaxItems.length - 1];
+        var scrollTop = 0;
 
+        dataAnchorLinks.forEach(element=>{
+            element.addEventListener('click',(e)=>{
+                e.preventDefault();
+
+                scrollTop = +element.dataset.height;
+                parallaxItems.forEach(element=>{
+                   element.classList.add('transition')
+                });
+                scrollLoop(scrollTop, parallaxItems)
+                setTimeout(()=>{
+                    parallaxItems.forEach(element=>{
+                        element.classList.remove('transition')
+                    });
+                },500)
+            });
+        });
         document.addEventListener('mousewheel', (event) => {
 
             let scrollDeep = event.deltaY;
@@ -153,21 +192,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.classList.add('hidden');
             }
 
-            scrollTop += scrollDeep;
+            if(scrollTop + scrollDeep > height * 1.8){
+                scrollTop = height * 1.8 ;
+            }else{
+                scrollTop += scrollDeep;
+            }
 
             scrollTop <= 0 ? scrollTop = 0 : scrollTop;
-
-            if (bodyBottom >= lastParallaxBlock.getBoundingClientRect().bottom) {
-                if (scrollDeep > 0) {
-                    scrollTop -= scrollDeep;
-                } else {
-                    scrollTop += scrollDeep;
-                }
-            }
 
             scrollLoop(scrollTop, parallaxItems);
         });
     }
-
-
 });
