@@ -3,7 +3,7 @@ const setTranslate = (positionY, parallaxItem) => {
 }
 
 const scrollLoop = (scrollTop, parallaxItems) => {
-    let scrollSpeed = .9,
+    let scrollSpeed = 1.3,
         yScrollPosition = scrollTop * scrollSpeed;
     parallaxItems.forEach(parallaxElement => {
         const parallaxElementCoefficient = +parallaxElement.dataset.coefficient;
@@ -145,7 +145,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let scrollDeep = event.deltaY;
 
-            scrollDeep < 0 ? header.classList.remove('hidden') : header.classList.add('hidden');
+            if(scrollDeep < 0) {
+                scrollDeep -= 5;
+                header.classList.remove('hidden')
+            }else{
+                scrollDeep += 5;
+                header.classList.add('hidden');
+            }
 
             scrollTop += scrollDeep;
 
