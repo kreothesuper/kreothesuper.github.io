@@ -3,7 +3,7 @@ const setTranslate = (positionY, parallaxItem) => {
 }
 
 const scrollLoop = (scrollTop, parallaxItems) => {
-    let scrollSpeed = 1.8,
+    let scrollSpeed = 100,
         yScrollPosition = scrollTop * scrollSpeed;
     parallaxItems.forEach(parallaxElement => {
         const parallaxElementCoefficient = +parallaxElement.dataset.coefficient;
@@ -11,10 +11,26 @@ const scrollLoop = (scrollTop, parallaxItems) => {
     });
 }
 
+const normalizeWheelDelta = (e) => {
+    if (e.detail) {
+        if (e.wheelDelta)
+            return e.wheelDelta / e.detail / 40 * (e.detail > 0 ? 1 : -1) // Opera
+        else
+            return -e.detail / 3 // Firefox
+    } else
+        return e.wheelDelta / 120 // IE,Safari,Chrome
+}
+
 const findParallaxIndex = (el) => {
     const parallaxArray = [...document.querySelectorAll('.parallax')];
 
     return parallaxArray.indexOf(el);
+}
+
+const checkHeight = () =>{
+    const windowHeight = window.innerHeight;
+
+    return windowHeight - 1000
 }
 
 
@@ -29,9 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
             mousewheel: {
                 invert: false,
             },
-            breakpoints:{
-                1100:{
-                    slidesPerView:'auto',
+            breakpoints: {
+                1100: {
+                    slidesPerView: 'auto',
                 }
             }
         }),
@@ -52,27 +68,27 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         });
 
-    if(window.innerWidth <= 991){
+    if (window.innerWidth <= 991) {
         const tariffsSlider = new Swiper(".tariffs", {
             slidesPerView: 'auto',
             freeMode: false,
-            spaceBetween:30,
+            spaceBetween: 30,
             scrollbar: {
                 el: ".tariffs-scrollbar",
             },
-            breakpoints:{
-                991:{
+            breakpoints: {
+                991: {
                     spaceBetween: 0
                 }
             }
         });
     }
 
-    if(window.innerWidth <= 1240){
+    if (window.innerWidth <= 1240) {
         const statisticsSlider = new Swiper(".statistics", {
             slidesPerView: 'auto',
             freeMode: false,
-            spaceBetween:15,
+            spaceBetween: 15,
             scrollbar: {
                 el: ".statistics-scrollbar",
             },
@@ -142,65 +158,68 @@ document.addEventListener('DOMContentLoaded', () => {
     const parallaxItems = document.querySelectorAll('.parallax');
 
     let height = 0;
-    parallaxItems.forEach(element=>{
+    parallaxItems.forEach((element, index) => {
         height += element.clientHeight * element.dataset.coefficient;
     });
 
     const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
 
-    dataAnchorLinks.forEach(element=>{
+    dataAnchorLinks.forEach(element => {
         const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
         let dataHeight = 0,
             parallaxIndex = findParallaxIndex(anchorBlock);
 
-        parallaxItems.forEach((elementParallax, indexParallax)=>{
-            indexParallax < parallaxIndex ? dataHeight += elementParallax.clientHeight : null;
+        parallaxItems.forEach((elementParallax, indexParallax) => {
+            indexParallax < parallaxIndex ? dataHeight += elementParallax.getBoundingClientRect().height : null;
         });
 
         element.dataset.height = dataHeight;
     });
 
+
     if (window.innerWidth > 1100) {
 
         var scrollTop = 0;
 
-        dataAnchorLinks.forEach(element=>{
-            element.addEventListener('click',(e)=>{
+        dataAnchorLinks.forEach(element => {
+            element.addEventListener('click', (e) => {
                 e.preventDefault();
 
                 scrollTop = +element.dataset.height;
-                parallaxItems.forEach(element=>{
-                   element.classList.add('transition')
+                parallaxItems.forEach(element => {
+                    element.classList.add('transition');
                 });
                 scrollLoop(scrollTop, parallaxItems)
-                setTimeout(()=>{
-                    parallaxItems.forEach(element=>{
+                setTimeout(() => {
+                    parallaxItems.forEach(element => {
                         element.classList.remove('transition')
                     });
-                },500)
+                }, 500)
             });
         });
-        document.addEventListener('mousewheel', (event) => {
+        document.addEventListener('wheel', (event) => {
 
-            let scrollDeep = event.deltaY;
+            let scrollDeep = -normalizeWheelDelta(event);
 
-            if(scrollDeep < 0) {
-                scrollDeep -= 5;
+            if (scrollDeep < 0) {
                 header.classList.remove('hidden')
-            }else{
-                scrollDeep += 5;
+            } else {
                 header.classList.add('hidden');
             }
 
-            if(scrollTop + scrollDeep > height * 1.8){
-                scrollTop = height * 1.8 ;
-            }else{
-                scrollTop += scrollDeep;
-            }
+            console.log(scrollTop);
+
+            scrollTop += scrollDeep;
 
             scrollTop <= 0 ? scrollTop = 0 : scrollTop;
+
+            if (scrollTop >= 103.5) {
+                scrollTop = 103.5
+            }
+
 
             scrollLoop(scrollTop, parallaxItems);
         });
     }
+
 });
