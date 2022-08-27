@@ -144,24 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // PARALLAX SETTINGS
     const parallaxItems = document.querySelectorAll('.parallax');
 
-    let height = 0;
-    parallaxItems.forEach((element, index) => {
-        height += element.clientHeight * element.dataset.coefficient;
-    });
-
     const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
-
-    dataAnchorLinks.forEach(element => {
-        const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
-        let dataHeight = 0,
-            parallaxIndex = findParallaxIndex(anchorBlock);
-
-        parallaxItems.forEach((elementParallax, indexParallax) => {
-            indexParallax < parallaxIndex ? dataHeight += elementParallax.getBoundingClientRect().height : null;
-        });
-
-        element.dataset.height = dataHeight;
-    });
 
     /*
     if (window.innerWidth > 1100) {
@@ -212,18 +195,24 @@ document.addEventListener('DOMContentLoaded', () => {
             invert:false,
         },
         speed: 1500,
-        parallax: true,
+        parallax:true,
+
         on:{
             beforeInit:function () {
                 parallaxItems.forEach(element=>{
                     const container = element.querySelector('.parallax__wrapper');
-                    element.style.height = `${container.clientHeight}px`;
-                    element.dataset.swiperParallax = container.clientHeight;
-                    console.log('before')
+                    element.style.height = `${container.offsetHeight}px`;
+                    
                 });
             },
-            init:function () {
-                console.log('init')
+            afterInit:function () {
+                const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
+                dataAnchorLinks.forEach(element => {
+                    element.addEventListener('click',(e)=>{
+                        e.preventDefault();
+                        this.slideTo(+element.dataset.anchor);
+                    })
+                });
             }
         }
     });
