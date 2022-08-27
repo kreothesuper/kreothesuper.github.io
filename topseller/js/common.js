@@ -3,34 +3,21 @@ const setTranslate = (positionY, parallaxItem) => {
 }
 
 const scrollLoop = (scrollTop, parallaxItems) => {
-    let scrollSpeed = 100,
+    let scrollSpeed = 3,
         yScrollPosition = scrollTop * scrollSpeed;
     parallaxItems.forEach(parallaxElement => {
         const parallaxElementCoefficient = +parallaxElement.dataset.coefficient;
         setTranslate(yScrollPosition * -parallaxElementCoefficient, parallaxElement);
+        if (document.body.getBoundingClientRect().bottom > parallaxItems[parallaxItems.length - 1].getBoundingClientRect().bottom) {
+            return
+        }
     });
-}
-
-const normalizeWheelDelta = (e) => {
-    if (e.detail) {
-        if (e.wheelDelta)
-            return e.wheelDelta / e.detail / 40 * (e.detail > 0 ? 1 : -1) // Opera
-        else
-            return -e.detail / 3 // Firefox
-    } else
-        return e.wheelDelta / 120 // IE,Safari,Chrome
 }
 
 const findParallaxIndex = (el) => {
     const parallaxArray = [...document.querySelectorAll('.parallax')];
 
     return parallaxArray.indexOf(el);
-}
-
-const checkHeight = () =>{
-    const windowHeight = window.innerHeight;
-
-    return windowHeight - 1000
 }
 
 
@@ -176,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         element.dataset.height = dataHeight;
     });
 
-
+    /*
     if (window.innerWidth > 1100) {
 
         var scrollTop = 0;
@@ -199,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.addEventListener('wheel', (event) => {
 
-            let scrollDeep = -normalizeWheelDelta(event);
+            let scrollDeep = event.deltaY;
 
             if (scrollDeep < 0) {
                 header.classList.remove('hidden')
@@ -207,19 +194,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.classList.add('hidden');
             }
 
-            console.log(scrollTop);
-
             scrollTop += scrollDeep;
 
             scrollTop <= 0 ? scrollTop = 0 : scrollTop;
 
-            if (scrollTop >= 103.5) {
-                scrollTop = 103.5
-            }
-
-
             scrollLoop(scrollTop, parallaxItems);
         });
     }
+     */
 
+
+    var swiper = new Swiper(".parallax-slider", {
+        direction:'vertical',
+        slidesPerView:'auto',
+        freeMode:true,
+        mousewheel:{
+            invert:false,
+        },
+        speed: 1500,
+        parallax: true,
+        on:{
+            beforeInit:function () {
+                parallaxItems.forEach(element=>{
+                    const container = element.querySelector('.parallax__wrapper');
+                    element.style.height = `${container.clientHeight}px`;
+                    element.dataset.swiperParallax = container.clientHeight;
+                    console.log('before')
+                });
+            },
+            init:function () {
+                console.log('init')
+            }
+        }
+    });
+    swiper.on('beforeInit',function () {
+
+    });
 });
