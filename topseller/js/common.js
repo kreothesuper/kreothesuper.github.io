@@ -196,13 +196,11 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         speed: 1500,
         parallax:true,
-
         on:{
             beforeInit:function () {
                 parallaxItems.forEach(element=>{
                     const container = element.querySelector('.parallax__wrapper');
                     element.style.height = `${container.offsetHeight}px`;
-                    
                 });
             },
             afterInit:function () {
