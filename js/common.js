@@ -3,14 +3,11 @@ const setTranslate = (positionY, parallaxItem) => {
 }
 
 const scrollLoop = (scrollTop, parallaxItems) => {
-    let scrollSpeed = 3,
+    let scrollSpeed = 50,
         yScrollPosition = scrollTop * scrollSpeed;
     parallaxItems.forEach(parallaxElement => {
         const parallaxElementCoefficient = +parallaxElement.dataset.coefficient;
         setTranslate(yScrollPosition * -parallaxElementCoefficient, parallaxElement);
-        if (document.body.getBoundingClientRect().bottom > parallaxItems[parallaxItems.length - 1].getBoundingClientRect().bottom) {
-            return
-        }
     });
 }
 
@@ -19,6 +16,16 @@ const findParallaxIndex = (el) => {
 
     return parallaxArray.indexOf(el);
 }
+
+// Returns +1 for a single wheel roll 'up', -1 for a single roll 'down'
+var wheelDistance = function(evt){
+    if (!evt) evt = event;
+    var w=evt.wheelDelta, d=evt.detail;
+    if (d){
+        if (w) return w/d/40*d>0?1:-1; // Opera
+        else return -d/3;              // Firefox;         TODO: do not /3 for OS X
+    } else return w/120;             // IE/Safari/Chrome TODO: /3 for Chrome OS X
+};
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -144,9 +151,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // PARALLAX SETTINGS
     const parallaxItems = document.querySelectorAll('.parallax');
 
+    let height = 0;
+    parallaxItems.forEach(element => {
+        height += element.clientHeight;
+    });
+
     const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
 
-    /*
+    dataAnchorLinks.forEach(element => {
+        const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
+        let dataHeight = 0,
+            parallaxIndex = findParallaxIndex(anchorBlock);
+
+        parallaxItems.forEach((elementParallax, indexParallax) => {
+            indexParallax < parallaxIndex ? dataHeight += elementParallax.clientHeight : null;
+        });
+
+        element.dataset.height = dataHeight;
+    });
+
+
     if (window.innerWidth > 1100) {
 
         var scrollTop = 0;
@@ -155,9 +179,9 @@ document.addEventListener('DOMContentLoaded', () => {
             element.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                scrollTop = +element.dataset.height;
+                scrollTop = (+element.dataset.height) / (50 * .558);
                 parallaxItems.forEach(element => {
-                    element.classList.add('transition');
+                    element.classList.add('transition')
                 });
                 scrollLoop(scrollTop, parallaxItems)
                 setTimeout(() => {
@@ -169,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.addEventListener('wheel', (event) => {
 
-            let scrollDeep = event.deltaY;
+            let scrollDeep = parseFloat(-wheelDistance(event), 2);
 
             if (scrollDeep < 0) {
                 header.classList.remove('hidden')
@@ -177,44 +201,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.classList.add('hidden');
             }
 
-            scrollTop += scrollDeep;
+            if(scrollTop * 50 * .6 >= document.body.scrollHeight - window.innerHeight){
+                if(scrollDeep > 0) {
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .6);
+                }else{
+                    scrollTop += scrollDeep;
+                }
+            }else{
+                scrollTop += scrollDeep;
+            }
 
             scrollTop <= 0 ? scrollTop = 0 : scrollTop;
+
 
             scrollLoop(scrollTop, parallaxItems);
         });
     }
-     */
-
-
-    var swiper = new Swiper(".parallax-slider", {
-        direction:'vertical',
-        slidesPerView:'auto',
-        freeMode:true,
-        mousewheel:{
-            invert:false,
-        },
-        speed: 1500,
-        parallax:true,
-        on:{
-            beforeInit:function () {
-                parallaxItems.forEach(element=>{
-                    const container = element.querySelector('.parallax__wrapper');
-                    element.style.height = `${container.offsetHeight}px`;
-                });
-            },
-            afterInit:function () {
-                const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
-                dataAnchorLinks.forEach(element => {
-                    element.addEventListener('click',(e)=>{
-                        e.preventDefault();
-                        this.slideTo(+element.dataset.anchor);
-                    })
-                });
-            }
-        }
-    });
-    swiper.on('beforeInit',function () {
-
-    });
 });
