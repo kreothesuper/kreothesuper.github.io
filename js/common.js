@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (window.innerWidth <= 1240) {
+    if (window.innerWidth <= 1281) {
         const statisticsSlider = new Swiper(".statistics", {
             slidesPerView: 'auto',
             freeMode: false,
