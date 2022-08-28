@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.classList.add('hidden');
             }
 
-            if(scrollTop * 50 * .6 >= document.body.scrollHeight - window.innerHeight){
+            if((scrollTop + scrollDeep) * 50 * .6 >= document.body.scrollHeight - window.innerHeight){
                 if(scrollDeep > 0) {
                     scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .6);
                 }else{
