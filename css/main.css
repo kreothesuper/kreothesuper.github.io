@@ -1014,7 +1014,7 @@ body {
 
 @media screen and (max-width: 1100px) {
   .hero__wrapper {
-    padding: 80px 0 0 0;
+    padding: 80px 0 50px 0;
   }
 }
 
@@ -1778,6 +1778,24 @@ body {
   .statistics-item svg {
     width: 400px !important;
     height: 400px !important;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .statistics__grid {
+    grid-auto-rows: 350px;
+  }
+  .statistics-item svg {
+    width: 350px !important;
+    height: 350px !important;
+  }
+  .statistics-item__circle {
+    left: calc(50% - 175px);
+    width: 350px !important;
+    height: 350px !important;
+  }
+  .statistics__grid:first-child .statistics-item__content {
+    width: 350px;
   }
 }
 

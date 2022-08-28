@@ -217,4 +217,14 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollLoop(scrollTop, parallaxItems);
         });
     }
+
+
+
+    const oldWidth = window.innerWidth;
+
+    window.addEventListener('resize',()=>{
+        const newWidth = window.innerWidth;
+
+        newWidth != oldWidth ? location.reload() : null;
+    });
 });
