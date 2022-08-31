@@ -952,13 +952,18 @@ body {
 }
 
 .hero__video-item {
-  -o-object-position: bottom;
-     object-position: bottom;
+  -o-object-position: bottom right;
+     object-position: bottom right;
   width: calc(100% + 4px);
   -webkit-transform: translateX(-2px);
       -ms-transform: translateX(-2px);
           transform: translateX(-2px);
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 }
 
 .hero__content {
@@ -1008,10 +1013,19 @@ body {
 }
 
 @media screen and (max-width: 1240px) {
+  .hero__video {
+    max-height: 350px;
+  }
+  .hero__video-item {
+    -o-object-fit: contain;
+       object-fit: contain;
+    -o-object-position: bottom center;
+       object-position: bottom center;
+  }
   .hero__wrapper {
     height: auto;
     grid-template-columns: minmax(0, 1fr);
-    padding: 0 0 50px 0;
+    padding: 80px 0 50px 0;
   }
   .hero__wrapper-block:nth-child(1) {
     grid-row-start: 2;
