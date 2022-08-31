@@ -39,15 +39,16 @@ const counterAnim = (target, start = 0, end, duration = 1000) => {
     window.requestAnimationFrame(step);
 };
 
-function animateMarquee(el, duration) {
-    const innerEl = el.querySelector('.marque-wrapper');
-    const innerWidth = innerEl.offsetWidth;
-    const cloneEl = innerEl.cloneNode(true);
+const animateMarquee = (el, duration) => {
+    const innerEl = el.querySelector('.marque-wrapper'),
+        innerWidth = innerEl.offsetWidth,
+        cloneEl = innerEl.cloneNode(true);
+
     el.appendChild(cloneEl);
 
-    let start = performance.now();
-    let progress;
-    let translateX;
+    let start = performance.now(),
+        progress,
+        translateX;
 
     requestAnimationFrame(function step(now) {
         progress = (now - start) / duration;
@@ -63,10 +64,53 @@ function animateMarquee(el, duration) {
         cloneEl.style.transform = `translate3d(-${translateX}px, 0 , 0)`;
         requestAnimationFrame(step);
     });
+};
+
+const expandedList = (block, height) => {
+    const expandendBlock = block.querySelector('.expanded-block'),
+        expandendBlockHeight = block.clientHeight;
+
+    console.log(expandendBlockHeight, expandendBlock);
+
+
+    if (expandendBlockHeight >= height) {
+        expandendBlock.style.height = `${height}px`;
+
+        const link = document.createElement('span');
+        link.classList.add('expanded-link');
+
+        block.append(link);
+
+        link.addEventListener('click', () => {
+            link.classList.toggle('active');
+            link.classList.contains('active') ? expandendBlock.style.height = `${expandendBlockHeight}px` : expandendBlock.style.height = `${height}px`;
+        });
+    }
 }
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    const expandedBlocks = document.querySelectorAll('.expanded-wrapper'),
+        tariffsList = document.querySelectorAll('.tariffs-item__list');
+
+    if (tariffsList.length > 0) {
+        tariffsList.forEach(element => {
+            let height = 0;
+            const tariffsListItem = document.querySelectorAll('.tariffs-item__list-block');
+
+            tariffsListItem.forEach((tarifElement,tarifIndex)=>{
+               tarifIndex <= 7 ? height += tarifElement.clientHeight : null;
+            });
+
+            element.closest('.expanded-wrapper').dataset.height = height;
+        });
+    }
+
+    if (expandedBlocks.length > 0) {
+        expandedBlocks.forEach(element => {
+            expandedList(element, element.dataset.height);
+        });
+    }
     // SLIDERS INITS
     const advantagesSlider = new Swiper(".advantages", {
             slidesPerView: 'auto',
@@ -312,8 +356,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const marque = document.querySelectorAll('.marque');
 
-    if(marque.length > 0){
-        marque.forEach(element=>{
+    if (marque.length > 0) {
+        marque.forEach(element => {
             animateMarquee(element, 10000);
         })
     }
