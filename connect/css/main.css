@@ -480,7 +480,6 @@ body {
 .flip-card__front, .flip-card__back {
   width: 100%;
   height: 100%;
-  overflow: hidden;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   position: absolute;
@@ -497,16 +496,26 @@ body {
 }
 
 .flip-card__back {
-  -webkit-transform: perspective(800px) rotateY(180deg);
-          transform: perspective(800px) rotateY(180deg);
-}
-
-.flip-card:hover .flip-card__front {
   -webkit-transform: perspective(800px) rotateY(-180deg);
           transform: perspective(800px) rotateY(-180deg);
 }
 
-.flip-card:hover .flip-card__back {
+.flip-card-hover:hover .flip-card__front {
+  -webkit-transform: perspective(800px) rotateY(-180deg);
+          transform: perspective(800px) rotateY(-180deg);
+}
+
+.flip-card-hover:hover .flip-card__back {
+  -webkit-transform: perspective(800px) rotateY(0deg);
+          transform: perspective(800px) rotateY(0deg);
+}
+
+.flip-card.active .flip-card__front {
+  -webkit-transform: perspective(800px) rotateY(-180deg);
+          transform: perspective(800px) rotateY(-180deg);
+}
+
+.flip-card.active .flip-card__back {
   -webkit-transform: perspective(800px) rotateY(0deg);
           transform: perspective(800px) rotateY(0deg);
 }
@@ -537,6 +546,10 @@ body {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+
+.capabilities-slider, .feature-slider, .function-slider {
+  overflow: unset;
 }
 
 @media screen and (min-width: 1920px) {
@@ -3090,7 +3103,7 @@ body {
 }
 
 .section__wrapper {
-  padding: 100px 0 100px 0;
+  padding: 100px 0 250px 0;
   background-color: #FFFFFF;
 }
 
@@ -3377,7 +3390,6 @@ body {
 .card {
   width: 440px;
   height: 600px;
-  overflow: hidden;
 }
 
 .card__front, .card__back {

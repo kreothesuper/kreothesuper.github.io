@@ -70,9 +70,6 @@ const expandedList = (block, height) => {
     const expandendBlock = block.querySelector('.expanded-block'),
         expandendBlockHeight = block.clientHeight;
 
-    console.log(expandendBlockHeight, expandendBlock);
-
-
     if (expandendBlockHeight >= height) {
         expandendBlock.style.height = `${height}px`;
 
@@ -98,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
             let height = 0;
             const tariffsListItem = document.querySelectorAll('.tariffs-item__list-block');
 
-            tariffsListItem.forEach((tarifElement,tarifIndex)=>{
-               tarifIndex <= 7 ? height += tarifElement.clientHeight : null;
+            tariffsListItem.forEach((tarifElement, tarifIndex) => {
+                tarifIndex <= 7 ? height += tarifElement.clientHeight : null;
             });
 
             element.closest('.expanded-wrapper').dataset.height = height;
@@ -209,6 +206,10 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             mousewheel: {
                 invert: false,
+            },
+            navigation: {
+                nextEl: ".ecosystem-button-next",
+                prevEl: ".ecosystem-button-prev",
             },
         }),
         tariffsSlider = new Swiper(".tariffs", {
@@ -327,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
             parallaxIndex = findParallaxIndex(anchorBlock);
 
         parallaxItems.forEach((elementParallax, indexParallax) => {
-            indexParallax < parallaxIndex ? dataHeight += elementParallax.clientHeight : null;
+            indexParallax < parallaxIndex ? (elementParallax.dataset.height = dataHeight, dataHeight += elementParallax.clientHeight) : null;
         });
 
         element.dataset.height = dataHeight;
@@ -371,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
             element.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                scrollTop = (+element.dataset.height) / (50 * .558);
+                scrollTop = (+element.dataset.height) / (50 * document.querySelector(`.${element.dataset.anchor}`).dataset.coefficient);
                 parallaxItems.forEach(element => {
                     element.classList.add('transition')
                 });
@@ -394,16 +395,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
 
-            if ((scrollTop + scrollDeep) * 50 * .8 >= document.body.scrollHeight - window.innerHeight) {
+            if ((scrollTop + scrollDeep) * 50 * .931 >= document.body.scrollHeight - window.innerHeight) {
                 if (scrollDeep > 0) {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .8);
-                } else {
-                    scrollTop += scrollDeep;
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .931);
                 }
-            } else {
-                scrollTop += scrollDeep;
             }
-
 
             scrollTop += scrollDeep;
 
@@ -411,6 +407,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             scrollLoop(scrollTop, parallaxItems);
+        });
+    }
+    ;
+
+    const flipCardTriggers = document.querySelectorAll('.flip-card-trigger');
+
+    if(flipCardTriggers.length > 0){
+        flipCardTriggers.forEach(element => {
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                element.closest('.flip-card').classList.toggle('active');
+            });
         });
     }
 
