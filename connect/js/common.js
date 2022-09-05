@@ -179,23 +179,33 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         }),
         featureSlider = new Swiper(".feature-slider", {
-            slidesPerView: 'auto',
+            slidesPerView: 1,
             spaceBetween: 40,
             speed: 1000,
             navigation: {
                 nextEl: ".feature-button-next",
                 prevEl: ".feature-button-prev",
             },
+            breakpoints:{
+              600:{
+                  slidesPerView:'auto'
+              }
+            },
             scrollbar: {
                 el: ".feature-scrollbar",
             }
         }),
         ecosystemSlider = new Swiper(".ecosystem-slider", {
-            slidesPerView: 'auto',
+            slidesPerView: 1,
             spaceBetween: 40,
             speed: 1000,
             scrollbar: {
                 el: ".ecosystem-scrollbar",
+            },
+            breakpoints:{
+                600:{
+                    slidesPerView:'auto'
+                }
             },
             navigation: {
                 nextEl: ".ecosystem-button-next",
@@ -216,12 +226,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }),
         reviewSlider = new Swiper(".review-slider", {
-            slidesPerView: 'auto',
+            slidesPerView: 1,
             spaceBetween: 40,
             speed: 1000,
             navigation: {
                 nextEl: ".review-button-next",
                 prevEl: ".review-button-prev",
+            },
+            breakpoints:{
+              600:{
+                  slidesPerView:'auto'
+              }
             },
             scrollbar: {
                 el: ".review-scrollbar",
@@ -229,9 +244,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }),
         newsSlider = new Swiper(".news-slider", {
-            slidesPerView: 'auto',
+            slidesPerView: 1,
             spaceBetween: 40,
             speed: 1000,
+            breakpoints:{
+              600:{
+                  slidesPerView:'auto'
+              }
+            },
             navigation: {
                 nextEl: ".news-button-next",
                 prevEl: ".news-button-prev",

@@ -2537,7 +2537,7 @@ body {
 
 @media screen and (max-width: 750px) {
   .feature {
-    width: calc(100vw - 32px);
+    width: auto;
     height: 502px;
   }
   .feature__img {
@@ -2702,7 +2702,7 @@ body {
 
 @media screen and (max-width: 600px) {
   .ecosystem-slider__item {
-    width: calc(100vw - 32px);
+    width: auto;
   }
   .ecosystem-item__icon {
     width: 58px;
@@ -2732,12 +2732,15 @@ body {
   .section-ecosystem__title {
     max-width: 250px;
   }
+  .section-ecosystem__title-label {
+    width: 100%;
+  }
 }
 
 @-webkit-keyframes animateTitleFirst {
   0% {
-    -webkit-transform: translateY(-125%);
-            transform: translateY(-125%);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
   25% {
     -webkit-transform: translateY(0);
@@ -2747,16 +2750,20 @@ body {
     -webkit-transform: translateY(-125%);
             transform: translateY(-125%);
   }
-  100% {
+  90% {
     -webkit-transform: translateY(-125%);
             transform: translateY(-125%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
 @keyframes animateTitleFirst {
   0% {
-    -webkit-transform: translateY(-125%);
-            transform: translateY(-125%);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
   25% {
     -webkit-transform: translateY(0);
@@ -2766,9 +2773,13 @@ body {
     -webkit-transform: translateY(-125%);
             transform: translateY(-125%);
   }
-  100% {
+  90% {
     -webkit-transform: translateY(-125%);
             transform: translateY(-125%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
@@ -2831,10 +2842,6 @@ body {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
-  95% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
   100% {
     -webkit-transform: translateY(-125%);
             transform: translateY(-125%);
@@ -2851,10 +2858,6 @@ body {
             transform: translateY(-125%);
   }
   75% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  95% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
@@ -2978,7 +2981,7 @@ body {
     margin: 0 0 0 23px;
   }
   .review-item__wrapper {
-    width: calc(100vw - 32px);
+    width: auto;
     padding: 20px;
   }
   .review-item__img {
@@ -3139,7 +3142,7 @@ body {
 
 @media screen and (max-width: 600px) {
   .news-item {
-    width: calc(100vw - 32px);
+    width: auto;
   }
   .news-item__header {
     height: 225px;
