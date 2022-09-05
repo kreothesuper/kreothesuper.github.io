@@ -87,36 +87,38 @@ const expandedList = (block, height) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const expandedBlocks = document.querySelectorAll('.expanded-wrapper'),
-        tariffsList = document.querySelectorAll('.tariffs-item__list');
+    setTimeout(() => {
+        const expandedBlocks = document.querySelectorAll('.expanded-wrapper'),
+            tariffsList = document.querySelectorAll('.tariffs-item__list');
 
-    if (tariffsList.length > 0) {
-        tariffsList.forEach(element => {
-            let height = 0;
-            const tariffsListItem = document.querySelectorAll('.tariffs-item__list-block');
+        if (tariffsList.length > 0) {
+            tariffsList.forEach(element => {
+                let height = 0;
+                const tariffsListItem = document.querySelectorAll('.tariffs-item__list-block');
 
-            tariffsListItem.forEach((tarifElement, tarifIndex) => {
-                tarifIndex <= 7 ? height += tarifElement.clientHeight : null;
+                tariffsListItem.forEach((tarifElement, tarifIndex) => {
+
+
+                    tarifIndex <= 16 ? height += tarifElement.getBoundingClientRect().height : null;
+                });
+
+                element.closest('.expanded-wrapper').dataset.height = height;
             });
+        }
 
-            element.closest('.expanded-wrapper').dataset.height = height;
-        });
-    }
+        if (expandedBlocks.length > 0) {
+            expandedBlocks.forEach(element => {
+                expandedList(element, element.dataset.height);
+            });
+        }
+    }, 300);
 
-    if (expandedBlocks.length > 0) {
-        expandedBlocks.forEach(element => {
-            expandedList(element, element.dataset.height);
-        });
-    }
     // SLIDERS INITS
     const advantagesSlider = new Swiper(".advantages", {
             slidesPerView: 'auto',
             freeMode: false,
             scrollbar: {
                 el: ".advantages-scrollbar",
-            },
-            mousewheel: {
-                invert: false,
             },
             breakpoints: {
                 1100: {
@@ -163,9 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollbar: {
                 el: ".capabilities-scrollbar",
             },
-            mousewheel: {
-                invert: false,
-            },
         }),
         functionSlider = new Swiper(".function-slider", {
             slidesPerView: 'auto',
@@ -178,9 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollbar: {
                 el: ".function-scrollbar",
             },
-            mousewheel: {
-                invert: false,
-            },
         }),
         featureSlider = new Swiper(".feature-slider", {
             slidesPerView: 'auto',
@@ -192,10 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollbar: {
                 el: ".feature-scrollbar",
-            },
-            mousewheel: {
-                invert: false,
-            },
+            }
         }),
         ecosystemSlider = new Swiper(".ecosystem-slider", {
             slidesPerView: 'auto',
@@ -203,9 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
             speed: 1000,
             scrollbar: {
                 el: ".ecosystem-scrollbar",
-            },
-            mousewheel: {
-                invert: false,
             },
             navigation: {
                 nextEl: ".ecosystem-button-next",
@@ -236,9 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollbar: {
                 el: ".review-scrollbar",
             },
-            mousewheel: {
-                invert: false,
-            },
+
         }),
         newsSlider = new Swiper(".news-slider", {
             slidesPerView: 'auto',
@@ -251,9 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollbar: {
                 el: ".news-scrollbar",
             },
-            mousewheel: {
-                invert: false,
-            },
+
         }),
         problemSlider = new Swiper(".problem-slider", {
             slidesPerView: 1,
@@ -359,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (marque.length > 0) {
         marque.forEach(element => {
-            animateMarquee(element, 10000);
+            animateMarquee(element, 20000);
         })
     }
 
