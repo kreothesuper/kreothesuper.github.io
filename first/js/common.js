@@ -2,9 +2,8 @@ const setTranslate = (positionY, parallaxItem) => {
     parallaxItem.style.transform = "translate3d(0, " + positionY + "px, 0)";
 }
 
-const scrollLoop = (scrollTop, parallaxItems) => {
-    let scrollSpeed = 50,
-        yScrollPosition = scrollTop * scrollSpeed;
+const scrollLoop = (scrollTop, parallaxItems, scrollSpeed = 50) => {
+    let yScrollPosition = scrollTop * scrollSpeed;
     parallaxItems.forEach(parallaxElement => {
         const parallaxElementCoefficient = +parallaxElement.dataset.coefficient;
         setTranslate(yScrollPosition * -parallaxElementCoefficient, parallaxElement);
@@ -17,14 +16,13 @@ const findParallaxIndex = (el) => {
     return parallaxArray.indexOf(el);
 }
 
-// Returns +1 for a single wheel roll 'up', -1 for a single roll 'down'
-var wheelDistance = function(evt){
+const wheelDistance = (evt) => {
     if (!evt) evt = event;
-    var w=evt.wheelDelta, d=evt.detail;
-    if (d){
-        if (w) return w/d/40*d>0?1:-1; // Opera
-        else return -d/3;              // Firefox;         TODO: do not /3 for OS X
-    } else return w/120;             // IE/Safari/Chrome TODO: /3 for Chrome OS X
+    const w = evt.wheelDelta, d = evt.detail;
+    if (d) {
+        if (w) return w / d / 40 * d > 0 ? 1 : -1;
+        else return -d / 3;
+    } else return w / 120;
 };
 
 
@@ -149,37 +147,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // PARALLAX SETTINGS
-    const parallaxItems = document.querySelectorAll('.parallax');
+    const parallaxItems = document.querySelectorAll('.parallax'),
+        dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
 
-    let height = 0;
-    parallaxItems.forEach(element => {
-        height += element.clientHeight;
-    });
+    if(dataAnchorLinks.length > 0){
+        dataAnchorLinks.forEach(element => {
+            const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
+            let dataHeight = 0,
+                parallaxIndex = findParallaxIndex(anchorBlock);
 
-    const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
+            parallaxItems.forEach((elementParallax, indexParallax) => {
+                indexParallax < parallaxIndex ? dataHeight += elementParallax.clientHeight : null;
+            });
 
-    dataAnchorLinks.forEach(element => {
-        const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
-        let dataHeight = 0,
-            parallaxIndex = findParallaxIndex(anchorBlock);
-
-        parallaxItems.forEach((elementParallax, indexParallax) => {
-            indexParallax < parallaxIndex ? dataHeight += elementParallax.clientHeight : null;
+            element.dataset.height = dataHeight;
         });
-
-        element.dataset.height = dataHeight;
-    });
+    }
 
 
     if (window.innerWidth > 1100) {
 
-        var scrollTop = 0;
+        let scrollTop = 0,
+            scrollSpeed = 50;
+        const scrollHeight = document.body.scrollHeight,
+            windowHeight = window.innerHeight;
 
         dataAnchorLinks.forEach(element => {
             element.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                scrollTop = (+element.dataset.height) / (50 * .558);
+                scrollTop = (+element.dataset.height) / (scrollSpeed * .558);
                 parallaxItems.forEach(element => {
                     element.classList.add('transition')
                 });
@@ -191,38 +188,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 500)
             });
         });
+
         document.addEventListener('wheel', (event) => {
 
             let scrollDeep = parseFloat(-wheelDistance(event), 2);
 
-            if (scrollDeep < 0) {
-                header.classList.remove('hidden')
-            } else {
-                header.classList.add('hidden');
-            }
-
-            if((scrollTop + scrollDeep) * 50 * .6 >= document.body.scrollHeight - window.innerHeight){
-                if(scrollDeep > 0) {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .6);
-                }else{
+            if ((scrollTop + scrollDeep) * scrollSpeed * .6 >= scrollHeight - windowHeight) {
+                if (scrollDeep > 0) {
+                    scrollTop = (scrollHeight - windowHeight) / (scrollSpeed * .6);
+                } else {
                     scrollTop += scrollDeep;
                 }
-            }else{
+            } else {
                 scrollTop += scrollDeep;
             }
 
+            scrollDeep < 0 ? header.classList.remove('hidden') : header.classList.add('hidden');
             scrollTop <= 0 ? scrollTop = 0 : scrollTop;
 
-
-            scrollLoop(scrollTop, parallaxItems);
+            scrollLoop(scrollTop, parallaxItems, scrollSpeed);
         });
     }
 
-
-
     const oldWidth = window.innerWidth;
-
-    window.addEventListener('resize',()=>{
+    window.addEventListener('resize', () => {
         const newWidth = window.innerWidth;
 
         newWidth != oldWidth ? location.reload() : null;
