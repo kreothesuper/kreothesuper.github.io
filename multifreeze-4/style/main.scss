@@ -431,7 +431,7 @@ body {
 
     &__text {
       transition: .3s color linear;
-      &-mobile{
+      &-mobile,&-small{
         display: none;
       }
     }
@@ -980,7 +980,7 @@ body {
       padding: 80px 0;
     }
     &__grid {
-      grid-template-columns: 480px auto;
+      grid-template-columns: 474px auto;
       gap: 40px;
     }
   }
@@ -1247,11 +1247,27 @@ body {
   }
 }
 
+@media screen and (max-width: 450px) {
+  .advantages{
+    &-item{
+      &__text{
+        &-small{
+          display: block;
+        }
+        &-medium{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 375px) {
   .info {
     &__label {
       &-wrapper {
         max-width: 100%;
+        width: max-content;
       }
     }
   }
@@ -1288,6 +1304,11 @@ body {
       &__wrapper{
         padding: 20px;
       }
+      &__text{
+        &-mobile{
+          max-width: 162px;
+        }
+      }
       &__icon{
         width: 60px;
         height: 60px;
@@ -1297,7 +1318,7 @@ body {
         }
       }
       &__icon + &__content{
-        margin: 0 0 0 30px;
+        margin: 0 0 0 25px;
       }
     }
   }
@@ -1337,9 +1358,6 @@ body {
       }
     }
   }
-  .info__label-wrapper {
-    padding: 10px 20px 14px 20px;
-  }
   .ozon {
     &-btn {
       width: 100%;
@@ -1354,6 +1372,35 @@ body {
         span {
           display: none;
         }
+      }
+    }
+  }
+
+  .advantages{
+    &__footer{
+      .title{
+        font-size: 18px;
+        line-height: 27px;
+      }
+    }
+    &-item{
+      &__text{
+        font-size: 14px;
+        line-height: 23px;
+      }
+    }
+  }
+  .info{
+    &__title{
+      .title{
+        font-size: 18px;
+        line-height: 27px;
+      }
+    }
+    &__text{
+      .text{
+        font-size: 14px;
+        line-height: 23px;
       }
     }
   }
