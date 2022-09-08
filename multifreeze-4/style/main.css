@@ -260,21 +260,9 @@ body.hidden {
   gap: 30px;
 }
 .advantages__img {
-  width: 100%;
+  width: 470px;
   height: 490px;
   position: relative;
-  padding: 8px 0 0 0;
-}
-.advantages__img::before {
-  content: "";
-  position: absolute;
-  left: calc(50% - 482.5px);
-  top: calc(50% - 482.5px);
-  z-index: 1;
-  width: 965px;
-  height: 965px;
-  display: block;
-  background: url("../images/advantages-ellipse.svg") center center/contain no-repeat;
 }
 .advantages__img-item {
   width: 100%;
@@ -282,6 +270,13 @@ body.hidden {
   position: relative;
   z-index: 2;
   object-fit: contain;
+}
+.advantages__img-bg {
+  position: absolute;
+  width: 1006px;
+  height: 987px;
+  left: calc(50% - 520px);
+  top: calc(50% - 493.5px);
 }
 .advantages__list {
   position: relative;
@@ -708,6 +703,9 @@ body.hidden {
     background: url("../images/hero-bg-tablet.jpg") center center/cover no-repeat;
   }
 
+  .advantages__img {
+    padding: 0;
+  }
   .logo-block__img-item-desktop {
     display: none;
   }

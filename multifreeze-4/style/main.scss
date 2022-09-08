@@ -359,26 +359,11 @@ body {
   }
 
   &__img {
-    width: 100%;
+    width: 470px;
     height: 490px;
 
     position: relative;
 
-    padding: 8px 0 0 0;
-
-    &::before {
-      content: '';
-      position: absolute;
-      left: calc(50% - 482.5px);
-      top: calc(50% - 482.5px);
-      z-index: 1;
-
-      width: 965px;
-      height: 965px;
-      display: block;
-
-      background: url("../images/advantages-ellipse.svg") center center/contain no-repeat;
-    }
 
     &-item {
       width: 100%;
@@ -388,6 +373,13 @@ body {
       z-index: 2;
 
       object-fit: contain;
+    }
+    &-bg{
+      position: absolute;
+      width: 1006px;
+      height: 987px;
+      left: calc(50% - 520px);
+      top: calc(50% - 493.5px);
     }
   }
 
@@ -961,6 +953,13 @@ body {
   .hero {
     &__wrapper {
       background: url("../images/hero-bg-tablet.jpg") center center/cover no-repeat;
+    }
+  }
+  .advantages{
+    &__img{
+      padding: 0;
+      &::before{
+      }
     }
   }
   .logo-block{
