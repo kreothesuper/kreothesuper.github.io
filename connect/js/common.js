@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             freeMode: false,
             scrollbar: {
                 el: ".advantages-scrollbar",
+                draggable:true,
             },
             breakpoints: {
                 1100: {
@@ -181,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollbar: {
                 el: ".capabilities-scrollbar",
+                draggable:true,
             },
             breakpoints:{
                 600:{
@@ -211,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollbar: {
                 el: ".function-scrollbar",
+                draggable:true,
             },
             on: {
                 init: function () {
@@ -236,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollbar: {
                 el: ".feature-scrollbar",
+                draggable:true,
             },
             on: {
                 init: function () {
@@ -252,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
             speed: 1000,
             scrollbar: {
                 el: ".ecosystem-scrollbar",
+                draggable:true,
             },
             breakpoints:{
                 600:{
@@ -277,6 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
             spaceBetween: 40,
             scrollbar: {
                 el: ".tariffs-scrollbar",
+                draggable:true,
             },
             breakpoints: {
                 1100: {
@@ -307,6 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollbar: {
                 el: ".review-scrollbar",
+                draggable:true,
             },
             on: {
                 init: function () {
@@ -332,6 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollbar: {
                 el: ".news-scrollbar",
+                draggable:true,
             },
             on: {
                 init: function () {
