@@ -17,27 +17,125 @@ const findParallaxIndex = (el) => {
     return parallaxArray.indexOf(el);
 }
 
-// Returns +1 for a single wheel roll 'up', -1 for a single roll 'down'
-var wheelDistance = function(evt){
+const wheelDistance = function (evt) {
     if (!evt) evt = event;
-    var w=evt.wheelDelta, d=evt.detail;
-    if (d){
-        if (w) return w/d/40*d>0?1:-1; // Opera
-        else return -d/3;              // Firefox;         TODO: do not /3 for OS X
-    } else return w/120;             // IE/Safari/Chrome TODO: /3 for Chrome OS X
+    const w = evt.wheelDelta, d = evt.detail;
+    if (d) {
+        if (w) return w / d / 40 * d > 0 ? 1 : -1;
+        else return -d / 3;
+    } else return w / 120;
 };
+
+const counterAnim = (target, start = 0, end, duration = 1000) => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        target.innerText = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+};
+
+const animateMarquee = (el, duration) => {
+    const innerEl = el.querySelector('.marque-wrapper'),
+        innerWidth = innerEl.offsetWidth,
+        cloneEl = innerEl.cloneNode(true);
+
+    el.appendChild(cloneEl);
+
+    let start = performance.now(),
+        progress,
+        translateX;
+
+    requestAnimationFrame(function step(now) {
+        progress = (now - start) / duration;
+
+        if (progress > 1) {
+            progress %= 1;
+            start = now;
+        }
+
+        translateX = innerWidth * progress;
+
+        innerEl.style.transform = `translate3d(-${translateX}px, 0 , 0)`;
+        cloneEl.style.transform = `translate3d(-${translateX}px, 0 , 0)`;
+        requestAnimationFrame(step);
+    });
+};
+
+const expandedList = (block, height) => {
+    const expandendBlock = block.querySelector('.expanded-block'),
+        expandendBlockHeight = block.clientHeight;
+
+    if (expandendBlockHeight >= height) {
+        expandendBlock.style.height = `${height}px`;
+
+        const link = document.createElement('span');
+        link.classList.add('expanded-link');
+
+        block.append(link);
+
+        link.addEventListener('click', () => {
+            link.classList.toggle('active');
+            link.classList.contains('active') ? expandendBlock.style.height = `${expandendBlockHeight}px` : expandendBlock.style.height = `${height}px`;
+        });
+    }
+}
+
+const createScrollbarContent = (block) =>{
+    const newArrow = document.createElement('div'),
+        newArrowText = document.createElement('p'),
+        newArrowLabel = document.createElement('span');
+
+    newArrow.classList.add('slider-scrollbar-wrapper');
+    newArrowText.classList.add('slider-scrollbar-text');
+    newArrowLabel.classList.add('slider-scrollbar-label');
+
+    newArrowLabel.innerHTML = 'Потяните для навигации';
+
+    newArrowText.append(newArrowLabel);
+    newArrow.append(newArrowText);
+
+    block.append(newArrow);
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const expandedBlocks = document.querySelectorAll('.expanded-wrapper'),
+            tariffsList = document.querySelectorAll('.tariffs-item__list');
+
+        if (tariffsList.length > 0) {
+            tariffsList.forEach(element => {
+                let height = 0;
+                const tariffsListItem = document.querySelectorAll('.tariffs-item__list-block');
+
+                tariffsListItem.forEach((tarifElement, tarifIndex) => {
+
+
+                    tarifIndex <= 9 ? height += tarifElement.getBoundingClientRect().height : null;
+                });
+
+                element.closest('.expanded-wrapper').dataset.height = height;
+            });
+        }
+
+        if (expandedBlocks.length > 0) {
+            expandedBlocks.forEach(element => {
+                expandedList(element, element.dataset.height);
+            });
+        }
+    }, 300);
+
     // SLIDERS INITS
     const advantagesSlider = new Swiper(".advantages", {
             slidesPerView: 'auto',
             freeMode: false,
             scrollbar: {
                 el: ".advantages-scrollbar",
-            },
-            mousewheel: {
-                invert: false,
             },
             breakpoints: {
                 1100: {
@@ -60,37 +158,217 @@ document.addEventListener('DOMContentLoaded', () => {
                 nextEl: ".how-button-next",
                 prevEl: ".how-button-prev",
             },
-        });
-
-    if (window.innerWidth <= 991) {
-        const tariffsSlider = new Swiper(".tariffs", {
+        }),
+        indicatorsSlider = new Swiper('.indicators', {
             slidesPerView: 'auto',
+            spaceBetween: 15,
+            breakpoints: {
+                600: {
+                    spaceBetween: 25,
+                },
+                1100: {
+                    spaceBetween: 0,
+                }
+            }
+        }),
+        capabilitiesSlider = new Swiper(".capabilities-slider", {
+            slidesPerView: 1,
+            spaceBetween: 40,
+            speed: 1000,
+            navigation: {
+                nextEl: ".capabilities-button-next",
+                prevEl: ".capabilities-button-prev",
+            },
+            scrollbar: {
+                el: ".capabilities-scrollbar",
+            },
+            breakpoints:{
+                600:{
+                    slidesPerView:'auto'
+                }
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.capabilities-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
+        }),
+        functionSlider = new Swiper(".function-slider", {
+            slidesPerView: 1,
+            spaceBetween: 40,
+            speed: 1000,
+            navigation: {
+                nextEl: ".function-button-next",
+                prevEl: ".function-button-prev",
+            },
+            breakpoints:{
+                600:{
+                    slidesPerView:'auto'
+                }
+            },
+            scrollbar: {
+                el: ".function-scrollbar",
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.function-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
+        }),
+        featureSlider = new Swiper(".feature-slider", {
+            slidesPerView: 1,
+            spaceBetween: 40,
+            speed: 1000,
+            navigation: {
+                nextEl: ".feature-button-next",
+                prevEl: ".feature-button-prev",
+            },
+            breakpoints:{
+              600:{
+                  slidesPerView:'auto'
+              }
+            },
+            scrollbar: {
+                el: ".feature-scrollbar",
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.feature-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
+        }),
+        ecosystemSlider = new Swiper(".ecosystem-slider", {
+            slidesPerView: 1,
+            spaceBetween: 40,
+            speed: 1000,
+            scrollbar: {
+                el: ".ecosystem-scrollbar",
+            },
+            breakpoints:{
+                600:{
+                    slidesPerView:'auto'
+                }
+            },
+            navigation: {
+                nextEl: ".ecosystem-button-next",
+                prevEl: ".ecosystem-button-prev",
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.ecosystem-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
+        }),
+        tariffsSlider = new Swiper(".tariffs", {
+            slidesPerView: 1,
             freeMode: false,
-            spaceBetween: 30,
+            spaceBetween: 40,
             scrollbar: {
                 el: ".tariffs-scrollbar",
             },
             breakpoints: {
-                991: {
-                    spaceBetween: 0
+                1100: {
+                    slidesPerView: 3,
                 }
-            }
-        });
-    }
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.tariffs-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
 
-    if (window.innerWidth <= 1281) {
-        const statisticsSlider = new Swiper(".statistics", {
-            slidesPerView: 'auto',
-            freeMode: false,
-            spaceBetween: 15,
-            scrollbar: {
-                el: ".statistics-scrollbar",
+                    createScrollbarContent(scrollbarDrag);
+                },
             },
-            mousewheel: {
-                invert: false,
+        }),
+        reviewSlider = new Swiper(".review-slider", {
+            slidesPerView: 1,
+            spaceBetween: 40,
+            speed: 1000,
+            navigation: {
+                nextEl: ".review-button-next",
+                prevEl: ".review-button-prev",
+            },
+            breakpoints:{
+              600:{
+                  slidesPerView:'auto'
+              }
+            },
+            scrollbar: {
+                el: ".review-scrollbar",
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.review-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
+        }),
+        newsSlider = new Swiper(".news-slider", {
+            slidesPerView: 1,
+            spaceBetween: 40,
+            speed: 1000,
+            breakpoints:{
+              600:{
+                  slidesPerView:'auto'
+              }
+            },
+            navigation: {
+                nextEl: ".news-button-next",
+                prevEl: ".news-button-prev",
+            },
+            scrollbar: {
+                el: ".news-scrollbar",
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.news-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
+        }),
+        problemSlider = new Swiper(".problem-slider", {
+            slidesPerView: 1,
+            spaceBetween: 40,
+            speed: 1000,
+            scrollbar: {
+                el: ".problem-scrollbar",
+            },
+            breakpoints: {
+                1150: {
+                    spaceBetween: 60,
+                    slidesPerView: 2
+                },
+                1300: {
+                    spaceBetween: 140,
+                    slidesPerView: 2,
+                }
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.problem-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
             },
         });
-    }
+
 
     // HEADER SETTINGS
     const header = document.querySelector('.header');
@@ -129,25 +407,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    // CIRCLE PIE SETTINGS
-    const pie = document.querySelector('.pie');
-
-    if (pie) {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const circle = new CircularProgressBar("pie");
-                    circle.initial();
-
-                    observer.unobserve(pie);
-                }
-            })
-        }, {threshold: 0.5});
-        observer.observe(pie);
-    }
-
-
     // PARALLAX SETTINGS
     const parallaxItems = document.querySelectorAll('.parallax');
 
@@ -164,11 +423,40 @@ document.addEventListener('DOMContentLoaded', () => {
             parallaxIndex = findParallaxIndex(anchorBlock);
 
         parallaxItems.forEach((elementParallax, indexParallax) => {
-            indexParallax < parallaxIndex ? dataHeight += elementParallax.clientHeight : null;
+            indexParallax < parallaxIndex ? (elementParallax.dataset.height = dataHeight, dataHeight += elementParallax.clientHeight) : null;
         });
 
         element.dataset.height = dataHeight;
     });
+
+
+    // COUNTER SETTINGS
+    const counter = document.querySelectorAll('.counter');
+
+    if (counter.length > 0) {
+        counter.forEach(element => {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        counterAnim(element, 0, element.dataset.end, 1000);
+
+                        observer.unobserve(element);
+                    }
+                })
+            }, {threshold: 0.5});
+            observer.observe(element);
+        });
+    }
+
+    // ANIMATION LINE SETTINGS
+
+    const marque = document.querySelectorAll('.marque');
+
+    if (marque.length > 0) {
+        marque.forEach(element => {
+            animateMarquee(element, 20000);
+        })
+    }
 
 
     if (window.innerWidth > 1100) {
@@ -179,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
             element.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                scrollTop = (+element.dataset.height) / (50 * .558);
+                scrollTop = (+element.dataset.height) / (50 * document.querySelector(`.${element.dataset.anchor}`).dataset.coefficient);
                 parallaxItems.forEach(element => {
                     element.classList.add('transition')
                 });
@@ -201,28 +489,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.classList.add('hidden');
             }
 
-            if((scrollTop + scrollDeep) * 50 * .6 >= document.body.scrollHeight - window.innerHeight){
-                if(scrollDeep > 0) {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .6);
-                }else{
-                    scrollTop += scrollDeep;
+
+            if ((scrollTop + scrollDeep) * 50 * .931 >= document.body.scrollHeight - window.innerHeight) {
+                if (scrollDeep > 0) {
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .931);
                 }
-            }else{
-                scrollTop += scrollDeep;
             }
+
+            scrollTop += scrollDeep;
 
             scrollTop <= 0 ? scrollTop = 0 : scrollTop;
 
 
             scrollLoop(scrollTop, parallaxItems);
         });
+    };
+
+    const flipCardTriggers = document.querySelectorAll('.flip-card-trigger');
+
+    if(flipCardTriggers.length > 0){
+        flipCardTriggers.forEach(element => {
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                element.closest('.flip-card').classList.toggle('active');
+            });
+            element.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+
+                element.closest('.flip-card').classList.toggle('active');
+            });
+        });
     }
 
+    const flipCardHover = document.querySelectorAll('.flip-card-hover');
+
+    flipCardHover.forEach(element=>{
+        element.addEventListener('touchstart',(e)=>{
+            e.preventDefault();
+
+            element.classList.toggle('active');
+        });
+    })
 
 
     const oldWidth = window.innerWidth;
 
-    window.addEventListener('resize',()=>{
+    window.addEventListener('resize', () => {
         const newWidth = window.innerWidth;
 
         newWidth != oldWidth ? location.reload() : null;
