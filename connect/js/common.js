@@ -85,6 +85,23 @@ const expandedList = (block, height) => {
     }
 }
 
+const createScrollbarContent = (block) =>{
+    const newArrow = document.createElement('div'),
+        newArrowText = document.createElement('p'),
+        newArrowLabel = document.createElement('span');
+
+    newArrow.classList.add('slider-scrollbar-wrapper');
+    newArrowText.classList.add('slider-scrollbar-text');
+    newArrowLabel.classList.add('slider-scrollbar-label');
+
+    newArrowLabel.innerHTML = 'Потяните для навигации';
+
+    newArrowText.append(newArrowLabel);
+    newArrow.append(newArrowText);
+
+    block.append(newArrow);
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
@@ -99,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 tariffsListItem.forEach((tarifElement, tarifIndex) => {
 
 
-                    tarifIndex <= 16 ? height += tarifElement.getBoundingClientRect().height : null;
+                    tarifIndex <= 9 ? height += tarifElement.getBoundingClientRect().height : null;
                 });
 
                 element.closest('.expanded-wrapper').dataset.height = height;
@@ -155,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }),
         capabilitiesSlider = new Swiper(".capabilities-slider", {
-            slidesPerView: 'auto',
+            slidesPerView: 1,
             spaceBetween: 40,
             speed: 1000,
             navigation: {
@@ -165,17 +182,43 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollbar: {
                 el: ".capabilities-scrollbar",
             },
+            breakpoints:{
+                600:{
+                    slidesPerView:'auto'
+                }
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.capabilities-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
         }),
         functionSlider = new Swiper(".function-slider", {
-            slidesPerView: 'auto',
+            slidesPerView: 1,
             spaceBetween: 40,
             speed: 1000,
             navigation: {
                 nextEl: ".function-button-next",
                 prevEl: ".function-button-prev",
             },
+            breakpoints:{
+                600:{
+                    slidesPerView:'auto'
+                }
+            },
             scrollbar: {
                 el: ".function-scrollbar",
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.function-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
             },
         }),
         featureSlider = new Swiper(".feature-slider", {
@@ -193,7 +236,15 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollbar: {
                 el: ".feature-scrollbar",
-            }
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.feature-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
         }),
         ecosystemSlider = new Swiper(".ecosystem-slider", {
             slidesPerView: 1,
@@ -211,6 +262,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 nextEl: ".ecosystem-button-next",
                 prevEl: ".ecosystem-button-prev",
             },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.ecosystem-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
         }),
         tariffsSlider = new Swiper(".tariffs", {
             slidesPerView: 1,
@@ -223,7 +282,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 1100: {
                     slidesPerView: 3,
                 }
-            }
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.tariffs-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
         }),
         reviewSlider = new Swiper(".review-slider", {
             slidesPerView: 1,
@@ -241,7 +308,14 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollbar: {
                 el: ".review-scrollbar",
             },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.review-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
 
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
         }),
         newsSlider = new Swiper(".news-slider", {
             slidesPerView: 1,
@@ -259,7 +333,14 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollbar: {
                 el: ".news-scrollbar",
             },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.news-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
 
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
         }),
         problemSlider = new Swiper(".problem-slider", {
             slidesPerView: 1,
@@ -277,7 +358,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     spaceBetween: 140,
                     slidesPerView: 2,
                 }
-            }
+            },
+            on: {
+                init: function () {
+                    const scrollbar = document.querySelector('.problem-scrollbar'),
+                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+
+                    createScrollbarContent(scrollbarDrag);
+                },
+            },
         });
 
 
@@ -414,8 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             scrollLoop(scrollTop, parallaxItems);
         });
-    }
-    ;
+    };
 
     const flipCardTriggers = document.querySelectorAll('.flip-card-trigger');
 
@@ -426,8 +514,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 element.closest('.flip-card').classList.toggle('active');
             });
+            element.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+
+                element.closest('.flip-card').classList.toggle('active');
+            });
         });
     }
+
+    const flipCardHover = document.querySelectorAll('.flip-card-hover');
+
+    flipCardHover.forEach(element=>{
+        element.addEventListener('touchstart',(e)=>{
+            e.preventDefault();
+
+            element.classList.toggle('active');
+        });
+    })
 
 
     const oldWidth = window.innerWidth;
