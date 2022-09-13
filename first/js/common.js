@@ -596,9 +596,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
 
-            if ((scrollTop + scrollDeep) * 50 * .63 >= document.body.scrollHeight - window.innerHeight) {
+            if ((scrollTop + scrollDeep) * 50 * .621 >= document.body.scrollHeight - window.innerHeight) {
                 if (scrollDeep > 0) {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .63);
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .621);
                 }
             }
 
