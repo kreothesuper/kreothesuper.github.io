@@ -43,6 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }),
+        searchSlider = new Swiper(".search-slider", {
+            slidesPerView: 1,
+            freeMode: false,
+            scrollbar: {
+                el: ".search-slider-scrollbar",
+            }
+        }),
         howSlider = new Swiper(".how", {
             slidesPerView: 3,
             freeMode: true,
@@ -193,20 +200,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let scrollDeep = parseFloat(-wheelDistance(event), 2);
 
-            if ((scrollTop + scrollDeep) * scrollSpeed * .6 >= scrollHeight - windowHeight) {
-                if (scrollDeep > 0) {
-                    scrollTop = (scrollHeight - windowHeight) / (scrollSpeed * .6);
-                } else {
-                    scrollTop += scrollDeep;
-                }
+            if (scrollDeep < 0) {
+                header.classList.remove('hidden')
             } else {
-                scrollTop += scrollDeep;
+                header.classList.add('hidden');
             }
 
-            scrollDeep < 0 ? header.classList.remove('hidden') : header.classList.add('hidden');
+
+            if ((scrollTop + scrollDeep) * 50 * .63 >= document.body.scrollHeight - window.innerHeight) {
+                if (scrollDeep > 0) {
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .63);
+                }
+            }
+
+            scrollTop += scrollDeep;
+
             scrollTop <= 0 ? scrollTop = 0 : scrollTop;
 
-            scrollLoop(scrollTop, parallaxItems, scrollSpeed);
+
+            scrollLoop(scrollTop, parallaxItems);
         });
     }
 
