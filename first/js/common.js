@@ -376,7 +376,7 @@ const apiRequest = (keywordSearch) => {
 
     searchStatus.prepend(searchSpinner);
 
-    const api_url = 'https://194.67.125.84/advert/wb_info_by_keyword/',
+    const api_url = 'http://194.67.125.84/advert/wb_info_by_keyword/',
         api_options = {
             method: "POST",
             body: JSON.stringify({keyword: keywordSearch}),
