@@ -245,7 +245,7 @@ const apiRequest = (keywordSearch) => {
             referrerPolicy: 'no-referrer',
             body: JSON.stringify({keyword: keywordSearch}),
             headers: {
-                "Content-type": "application/json; charset=UTF-8",
+                "Content-type": "application/json",
             }
         }
 
