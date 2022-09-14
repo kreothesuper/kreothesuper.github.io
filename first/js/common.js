@@ -25,148 +25,6 @@ const wheelDistance = (evt) => {
     } else return w / 120;
 };
 
-const jsonData = {
-    "pages": [
-        {
-            "page_num": 1,
-            "products": [
-                {
-                    "title": "Платье женское шифон вечернее повседневное для беременных офис большие размеры осеннее летнее школа",
-                    "position": 1,
-                    "nm": 111300933,
-                    "cpm": 650,
-                    "subject": 69,
-                    "photo": "https://images.wbstatic.net/c246x328/new/111300000/111300933-1.jpg",
-                    "delivery_time": 24,
-                    "brand": "SIGIBREND",
-                    "quantity": 28
-                },
-                {
-                    "title": "Платье",
-                    "position": 2,
-                    "nm": 117478036,
-                    "cpm": 557,
-                    "subject": 69,
-                    "photo": "https://images.wbstatic.net/c246x328/new/117470000/117478036-1.jpg",
-                    "delivery_time": 23,
-                    "brand": "YOU CLO",
-                    "quantity": 235
-                },
-                {
-                    "title": "Детское платье для девочки сарафан в сад",
-                    "position": 13,
-                    "nm": 99581895,
-                    "cpm": 556,
-                    "subject": 69,
-                    "photo": "https://images.wbstatic.net/c246x328/new/99580000/99581895-1.jpg",
-                    "delivery_time": 38,
-                    "brand": "Ивбэби",
-                    "quantity": 3
-                },
-                {
-                    "title": "Платье женское вечернее для девочки",
-                    "position": 16,
-                    "nm": 20927719,
-                    "cpm": 507,
-                    "subject": 69,
-                    "photo": "https://images.wbstatic.net/c246x328/new/20920000/20927719-1.jpg",
-                    "delivery_time": 24,
-                    "brand": "GAPS",
-                    "quantity": 828
-                },
-                {
-                    "title": "Платье",
-                    "position": 18,
-                    "nm": 49450953,
-                    "cpm": 506,
-                    "subject": 69,
-                    "photo": "https://images.wbstatic.net/c246x328/new/49450000/49450953-1.jpg",
-                    "delivery_time": 24,
-                    "brand": "Lina Grazki",
-                    "quantity": 17
-                }
-            ]
-        },
-        {
-            "page_num": 2,
-            "products": [
-                {
-                    "title": "Платье",
-                    "position": 1,
-                    "nm": 59071783,
-                    "cpm": 500,
-                    "subject": 69,
-                    "photo": "https://images.wbstatic.net/c246x328/new/59070000/59071783-1.jpg",
-                    "delivery_time": 24,
-                    "brand": "РКР",
-                    "quantity": 10
-                },
-                {
-                    "title": "Платье",
-                    "position": 2,
-                    "nm": 120816350,
-                    "cpm": 500,
-                    "subject": 69,
-                    "photo": "https://images.wbstatic.net/c246x328/new/120810000/120816350-1.jpg",
-                    "delivery_time": 30,
-                    "brand": "Bulgakova",
-                    "quantity": 3
-                },
-                {
-                    "title": "Платье на запах нарядное футляр в офис ",
-                    "position": 11,
-                    "nm": 111128629,
-                    "cpm": 470,
-                    "subject": 69,
-                    "photo": "https://images.wbstatic.net/c246x328/new/111120000/111128629-1.jpg",
-                    "delivery_time": 24,
-                    "brand": "brezza",
-                    "quantity": 51
-                },
-                {
-                    "title": "Платье женское праздничное вечернее",
-                    "position": 12,
-                    "nm": 99472163,
-                    "cpm": 458,
-                    "subject": 69,
-                    "photo": "https://images.wbstatic.net/c246x328/new/99470000/99472163-1.jpg",
-                    "delivery_time": 24,
-                    "brand": "MANEKIN",
-                    "quantity": 47
-                },
-                {
-                    "title": "Платье мини женское коктейльное вечернее",
-                    "position": 16,
-                    "nm": 95305484,
-                    "cpm": 452,
-                    "subject": 69,
-                    "photo": "https://images.wbstatic.net/c246x328/new/95300000/95305484-1.jpg",
-                    "delivery_time": 24,
-                    "brand": "Milana collection",
-                    "quantity": 2
-                }
-            ]
-        }
-    ],
-    "subjects": [
-        {
-            "uid": "4260fa62-703a-4c79-87e1-b3ebbf17f001",
-            "site_id": 69,
-            "title": "Платье"
-        },
-        {
-            "uid": "41e7e9a5-a547-44c1-b3b6-7d462823973e",
-            "site_id": 2905,
-            "title": "Платье медицинское"
-        },
-        {
-            "uid": "ac0ffd0f-bce2-493f-865f-cf79d8e45ed7",
-            "site_id": 4000,
-            "title": "Платье для малыша"
-        }
-    ]
-}
-
 const removeChilds = (parent) => {
     while (parent.lastChild) {
         parent.removeChild(parent.lastChild);
@@ -352,23 +210,27 @@ const searchResultInit = (data) => {
 
     clearSearch();
 
+    const searchResult = document.querySelector('.search__box'),
+        searchBoxContent = searchResult.querySelector('.search__box-content');
+
     if (window.innerWidth > 1200) {
         const searchBlock = document.querySelector('.search-result-desktop'),
             searchBlockContent = searchBlock.querySelector('.search-result-content');
 
-        searchBlock.classList.add('active');
         createSearchResult(searchBlockContent, data);
     } else {
         const searchBlock = document.querySelector('.search-result-mobile'),
             searchBlockContent = searchBlock.querySelector('.swiper-wrapper');
 
-        searchBlock.classList.add('active');
         createSearchResult(searchBlockContent, data, 'mobile')
     }
+
+    searchBoxContent.classList.add('active');
 }
 
 const apiRequest = (keywordSearch) => {
 
+    clearSearch();
     const searchResult = document.querySelector('.search__box'),
         searchStatus = searchResult.querySelector('.search__status'),
         searchSpinner = createSpinner(),
@@ -376,18 +238,23 @@ const apiRequest = (keywordSearch) => {
 
     searchStatus.prepend(searchSpinner);
 
-
     const api_url = 'http://194.67.125.84/advert/wb_info_by_keyword/',
         api_options = {
             method: "POST",
             mode: 'cors',
-            referrerPolicy:'no-referrer',
+            referrerPolicy: 'no-referrer',
             body: JSON.stringify({keyword: keywordSearch}),
             headers: {"Content-type": "application/json; charset=UTF-8"}
         }
 
     fetch(api_url, api_options)
-        .then(data => data.json())
+        .then(data => {
+            if (!data.ok) {
+                clearSearch();
+                searchStatus.append(searchError);
+            }
+            return data.json()
+        })
         .then((json) => {
             clearSearch();
             searchResultInit(json, searchStatus)
@@ -398,15 +265,18 @@ const apiRequest = (keywordSearch) => {
         });
 };
 
-const clearSearch = () =>{
-  const searchResult = document.querySelector('.search__box'),
-      searchStatus = searchResult.querySelector('.search__status'),
-      searchBlockMobile = searchResult.querySelector('.search-result-mobile .swiper-wrapper'),
-      searchBlockDesktop = document.querySelector('.search-result-desktop .search-result-content');
+const clearSearch = () => {
 
-  removeChilds(searchStatus);
-  removeChilds(searchBlockDesktop);
-  removeChilds(searchBlockMobile);
+    const searchResult = document.querySelector('.search__box'),
+        searchBoxContent = searchResult.querySelector('.search__box-content'),
+        searchStatus = searchResult.querySelector('.search__status'),
+        searchBlockMobile = searchResult.querySelector('.search-result-mobile .swiper-wrapper'),
+        searchBlockDesktop = document.querySelector('.search-result-desktop .search-result-content');
+
+    searchBoxContent.classList.remove('active');
+    removeChilds(searchStatus);
+    removeChilds(searchBlockDesktop);
+    removeChilds(searchBlockMobile);
 };
 
 const createSpinner = () => {
