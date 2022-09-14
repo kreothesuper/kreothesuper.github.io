@@ -84,6 +84,7 @@ const createSearchResultLink = (data) => {
         searchResultLink = document.createElement('a');
 
     searchResultLink.classList.add(__searchResultLinkClass);
+    searchResultLink.href = `https://www.wildberries.ru/catalog/${data}/detail.aspx?targetUrl=XS`;
     searchResultLink.innerHTML = data;
 
     return searchResultLink;
@@ -247,7 +248,7 @@ const apiRequest = (keywordSearch) => {
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             }
-        }
+        };
 
     fetch(api_url, api_options)
         .then(data => {
@@ -262,7 +263,6 @@ const apiRequest = (keywordSearch) => {
             searchResultInit(json, searchStatus)
         })
         .catch((error) => {
-            console.log(error);
             clearSearch();
             searchStatus.append(searchError);
         });
@@ -499,4 +499,5 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('change', () => {
         apiRequest(searchInput.value);
     });
+    apiRequest('Платье');
 });
