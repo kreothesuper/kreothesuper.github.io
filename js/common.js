@@ -2,9 +2,8 @@ const setTranslate = (positionY, parallaxItem) => {
     parallaxItem.style.transform = "translate3d(0, " + positionY + "px, 0)";
 }
 
-const scrollLoop = (scrollTop, parallaxItems) => {
-    let scrollSpeed = 50,
-        yScrollPosition = scrollTop * scrollSpeed;
+const scrollLoop = (scrollTop, parallaxItems, scrollSpeed = 50) => {
+    let yScrollPosition = scrollTop * scrollSpeed;
     parallaxItems.forEach(parallaxElement => {
         const parallaxElementCoefficient = +parallaxElement.dataset.coefficient;
         setTranslate(yScrollPosition * -parallaxElementCoefficient, parallaxElement);
@@ -17,7 +16,7 @@ const findParallaxIndex = (el) => {
     return parallaxArray.indexOf(el);
 }
 
-const wheelDistance = function (evt) {
+const wheelDistance = (evt) => {
     if (!evt) evt = event;
     const w = evt.wheelDelta, d = evt.detail;
     if (d) {
@@ -26,110 +25,283 @@ const wheelDistance = function (evt) {
     } else return w / 120;
 };
 
-const counterAnim = (target, start = 0, end, duration = 1000) => {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        target.innerText = Math.floor(progress * (end - start) + start);
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        }
-    };
-    window.requestAnimationFrame(step);
+const removeChilds = (parent) => {
+    while (parent.lastChild) {
+        parent.removeChild(parent.lastChild);
+    }
 };
 
-const animateMarquee = (el, duration) => {
-    const innerEl = el.querySelector('.marque-wrapper'),
-        innerWidth = innerEl.offsetWidth,
-        cloneEl = innerEl.cloneNode(true);
 
-    el.appendChild(cloneEl);
+const createSearchResultBlock = (data, type = 'text', position = 'left') => {
+    const __searchResultBlockClass = 'search-result__block',
+        searchResultBlock = document.createElement('div');
 
-    let start = performance.now(),
-        progress,
-        translateX;
+    searchResultBlock.classList.add(__searchResultBlockClass);
 
-    requestAnimationFrame(function step(now) {
-        progress = (now - start) / duration;
+    if (type === 'text') {
+        searchResultBlock.append(createSearchResultText(data, position));
+    }
+    if (type === 'img') {
+        searchResultBlock.append(createSearchResultImg(data));
+    }
+    if (type === 'link') {
+        searchResultBlock.append(data);
+    }
 
-        if (progress > 1) {
-            progress %= 1;
-            start = now;
+    return searchResultBlock
+}
+
+const createSearchResultImg = (data) => {
+    const __searchResultImgClass = 'search-result__img',
+        searchResultImg = document.createElement('div'),
+        searchResultImgItem = document.createElement('img');
+
+    searchResultImg.classList.add(__searchResultImgClass);
+    searchResultImgItem.classList.add(`${__searchResultImgClass}-item`);
+    searchResultImgItem.src = data;
+
+    searchResultImg.append(searchResultImgItem)
+
+    return searchResultImg;
+}
+
+const createSearchResultText = (data, position) => {
+    const __searchResultTextClass = 'search-result__text',
+        searchResultText = document.createElement('p'),
+        searchResultLabel = document.createElement('span');
+
+    const positionClass = position === 'center' ? `${__searchResultTextClass}_position-center` : `${__searchResultTextClass}_position-left`;
+
+    searchResultText.classList.add(__searchResultTextClass, positionClass);
+    searchResultLabel.innerHTML = data;
+    searchResultText.append(searchResultLabel);
+
+    return searchResultText;
+}
+
+const createSearchResultLink = (data) => {
+    const __searchResultLinkClass = 'search-result__link',
+        searchResultLink = document.createElement('a');
+
+    searchResultLink.classList.add(__searchResultLinkClass);
+    searchResultLink.innerHTML = data;
+
+    return searchResultLink;
+}
+
+const createSearchResultTitle = (data) => {
+    const __searchResultTitleClass = 'search-result__title',
+        searchResultTitle = document.createElement('span');
+
+    searchResultTitle.classList.add(__searchResultTitleClass);
+    searchResultTitle.innerHTML = data;
+
+    return searchResultTitle;
+}
+
+const filterCategory = (data, index) => {
+    let elementTitle = null
+    data.forEach(element => {
+        if (element.site_id === index) elementTitle = element.title;
+    })
+    return elementTitle;
+}
+
+const createSearchResult = (parentBlock, data, type = 'desktop') => {
+
+    clearSearch();
+
+    const searchFooter = document.querySelector('.search__footer');
+
+    searchFooter.classList.add('active');
+
+    data.pages.forEach(pageElement => {
+        if (type === 'desktop') {
+            const __searchResultRowClass = 'search-result__row';
+            const searchResultPageRow = document.createElement('div');
+            searchResultPageRow.classList.add(__searchResultRowClass, `${__searchResultRowClass}_size-full`, `${__searchResultRowClass}_size-small`);
+
+            const searchResultPageBlock = createSearchResultBlock(`Страница выдачи Wildberries №${pageElement.page_num}`, 'text');
+
+            searchResultPageRow.append(searchResultPageBlock);
+
+            parentBlock.append(searchResultPageRow)
+
+            pageElement.products.forEach(product => {
+                const searchResultRow = document.createElement('div');
+                searchResultRow.classList.add(__searchResultRowClass);
+
+                const searchResultTitleLink = createSearchResultLink(product.nm),
+                    searchResultTitleLabel = createSearchResultText(` / ${product.title}`);
+                searchResultTitleLabel.prepend(searchResultTitleLink)
+
+                searchResultRow.append(createSearchResultBlock(`${product.position} позиция`, 'text', 'center'));
+                searchResultRow.append(createSearchResultBlock(`${product.photo}`, 'img'));
+                searchResultRow.append(createSearchResultBlock(searchResultTitleLabel, 'link'));
+                searchResultRow.append(createSearchResultBlock(`${product.cpm} &#8381`));
+                searchResultRow.append(createSearchResultBlock(`${product.subject} - ${filterCategory(data.subjects, product.subject)}`));
+                searchResultRow.append(createSearchResultBlock(`${product.delivery_time}ч`));
+
+                parentBlock.append(searchResultRow);
+            });
+        } else {
+            pageElement.products.forEach(product => {
+                const searchSlide = document.createElement('div'),
+                    searchResult = document.createElement('div'),
+                    searchResultWrapper = document.createElement('div'),
+                    searchResultContent = document.createElement('div');
+
+                searchSlide.classList.add('swiper-slide');
+                searchResult.classList.add('search-result');
+                searchResultWrapper.classList.add('search-result__wrapper');
+                searchResultContent.classList.add('search-result__content');
+
+                searchResult.append(searchResultWrapper);
+                searchSlide.append(searchResult);
+
+                searchResultWrapper.append(createSearchResultImg(`${product.photo}`));
+
+                const searchResultPageBlock = createSearchResultBlock(`Страница выдачи Wildberries №${pageElement.page_num}`, 'text');
+
+                searchResultContent.append(searchResultPageBlock);
+
+                const searchResultTitleTitle = createSearchResultTitle('Артикул/Наименование:'),
+                    searchResultTitleVendor = createSearchResultLink(product.nm),
+                    searchResultTitleLabel = createSearchResultText(` / ${product.title}`);
+
+                searchResultTitleLabel.querySelector('span').prepend(searchResultTitleVendor);
+                searchResultTitleLabel.prepend(searchResultTitleTitle);
+                searchResultContent.append(createSearchResultBlock(searchResultTitleLabel, 'link'));
+
+                const searchResultPositionLabel = createSearchResultText(`${product.position} позиция`),
+                    searchResultPositionTitle = createSearchResultTitle('Позиция:');
+
+                searchResultPositionLabel.prepend(searchResultPositionTitle);
+                searchResultContent.append(createSearchResultBlock(searchResultPositionLabel, 'link'));
+
+                const searchResultPriceLabel = createSearchResultText(`${product.cpm} &#8381`),
+                    searchResultPriceTitle = createSearchResultTitle(`Реальная ставка:`);
+
+                searchResultPriceLabel.prepend(searchResultPriceTitle);
+                searchResultContent.append(createSearchResultBlock(searchResultPriceLabel, 'link'));
+
+                const searchResultCategoryLabel = createSearchResultText(`${product.subject} - ${filterCategory(data.subjects, product.subject)}`),
+                    searchResultCategoryTitle = createSearchResultTitle(`ID категории:`);
+
+                searchResultCategoryLabel.prepend(searchResultCategoryTitle);
+                searchResultContent.append(createSearchResultBlock(searchResultCategoryLabel, 'link'));
+
+                const searchResultTimeLabel = createSearchResultText(`${product.delivery_time}ч`),
+                    searchResultTimeTitle = createSearchResultTitle(`Время доставки: `);
+
+                searchResultTimeLabel.prepend(searchResultTimeTitle);
+                searchResultContent.append(createSearchResultBlock(searchResultTimeLabel, 'link'));
+
+                searchResultWrapper.append(searchResultContent);
+
+                parentBlock.append(searchSlide);
+            });
         }
-
-        translateX = innerWidth * progress;
-
-        innerEl.style.transform = `translate3d(-${translateX}px, 0 , 0)`;
-        cloneEl.style.transform = `translate3d(-${translateX}px, 0 , 0)`;
-        requestAnimationFrame(step);
     });
 };
 
-const expandedList = (block, height) => {
-    const expandendBlock = block.querySelector('.expanded-block'),
-        expandendBlockHeight = block.clientHeight;
 
-    if (expandendBlockHeight >= height) {
-        expandendBlock.style.height = `${height}px`;
+const searchResultInit = (data) => {
 
-        const link = document.createElement('span');
-        link.classList.add('expanded-link');
+    clearSearch();
 
-        block.append(link);
+    const searchResult = document.querySelector('.search__box'),
+        searchBoxContent = searchResult.querySelector('.search__box-content');
 
-        link.addEventListener('click', () => {
-            link.classList.toggle('active');
-            link.classList.contains('active') ? expandendBlock.style.height = `${expandendBlockHeight}px` : expandendBlock.style.height = `${height}px`;
-        });
+    if (window.innerWidth > 1200) {
+        const searchBlock = document.querySelector('.search-result-desktop'),
+            searchBlockContent = searchBlock.querySelector('.search-result-content');
+
+        createSearchResult(searchBlockContent, data);
+    } else {
+        const searchBlock = document.querySelector('.search-result-mobile'),
+            searchBlockContent = searchBlock.querySelector('.swiper-wrapper');
+
+        createSearchResult(searchBlockContent, data, 'mobile')
     }
+
+    searchBoxContent.classList.add('active');
 }
 
-const createScrollbarContent = (block) =>{
-    const newArrow = document.createElement('div'),
-        newArrowText = document.createElement('p'),
-        newArrowLabel = document.createElement('span');
+const apiRequest = (keywordSearch) => {
 
-    newArrow.classList.add('slider-scrollbar-wrapper');
-    newArrowText.classList.add('slider-scrollbar-text');
-    newArrowLabel.classList.add('slider-scrollbar-label');
+    clearSearch();
+    const searchResult = document.querySelector('.search__box'),
+        searchStatus = searchResult.querySelector('.search__status'),
+        searchSpinner = createSpinner(),
+        searchError = createSearchResultBlock('По вашему запроса результатов не найдено. Попробуйте снова', 'text', 'center');
 
-    newArrowLabel.innerHTML = 'Потяните для навигации';
+    searchStatus.prepend(searchSpinner);
 
-    newArrowText.append(newArrowLabel);
-    newArrow.append(newArrowText);
+    const api_url = 'https://wbads.topseller.ru/advert/wb_info_by_keyword/',
+        api_options = {
+            method: "POST",
+            mode: 'no-cors',
+            referrerPolicy: 'no-referrer',
+            body: JSON.stringify({keyword: keywordSearch}),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            }
+        }
 
-    block.append(newArrow);
+    fetch(api_url, api_options)
+        .then(data => {
+            if (!data.ok) {
+                clearSearch();
+                searchStatus.append(searchError);
+            }
+            return data.json()
+        })
+        .then((json) => {
+            clearSearch();
+            searchResultInit(json, searchStatus)
+        })
+        .catch((error) => {
+            console.log(error);
+            clearSearch();
+            searchStatus.append(searchError);
+        });
+};
+
+const clearSearch = () => {
+
+    const searchResult = document.querySelector('.search__box'),
+        searchBoxContent = searchResult.querySelector('.search__box-content'),
+        searchStatus = searchResult.querySelector('.search__status'),
+        searchBlockMobile = searchResult.querySelector('.search-result-mobile .swiper-wrapper'),
+        searchBlockDesktop = document.querySelector('.search-result-desktop .search-result-content');
+
+    searchBoxContent.classList.remove('active');
+    removeChilds(searchStatus);
+    removeChilds(searchBlockDesktop);
+    removeChilds(searchBlockMobile);
+};
+
+const createSpinner = () => {
+    const spinner = document.createElement('div'),
+        spinnerWrapper = document.createElement('div');
+
+    spinner.classList.add('spinner');
+    spinnerWrapper.classList.add('spinner__wrapper');
+
+    for (let i = 0; i < 9; i++) {
+        const spinnerItem = document.createElement('div');
+        spinnerItem.classList.add('spinner__item');
+
+        spinnerWrapper.append(spinnerItem);
+    }
+
+    spinner.append(spinnerWrapper);
+
+    return spinner;
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        const expandedBlocks = document.querySelectorAll('.expanded-wrapper'),
-            tariffsList = document.querySelectorAll('.tariffs-item__list');
-
-        if (tariffsList.length > 0) {
-            tariffsList.forEach(element => {
-                let height = 0;
-                const tariffsListItem = document.querySelectorAll('.tariffs-item__list-block');
-
-                tariffsListItem.forEach((tarifElement, tarifIndex) => {
-
-
-                    tarifIndex <= 9 ? height += tarifElement.getBoundingClientRect().height : null;
-                });
-
-                element.closest('.expanded-wrapper').dataset.height = height;
-            });
-        }
-
-        if (expandedBlocks.length > 0) {
-            expandedBlocks.forEach(element => {
-                expandedList(element, element.dataset.height);
-            });
-        }
-    }, 300);
-
     // SLIDERS INITS
     const advantagesSlider = new Swiper(".advantages", {
             slidesPerView: 'auto',
@@ -137,238 +309,58 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollbar: {
                 el: ".advantages-scrollbar",
             },
+            mousewheel: {
+                invert: false,
+            },
             breakpoints: {
                 1100: {
                     slidesPerView: 'auto',
                 }
             }
         }),
-        howSlider = new Swiper(".how", {
-            slidesPerView: 3,
-            freeMode: true,
-            direction: 'vertical',
-            spaceBetween: 60,
-            breakpoints: {
-                1100: {
-                    slidesPerView: 4,
-                    direction: 'horizontal'
-                }
-            },
-            navigation: {
-                nextEl: ".how-button-next",
-                prevEl: ".how-button-prev",
-            },
-        }),
-        indicatorsSlider = new Swiper('.indicators', {
-            slidesPerView: 'auto',
-            spaceBetween: 15,
-            breakpoints: {
-                600: {
-                    spaceBetween: 25,
-                },
-                1100: {
-                    spaceBetween: 0,
-                }
-            }
-        }),
-        capabilitiesSlider = new Swiper(".capabilities-slider", {
-            slidesPerView: 1,
-            spaceBetween: 40,
-            speed: 1000,
-            navigation: {
-                nextEl: ".capabilities-button-next",
-                prevEl: ".capabilities-button-prev",
-            },
-            scrollbar: {
-                el: ".capabilities-scrollbar",
-            },
-            breakpoints:{
-                600:{
-                    slidesPerView:'auto'
-                }
-            },
-            on: {
-                init: function () {
-                    const scrollbar = document.querySelector('.capabilities-scrollbar'),
-                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
-
-                    createScrollbarContent(scrollbarDrag);
-                },
-            },
-        }),
-        functionSlider = new Swiper(".function-slider", {
-            slidesPerView: 1,
-            spaceBetween: 40,
-            speed: 1000,
-            navigation: {
-                nextEl: ".function-button-next",
-                prevEl: ".function-button-prev",
-            },
-            breakpoints:{
-                600:{
-                    slidesPerView:'auto'
-                }
-            },
-            scrollbar: {
-                el: ".function-scrollbar",
-            },
-            on: {
-                init: function () {
-                    const scrollbar = document.querySelector('.function-scrollbar'),
-                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
-
-                    createScrollbarContent(scrollbarDrag);
-                },
-            },
-        }),
-        featureSlider = new Swiper(".feature-slider", {
-            slidesPerView: 1,
-            spaceBetween: 40,
-            speed: 1000,
-            navigation: {
-                nextEl: ".feature-button-next",
-                prevEl: ".feature-button-prev",
-            },
-            breakpoints:{
-              600:{
-                  slidesPerView:'auto'
-              }
-            },
-            scrollbar: {
-                el: ".feature-scrollbar",
-            },
-            on: {
-                init: function () {
-                    const scrollbar = document.querySelector('.feature-scrollbar'),
-                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
-
-                    createScrollbarContent(scrollbarDrag);
-                },
-            },
-        }),
-        ecosystemSlider = new Swiper(".ecosystem-slider", {
-            slidesPerView: 1,
-            spaceBetween: 40,
-            speed: 1000,
-            scrollbar: {
-                el: ".ecosystem-scrollbar",
-            },
-            breakpoints:{
-                600:{
-                    slidesPerView:'auto'
-                }
-            },
-            navigation: {
-                nextEl: ".ecosystem-button-next",
-                prevEl: ".ecosystem-button-prev",
-            },
-            on: {
-                init: function () {
-                    const scrollbar = document.querySelector('.ecosystem-scrollbar'),
-                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
-
-                    createScrollbarContent(scrollbarDrag);
-                },
-            },
-        }),
-        tariffsSlider = new Swiper(".tariffs", {
+        searchSlider = new Swiper(".search-slider", {
             slidesPerView: 1,
             freeMode: false,
-            spaceBetween: 40,
+            scrollbar: {
+                el: ".search-slider-scrollbar",
+            },
+            breakpoints: {
+                600: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                }
+            }
+        });
+
+    if (window.innerWidth <= 991) {
+        const tariffsSlider = new Swiper(".tariffs", {
+            slidesPerView: 'auto',
+            freeMode: false,
+            spaceBetween: 30,
             scrollbar: {
                 el: ".tariffs-scrollbar",
             },
             breakpoints: {
-                1100: {
-                    slidesPerView: 3,
+                991: {
+                    spaceBetween: 0
                 }
-            },
-            on: {
-                init: function () {
-                    const scrollbar = document.querySelector('.tariffs-scrollbar'),
-                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
+            }
+        });
+    }
 
-                    createScrollbarContent(scrollbarDrag);
-                },
-            },
-        }),
-        reviewSlider = new Swiper(".review-slider", {
-            slidesPerView: 1,
-            spaceBetween: 40,
-            speed: 1000,
-            navigation: {
-                nextEl: ".review-button-next",
-                prevEl: ".review-button-prev",
-            },
-            breakpoints:{
-              600:{
-                  slidesPerView:'auto'
-              }
-            },
+    if (window.innerWidth <= 1420) {
+        const statisticsSlider = new Swiper(".statistics", {
+            slidesPerView: 'auto',
+            freeMode: false,
+            spaceBetween: 15,
             scrollbar: {
-                el: ".review-scrollbar",
+                el: ".statistics-scrollbar",
             },
-            on: {
-                init: function () {
-                    const scrollbar = document.querySelector('.review-scrollbar'),
-                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
-
-                    createScrollbarContent(scrollbarDrag);
-                },
-            },
-        }),
-        newsSlider = new Swiper(".news-slider", {
-            slidesPerView: 1,
-            spaceBetween: 40,
-            speed: 1000,
-            breakpoints:{
-              600:{
-                  slidesPerView:'auto'
-              }
-            },
-            navigation: {
-                nextEl: ".news-button-next",
-                prevEl: ".news-button-prev",
-            },
-            scrollbar: {
-                el: ".news-scrollbar",
-            },
-            on: {
-                init: function () {
-                    const scrollbar = document.querySelector('.news-scrollbar'),
-                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
-
-                    createScrollbarContent(scrollbarDrag);
-                },
-            },
-        }),
-        problemSlider = new Swiper(".problem-slider", {
-            slidesPerView: 1,
-            spaceBetween: 40,
-            speed: 1000,
-            scrollbar: {
-                el: ".problem-scrollbar",
-            },
-            breakpoints: {
-                1150: {
-                    spaceBetween: 60,
-                    slidesPerView: 2
-                },
-                1300: {
-                    spaceBetween: 140,
-                    slidesPerView: 2,
-                }
-            },
-            on: {
-                init: function () {
-                    const scrollbar = document.querySelector('.problem-scrollbar'),
-                        scrollbarDrag = scrollbar.querySelector('.swiper-scrollbar-drag');
-
-                    createScrollbarContent(scrollbarDrag);
-                },
+            mousewheel: {
+                invert: false,
             },
         });
-
+    }
 
     // HEADER SETTINGS
     const header = document.querySelector('.header');
@@ -407,67 +399,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // PARALLAX SETTINGS
-    const parallaxItems = document.querySelectorAll('.parallax');
 
-    let height = 0;
-    parallaxItems.forEach(element => {
-        height += element.clientHeight;
-    });
+    // CIRCLE PIE SETTINGS
+    const pie = document.querySelector('.pie');
 
-    const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
+    if (pie) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const circle = new CircularProgressBar("pie");
+                    circle.initial();
 
-    dataAnchorLinks.forEach(element => {
-        const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
-        let dataHeight = 0,
-            parallaxIndex = findParallaxIndex(anchorBlock);
-
-        parallaxItems.forEach((elementParallax, indexParallax) => {
-            indexParallax < parallaxIndex ? (elementParallax.dataset.height = dataHeight, dataHeight += elementParallax.clientHeight) : null;
-        });
-
-        element.dataset.height = dataHeight;
-    });
-
-
-    // COUNTER SETTINGS
-    const counter = document.querySelectorAll('.counter');
-
-    if (counter.length > 0) {
-        counter.forEach(element => {
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        counterAnim(element, 0, element.dataset.end, 1000);
-
-                        observer.unobserve(element);
-                    }
-                })
-            }, {threshold: 0.5});
-            observer.observe(element);
-        });
+                    observer.unobserve(pie);
+                }
+            })
+        }, {threshold: 0.5});
+        observer.observe(pie);
     }
 
-    // ANIMATION LINE SETTINGS
 
-    const marque = document.querySelectorAll('.marque');
+    // PARALLAX SETTINGS
+    const parallaxItems = document.querySelectorAll('.parallax'),
+        dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
 
-    if (marque.length > 0) {
-        marque.forEach(element => {
-            animateMarquee(element, 20000);
-        })
+    if (dataAnchorLinks.length > 0) {
+        dataAnchorLinks.forEach(element => {
+            const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
+            let dataHeight = 0,
+                parallaxIndex = findParallaxIndex(anchorBlock);
+
+            parallaxItems.forEach((elementParallax, indexParallax) => {
+                indexParallax < parallaxIndex ? dataHeight += elementParallax.clientHeight : null;
+            });
+
+            element.dataset.height = dataHeight;
+        });
     }
 
 
     if (window.innerWidth > 1100) {
 
-        var scrollTop = 0;
+        let scrollTop = 0,
+            scrollSpeed = 50;
+        const scrollHeight = document.body.scrollHeight,
+            windowHeight = window.innerHeight;
 
         dataAnchorLinks.forEach(element => {
             element.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                scrollTop = (+element.dataset.height) / (50 * document.querySelector(`.${element.dataset.anchor}`).dataset.coefficient);
+                scrollTop = (+element.dataset.height) / (scrollSpeed * .558);
                 parallaxItems.forEach(element => {
                     element.classList.add('transition')
                 });
@@ -479,6 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 500)
             });
         });
+
         document.addEventListener('wheel', (event) => {
 
             let scrollDeep = parseFloat(-wheelDistance(event), 2);
@@ -490,9 +472,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
 
-            if ((scrollTop + scrollDeep) * 50 * .931 >= document.body.scrollHeight - window.innerHeight) {
+            if ((scrollTop + scrollDeep) * 50 * .621 >= document.body.scrollHeight - window.innerHeight) {
                 if (scrollDeep > 0) {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .931);
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .621);
                 }
             }
 
@@ -503,41 +485,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             scrollLoop(scrollTop, parallaxItems);
         });
-    };
-
-    const flipCardTriggers = document.querySelectorAll('.flip-card-trigger');
-
-    if(flipCardTriggers.length > 0){
-        flipCardTriggers.forEach(element => {
-            element.addEventListener('click', (e) => {
-                e.preventDefault();
-
-                element.closest('.flip-card').classList.toggle('active');
-            });
-            element.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-
-                element.closest('.flip-card').classList.toggle('active');
-            });
-        });
     }
 
-    const flipCardHover = document.querySelectorAll('.flip-card-hover');
-
-    flipCardHover.forEach(element=>{
-        element.addEventListener('touchstart',(e)=>{
-            e.preventDefault();
-
-            element.classList.toggle('active');
-        });
-    })
-
-
     const oldWidth = window.innerWidth;
-
     window.addEventListener('resize', () => {
         const newWidth = window.innerWidth;
 
         newWidth != oldWidth ? location.reload() : null;
+    });
+
+    const searchInput = document.querySelector('.search-input');
+
+    searchInput.addEventListener('change', () => {
+        apiRequest(searchInput.value);
     });
 });
