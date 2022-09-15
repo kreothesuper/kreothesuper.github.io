@@ -482,9 +482,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth > 1100) {
 
         let scrollTop = 0,
-            scrollSpeed = 1;
-        const scrollHeight = document.body.scrollHeight,
-            windowHeight = window.innerHeight;
+            scrollSpeed = 2,
+            lastBlockParallaxCoefficient = +parallaxItems[parallaxItems.length - 1].dataset.coefficient + .001;
+        console.log(lastBlockParallaxCoefficient);
 
         dataAnchorLinks.forEach(element => {
             const popup = document.querySelectorAll('.popup');
@@ -499,13 +499,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTop = (+element.dataset.height) / (scrollSpeed * element.dataset.coefficient);
 
                 if (element.dataset.anchor === 'footer') {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (3 * .62);
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (scrollSpeed * lastBlockParallaxCoefficient);
                 }
 
                 parallaxItems.forEach(element => {
                     element.classList.add('transition')
                 });
-                scrollLoop(scrollTop, parallaxItems)
+                scrollLoop(scrollTop, parallaxItems, scrollSpeed)
                 setTimeout(() => {
                     parallaxItems.forEach(element => {
                         element.classList.remove('transition')
@@ -518,12 +518,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let scrollDeep = normalizeWheel(event);
 
-            console.log(scrollDeep);
-
-
-            if ((scrollTop + scrollDeep) * 3 * .621 >= document.body.scrollHeight - window.innerHeight) {
+            if ((scrollTop + scrollDeep) * scrollSpeed * lastBlockParallaxCoefficient >= document.body.scrollHeight - window.innerHeight) {
                 if (scrollDeep > 0) {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (3 * .621);
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (scrollSpeed * lastBlockParallaxCoefficient);
                     return false
                 }
             }
@@ -539,7 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollTop <= 0 ? scrollTop = 0 : scrollTop;
 
 
-            scrollLoop(scrollTop, parallaxItems);
+            scrollLoop(scrollTop, parallaxItems, scrollSpeed);
         });
     }
 
