@@ -476,6 +476,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             element.dataset.height = dataHeight;
+
+            element.dataset.coefficient = anchorBlock.dataset.coefficient;
         });
     }
 
@@ -483,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth > 1100) {
 
         let scrollTop = 0,
-            scrollSpeed = 50;
+            scrollSpeed = 1;
         const scrollHeight = document.body.scrollHeight,
             windowHeight = window.innerHeight;
 
@@ -497,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     element.classList.remove('active');
                 });
 
-                scrollTop = (+element.dataset.height) / (scrollSpeed * .558);
+                scrollTop = (+element.dataset.height) / (scrollSpeed * element.dataset.coefficient) - 150;
 
                 if (element.dataset.anchor === 'footer') {
                     scrollTop = (document.body.scrollHeight - window.innerHeight) / (1 * .62);
