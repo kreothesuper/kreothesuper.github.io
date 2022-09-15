@@ -19,22 +19,30 @@ const findParallaxIndex = (el) => {
 
 /* facebook normalize wheel */
 
-var PIXEL_STEP  = 40;
+var PIXEL_STEP = 40;
 var LINE_HEIGHT = 40;
 var PAGE_HEIGHT = document.body.clientHeight;
 
-function normalizeWheel( event) {
+function normalizeWheel(event) {
     var sX = 0, sY = 0,
         pX = 0, pY = 0;
 
     // Legacy
-    if ('detail'      in event) { sY = event.detail; }
-    if ('wheelDelta'  in event) { sY = -event.wheelDelta / 120; }
-    if ('wheelDeltaY' in event) { sY = -event.wheelDeltaY / 120; }
-    if ('wheelDeltaX' in event) { sX = -event.wheelDeltaX / 120; }
+    if ('detail' in event) {
+        sY = event.detail;
+    }
+    if ('wheelDelta' in event) {
+        sY = -event.wheelDelta / 120;
+    }
+    if ('wheelDeltaY' in event) {
+        sY = -event.wheelDeltaY / 120;
+    }
+    if ('wheelDeltaX' in event) {
+        sX = -event.wheelDeltaX / 120;
+    }
 
     // side scrolling on FF with DOMMouseScroll
-    if ( 'axis' in event && event.axis === event.HORIZONTAL_AXIS ) {
+    if ('axis' in event && event.axis === event.HORIZONTAL_AXIS) {
         sX = sY;
         sY = 0;
     }
@@ -42,8 +50,12 @@ function normalizeWheel( event) {
     pX = sX * PIXEL_STEP;
     pY = sY * PIXEL_STEP;
 
-    if ('deltaY' in event) { pY = event.deltaY; }
-    if ('deltaX' in event) { pX = event.deltaX; }
+    if ('deltaY' in event) {
+        pY = event.deltaY;
+    }
+    if ('deltaX' in event) {
+        pX = event.deltaX;
+    }
 
     if ((pX || pY) && event.deltaMode) {
         if (event.deltaMode == 1) {          // delta in LINE units
@@ -56,8 +68,12 @@ function normalizeWheel( event) {
     }
 
     // Fall-back if spin cannot be determined
-    if (pX && !sX) { sX = (pX < 1) ? -1 : 1; }
-    if (pY && !sY) { sY = (pY < 1) ? -1 : 1; }
+    if (pX && !sX) {
+        sX = (pX < 1) ? -1 : 1;
+    }
+    if (pY && !sY) {
+        sY = (pY < 1) ? -1 : 1;
+    }
 
     return pY;
 }
@@ -87,6 +103,10 @@ const createSearchResultBlock = (data, type = 'text', position = 'left') => {
     }
     if (type === 'link') {
         searchResultBlock.append(data);
+    }
+    if (type === 'error'){
+        searchResultBlock.classList.add(`${__searchResultBlockClass}-error`)
+        searchResultBlock.append(createSearchResultText(data, position));
     }
 
     return searchResultBlock
@@ -152,10 +172,6 @@ const filterCategory = (data, index) => {
 const createSearchResult = (parentBlock, data, type = 'desktop') => {
 
     clearSearch();
-
-    const searchFooter = document.querySelector('.search__footer');
-
-    searchFooter.classList.add('active');
 
     data.pages.forEach(pageElement => {
         if (type === 'desktop') {
@@ -272,12 +288,15 @@ const searchResultInit = (data) => {
 const apiRequest = (keywordSearch) => {
 
     clearSearch();
-    const searchResult = document.querySelector('.search__box'),
-        searchStatus = searchResult.querySelector('.search__status'),
-        searchSpinner = createSpinner(),
-        searchError = createSearchResultBlock('По вашему запроса результатов не найдено. Попробуйте снова', 'text', 'center');
 
-    searchStatus.prepend(searchSpinner);
+    const searchResult = document.querySelector('.search__box'),
+        searchBoxDesktop = searchResult.querySelector('.search-result-desktop .search-result-content'),
+        searchBoxMobile = searchResult.querySelector('.swiper-wrapper'),
+        searchStatus = searchResult.querySelector('.search__status');
+
+    searchBoxDesktop.prepend(createSpinner());
+    searchBoxMobile.prepend(createSpinner());
+
 
     const api_url = 'https://wbads.topseller.ru/advert/wb_info_by_keyword/',
         api_options = {
@@ -290,11 +309,13 @@ const apiRequest = (keywordSearch) => {
             }
         };
 
+
     fetch(api_url, api_options)
         .then(data => {
             if (!data.ok) {
                 clearSearch();
-                searchStatus.append(searchError);
+                searchBoxDesktop.append(createSearchResultBlock('По вашему запросу результатов не найдено. Попробуйте снова', 'error', 'center'));
+                searchBoxMobile.append(createSearchResultBlock('По вашему запросу результатов не найдено. Попробуйте снова', 'error', 'center'));
             }
             return data.json()
         })
@@ -304,41 +325,70 @@ const apiRequest = (keywordSearch) => {
         })
         .catch((error) => {
             clearSearch();
-            searchStatus.append(searchError);
+            searchBoxDesktop.append(createSearchResultBlock('По вашему запросу результатов не найдено. Попробуйте снова', 'error', 'center'));
+            searchBoxMobile.append(createSearchResultBlock('По вашему запросу результатов не найдено. Попробуйте снова', 'error', 'center'));
         });
+
+
 };
 
 const clearSearch = () => {
-
     const searchResult = document.querySelector('.search__box'),
-        searchBoxContent = searchResult.querySelector('.search__box-content'),
         searchStatus = searchResult.querySelector('.search__status'),
         searchBlockMobile = searchResult.querySelector('.search-result-mobile .swiper-wrapper'),
         searchBlockDesktop = document.querySelector('.search-result-desktop .search-result-content');
 
-    searchBoxContent.classList.remove('active');
+
     removeChilds(searchStatus);
     removeChilds(searchBlockDesktop);
     removeChilds(searchBlockMobile);
 };
 
 const createSpinner = () => {
-    const spinner = document.createElement('div'),
-        spinnerWrapper = document.createElement('div');
+    if (window.innerWidth > 1200) {
+        const __searchResultRowClass = 'search-result__row',
+            searchResultBlock = document.createElement('div'),
+            searchResultPageRow = document.createElement('div');
+        searchResultPageRow.classList.add(__searchResultRowClass, `${__searchResultRowClass}_size-full`, `${__searchResultRowClass}_size-small`, `${__searchResultRowClass}-load`);
+        const searchResultPageBlock = createSearchResultBlock(``, 'text');
 
-    spinner.classList.add('spinner');
-    spinnerWrapper.classList.add('spinner__wrapper');
+        searchResultPageRow.append(searchResultPageBlock);
+        searchResultBlock.append(searchResultPageRow);
 
-    for (let i = 0; i < 9; i++) {
-        const spinnerItem = document.createElement('div');
-        spinnerItem.classList.add('spinner__item');
+        for (let i = 0; i < 5; i++) {
 
-        spinnerWrapper.append(spinnerItem);
+            const searchResultRow = document.createElement('div');
+            searchResultRow.classList.add(__searchResultRowClass, `${__searchResultRowClass}-load`);
+            for (let j = 0; j < 6; j++) {
+                const block = createSearchResultBlock('');
+
+                searchResultRow.append(block);
+            }
+
+            searchResultBlock.append(searchResultRow);
+        }
+
+        return searchResultBlock;
+    } else {
+
+        const searchSlide = document.createElement('div'),
+            searchResult = document.createElement('div'),
+            searchResultWrapper = document.createElement('div'),
+            searchResultContent = document.createElement('div');
+
+        searchSlide.classList.add('swiper-slide');
+        searchResult.classList.add('search-result');
+        searchResult.classList.add('search-result-load');
+        searchResultWrapper.classList.add('search-result__wrapper');
+        searchResultContent.classList.add('search-result__content');
+
+        searchResult.append(searchResultWrapper);
+        searchSlide.append(searchResult);
+
+
+        return searchSlide;
     }
 
-    spinner.append(spinnerWrapper);
-
-    return spinner;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -463,19 +513,21 @@ document.addEventListener('DOMContentLoaded', () => {
         dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
 
     if (dataAnchorLinks.length > 0) {
-        dataAnchorLinks.forEach(element => {
-            const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
-            let dataHeight = 0,
-                parallaxIndex = findParallaxIndex(anchorBlock);
+        setTimeout(() => {
+            dataAnchorLinks.forEach(element => {
+                const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
+                let dataHeight = 0,
+                    parallaxIndex = findParallaxIndex(anchorBlock);
 
-            parallaxItems.forEach((elementParallax, indexParallax) => {
-                indexParallax < parallaxIndex ? dataHeight += elementParallax.clientHeight : null;
+                parallaxItems.forEach((elementParallax, indexParallax) => {
+                    indexParallax < parallaxIndex ? dataHeight += elementParallax.clientHeight : null;
+                });
+
+                element.dataset.height = dataHeight;
+
+                element.dataset.coefficient = anchorBlock.dataset.coefficient;
             });
-
-            element.dataset.height = dataHeight;
-
-            element.dataset.coefficient = anchorBlock.dataset.coefficient;
-        });
+        }, 100)
     }
 
 

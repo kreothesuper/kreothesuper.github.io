@@ -2029,14 +2029,6 @@ body {
   min-height: 665px;
 }
 
-.search__box-content {
-  display: none;
-}
-
-.search__box-content.active {
-  display: block;
-}
-
 .search__title {
   text-align: center;
   margin: 0 auto;
@@ -2107,7 +2099,7 @@ body {
 }
 
 .search__result {
-  background: #1E1E1E;
+  background: #303030;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -2118,19 +2110,15 @@ body {
 
 .search__footer {
   margin: 50px 0 0 0;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.search__footer.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .search-result__block + .search-result__block {
@@ -2144,7 +2132,7 @@ body {
   top: calc(50% - 20px);
   width: 1px;
   height: 40px;
-  background: #303030;
+  background: #161616;
 }
 
 .search-result__row {
@@ -2152,14 +2140,29 @@ body {
   grid-template-columns: 180px 100px auto 150px 150px 150px;
   grid-auto-rows: 104px;
   gap: 8px;
+  -webkit-transition: .3s background-color;
+  -o-transition: .3s background-color;
+  transition: .3s background-color;
 }
 
-.search-result__row:nth-child(odd) {
+.search-result__row-load {
+  position: relative;
+  overflow: hidden;
+  -webkit-animation: load-forward 4s linear infinite;
+          animation: load-forward 4s linear infinite;
+}
+
+.search-result__row-load:nth-child(even) {
+  -webkit-animation: load 4s linear infinite;
+          animation: load 4s linear infinite;
+}
+
+.search-result__row:nth-child(even) {
+  background: #1E1E1E;
+}
+
+.search-result__row:nth-child(even) .search-result__block + .search-result__block::before {
   background: #303030;
-}
-
-.search-result__row:nth-child(odd) .search-result__block + .search-result__block::before {
-  background: #161616;
 }
 
 .search-result__row:nth-child(odd).search-result__row-header {
@@ -2246,8 +2249,13 @@ body {
           align-items: center;
 }
 
+.search-result__block-error {
+  padding: 50px 0 0 0;
+}
+
 .search-result-content {
   max-height: 570px;
+  min-height: 570px;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -2287,6 +2295,7 @@ body {
   }
   .search__wrapper {
     max-width: calc(100vw - 32px);
+    width: 100%;
     min-height: auto;
   }
   .search__content {
@@ -2302,26 +2311,40 @@ body {
   .search__box {
     margin: 10px 0 0 0;
   }
+  .search__result {
+    background-color: transparent;
+  }
   .search__result-desktop {
     display: none;
   }
   .search__result-mobile {
     display: block;
   }
+  .search-slider {
+    min-height: 540px;
+  }
   .search-result {
     height: 100%;
-  }
-  .search-result__wrapper {
-    height: 100%;
+    min-height: 540px;
     background: #303030;
     border-width: 1px 0px;
     border-style: solid;
     border-color: #161616;
     border-radius: 10px;
+  }
+  .search-result-load {
+    -webkit-animation: load 4s linear infinite;
+            animation: load 4s linear infinite;
+  }
+  .search-result__wrapper {
+    height: 100%;
     padding: 10px;
   }
   .search-result__block {
     padding: 0;
+  }
+  .search-result__block-error {
+    padding: 25px 0;
   }
   .search-result__block + .search-result__block {
     margin: 6px 0 0 0;
@@ -2351,6 +2374,54 @@ body {
   }
   .search-result__title {
     color: #8D8D8D;
+  }
+}
+
+@-webkit-keyframes load {
+  0% {
+    background-color: #303030;
+  }
+  50% {
+    background-color: #1E1E1E;
+  }
+  100% {
+    background-color: #303030;
+  }
+}
+
+@keyframes load {
+  0% {
+    background-color: #303030;
+  }
+  50% {
+    background-color: #1E1E1E;
+  }
+  100% {
+    background-color: #303030;
+  }
+}
+
+@-webkit-keyframes load-forward {
+  0% {
+    background-color: #1E1E1E;
+  }
+  50% {
+    background-color: #303030;
+  }
+  100% {
+    background-color: #1E1E1E;
+  }
+}
+
+@keyframes load-forward {
+  0% {
+    background-color: #1E1E1E;
+  }
+  50% {
+    background-color: #303030;
+  }
+  100% {
+    background-color: #1E1E1E;
   }
 }
 
