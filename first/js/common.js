@@ -16,20 +16,11 @@ const findParallaxIndex = (el) => {
     return parallaxArray.indexOf(el);
 }
 
-const wheelDistance = (evt) => {
-    if (!evt) evt = event;
-    const w = evt.wheelDelta, d = evt.detail;
-    if (d) {
-        if (w) return w / d / 40 * d > 0 ? 1 : -1;
-        else return -d / 3;
-    } else return w / 120;
-};
-
 var PIXEL_STEP  = 10;
 var LINE_HEIGHT = 40;
 var PAGE_HEIGHT = document.body.clientHeight;
 
-function normalizeWheel(/*object*/ event) /*object*/ {
+function normalizeWheel(/*object*/ event) {
     var sX = 0, sY = 0,       // spinX, spinY
         pX = 0, pY = 0;       // pixelX, pixelY
 
@@ -521,12 +512,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let scrollDeep = normalizeWheel(event);
 
-            if (scrollDeep < 0) {
-                header.classList.remove('hidden')
-            } else {
-                header.classList.add('hidden');
-            }
-
 
             if ((scrollTop + scrollDeep) * 1 * .621 >= document.body.scrollHeight - window.innerHeight) {
                 if (scrollDeep > 0) {
@@ -536,6 +521,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             scrollTop += scrollDeep;
+
+            if (scrollDeep > 0 && scrollTop > 500) {
+                header.classList.add('hidden')
+            } else {
+                header.classList.remove('hidden');
+            }
 
             scrollTop <= 0 ? scrollTop = 0 : scrollTop;
 
