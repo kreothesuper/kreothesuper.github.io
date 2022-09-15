@@ -1,8 +1,9 @@
+/* parallax settings */
 const setTranslate = (positionY, parallaxItem) => {
     parallaxItem.style.transform = "translate3d(0, " + positionY + "px, 0)";
 }
 
-const scrollLoop = (scrollTop, parallaxItems, scrollSpeed = 1) => {
+const scrollLoop = (scrollTop, parallaxItems, scrollSpeed = 3) => {
     let yScrollPosition = scrollTop * scrollSpeed;
     parallaxItems.forEach(parallaxElement => {
         const parallaxElementCoefficient = +parallaxElement.dataset.coefficient;
@@ -16,13 +17,15 @@ const findParallaxIndex = (el) => {
     return parallaxArray.indexOf(el);
 }
 
-var PIXEL_STEP  = 10;
+/* facebook normalize wheel */
+
+var PIXEL_STEP  = 40;
 var LINE_HEIGHT = 40;
 var PAGE_HEIGHT = document.body.clientHeight;
 
-function normalizeWheel(/*object*/ event) {
-    var sX = 0, sY = 0,       // spinX, spinY
-        pX = 0, pY = 0;       // pixelX, pixelY
+function normalizeWheel( event) {
+    var sX = 0, sY = 0,
+        pX = 0, pY = 0;
 
     // Legacy
     if ('detail'      in event) { sY = event.detail; }
@@ -58,6 +61,10 @@ function normalizeWheel(/*object*/ event) {
 
     return pY;
 }
+
+
+/* api settings*/
+
 
 const removeChilds = (parent) => {
     while (parent.lastChild) {
@@ -239,7 +246,6 @@ const createSearchResult = (parentBlock, data, type = 'desktop') => {
         }
     });
 };
-
 
 const searchResultInit = (data) => {
 
@@ -493,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTop = (+element.dataset.height) / (scrollSpeed * element.dataset.coefficient);
 
                 if (element.dataset.anchor === 'footer') {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (1 * .62);
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (3 * .62);
                 }
 
                 parallaxItems.forEach(element => {
@@ -512,10 +518,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let scrollDeep = normalizeWheel(event);
 
+            console.log(scrollDeep);
 
-            if ((scrollTop + scrollDeep) * 1 * .621 >= document.body.scrollHeight - window.innerHeight) {
+
+            if ((scrollTop + scrollDeep) * 3 * .621 >= document.body.scrollHeight - window.innerHeight) {
                 if (scrollDeep > 0) {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (1 * .621);
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (3 * .621);
                     return false
                 }
             }
