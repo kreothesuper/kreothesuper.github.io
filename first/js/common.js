@@ -499,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     element.classList.remove('active');
                 });
 
-                scrollTop = (+element.dataset.height) / (scrollSpeed * element.dataset.coefficient) - 150;
+                scrollTop = (+element.dataset.height) / (scrollSpeed * element.dataset.coefficient);
 
                 if (element.dataset.anchor === 'footer') {
                     scrollTop = (document.body.scrollHeight - window.innerHeight) / (1 * .62);
