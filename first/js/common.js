@@ -483,7 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let scrollTop = 0,
             scrollSpeed = 2,
-            lastBlockParallaxCoefficient = +parallaxItems[parallaxItems.length - 1].dataset.coefficient + .001;
+            lastBlockParallaxCoefficient = +parallaxItems[parallaxItems.length - 1].dataset.coefficient + 0.001;
         console.log(lastBlockParallaxCoefficient);
 
         dataAnchorLinks.forEach(element => {
