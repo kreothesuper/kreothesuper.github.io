@@ -2,7 +2,7 @@ const setTranslate = (positionY, parallaxItem) => {
     parallaxItem.style.transform = "translate3d(0, " + positionY + "px, 0)";
 }
 
-const scrollLoop = (scrollTop, parallaxItems, scrollSpeed = 50) => {
+const scrollLoop = (scrollTop, parallaxItems, scrollSpeed = 1) => {
     let yScrollPosition = scrollTop * scrollSpeed;
     parallaxItems.forEach(parallaxElement => {
         const parallaxElementCoefficient = +parallaxElement.dataset.coefficient;
@@ -24,6 +24,49 @@ const wheelDistance = (evt) => {
         else return -d / 3;
     } else return w / 120;
 };
+
+var PIXEL_STEP  = 10;
+var LINE_HEIGHT = 40;
+var PAGE_HEIGHT = document.body.clientHeight;
+
+function normalizeWheel(/*object*/ event) /*object*/ {
+    var sX = 0, sY = 0,       // spinX, spinY
+        pX = 0, pY = 0;       // pixelX, pixelY
+
+    // Legacy
+    if ('detail'      in event) { sY = event.detail; }
+    if ('wheelDelta'  in event) { sY = -event.wheelDelta / 120; }
+    if ('wheelDeltaY' in event) { sY = -event.wheelDeltaY / 120; }
+    if ('wheelDeltaX' in event) { sX = -event.wheelDeltaX / 120; }
+
+    // side scrolling on FF with DOMMouseScroll
+    if ( 'axis' in event && event.axis === event.HORIZONTAL_AXIS ) {
+        sX = sY;
+        sY = 0;
+    }
+
+    pX = sX * PIXEL_STEP;
+    pY = sY * PIXEL_STEP;
+
+    if ('deltaY' in event) { pY = event.deltaY; }
+    if ('deltaX' in event) { pX = event.deltaX; }
+
+    if ((pX || pY) && event.deltaMode) {
+        if (event.deltaMode == 1) {          // delta in LINE units
+            pX *= LINE_HEIGHT;
+            pY *= LINE_HEIGHT;
+        } else {                             // delta in PAGE units
+            pX *= PAGE_HEIGHT;
+            pY *= PAGE_HEIGHT;
+        }
+    }
+
+    // Fall-back if spin cannot be determined
+    if (pX && !sX) { sX = (pX < 1) ? -1 : 1; }
+    if (pY && !sY) { sY = (pY < 1) ? -1 : 1; }
+
+    return pY;
+}
 
 const removeChilds = (parent) => {
     while (parent.lastChild) {
@@ -457,7 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTop = (+element.dataset.height) / (scrollSpeed * .558);
 
                 if (element.dataset.anchor === 'footer') {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .62);
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (1 * .62);
                 }
 
                 parallaxItems.forEach(element => {
@@ -474,7 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.addEventListener('wheel', (event) => {
 
-            let scrollDeep = parseFloat(-wheelDistance(event), 2);
+            let scrollDeep = normalizeWheel(event);
 
             if (scrollDeep < 0) {
                 header.classList.remove('hidden')
@@ -483,9 +526,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
 
-            if ((scrollTop + scrollDeep) * 50 * .621 >= document.body.scrollHeight - window.innerHeight) {
+            if ((scrollTop + scrollDeep) * 1 * .621 >= document.body.scrollHeight - window.innerHeight) {
                 if (scrollDeep > 0) {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .621);
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (1 * .621);
                     return false
                 }
             }
