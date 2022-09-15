@@ -445,10 +445,21 @@ document.addEventListener('DOMContentLoaded', () => {
             windowHeight = window.innerHeight;
 
         dataAnchorLinks.forEach(element => {
+            const popup = document.querySelectorAll('.popup');
+
             element.addEventListener('click', (e) => {
                 e.preventDefault();
 
+                popup.forEach(element => {
+                    element.classList.remove('active');
+                });
+
                 scrollTop = (+element.dataset.height) / (scrollSpeed * .558);
+
+                if (element.dataset.anchor === 'footer') {
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .62);
+                }
+
                 parallaxItems.forEach(element => {
                     element.classList.add('transition')
                 });
@@ -475,6 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if ((scrollTop + scrollDeep) * 50 * .621 >= document.body.scrollHeight - window.innerHeight) {
                 if (scrollDeep > 0) {
                     scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .621);
+                    return false
                 }
             }
 
