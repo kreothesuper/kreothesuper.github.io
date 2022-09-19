@@ -695,6 +695,14 @@ img {
   .slider-scrollbar {
     margin: 30px 0 0 0;
   }
+  .flip-card__back:hover:hover .flip-card__front {
+    -webkit-transform: perspective(800px) rotateY(0deg);
+            transform: perspective(800px) rotateY(0deg);
+  }
+  .flip-card__back:hover:hover .flip-card__back {
+    -webkit-transform: perspective(800px) rotateY(-180deg);
+            transform: perspective(800px) rotateY(-180deg);
+  }
 }
 
 @media screen and (max-width: 600px) {
