@@ -421,6 +421,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let height = 0;
     parallaxItems.forEach(element => {
         height += element.clientHeight;
+        element.addEventListener('resize',()=>{
+           console.log('resize')
+        });
     });
 
     const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
@@ -517,15 +520,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(flipCardTriggers.length > 0){
         flipCardTriggers.forEach(element => {
-            element.addEventListener('click', (e) => {
-                e.preventDefault();
 
-                element.closest('.flip-card').classList.toggle('active');
-            });
             element.addEventListener('touchstart', (e) => {
                 e.preventDefault();
 
                 element.closest('.flip-card').classList.toggle('active');
+
+                console.log(element.closest('.flip-card'));
             });
         });
     }
@@ -548,4 +549,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
         newWidth != oldWidth ? location.reload() : null;
     });
+    
 });
