@@ -538,7 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const flipCardHover = document.querySelectorAll('.flip-card-hover');
 
     flipCardHover.forEach(element=>{
-        element.addEventListener('click',(e)=>{
+        element.addEventListener('touchend',(e)=>{
             e.preventDefault();
 
             element.classList.toggle('active');
