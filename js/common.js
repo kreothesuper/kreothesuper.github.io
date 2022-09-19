@@ -573,6 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if ((scrollTop + scrollDeep) * scrollSpeed * lastBlockParallaxCoefficient >= document.body.scrollHeight - window.innerHeight) {
                 if (scrollDeep > 0) {
                     scrollTop = (document.body.scrollHeight - window.innerHeight) / (scrollSpeed * lastBlockParallaxCoefficient);
+                    scrollLoop(scrollTop, parallaxItems, scrollSpeed);
                     return false
                 }
             }
