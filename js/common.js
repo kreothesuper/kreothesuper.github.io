@@ -595,7 +595,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(flipCardTriggers.length > 0){
         flipCardTriggers.forEach(element => {
-            element.addEventListener('click touchend', (e) => {
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                element.closest('.flip-card').classList.toggle('active');
+            });
+            element.addEventListener('touchend', (e) => {
                 e.preventDefault();
 
                 element.closest('.flip-card').classList.toggle('active');
