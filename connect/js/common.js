@@ -595,7 +595,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(flipCardTriggers.length > 0){
         flipCardTriggers.forEach(element => {
-            element.addEventListener('click touchstart', (e) => {
+            element.addEventListener('click touchend', (e) => {
                 e.preventDefault();
 
                 element.closest('.flip-card').classList.toggle('active');
@@ -606,7 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const flipCardHover = document.querySelectorAll('.flip-card-hover');
 
     flipCardHover.forEach(element=>{
-        element.addEventListener('touchstart',(e)=>{
+        element.addEventListener('touchend',(e)=>{
             e.preventDefault();
 
             element.classList.toggle('active');
