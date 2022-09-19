@@ -102,6 +102,23 @@ const createScrollbarContent = (block) =>{
     block.append(newArrow);
 }
 
+const calculateDistanceToBlock = () =>{
+    const parallaxItems = document.querySelectorAll('.parallax');
+    const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
+
+    dataAnchorLinks.forEach(element => {
+        const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
+        let dataHeight = 0,
+            parallaxIndex = findParallaxIndex(anchorBlock);
+
+        parallaxItems.forEach((elementParallax, indexParallax) => {
+            indexParallax < parallaxIndex ? (elementParallax.dataset.height = dataHeight, dataHeight += elementParallax.clientHeight) : null;
+        });
+
+        element.dataset.height = dataHeight;
+    });
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
@@ -421,25 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let height = 0;
     parallaxItems.forEach(element => {
         height += element.clientHeight;
-        element.addEventListener('resize',()=>{
-           console.log('resize')
-        });
     });
-
-    const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
-
-    dataAnchorLinks.forEach(element => {
-        const anchorBlock = document.querySelector(`.${element.dataset.anchor}`);
-        let dataHeight = 0,
-            parallaxIndex = findParallaxIndex(anchorBlock);
-
-        parallaxItems.forEach((elementParallax, indexParallax) => {
-            indexParallax < parallaxIndex ? (elementParallax.dataset.height = dataHeight, dataHeight += elementParallax.clientHeight) : null;
-        });
-
-        element.dataset.height = dataHeight;
-    });
-
 
     // COUNTER SETTINGS
     const counter = document.querySelectorAll('.counter');
@@ -474,9 +473,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         var scrollTop = 0;
 
+        const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
         dataAnchorLinks.forEach(element => {
             element.addEventListener('click', (e) => {
                 e.preventDefault();
+
+                calculateDistanceToBlock();
 
                 scrollTop = (+element.dataset.height) / (50 * document.querySelector(`.${element.dataset.anchor}`).dataset.coefficient);
                 parallaxItems.forEach(element => {
@@ -516,17 +518,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    document.body.addEventListener('click',()=>{
+    });
+
     const flipCardTriggers = document.querySelectorAll('.flip-card-trigger');
 
     if(flipCardTriggers.length > 0){
         flipCardTriggers.forEach(element => {
-
-            element.addEventListener('touchstart', (e) => {
+            element.addEventListener('click', (e) => {
                 e.preventDefault();
 
                 element.closest('.flip-card').classList.toggle('active');
 
-                console.log(element.closest('.flip-card'));
+                console.log('1')
             });
         });
     }
@@ -534,20 +538,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const flipCardHover = document.querySelectorAll('.flip-card-hover');
 
     flipCardHover.forEach(element=>{
-        element.addEventListener('touchstart',(e)=>{
+        element.addEventListener('click',(e)=>{
             e.preventDefault();
 
             element.classList.toggle('active');
         });
     })
-
-
-    const oldWidth = window.innerWidth;
-
-    window.addEventListener('resize', () => {
-        const newWidth = window.innerWidth;
-
-        newWidth != oldWidth ? location.reload() : null;
-    });
-    
 });
