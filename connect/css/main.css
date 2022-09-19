@@ -603,13 +603,13 @@ body {
 }
 
 .flip-card.active .flip-card__front {
-  -webkit-transform: perspective(800px) rotateY(-180deg);
-          transform: perspective(800px) rotateY(-180deg);
+  -webkit-transform: perspective(800px) rotateY(-180deg) !important;
+          transform: perspective(800px) rotateY(-180deg) !important;
 }
 
 .flip-card.active .flip-card__back {
-  -webkit-transform: perspective(800px) rotateY(0deg);
-          transform: perspective(800px) rotateY(0deg);
+  -webkit-transform: perspective(800px) rotateY(0deg) !important;
+          transform: perspective(800px) rotateY(0deg) !important;
 }
 
 .expanded-block {
@@ -3367,6 +3367,15 @@ img {
   background: url("../img/arrow-title-black.svg") center center/contain no-repeat;
 }
 
+.section__subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #FFFFFF;
+  display: none;
+}
+
 .section__description {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -3416,6 +3425,12 @@ img {
 @media screen and (max-width: 1100px) {
   .section__wrapper {
     padding: 100px 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .section__subtitle {
+    display: block;
   }
 }
 

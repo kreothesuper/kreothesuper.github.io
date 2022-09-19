@@ -3,7 +3,7 @@ const setTranslate = (positionY, parallaxItem) => {
 }
 
 const scrollLoop = (scrollTop, parallaxItems) => {
-    let scrollSpeed = 50,
+    let scrollSpeed = 2,
         yScrollPosition = scrollTop * scrollSpeed;
     parallaxItems.forEach(parallaxElement => {
         const parallaxElementCoefficient = +parallaxElement.dataset.coefficient;
@@ -25,6 +25,65 @@ const wheelDistance = function (evt) {
         else return -d / 3;
     } else return w / 120;
 };
+
+var PIXEL_STEP = 40;
+var LINE_HEIGHT = 40;
+var PAGE_HEIGHT = document.body.clientHeight;
+
+function normalizeWheel(event) {
+    var sX = 0, sY = 0,
+        pX = 0, pY = 0;
+
+    // Legacy
+    if ('detail' in event) {
+        sY = event.detail;
+    }
+    if ('wheelDelta' in event) {
+        sY = -event.wheelDelta / 120;
+    }
+    if ('wheelDeltaY' in event) {
+        sY = -event.wheelDeltaY / 120;
+    }
+    if ('wheelDeltaX' in event) {
+        sX = -event.wheelDeltaX / 120;
+    }
+
+    // side scrolling on FF with DOMMouseScroll
+    if ('axis' in event && event.axis === event.HORIZONTAL_AXIS) {
+        sX = sY;
+        sY = 0;
+    }
+
+    pX = sX * PIXEL_STEP;
+    pY = sY * PIXEL_STEP;
+
+    if ('deltaY' in event) {
+        pY = event.deltaY;
+    }
+    if ('deltaX' in event) {
+        pX = event.deltaX;
+    }
+
+    if ((pX || pY) && event.deltaMode) {
+        if (event.deltaMode == 1) {          // delta in LINE units
+            pX *= LINE_HEIGHT;
+            pY *= LINE_HEIGHT;
+        } else {                             // delta in PAGE units
+            pX *= PAGE_HEIGHT;
+            pY *= PAGE_HEIGHT;
+        }
+    }
+
+    // Fall-back if spin cannot be determined
+    if (pX && !sX) {
+        sX = (pX < 1) ? -1 : 1;
+    }
+    if (pY && !sY) {
+        sY = (pY < 1) ? -1 : 1;
+    }
+
+    return pY;
+}
 
 const counterAnim = (target, start = 0, end, duration = 1000) => {
     let startTimestamp = null;
@@ -115,6 +174,7 @@ const calculateDistanceToBlock = () =>{
             indexParallax < parallaxIndex ? (elementParallax.dataset.height = dataHeight, dataHeight += elementParallax.clientHeight) : null;
         });
 
+        element.dataset.coefficient = anchorBlock.dataset.coefficient;
         element.dataset.height = dataHeight;
     });
 }
@@ -470,21 +530,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     if (window.innerWidth > 1100) {
-
-        var scrollTop = 0;
-
         const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
+
+        let scrollTop = 0,
+            scrollSpeed = 2,
+            lastBlockParallaxCoefficient = +parallaxItems[parallaxItems.length - 1].dataset.coefficient + 0.001;
+
         dataAnchorLinks.forEach(element => {
+            const popup = document.querySelectorAll('.popup');
+
             element.addEventListener('click', (e) => {
                 e.preventDefault();
 
                 calculateDistanceToBlock();
 
-                scrollTop = (+element.dataset.height) / (50 * document.querySelector(`.${element.dataset.anchor}`).dataset.coefficient);
+                popup.forEach(element => {
+                    element.classList.remove('active');
+                });
+
+                scrollTop = (+element.dataset.height) / (scrollSpeed * element.dataset.coefficient);
+
+                if (element.dataset.anchor === 'footer') {
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (scrollSpeed * lastBlockParallaxCoefficient);
+                }
+
                 parallaxItems.forEach(element => {
                     element.classList.add('transition')
                 });
-                scrollLoop(scrollTop, parallaxItems)
+                scrollLoop(scrollTop, parallaxItems, scrollSpeed)
                 setTimeout(() => {
                     parallaxItems.forEach(element => {
                         element.classList.remove('transition')
@@ -492,45 +565,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 500)
             });
         });
+
         document.addEventListener('wheel', (event) => {
 
-            let scrollDeep = parseFloat(-wheelDistance(event), 2);
+            let scrollDeep = normalizeWheel(event);
 
-            if (scrollDeep < 0) {
-                header.classList.remove('hidden')
-            } else {
-                header.classList.add('hidden');
-            }
-
-
-            if ((scrollTop + scrollDeep) * 50 * .931 >= document.body.scrollHeight - window.innerHeight) {
+            if ((scrollTop + scrollDeep) * scrollSpeed * lastBlockParallaxCoefficient >= document.body.scrollHeight - window.innerHeight) {
                 if (scrollDeep > 0) {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (50 * .931);
+                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (scrollSpeed * lastBlockParallaxCoefficient);
+                    return false
                 }
             }
 
             scrollTop += scrollDeep;
 
+            if (scrollDeep > 0 && scrollTop > 500) {
+                header.classList.add('hidden')
+            } else {
+                header.classList.remove('hidden');
+            }
+
             scrollTop <= 0 ? scrollTop = 0 : scrollTop;
 
 
-            scrollLoop(scrollTop, parallaxItems);
+            scrollLoop(scrollTop, parallaxItems, scrollSpeed);
         });
-    };
-
-    document.body.addEventListener('click',()=>{
-    });
-
+    }
     const flipCardTriggers = document.querySelectorAll('.flip-card-trigger');
 
     if(flipCardTriggers.length > 0){
         flipCardTriggers.forEach(element => {
-            element.addEventListener('click', (e) => {
+            element.addEventListener('click touchstart', (e) => {
                 e.preventDefault();
 
                 element.closest('.flip-card').classList.toggle('active');
-
-                console.log('1')
             });
         });
     }
@@ -538,7 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const flipCardHover = document.querySelectorAll('.flip-card-hover');
 
     flipCardHover.forEach(element=>{
-        element.addEventListener('touchend',(e)=>{
+        element.addEventListener('touchstart',(e)=>{
             e.preventDefault();
 
             element.classList.toggle('active');
