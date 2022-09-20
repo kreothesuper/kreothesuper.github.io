@@ -1240,6 +1240,7 @@ img {
   right: 0;
   top: 0;
   z-index: 1;
+  display: none;
 }
 
 .hero__video-item {
@@ -1250,6 +1251,7 @@ img {
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
+  display: none;
 }
 
 .hero__content {
@@ -1293,6 +1295,15 @@ img {
   height: 47px;
 }
 
+@media screen and (min-width: 991px) {
+  .hero__video {
+    display: block;
+  }
+  .hero__video-item {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 1700px) {
   .hero__wrapper {
     height: 570px;
@@ -1323,12 +1334,6 @@ img {
 @media screen and (max-width: 991px) {
   .hero__wrapper {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .hero__video {
-    display: none;
-  }
-  .hero__video-item {
-    display: none;
   }
 }
 
