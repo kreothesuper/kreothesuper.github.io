@@ -192,10 +192,9 @@ const onTapOrClick = (element, cb) => {
 const onTapOrHover = (element, cb) => {
     let onlongtouch;
     let timer;
-    const touchduration = 800; //length of time we want the user to touch before we do something
+    const touchduration = 500; //length of time we want the user to touch before we do something
 
     function touchstart(e) {
-        e.preventDefault();
         if (!timer) {
             timer = setTimeout(onlongtouch, touchduration);
         }
@@ -214,8 +213,8 @@ const onTapOrHover = (element, cb) => {
         cb();
     };
 
-    element.addEventListener("touchstart", touchstart, false);
-    element.addEventListener("touchend", touchend, false);
+    element.addEventListener("touchstart", touchstart);
+    element.addEventListener("touchend", touchend);
 }
 
 
