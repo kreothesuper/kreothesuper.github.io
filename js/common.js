@@ -597,10 +597,32 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    if (window.innerWidth < 991){
-        const heroVideo = document.querySelector('.hero__video');
+    if (window.innerWidth > 991){
+        const heroVideoBlock = document.querySelector('.hero__video');
 
-        heroVideo.remove();
+        const heroVideo = document.createElement('video');
+
+        heroVideo.classList.add('.hero__video-item');
+        heroVideo.autoplay;
+        heroVideo.muted;
+        heroVideo.loop;
+
+        const heroVideoSourceMp4 = document.createElement('source'),
+            heroVideoSourceWebm = document.createElement('source');
+
+        heroVideoSourceMp4.classList.add('hero-video-source-mp4');
+        heroVideoSourceWebm.classList.add('hero-video-source-webm');
+
+        heroVideoSourceWebm.src = 'img/home-video.webm';
+        heroVideoSourceWebm.type = 'video/webm'
+
+        heroVideoSourceMp4.src = 'img/home-video.mp4';
+        heroVideoSourceMp4.type = 'video/mp4'
+
+        heroVideo.append(heroVideoSourceWebm);
+        heroVideo.append(heroVideoSourceMp4);
+
+        heroVideoBlock.append(heroVideo)
     }
 
     if (window.innerWidth > 1100) {
