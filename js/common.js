@@ -182,6 +182,19 @@ const calculateDistanceToBlock = () =>{
     });
 }
 
+const onTapOrClick = (element, cb) => {
+    let debounce;  // temporarily disables on click events when touchstarts happen
+    element.addEventListener("touchstart", (event) => {
+        if (debounce) { clearTimeout(debounce); }
+        debounce = setTimeout(() => debounce = undefined, 1000);  // debounce is 1000ms, could easily be longer
+        cb(event);
+    });
+    element.addEventListener("click", (event) => {
+        if (debounce) { return; }
+        cb(event);
+    });
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
@@ -637,6 +650,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(flipCardTriggers.length > 0){
         flipCardTriggers.forEach(element => {
+            /*
             element.addEventListener('click', (e) => {
                 e.preventDefault();
 
@@ -647,16 +661,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 element.closest('.flip-card').classList.toggle('active');
             });
+
+             */
+
+            onTapOrClick(element,()=>element.closest('.flip-card').classList.toggle('active'));
         });
     }
 
     const flipCardHover = document.querySelectorAll('.flip-card-hover');
 
     flipCardHover.forEach(element=>{
+        /*
         element.addEventListener('touchmove',(e)=>{
             e.preventDefault();
             element.classList.toggle('active');
         });
+        */
+        onTapOrClick(element,()=>element.classList.toggle('active'));
     });
 
 
