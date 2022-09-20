@@ -597,6 +597,11 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
+    if (window.innerWidth < 991){
+        const heroVideo = document.querySelector('.hero__video');
+
+        heroVideo.remove();
+    }
 
     if (window.innerWidth > 1100) {
         const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
