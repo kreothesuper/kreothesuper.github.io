@@ -73,7 +73,7 @@ function normalizeWheel(event) {
         sY = (pY < 1) ? -1 : 1;
     }
 
-    return {py:pY, px:pX};
+    return {py: pY, px: pX};
 }
 
 const counterAnim = (target, start = 0, end, duration = 1000) => {
@@ -136,7 +136,7 @@ const expandedList = (block, height) => {
     }
 }
 
-const createScrollbarContent = (block) =>{
+const createScrollbarContent = (block) => {
     const newArrow = document.createElement('div'),
         newArrowText = document.createElement('p'),
         newArrowLabel = document.createElement('span');
@@ -153,7 +153,7 @@ const createScrollbarContent = (block) =>{
     block.append(newArrow);
 }
 
-const calculateDistanceToBlock = () =>{
+const calculateDistanceToBlock = () => {
     const parallaxItems = document.querySelectorAll('.parallax');
     const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
 
@@ -174,24 +174,48 @@ const calculateDistanceToBlock = () =>{
 const onTapOrClick = (element, cb) => {
     let debounce;
     element.addEventListener("touchstart", (event) => {
-        if (debounce) { clearTimeout(debounce); }
+        if (debounce) {
+            clearTimeout(debounce);
+        }
         debounce = setTimeout(() => debounce = undefined, 2000);  // debounce is 1000ms, could easily be longer
         cb(event);
     });
     element.addEventListener("click", (event) => {
         event.preventDefault();
-        if (debounce) { return; }
+        if (debounce) {
+            return;
+        }
         cb(event);
     });
 }
 
 const onTapOrHover = (element, cb) => {
-    let debounce;
-    element.addEventListener("touchstart", (event) => {
-        if (debounce) { clearTimeout(debounce); }
-        debounce = setTimeout(() => debounce = undefined, 2000);  // debounce is 1000ms, could easily be longer
-        cb(event);
-    });
+    let onlongtouch;
+    let timer;
+    const touchduration = 800; //length of time we want the user to touch before we do something
+
+    function touchstart(e) {
+        e.preventDefault();
+        if (!timer) {
+            timer = setTimeout(onlongtouch, touchduration);
+        }
+    }
+
+    function touchend() {
+        //stops short touches from firing the event
+        if (timer) {
+            clearTimeout(timer);
+            timer = null;
+        }
+    }
+
+    onlongtouch = function () {
+        timer = null;
+        cb();
+    };
+
+    element.addEventListener("touchstart", touchstart, false);
+    element.addEventListener("touchend", touchend, false);
 }
 
 
@@ -228,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
             freeMode: false,
             scrollbar: {
                 el: ".advantages-scrollbar",
-                draggable:true,
+                draggable: true,
             },
             breakpoints: {
                 1100: {
@@ -274,16 +298,16 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             mousewheel: {
                 invert: false,
-                forceToAxis:true,
+                forceToAxis: true,
             },
             scrollbar: {
                 el: ".capabilities-scrollbar",
-                draggable:true,
-                snapOnRelease:true,
+                draggable: true,
+                snapOnRelease: true,
             },
-            breakpoints:{
-                440:{
-                    slidesPerView:'auto'
+            breakpoints: {
+                440: {
+                    slidesPerView: 'auto'
                 }
             },
             on: {
@@ -303,18 +327,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 nextEl: ".function-button-next",
                 prevEl: ".function-button-prev",
             },
-            breakpoints:{
-                440:{
-                    slidesPerView:'auto'
+            breakpoints: {
+                440: {
+                    slidesPerView: 'auto'
                 }
             },
             mousewheel: {
                 invert: false,
-                forceToAxis:true,
+                forceToAxis: true,
             },
             scrollbar: {
                 el: ".function-scrollbar",
-                draggable:true,
+                draggable: true,
             },
             on: {
                 init: function () {
@@ -335,16 +359,16 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             mousewheel: {
                 invert: false,
-                forceToAxis:true,
+                forceToAxis: true,
             },
-            breakpoints:{
-              750:{
-                  slidesPerView:'auto'
-              }
+            breakpoints: {
+                750: {
+                    slidesPerView: 'auto'
+                }
             },
             scrollbar: {
                 el: ".feature-scrollbar",
-                draggable:true,
+                draggable: true,
             },
             on: {
                 init: function () {
@@ -361,16 +385,16 @@ document.addEventListener('DOMContentLoaded', () => {
             speed: 1000,
             scrollbar: {
                 el: ".ecosystem-scrollbar",
-                draggable:true,
+                draggable: true,
             },
-            breakpoints:{
-                600:{
-                    slidesPerView:'auto'
+            breakpoints: {
+                600: {
+                    slidesPerView: 'auto'
                 }
             },
             mousewheel: {
                 invert: false,
-                forceToAxis:true,
+                forceToAxis: true,
             },
             navigation: {
                 nextEl: ".ecosystem-button-next",
@@ -389,10 +413,10 @@ document.addEventListener('DOMContentLoaded', () => {
             slidesPerView: 1,
             freeMode: false,
             spaceBetween: 40,
-            speed:1000,
+            speed: 1000,
             scrollbar: {
                 el: ".tariffs-scrollbar",
-                draggable:true,
+                draggable: true,
             },
             breakpoints: {
                 1100: {
@@ -418,16 +442,16 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             mousewheel: {
                 invert: false,
-                forceToAxis:true,
+                forceToAxis: true,
             },
-            breakpoints:{
-              600:{
-                  slidesPerView:'auto'
-              }
+            breakpoints: {
+                600: {
+                    slidesPerView: 'auto'
+                }
             },
             scrollbar: {
                 el: ".review-scrollbar",
-                draggable:true,
+                draggable: true,
             },
             on: {
                 init: function () {
@@ -442,14 +466,14 @@ document.addEventListener('DOMContentLoaded', () => {
             slidesPerView: 1,
             spaceBetween: 40,
             speed: 1000,
-            breakpoints:{
-              600:{
-                  slidesPerView:'auto'
-              }
+            breakpoints: {
+                600: {
+                    slidesPerView: 'auto'
+                }
             },
             mousewheel: {
                 invert: false,
-                forceToAxis:true,
+                forceToAxis: true,
             },
             navigation: {
                 nextEl: ".news-button-next",
@@ -457,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollbar: {
                 el: ".news-scrollbar",
-                draggable:true,
+                draggable: true,
             },
             on: {
                 init: function () {
@@ -477,7 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             mousewheel: {
                 invert: false,
-                forceToAxis:true,
+                forceToAxis: true,
             },
             breakpoints: {
                 1150: {
@@ -497,16 +521,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     createScrollbarContent(scrollbarDrag);
                 },
             },
-        }),
-        integrateSlider = new Swiper(".integrate-slider-slider", {
-            slidesPerView:'auto',
-            freeMode:'true',
-            loop:true,
-            speed:1000,
-            autoplay:{
-                speed:1000,
-                delay:500,
-            }
         });
 
 
@@ -576,6 +590,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // ANIMATION LINE SETTINGS
 
 
+    const marque = document.querySelectorAll('.marque');
+
+    if (marque.length > 0) {
+        marque.forEach(element => {
+            animateMarquee(element, 20000);
+        })
+    }
+
 
     if (window.innerWidth > 1100) {
         const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
@@ -619,7 +641,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let scrollNormalized = normalizeWheel(event);
             let scrollDeep = scrollNormalized.py;
 
-            if(Math.abs(scrollNormalized.px) < 10){
+            if (Math.abs(scrollNormalized.px) < 10) {
                 if ((scrollTop + scrollDeep) * scrollSpeed * lastBlockParallaxCoefficient >= document.body.scrollHeight - window.innerHeight) {
                     if (scrollDeep > 0) {
                         scrollTop = (document.body.scrollHeight - window.innerHeight) / (scrollSpeed * lastBlockParallaxCoefficient);
@@ -645,7 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const flipCardTriggers = document.querySelectorAll('.flip-card-trigger');
 
-    if(flipCardTriggers.length > 0){
+    if (flipCardTriggers.length > 0) {
         flipCardTriggers.forEach(element => {
             /*
             element.addEventListener('click', (e) => {
@@ -661,20 +683,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
              */
 
-            onTapOrClick(element,()=>element.closest('.flip-card').classList.toggle('active'));
+            onTapOrClick(element, () => element.closest('.flip-card').classList.toggle('active'));
         });
     }
 
     const flipCardHover = document.querySelectorAll('.flip-card-hover');
 
-    flipCardHover.forEach(element=>{
+    flipCardHover.forEach(element => {
 
-        element.addEventListener('touchmove',(e)=>{
-            e.preventDefault();
-            element.classList.toggle('active');
-        });
-
-        onTapOrHover(element,()=>element.classList.toggle('active'));
+        onTapOrHover(element, () => element.classList.toggle('active'));
     });
 
 
