@@ -585,9 +585,6 @@ body {
   -o-transition: transform 1s linear;
   transition: transform 1s linear;
   transition: transform 1s linear, -webkit-transform 1s linear;
-  -webkit-transition-delay: 2s;
-       -o-transition-delay: 2s;
-          transition-delay: 2s;
 }
 
 .flip-card__front {
@@ -648,6 +645,11 @@ img {
 }
 
 @media screen and (min-width: 1024px) {
+  .flip-card-hover {
+    -webkit-transition-delay: 2s;
+         -o-transition-delay: 2s;
+            transition-delay: 2s;
+  }
   .flip-card-hover:hover .flip-card__front {
     -webkit-transition-delay: 0s;
          -o-transition-delay: 0s;

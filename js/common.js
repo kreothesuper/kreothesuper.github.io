@@ -669,19 +669,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (flipCardTriggers.length > 0) {
         flipCardTriggers.forEach(element => {
-            /*
-            element.addEventListener('click', (e) => {
-                e.preventDefault();
 
-                element.closest('.flip-card').classList.toggle('active');
-            });
-            element.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-
-                element.closest('.flip-card').classList.toggle('active');
-            });
-
-             */
 
             onTapOrClick(element, () => element.closest('.flip-card').classList.toggle('active'));
         });
