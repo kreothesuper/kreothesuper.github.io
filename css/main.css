@@ -597,6 +597,14 @@ body {
           transform: perspective(800px) rotateY(-180deg);
 }
 
+.flip-card-hover {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+}
+
 .flip-card.active .flip-card__front {
   -webkit-transform: perspective(800px) rotateY(-180deg) !important;
           transform: perspective(800px) rotateY(-180deg) !important;
@@ -713,9 +721,6 @@ img {
 }
 
 @media screen and (max-width: 1024px) {
-  .flip-card-hover {
-    pointer-events: none;
-  }
   .slider-scrollbar {
     margin: 30px 0 0 0;
     height: 4px;
