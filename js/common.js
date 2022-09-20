@@ -17,15 +17,6 @@ const findParallaxIndex = (el) => {
     return parallaxArray.indexOf(el);
 }
 
-const wheelDistance = function (evt) {
-    if (!evt) evt = event;
-    const w = evt.wheelDelta, d = evt.detail;
-    if (d) {
-        if (w) return w / d / 40 * d > 0 ? 1 : -1;
-        else return -d / 3;
-    } else return w / 120;
-};
-
 var PIXEL_STEP = 40;
 var LINE_HEIGHT = 40;
 var PAGE_HEIGHT = document.body.clientHeight;
@@ -102,8 +93,6 @@ const animateMarquee = (el, duration) => {
     const innerEl = el.querySelector('.marque-wrapper'),
         innerWidth = innerEl.offsetWidth,
         cloneEl = innerEl.cloneNode(true);
-
-    console.log(innerWidth, innerEl.offsetWidth, document.body.offsetWidth);
 
     el.appendChild(cloneEl);
 
@@ -183,14 +172,24 @@ const calculateDistanceToBlock = () =>{
 }
 
 const onTapOrClick = (element, cb) => {
-    let debounce;  // temporarily disables on click events when touchstarts happen
+    let debounce;
     element.addEventListener("touchstart", (event) => {
         if (debounce) { clearTimeout(debounce); }
-        debounce = setTimeout(() => debounce = undefined, 1000);  // debounce is 1000ms, could easily be longer
+        debounce = setTimeout(() => debounce = undefined, 2000);  // debounce is 1000ms, could easily be longer
         cb(event);
     });
     element.addEventListener("click", (event) => {
+        event.preventDefault();
         if (debounce) { return; }
+        cb(event);
+    });
+}
+
+const onTapOrHover = (element, cb) => {
+    let debounce;
+    element.addEventListener("touchstart", (event) => {
+        if (debounce) { clearTimeout(debounce); }
+        debounce = setTimeout(() => debounce = undefined, 2000);  // debounce is 1000ms, could easily be longer
         cb(event);
     });
 }
@@ -620,8 +619,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let scrollNormalized = normalizeWheel(event);
             let scrollDeep = scrollNormalized.py;
 
-            console.log(Math.abs(scrollNormalized.px));
-
             if(Math.abs(scrollNormalized.px) < 10){
                 if ((scrollTop + scrollDeep) * scrollSpeed * lastBlockParallaxCoefficient >= document.body.scrollHeight - window.innerHeight) {
                     if (scrollDeep > 0) {
@@ -671,13 +668,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const flipCardHover = document.querySelectorAll('.flip-card-hover');
 
     flipCardHover.forEach(element=>{
-        /*
+
         element.addEventListener('touchmove',(e)=>{
             e.preventDefault();
             element.classList.toggle('active');
         });
-        */
-        onTapOrClick(element,()=>element.classList.toggle('active'));
+
+        onTapOrHover(element,()=>element.classList.toggle('active'));
     });
 
 
