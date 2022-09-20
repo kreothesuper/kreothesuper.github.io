@@ -82,7 +82,7 @@ function normalizeWheel(event) {
         sY = (pY < 1) ? -1 : 1;
     }
 
-    return pY;
+    return {py:pY, px:pX};
 }
 
 const counterAnim = (target, start = 0, end, duration = 1000) => {
@@ -102,6 +102,8 @@ const animateMarquee = (el, duration) => {
     const innerEl = el.querySelector('.marque-wrapper'),
         innerWidth = innerEl.offsetWidth,
         cloneEl = innerEl.cloneNode(true);
+
+    console.log(innerWidth, innerEl.offsetWidth, document.body.offsetWidth);
 
     el.appendChild(cloneEl);
 
@@ -124,6 +126,7 @@ const animateMarquee = (el, duration) => {
         requestAnimationFrame(step);
     });
 };
+
 
 const expandedList = (block, height) => {
     const expandendBlock = block.querySelector('.expanded-block'),
@@ -257,12 +260,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 nextEl: ".capabilities-button-next",
                 prevEl: ".capabilities-button-prev",
             },
+            mousewheel: {
+                invert: false,
+                forceToAxis:true,
+            },
             scrollbar: {
                 el: ".capabilities-scrollbar",
                 draggable:true,
+                snapOnRelease:true,
             },
             breakpoints:{
-                600:{
+                440:{
                     slidesPerView:'auto'
                 }
             },
@@ -284,9 +292,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 prevEl: ".function-button-prev",
             },
             breakpoints:{
-                600:{
+                440:{
                     slidesPerView:'auto'
                 }
+            },
+            mousewheel: {
+                invert: false,
+                forceToAxis:true,
             },
             scrollbar: {
                 el: ".function-scrollbar",
@@ -309,8 +321,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 nextEl: ".feature-button-next",
                 prevEl: ".feature-button-prev",
             },
+            mousewheel: {
+                invert: false,
+                forceToAxis:true,
+            },
             breakpoints:{
-              600:{
+              750:{
                   slidesPerView:'auto'
               }
             },
@@ -340,6 +356,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     slidesPerView:'auto'
                 }
             },
+            mousewheel: {
+                invert: false,
+                forceToAxis:true,
+            },
             navigation: {
                 nextEl: ".ecosystem-button-next",
                 prevEl: ".ecosystem-button-prev",
@@ -357,6 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
             slidesPerView: 1,
             freeMode: false,
             spaceBetween: 40,
+            speed:1000,
             scrollbar: {
                 el: ".tariffs-scrollbar",
                 draggable:true,
@@ -382,6 +403,10 @@ document.addEventListener('DOMContentLoaded', () => {
             navigation: {
                 nextEl: ".review-button-next",
                 prevEl: ".review-button-prev",
+            },
+            mousewheel: {
+                invert: false,
+                forceToAxis:true,
             },
             breakpoints:{
               600:{
@@ -410,6 +435,10 @@ document.addEventListener('DOMContentLoaded', () => {
                   slidesPerView:'auto'
               }
             },
+            mousewheel: {
+                invert: false,
+                forceToAxis:true,
+            },
             navigation: {
                 nextEl: ".news-button-next",
                 prevEl: ".news-button-prev",
@@ -434,6 +463,10 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollbar: {
                 el: ".problem-scrollbar",
             },
+            mousewheel: {
+                invert: false,
+                forceToAxis:true,
+            },
             breakpoints: {
                 1150: {
                     spaceBetween: 60,
@@ -452,6 +485,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     createScrollbarContent(scrollbarDrag);
                 },
             },
+        }),
+        integrateSlider = new Swiper(".integrate-slider-slider", {
+            slidesPerView:'auto',
+            freeMode:'true',
+            loop:true,
+            speed:1000,
+            autoplay:{
+                speed:1000,
+                delay:500,
+            }
         });
 
 
@@ -520,13 +563,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ANIMATION LINE SETTINGS
 
-    const marque = document.querySelectorAll('.marque');
-
-    if (marque.length > 0) {
-        marque.forEach(element => {
-            animateMarquee(element, 20000);
-        })
-    }
 
 
     if (window.innerWidth > 1100) {
@@ -568,28 +604,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.addEventListener('wheel', (event) => {
 
-            let scrollDeep = normalizeWheel(event);
+            let scrollNormalized = normalizeWheel(event);
+            let scrollDeep = scrollNormalized.py;
 
-            if ((scrollTop + scrollDeep) * scrollSpeed * lastBlockParallaxCoefficient >= document.body.scrollHeight - window.innerHeight) {
-                if (scrollDeep > 0) {
-                    scrollTop = (document.body.scrollHeight - window.innerHeight) / (scrollSpeed * lastBlockParallaxCoefficient);
-                    scrollLoop(scrollTop, parallaxItems, scrollSpeed);
-                    return false
+            console.log(Math.abs(scrollNormalized.px));
+
+            if(Math.abs(scrollNormalized.px) < 10){
+                if ((scrollTop + scrollDeep) * scrollSpeed * lastBlockParallaxCoefficient >= document.body.scrollHeight - window.innerHeight) {
+                    if (scrollDeep > 0) {
+                        scrollTop = (document.body.scrollHeight - window.innerHeight) / (scrollSpeed * lastBlockParallaxCoefficient);
+                        scrollLoop(scrollTop, parallaxItems, scrollSpeed);
+                        return false
+                    }
                 }
+
+                scrollTop += scrollDeep;
+
+                if (scrollDeep > 0 && scrollTop > 500) {
+                    header.classList.add('hidden')
+                } else {
+                    header.classList.remove('hidden');
+                }
+
+                scrollTop <= 0 ? scrollTop = 0 : scrollTop;
+
+
+                scrollLoop(scrollTop, parallaxItems, scrollSpeed);
             }
-
-            scrollTop += scrollDeep;
-
-            if (scrollDeep > 0 && scrollTop > 500) {
-                header.classList.add('hidden')
-            } else {
-                header.classList.remove('hidden');
-            }
-
-            scrollTop <= 0 ? scrollTop = 0 : scrollTop;
-
-
-            scrollLoop(scrollTop, parallaxItems, scrollSpeed);
         });
     }
     const flipCardTriggers = document.querySelectorAll('.flip-card-trigger');
@@ -601,7 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 element.closest('.flip-card').classList.toggle('active');
             });
-            element.addEventListener('touchend', (e) => {
+            element.addEventListener('touchstart', (e) => {
                 e.preventDefault();
 
                 element.closest('.flip-card').classList.toggle('active');
@@ -612,9 +653,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const flipCardHover = document.querySelectorAll('.flip-card-hover');
 
     flipCardHover.forEach(element=>{
-        element.addEventListener('touchend',(e)=>{
+        element.addEventListener('touchmove',(e)=>{
             e.preventDefault();
-
             element.classList.toggle('active');
         });
     });
