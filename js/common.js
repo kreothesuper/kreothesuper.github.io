@@ -603,9 +603,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const heroVideo = document.createElement('video');
 
         heroVideo.classList.add('hero__video-item');
-        heroVideo.autoplay;
-        heroVideo.muted;
-        heroVideo.loop;
+        heroVideo.autoplay = true;
+        heroVideo.muted = true;
+        heroVideo.loop = true;
 
         const heroVideoSourceMp4 = document.createElement('source'),
             heroVideoSourceWebm = document.createElement('source');
