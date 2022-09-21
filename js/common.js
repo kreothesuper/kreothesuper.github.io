@@ -602,7 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const heroVideo = document.createElement('video');
 
-        heroVideo.classList.add('.hero__video-item');
+        heroVideo.classList.add('hero__video-item');
         heroVideo.autoplay;
         heroVideo.muted;
         heroVideo.loop;
