@@ -199,7 +199,6 @@ const onTapOrHover = (element, cb) => {
             timer = setTimeout(onlongtouch, touchduration);
         }
     }
-
     function touchend() {
         //stops short touches from firing the event
         if (timer) {
@@ -207,14 +206,22 @@ const onTapOrHover = (element, cb) => {
             timer = null;
         }
     }
-
     onlongtouch = function () {
         timer = null;
         cb();
     };
-
     element.addEventListener("touchstart", touchstart);
     element.addEventListener("touchend", touchend);
+
+
+    element.addEventListener('mouseenter',()=>{
+       element.classList.add('active');
+    });
+    element.addEventListener('mouseleave',()=>{
+       setTimeout(()=>{
+           element.classList.remove('active');
+       },2000);
+    });
 }
 
 
@@ -704,7 +711,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const flipCardHover = document.querySelectorAll('.flip-card-hover');
 
     flipCardHover.forEach(element => {
-
         onTapOrHover(element, () => element.classList.toggle('active'));
     });
 
