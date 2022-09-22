@@ -121,7 +121,7 @@ const expandedList = (block, height) => {
     const expandendBlock = block.querySelector('.expanded-block'),
         expandendBlockHeight = block.clientHeight;
 
-    if (expandendBlockHeight >= height) {
+    if (expandendBlockHeight > height) {
         expandendBlock.style.height = `${height}px`;
 
         const link = document.createElement('span');
