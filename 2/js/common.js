@@ -17,6 +17,36 @@ const findParallaxIndex = (el) => {
     return parallaxArray.indexOf(el);
 }
 
+function throttle(func, ms) {
+
+    let isThrottled = false,
+        savedArgs,
+        savedThis;
+
+    function wrapper() {
+
+        if (isThrottled) { // (2)
+            savedArgs = arguments;
+            savedThis = this;
+            return;
+        }
+
+        func.apply(this, arguments); // (1)
+
+        isThrottled = true;
+
+        setTimeout(function() {
+            isThrottled = false; // (3)
+            if (savedArgs) {
+                wrapper.apply(savedThis, savedArgs);
+                savedArgs = savedThis = null;
+            }
+        }, ms);
+    }
+
+    return wrapper;
+}
+
 var PIXEL_STEP = 40;
 var LINE_HEIGHT = 40;
 var PAGE_HEIGHT = document.body.clientHeight;
@@ -200,33 +230,35 @@ const onTapOrHover = (element, cb) => {
             timer = setTimeout(onlongtouch, touchduration);
         }
     }
+
     function touchend() {
         if (timer) {
             clearTimeout(timer);
             timer = null;
         }
     }
+
     onlongtouch = function () {
         timer = null;
-        cb();
+        throttle(cb(),1000);
     };
     element.addEventListener("touchstart", touchstart);
     element.addEventListener("touchend", touchend);
 
 
-    element.addEventListener('mouseenter',()=>{
-       if(!timer){
-           timer = setTimeout(()=>element.classList.add('active'), touchDurationLong);
-       }
+    element.addEventListener('mouseenter', () => {
+        if (!timer) {
+            timer = setTimeout(() => element.classList.add('active'), touchDurationLong);
+        }
     });
-    element.addEventListener('mouseleave',()=>{
-       if(timer){
-           clearTimeout(timer);
-           timer = null;
-       }
-       setTimeout(()=>{
-           element.classList.remove('active');
-       },2000);
+    element.addEventListener('mouseleave', () => {
+        if (timer) {
+            clearTimeout(timer);
+            timer = null;
+        }
+        setTimeout(() => {
+            element.classList.remove('active');
+        }, 2000);
     });
 }
 
@@ -610,7 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    if (window.innerWidth > 991){
+    if (window.innerWidth > 991) {
         const heroVideoBlock = document.querySelector('.hero__video');
 
         const heroVideo = document.createElement('video');
@@ -663,7 +695,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     scrollTop = (document.body.scrollHeight - window.innerHeight) / (scrollSpeed * lastBlockParallaxCoefficient);
                 }
 
-                if (element.dataset.anchor === 'dropshipping') {
+                if (element.dataset.slider === 'dropshipping') {
                     ecosystemSlider.slideTo(3);
                 }
 
@@ -706,6 +738,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 scrollLoop(scrollTop, parallaxItems, scrollSpeed);
             }
+        });
+    } else {
+        const dataAnchorLinks = document.querySelectorAll('*[data-anchor]');
+
+        dataAnchorLinks.forEach(element => {
+            const popup = document.querySelectorAll('.popup');
+
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
+
+
+                popup.forEach(element => {
+                    element.classList.remove('active');
+                });
+
+                const block = document.querySelector(`.${element.dataset.anchor}`);
+
+                block.scrollIntoView({
+                    block: 'start',
+                    behavior: 'smooth',
+                    inline: "center"
+                });
+
+                if (element.dataset.anchor === 'footer') {
+                    const footer = document.querySelector('.footer');
+
+                    footer.scrollIntoView({
+                        block: 'end',
+                        behavior: 'smooth',
+                        inline: "center"
+                    });
+                }
+
+                if (element.dataset.slider === 'dropshipping') {
+                    ecosystemSlider.slideTo(2);
+                }
+            });
         });
     }
     const flipCardTriggers = document.querySelectorAll('.flip-card-trigger');
