@@ -248,7 +248,7 @@ const onTapOrHover = (element, cb) => {
 
     element.addEventListener('mouseenter', () => {
         if (!timer) {
-            timer = setTimeout(() => element.classList.add('active'), touchDurationLong);
+            timer = setTimeout(() => element.classList.add('active'), touchduration);
         }
     });
     element.addEventListener('mouseleave', () => {
