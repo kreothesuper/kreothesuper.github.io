@@ -192,7 +192,8 @@ const onTapOrClick = (element, cb) => {
 const onTapOrHover = (element, cb) => {
     let onlongtouch;
     let timer;
-    const touchduration = 500; //length of time we want the user to touch before we do something
+    const touchduration = 500,
+        touchDurationLong = 1000;
 
     function touchstart(e) {
         if (!timer) {
@@ -200,7 +201,6 @@ const onTapOrHover = (element, cb) => {
         }
     }
     function touchend() {
-        //stops short touches from firing the event
         if (timer) {
             clearTimeout(timer);
             timer = null;
@@ -215,9 +215,15 @@ const onTapOrHover = (element, cb) => {
 
 
     element.addEventListener('mouseenter',()=>{
-       element.classList.add('active');
+       if(!timer){
+           timer = setTimeout(()=>element.classList.add('active'), touchDurationLong);
+       }
     });
     element.addEventListener('mouseleave',()=>{
+       if(timer){
+           clearTimeout(timer);
+           timer = null;
+       }
        setTimeout(()=>{
            element.classList.remove('active');
        },2000);
