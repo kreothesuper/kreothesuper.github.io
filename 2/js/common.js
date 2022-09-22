@@ -663,6 +663,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     scrollTop = (document.body.scrollHeight - window.innerHeight) / (scrollSpeed * lastBlockParallaxCoefficient);
                 }
 
+                if (element.dataset.anchor === 'dropshipping') {
+                    ecosystemSlider.slideTo(3);
+                }
+
                 parallaxItems.forEach(element => {
                     element.classList.add('transition')
                 });
