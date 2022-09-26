@@ -105,7 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
             shareImages = shareBlock.querySelectorAll('img');
 
         shareBlock.classList.remove('hidden');
-        setTimeout(() => shareBlock.classList.add('hidden'), 100)
+        setTimeout(() => shareBlock.classList.add('hidden'), 100);
+
+        shareImages.forEach(element=>{
+            console.log(element.complete);
+        })
         htmlToImage.toJpeg(document.querySelector('.box-share'))
             .then(function (dataUrl) {
                 download(dataUrl, 'my-node.jpeg');
