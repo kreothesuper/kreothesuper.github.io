@@ -4,13 +4,13 @@ const tipsText = {
     2: 'Ещё немного и предсказание у вас!'
 }
 
-const predictions = {
-    0: 'Предсказание №1',
-    1: 'Предсказание очень длинное №1',
-    2: 'Предсказание очень длинное №2',
-    3: 'Предсказание очень длинное очень длинное очень длинное №1',
-    4: 'Предсказание очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное №1',
-}
+const predictions = [
+    'Предсказание №1',
+    'Предсказание очень длинное №1',
+    'Предсказание очень длинное №2',
+    'Предсказание очень длинное очень длинное очень длинное №1',
+    'Предсказание очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное №1',
+]
 
 const throttle = (fn, delay) => {
     let lastCalled = 0;
@@ -26,14 +26,25 @@ const throttle = (fn, delay) => {
     }
 }
 
+const getRandomPrediction = () => {
+    const randomNumber = Math.floor(Math.random() * predictions.length);
+
+    return predictions[randomNumber];
+}
+
 const cookieInit = () => {
 
     let step = 0;
 
     const cookieWrapper = document.querySelector('.cookie-wrapper'),
-        cookieList = cookieWrapper.querySelectorAll('.cookie');
+        cookieList = cookieWrapper.querySelectorAll('.cookie'),
+        cookieResult = cookieWrapper.querySelector('.box-result'),
+        cookieContent = cookieWrapper.querySelector('.box-content'),
+        cookiePrediction = cookieWrapper.querySelector('.box-prediction');
 
-    const showTipFirst = setTimeout(() => {changeStep(5);}, 1500)
+    const showTipFirst = setTimeout(() => {
+        changeStep(5);
+    }, 1500)
 
     const shopTip = (showIndex = 0, stepIndex = 0) => {
         cookieList.forEach((cookieItem, cookieIndex) => {
@@ -57,7 +68,7 @@ const cookieInit = () => {
 
         let __cookieImgStepClass;
 
-        step === 1 ? (__cookieImgStepClass= `${__cookieImgClass}-first`, cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active')) : step === 2 ? __cookieImgStepClass = `${__cookieImgClass}-second` : step === 3 ? (cookieContent.classList.add('hidden'), cookieContentWrapper.classList.add('result'), boxBorderResult.classList.add('active'), boxBorderContent.classList.remove('active'))  :  null;
+        step === 1 ? (__cookieImgStepClass = `${__cookieImgClass}-first`, cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active')) : step === 2 ? __cookieImgStepClass = `${__cookieImgClass}-second` : step === 3 ? (cookieResult.classList.remove('hidden'), cookieContent.classList.add('hidden'), cookiePrediction.textContent = getRandomPrediction()) : null;
 
         cookieImg.classList.add(__cookieImgStepClass);
 
@@ -66,7 +77,6 @@ const cookieInit = () => {
         cookieWrapper.dataset.step = step;
     }
 
-
     cookieList.forEach((cookieElement, cookieIndex) => {
         cookieElement.addEventListener('click', throttle((e) => {
             step++;
@@ -74,9 +84,6 @@ const cookieInit = () => {
             clearTimeout(showTipFirst);
         }, 1000));
     });
-
-
-
 }
 
 
@@ -85,19 +92,20 @@ document.addEventListener('DOMContentLoaded', () => {
     cookieInit();
 
 
-   const downloadButton = document.querySelector('.download-button');
+    const downloadButton = document.querySelector('.download-button');
 
-   downloadButton.addEventListener('click',(e)=>{
-       e.preventDefault();
+    downloadButton.addEventListener('click', (e) => {
+        e.preventDefault();
 
-       htmlToImage.toPng(document.querySelector('.box-result'))
-           .then(function (dataUrl) {
-               var img = new Image();
-               img.src = dataUrl;
-               document.body.appendChild(img);
-           })
-           .catch(function (error) {
-               console.error('oops, something went wrong!', error);
-           });
-   })
+        const shareBlock = document.querySelector('.box-share'),
+            shareImages = shareBlock.querySelectorAll('img');
+
+        shareImages.forEach(element=>{
+            console.log(element.complete);
+            htmlToImage.toJpeg(document.querySelector('.box-share'))
+                .then(function (dataUrl) {
+                    download(dataUrl, 'my-node.jpeg');
+                });
+        })
+    })
 });
