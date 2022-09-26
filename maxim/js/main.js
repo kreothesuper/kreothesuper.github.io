@@ -90,9 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
    downloadButton.addEventListener('click',(e)=>{
        e.preventDefault();
 
-       htmlToImage.toPng(document.querySelector('.box'))
+       htmlToImage.toPng(document.querySelector('.box-result'))
            .then(function (dataUrl) {
-               download(dataUrl, 'box.png');
+               var img = new Image();
+               img.src = dataUrl;
+               document.body.appendChild(img);
+           })
+           .catch(function (error) {
+               console.error('oops, something went wrong!', error);
            });
    })
 });
