@@ -42,6 +42,9 @@ const cookieInit = () => {
         cookieContent = cookieWrapper.querySelector('.box-content'),
         cookiePrediction = cookieWrapper.querySelector('.box-prediction');
 
+    cookieResult.classList.add('hidden');
+
+
     const showTipFirst = setTimeout(() => {
         changeStep(5);
     }, 1500)
@@ -97,15 +100,15 @@ document.addEventListener('DOMContentLoaded', () => {
     downloadButton.addEventListener('click', (e) => {
         e.preventDefault();
 
+
         const shareBlock = document.querySelector('.box-share'),
             shareImages = shareBlock.querySelectorAll('img');
 
-        shareImages.forEach(element=>{
-            console.log(element.complete);
-            htmlToImage.toJpeg(document.querySelector('.box-share'))
-                .then(function (dataUrl) {
-                    download(dataUrl, 'my-node.jpeg');
-                });
-        })
+        shareBlock.classList.remove('hidden');
+        setTimeout(() => shareBlock.classList.add('hidden'), 100)
+        htmlToImage.toJpeg(document.querySelector('.box-share'))
+            .then(function (dataUrl) {
+                download(dataUrl, 'my-node.jpeg');
+            });
     })
 });
