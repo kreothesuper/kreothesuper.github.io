@@ -4,6 +4,14 @@ const tipsText = {
     2: 'Ещё немного и предсказание у вас!'
 }
 
+const predictions = {
+    0: 'Предсказание №1',
+    1: 'Предсказание очень длинное №1',
+    2: 'Предсказание очень длинное №2',
+    3: 'Предсказание очень длинное очень длинное очень длинное №1',
+    4: 'Предсказание очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное №1',
+}
+
 const throttle = (fn, delay) => {
     let lastCalled = 0;
 
@@ -42,10 +50,14 @@ const cookieInit = () => {
         const cookieImg = cookieList[cookieIndex].querySelector('.cookie__img'),
             __cookieImgClass = 'cookie__img_step';
 
+        const cookieContent = document.querySelector('.box-content'),
+            cookieContentWrapper = document.querySelector('.box-content-wrapper'),
+            boxBorderResult = document.querySelector('.box-border-result'),
+            boxBorderContent = document.querySelector('.box-border-result');
+
         let __cookieImgStepClass;
 
-
-        step === 1 ? (__cookieImgStepClass= `${__cookieImgClass}-first`, cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active')) : step === 2 ? __cookieImgStepClass = `${__cookieImgClass}-second` : null;
+        step === 1 ? (__cookieImgStepClass= `${__cookieImgClass}-first`, cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active')) : step === 2 ? __cookieImgStepClass = `${__cookieImgClass}-second` : step === 3 ? (cookieContent.classList.add('hidden'), cookieContentWrapper.classList.add('result'), boxBorderResult.classList.add('active'), boxBorderContent.classList.remove('active'))  :  null;
 
         cookieImg.classList.add(__cookieImgStepClass);
 
@@ -71,4 +83,16 @@ const cookieInit = () => {
 document.addEventListener('DOMContentLoaded', () => {
 
     cookieInit();
+
+
+   const downloadButton = document.querySelector('.download-button');
+
+   downloadButton.addEventListener('click',(e)=>{
+       e.preventDefault();
+
+       htmlToImage.toJpeg(document.querySelector('.box-result'))
+           .then(function (dataUrl) {
+               download(dataUrl, 'my-node.png');
+           });
+   })
 });

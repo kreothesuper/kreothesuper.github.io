@@ -8,19 +8,19 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="css/stlye.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.10.8/html-to-image.js" integrity="sha512-U8XDCopN6qXPojHomT04a6SrPjPOCTfMVovteM9Jk0eH7787fWEDGgN3gAPm7TKsv5FzJHYYK/lxitXh9vXT2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js" integrity="sha512-WiGQZv8WpmQVRUFXZywo7pHIO0G/o3RyiAJZj8YXNN4AV7ReR1RYWVmZJ6y3H06blPcjJmG/sBpOVZjTSFFlzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 
 <div class="box cookie-wrapper">
     <div class="box__wrapper">
-        <div class="box__content">
-            <div class="box__border">
-                <img class="box__border-img box__border-img-desktop" src="img/border.png" alt="">
-                <img class="box__border-img box__border-img-mobile" src="img/border-m.png" alt="">
+        <div class="box__content box-content hidden">
+            <div class="box__border box-border">
+                <div class="box-border__content box-border-content">
+                    <img class="box__border-img box__border-img-desktop" src="img/border.png" alt="">
+                    <img class="box__border-img box__border-img-mobile" src="img/border-m.png" alt="">
+                </div>
             </div>
-            <div class="box__content-wrapper">
+            <div class="box__content-wrapper box-content-wrapper">
                 <div class="box__content-block">
                     <div class="box__coffee">
                         <div class="box__cookie">
@@ -249,18 +249,34 @@
                 </div>
             </div>
         </div>
+        <div class="box__result box-result">
+            <div class="box__border">
+                <img class="box__border-img box__border-img-desktop" src="img/border-result.png" alt="">
+                <img class="box__border-img box__border-img-mobile" src="img/border-m.png" alt="">
+            </div>
+            <div class="box__result-wrapper">
+                <div class="box-result__logo">
+                    <img src="img/logo.png" alt="" class="box-result__logo-img">
+                </div>
+                <div class="box-result__content">
+                    <div class="box-result__prediction">
+                        <p class="box-result__prediction-text box-prediction">
+                            Счастье ждет тех, кто уже сделал шаг ему навстречу. Счастье ждет тех, кто уже сделал шаг ему навстречу. Счастье ждет тех, кто уже сделал шаг
+                        </p>
+                    </div>
+                </div>
+                <div class="box-result__footer">
+                    <a href="#" class="button button-download download-button"> скачать</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 
+<script src="js/htmltoimg.js"></script>
+<script src="js/download.js"></script>
 <script src="js/main.js"></script>
-
-<script>
-    htmlToImage.toPng(document.querySelector('.box'))
-        .then(function (dataUrl) {
-            download(dataUrl, 'my-node.png');
-        });
-</script>
 
 </body>
 </html>
