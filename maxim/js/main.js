@@ -111,7 +111,15 @@ const cookieInit = () => {
     const cookieWrapper = document.querySelector('.cookie-wrapper'),
         cookieList = cookieWrapper.querySelectorAll('.cookie'),
         cookieResult = cookieWrapper.querySelector('.box-result'),
-        downloadButton = document.querySelector('.download-button');
+        cookieContent = cookieWrapper.querySelector('.box-content'),
+        downloadButton = document.querySelector('.download-button'),
+        shareVk = document.querySelector('.share-vk'),
+        shareWa = document.querySelector('.share-wa'),
+        shareTg = document.querySelector('.share-tg');
+
+    shareVk.setAttribute('href', `https://vk.com/share.php?url=https://kreothesuper.github.io/maxim&url=https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg`);
+    shareTg.setAttribute('href', `https://t.me/share/url?url=https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg&text=my prediction`);
+    shareWa.setAttribute('href', `https://wa.me/https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg`);
 
     cookieResult.classList.add('hidden');
 
@@ -156,8 +164,6 @@ const cookieInit = () => {
             __cookieImgClassStepFirst = `${__cookieImgClass}-first`,
             __cookieImgClassStepSecond = `${__cookieImgClass}-second`;
 
-        const cookieContent = document.querySelector('.box-content');
-
         closeAllCookie();
 
         if (step === 1) {
@@ -188,7 +194,7 @@ const cookieInit = () => {
             });
     });
 
-    cookieWrapper.addEventListener('click', (event) => {
+    onTapOrClick(cookieContent, () => {
         if (step !== 1) return false
 
         const clickTargetImg = event.target.closest('.cookie');
@@ -203,9 +209,9 @@ const cookieInit = () => {
         let folder = 'desktop';
         if (window.innerWidth < 1100) folder = 'mobile';
 
-        const dataUrl = `https://kreothesuper.github.io/maxim/img/share/${folder}/${randomNumber}.jpg`;
+        const dataUrl = `https://kreothesuper.github.io/maxim/img/share/${folder}/${randomNumber + 1}.jpg`;
 
-        download(dataUrl, 'my-node.png');
+        download(dataUrl);
     });
 }
 
