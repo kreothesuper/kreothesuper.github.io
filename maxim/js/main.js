@@ -123,18 +123,25 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         shareBlock.classList.remove('hidden');
-        setTimeout(() => shareBlock.classList.add('hidden'), 100);
 
         shareImages.forEach(element => {
             console.log(element.complete);
         });
 
-        htmlToImage.toJpeg(document.querySelector('.box-share'))
+        domtoimage
+            .toJpeg(shareBlock)
             .then(function (dataUrl) {
-                var link = document.createElement('a');
-                link.download = 'my-image-name.jpeg';
+                var link = document.createElement("a");
+                link.download = "my-image-name.jpeg";
                 link.href = dataUrl;
                 link.click();
+
+                shareBlock.classList.add('hidden');
+            })
+            .catch(function (error) {
+                console.error("oops, something went wrong!", error);
             });
     });
 });
+
+
