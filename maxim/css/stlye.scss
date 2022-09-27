@@ -313,6 +313,15 @@ body {
     }
   }
 
+  &__tip{
+    position: absolute;
+
+    left: calc(50% - 135px);
+    bottom: 20px;
+
+    display: none;
+  }
+
   &-result {
     &__logo {
       position: absolute;
@@ -1339,6 +1348,11 @@ body {
       }
     }
 
+    &__tip{
+      display: block;
+      z-index: 10;
+    }
+
     &__cookie {
       padding: 0;
 
@@ -1409,7 +1423,7 @@ body {
       height: 721px;
 
       &-wrapper {
-        padding: 40px 10px 70px 10px;
+        padding: 40px 10px 80px 10px;
 
         &::before {
           background: url("../img/bg-m.png") center center/contain no-repeat;
@@ -1824,9 +1838,9 @@ body {
         &::before {
           bottom: unset;
           left: calc(50% - 75px / 2);
-          top: -60px;
+          top: -55px;
 
-          transform: rotate(130deg);
+          transform:scaleX(-1) rotate(130deg);
 
           animation: unset;
         }
@@ -1869,6 +1883,8 @@ body {
 
         top: 30px;
         left: calc(50% - 50px);
+
+        z-index: 5;
       }
       &__title{
         font-size: 38px;

@@ -26,9 +26,7 @@ const throttle = (fn, delay) => {
     }
 }
 
-const getRandomPrediction = () => {
-    const randomNumber = Math.floor(Math.random() * predictions.length);
-
+const getRandomPrediction = (randomNumber) => {
     return predictions[randomNumber];
 }
 
@@ -50,6 +48,15 @@ const onTapOrClick = (element, cb) => {
     }, 400));
 }
 
+const changePrediction = () => {
+    const cookiePrediction = document.querySelectorAll('.box-prediction'),
+        randomNumber = Math.floor(Math.random() * predictions.length);
+
+    cookiePrediction.forEach(element => {
+        element.textContent = getRandomPrediction(randomNumber);
+    })
+}
+
 const cookieInit = () => {
 
     let step = 0;
@@ -58,7 +65,7 @@ const cookieInit = () => {
         cookieList = cookieWrapper.querySelectorAll('.cookie'),
         cookieResult = cookieWrapper.querySelector('.box-result'),
         cookieContent = cookieWrapper.querySelector('.box-content'),
-        cookiePrediction = cookieWrapper.querySelector('.box-prediction');
+        cookiePrediction = cookieWrapper.querySelectorAll('.box-prediction');
 
     cookieResult.classList.add('hidden');
 
@@ -70,9 +77,12 @@ const cookieInit = () => {
     const shopTip = (showIndex = 0, stepIndex = 0) => {
         cookieList.forEach((cookieItem, cookieIndex) => {
             const cookieTipWrapper = cookieItem.querySelector('.cookie-tip'),
-                cookieTipText = cookieTipWrapper.querySelector('.cookie-tip-text');
+                cookieTipText = document.querySelectorAll('.cookie-tip-text');
 
-            cookieTipText.innerHTML = tipsText[stepIndex];
+            cookieTipText.forEach(element=>{
+                element.innerHTML = tipsText[stepIndex];
+            });
+
 
             cookieIndex === showIndex ? cookieTipWrapper.classList.add('active') : cookieTipWrapper.classList.remove('active');
         });
@@ -89,7 +99,7 @@ const cookieInit = () => {
 
         let __cookieImgStepClass;
 
-        step === 1 ? (__cookieImgStepClass = `${__cookieImgClass}-first`, cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active')) : step === 2 ? __cookieImgStepClass = `${__cookieImgClass}-second` : step === 3 ? (cookieResult.classList.remove('hidden'), cookieContent.classList.add('hidden'), cookiePrediction.textContent = getRandomPrediction()) : null;
+        step === 1 ? (__cookieImgStepClass = `${__cookieImgClass}-first`, cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active')) : step === 2 ? __cookieImgStepClass = `${__cookieImgClass}-second` : step === 3 ? (cookieResult.classList.remove('hidden'), cookieContent.classList.add('hidden'), changePrediction()) : null;
 
         cookieImg.classList.add(__cookieImgStepClass);
 
@@ -128,19 +138,20 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(element.complete);
         });
 
-        domtoimage
-            .toJpeg(shareBlock)
-            .then(function (dataUrl) {
-                var link = document.createElement("a");
-                link.download = "my-image-name.jpeg";
-                link.href = dataUrl;
-                link.click();
+        setTimeout(()=>{
+            htmlToImage
+                .toPng(shareBlock)
+                .then(function (dataUrl) {
 
-                shareBlock.classList.add('hidden');
-            })
-            .catch(function (error) {
-                console.error("oops, something went wrong!", error);
-            });
+                    download(dataUrl, 'my-node.png');
+
+
+                    shareBlock.classList.add('hidden');
+                })
+                .catch(function (error) {
+                    console.error("oops, something went wrong!", error);
+                });
+        },1000)
     });
 });
 

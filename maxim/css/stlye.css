@@ -222,6 +222,12 @@ body {
   z-index: 5;
   padding: 0 0 150px 0;
 }
+.box__tip {
+  position: absolute;
+  left: calc(50% - 135px);
+  bottom: 20px;
+  display: none;
+}
 .box-result__logo {
   position: absolute;
   top: -100px;
@@ -928,6 +934,10 @@ body {
   .box__border-img-mobile {
     display: block;
   }
+  .box__tip {
+    display: block;
+    z-index: 10;
+  }
   .box__cookie {
     padding: 0;
   }
@@ -980,7 +990,7 @@ body {
     height: 721px;
   }
   .box__content-wrapper {
-    padding: 40px 10px 70px 10px;
+    padding: 40px 10px 80px 10px;
   }
   .box__content-wrapper::before {
     background: url("../img/bg-m.png") center center/contain no-repeat;
@@ -1269,8 +1279,8 @@ body {
   .cookie-tip__wrapper::before {
     bottom: unset;
     left: calc(50% - 37.5px);
-    top: -60px;
-    transform: rotate(130deg);
+    top: -55px;
+    transform: scaleX(-1) rotate(130deg);
     animation: unset;
   }
   .cookie-tip__text {
@@ -1300,6 +1310,7 @@ body {
     height: 50px;
     top: 30px;
     left: calc(50% - 50px);
+    z-index: 5;
   }
   .share-desktop__title {
     font-size: 38px;
