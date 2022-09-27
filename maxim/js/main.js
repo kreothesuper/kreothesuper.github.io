@@ -119,24 +119,22 @@ document.addEventListener('DOMContentLoaded', () => {
         shareImages = shareBlock.querySelectorAll('img');
 
 
-    shareBlock.addEventListener('load', () => {
-        downloadButton.addEventListener('click', (e) => {
+    downloadButton.addEventListener('click', (e) => {
         e.preventDefault();
 
         shareBlock.classList.remove('hidden');
         setTimeout(() => shareBlock.classList.add('hidden'), 100);
 
-        shareImages.forEach(element=>{
+        shareImages.forEach(element => {
             console.log(element.complete);
         });
 
-            htmlToImage.toJpeg(document.querySelector('.box-share'))
-                .then(function (dataUrl) {
-                    var link = document.createElement('a');
-                    link.download = 'my-image-name.jpeg';
-                    link.href = dataUrl;
-                    link.click();
-                });
-        });
-    })
+        htmlToImage.toJpeg(document.querySelector('.box-share'))
+            .then(function (dataUrl) {
+                var link = document.createElement('a');
+                link.download = 'my-image-name.jpeg';
+                link.href = dataUrl;
+                link.click();
+            });
+    });
 });
