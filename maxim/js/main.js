@@ -47,7 +47,7 @@ const onTapOrClick = (element, cb) => {
             return;
         }
         cb(event);
-    },400));
+    }, 400));
 }
 
 const cookieInit = () => {
@@ -114,24 +114,29 @@ document.addEventListener('DOMContentLoaded', () => {
     cookieInit();
 
 
-    const downloadButton = document.querySelector('.download-button');
+    const downloadButton = document.querySelector('.download-button'),
+        shareBlock = document.querySelector('.box-share'),
+        shareImages = shareBlock.querySelectorAll('img');
 
-    downloadButton.addEventListener('click', (e) => {
+
+    shareBlock.addEventListener('load', () => {
+        downloadButton.addEventListener('click', (e) => {
         e.preventDefault();
-
-
-        const shareBlock = document.querySelector('.box-share'),
-            shareImages = shareBlock.querySelectorAll('img');
 
         shareBlock.classList.remove('hidden');
         setTimeout(() => shareBlock.classList.add('hidden'), 100);
 
         shareImages.forEach(element=>{
             console.log(element.complete);
-        })
-        htmlToImage.toJpeg(document.querySelector('.box-share'))
-            .then(function (dataUrl) {
-                download(dataUrl, 'my-node.jpeg');
-            });
+        });
+
+            htmlToImage.toJpeg(document.querySelector('.box-share'))
+                .then(function (dataUrl) {
+                    var link = document.createElement('a');
+                    link.download = 'my-image-name.jpeg';
+                    link.href = dataUrl;
+                    link.click();
+                });
+        });
     })
 });
