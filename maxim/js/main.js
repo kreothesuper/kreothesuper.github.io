@@ -57,6 +57,7 @@ const changePrediction = () => {
     })
 }
 
+
 const cookieInit = () => {
 
     let step = 0;
@@ -79,42 +80,83 @@ const cookieInit = () => {
             const cookieTipWrapper = cookieItem.querySelector('.cookie-tip'),
                 cookieTipText = document.querySelectorAll('.cookie-tip-text');
 
-            cookieTipText.forEach(element=>{
+            cookieTipText.forEach(element => {
                 element.innerHTML = tipsText[stepIndex];
             });
-
 
             cookieIndex === showIndex ? cookieTipWrapper.classList.add('active') : cookieTipWrapper.classList.remove('active');
         });
     };
 
+    const closeAllTips = () => {
+        cookieList.forEach((cookieItem, cookieIndex) => {
+            const cookieTipWrapper = cookieItem.querySelector('.cookie-tip');
+
+            cookieTipWrapper.classList.remove('active');
+        });
+    }
+
+    const closeAllCookie = () => {
+        cookieList.forEach(element => {
+            const elementImg = element.querySelector('.cookie__img'),
+                elementParent = element.closest('.box-cookie-item');
+
+            elementParent.classList.remove('active');
+            elementImg.classList.remove('cookie__img_step-first');
+        });
+    }
+
     const changeStep = (cookieIndex) => {
         const cookieImg = cookieList[cookieIndex].querySelector('.cookie__img'),
-            __cookieImgClass = 'cookie__img_step';
+            __cookieImgClass = 'cookie__img_step',
+            __cookieImgClassStepFirst = `${__cookieImgClass}-first`,
+            __cookieImgClassStepSecond = `${__cookieImgClass}-second`;
 
-        const cookieContent = document.querySelector('.box-content'),
-            cookieContentWrapper = document.querySelector('.box-content-wrapper'),
-            boxBorderResult = document.querySelector('.box-border-result'),
-            boxBorderContent = document.querySelector('.box-border-result');
+        const cookieContent = document.querySelector('.box-content');
 
         let __cookieImgStepClass;
 
-        step === 1 ? (__cookieImgStepClass = `${__cookieImgClass}-first`, cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active')) : step === 2 ? __cookieImgStepClass = `${__cookieImgClass}-second` : step === 3 ? (cookieResult.classList.remove('hidden'), cookieContent.classList.add('hidden'), changePrediction()) : null;
+        closeAllCookie();
 
-        cookieImg.classList.add(__cookieImgStepClass);
+        console.log(step);
+
+        if (step === 1) {
+            cookieImg.classList.add(__cookieImgClassStepFirst);
+            cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active');
+        }
+        if (step === 2) {
+            cookieImg.classList.add(__cookieImgClassStepFirst);
+            cookieImg.classList.add(__cookieImgClassStepSecond);
+            cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active');
+        }
+        if (step === 3) {
+            cookieResult.classList.remove('hidden'), cookieContent.classList.add('hidden'), changePrediction()
+        }
 
         shopTip(cookieIndex, step);
 
         cookieWrapper.dataset.step = step;
     }
 
+
     cookieList.forEach((cookieElement, cookieIndex) => {
         onTapOrClick(cookieElement,
             () => {
-                step++;
+                if(cookieElement.closest('.box-cookie-item').classList.contains('active') || step === 0) step++
                 changeStep(cookieIndex, cookieElement);
-                clearTimeout(showTipFirst)
+                clearTimeout(showTipFirst);
             });
+    });
+
+    cookieWrapper.addEventListener('click', (event) => {
+        if (step !== 1) return false
+
+        const clickTargetImg = event.target.closest('.cookie');
+        if (clickTargetImg === null) {
+            step = 0;
+            closeAllCookie();
+            closeAllTips();
+        }
     });
 }
 
@@ -128,31 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
         shareBlock = document.querySelector('.box-share'),
         shareImages = shareBlock.querySelectorAll('img');
 
-
-    downloadButton.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        shareBlock.classList.remove('hidden');
-
-        shareImages.forEach(element => {
-            console.log(element.complete);
-        });
-
-        setTimeout(()=>{
-            htmlToImage
-                .toPng(shareBlock)
-                .then(function (dataUrl) {
-
-                    download(dataUrl, 'my-node.png');
-
-
-                    shareBlock.classList.add('hidden');
-                })
-                .catch(function (error) {
-                    console.error("oops, something went wrong!", error);
-                });
-        },1000)
-    });
 });
 
 
