@@ -9,7 +9,7 @@ const predictions = [
     'Предсказание очень длинное №1',
     'Предсказание очень длинное №2',
     'Предсказание очень длинное очень длинное очень длинное №1',
-    'Предсказание очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное №1',
+    'Предсказание очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное очень длинное',
 ]
 
 const throttle = (fn, delay) => {
@@ -30,6 +30,24 @@ const getRandomPrediction = () => {
     const randomNumber = Math.floor(Math.random() * predictions.length);
 
     return predictions[randomNumber];
+}
+
+const onTapOrClick = (element, cb) => {
+    let debounce;
+    element.addEventListener("touchstart", throttle((event) => {
+        if (debounce) {
+            clearTimeout(debounce);
+        }
+        debounce = setTimeout(() => debounce = undefined, 2000);  // debounce is 1000ms, could easily be longer
+        cb(event);
+    }, 1000));
+    element.addEventListener("click", throttle((event) => {
+        event.preventDefault();
+        if (debounce) {
+            return;
+        }
+        cb(event);
+    },400));
 }
 
 const cookieInit = () => {
@@ -81,11 +99,12 @@ const cookieInit = () => {
     }
 
     cookieList.forEach((cookieElement, cookieIndex) => {
-        cookieElement.addEventListener('click', throttle((e) => {
-            step++;
-            changeStep(cookieIndex, cookieElement);
-            clearTimeout(showTipFirst);
-        }, 1000));
+        onTapOrClick(cookieElement,
+            () => {
+                step++;
+                changeStep(cookieIndex, cookieElement);
+                clearTimeout(showTipFirst)
+            });
     });
 }
 
