@@ -94,12 +94,11 @@ const onTapOrClick = (element, cb) => {
     }, 400));
 }
 
-const changePrediction = () => {
-    const cookiePrediction = document.querySelectorAll('.box-prediction'),
-        randomNumber = Math.floor(Math.random() * predictions.length);
+const changePrediction = (number) => {
+    const cookiePrediction = document.querySelectorAll('.box-prediction');
 
     cookiePrediction.forEach(element => {
-        element.textContent = getRandomPrediction(randomNumber);
+        element.textContent = getRandomPrediction(number);
     })
 }
 
@@ -107,19 +106,18 @@ const changePrediction = () => {
 const cookieInit = () => {
 
     let step = 0;
+    const randomNumber = Math.floor(Math.random() * predictions.length);
 
     const cookieWrapper = document.querySelector('.cookie-wrapper'),
         cookieList = cookieWrapper.querySelectorAll('.cookie'),
         cookieResult = cookieWrapper.querySelector('.box-result'),
-        cookieContent = cookieWrapper.querySelector('.box-content'),
-        cookiePrediction = cookieWrapper.querySelectorAll('.box-prediction');
+        downloadButton = document.querySelector('.download-button');
 
     cookieResult.classList.add('hidden');
 
-
     const showTipFirst = setTimeout(() => {
         changeStep(5);
-    }, 1500)
+    }, 1500);
 
     const shopTip = (showIndex = 0, stepIndex = 0) => {
         cookieList.forEach((cookieItem, cookieIndex) => {
@@ -160,11 +158,7 @@ const cookieInit = () => {
 
         const cookieContent = document.querySelector('.box-content');
 
-        let __cookieImgStepClass;
-
         closeAllCookie();
-
-        console.log(step);
 
         if (step === 1) {
             cookieImg.classList.add(__cookieImgClassStepFirst);
@@ -176,7 +170,7 @@ const cookieInit = () => {
             cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active');
         }
         if (step === 3) {
-            cookieResult.classList.remove('hidden'), cookieContent.classList.add('hidden'), changePrediction()
+            cookieResult.classList.remove('hidden'), cookieContent.classList.add('hidden'), changePrediction(randomNumber);
         }
 
         shopTip(cookieIndex, step);
@@ -204,18 +198,20 @@ const cookieInit = () => {
             closeAllTips();
         }
     });
+
+    onTapOrClick(downloadButton, () => {
+        let folder = 'desktop';
+        if (window.innerWidth < 1100) folder = 'mobile';
+
+        const dataUrl = `https://kreothesuper.github.io/maxim/img/share/${folder}/${randomNumber}.jpg`;
+
+        download(dataUrl, 'my-node.png');
+    });
 }
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
     cookieInit();
-
-
-    const downloadButton = document.querySelector('.download-button'),
-        shareBlock = document.querySelector('.box-share'),
-        shareImages = shareBlock.querySelectorAll('img');
-
 });
 
 
