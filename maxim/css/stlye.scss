@@ -492,6 +492,22 @@ body {
 
     transition: .5s all linear;
 
+    &::after{
+      content: "";
+      position: absolute;
+      z-index: 1;
+      transform: scale(0);
+      top: calc(50% - 185px);
+      left: calc(50% - 160px);
+      width: 320px;
+      height: 370px;
+      display: block;
+      background-image: url("../img/cookie/1-bg.png");
+      transition: 0.5s all;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
     &:hover {
       cursor: pointer;
     }
@@ -914,14 +930,14 @@ body {
 
     &_step {
       &-first {
-        &::before {
+        &::before,&:after{
           transform: scale(1);
           opacity: 1;
         }
       }
 
       &-second {
-        &::before {
+        &::after {
           width: 688px;
           height: 612px;
 
@@ -1574,6 +1590,13 @@ body {
         left: -30px;
         top:unset;
       }
+      &::after{
+        left: calc(50% - 130px);
+        top: calc(50% - 115px);
+        width: 260px;
+        height: 230px;
+        background: url("../img/cookie/1-bg-m.png");
+      }
       &_style {
         &-first {
           display: none;
@@ -1819,12 +1842,11 @@ body {
 
       &_step {
         &-second {
-          &::before {
+          &::after{
             width: 260px;
             height: 231px;
-
-            top: calc(50% - 260px / 2);
-            left: calc(50% - 231px / 2);
+            top: calc(50% - 130px);
+            left: calc(50% - 115.5px);
             background: url("../img/cookie/1-bg-big-m.png") center center/contain no-repeat;
           }
         }

@@ -345,6 +345,22 @@ body {
   height: 100%;
   transition: 0.5s all linear;
 }
+.cookie__img::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  transform: scale(0);
+  top: calc(50% - 185px);
+  left: calc(50% - 160px);
+  width: 320px;
+  height: 370px;
+  display: block;
+  background-image: url("../img/cookie/1-bg.png");
+  transition: 0.5s all;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 .cookie__img:hover {
   cursor: pointer;
 }
@@ -628,11 +644,11 @@ body {
   display: block;
   background: url("../img/cookie/shadow-6.png") center center/contain no-repeat;
 }
-.cookie__img_step-first::before {
+.cookie__img_step-first::before, .cookie__img_step-first:after {
   transform: scale(1);
   opacity: 1;
 }
-.cookie__img_step-second::before {
+.cookie__img_step-second::after {
   width: 688px;
   height: 612px;
   top: calc(50% - 306px);
@@ -1097,6 +1113,13 @@ body {
     left: -30px;
     top: unset;
   }
+  .cookie__img::after {
+    left: calc(50% - 130px);
+    top: calc(50% - 115px);
+    width: 260px;
+    height: 230px;
+    background: url("../img/cookie/1-bg-m.png");
+  }
   .cookie__img_style-first {
     display: none;
   }
@@ -1265,7 +1288,7 @@ body {
     top: -40px;
     transform: rotate(145deg);
   }
-  .cookie__img_step-second::before {
+  .cookie__img_step-second::after {
     width: 260px;
     height: 231px;
     top: calc(50% - 130px);
