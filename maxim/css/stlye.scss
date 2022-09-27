@@ -1548,14 +1548,13 @@ body {
     }
 
     &__img {
-      &::before {
-        left: calc(50% - 260px / 2);
-        top: calc(50% - 230px / 2);
-        width: 260px;
-        height: 230px;
-        background: url("../img/cookie/1-bg-m.png");
-      }
+      &::before{
+        opacity: .3;
 
+        bottom: -30px;
+        left: -30px;
+        top:unset;
+      }
       &_style {
         &-first {
           display: none;
@@ -1603,6 +1602,14 @@ body {
                 transform: rotate(145deg);
               }
             }
+          }
+
+          &::before{
+            left: -20px;
+            top: unset;
+            bottom: -30px;
+            width: 70px;
+            height: 70px;
           }
         }
 
