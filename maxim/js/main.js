@@ -141,10 +141,12 @@ const cookieInit = () => {
     };
 
     const closeAllTips = () => {
-        cookieList.forEach((cookieItem, cookieIndex) => {
-            const cookieTipWrapper = cookieItem.querySelector('.cookie-tip');
+        const cookieTipWrapper = cookieWrapper.querySelectorAll('.cookie-tip');
 
-            cookieTipWrapper.classList.remove('active');
+        cookieTipWrapper.forEach((tipItem, tipIndex) => {
+            tipItem.classList.remove('active');
+
+            console.log(tipItem)
         });
     }
 
