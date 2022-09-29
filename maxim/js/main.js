@@ -178,6 +178,32 @@ const cookieInit = () => {
         }
         if (step === 3) {
             cookieResult.classList.remove('hidden'), cookieContent.classList.add('hidden'), changePrediction(randomNumber);
+
+            const saluteArray = document.querySelectorAll('.salute');
+
+            saluteArray.forEach((saluteArrayItem, saluteArrayIndex) => {
+                const saluteItemArray = saluteArrayItem.querySelectorAll('.salute__item');
+
+                saluteItemArray.forEach((saluteItemElement, saluteItemIndex) => {
+                    const saluteItemDelay = saluteItemIndex * .2;
+                    saluteItemElement.style.animationDelay = `${saluteItemDelay}s`;
+                });
+
+
+                setTimeout(() => {
+                    saluteItemArray.forEach(element => {
+                        element.classList.add('animate');
+                    })
+                    setInterval(() => {
+                        saluteItemArray.forEach((saluteItemElement) => {
+                            saluteItemElement.classList.remove('animate');
+                            setTimeout(() => {
+                                saluteItemElement.classList.add('animate')
+                            }, 10)
+                        });
+                    }, 2800);
+                }, (500 * saluteArrayIndex) + 1000)
+            });
         }
 
         shopTip(cookieIndex, step);
@@ -223,32 +249,6 @@ const cookieInit = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     cookieInit();
-
-    const saluteArray = document.querySelectorAll('.salute');
-
-    saluteArray.forEach((saluteArrayItem, saluteArrayIndex) => {
-        const saluteItemArray = saluteArrayItem.querySelectorAll('.salute__item');
-
-        saluteItemArray.forEach((saluteItemElement, saluteItemIndex) => {
-            const saluteItemDelay = saluteItemIndex * .2;
-            saluteItemElement.style.animationDelay = `${saluteItemDelay}s`;
-        });
-
-
-        setTimeout(() => {
-            saluteItemArray.forEach(element => {
-                element.classList.add('animate');
-            })
-            setInterval(() => {
-                saluteItemArray.forEach((saluteItemElement) => {
-                    saluteItemElement.classList.remove('animate');
-                    setTimeout(() => {
-                        saluteItemElement.classList.add('animate')
-                    }, 10)
-                });
-            }, 2800);
-        }, (500 * saluteArrayIndex) + 1000)
-    });
 });
 
 
