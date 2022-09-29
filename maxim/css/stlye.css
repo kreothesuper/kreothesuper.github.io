@@ -122,7 +122,7 @@ body {
   flex-shrink: 0;
   transform: scale(0);
   opacity: 0;
-  animation: showTable 1s 1.5s linear forwards;
+  animation: showTable 1s 0s linear forwards;
 }
 .box__logo {
   width: auto;
@@ -192,7 +192,6 @@ body {
   align-items: flex-end;
   height: 100%;
   padding: 0 70px;
-  animation: showTable 1s 1s linear forwards;
 }
 .box__cookie-item {
   position: absolute;
@@ -646,16 +645,16 @@ body {
   transform: scale(1);
   opacity: 1;
 }
-.cookie__img_step-first .cookie__img-zip, .cookie__img_step-first::before {
-  transform: scale(1);
-  opacity: 1;
-}
 .cookie__img_step-second::after {
   width: 688px;
   height: 612px;
   top: calc(50% - 306px);
   left: calc(50% - 344px);
   background: url("../img/cookie/1-bg-big.png") center center/contain no-repeat;
+}
+.cookie__img_step-second .cookie__img-zip, .cookie__img_step-second::before {
+  transform: scale(1);
+  opacity: 1;
 }
 .cookie__img_step-second .cookie-beam__item {
   opacity: 1;
@@ -740,7 +739,8 @@ body {
   font-family: "Uni Sans", sans-serif;
   font-weight: 600;
   font-size: 20px;
-  line-height: 14px;
+  line-height: 1;
+  vertical-align: middle;
   text-align: center;
   text-transform: uppercase;
   color: #AE2419;
@@ -958,7 +958,7 @@ body {
 
 @media screen and (max-width: 1100px) {
   .box[data-step="1"] .box__logo, .box[data-step="2"] .box__logo {
-    transform: translateY(20px);
+    transform: translateY(20px) translateX(15px);
     width: 260px;
   }
   .box__border-img-desktop {

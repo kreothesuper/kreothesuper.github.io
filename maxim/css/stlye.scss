@@ -177,7 +177,7 @@ body {
     transform: scale(0);
     opacity: 0;
 
-    animation: showTable 1s 1.5s linear forwards;
+    animation: showTable 1s 0s linear forwards;
   }
 
   &__logo {
@@ -281,7 +281,6 @@ body {
 
     padding: 0 70px;
 
-    animation: showTable 1s 1s linear forwards;
     &-item {
       position: absolute;
 
@@ -945,11 +944,6 @@ body {
           transform: scale(1);
           opacity: 1;
         }
-
-        .cookie__img-zip, &::before {
-          transform: scale(1);
-          opacity: 1;
-        }
       }
 
       &-second {
@@ -960,6 +954,11 @@ body {
           top: calc(50% - 612px / 2);
           left: calc(50% - 688px / 2);
           background: url("../img/cookie/1-bg-big.png") center center/contain no-repeat;
+        }
+
+        .cookie__img-zip, &::before {
+          transform: scale(1);
+          opacity: 1;
         }
 
         .cookie-beam__item {
@@ -1084,7 +1083,8 @@ body {
     font-family: 'Uni Sans', sans-serif;
     font-weight: 600;
     font-size: 20px;
-    line-height: 14px;
+    line-height: 1;
+    vertical-align: middle;
 
     text-align: center;
     text-transform: uppercase;
@@ -1401,7 +1401,7 @@ body {
     &[data-step="1"], &[data-step="2"] {
       .box {
         &__logo {
-          transform: translateY(20px);
+          transform: translateY(20px) translateX(15px);
           width: 260px;
 
           &-img {

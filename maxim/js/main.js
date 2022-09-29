@@ -128,7 +128,7 @@ const cookieInit = () => {
 
     const showTipFirst = setTimeout(() => {
         changeStep(5);
-    }, 3500);
+    }, 1000);
 
     const shopTip = (showIndex = 0, stepIndex = 0) => {
         cookieList.forEach((cookieItem, cookieIndex) => {
