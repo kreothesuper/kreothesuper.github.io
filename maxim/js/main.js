@@ -112,6 +112,7 @@ const cookieInit = () => {
         cookieList = cookieWrapper.querySelectorAll('.cookie'),
         cookieResult = cookieWrapper.querySelector('.box-result'),
         cookieContent = cookieWrapper.querySelector('.box-content'),
+        cookieInit = cookieWrapper.querySelector('.box-init'),
         downloadButton = document.querySelector('.download-button'),
         shareVk = document.querySelector('.share-vk'),
         shareWa = document.querySelector('.share-wa'),
@@ -125,7 +126,7 @@ const cookieInit = () => {
 
     const showTipFirst = setTimeout(() => {
         changeStep(5);
-    }, 1500);
+    }, 2500);
 
     const shopTip = (showIndex = 0, stepIndex = 0) => {
         cookieList.forEach((cookieItem, cookieIndex) => {
@@ -145,8 +146,6 @@ const cookieInit = () => {
 
         cookieTipWrapper.forEach((tipItem, tipIndex) => {
             tipItem.classList.remove('active');
-
-            console.log(tipItem)
         });
     }
 
@@ -215,11 +214,41 @@ const cookieInit = () => {
 
         download(dataUrl);
     });
+
+    onTapOrClick(cookieInit,()=>{
+        document.location.reload();
+    });
 }
 
 
 document.addEventListener('DOMContentLoaded', () => {
     cookieInit();
+
+    const saluteArray = document.querySelectorAll('.salute');
+
+    saluteArray.forEach((saluteArrayItem, saluteArrayIndex) => {
+        const saluteItemArray = saluteArrayItem.querySelectorAll('.salute__item');
+
+        saluteItemArray.forEach((saluteItemElement, saluteItemIndex) => {
+            const saluteItemDelay = saluteItemIndex * .2;
+            saluteItemElement.style.animationDelay = `${saluteItemDelay}s`;
+        });
+
+
+        setTimeout(() => {
+            saluteItemArray.forEach(element => {
+                element.classList.add('animate');
+            })
+            setInterval(() => {
+                saluteItemArray.forEach((saluteItemElement) => {
+                    saluteItemElement.classList.remove('animate');
+                    setTimeout(() => {
+                        saluteItemElement.classList.add('animate')
+                    }, 10)
+                });
+            }, 2800);
+        }, (500 * saluteArrayIndex) + 1000)
+    });
 });
 
 
