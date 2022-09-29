@@ -174,7 +174,6 @@ body {
 
     flex-shrink: 0;
 
-
     transform: scale(0);
     opacity: 0;
 
@@ -282,6 +281,7 @@ body {
 
     padding: 0 70px;
 
+    animation: showTable 1s 1s linear forwards;
     &-item {
       position: absolute;
 
@@ -513,7 +513,7 @@ body {
     width: 100%;
     height: 100%;
 
-    transition: .5s all linear;
+    transition: .5s transform linear;
 
     &::after {
       content: "";
@@ -530,6 +530,8 @@ body {
       background-size: contain;
       background-position: center center;
       background-repeat: no-repeat;
+
+      opacity: 0;
     }
 
     &:hover {
@@ -550,6 +552,7 @@ body {
       transform: scale(0);
       transition: .5s all linear;
 
+      opacity: 0;
       &::before {
         content: '';
         position: absolute;
@@ -942,6 +945,11 @@ body {
           transform: scale(1);
           opacity: 1;
         }
+
+        .cookie__img-zip, &::before {
+          transform: scale(1);
+          opacity: 1;
+        }
       }
 
       &-second {
@@ -956,10 +964,6 @@ body {
 
         .cookie-beam__item {
           opacity: 1;
-        }
-
-        .cookie__img-zip, &::before {
-          transform: scale(1);
         }
       }
     }
@@ -1475,7 +1479,6 @@ body {
     &__text {
       padding: 0;
 
-      background: url("../img/box-text-bg-m.png") center center/cover no-repeat;
 
       height: 214px;
 
@@ -2169,5 +2172,30 @@ body {
   }
   100%{
     width: 100%;
+  }
+}
+
+.flash{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: #fff;
+  z-index: 100;
+
+  animation: flash 1s forwards;
+
+  display: none;
+}
+
+@keyframes flash {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    z-index: -1;
   }
 }

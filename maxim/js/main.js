@@ -114,9 +114,11 @@ const cookieInit = () => {
         cookieContent = cookieWrapper.querySelector('.box-content'),
         cookieInit = cookieWrapper.querySelector('.box-init'),
         downloadButton = document.querySelector('.download-button'),
+        flash = document.querySelector('.flash'),
         shareVk = document.querySelector('.share-vk'),
         shareWa = document.querySelector('.share-wa'),
         shareTg = document.querySelector('.share-tg');
+
 
     shareVk.setAttribute('href', `https://vk.com/share.php?url=https://kreothesuper.github.io/maxim&url=https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg`);
     shareTg.setAttribute('href', `https://t.me/share/url?url=https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg&text=my prediction`);
@@ -126,7 +128,7 @@ const cookieInit = () => {
 
     const showTipFirst = setTimeout(() => {
         changeStep(5);
-    }, 2500);
+    }, 3500);
 
     const shopTip = (showIndex = 0, stepIndex = 0) => {
         cookieList.forEach((cookieItem, cookieIndex) => {
@@ -181,6 +183,8 @@ const cookieInit = () => {
 
             const saluteArray = document.querySelectorAll('.salute');
 
+            flash.style.display = 'block';
+
             saluteArray.forEach((saluteArrayItem, saluteArrayIndex) => {
                 const saluteItemArray = saluteArrayItem.querySelectorAll('.salute__item');
 
@@ -188,7 +192,6 @@ const cookieInit = () => {
                     const saluteItemDelay = saluteItemIndex * .2;
                     saluteItemElement.style.animationDelay = `${saluteItemDelay}s`;
                 });
-
 
                 setTimeout(() => {
                     saluteItemArray.forEach(element => {
