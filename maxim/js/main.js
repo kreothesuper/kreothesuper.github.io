@@ -122,7 +122,7 @@ const cookieInit = () => {
 
     shareVk.setAttribute('href', `https://vk.com/share.php?url=https://kreothesuper.github.io/maxim&url=https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg`);
     shareTg.setAttribute('href', `https://t.me/share/url?url=https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg&text=my prediction`);
-    shareWa.setAttribute('href', `https://wa.me/https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg`);
+    shareWa.setAttribute('href', `https://wa.me/?text=https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg`);
 
     cookieResult.classList.add('hidden');
 
