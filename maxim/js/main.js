@@ -232,6 +232,7 @@ const cookieInit = () => {
             step = 0;
             closeAllCookie();
             closeAllTips();
+            navigator.vibrate(200);
         }
     });
 
