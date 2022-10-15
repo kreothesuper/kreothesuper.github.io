@@ -1,7 +1,8 @@
 const tipsText = {
-    0: 'Кликните по&nbsp;печенью, разломите его!',
+    0: 'Выберете печенье и кликните по нему',
     1: 'Сильно кликайте по печенью, разломите его',
-    2: 'Ещё немного и предсказание у вас!'
+    2: 'Ещё немного и предсказание у вас!',
+    3: 'Ещё немного и предсказание у вас!'
 }
 
 const predictions = [
@@ -126,10 +127,6 @@ const cookieInit = () => {
 
     cookieResult.classList.add('hidden');
 
-    const showTipFirst = setTimeout(() => {
-        changeStep(5);
-    }, 1000);
-
     const shopTip = (showIndex = 0, stepIndex = 0) => {
         cookieList.forEach((cookieItem, cookieIndex) => {
             const cookieTipWrapper = cookieItem.querySelector('.cookie-tip'),
@@ -139,7 +136,6 @@ const cookieInit = () => {
                 element.innerHTML = tipsText[stepIndex];
             });
 
-            cookieIndex === showIndex ? cookieTipWrapper.classList.add('active') : cookieTipWrapper.classList.remove('active');
         });
     };
 
@@ -162,7 +158,8 @@ const cookieInit = () => {
     }
 
     const changeStep = (cookieIndex) => {
-        const cookieImg = cookieList[cookieIndex].querySelector('.cookie__img'),
+        const cookieImg = cookieList[cookieIndex].querySelectorAll('.cookie__img'),
+            cookieWrapper = cookieList[cookieIndex].querySelector('.cookie__img').closest('.cookie-list'),
             __cookieImgClass = 'cookie__img_step',
             __cookieImgClassStepFirst = `${__cookieImgClass}-first`,
             __cookieImgClassStepSecond = `${__cookieImgClass}-second`;
@@ -170,43 +167,29 @@ const cookieInit = () => {
         closeAllCookie();
 
         if (step === 1) {
-            cookieImg.classList.add(__cookieImgClassStepFirst);
+            cookieWrapper.classList.add('step-first');
+            cookieImg.forEach(element=>{
+                element.classList.add(__cookieImgClassStepFirst);
+            });
             cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active');
         }
         if (step === 2) {
-            cookieImg.classList.add(__cookieImgClassStepFirst);
-            cookieImg.classList.add(__cookieImgClassStepSecond);
+            cookieWrapper.classList.add('step-second');
+            cookieImg.forEach(element=>{
+                element.classList.add(__cookieImgClassStepFirst);
+                element.classList.add(__cookieImgClassStepSecond);
+            });
             cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active');
         }
         if (step === 3) {
+            cookieWrapper.classList.add('step-third');
+
+            cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active');
+        }
+        if (step === 4) {
             cookieResult.classList.remove('hidden'), cookieContent.classList.add('hidden'), changePrediction(randomNumber);
 
-            const saluteArray = document.querySelectorAll('.salute');
-
             flash.style.display = 'block';
-
-            saluteArray.forEach((saluteArrayItem, saluteArrayIndex) => {
-                const saluteItemArray = saluteArrayItem.querySelectorAll('.salute__item');
-
-                saluteItemArray.forEach((saluteItemElement, saluteItemIndex) => {
-                    const saluteItemDelay = saluteItemIndex * .2;
-                    saluteItemElement.style.animationDelay = `${saluteItemDelay}s`;
-                });
-
-                setTimeout(() => {
-                    saluteItemArray.forEach(element => {
-                        element.classList.add('animate');
-                    })
-                    setInterval(() => {
-                        saluteItemArray.forEach((saluteItemElement) => {
-                            saluteItemElement.classList.remove('animate');
-                            setTimeout(() => {
-                                saluteItemElement.classList.add('animate')
-                            }, 10)
-                        });
-                    }, 2800);
-                }, (500 * saluteArrayIndex) + 1000)
-            });
         }
 
         shopTip(cookieIndex, step);
@@ -218,13 +201,15 @@ const cookieInit = () => {
     cookieList.forEach((cookieElement, cookieIndex) => {
         onTapOrClick(cookieElement,
             () => {
+                const canVibrate = window.navigator.vibrate;
+                if (canVibrate) window.navigator.vibrate(100);
                 if (cookieElement.closest('.box-cookie-item').classList.contains('active') || step === 0) step++
                 changeStep(cookieIndex, cookieElement);
-                clearTimeout(showTipFirst);
             });
     });
 
     onTapOrClick(cookieContent, () => {
+
         if (step !== 1) return false
 
         const clickTargetImg = event.target.closest('.cookie');
@@ -232,7 +217,6 @@ const cookieInit = () => {
             step = 0;
             closeAllCookie();
             closeAllTips();
-            window.navigator.vibrate(200);
         }
     });
 
@@ -248,6 +232,18 @@ const cookieInit = () => {
     onTapOrClick(cookieInit,()=>{
         document.location.reload();
     });
+
+    const boxItems = document.querySelectorAll('.box__cookie-item');
+
+    boxItems.forEach(element=>{
+        onTapOrClick(element,()=>{
+            element.classList.add('draggable')
+
+            setTimeout(()=>{
+                element.classList.remove('draggable');
+            },500)
+        });
+    })
 }
 
 
