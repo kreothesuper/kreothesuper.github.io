@@ -150,16 +150,20 @@ const cookieInit = () => {
     const closeAllCookie = () => {
         cookieList.forEach(element => {
             const elementImg = element.querySelector('.cookie__img'),
-                elementParent = element.closest('.box-cookie-item');
+                elementParent = element.closest('.box-cookie-item'),
+                elementList = element.querySelector('.cookie-list');
 
             elementParent.classList.remove('active');
             elementImg.classList.remove('cookie__img_step-first');
+
+            elementList.classList.remove('step-first')
+            elementList.classList.remove('step-second')
         });
     }
 
     const changeStep = (cookieIndex) => {
         const cookieImg = cookieList[cookieIndex].querySelectorAll('.cookie__img'),
-            cookieWrapper = cookieList[cookieIndex].querySelector('.cookie__img').closest('.cookie-list'),
+            cookieWrapperList = cookieList[cookieIndex].querySelector('.cookie__img').closest('.cookie-list'),
             __cookieImgClass = 'cookie__img_step',
             __cookieImgClassStepFirst = `${__cookieImgClass}-first`,
             __cookieImgClassStepSecond = `${__cookieImgClass}-second`;
@@ -167,14 +171,14 @@ const cookieInit = () => {
         closeAllCookie();
 
         if (step === 1) {
-            cookieWrapper.classList.add('step-first');
+            cookieWrapperList.classList.add('step-first');
             cookieImg.forEach(element=>{
                 element.classList.add(__cookieImgClassStepFirst);
             });
             cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active');
         }
         if (step === 2) {
-            cookieWrapper.classList.add('step-second');
+            cookieWrapperList.classList.add('step-second');
             cookieImg.forEach(element=>{
                 element.classList.add(__cookieImgClassStepFirst);
                 element.classList.add(__cookieImgClassStepSecond);
@@ -182,7 +186,7 @@ const cookieInit = () => {
             cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active');
         }
         if (step === 3) {
-            cookieWrapper.classList.add('step-third');
+            cookieWrapperList.classList.add('step-third');
 
             cookieList[cookieIndex].closest('.box-cookie-item').classList.add('active');
         }

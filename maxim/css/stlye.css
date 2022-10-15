@@ -45,19 +45,19 @@ body {
   background: url("../img/bg-result.png");
   animation: pulse 2s linear infinite;
 }
-.box[data-step="1"] .box__logo, .box[data-step="2"] .box__logo {
+.box[data-step="1"] .box__logo, .box[data-step="2"] .box__logo, .box[data-step="3"] .box__logo {
   transform: scale(2) translateY(100px);
 }
-.box[data-step="1"] .box__text, .box[data-step="2"] .box__text {
+.box[data-step="1"] .box__text, .box[data-step="2"] .box__text, .box[data-step="3"] .box__text {
   animation: textAnimate 0.5s forwards;
 }
-.box[data-step="1"] .box__content-wrapper::before, .box[data-step="2"] .box__content-wrapper::before {
+.box[data-step="1"] .box__content-wrapper::before, .box[data-step="2"] .box__content-wrapper::before, .box[data-step="3"] .box__content-wrapper::before {
   filter: blur(15px);
 }
-.box[data-step="2"] .box__cookie-item {
+.box[data-step="2"] .box__cookie-item, .box[data-step="3"] .box__cookie-item {
   pointer-events: none;
 }
-.box[data-step="2"] .box__cookie-item.active {
+.box[data-step="2"] .box__cookie-item.active, .box[data-step="3"] .box__cookie-item.active {
   pointer-events: auto;
 }
 .box__wrapper {
@@ -1453,13 +1453,13 @@ body {
   top: -21px;
 }
 .cookie__img_step-first .cookie__light:nth-child(1) {
-  animation: cookieLight 1s 1s linear forwards;
+  animation: animateTitleFirst 6s linear forwards infinite;
 }
 .cookie__img_step-first .cookie__light:nth-child(2) {
-  animation: cookieLight 1s 2s linear forwards;
+  animation: animateTitleSecond 6s linear forwards infinite;
 }
 .cookie__img_step-first .cookie__light:nth-child(3) {
-  animation: cookieLight 1s 3s linear forwards;
+  animation: animateTitleThird 6s linear forwards infinite;
 }
 .cookie__img_style-first .cookie__light_style-first {
   width: 55px;
@@ -1797,6 +1797,54 @@ body {
 @keyframes cookieLight {
   to {
     opacity: 1;
+  }
+}
+@keyframes animateTitleFirst {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes animateTitleSecond {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes animateTitleThird {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @keyframes draggable {
