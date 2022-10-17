@@ -120,6 +120,7 @@ body.no-scroll {
   -o-object-position: bottom;
      object-position: bottom;
   min-height: 450px;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .home-content__grid {
@@ -229,8 +230,29 @@ body.no-scroll {
         -ms-transform: translateY(-15px);
             transform: translateY(-15px);
   }
+  .home-content__grid {
+    grid-auto-rows: 350px;
+  }
   .home-content__grid-item {
     grid-column-end: span 12;
+  }
+  .home-content__footer-wrapper {
+    padding: 0 15px 0 20px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .home-content__grid {
+    grid-auto-rows: 350px;
+  }
+  .home-content__grid-item {
+    grid-column-end: span 12;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-content__grid {
+    grid-auto-rows: 250px;
   }
 }
 
