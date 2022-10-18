@@ -55,7 +55,8 @@ const predictions = [
     'Простые решения часто бывают самыми правильными.',
     'Не забывайте баловать себя.',
     'Если решение принять сложно, прервитесь на чашку кофе.',
-    'Поступайте как человек, которым вы могли бы восхищаться.'
+    'Поступайте как человек, которым вы могли бы восхищаться.',
+    'В голове, полной мечтаний, нет места для страхов'
 ]
 
 
@@ -121,9 +122,9 @@ const cookieInit = () => {
         shareTg = document.querySelector('.share-tg');
 
 
-    shareVk.setAttribute('href', `https://vk.com/share.php?url=https://kreothesuper.github.io/maxim&url=https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg`);
-    shareTg.setAttribute('href', `https://t.me/share/url?url=https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg`);
-    shareWa.setAttribute('href', `https://wa.me/?text=https://kreothesuper.github.io/maxim/img/share/default/${randomNumber}.jpg`);
+    shareVk.setAttribute('href', `https://vk.com/share.php?url=https://newyear.maximcoffee.ru&title=Вот моё новогоднее предсказание от Maxim. А что ждёт тебя в новом году? %0A Узнай на https://newyear.maximcoffee.ru/&image=https://newyear.maximcoffee.ru/img/share/default/${randomNumber + 1}.jpg`);
+    shareTg.setAttribute('href', `https://t.me/share/url?url=https://newyear.maximcoffee.ru/img/share/default/${randomNumber + 1}.jpg %0A Вот моё новогоднее предсказание от Maxim. А что ждёт тебя в новом году? %0A Узнай на https://newyear.maximcoffee.ru/ ! `);
+    shareWa.setAttribute('href', `https://wa.me/?text=https://newyear.maximcoffee.ru/img/share/default/${randomNumber + 1}.jpg %0A Вот моё новогоднее предсказание от Maxim. А что ждёт тебя в новом году? %0A Узнай на https://newyear.maximcoffee.ru/ ! `);
 
     cookieResult.classList.add('hidden');
 
@@ -228,7 +229,7 @@ const cookieInit = () => {
         let folder = 'desktop';
         if (window.innerWidth < 1100) folder = 'mobile';
 
-        const dataUrl = `https://kreothesuper.github.io/maxim/img/share/${folder}/${randomNumber + 1}.jpg`;
+        const dataUrl = `https://newyear.maximcoffee.ru/img/share/${folder}/${randomNumber + 1}.jpg`;
 
         download(dataUrl);
     });
