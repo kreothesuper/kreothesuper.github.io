@@ -1,5 +1,5 @@
 const tipsText = {
-    0: 'Выберите печенье и кликните по нему',
+    0: 'Выберите любое печенье',
     1: 'Сильно кликайте по печенью, разломите его',
     2: 'Ещё немного и предсказание у вас!',
     3: 'Ещё немного и предсказание у вас!'
@@ -114,6 +114,7 @@ const cookieInit = () => {
         cookieList = cookieWrapper.querySelectorAll('.cookie'),
         cookieResult = cookieWrapper.querySelector('.box-result'),
         cookieContent = cookieWrapper.querySelector('.box-content'),
+        boxCoffee = cookieWrapper.querySelector('.box__coffee'),
         cookieInit = cookieWrapper.querySelector('.box-init'),
         downloadButton = document.querySelector('.download-button'),
         flash = document.querySelector('.flash'),
@@ -215,7 +216,7 @@ const cookieInit = () => {
             });
     });
 
-    onTapOrClick(cookieContent, () => {
+    onTapOrClick(boxCoffee, () => {
 
         if (step !== 1) return false
 
@@ -246,7 +247,8 @@ const cookieInit = () => {
         let device = 'desktop';
         if (window.innerWidth < 1100) device = 'mobile';
 
-        element.setAttribute('id', `${index+1}-${device}`);
+        const boxItemImg = element.querySelector('.cookie__img-item');
+        boxItemImg.setAttribute('id', `${index+1}-${device}`);
 
         onTapOrClick(element,()=>{
             element.classList.add('draggable')
