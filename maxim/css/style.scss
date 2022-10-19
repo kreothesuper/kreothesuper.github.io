@@ -857,6 +857,7 @@ body {
 }
 
 .button {
+
   &-download {
     -webkit-appearance: none;
     text-decoration: none;
@@ -905,6 +906,43 @@ body {
       height: 44px;
 
       border: 3px solid #971208;
+    }
+  }
+  &-home{
+    text-transform: unset;
+    width: 185px;
+    height: 50px;
+
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    z-index: 12;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    &::before{
+      width: 176px;
+      height: 43px;
+
+      top: calc(50% - 45px/2);
+      left: calc(50% - 180px/2);
+    }
+    &:hover::before {
+      width: 172px;
+      height: 39px;
+
+      border: 3px solid #971208;
+    }
+    &::after{
+      content: '';
+      width: 20px;
+      height: 20px;
+
+      background: url("../img/icons/home.svg") center center/contain no-repeat;
+
+      margin: 0 10px 0 0;
     }
   }
 }
@@ -1862,6 +1900,33 @@ body {
 
           object-fit: contain;
         }
+      }
+    }
+  }
+
+  .button{
+    &-home{
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      span{
+        display: none;
+      }
+      &::before{
+        border-radius: 50%;
+
+        width: 30px;
+        height: 30px;
+
+        top: 2px;
+        left: 2px;
+      }
+      &:hover::before{
+        width: 26px;
+        height: 26px;
+      }
+      &::after{
+        margin: 0;
       }
     }
   }

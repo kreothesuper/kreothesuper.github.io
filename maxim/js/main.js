@@ -1,5 +1,5 @@
 const tipsText = {
-    0: 'Выберете печенье и кликните по нему',
+    0: 'Выберите печенье и кликните по нему',
     1: 'Сильно кликайте по печенью, разломите его',
     2: 'Ещё немного и предсказание у вас!',
     3: 'Ещё немного и предсказание у вас!'
@@ -123,8 +123,8 @@ const cookieInit = () => {
 
 
     shareVk.setAttribute('href', `https://vk.com/share.php?url=https://newyear.maximcoffee.ru&title=Вот моё новогоднее предсказание от Maxim. А что ждёт тебя в новом году? %0A Узнай на https://newyear.maximcoffee.ru/&image=https://newyear.maximcoffee.ru/img/share/default/${randomNumber + 1}.jpg`);
-    shareTg.setAttribute('href', `https://t.me/share/url?url=https://newyear.maximcoffee.ru/img/share/default/${randomNumber + 1}.jpg %0A Вот моё новогоднее предсказание от Maxim. А что ждёт тебя в новом году? %0A Узнай на https://newyear.maximcoffee.ru/ ! `);
-    shareWa.setAttribute('href', `https://wa.me/?text=https://newyear.maximcoffee.ru/img/share/default/${randomNumber + 1}.jpg %0A Вот моё новогоднее предсказание от Maxim. А что ждёт тебя в новом году? %0A Узнай на https://newyear.maximcoffee.ru/ ! `);
+    shareTg.setAttribute('href', `https://t.me/share/url?url=https://newyear.maximcoffee.ru/img/share/default/${randomNumber + 1}.jpg&text= Вот моё новогоднее предсказание от Maxim. А что ждёт тебя в новом году? %0A Узнай на https://newyear.maximcoffee.ru/ !`);
+    shareWa.setAttribute('href', `https://wa.me/?text=https://newyear.maximcoffee.ru/img/share/default/${randomNumber + 1}.jpg %0A Вот моё новогоднее предсказание от Maxim. А что ждёт тебя в новом году? %0A Узнай на https://newyear.maximcoffee.ru/ !`);
 
     cookieResult.classList.add('hidden');
 
@@ -193,8 +193,10 @@ const cookieInit = () => {
         }
         if (step === 4) {
             cookieResult.classList.remove('hidden'), cookieContent.classList.add('hidden'), changePrediction(randomNumber);
-
             flash.style.display = 'block';
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({'event': 'prediction_show'});
         }
 
         shopTip(cookieIndex, step);
@@ -240,7 +242,12 @@ const cookieInit = () => {
 
     const boxItems = document.querySelectorAll('.box__cookie-item');
 
-    boxItems.forEach(element=>{
+    boxItems.forEach((element,index)=>{
+        let device = 'desktop';
+        if (window.innerWidth < 1100) device = 'mobile';
+
+        element.setAttribute('id', `${index+1}-${device}`);
+
         onTapOrClick(element,()=>{
             element.classList.add('draggable')
 
