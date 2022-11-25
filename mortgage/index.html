@@ -1,0 +1,206 @@
+<!-- Пример блока с классом для старта -->
+<div class="mortgage-start">
+    Открыть
+</div>
+<!-- Пример блока с классом для старта -->
+
+<!-- Код для копирования -->
+<style>
+    .mortgage *{margin:0;padding:0;box-sizing:border-box}.mortgage{font-family:'Monsterrat',sans-serif;font-weight:400;height:100%;width:100%;position:fixed;top:0;left:0;background-color:rgba(0,0,0,.3);display:none;z-index:100;padding:60px 0 0}.mortgage.active{display:block}.mortgage__wrapper{padding:30px 15px 15px;margin:auto;display:flex;flex-direction:column;height:100%;max-height:calc(100% - 120px);max-width:600px;background-color:#fff}.mortgage__title{font-size:16px;font-weight:700}.mortgage__content{margin:30px 0 0;height:100%;overflow-x:hidden;overflow-y:auto}.mortgage-list__item+.mortgage-list__item{margin:15px 0 0}.mortgage-input{position:relative;display:block}.mortgage-input:hover{cursor:pointer}.mortgage-input__item{display:none}.mortgage-input__checkmark{position:absolute;width:100%;height:100%;display:block;left:0;top:0;border-radius:5px;border:1px solid #535352;transition:.3s border-color linear}.mortgage-input__checkmark:before{content:'';width:16px;height:16px;display:block;position:absolute;right:15px;top:15px;border-radius:50%;border:1px solid #535352}
+    .mortgage-input__checkmark:after{content:'';width:12px;height:12px;display:block;position:absolute;right:18px;top:18px;border-radius:50%;background-color:#cd9e50;opacity:0;transition:.3s opacity linear}.mortgage-input__item:checked~.mortgage-input__checkmark{border-color:#cd9e50}.mortgage-input__item:checked~.mortgage-input__checkmark:after{opacity:1}.mortgage-input__content{display:grid;grid-template-columns:2fr 1fr}.mortgage-input__content-block{padding:15px}.mortgage-input__content-block+.mortgage-input__content-block{border-left:1px solid #535352}.mortgage-input__title{font-size:16px;font-weight:700;display:block;margin:0 0 10px}.mortgage-input__desc{font-size:14px}.mortgage-input__list{display:grid;grid-template-columns:minmax(0,1fr);gap:5px;margin:15px 0 0}.mortgage-input__list-item{font-size:14px}.mortgage__footer{margin:15px 0 0;display:flex;align-items:center;justify-content:center}.mortgage__button{display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;width:200px;height:35px;background-color:#cd9e50;text-decoration:none;border:none;outline:none}
+    .mortgage__button:hover{cursor:pointer}.mortgage__info{display:flex;flex-direction:column;justify-content:space-between;height:100%}.mortgage__price{font-weight:700;font-size:16px;color:#535352}.mortgage__price-all{color:#cd9e50}.mortgage__start{height:100%;display:flex;flex-direction:column}.mortgage__start.hidden{display:none}.mortgage__data{display:none}.mortgage__data.active{display:block}.mortgage__title-center{text-align:center}.mortgage__final{max-width:300px;margin:0 auto}.mortgage__final-input{width:100%;display:flex;align-items:center;justify-content:center}.mortgage__final-input+.mortgage__final-input{margin:15px 0 0}.mortgage__final-input-item{-webkit-appearance:none;height:30px;width:100%;background:0 0;outline:none;border:1px solid #cd9e50;padding:15px;font-family:'Monsterrat',sans-serif}.thanks{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;z-index:-1;transition:.3s all linear;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3)}
+    .thanks.active{opacity:1;z-index:100}.thanks__wrapper{padding:30px;background:#fff}.thanks__text{text-align:center;font-family:'Monsterrat',sans-serif;font-size:16px;line-height:1.5}@media screen and (max-width:767px){.mortgage-input__content{grid-template-columns:minmax(0,1fr)}.mortgage-input__content-block+.mortgage-input__content-block{border-left:none;border-top:1px solid #535352}}
+</style>
+<form class="mortgage" method="POST" name="mortgage">
+    <input type="hidden" value="hidden input" name="systemInput">
+    <div class="mortgage__wrapper">
+        <div class="mortgage__start">
+            <div class="mortgage__header">
+                <p class="mortgage__title">
+                    Выберите условия покупки
+                </p>
+            </div>
+            <div class="mortgage__content">
+                <div class="mortgage-list">
+                    <div class="mortgage-list__item">
+                        <div class="mortgage-item">
+                            <label class="mortgage-input">
+                                <input type="radio" class="mortgage-input__item" name="mortgage" value="Ипотека 0,1%">
+                                <span class="mortgage-input__checkmark"></span>
+                                <span class="mortgage-input__content">
+                                <span class="mortgage-input__content-block">
+                                    <span class="mortgage-input__title">Ипотека 0,1%</span>
+                                    <span class="mortgage-input__desc">Описание программы</span>
+                                    <span class="mortgage-input__list">
+                                        <span class="mortgage-input__list-item">
+                                            Первый взнос - от 15%
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Ставка - 1%
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Срок - до 30 лет
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Сума кредита - до 30 млн &#8381;
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="mortgage-input__content-block">
+                                    <span class="mortgage__info">
+                                        <span class="mortgage__price mortgage__price-all">17 141 900 &#8381;</span>
+                                        <span class="mortgage__price ">17 141 &#8381; в месяц</span>
+                                    </span>
+                                </span>
+                            </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mortgage-list__item">
+                        <div class="mortgage-item">
+                            <label class="mortgage-input">
+                                <input type="radio" class="mortgage-input__item" name="mortgage" value="Ипотека 0,1%">
+                                <span class="mortgage-input__checkmark"></span>
+                                <span class="mortgage-input__content">
+                                <span class="mortgage-input__content-block">
+                                    <span class="mortgage-input__title">Ипотека 0,1%</span>
+                                    <span class="mortgage-input__desc">Описание программы</span>
+                                    <span class="mortgage-input__list">
+                                        <span class="mortgage-input__list-item">
+                                            Первый взнос - от 15%
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Ставка - 1%
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Срок - до 30 лет
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Сума кредита - до 30 млн &#8381;
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="mortgage-input__content-block">
+                                    <span class="mortgage__info">
+                                        <span class="mortgage__price mortgage__price-all">17 141 900 &#8381;</span>
+                                        <span class="mortgage__price ">17 141 &#8381; в месяц</span>
+                                    </span>
+                                </span>
+                            </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mortgage-list__item">
+                        <div class="mortgage-item">
+                            <label class="mortgage-input">
+                                <input type="radio" class="mortgage-input__item" name="mortgage" value="Ипотека 0,1%">
+                                <span class="mortgage-input__checkmark"></span>
+                                <span class="mortgage-input__content">
+                                <span class="mortgage-input__content-block">
+                                    <span class="mortgage-input__title">Ипотека 0,1%</span>
+                                    <span class="mortgage-input__desc">Описание программы</span>
+                                    <span class="mortgage-input__list">
+                                        <span class="mortgage-input__list-item">
+                                            Первый взнос - от 15%
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Ставка - 1%
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Срок - до 30 лет
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Сума кредита - до 30 млн &#8381;
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="mortgage-input__content-block">
+                                    <span class="mortgage__info">
+                                        <span class="mortgage__price mortgage__price-all">17 141 900 &#8381;</span>
+                                        <span class="mortgage__price ">17 141 &#8381; в месяц</span>
+                                    </span>
+                                </span>
+                            </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mortgage-list__item">
+                        <div class="mortgage-item">
+                            <label class="mortgage-input">
+                                <input type="radio" class="mortgage-input__item" name="mortgage" value="Ипотека 0,1%">
+                                <span class="mortgage-input__checkmark"></span>
+                                <span class="mortgage-input__content">
+                                <span class="mortgage-input__content-block">
+                                    <span class="mortgage-input__title">Ипотека 0,1%</span>
+                                    <span class="mortgage-input__desc">Описание программы</span>
+                                    <span class="mortgage-input__list">
+                                        <span class="mortgage-input__list-item">
+                                            Первый взнос - от 15%
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Ставка - 1%
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Срок - до 30 лет
+                                        </span>
+                                        <span class="mortgage-input__list-item">
+                                            Сума кредита - до 30 млн &#8381;
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="mortgage-input__content-block">
+                                    <span class="mortgage__info">
+                                        <span class="mortgage__price mortgage__price-all">17 141 900 &#8381;</span>
+                                        <span class="mortgage__price ">17 141 &#8381; в месяц</span>
+                                    </span>
+                                </span>
+                            </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mortgage__footer">
+                <a href="#" class="mortgage__button mortgage-next">
+                    Отправить
+                </a>
+            </div>
+        </div>
+        <div class="mortgage__data">
+            <div class="mortgage__header">
+                <p class="mortgage__title mortgage__title-center">
+                    ОСТАВЬТЕ СВОИ КОНТАКТНЫЕ ДАННЫЕ, И МЫ ВАМ ПЕРЕЗВОНИМ
+                </p>
+            </div>
+            <div class="mortgage__content">
+                <div class="mortgage__final">
+                    <div class="mortgage__final-input">
+                        <input class="mortgage__final-input-item mortgage-input-name" type="text" name="name" placeholder="Имя">
+                    </div>
+                    <div class="mortgage__final-input">
+                        <input class="mortgage__final-input-item mortgage-input-phone" type="text" name="phone" placeholder="Номер телефона">
+                    </div>
+                    <div class="mortgage__final-input">
+                        <input type="submit" value="Отправить" class="mortgage__button">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+<div class="thanks">
+    <div class="thanks__wrapper">
+        <p class="thanks__text">
+            Спасибо за заявку ! <br>
+            Мы свяжемся с вами в ближайшее время
+        </p>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.3/imask.min.js"
+        integrity="sha512-yJ3vm1HmQtcgeMtbUYCp7PuTLyjU+ffCnVNTuE1Uccv1BmkoaJIXt1EjBVGnscjCILc62hTJJJ2rJJBTcw8RjQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    const mortgage=document.querySelector(".mortgage");if(null!==mortgage){mortgage.addEventListener("click",e=>{e.target.classList.contains("mortgage")&&mortgage.classList.remove("active")}),document.querySelector(".mortgage-start").addEventListener("click",e=>{e.preventDefault(),mortgage.classList.add("active")}),mortgage.querySelector(".mortgage-next").addEventListener("click",e=>{e.preventDefault();const t=mortgage.querySelector(".mortgage__start"),a=mortgage.querySelector(".mortgage__data");console.log(mortgage.querySelector("input:checked")),mortgage.querySelector("input:checked")&&(t.classList.add("hidden"),a.classList.add("active"))});const e=mortgage.querySelector(".mortgage-input-phone"),t=mortgage.querySelector(".mortgage-input-name"),a=(IMask(e,{mask:"+{7} (000) 000-00-00"}),document.querySelector(".thanks"));mortgage.addEventListener("submit",r=>{r.preventDefault();const o=new FormData(document.querySelector(".mortgage"));if(18===e.value.length&&t.value.length>0){const e=new XMLHttpRequest;e.open("POST","mailMortgage.php"),e.send(o),mortgage.classList.remove("active"),a.classList.add("active"),setTimeout(()=>{a.classList.remove("active")},1500)}})}
+</script>
+<!-- Код для копирования -->
