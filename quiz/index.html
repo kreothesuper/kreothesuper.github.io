@@ -10,311 +10,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        .quiz *{
-            margin: 0;
-            padding: 0;
-
-            box-sizing: border-box;
-        }
-        .quiz{
-            font-family: 'Monsterrat', sans-serif;
-            font-weight: 400;
-
-            height: 100%;
-            width: 100%;
-
-            position: fixed;
-            top: 0;
-            left: 0;
-
-            background-color: #eeeeee;
-        }
-        .quiz__wrapper{
-            padding: 30px 15px;
-
-            max-width: 1240px;
-            margin: 0 auto;
-
-            display: flex;
-            flex-direction: column;
-
-            height: 100%;
-        }
-        .quiz__header{
-            flex-shrink: 0;
-        }
-        .quiz__content{
-            height: 100%;
-            width: 100%;
-            flex: 100%;
-        }
-        .quiz__footer{
-            flex-shrink: 0;
-        }
-        .quiz__title-label{
-            font-size: 16px;
-            color: #535352;
-            font-weight: 700;
-
-            text-align: center;
-        }
-        .quiz__desc{
-            margin: 15px 0 0 0;
-        }
-        .quiz__desc-label{
-            font-size: 12px;
-            color:rgba(83, 83, 82, 0.97);
-            text-align: center;
-        }
-        .quiz__content{
-            background-color: #fff;
-
-            margin: 30px 0;
-        }
-        .quiz__footer{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .quiz__button{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 12px;
-            color:#fff;
-            width: 200px;
-            height: 35px;
-            background-color: #cd9e50;
-
-            text-decoration: none;
-
-            border: none;
-            outline: none;
-        }
-
-        .quiz-input{
-            width: 100%;
-            height: 100%;
-        }
-
-        .quiz-input__item{
-            display: none;
-        }
-        .quiz-input__checkmark{
-            width: 14px;
-            height: 14px;
-
-            border-radius: 50%;
-            flex-shrink: 0;
-
-            display: block;
-
-            border:1px solid #535352;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-        }
-
-        .quiz-input__checkmark::before{
-            content: '';
-            width: 8px;
-            height: 8px;
-
-            position: absolute;
-            top: calc(50% - 4px);
-            left: calc(50% - 4px);
-
-            display: block;
-            border-radius: 50%;
-
-            background-color: #cd9e50;
-
-            opacity: 0;
-
-            transition: .3s linear opacity;
-        }
-
-        .quiz-input__item:checked ~ .quiz-input__checkmark::before{
-            opacity: 1;
-        }
-
-        .quiz-input__wrapper{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 100%;
-            height: 100%;
-
-            position: relative;
-        }
-
-        .quiz-input__wrapper:hover{
-            cursor: pointer;
-        }
-
-        .quiz-question__title{
-            font-size: 16px;
-            color:#535352;
-            font-weight: 700;
-
-            text-align: center;
-        }
-        .quiz-question__wrapper{
-            padding: 30px 120px;
-        }
-        .quiz-question__content{
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(0,1fr));
-            grid-auto-rows: 100px;
-            gap: 30px;
-
-            margin: 30px 0 0 0;
-        }
-        .quiz-question__radio{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            height: 100%;
-
-            border-radius: 15px;
-            border: 1px solid #cd9e50;
-        }
-
-        .quiz-input__label{
-            font-size: 14px;
-        }
-        .quiz__content-row{
-            position: relative;
-
-            width: 100%;
-            height: 100%;
-        }
-        .quiz__content{
-            overflow: hidden;
-        }
-        .quiz__content-block{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            
-            top: 0;
-            left: 0;
-
-            transform: translateX(100%);
-
-            background-color: #Fff;
-
-            transition: .7s all linear;
-        }
-        .quiz__content-block.active{
-            transform: translateX(0);
-        }
-        .quiz-question{
-            height: 100%;
-        }
-        .quiz-question__title{
-            max-width: 350px;
-            margin: 0 auto;
-        }
-        .quiz-question__final{
-            max-width: 300px;
-            margin: 30px auto 0 auto;
-            width: 100%;
-        }
-        .quiz-question__input{
-            width: 100%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .quiz-question__input + .quiz-question__input{
-            margin: 15px 0 0 0;
-        }
-        .quiz-question__input-item{
-            -webkit-appearance: none;
-            height: 30px;
-            width: 100%;
-
-            background: none;
-            outline: none;
-
-            border: 1px solid #cd9e50;
-
-            padding: 15px;
-
-            font-family: 'Monsterrat', sans-serif;
-        }
-        .quiz__footer.hidden,.quiz__header.hidden{
-            display: none;
-        }
-        .quiz-question__wrapper-center{
-            padding: 120px 30px 30px 30px;
-        }
-
-        .quiz-bar__wrapper{
-            width: 400px;
-            height: 5px;
-
-            position: relative;
-
-            background: #fff;
-            flex-shrink: 0;
-
-            border-radius: 5px;
-
-            border:1px solid rgba(0,0,0,.1);
-
-            overflow: hidden;
-        }
-
-        .quiz-bar__line{
-            position: absolute;
-            height: 100%;
-
-            background: #cd9e50;
-
-            transition: .3s width;
-        }
-
-        @media screen and (max-width: 767px) {
-            .quiz-question__wrapper{
-                padding: 30px;
-            }
-            .quiz-question__wrapper-center{
-                padding: 60px 30px 30px 30px;
-            }
-            .quiz-question__content{
-                grid-auto-rows: 50px;
-            }
-            .quiz__footer{
-                flex-direction: column;
-            }
-            .quiz-bar{
-                margin: 0 0 30px 0;
-
-                width: 100%;
-            }
-            .quiz-bar__wrapper{
-                width: 100%;
-            }
-        }
-        @media screen and (max-width: 500px) {
-            .quiz-question__content{
-                grid-template-columns: minmax(0,1fr);
-                gap: 15px;
-            }
-        }
-    </style>
 </head>
 <body>
-<div class="quiz">
+
+<!-- Пример блока с классом для старта -->
+<div class="quiz-start">
+    Открыть
+</div>
+<!-- Пример блока с классом для старта -->
+
+<!-- Код для копирования -->
+<style>
+    .quiz *{margin:0;padding:0;box-sizing:border-box}.quiz{font-family:'Monsterrat',sans-serif;font-weight:400;height:100%;width:100%;position:fixed;top:0;left:0;background-color:#eee;display:none;z-index:100}.quiz.active{display:block}.quiz__wrapper{padding:30px 15px;max-width:1240px;margin:0 auto;display:flex;flex-direction:column;height:100%}.quiz__header{flex-shrink:0}.quiz__content{height:100%;width:100%;flex:100%}.quiz__footer{flex-shrink:0}.quiz__title-label{font-size:16px;color:#535352;font-weight:700;text-align:center}.quiz__desc{margin:15px 0 0}.quiz__desc-label{font-size:12px;color:rgba(83,83,82,.97);text-align:center}.quiz__content{background-color:#fff;margin:30px 0}.quiz__footer{display:flex;justify-content:space-between;align-items:center}.quiz__button{display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;width:200px;height:35px;background-color:#cd9e50;text-decoration:none;border:none;outline:none}.quiz-input{width:100%;height:100%}.quiz-input__item{display:none}
+    .quiz-input__item:checked~.quiz-input__checkmark:before{opacity:1}.quiz-input__wrapper{display:flex;align-items:center;justify-content:center;width:100%;height:100%;position:relative}.quiz-input__wrapper:hover{cursor:pointer}.quiz-question__title{font-size:16px;color:#535352;font-weight:700;text-align:center}.quiz-question__wrapper{padding:30px 120px}.quiz-question__content{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));grid-auto-rows:100px;gap:30px;margin:30px 0 0}.quiz-question__radio{display:flex;align-items:center;justify-content:center;height:100%;border-radius:15px;border:1px solid #cd9e50}.quiz-input__label{font-size:14px}.quiz__content-row{position:relative;width:100%;height:100%}.quiz__content{overflow:hidden}.quiz__content-block{position:absolute;width:100%;height:100%;top:0;left:0;transform:translateX(100%);background-color:#fff;transition:.7s all linear}.quiz__content-block.active{transform:translateX(0)}.quiz-question{height:100%}.quiz-question__title{max-width:350px;margin:0 auto}
+    .quiz-question__final{max-width:300px;margin:30px auto 0 auto;width:100%}.quiz-question__input{width:100%;display:flex;align-items:center;justify-content:center}.quiz-question__input+.quiz-question__input{margin:15px 0 0}.quiz-question__input-item{-webkit-appearance:none;height:30px;width:100%;background:0 0;outline:none;border:1px solid #cd9e50;padding:15px;font-family:'Monsterrat',sans-serif}.quiz__footer.hidden,.quiz__header.hidden{display:none}.quiz-question__wrapper-center{padding:120px 30px 30px}.quiz-bar__wrapper{width:400px;height:5px;position:relative;background:#fff;flex-shrink:0;border-radius:5px;border:1px solid rgba(0,0,0,.1);overflow:hidden}.quiz-bar__line{position:absolute;height:100%;background:#cd9e50;transition:.3s width}@media screen and (max-width:767px){.quiz-question__wrapper{padding:30px}.quiz-question__wrapper-center{padding:60px 30px 30px}.quiz-question__content{grid-auto-rows:50px}.quiz__footer{flex-direction:column}.quiz-bar{margin:0 0 30px;width:100%}.quiz-bar__wrapper{width:100%}
+    }@media screen and (max-width:500px){.quiz-question__content{grid-template-columns:minmax(0,1fr);gap:15px}}.thanks{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;z-index:-1;transition:.3s all linear;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3)}.thanks.active{opacity:1;z-index:100}.thanks__wrapper{padding:30px;background:#fff}.thanks__text{text-align:center;font-family:'Monsterrat',sans-serif;font-size:16px;line-height:1.5}
+</style>
+<form class="quiz" method="POST" name="quiz">
+    <input type="hidden" value="hidden input" name="systemInput">
     <div class="quiz__wrapper">
         <div class="quiz__header">
             <div class="quiz__title">
@@ -342,7 +55,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="marital" class="quiz-input__item">
+                                            <input type="radio" name="marital" class="quiz-input__item" value="Холост">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">Холост</span>
                                         </span>
@@ -351,7 +64,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="marital" class="quiz-input__item">
+                                            <input type="radio" name="marital" class="quiz-input__item" value="Молодая семья">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">Молодая семья</span>
                                         </span>
@@ -360,7 +73,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="marital" class="quiz-input__item">
+                                            <input type="radio" name="marital" class="quiz-input__item" value="Семья с детьми">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">Семья с детьми</span>
                                         </span>
@@ -382,7 +95,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="floor" class="quiz-input__item">
+                                            <input type="radio" name="floor" class="quiz-input__item" value="8">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">8</span>
                                         </span>
@@ -391,7 +104,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="floor" class="quiz-input__item">
+                                            <input type="radio" name="floor" class="quiz-input__item" value="9">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">9</span>
                                         </span>
@@ -400,7 +113,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="floor" class="quiz-input__item">
+                                            <input type="radio" name="floor" class="quiz-input__item" value="10">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">10</span>
                                         </span>
@@ -409,7 +122,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="floor" class="quiz-input__item">
+                                            <input type="radio" name="floor" class="quiz-input__item" value="11">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">11</span>
                                         </span>
@@ -431,7 +144,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="capital" class="quiz-input__item">
+                                            <input type="radio" name="capital" class="quiz-input__item" value="Да">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">Да</span>
                                         </span>
@@ -440,7 +153,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="capital" class="quiz-input__item">
+                                            <input type="radio" name="capital" class="quiz-input__item" value="Нет">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">Нет</span>
                                         </span>
@@ -462,7 +175,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="rates" class="quiz-input__item">
+                                            <input type="radio" name="rates" class="quiz-input__item" value="Семейная от 5,3%">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">Семейная от 5,3%</span>
                                         </span>
@@ -471,7 +184,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="rates" class="quiz-input__item">
+                                            <input type="radio" name="rates" class="quiz-input__item" value="Господдержка от 6,3%">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">Господдержка от 6,3%</span>
                                         </span>
@@ -480,7 +193,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="rates" class="quiz-input__item">
+                                            <input type="radio" name="rates" class="quiz-input__item" value="Господдержка + от 6,7%">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">Господдержка + от 6,7%</span>
                                         </span>
@@ -489,7 +202,7 @@
                                 <div class="quiz-question__radio">
                                     <label class="quiz-input">
                                         <span class="quiz-input__wrapper">
-                                            <input type="radio" name="rates" class="quiz-input__item">
+                                            <input type="radio" name="rates" class="quiz-input__item" value="Базовая от 10%">
                                             <span class="quiz-input__checkmark"></span>
                                             <span class="quiz-input__label">Базовая от 10%</span>
                                         </span>
@@ -509,13 +222,13 @@
                             </div>
                             <div class="quiz-question__final">
                                 <div class="quiz-question__input">
-                                    <input class="quiz-question__input-item" type="text" name="name" placeholder="Имя">
+                                    <input class="quiz-question__input-item input-name" type="text" name="name" placeholder="Имя">
                                 </div>
                                 <div class="quiz-question__input">
-                                    <input class="quiz-question__input-item" type="text" name="phone" placeholder="Номер телефона">
+                                    <input class="quiz-question__input-item input-phone" type="text" name="phone" placeholder="Номер телефона">
                                 </div>
                                 <div class="quiz-question__input">
-                                    <input type="submit" value="Отправить" class="quiz__button">
+                                    <input type="submit" value="Отправить" class="quiz__button quiz-btn">
                                 </div>
                             </div>
                         </div>
@@ -534,43 +247,20 @@
             </a>
         </div>
     </div>
+</form>
+<div class="thanks">
+    <div class="thanks__wrapper">
+        <p class="thanks__text">
+            Спасибо за заявку ! <br>
+            Мы свяжемся с вами в ближайшее время
+        </p>
+    </div>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.3/imask.min.js" integrity="sha512-yJ3vm1HmQtcgeMtbUYCp7PuTLyjU+ffCnVNTuE1Uccv1BmkoaJIXt1EjBVGnscjCILc62hTJJJ2rJJBTcw8RjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    const quiz = document.querySelector('.quiz');
-
-    if(quiz !== null){
-        const quizContentBlockArray = [...quiz.querySelectorAll('.quiz__content-block')],
-            quizQuestionInput = quiz.querySelectorAll('.quiz-question__radio'),
-            quizFooter = quiz.querySelector('.quiz__footer'),
-            quizHeader = quiz.querySelector('.quiz__header'),
-            quizBarLine = quiz.querySelector('.quiz-bar__line');
-
-        const quizChange = (quiz,index = 0) =>{
-            quizContentBlockArray.forEach((quizElement,quizIndex)=>{
-                index === quizIndex ? quizElement.classList.add('active') : quizElement.classList.remove('active');
-            });
-
-            quizBarLine.style.width = `${((index + 1) / quizContentBlockArray.length) * 100}%`
-
-            if(index + 1 === quizContentBlockArray.length){
-                quizHeader.classList.add('hidden');
-                quizFooter.classList.add('hidden');
-            }
-        }
-
-        quizQuestionInput.forEach(element=>{
-           element.addEventListener('change',()=>{
-               const currentQuiz = quiz.querySelector('.quiz__content-block.active');
-
-               console.log();
-
-               quizChange(quiz, quizContentBlockArray.indexOf(currentQuiz) + 1)
-           });
-        });
-
-        quizChange(quiz);
-    }
+    const quiz=document.querySelector(".quiz");if(null!==quiz){const e=document.querySelector(".quiz-start"),t=document.querySelector(".thanks");e.addEventListener("click",e=>{e.preventDefault(),quiz.classList.add("active")});const i=[...quiz.querySelectorAll(".quiz__content-block")],u=quiz.querySelectorAll(".quiz-question__radio"),c=quiz.querySelector(".quiz__footer"),n=quiz.querySelector(".quiz__header"),s=quiz.querySelector(".quiz-bar__line"),a=(e,t=0)=>{i.forEach((e,i)=>{t===i?e.classList.add("active"):e.classList.remove("active")}),s.style.width=`${(t+1)/i.length*100}%`,t+1===i.length&&(n.classList.add("hidden"),c.classList.add("hidden"))},o=document.querySelector(".input-phone"),l=(IMask(o,{mask:"+{7} (000) 000-00-00"}),document.querySelector(".input-name"));u.forEach(e=>{e.addEventListener("change",()=>{const e=quiz.querySelector(".quiz__content-block.active");a(quiz,i.indexOf(e)+1)})}),a(quiz),quiz.addEventListener("submit",e=>{e.preventDefault();const i=new FormData(document.querySelector(".quiz"));if(18===o.value.length&&l.value.length>0){const e=new XMLHttpRequest;e.open("POST","mailQuiz.php"),e.send(i),quiz.classList.remove("active"),t.classList.add("active"),setTimeout(()=>{t.classList.remove("active")},1500)}})}
 </script>
+<!-- Код для копирования -->
+
 </body>
 </html>
