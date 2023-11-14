@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/styles/font.css">
+
+    <link rel="stylesheet" href="assets/libs/range/range.css">
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
+
+    <link rel="stylesheet" href="assets/styles/reset.css">
+    <link rel="stylesheet" href="assets/styles/index.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+    <header class="page-wrapper__header header">
+        <div class="header__wrapper">
+            <div class="container">
+                <div class="header__row">
+                    <div class="header__block">
+                        <div class="header__logo logo">
+                            <img src="assets/images/logo.png" alt="" class="logo__img">
+                        </div>
+                        <div class="header__nav nav">
+                            <div class="nav__block header__info">
+                                <div class="header__language">
+                                    <div class="language-select js-toggle-wrapper">
+                                        <div class="language-select__current js-toggle-link language-select__item">en
+                                        </div>
+                                        <div class="language-select__content js-toggle-block">
+                                            <a href="#" class="language-select__item">en</a>
+                                            <a href="#" class="language-select__item">ru</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header__balance balance-label">
+                                    <a href="#" data-popup=".popup-balance" class="balance-label__wrapper">
+                                        <svg class="balance-label__icon">
+                                            <use xlink:href="assets/images/sprite.svg#balance"></use>
+                                        </svg>
+                                        <span>$950.23</span>
+                                    </a>
+                                </div>
+                                <div class="header__notification notification js-toggle-wrapper">
+                                    <div class="notification__icon notification__icon--new js-toggle-link">
+                                        <svg class="icon icon--full">
+                                            <use xlink:href="assets/images/sprite.svg#bell"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="notification__content notification-list js-toggle-block">
+                                        <div class="notification-list__wrapper">
+                                            <div class="notification-item notification-item--success">
+                                                <p class="text text--base text--bold text--white">Обмен успешно
+                                                    завершён</p>
+                                                <p class="text text--small text--medium text--grey">Действие произведено
+                                                    с
+                                                    гарантией платформы </p>
+                                            </div>
+                                            <div class="notification-item notification-item--success">
+                                                <p class="text text--base text--bold text--white">Обмен успешно
+                                                    завершён</p>
+                                                <p class="text text--small text--medium text--grey">Действие произведено
+                                                    с
+                                                    гарантией платформы </p>
+                                            </div>
+                                            <div class="notification-item notification-item--success">
+                                                <p class="text text--base text--bold text--white">Обмен успешно
+                                                    завершён</p>
+                                                <p class="text text--small text--medium text--grey">Действие произведено
+                                                    с
+                                                    гарантией платформы </p>
+                                            </div>
+                                            <div class="notification-item notification-item--success">
+                                                <p class="text text--base text--bold text--white">Обмен успешно
+                                                    завершён</p>
+                                                <p class="text text--small text--medium text--grey">Действие произведено
+                                                    с
+                                                    гарантией платформы </p>
+                                            </div>
+                                            <div class="notification-item notification-item--success">
+                                                <p class="text text--base text--bold text--white">Обмен успешно
+                                                    завершён</p>
+                                                <p class="text text--small text--medium text--grey">Действие произведено
+                                                    с
+                                                    гарантией платформы </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="nav__block header__profile profile-card">
+                                <div class="profile-card__header">
+                                    <div class="profile-card__img">
+                                        <img src="assets/images/profile.jpg" alt="">
+                                    </div>
+                                    <div class="profile-card__content">
+                                        <p class="profile-card__name">Dreamer Dreamer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="nav__list">
+                                <li class="nav__item">
+                                    <a href="#" class="nav__link">
+                                        <svg class="nav__icon">
+                                            <use xlink:href="assets/images/sprite.svg#market"></use>
+                                        </svg>
+                                        market
+                                    </a>
+                                </li>
+                                <li class="nav__item">
+                                    <a href="#" class="nav__link">
+                                        <svg class="nav__icon">
+                                            <use xlink:href="assets/images/sprite.svg#trade"></use>
+                                        </svg>
+                                        trade
+                                    </a>
+                                </li>
+                                <li class="nav__item">
+                                    <a href="#" class="nav__link">
+                                        <svg class="nav__icon">
+                                            <use xlink:href="assets/images/sprite.svg#inventory"></use>
+                                        </svg>
+                                        inventory
+                                    </a>
+                                </li>
+                                <li class="nav__item">
+                                    <a href="#" class="nav__link">
+                                        <img src="assets/images/icons/random-box.png" alt="" class="nav__icon">
+                                        random box
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header__burger">
+                            <div class="burger">
+                                <div class="burger__wrapper">
+                                    <div class="burger__item"></div>
+                                    <div class="burger__item"></div>
+                                    <div class="burger__item"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__block header__block--desktop">
+                        <div class="header__notification notification js-toggle-wrapper">
+                            <div class="notification__icon notification__icon--new js-toggle-link">
+                                <svg class="icon icon--full">
+                                    <use xlink:href="assets/images/sprite.svg#bell"></use>
+                                </svg>
+                            </div>
+                            <div class="notification__content notification-list js-toggle-block">
+                                <div class="notification-list__wrapper">
+                                    <div class="notification-item notification-item--success">
+                                        <p class="text text--base text--bold text--white">Обмен успешно завершён</p>
+                                        <p class="text text--small text--medium text--grey">Действие произведено с
+                                            гарантией платформы </p>
+                                    </div>
+                                    <div class="notification-item notification-item--success">
+                                        <p class="text text--base text--bold text--white">Обмен успешно завершён</p>
+                                        <p class="text text--small text--medium text--grey">Действие произведено с
+                                            гарантией платформы </p>
+                                    </div>
+                                    <div class="notification-item notification-item--success">
+                                        <p class="text text--base text--bold text--white">Обмен успешно завершён</p>
+                                        <p class="text text--small text--medium text--grey">Действие произведено с
+                                            гарантией платформы </p>
+                                    </div>
+                                    <div class="notification-item notification-item--success">
+                                        <p class="text text--base text--bold text--white">Обмен успешно завершён</p>
+                                        <p class="text text--small text--medium text--grey">Действие произведено с
+                                            гарантией платформы </p>
+                                    </div>
+                                    <div class="notification-item notification-item--success">
+                                        <p class="text text--base text--bold text--white">Обмен успешно завершён</p>
+                                        <p class="text text--small text--medium text--grey">Действие произведено с
+                                            гарантией платформы </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header__info">
+                            <div class="header__language">
+                                <div class="language-select js-toggle-wrapper">
+                                    <div class="language-select__current js-toggle-link language-select__item">en</div>
+                                    <div class="language-select__content js-toggle-block">
+                                        <a href="#" class="language-select__item">en</a>
+                                        <a href="#" class="language-select__item">ru</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header__balance balance-label">
+                                <a href="#" data-popup=".popup-balance" class="balance-label__wrapper">
+                                    <svg class="balance-label__icon">
+                                        <use xlink:href="assets/images/sprite.svg#balance"></use>
+                                    </svg>
+                                    <span>$950.23</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header__profile profile-card">
+                            <a href="#" data-popup=".popup-account" class="profile-card__header">
+                                <div class="profile-card__img">
+                                    <img src="assets/images/profile.jpg" alt="">
+                                </div>
+                                <div class="profile-card__content">
+                                    <p class="profile-card__name">Dreamer Dreamer</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="page-wrapper__content content content--about">
+        <div class="content__wrapper">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero__wrapper">
+                        <div class="hero__block">
+                            <div class="hero__logo">
+                                <div class="logo">
+                                    <p class="logo__text">
+                                        Tomb<span>box</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="hero__content">
+                                <p>
+                                    Tombbox - это торговая площадка для торговли виртуальными предметами и технология
+                                    для создания
+                                    метавселенных. На основе последнего отчета Newzoo Tombbox входит в ТОП 3
+                                    маркетплейсов,
+                                    основанных на блокчейне.
+                                </p>
+                                <p>
+                                    Tombbox наводит мосты между реальным и виртуальным мирами, создавая кросс-цепную
+                                    платформу,
+                                    которая накапливает множество метавселенных для брендов, инфлюенсеров, видеоигр,
+                                    организаций
+                                    киберспорта, вещательных компаний и всех видов организаций.
+                                </p>
+                            </div>
+                            <div class="hero__footer">
+                                <a href="#" class="button button--base button--green">перейти на tombbox</a>
+                            </div>
+                        </div>
+                        <div class="hero__img">
+                            <img src="assets/images/hero.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section section-meta">
+                <div class="section__wrapper section__wrapper--big">
+                    <div class="container container--small">
+                        <div class="section-meta__header section__header section-header">
+                            <div class="section-header__block">
+                                <p class="section__title">
+                                    игровая
+                                </p>
+                                <p class="section__title section__title--big section__title--pink">
+                                    метавселенная
+                                </p>
+                                <div class="section-header__line">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section__content">
+                            <div class="meta-list">
+                                <div class="meta-list__wrapper">
+                                    <div class="meta-item">
+                                        <div class="meta-item__header">
+                                            <img src="assets/images/advantages.png" alt="" class="meta-item__icon">
+                                        </div>
+                                        <div class="meta-item__content">
+                                            <p class="meta-item__title">
+                                                РАЗРАБОТЧИКИ ИГР
+                                            </p>
+                                            <p class="meta-item__text">
+                                                Разработчики игр могут повысить
+                                                вовлеченность игроков,
+                                                ценность и доход
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="meta-item">
+                                        <div class="meta-item__header">
+                                            <img src="assets/images/advantages.png" alt="" class="meta-item__icon">
+                                        </div>
+                                        <div class="meta-item__content">
+                                            <p class="meta-item__title">
+                                                ИГРОКИ
+                                            </p>
+                                            <p class="meta-item__text">
+                                                Игроки могут зарабатывать на играх
+                                                и прямых трансляциях, создавая и торгуя
+                                                предметами с разных игр и платформ
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="meta-item">
+                                        <div class="meta-item__header">
+                                            <img src="assets/images/advantages.png" alt="" class="meta-item__icon">
+                                        </div>
+                                        <div class="meta-item__content">
+                                            <p class="meta-item__title">
+                                                ИГРОВОЕ КОМЬЮНИТИ
+                                            </p>
+                                            <p class="meta-item__text">
+                                                Игровое комьюнити способствует
+                                                творческому участию во всем мире
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="meta-item">
+                                        <div class="meta-item__header">
+                                            <img src="assets/images/advantages.png" alt="" class="meta-item__icon">
+                                        </div>
+                                        <div class="meta-item__content">
+                                            <p class="meta-item__title">
+                                                СТРИМЕРЫ
+                                            </p>
+                                            <p class="meta-item__text">
+                                                Стримеры получают больше подписчиков
+                                                и повышают свою вовлеченность
+                                                благодаря дропам
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="meta-item">
+                                        <div class="meta-item__header">
+                                            <img src="assets/images/advantages.png" alt="" class="meta-item__icon">
+                                        </div>
+                                        <div class="meta-item__content">
+                                            <p class="meta-item__title">
+                                                БРЕНДЫ
+                                            </p>
+                                            <p class="meta-item__text">
+                                                Бренды повышают узнаваемость и
+                                                охватывают многомиллионную аудиторию
+                                                геймеров и фанатов киберспорта
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="meta-item">
+                                        <div class="meta-item__header">
+                                            <img src="assets/images/advantages.png" alt="" class="meta-item__icon">
+                                        </div>
+                                        <div class="meta-item__content">
+                                            <p class="meta-item__title">
+                                                КИБЕРСПОРТИВНОЕ КОМЬЮНИТИ
+                                            </p>
+                                            <p class="meta-item__text">
+                                                Киберспортивные клубы расширяют свои
+                                                фан-базы, а болельщики получают
+                                                ценные награды за свою поддержку
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section section-developers">
+                <div class="section__wrapper">
+                    <div class="container container--small">
+                        <div class="section__box section__box--developers">
+                            <div class="section__row">
+                                <div class="section__header">
+                                    <p class="section__title section__title--center">TOMBBOX</p>
+                                    <p class="section__title section__title--middle section__title--pink section__title--center">
+                                        ДЛЯ РАЗРАБОТЧИКОВ ИГР</p>
+                                </div>
+                                <div class="section__text section-text">
+                                    <p class="section-text__item">
+                                        Большинство разработчиков не могут получить доступ к многомиллиардному рынку
+                                        скинов — безусловно, самой прибыльной модели
+                                        игровой индустрии, потому что им не хватает инструментов для создания экономики
+                                        внутриигровых предметов.
+                                    </p>
+                                    <p class="section-text__item section-text__item--small">
+                                        Поэтому мы создали легко интегрируемую универсальную платформу, чтобы помочь
+                                        разработчикам
+                                        создавать, управлять и развивать свои собственные продукты.
+                                    </p>
+                                </div>
+                                <div class="section__content">
+                                    <div class="advantages-list">
+                                        <div class="advantages-list__wrapper">
+                                            <div class="advantages-item advantages-item--first">
+                                                <div class="advantages-item__wrapper">
+                                                    <div class="advantages-item__icon">
+                                                        <img src="assets/images/advantages/cup.png" alt="">
+                                                    </div>
+                                                    <div class="advantages-item__content">
+                                                        <p class="advantages-item__title">
+                                                            Построение экономики
+                                                        </p>
+                                                        <p class="advantages-item__text">
+                                                            Благодаря интеграции с платформой или маркетплейсом
+                                                            создавайте собственную внутриигровую экономику
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="advantages-item advantages-item--second">
+                                                <div class="advantages-item__wrapper">
+                                                    <div class="advantages-item__icon">
+                                                        <img src="assets/images/advantages/cup.png" alt="">
+                                                    </div>
+                                                    <div class="advantages-item__content">
+                                                        <p class="advantages-item__title">
+                                                            Повышение удержания
+                                                        </p>
+                                                        <p class="advantages-item__text advantages-item__text--small">
+                                                            Предзаказы и кросс-игровой обмен привлекают,
+                                                            вовлекают и удерживают больше игроков
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="advantages-item advantages-item--third">
+                                                <div class="advantages-item__wrapper">
+                                                    <div class="advantages-item__icon">
+                                                        <img src="assets/images/advantages/cup.png" alt="">
+                                                    </div>
+                                                    <div class="advantages-item__content">
+                                                        <p class="advantages-item__title">
+                                                            Увеличение дохода
+                                                        </p>
+                                                        <p class="advantages-item__text advantages-item__text--small">
+                                                            Создавайте новые пути монетизации и увеличивайте
+                                                            свои доходы на каждом этапе
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="advantages-item advantages-item--fourth">
+                                                <div class="advantages-item__wrapper">
+                                                    <div class="advantages-item__icon">
+                                                        <img src="assets/images/advantages/cup.png" alt="">
+                                                    </div>
+                                                    <div class="advantages-item__content">
+                                                        <p class="advantages-item__title">
+                                                            Оптимизация результатов
+                                                        </p>
+                                                        <p class="advantages-item__text advantages-item__text--small">
+                                                            Наша аналитика позволяет вам отслеживать
+                                                            рынок и оптимизировать результаты
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="section__button button button--green">УЗНАТЬ БОЛЬШЕ ›</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section section-developers">
+                <div class="section__wrapper">
+                    <div class="container container--small">
+                        <div class="section__box section__box--gamers">
+                            <div class="section__row">
+                                <div class="section__header">
+                                    <p class="section__title section__title--center">TOMBBOX</p>
+                                    <p class="section__title section__title--middle section__title--pink section__title--center">
+                                        для геймеров</p>
+                                </div>
+                                <div class="section__text section-text">
+                                    <p class="section-text__item">
+                                        Лишь небольшой процент геймеров по всему миру может безопасно приобретать и
+                                        по-настоящему владеть
+                                        виртуальными предметами как с мобильного устройства так и на ПК.
+                                    </p>
+                                    <p class="section-text__item section-text__item--small">
+                                        Технология распределенного реестра Tombbox позволяет покупать,
+                                        продавать и обменивать внутриигровые предметы в играх и по всему миру, давая
+                                        игрокам возможность зарабатывать на играх
+                                    </p>
+                                </div>
+                                <div class="section__content">
+                                    <div class="advantages-list">
+                                        <div class="advantages-list__wrapper">
+                                            <div class="advantages-item advantages-item--first">
+                                                <div class="advantages-item__wrapper">
+                                                    <div class="advantages-item__icon">
+                                                        <img src="assets/images/advantages/cup.png" alt="">
+                                                    </div>
+                                                    <div class="advantages-item__content">
+                                                        <p class="advantages-item__title">
+                                                            Торги Face2Face
+                                                        </p>
+                                                        <p class="advantages-item__text advantages-item__text--small">
+                                                            Покупайте предметы на нашем маркетплейсе,
+                                                            даже участвуя в предпродажных торгах
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="advantages-item advantages-item--second">
+                                                <div class="advantages-item__wrapper">
+                                                    <div class="advantages-item__icon">
+                                                        <img src="assets/images/advantages/cup.png" alt="">
+                                                    </div>
+                                                    <div class="advantages-item__content">
+                                                        <p class="advantages-item__title">
+                                                            Лучшие цены
+                                                        </p>
+                                                        <p class="advantages-item__text advantages-item__text--small">
+                                                            Продавайте активы по предложенной цене
+                                                            на ваших условиях
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="advantages-item advantages-item--third">
+                                                <div class="advantages-item__wrapper">
+                                                    <div class="advantages-item__icon">
+                                                        <img src="assets/images/advantages/cup.png" alt="">
+                                                    </div>
+                                                    <div class="advantages-item__content">
+                                                        <p class="advantages-item__title">
+                                                            Мгновенный обмен
+                                                        </p>
+                                                        <p class="advantages-item__text">
+                                                            Продавайте предметы по лучшей цене, предлагаемой
+                                                            другими пользователями, мгновенно и легко
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="section__button button--base button button--green">перейти на tombbox
+                                ›</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section section-news">
+            <div class="section__wrapper section__wrapper--big">
+                <div class="container container--small">
+                    <div class="section-news__header section__header section-header">
+                        <div class="section-header__block">
+                            <p class="section__title">
+                                АКТУАЛЬНЫЕ
+                            </p>
+                            <p class="section__title section__title--big section__title--pink">
+                                НОВОСТИ TOMBBOX
+                            </p>
+                            <div class="section-header__line">
+
+                            </div>
+                        </div>
+                        <div class="section-header__text">
+                            Благодаря поддержке и сотрудничеству с нашими партнерами и СМИ
+                            игрового комьюнити мир игр станет более доступным,
+                            увлекательным и прибыльным для всех.
+                        </div>
+                    </div>
+                    <div class="section__content">
+                        <div class="swiper news-slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide news-slider__item news-item">
+                                    <div class="news-item__wrapper">
+                                        <div class="news-item__header">
+                                            <p class="news-item__title">
+                                                Обновление системы
+                                            </p>
+                                            <p class="news-item__date">
+                                                25 Ноября 2023
+                                            </p>
+                                        </div>
+                                        <div class="news-item__content">
+                                            <p class="news-item__text">
+                                                Следует отметить, что выбранный нами инновационный
+                                                путь предопределяет высокую востребованность
+                                                приоретизации разума над эмоциями.
+                                            </p>
+                                        </div>
+                                        <div class="news-item__footer">
+                                            <a href="#" class="news-item__button">Читать полностью ›</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide news-slider__item news-item">
+                                    <div class="news-item__wrapper">
+                                        <div class="news-item__header">
+                                            <p class="news-item__title">
+                                                Обновление системы
+                                            </p>
+                                            <p class="news-item__date">
+                                                25 Ноября 2023
+                                            </p>
+                                        </div>
+                                        <div class="news-item__content">
+                                            <p class="news-item__text">
+                                                Следует отметить, что выбранный нами инновационный
+                                                путь предопределяет высокую востребованность
+                                                приоретизации разума над эмоциями.
+                                            </p>
+                                        </div>
+                                        <div class="news-item__footer">
+                                            <a href="#" class="news-item__button">Читать полностью ›</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide news-slider__item news-item">
+                                    <div class="news-item__wrapper">
+                                        <div class="news-item__header">
+                                            <p class="news-item__title">
+                                                Обновление системы
+                                            </p>
+                                            <p class="news-item__date">
+                                                25 Ноября 2023
+                                            </p>
+                                        </div>
+                                        <div class="news-item__content">
+                                            <p class="news-item__text">
+                                                Следует отметить, что выбранный нами инновационный
+                                                путь предопределяет высокую востребованность
+                                                приоретизации разума над эмоциями.
+                                            </p>
+                                        </div>
+                                        <div class="news-item__footer">
+                                            <a href="#" class="news-item__button">Читать полностью ›</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide news-slider__item news-item">
+                                    <div class="news-item__wrapper">
+                                        <div class="news-item__header">
+                                            <p class="news-item__title">
+                                                Обновление системы
+                                            </p>
+                                            <p class="news-item__date">
+                                                25 Ноября 2023
+                                            </p>
+                                        </div>
+                                        <div class="news-item__content">
+                                            <p class="news-item__text">
+                                                Следует отметить, что выбранный нами инновационный
+                                                путь предопределяет высокую востребованность
+                                                приоретизации разума над эмоциями.
+                                            </p>
+                                        </div>
+                                        <div class="news-item__footer">
+                                            <a href="#" class="news-item__button">Читать полностью ›</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide news-slider__item news-item">
+                                    <div class="news-item__wrapper">
+                                        <div class="news-item__header">
+                                            <p class="news-item__title">
+                                                Обновление системы
+                                            </p>
+                                            <p class="news-item__date">
+                                                25 Ноября 2023
+                                            </p>
+                                        </div>
+                                        <div class="news-item__content">
+                                            <p class="news-item__text">
+                                                Следует отметить, что выбранный нами инновационный
+                                                путь предопределяет высокую востребованность
+                                                приоретизации разума над эмоциями.
+                                            </p>
+                                        </div>
+                                        <div class="news-item__footer">
+                                            <a href="#" class="news-item__button">Читать полностью ›</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="news-slider__pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section--grey section-form">
+            <div class="section__wrapper section__wrapper--big">
+                <div class="container container--small">
+                    <div class="section-form__wrapper">
+                        <div class="section-form__block">
+                            <div class="section-form__header">
+                                <p class="section__title section__title--middle">
+                                    <span class="section__title section__title--middle section__title--pink">WANT TO BOOST YOUR</span>
+                                    <br>
+                                    GAMING BUSINESS?
+                                </p>
+                            </div>
+                            <div class="section-form__text">
+                                <p>
+                                    DMarket works with game developers in every phase of growth,
+                                    across genres and platforms, worldwide.
+                                </p>
+                            </div>
+                            <div class="section-form__tag">
+                                <p>
+                                    Let us help you make more from your game.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section-form__item">
+                            <form action="" class="contact-form">
+                                <div class="contact-form__wrapper">
+                                    <div class="contact-form__header">
+                                        <p class="contact-form__title">
+                                            CONTACT AN EXPERT
+
+                                        </p>
+                                        <p class="contact-form__text">
+                                            We look forward to learning about your needs!
+                                        </p>
+                                    </div>
+                                    <div class="contact-form__content">
+                                        <input type="text" placeholder="email" class="contact-form__input">
+                                        <input type="text" placeholder="название компании" class="contact-form__input">
+                                    </div>
+                                    <div class="contact-form__footer">
+                                        <a href="#" class="button button--middle button--green">create request</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="page-wrapper__footer footer">
+        <div class="footer__wrapper">
+            <div class="container">
+                <div class="footer__info">
+                    <div class="footer__nav">
+                        <div class="footer-block">
+                            <div class="footer-block__header">
+                                <p class="text text--small text--white text--bold">
+                                    Tombbox
+                                </p>
+                            </div>
+                            <div class="footer-block__content">
+                                <ul class="footer-list">
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link">FAQ</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link">About us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-block">
+                            <div class="footer-block__header">
+                                <p class="text text--small text--white text--bold">
+                                    About
+                                </p>
+                            </div>
+                            <div class="footer-block__content">
+                                <ul class="footer-list">
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link">Terms of use</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link">Privacy Policy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-block">
+                            <div class="footer-block__header">
+                                <p class="text text--small text--white text--bold">
+                                    Contact
+                                </p>
+                            </div>
+                            <div class="footer-block__content">
+                                <ul class="footer-list">
+                                    <li class="footer-list__item">
+                                        <a href="mailto:support@tombbox.com"
+                                           class="footer-list__link">support@tombbox.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer__copyright">
+                        <p class="text text--small text--medium text--grey--light">© 2023 Tombbox All rights
+                            reserved</p>
+                        <div class="logo footer__logo">
+                            <img src="assets/images/logo.png" alt="" class="logo__img">
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__row">
+                    <div class="footer__steam steam-logo">
+                        <span class="steam-logo__text">Powered by</span>
+                        <img src="assets/images/icons/steam-logo.png" alt="" class="steam-logo__img">
+                    </div>
+                    <div class="footer__social social">
+                        <ul class="social__list">
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--steam">
+                                        <use xlink:href="assets/images/sprite.svg#steam-symbol"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--telegram">
+                                        <use xlink:href="assets/images/sprite.svg#telegram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--facebook">
+                                        <use xlink:href="assets/images/sprite.svg#facebook"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--instagram">
+                                        <use xlink:href="assets/images/sprite.svg#instagram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--discord">
+                                        <use xlink:href="assets/images/sprite.svg#discord"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--twitter">
+                                        <use xlink:href="assets/images/sprite.svg#twitter"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--reddit">
+                                        <use xlink:href="assets/images/sprite.svg#reddit-alien"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--youtube">
+                                        <use xlink:href="assets/images/sprite.svg#youtube"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--tiktok">
+                                        <use xlink:href="assets/images/sprite.svg#tiktok"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__text">
+                        <p class="text text--small text--medium text--grey--dark">
+                            Tombbox is not part of Valve Corporation.
+                        </p>
+                        <p class="text text--small text--medium text--grey--dark">
+                            Tombbox Inc., adress: 1209 Orange Street, Wilmington, DE 19801
+                        </p>
+                    </div>
+                    <div class="footer__download store-download">
+                        <div class="store-download__wrapper">
+                            <a href="#" class="store-download__link">
+                                <img src="assets/images/icons/google-play.jpg" alt="" class="store-download__img">
+                            </a>
+                            <a href="#" class="store-download__link">
+                                <img src="assets/images/icons/app-store.jpg" alt="" class="store-download__img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+<script src="assets/libs/swiper/swiper.js"></script>
+<script src="assets/libs/range/range.js"></script>
+<script src="assets/scripts/index.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded',()=>{
+        const newSlider = new Swiper('.news-slider',{
+            slidesPerView:'auto',
+            spaceBetween:50,
+            pagination:{
+                el:'.news-slider__pagination'
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

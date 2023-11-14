@@ -1,0 +1,1384 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/styles/font.css">
+
+    <link rel="stylesheet" href="assets/libs/range/range.css">
+
+    <link rel="stylesheet" href="assets/styles/reset.css">
+    <link rel="stylesheet" href="assets/styles/index.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+    <header class="page-wrapper__header header">
+        <div class="header__wrapper">
+            <div class="container">
+                <div class="header__row">
+                    <div class="header__block">
+                        <div class="header__logo logo">
+                            <img src="assets/images/logo.png" alt="" class="logo__img">
+                        </div>
+                        <div class="header__nav nav">
+                            <div class="nav__block header__info">
+                                <div class="header__language">
+                                    <div class="language-select js-toggle-wrapper">
+                                        <div class="language-select__current js-toggle-link language-select__item">en
+                                        </div>
+                                        <div class="language-select__content js-toggle-block">
+                                            <a href="#" class="language-select__item">en</a>
+                                            <a href="#" class="language-select__item">ru</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header__balance balance-label">
+                                    <a href="#" data-popup=".popup-balance" class="balance-label__wrapper">
+                                        <svg class="balance-label__icon">
+                                            <use xlink:href="assets/images/sprite.svg#balance"></use>
+                                        </svg>
+                                        <span>$950.23</span>
+                                    </a>
+                                </div>
+                                <div class="header__notification notification js-toggle-wrapper">
+                                    <div class="notification__icon notification__icon--new js-toggle-link">
+                                        <svg class="icon icon--full">
+                                            <use xlink:href="assets/images/sprite.svg#bell"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="notification__content notification-list js-toggle-block">
+                                        <div class="notification-list__wrapper">
+                                            <div class="notification-item notification-item--success">
+                                                <p class="text text--base text--bold text--white">Обмен успешно
+                                                    завершён</p>
+                                                <p class="text text--small text--medium text--grey">Действие произведено
+                                                    с
+                                                    гарантией платформы </p>
+                                            </div>
+                                            <div class="notification-item notification-item--success">
+                                                <p class="text text--base text--bold text--white">Обмен успешно
+                                                    завершён</p>
+                                                <p class="text text--small text--medium text--grey">Действие произведено
+                                                    с
+                                                    гарантией платформы </p>
+                                            </div>
+                                            <div class="notification-item notification-item--success">
+                                                <p class="text text--base text--bold text--white">Обмен успешно
+                                                    завершён</p>
+                                                <p class="text text--small text--medium text--grey">Действие произведено
+                                                    с
+                                                    гарантией платформы </p>
+                                            </div>
+                                            <div class="notification-item notification-item--success">
+                                                <p class="text text--base text--bold text--white">Обмен успешно
+                                                    завершён</p>
+                                                <p class="text text--small text--medium text--grey">Действие произведено
+                                                    с
+                                                    гарантией платформы </p>
+                                            </div>
+                                            <div class="notification-item notification-item--success">
+                                                <p class="text text--base text--bold text--white">Обмен успешно
+                                                    завершён</p>
+                                                <p class="text text--small text--medium text--grey">Действие произведено
+                                                    с
+                                                    гарантией платформы </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="nav__block header__profile profile-card">
+                                <div class="profile-card__header">
+                                    <div class="profile-card__img">
+                                        <img src="assets/images/profile.jpg" alt="">
+                                    </div>
+                                    <div class="profile-card__content">
+                                        <p class="profile-card__name">Dreamer Dreamer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="nav__list">
+                                <li class="nav__item">
+                                    <a href="#" class="nav__link">
+                                        <svg class="nav__icon">
+                                            <use xlink:href="assets/images/sprite.svg#market"></use>
+                                        </svg>
+                                        market
+                                    </a>
+                                </li>
+                                <li class="nav__item">
+                                    <a href="#" class="nav__link">
+                                        <svg class="nav__icon">
+                                            <use xlink:href="assets/images/sprite.svg#trade"></use>
+                                        </svg>
+                                        trade
+                                    </a>
+                                </li>
+                                <li class="nav__item">
+                                    <a href="#" class="nav__link">
+                                        <svg class="nav__icon">
+                                            <use xlink:href="assets/images/sprite.svg#inventory"></use>
+                                        </svg>
+                                        inventory
+                                    </a>
+                                </li>
+                                <li class="nav__item">
+                                    <a href="#" class="nav__link">
+                                        <img src="assets/images/icons/random-box.png" alt="" class="nav__icon">
+                                        random box
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header__burger">
+                            <div class="burger">
+                                <div class="burger__wrapper">
+                                    <div class="burger__item"></div>
+                                    <div class="burger__item"></div>
+                                    <div class="burger__item"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__block header__block--desktop">
+                        <div class="header__notification notification js-toggle-wrapper">
+                            <div class="notification__icon notification__icon--new js-toggle-link">
+                                <svg class="icon icon--full">
+                                    <use xlink:href="assets/images/sprite.svg#bell"></use>
+                                </svg>
+                            </div>
+                            <div class="notification__content notification-list js-toggle-block">
+                                <div class="notification-list__wrapper">
+                                    <div class="notification-item notification-item--success">
+                                        <p class="text text--base text--bold text--white">Обмен успешно завершён</p>
+                                        <p class="text text--small text--medium text--grey">Действие произведено с
+                                            гарантией платформы </p>
+                                    </div>
+                                    <div class="notification-item notification-item--success">
+                                        <p class="text text--base text--bold text--white">Обмен успешно завершён</p>
+                                        <p class="text text--small text--medium text--grey">Действие произведено с
+                                            гарантией платформы </p>
+                                    </div>
+                                    <div class="notification-item notification-item--success">
+                                        <p class="text text--base text--bold text--white">Обмен успешно завершён</p>
+                                        <p class="text text--small text--medium text--grey">Действие произведено с
+                                            гарантией платформы </p>
+                                    </div>
+                                    <div class="notification-item notification-item--success">
+                                        <p class="text text--base text--bold text--white">Обмен успешно завершён</p>
+                                        <p class="text text--small text--medium text--grey">Действие произведено с
+                                            гарантией платформы </p>
+                                    </div>
+                                    <div class="notification-item notification-item--success">
+                                        <p class="text text--base text--bold text--white">Обмен успешно завершён</p>
+                                        <p class="text text--small text--medium text--grey">Действие произведено с
+                                            гарантией платформы </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header__info">
+                            <div class="header__language">
+                                <div class="language-select js-toggle-wrapper">
+                                    <div class="language-select__current js-toggle-link language-select__item">en</div>
+                                    <div class="language-select__content js-toggle-block">
+                                        <a href="#" class="language-select__item">en</a>
+                                        <a href="#" class="language-select__item">ru</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header__balance balance-label">
+                                <a href="#" data-popup=".popup-balance" class="balance-label__wrapper">
+                                    <svg class="balance-label__icon">
+                                        <use xlink:href="assets/images/sprite.svg#balance"></use>
+                                    </svg>
+                                    <span>$950.23</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header__profile profile-card">
+                            <a href="#" data-popup=".popup-account" class="profile-card__header">
+                                <div class="profile-card__img">
+                                    <img src="assets/images/profile.jpg" alt="">
+                                </div>
+                                <div class="profile-card__content">
+                                    <p class="profile-card__name">Dreamer Dreamer</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="page-wrapper__content content">
+        <div class="content__wrapper">
+            <div class="loader">
+                <svg class="loader-img" width="175" height="175" viewBox="0 0 175 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="loader-img__item" x="121" y="150" width="14" height="14" rx="7" />
+                    <rect class="loader-img__item" x="81" y="156" width="14" height="19" rx="7" />
+                    <rect class="loader-img__item" x="49.7837" y="166.439" width="13.6067" height="24.828" rx="6.80333" transform="rotate(-150 49.7837 166.439)" />
+                    <rect class="loader-img__item" x="15.1139" y="136.827" width="14" height="31.4044" rx="7" transform="rotate(-120 15.1139 136.827)" />
+                    <rect class="loader-img__item" y="94" width="14" height="35" rx="7" transform="rotate(-90 0 94)" />
+                    <rect class="loader-img__item" x="8.58232" y="49.7234" width="13.8437" height="41.5311" rx="6.92185" transform="rotate(-60 8.58232 49.7234)" />
+                    <rect class="loader-img__item" x="38" y="15.5" width="15" height="45" rx="7.5" transform="rotate(-30 38 15.5)" />
+                    <rect class="loader-img__item" x="80" width="15" height="45" rx="7.5" />
+                    <rect class="loader-img__item" x="124.5" y="8" width="15" height="45" rx="7.5" transform="rotate(30 124.5 8)" />
+                    <rect class="loader-img__item" x="158.971" y="38" width="15" height="45" rx="7.5" transform="rotate(60 158.971 38)" />
+                    <rect class="loader-img__item" x="175" y="79" width="15" height="45" rx="7.5" transform="rotate(90 175 79)" />
+                </svg>
+                <img src="assets/images/loader-logo.png" alt="" class="loader-logo">
+            </div>
+        </div>
+    </main>
+    <footer class="page-wrapper__footer footer">
+        <div class="footer__wrapper">
+            <div class="container">
+                <div class="footer__info">
+                    <div class="footer__nav">
+                        <div class="footer-block">
+                            <div class="footer-block__header">
+                                <p class="text text--small text--white text--bold">
+                                    Tombbox
+                                </p>
+                            </div>
+                            <div class="footer-block__content">
+                                <ul class="footer-list">
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link">FAQ</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link">About us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-block">
+                            <div class="footer-block__header">
+                                <p class="text text--small text--white text--bold">
+                                    About
+                                </p>
+                            </div>
+                            <div class="footer-block__content">
+                                <ul class="footer-list">
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link">Terms of use</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link">Privacy Policy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-block">
+                            <div class="footer-block__header">
+                                <p class="text text--small text--white text--bold">
+                                    Contact
+                                </p>
+                            </div>
+                            <div class="footer-block__content">
+                                <ul class="footer-list">
+                                    <li class="footer-list__item">
+                                        <a href="mailto:support@tombbox.com" class="footer-list__link">support@tombbox.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer__copyright">
+                        <p class="text text--small text--medium text--grey--light">© 2023 Tombbox All rights
+                            reserved</p>
+                        <div class="logo footer__logo">
+                            <img src="assets/images/logo.png" alt="" class="logo__img">
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__row">
+                    <div class="footer__steam steam-logo">
+                        <span class="steam-logo__text">Powered by</span>
+                        <img src="assets/images/icons/steam-logo.png" alt="" class="steam-logo__img">
+                    </div>
+                    <div class="footer__social social">
+                        <ul class="social__list">
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--steam">
+                                        <use xlink:href="assets/images/sprite.svg#steam-symbol"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--telegram">
+                                        <use xlink:href="assets/images/sprite.svg#telegram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--facebook">
+                                        <use xlink:href="assets/images/sprite.svg#facebook"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--instagram">
+                                        <use xlink:href="assets/images/sprite.svg#instagram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--discord">
+                                        <use xlink:href="assets/images/sprite.svg#discord"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--twitter">
+                                        <use xlink:href="assets/images/sprite.svg#twitter"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--reddit">
+                                        <use xlink:href="assets/images/sprite.svg#reddit-alien"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--youtube">
+                                        <use xlink:href="assets/images/sprite.svg#youtube"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="social__item">
+                                <a href="#" class="social__link">
+                                    <svg class="icon icon--full icon--tiktok">
+                                        <use xlink:href="assets/images/sprite.svg#tiktok"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__text">
+                        <p class="text text--small text--medium text--grey--dark">
+                            Tombbox is not part of Valve Corporation.
+                        </p>
+                        <p class="text text--small text--medium text--grey--dark">
+                            Tombbox Inc., adress: 1209 Orange Street, Wilmington, DE 19801
+                        </p>
+                    </div>
+                    <div class="footer__download store-download">
+                        <div class="store-download__wrapper">
+                            <a href="#" class="store-download__link">
+                                <img src="assets/images/icons/google-play.jpg" alt="" class="store-download__img">
+                            </a>
+                            <a href="#" class="store-download__link">
+                                <img src="assets/images/icons/app-store.jpg" alt="" class="store-download__img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="popup popup-register">
+    <div class="popup__wrapper">
+        <div class="popup__container login">
+            <div class="popup-close popup__close popup__close--absolute"></div>
+            <div class="login__wrapper">
+                <div class="login__header">
+                    <div class="login__logo logo">
+                        <img src="assets/images/logo.png" alt="" class="logo__img">
+                    </div>
+                    <a href="" class="login-steam">
+                        <svg class="login-steam__icon">
+                            <use xlink:href="assets/images/sprite.svg#steam-empty"></use>
+                        </svg>
+                        Continue via Steam
+                        <span class="login-steam__button"></span>
+                    </a>
+                </div>
+                <form action="#" class="login__form login-form">
+                    <div class="login-form__header">
+                        <p class="login-form__title">Creating an account</p>
+                        <p class="login-form__text">Please fill in all the required fields</p>
+                    </div>
+                    <div class="login-form__content">
+                        <label class="login-input">
+                            <input type="text" class="login-input__item " placeholder="Come up with a login">
+                        </label>
+                        <label class="login-input">
+                            <input type="email" class="login-input__item " required
+                                   data-error="You entered incorrect data" placeholder="Enter your email">
+                        </label>
+                        <label class="login-input">
+                            <input type="text" class="login-input__item " placeholder="Come up with a password">
+                        </label>
+                        <label class="login-input">
+                            <input type="text" class="login-input__item " placeholder="Confirm your password">
+                        </label>
+                    </div>
+                    <div class="login-form__checkbox">
+                        <label class="login-checkbox">
+                            <input type="checkbox" class="login-checkbox__item">
+                            <span class="login-checkbox__checkmark"></span>
+                            <span class="login-checkbox__text">I have read and accepted the <a href="#">Terms of Use</a> and <a
+                                    href="#">Privacy Policy</a></span>
+                        </label>
+                    </div>
+                    <div class="login-form__button">
+                        <input type="submit" value="Registration"
+                               class="button button--base button--purple button--full">
+                    </div>
+                    <div class="login-form__footer">
+                        <a href="#" class="text text--small text--white text--medium">Do you have an account? <span
+                                class="text text--small text--green text--medium">Log in ›</span></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-balance">
+    <div class="popup__wrapper">
+        <div class="popup__container balance">
+            <div class="balance__header">
+                <div class="balance-title">
+                    <svg class="balance-title__icon">
+                        <use xlink:href="assets/images/sprite.svg#balance"></use>
+                    </svg>
+                    <p class="title title--base title--white">Balance</p>
+                </div>
+                <div class="balance__count">
+                    <div class="language-select js-toggle-wrapper">
+                        <div class="language-select__current js-toggle-link language-select__item language-select__item--grey">
+                            en
+                        </div>
+                        <div class="language-select__content js-toggle-block">
+                            <a href="#" class="language-select__item language-select__item--grey">en</a>
+                            <a href="#" class="language-select__item language-select__item--grey">ru</a>
+                        </div>
+                    </div>
+                    <div class="balance-label">
+                        <a href="#" class="balance-label__wrapper balance-label__wrapper--grey">
+                            <span>$950.23</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="popup-close popup__close"></div>
+            </div>
+            <div class="balance__wrapper">
+                <div class="balance-status">
+                    <div class="balance-status__wrapper">
+                        <img src="assets/images/balance/person.png" alt="" class="balance-status__img">
+                        <div class="balance-status__content">
+                            <p class="text text--white text--middle text--bold">Passport control</p>
+                            <p class="balance-status__text text text--small text--medium text--uppercase">
+                                Not started
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="balance-status">
+                    <div class="balance-status__wrapper">
+                        <img src="assets/images/balance/ping.png" alt="" class="balance-status__img">
+                        <div class="balance-status__content">
+                            <p class="text text--white text--middle text--bold">Address verification</p>
+                            <p class="balance-status__text text text--small text--medium text--uppercase">
+                                Not started
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="balance-total">
+                    <div class="balance-total__wrapper">
+                        <div class="balance-total__block">
+                            <p class="balance-total__text text text--middle text--medium text--uppercase">total
+                                balance</p>
+                            <p class="balance-total__price">$978.36</p>
+                        </div>
+                        <div class="balance-total__block">
+                            <p class="balance-total__text text text--middle text--medium text--uppercase">
+                                WITHDRAWABLE</p>
+                            <p class="balance-total__price balance-total__price--small balance-total__price--white">
+                                $20.17</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="button button--base button--full button--green">deposit</a>
+                <a href="#" class="button button--base button--full button--blue">withdraw</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-balance-deposit">
+    <div class="popup__wrapper">
+        <div class="popup__container balance">
+            <div class="balance__header">
+                <div class="balance-title">
+                    <svg class="balance-title__icon">
+                        <use xlink:href="assets/images/sprite.svg#balance"></use>
+                    </svg>
+                    <p class="title title--base title--white">Balance</p>
+                </div>
+                <div class="balance__count">
+                    <div class="language-select js-toggle-wrapper">
+                        <div class="language-select__current js-toggle-link language-select__item language-select__item--grey">
+                            en
+                        </div>
+                        <div class="language-select__content js-toggle-block">
+                            <a href="#" class="language-select__item language-select__item--grey">en</a>
+                            <a href="#" class="language-select__item language-select__item--grey">ru</a>
+                        </div>
+                    </div>
+                    <div class="balance-label">
+                        <a href="#" class="balance-label__wrapper balance-label__wrapper--grey">
+                            <span>$950.23</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="popup-close popup__close"></div>
+            </div>
+            <div class="balance__wrapper">
+                <div class="balance-status">
+                    <div class="balance-status__wrapper">
+                        <img src="assets/images/balance/person.png" alt="" class="balance-status__img">
+                        <div class="balance-status__content">
+                            <p class="text text--white text--middle text--bold">Passport control</p>
+                            <p class="balance-status__text text text--small text--medium text--uppercase">
+                                Not started
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="balance-status">
+                    <div class="balance-status__wrapper">
+                        <img src="assets/images/balance/ping.png" alt="" class="balance-status__img">
+                        <div class="balance-status__content">
+                            <p class="text text--white text--middle text--bold">Address verification</p>
+                            <p class="balance-status__text text text--small text--medium text--uppercase">
+                                Not started
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="balance-total">
+                    <div class="balance-total__wrapper">
+                        <div class="balance-total__block">
+                            <p class="balance-total__text text text--middle text--medium text--uppercase">total
+                                balance</p>
+                            <p class="balance-total__price">$978.36</p>
+                        </div>
+                        <div class="balance-total__block">
+                            <p class="balance-total__text text text--middle text--medium text--uppercase">
+                                WITHDRAWABLE</p>
+                            <p class="balance-total__price balance-total__price--small balance-total__price--white">
+                                $20.17</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="button button--base button--full button--green">deposit</a>
+                <a href="#" class="button button--base button--full button--blue">withdraw</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-history">
+    <div class="popup__wrapper tabs">
+        <div class="popup__container popup__container--history history">
+            <div class="popup__close popup__close--absolute popup-close"></div>
+            <div class="history__header">
+                <div class="history-tabs">
+                    <div class="history-tabs__wrapper">
+                        <a href="#" class="history-tabs__link tabs__link">Транзакции</a>
+                        <a href="#" class="history-tabs__link tabs__link">История</a>
+                    </div>
+                </div>
+            </div>
+            <div class="history__content">
+                <div class="tabs__content">
+                    <div class="history-table">
+                        <div class="history-table__header">
+                            <div class="history-table__row">
+                                <div class="history-table__column">
+                                    <p class="history-table__title">
+                                        Сумма
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__title">
+                                        Дата
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__title">
+                                        Время
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__title">
+                                        Статус
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-table__content">
+                            <div class="history-table__row">
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        $500
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        23.05.19
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        15.30
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text history-table__text--green">
+                                        Confirmed
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="history-table__row">
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        $500
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        23.05.19
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        15.30
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text history-table__text--green">
+                                        Confirmed
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="history-table__row">
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        $500
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        23.05.19
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        15.30
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text history-table__text--green">
+                                        Confirmed
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="history-table__row">
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        $500
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        23.05.19
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        15.30
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text history-table__text--green">
+                                        Confirmed
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs__content">
+                    <div class="history-table">
+                        <div class="history-table__header">
+                            <div class="history-table__row">
+                                <div class="history-table__column">
+                                    <p class="history-table__title">
+                                        Сумма
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__title">
+                                        Дата
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__title">
+                                        Время
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__title">
+                                        Тип операции
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__title">
+                                        Статус
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-table__content">
+                            <div class="history-table__row">
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        $500
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        23.05.19
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        15.30
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        Пополнение
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text history-table__text--green">
+                                        Confirmed
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="history-table__row">
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        $500
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        23.05.19
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        15.30
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        Вывод
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text history-table__text--green">
+                                        Confirmed
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="history-table__row">
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        $500
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        23.05.19
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        15.30
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        Пополнение
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text history-table__text--green">
+                                        Confirmed
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="history-table__row">
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        $500
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        23.05.19
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        15.30
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text">
+                                        Пополнение
+                                    </p>
+                                </div>
+                                <div class="history-table__column">
+                                    <p class="history-table__text history-table__text--green">
+                                        Confirmed
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-partners">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--partners partners">
+            <div class="popup__close popup__close--absolute popup-close"></div>
+            <div class="partners__wrapper">
+                <div class="partners__header">
+                    <p class="partners__title">
+                        Настройте свою партнёрскую программу <span>Tombbox</span>
+                    </p>
+                </div>
+                <div class="partners__content">
+                    <p class="text text--base text--white">
+                        Расскажите о нас своим друзьям и получайте свою долю дохода на Tombbox.
+                    </p>
+                    <ul>
+                        <li class="text text--base text--white">
+                            • Присоединяйтесь к нашей партнерской программе и получите свою уникальную партнерскую ссылку
+                        </li>
+                        <li class="text text--base text--white">
+                            • Поделитесь ссылкой с друзьями и подписчиками
+                        </li>
+                        <li class="text text--base text--white">
+                            • Зарабатывайте деньги с каждой сделки, совершенной пользователями, перешедшими по вашей ссылке
+                        </li>
+                    </ul>
+                    <p class="text text--base text--white">
+                        Обратите внимание: партнерская система не применяется к сделкам, включающим товары высокого спроса со сниженной комиссией.
+                    </p>
+                </div>
+                <div class="partners__grid">
+                    <div class="partners-item">
+                        <div class="partners-item__wrapper">
+                            <p class="partners-item__title">
+                                Партнёрская программа:
+                                <span>Выключена</span>
+                            </p>
+                            <p class="partners-item__text">
+                                Когда программа включена, вы получаете 20% дохода
+                                Tombbox от каждой покупки и продажи, совершенной
+                                пользователями, перешедшими по вашей
+                                партнерской ссылке.
+                            </p>
+                            <label class="partners-checkbox">
+                                <input type="checkbox" class="partners-checkbox__input">
+                                <span class="partners-checkbox__checkmark"></span>
+                                <span class="partners-checkbox__text">
+                                    Я принимаю
+                                    <a href="#">Условия пользования</a>
+                                </span>
+                            </label>
+                            <div class="partners-item__footer">
+                                <a href="" class="button button--full button--small button--purple--dark">
+                                    ВКЛЮЧИТЬ
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="partners-item">
+                        <div class="partners-item__wrapper">
+                            <p class="partners-item__title">
+                                Вопросы по партнёрской программе
+                            </p>
+                            <p class="partners-item__text">
+                                Возник вопрос? Просмотрите FAQ с наиболее часто
+                                задаваемыми вопросами.
+                            </p>
+                            <ul>
+                                <li class="partners-item__text">
+                                    • Как пользоваться партнерской программой?
+                                </li>
+                                <li class="partners-item__text">
+                                    • Как рассчитывается партнерский бонус?
+                                </li>
+                                <li class="partners-item__text">
+                                    • Где посмотреть выигранную сумму?.
+                                </li>
+                            </ul>
+                            <div class="partners-item__footer">
+                                <a href="" class="button button--full button--small button--grey">
+                                    УЗНАТЬ БОЛЬШЕ
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-account">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--big account">
+            <div class="popup__close popup__close--absolute popup-close"></div>
+            <div class="account__wrapper tabs">
+                <div class="account__aside">
+                    <div class="tabs-nav account-nav">
+                        <ul class="account-nav__list tabs-nav__list">
+                            <li class="account-nav__item tabs-nav__item">
+                                <a href="#" class="account-nav__link active tabs__link">
+                                    <svg class="account-nav__icon">
+                                        <use xlink:href="assets/images/sprite.svg#profile"></use>
+                                    </svg>
+                                    Профиль
+                                </a>
+                            </li>
+                            <li class="account-nav__item tabs-nav__item">
+                                <a href="#" class="account-nav__link tabs__link">
+                                    <svg class="account-nav__icon">
+                                        <use xlink:href="assets/images/sprite.svg#lock"></use>
+                                    </svg>
+                                    2FA
+                                </a>
+                            </li>
+                            <li class="account-nav__item tabs-nav__item">
+                                <a href="#" class="account-nav__link tabs__link">
+                                    <svg class="account-nav__icon">
+                                        <use xlink:href="assets/images/sprite.svg#steam-empty"></use>
+                                    </svg>
+                                    Steam аккаунт
+                                </a>
+                            </li>
+                            <li class="account-nav__item tabs-nav__item">
+                                <a href="#" class="account-nav__link tabs__link">
+                                    <svg class="account-nav__icon">
+                                        <use xlink:href="assets/images/sprite.svg#twitch"></use>
+                                    </svg>
+                                    Twitch аккаунт
+                                </a>
+                            </li>
+                            <li class="account-nav__item tabs-nav__item">
+                                <a href="#" class="account-nav__link tabs__link">
+                                    <svg class="account-nav__icon">
+                                        <use xlink:href="assets/images/sprite.svg#api"></use>
+                                    </svg>
+                                    Торговый API
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="account__content">
+                    <div class="tabs__content account-content">
+                        <div class="account-content__wrapper">
+                            <div class="account-block">
+                                <p class="account__title">
+                                    Настройка профиля
+                                </p>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__header">
+                                    <p class="account-block__title">
+                                        Аватар профиля
+                                    </p>
+                                </div>
+                                <div class="account-block__content">
+                                    <div class="account-avatar">
+                                        <div class="account-avatar__wrapper">
+                                            <div class="account-avatar__img">
+                                                <img src="assets/images/profile.jpg" alt="">
+                                            </div>
+                                            <div class="account-avatar__content">
+                                                <div class="account-avatar__text">
+                                                    <p>
+                                                        Мы рекомендуем использовать изображения не менее 300х300.
+                                                    </p>
+                                                    <p>
+                                                        Можно использовать гифки. Максимальный размер файла 5Мб.
+                                                    </p>
+                                                </div>
+                                                <label class="avatar-file">
+                                                    <input type="file" class="avatar-file__input">
+                                                    <span class="avatar-file__checkmark">
+                                                <svg class="avatar-file__icon">
+                                                    <use xlink:href="assets/images/sprite.svg#download-solid"></use>
+                                                </svg>
+                                                <span class="avatar-file__text">
+                                                    Загрузить файл
+                                                </span>
+                                            </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__header">
+                                    <label for="account-email" class="account-block__title">
+                                        Ваш e-mail
+                                    </label>
+                                </div>
+                                <div class="account-block__content">
+                                    <div class="account-input">
+                                        <div class="account-input__wrapper js-account-wrapper">
+                                            <input id="account-email" type="text" disabled
+                                                   class="account-input__item js-account-input"
+                                                   value="Geoslider@gmail.com">
+                                            <a href="#" class="account-input__button js-account-button">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite.svg#pencil"></use>
+                                                </svg>
+                                                Изменить
+                                            </a>
+                                        </div>
+                                        <div class="account-input__content">
+                                            <label class="form-input account-input__block account-input__block--full">
+                                                <input type="text" name="" id="" class="form-input__item"
+                                                       placeholder="Введите новый e-mail">
+                                            </label>
+                                            <a href="#"
+                                               class="account-input__block button button--small button--purple button--normal">
+                                                Отправить код подтверждения
+                                            </a>
+                                            <label class="form-input account-input__block">
+                                                <input type="text" name="" id="" class="form-input__item"
+                                                       placeholder="Введите код подтверждения">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__header">
+                                    <label for="account-email" class="account-block__title">
+                                        Изменение пароля
+                                    </label>
+                                </div>
+                                <div class="account-block__content">
+                                    <div class="account-input">
+                                        <div class="account-input__wrapper js-account-wrapper">
+                                            <input id="account-password" type="password" disabled
+                                                   class="account-input__item js-account-input"
+                                                   value="Geoslider@gmail.com">
+                                            <a href="#" class="account-input__button js-account-button">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite.svg#pencil"></use>
+                                                </svg>
+                                                Изменить
+                                            </a>
+                                        </div>
+                                        <div class="account-input__content">
+                                            <label class="form-input account-input__block account-input__block--full">
+                                                <input type="text" name="" id="" class="form-input__item"
+                                                       placeholder="Введите старый пароль">
+                                            </label>
+                                            <label class="form-input account-input__block">
+                                                <input type="text" name="" id="" class="form-input__item"
+                                                       placeholder="Введите новый пароль">
+                                            </label>
+                                            <label class="form-input account-input__block">
+                                                <input type="text" name="" id="" class="form-input__item"
+                                                       placeholder="Подтвердите новый пароль">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__header">
+                                    <label for="account-language" class="account-block__title">
+                                        Ваш язык
+                                    </label>
+                                </div>
+                                <div class="account-block__content">
+                                    <div class="account-input account-select">
+                                        <div class="account-select__wrapper">
+                                            <div class="select custom-select">
+                                                <select name="" id="account-language">
+                                                    <option value="">
+                                                        RU
+                                                    </option>
+                                                    <option value="">
+                                                        ENG
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__header">
+                                    <label for="account-wallet" class="account-block__title">
+                                        Ваша валюта
+                                    </label>
+                                </div>
+                                <div class="account-block__content">
+                                    <div class="account-input account-select">
+                                        <div class="account-select__wrapper">
+                                            <div class="select custom-select">
+                                                <select name="" id="account-wallet">
+                                                    <option value="">
+                                                        USD
+                                                    </option>
+                                                    <option value="">
+                                                        RUB
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="account-block__footer">
+                                    <div class="account-notice">
+                                        <div class="account-notice__wrapper">
+                                            <span class="account-notice__icon"></span>
+                                            <p class="account-notice__text">
+                                                Обратите внимание: курсы валют, отличные от долларов США, основаны на
+                                                данных, рассчёт которых
+                                                доступен по <a href="#">этой ссылке</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__row">
+                                    <a href="#" class="button button--base button--normal button--purple">
+                                        <svg class="button__icon button__icon--white">
+                                            <use xlink:href="assets/images/sprite.svg#check"></use>
+                                        </svg>
+                                        Сохранить изменения
+                                    </a>
+                                    <a href="#" class="account-block__delete">Удалить аккаунт</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabs__content account-content">
+                        <div class="account-content__wrapper">
+                            <div class="account-block">
+                                <p class="account__title">
+                                    Двухфакторная аутентификация
+                                </p>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__wrapper">
+                                    <p class="text text--big text--medium text--white">
+                                        С двухфакторной аутентификацией вы <span
+                                            class="text text--big text--medium text--green">дополнительно защищаете свой аккаунт</span>
+                                    </p>
+                                    <a href="#" class="button button--base button--green button--normal">Включить
+                                        2FA</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabs__content account-content">
+                        <div class="account-content__wrapper">
+                            <div class="account-block">
+                                <p class="account__title">
+                                    Twitch аккаунт
+                                </p>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__wrapper">
+                                    <p class="text text--base text--medium text--light">
+                                        Вы можете подключить свою учетную запись <span
+                                            class="text text--base text--medium text--purple">Twitch</span> к своей
+                                        учётной записи <span
+                                            class="text text--base text--medium text--white">Tombox</span>.
+                                        <br>
+                                        Нажмите на кнопку ниже и войдите в Twitch.
+                                    </p>
+                                    <p class="text text--base text--medium text--light">
+                                        После успешного подключения вы сможете войти в Tombbox через свою учётную
+                                        запись на Twitch.
+                                    </p>
+                                    <a href="#" class="button button--base button--twitch button--normal">
+                                        <svg class="button__icon button__icon--white">
+                                            <use xlink:href="assets/images/sprite.svg#twitch"></use>
+                                        </svg>
+                                        Подключить аккаунт Twitch
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabs__content account-content">
+                        <div class="account-content__wrapper">
+                            <div class="account-block">
+                                <p class="account__title">
+                                    Twitch аккаунт
+                                </p>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__wrapper">
+                                    <p class="text text--base text--medium text--light">
+                                        Вы можете подключить свою учетную запись <span
+                                            class="text text--base text--medium text--purple">Twitch</span> к своей
+                                        учётной записи <span
+                                            class="text text--base text--medium text--white">Tombox</span>.
+                                        <br>
+                                        Нажмите на кнопку ниже и войдите в Twitch.
+                                    </p>
+                                    <p class="text text--base text--medium text--light">
+                                        После успешного подключения вы сможете войти в Tombbox через свою учётную
+                                        запись на Twitch.
+                                    </p>
+                                    <a href="#" class="button button--base button--twitch button--normal">
+                                        <svg class="button__icon button__icon--white">
+                                            <use xlink:href="assets/images/sprite.svg#twitch"></use>
+                                        </svg>
+                                        Подключить аккаунт Twitch
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabs__content account-content">
+                        <div class="account-content__wrapper">
+                            <div class="account-block">
+                                <p class="account__title">
+                                    Торговый API
+                                </p>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__wrapper">
+                                    <div class="form-input">
+                                        <a href="#"
+                                           class="form-input__item form-input__item--more form-input__item--orange">Документация
+                                            API</a>
+                                    </div>
+                                    <p class="text text--base text--medium text--light">
+                                        Используйте Tombbox API для оптимизации и автоматизации торговли в Steam. <br>
+                                        Создайте свою уникальную пару ключей API для беспроблемной аутентицикации и
+                                        доступа.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__header">
+                                    <p class="account-block__title">
+                                        ОТКРЫТЫЙ КЛЮЧ
+                                    </p>
+                                </div>
+                                <div class="account-block__wrapper">
+                                    <label class="form-input ">
+                                        <input type="text" disabled name="" id="" class="form-input__item"
+                                               value="LNI7ov86Oviov6o98B9n8975V75b8v7BBN87v78547B58n86v6o98B9n8">
+                                        <span class="form-input__icon">
+                                            <svg class="icon">
+                                                <use xlink:href="assets/images/sprite.svg#copy"></use>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                    <p class="text text--base text--medium text--light">
+                                        Публичный API ключ используется для идентификации вашей учетной записи API. <br>
+                                        You can find and copy it on this page at any time.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="account-block">
+                                <div class="account-block__header">
+                                    <p class="account-block__title">
+                                        ЗАКРЫТЫЙ КЛЮЧ
+                                    </p>
+                                </div>
+                                <div class="account-block__wrapper">
+                                    <label class="form-input ">
+                                        <span class="form-input__password js-password-wrapper">
+                                            <input type="password" disabled name="" id=""
+                                                   class="form-input__item js-password-input"
+                                                   value="LNI7ov86Oviov6o98B9n8975V75b8v7BBN87v78547B58n86v6o98B9n8">
+                                            <svg class="icon js-password-link">
+                                                <use xlink:href="assets/images/sprite.svg#eye-regular"></use>
+                                            </svg>
+                                        </span>
+                                        <span class="form-input__icon">
+                                            <svg class="icon">
+                                                <use xlink:href="assets/images/sprite.svg#copy"></use>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                    <p class="text text--base text--medium text--light">
+                                        Закрытый ключ API используется для подписи ваших запросов API.
+                                        Скопируйте его и храните в надёжном месте.
+                                    </p>
+                                    <p class="text text--base text--medium text--orange">
+                                        Ваш закрытый ключ API больше не будет отображаться после того, как вы покините
+                                        эту
+                                        страницу.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/libs/range/range.js"></script>
+<script src="assets/scripts/index.js"></script>
+
+</body>
+</html>
