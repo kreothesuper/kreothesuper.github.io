@@ -296,21 +296,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 productFilter.classList.remove('product__filter--active');
                 filterButton.classList.remove('filter-button--active');
             }
-        })
-
-        filterButton.addEventListener('click',(e)=>{
-           e.preventDefault();
-
-           productFilter.classList.toggle('product__filter--active');
-           filterButton.classList.toggle('filter-button--active')
         });
 
-        filterClose.addEventListener('click',(e)=>{
-            e.preventDefault();
+        if(filterButton){
+            filterButton.addEventListener('click',(e)=>{
+                e.preventDefault();
 
-            productFilter.classList.remove('product__filter--active');
-            filterButton.classList.remove('filter-button--active');
-        });
+                productFilter.classList.toggle('product__filter--active');
+                filterButton.classList.toggle('filter-button--active')
+            });
+        }
+
+        if(filterClose){
+            filterClose.addEventListener('click',(e)=>{
+                e.preventDefault();
+
+                productFilter.classList.remove('product__filter--active');
+                filterButton.classList.remove('filter-button--active');
+            });
+        }
     }
 
 
@@ -380,5 +384,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 rangeSliderElement.value([rangeInputMin.value, rangeInputMax.value])
             });
         });
+    }
+
+
+    const horizontalScrollElementArray = document.querySelectorAll('.js-horizontal-scroll');
+
+    if(horizontalScrollElementArray.length){
+        horizontalScrollElementArray.forEach(element=>{
+            element.addEventListener('wheel',(evt)=>{
+                evt.preventDefault();
+                element.scrollLeft += evt.deltaY;
+            },{passive:true})
+        })
     }
 });
