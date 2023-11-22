@@ -281,13 +281,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const productFilter = document.querySelector('.product__filter');
 
+    const headerHeight = document.querySelector('.header').getBoundingClientRect().height,
+        footerHeight = document.querySelector('.footer').getBoundingClientRect().height;
+
+    document.body.style.setProperty('--header-height', `${headerHeight}px`);
+    document.body.style.setProperty('--footer-height', `${footerHeight}px`);
+
+
     if (productFilter) {
-        const headerHeight = document.querySelector('.header').getBoundingClientRect().height,
-            footerHeight = document.querySelector('.footer').getBoundingClientRect().height;
-
-        document.body.style.setProperty('--header-height', `${headerHeight}px`);
-        document.body.style.setProperty('--footer-height', `${footerHeight}px`);
-
         const filterButton = document.querySelector('.filter-button'),
             filterClose = document.querySelector('.filter__close');
 
@@ -395,6 +396,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 evt.preventDefault();
                 element.scrollLeft += evt.deltaY;
             },{passive:true})
+        })
+    }
+
+    const jsSpinButton = document.querySelector('.js-spin-button'),
+        jsSpinImg = document.querySelector('.js-spin-img');
+
+    if(jsSpinImg && jsSpinButton){
+        jsSpinButton.addEventListener('click',(e)=>{
+            e.preventDefault();
+
+            jsSpinImg.classList.add('js-spin-img--animated');
         })
     }
 });
