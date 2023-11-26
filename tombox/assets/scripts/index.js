@@ -399,14 +399,14 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    const jsSpinButton = document.querySelector('.js-spin-button'),
-        jsSpinImg = document.querySelector('.js-spin-img');
+    const jsBoxButton = document.querySelector('.js-box-button'),
+        jsBox = document.querySelector('.js-box');
 
-    if(jsSpinImg && jsSpinButton){
-        jsSpinButton.addEventListener('click',(e)=>{
+    if(jsBox && jsBoxButton){
+        jsBoxButton.addEventListener('click',(e)=>{
             e.preventDefault();
 
-            jsSpinImg.classList.add('js-spin-img--animated');
+            jsBox.classList.add('box--active');
         })
     }
 });

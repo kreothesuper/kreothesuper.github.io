@@ -3411,19 +3411,64 @@ body.no-scroll {
 .box-page {
   overflow: hidden;
 }
-.box__img {
+.box--active .box__img {
+  animation: unset;
+  transform: scale(1);
+}
+.box--active .box__result {
+  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
+}
+.box__bg {
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
+  background: url("../images/box-bg.png") center center/contain no-repeat;
 }
-.box__img img {
+.box__img {
+  animation: boxAnimation 3s linear infinite;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  display: block;
+  z-index: 2;
+  position: relative;
+  transition: 0.3s transform;
+  background: url("../images/box.png") center 30px/contain no-repeat;
+}
+@media screen and (max-width: 600px) {
+  .box__img {
+    background-position: center 70px;
+  }
+}
+.box__result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 150px;
+  z-index: 3;
+  transition: 0.5s transform, 0.3s visibility;
 }
 
+@keyframes boxAnimation {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .filter-button {
   width: 52px;
   height: 52px;
