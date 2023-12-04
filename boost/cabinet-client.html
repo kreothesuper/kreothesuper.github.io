@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/style/font.css">
+
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
+
+    <link rel="stylesheet" href="assets/style/reset.css">
+
+    <link rel="stylesheet" href="assets/style/general.css">
+    <link rel="stylesheet" href="assets/style/personal.css">
+</head>
+
+<body>
+
+
+<div class="page-wrapper page-wrapper--with--header">
+    <header class="header">
+        <div class="header__wrapper">
+            <div class="container container--full">
+                <div class="header__row">
+                    <div class="header__logo logo">
+                        <img src="assets/images/icons/logo.svg" alt="" class="logo__img">
+                    </div>
+                    <div class="header__nav nav">
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">DotaBoost</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link nav-catalog-link">Послуги</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Про нас</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Робота</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Блог</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header__icon header__support">
+                        <svg class="icon">
+                            <use xlink:href="assets/images/sprite.svg#headset_mic"></use>
+                        </svg>
+                    </div>
+                    <div class="header__burger">
+                        <div class="burger">
+                            <div class="burger__wrapper">
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__profile profile-card">
+                        <div class="profile-card__wrapper profile-card-link">
+                            <div class="profile-card__img">
+                                <img src="assets/images/profile/img.jpg" alt="">
+                            </div>
+                            <div class="profile-card__info">
+                                <p class="profile-card__name">Marakesh</p>
+                            </div>
+                            <div class="profile-card__footer">
+                                <a href="#" data-popup=".popup-notification"
+                                   class="profile-card__icon profile-card__icon--link">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite.svg#notifications"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="profile-card__list profile-card-list">
+                            <a href="#" class="profile-card__link title title--smallest title--white">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite.svg#account_circle"></use>
+                                </svg>
+                                Профіль
+                            </a>
+                            <a href="#" class="profile-card__link title title--smallest title--white">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite.svg#settings"></use>
+                                </svg>
+                                Налаштування
+                            </a>
+                            <a href="#" class="profile-card__link title title--smallest title--white">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite.svg#logout"></use>
+                                </svg>
+                                Вихід
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__sublist nav-catalog-block nav">
+                    <ul class="nav__list nav__list--center">
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">ММР Буст</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Калібровка</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Низький Пріорітет</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Оцінка Поведінки</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Моніторінг Замовлень</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu">
+        <div class="mobile-menu__wrapper">
+            <div class="mobile-menu__block profile-card">
+                <div class="profile-card__wrapper">
+                    <div class="profile-card__img">
+                        <img src="assets/images/profile/img.jpg" alt="">
+                    </div>
+                    <div class="profile-card__info">
+                        <p class="profile-card__name">Marakesh</p>
+                    </div>
+                    <div class="profile-card__footer profile-card__footer--end">
+                        <div class="profile-card__icon profile-card__icon--black">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#notifications"></use>
+                            </svg>
+                        </div>
+                        <div class="profile-card__icon profile-card__icon--black">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#settings"></use>
+                            </svg>
+                        </div>
+                        <div class="profile-card__icon profile-card__icon--black">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#logout"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu__block">
+                <div class="chat chat--notification">
+                    <div class="chat__header">
+                        <div class="chat-person">
+                            <div class="chat-person__img">
+                                <img src="assets/images/profile/img.jpg" alt="">
+                                <span class="chat-person__counter">+1</span>
+                            </div>
+                            <div class="chat-person__info">
+                                <p class="chat-person__title">Менеджер</p>
+                                <p class="chat-person__name">Денис</p>
+                            </div>
+                        </div>
+                        <div class="chat__close">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite-cabinet.svg#arrow_down"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu__block">
+                <ul class="mobile-menu__list">
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Буст ММР</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Калібровка</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Буст Порядності</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Низький Пріорітет</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Моніторинг Замовлень</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#supervised"></use>
+                        </svg>
+                        Про Нас
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#work"></use>
+                        </svg>
+                        Робота
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#newsmode"></use>
+                        </svg>
+                        Блог
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#faq"></use>
+                        </svg>
+                        FAQ
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+    <div class="container container--flex">
+        <a href="#" class="main__back main-back">
+                <span class="main-back__icon">
+                    <svg class="icon">
+                        <use xlink:href="assets/images/sprite-cabinet.svg#arrow_down"></use>
+                    </svg>
+                </span>
+            <p class="title title--small title--white">
+                Особистий кабінет
+            </p>
+        </a>
+
+        <div class="main">
+            <div class="main__wrapper main__wrapper--flex">
+                <div class="main__box main__box--big main__box--grid">
+                    <div class="main__block main__block--tablet--column--two  main__block--padding--none">
+                        <div class="profile-card">
+                            <div class="profile-card__wrapper ">
+                                <div class="profile-card__img profile-card__img--big profile-card__img--mobile--small">
+                                    <img src="assets/images/profile/img.jpg" alt="">
+                                </div>
+                                <div class="profile-card__info">
+                                    <p class="title title--small title--white">Marakesh</p>
+                                    <p class="text text--small text--grey--dark">marakeshdota@gmail.com</p>
+                                    <a href="#"
+                                       class="profile-card__copy copy-link copy-link--small copy-link--grey text text--small text--grey--dark">
+                                        1321235532
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main__block main__block--tablet--column--two main__block--padding--none">
+                        <div class="order-item__control  order-item__control--small">
+                            <a href="#" class="order-item__button order-item__button--grey">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite-cabinet.svg#settings"></use>
+                                </svg>
+                                Налаштування
+                            </a>
+                            <a href="#" data-popup=".popup-help"
+                               class="order-item__button order-item__button--grey">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite-cabinet.svg#headset_mic"></use>
+                                </svg>
+                                Підтримка
+                            </a>
+                            <a href="#" data-popup=".popup-order-end"
+                               class="order-item__button order-item__button--grey">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite-cabinet.svg#add_circle"></use>
+                                </svg>
+                                Нове Замовлення
+                            </a>
+                            <a href="#" data-popup=".popup-result" class="order-item__button order-item__button--grey">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite-cabinet.svg#notifications"></use>
+                                </svg>
+                                Повідомлення
+                            </a>
+                            <a href="#" data-popup=".popup-result" class="order-item__button order-item__button--grey">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite-cabinet.svg#stadia_controller"></use>
+                                </svg>
+                                Запуск Гри
+                            </a>
+                            <a href="#" data-popup=".popup-result" class="order-item__button order-item__button--grey">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite-cabinet.svg#logout"></use>
+                                </svg>
+                                Вихід
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="main__box main__box--grid">
+                    <div class="main__block main__block--scroll main__block--transparent main__block--padding--none main-block">
+                        <div class="main-block__header">
+                            <p class="title title--small title--white">Замовлення</p>
+                        </div>
+                        <div class="order-list">
+                            <div class="order-item order-item--work">
+                                <div class="order-item__wrapper order-item__wrapper--grey">
+                                    <div class="order-item__header">
+                                        <div class="order-item__block">
+                                            <div class="order-item__icon">
+                                                <p class="title title--smallest title--white">
+                                                    №</p>
+                                            </div>
+                                            <div class="order-item__text">
+                                                7214733882
+                                            </div>
+                                        </div>
+                                        <div class="order-item__block">
+                                            <div class="order-item__icon">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite.svg#schedule"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="order-item__text">
+                                                11:01:48
+                                            </div>
+                                        </div>
+                                        <div class="order-item__block order-item__block--full">
+                                            <div class="order-item__icon">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite.svg#schedule"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="order-item__text" data-percent="56%">
+                                                <div class="order-item__line"
+                                                     style="width: calc(56% + 20px + 5%)"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="order-item__content">
+                                        <div class="order-item__info">
+                                            <div class="order-item__status">
+                                                <p class="title title--tiny title--bold">
+                                                    В Роботі
+                                                </p>
+                                            </div>
+                                            <div class="order-item__description">
+                                                <p class="title title--middle title--white">
+                                                    MMR Boost
+                                                </p>
+                                                <p class="text text--base text--white">
+                                                    1250 - 3270
+                                                </p>
+                                            </div>
+                                            <div class="order-item__footer">
+                                                <div class="order-item__row">
+                                                    <div class="order-item__tag">
+                                                        <p class="title title--tiny title--bold title--white">
+                                                            Бан Часу</p>
+                                                    </div>
+                                                    <div class="order-item__tag">
+                                                        <p class="title title--tiny title--bold title--white">
+                                                            Турбо Режим</p>
+                                                    </div>
+                                                    <div class="order-item__tag">
+                                                        <p class="title title--tiny title--bold title--white">
+                                                            Офлайн Режим</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="order-item__info">
+                                            <div class="order-item__control order-item__control--big">
+                                                <a href="#" data-popup=".popup-result" class="order-item__button">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#headset_mic"></use>
+                                                    </svg>
+                                                    Підтримка
+                                                </a>
+                                                <a href="#" data-popup=".popup-data-account" class="order-item__button">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#chat_bubble"></use>
+                                                    </svg>
+                                                    Чат з Бустером
+                                                </a>
+                                                <a href="#" data-popup=".popup-data-account" class="order-item__button">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#check_circle"></use>
+                                                    </svg>
+                                                    Готовий до гри
+                                                </a>
+                                                <a href="#" data-popup=".popup-order-end" class="order-item__button">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#stadia_controller"></use>
+                                                    </svg>
+                                                    Запуск Гри
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-item order-item--wait">
+                                <div class="order-item__wrapper order-item__wrapper--grey">
+                                    <div class="order-item__header">
+                                        <div class="order-item__block">
+                                            <div class="order-item__icon">
+                                                <p class="title title--smallest title--white">
+                                                    №</p>
+                                            </div>
+                                            <div class="order-item__text">
+                                                7214733882
+                                            </div>
+                                        </div>
+                                        <div class="order-item__block">
+                                            <div class="order-item__icon">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite.svg#schedule"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="order-item__text">
+                                                11:01:48
+                                            </div>
+                                        </div>
+                                        <div class="order-item__block order-item__block--full">
+                                            <div class="order-item__icon">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite.svg#schedule"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="order-item__text" data-percent="56%">
+                                                <div class="order-item__line"
+                                                     style="width: calc(56% + 20px + 5%)"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="order-item__content">
+                                        <div class="order-item__info">
+                                            <div class="order-item__status">
+                                                <p class="title title--tiny title--bold">
+                                                    В Роботі
+                                                </p>
+                                            </div>
+                                            <div class="order-item__description">
+                                                <p class="title title--middle title--white">
+                                                    MMR Boost
+                                                </p>
+                                                <p class="text text--base text--white">
+                                                    1250 - 3270
+                                                </p>
+                                            </div>
+                                            <div class="order-item__footer">
+                                                <div class="order-item__row">
+                                                    <div class="order-item__tag">
+                                                        <p class="title title--tiny title--bold title--white">
+                                                            Бан Часу</p>
+                                                    </div>
+                                                    <div class="order-item__tag">
+                                                        <p class="title title--tiny title--bold title--white">
+                                                            Турбо Режим</p>
+                                                    </div>
+                                                    <div class="order-item__tag">
+                                                        <p class="title title--tiny title--bold title--white">
+                                                            Офлайн Режим</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="order-item__info">
+                                            <a href="#" data-popup=".popup-order-end"
+                                               class="order-item__button order-item__button--full order-item__button--orange">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite-cabinet.svg#arrow_forward"></use>
+                                                </svg>
+                                                Продовжити Формування
+                                                Замовлення
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-item order-item--finish">
+                                <div class="order-item__wrapper order-item__wrapper--grey">
+                                    <div class="order-item__header">
+                                        <div class="order-item__block order-item__block--small order-item-link">
+                                            <div class="order-item__icon">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite-cabinet.svg#arrow_down"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="order-item__block">
+                                            <div class="order-item__icon">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite.svg#schedule"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="order-item__text">
+                                                11:01:48
+                                            </div>
+                                        </div>
+                                        <div class="order-item__block order-item__block--full">
+                                            <div class="order-item__icon">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite-cabinet.svg#percent"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="order-item__text" data-percent="100%">
+                                                <div class="order-item__line"
+                                                     style="width: calc(100% + 20px + 5%)"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order-item__content order-item-toggle">
+                                        <div class="order-item__info">
+                                            <div class="order-item__status">
+                                                <p class="title title--tiny title--bold">
+                                                    Виконано
+                                                </p>
+                                            </div>
+                                            <div class="order-item__description">
+                                                <p class="title title--middle title--white">
+                                                    MMR Boost
+                                                </p>
+                                                <p class="text text--base text--white">
+                                                    1250 - 3270
+                                                </p>
+                                            </div>
+                                            <div class="order-item__footer">
+                                                <div class="order-item__row">
+                                                    <div class="order-item__tag">
+                                                        <p class="title title--tiny title--bold title--white">
+                                                            Бан Часу</p>
+                                                    </div>
+                                                    <div class="order-item__tag">
+                                                        <p class="title title--tiny title--bold title--white">
+                                                            Турбо Режим</p>
+                                                    </div>
+                                                    <div class="order-item__tag">
+                                                        <p class="title title--tiny title--bold title--white">
+                                                            Офлайн Режим</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="order-item__info">
+                                            <div class="order-item__control order-item__control--big">
+                                                <a href="#" data-popup=".popup-result" class="order-item__button">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#repeat"></use>
+                                                    </svg>
+                                                    Повторити замовлення
+                                                </a>
+                                                <a href="#" data-popup=".popup-review" class="order-item__button">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#rate_review"></use>
+                                                    </svg>
+                                                    Залишити
+                                                    Відгук
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main__block main__block--scroll main__block--transparent main__block--padding--none main-block">
+                        <div class="main-block__header">
+                            <p class="title title--small title--white">Історія Матчів</p>
+                        </div>
+                        <div class="game">
+                            <ul class="game__list">
+                                <li class="game-item game-item--defeat">
+                                    <div class="game-item__wrapper">
+                                        <div class="game-item__header">
+                                            <div class="game-item__block game-item__block--small">
+                                                <div class="game-item__icon game-item-toggler">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#arrow_down"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--white">№</p>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    7214733882
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#schedule"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    12 хв. тому
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--black">D</p>
+                                                </div>
+                                                <div class="game-item__text game-item__text--small">
+                                                    +25 MMR
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="game-item__content">
+                                            <div class="game-item__result">
+                                                <div class="game-item__hero">
+                                                    <img src="assets/images/icons/icon_hero.png" alt="">
+                                                </div>
+                                                <div class="game-item__info">
+                                                    <p class="title title--smallest title--black">
+                                                        Ember Spirit
+                                                    </p>
+                                                    <p class="title title--smallest title--black">
+                                                        21/1/16
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="game-item game-item--win">
+                                    <div class="game-item__wrapper">
+                                        <div class="game-item__header">
+                                            <div class="game-item__block game-item__block--small">
+                                                <div class="game-item__icon game-item-toggler">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#arrow_down"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--white">№</p>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    7214733882
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#schedule"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    12 хв. тому
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--black">W</p>
+                                                </div>
+                                                <div class="game-item__text game-item__text--small">
+                                                    +25 MMR
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="game-item__content">
+                                            <div class="game-item__result">
+                                                <div class="game-item__hero">
+                                                    <img src="assets/images/icons/icon_hero.png" alt="">
+                                                </div>
+                                                <div class="game-item__info">
+                                                    <p class="title title--smallest title--black">
+                                                        Ember Spirit
+                                                    </p>
+                                                    <p class="title title--smallest title--black">
+                                                        21/1/16
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="game-item game-item--win">
+                                    <div class="game-item__wrapper">
+                                        <div class="game-item__header">
+                                            <div class="game-item__block game-item__block--small">
+                                                <div class="game-item__icon game-item-toggler">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#arrow_down"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--white">№</p>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    7214733882
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#schedule"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    12 хв. тому
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--black">W</p>
+                                                </div>
+                                                <div class="game-item__text game-item__text--small">
+                                                    +25 MMR
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="game-item__content">
+                                            <div class="game-item__result">
+                                                <div class="game-item__hero">
+                                                    <img src="assets/images/icons/icon_hero.png" alt="">
+                                                </div>
+                                                <div class="game-item__info">
+                                                    <p class="title title--smallest title--black">
+                                                        Ember Spirit
+                                                    </p>
+                                                    <p class="title title--smallest title--black">
+                                                        21/1/16
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="game-item game-item--win">
+                                    <div class="game-item__wrapper">
+                                        <div class="game-item__header">
+                                            <div class="game-item__block game-item__block--small">
+                                                <div class="game-item__icon game-item-toggler">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#arrow_down"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--white">№</p>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    7214733882
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#schedule"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    12 хв. тому
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--black">W</p>
+                                                </div>
+                                                <div class="game-item__text game-item__text--small">
+                                                    +25 MMR
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="game-item__content">
+                                            <div class="game-item__result">
+                                                <div class="game-item__hero">
+                                                    <img src="assets/images/icons/icon_hero.png" alt="">
+                                                </div>
+                                                <div class="game-item__info">
+                                                    <p class="title title--smallest title--black">
+                                                        Ember Spirit
+                                                    </p>
+                                                    <p class="title title--smallest title--black">
+                                                        21/1/16
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="game-item game-item--win">
+                                    <div class="game-item__wrapper">
+                                        <div class="game-item__header">
+                                            <div class="game-item__block game-item__block--small">
+                                                <div class="game-item__icon game-item-toggler">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#arrow_down"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--white">№</p>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    7214733882
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#schedule"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    12 хв. тому
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--black">W</p>
+                                                </div>
+                                                <div class="game-item__text game-item__text--small">
+                                                    +25 MMR
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="game-item__content">
+                                            <div class="game-item__result">
+                                                <div class="game-item__hero">
+                                                    <img src="assets/images/icons/icon_hero.png" alt="">
+                                                </div>
+                                                <div class="game-item__info">
+                                                    <p class="title title--smallest title--black">
+                                                        Ember Spirit
+                                                    </p>
+                                                    <p class="title title--smallest title--black">
+                                                        21/1/16
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="game-item game-item--win">
+                                    <div class="game-item__wrapper">
+                                        <div class="game-item__header">
+                                            <div class="game-item__block game-item__block--small">
+                                                <div class="game-item__icon game-item-toggler">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#arrow_down"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--white">№</p>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    7214733882
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#schedule"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="game-item__text">
+                                                    12 хв. тому
+                                                </div>
+                                            </div>
+                                            <div class="game-item__block">
+                                                <div class="game-item__icon">
+                                                    <p class="title title--smallest title--black">W</p>
+                                                </div>
+                                                <div class="game-item__text game-item__text--small">
+                                                    +25 MMR
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="game-item__content">
+                                            <div class="game-item__result">
+                                                <div class="game-item__hero">
+                                                    <img src="assets/images/icons/icon_hero.png" alt="">
+                                                </div>
+                                                <div class="game-item__info">
+                                                    <p class="title title--smallest title--black">
+                                                        Ember Spirit
+                                                    </p>
+                                                    <p class="title title--smallest title--black">
+                                                        21/1/16
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-login">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--small">
+            <div class="popup__header">
+                <div class="popup__title">
+                    <p class="title title--small title--white">Вхід до особистого аккаунту</p>
+                    <p class="title title--tiny title--bold title--white">Виконайте вхід за допомогою наших
+                        партнерів</p>
+                </div>
+                <a href="#" class="popup__close popup-close"></a>
+            </div>
+            <div class="popup__content notification-list form">
+                <form class="form__wrapper form__wrapper--full">
+                    <div class="form__item">
+                        <div class="form__grid form__grid--two--col form-grid">
+                            <div class="form-grid__item form-grid__item--full">
+                                <a href="#" class="button button--small button--gray button--full">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite-cabinet.svg#google"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="form-grid__item form-grid__item--full">
+                                <a href="#" class="button button--small button--gray button--full">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite-cabinet.svg#steam"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form__divider">
+                            <p class="title title--smallest title--grey--dark">або</p>
+                        </div>
+                    </div>
+                    <div class="form__grid form-grid">
+                        <div class="form-grid__item form-grid__item--full form-input">
+                            <label for="mmr-start" class="title title--smallest title--white"> Електронна Пошта
+
+                            </label>
+                            <input id="mmr-start" type="text" name="mmr-start"
+                                   placeholder="Email" class="form-input__item">
+                        </div>
+                        <div class="form-grid__item form-grid__item--full form-input">
+                            <div class="form-input__header">
+                                <label for="mmr-end" class="title title--smallest title--white">Пароль
+                                </label>
+                                <a href="#" class="title title--smallest title--regular title--orange">Забув Пароль?</a>
+                            </div>
+                            <input id="mmr-end" type="text" name="mmr-end"
+                                   placeholder="Password" class="form-input__item">
+                        </div>
+                    </div>
+                    <div class="form__block">
+                        <label for="remember" class="form-checkbox">
+                            <input type="checkbox" name="remember" id="remember" class="form-checkbox__item">
+                            <span class="form-checkbox__checkmark"></span>
+                            <span class="form-checkbox__label title title--regular title--smallest title--white">
+                                                Запам’ятати Мене
+                                            </span>
+                        </label>
+                    </div>
+                    <div class="form__footer">
+                        <input type="submit" class="button button--middle button--orange button--full" value="Вхід">
+                        <p class="title title--smallest title--regular title--white">
+                            Не маєш профілю ?
+                            <a class="title title--smallest title--orange title--semibold" href="#">Перейти до
+                                реєстрації</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popup popup-register">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--small">
+            <div class="popup__header">
+                <div class="popup__title">
+                    <p class="title title--small title--white">Вхід до особистого аккаунту</p>
+                    <p class="title title--tiny title--bold title--white">Виконайте вхід за допомогою наших
+                        партнерів</p>
+                </div>
+                <a href="#" class="popup__close popup-close"></a>
+            </div>
+            <div class="popup__content notification-list form">
+                <form class="form__wrapper form__wrapper--full">
+                    <div class="form__item">
+                        <div class="form__grid form__grid--two--col form-grid">
+                            <div class="form-grid__item form-grid__item--full">
+                                <a href="#" class="button button--small button--gray button--full">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite-cabinet.svg#google"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="form-grid__item form-grid__item--full">
+                                <a href="#" class="button button--small button--gray button--full">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite-cabinet.svg#steam"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form__divider">
+                            <p class="title title--smallest title--grey--dark">або</p>
+                        </div>
+                    </div>
+                    <div class="form__grid form-grid">
+                        <div class="form-grid__item form-grid__item--full form-input">
+                            <label for="mmr-start" class="title title--smallest title--white"> Електронна Пошта
+
+                            </label>
+                            <input id="mmr-start" type="text" name="mmr-start"
+                                   placeholder="Email" class="form-input__item">
+                        </div>
+                        <div class="form-grid__item form-grid__item--full form-input">
+                            <label for="mmr-end" class="title title--smallest title--white">Пароль
+                            </label>
+                            <input id="mmr-end" type="text" name="mmr-end"
+                                   placeholder="Password" class="form-input__item">
+                        </div>
+                        <div class="form-grid__item form-grid__item--full form-input">
+                            <label for="mmr-end" class="title title--smallest title--white">Повторіть пароль
+                            </label>
+                            <input id="mmr-end" type="text" name="mmr-end"
+                                   placeholder="Password" class="form-input__item">
+                        </div>
+                    </div>
+                    <div class="form__block">
+                        <label for="remember" class="form-checkbox">
+                            <input type="checkbox" name="remember" id="remember" class="form-checkbox__item">
+                            <span class="form-checkbox__checkmark"></span>
+                            <span class="form-checkbox__label title title--regular title--tiny title--white">
+                                                Я ознайомився, та згоден з <a href="#"
+                                                                              class="title title--regular title--tiny title--orange"> Політикою Конфіденційності</a>, та <a
+                                    href="#" class="title title--regular title--tiny title--orange">Правилами Користуання</a> нашого сервісу
+                                            </span>
+                        </label>
+                    </div>
+                    <div class="form__footer">
+                        <input type="submit" class="button button--middle button--orange button--full"
+                               value="Реєстрація">
+                        <p class="title title--smallest title--regular title--white">
+                            Вже зареєстрований ?
+                            <a class="title title--smallest title--orange title--semibold" href="#">
+                                Перейти до авторизації.
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popup popup-review">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--review">
+            <div class="popup__content">
+                <div class="order-item__wrapper order-item__wrapper--grey">
+                    <div class="order-item__header order-item__header--start">
+                        <div class="order-item__block ">
+                            <div class="order-item__icon">
+                                <p class="title title--smallest title--white">
+                                    №</p>
+                            </div>
+                            <div class="order-item__text">
+                                7214733882
+                            </div>
+                        </div>
+                        <div class="order-item__block order-item__block--small order-item__block--icon">
+                            <div class="order-item__icon popup__close popup__close--relative popup-close">
+                            </div>
+                        </div>
+
+                        <div class="order-item__block order-item__block--mobile--last">
+                            <div class="order-item__icon">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite-cabinet.svg#calendar_today"></use>
+                                </svg>
+                            </div>
+                            <div class="order-item__text">
+                                11:01:48
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-item__content form">
+                        <form class="form__wrapper form__wrapper--full">
+                            <div class="form__item">
+                                <p class="title title--small title--white">Залишити Відгук</p>
+                                <p class="title title--tiny title--white">Тут ви можете описати ваш досвід співпраці з
+                                    нами</p>
+                            </div>
+                            <div class="form__grid form__grid--gap--small form-grid">
+                                <div class="form-grid__item form-grid__item--full form-input">
+                                    <textarea id="comment" maxlength="100" name="comment"
+                                              class="form-input__item form-input__item--textarea form-input__item--textarea--small"
+                                              placeholder="Залишити Відгук Про сайт"></textarea>
+                                </div>
+                                <div class="form-grid__item form-grid__item--full rate-input">
+                                    <div class="rate-input__grid">
+                                        <div class="rate-input__block">
+                                            <p class="title title--smallest title--white">Наш Сервіс</p>
+                                            <fieldset class="rating-input">
+                                                <input class="rating-input__item" id="rating__star-5" name="rating"
+                                                       value="5" type="radio"/>
+                                                <label class="rating-input__label" for="rating__star-5"
+                                                       title="Very good">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#star"></use>
+                                                    </svg>
+                                                </label>
+                                                <input class="rating-input__item" id="rating__star-4" name="rating"
+                                                       value="4" type="radio"/>
+                                                <label class="rating-input__label" for="rating__star-4"
+                                                       title="Good">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#star"></use>
+                                                    </svg>
+                                                </label>
+                                                <input class="rating-input__item" id="rating__star-3" name="rating"
+                                                       value="3" type="radio"/>
+                                                <label class="rating-input__label" for="rating__star-3"
+                                                       title="Not bad">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#star"></use>
+                                                    </svg>
+                                                </label>
+                                                <input class="rating-input__item" id="rating__star-2" name="rating"
+                                                       value="2" type="radio"/>
+                                                <label class="rating-input__label" for="rating__star-2"
+                                                       title="Bad">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#star"></use>
+                                                    </svg>
+                                                </label>
+                                                <input class="rating-input__item" id="rating__star-1" name="rating"
+                                                       value="1" type="radio"/>
+                                                <label class="rating-input__label" for="rating__star-1"
+                                                       title="Very bad">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#star"></use>
+                                                    </svg>
+                                                </label>
+                                            </fieldset>
+                                        </div>
+                                        <div class="rate-input__block">
+                                            <p class="title title--smallest title--white">Оцінка Бустеру</p>
+                                            <fieldset class="rating-input">
+                                                <input class="rating-input__item" id="b-rating__star-5" name="rating"
+                                                       value="5" type="radio"/>
+                                                <label class="rating-input__label" for="b-rating__star-5"
+                                                       title="Very good">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#star"></use>
+                                                    </svg>
+                                                </label>
+                                                <input class="rating-input__item" id="b-rating__star-4" name="rating"
+                                                       value="4" type="radio"/>
+                                                <label class="rating-input__label" for="b-rating__star-4"
+                                                       title="Good">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#star"></use>
+                                                    </svg>
+                                                </label>
+                                                <input class="rating-input__item" id="b-rating__star-3" name="rating"
+                                                       value="3" type="radio"/>
+                                                <label class="rating-input__label" for="b-rating__star-3"
+                                                       title="Not bad">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#star"></use>
+                                                    </svg>
+                                                </label>
+                                                <input class="rating-input__item" id="b-rating__star-2" name="rating"
+                                                       value="2" type="radio"/>
+                                                <label class="rating-input__label" for="b-rating__star-2"
+                                                       title="Bad">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#star"></use>
+                                                    </svg>
+                                                </label>
+                                                <input class="rating-input__item" id="b-rating__star-1" name="rating"
+                                                       value="1" type="radio"/>
+                                                <label class="rating-input__label" for="b-rating__star-1"
+                                                       title="Very bad">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite-cabinet.svg#star"></use>
+                                                    </svg>
+                                                </label>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-grid__item form-grid__item--full form-input">
+                                    <textarea id="comment" maxlength="100" name="comment"
+                                              class="form-input__item form-input__item--textarea form-input__item--textarea--small"
+                                              placeholder="Залишити Відгук Про бустера"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="form__footer">
+                                <input type="submit" class="button button--middle button--orange button--full"
+                                       value="Відправити Відгук">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popup popup-help">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--help">
+            <div class="popup__close popup-close"></div>
+            <div class="popup__content help">
+                <div class="help__content">
+                    <p class="title title--base title--base">Потрібна Допомога ?</p>
+                    <p class="text text--base text--white">
+                        Оберіть зручний спосіб комунікації з нами, та напишіть нам для вирішення вашого питання. Наша служба підтримки з задоволенням вас проконсультує.
+                    </p>
+                </div>
+                <div class="help__footer">
+                    <a href="#" class="button button--orange button--middle">
+                        <svg class="icon">
+                            <use xlink:href="assets/images/sprite-cabinet.svg#chat_bubble_empty"></use>
+                        </svg>
+                        Онлайн Чат</a>
+                    <a href="#" class="button button--icon button--blue">
+                        <svg class="icon">
+                            <use xlink:href="assets/images/sprite-cabinet.svg#telegram"></use>
+                        </svg>
+                    </a>
+                    <a href="#" class="button button--icon button--blue--dark">
+                        <svg class="icon">
+                            <use xlink:href="assets/images/sprite-cabinet.svg#mail"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="chat chat-menu chat--notification">
+    <div class="chat__header">
+        <div class="chat-person">
+            <div class="chat-person__img">
+                <img src="assets/images/profile/img.jpg" alt="">
+                <span class="chat-person__counter">+1</span>
+            </div>
+            <div class="chat-person__info">
+                <p class="chat-person__title">Менеджер</p>
+                <p class="chat-person__name">Денис</p>
+            </div>
+        </div>
+        <div class="chat__close">
+            <svg class="icon">
+                <use xlink:href="assets/images/sprite-cabinet.svg#arrow_down"></use>
+            </svg>
+        </div>
+    </div>
+    <div class="chat__content">
+        <div class="chat__wrapper">
+            <div class="chat__msg chat-msg">
+                <p class="chat-msg__text">
+                    Привіт! Я маю питання щодо моєї замовленої послуги. Можете мені допомогти?
+                </p>
+                <p class="chat-msg__time">13:15</p>
+            </div>
+            <div class="chat__msg chat-msg chat-msg--from">
+                <p class="chat-msg__text">
+                    Привіт! Я маю питання щодо моєї замовленої послуги. Можете мені допомогти?
+                </p>
+                <p class="chat-msg__time">13:15</p>
+            </div>
+            <div class="chat__msg chat-msg">
+                <p class="chat-msg__text">
+                    Привіт! Я маю питання щодо моєї замовленої послуги. Можете мені допомогти?
+                </p>
+                <p class="chat-msg__time">13:15</p>
+            </div>
+            <div class="chat__msg chat-msg">
+                <p class="chat-msg__text">
+                    Привіт! Я маю питання щодо моєї замовленої послуги. Можете мені допомогти?
+                </p>
+                <p class="chat-msg__time">13:15</p>
+            </div>
+            <div class="chat__msg chat-msg">
+                <p class="chat-msg__text">
+                    Привіт! Я маю питання щодо моєї замовленої послуги. Можете мені допомогти?
+                </p>
+                <p class="chat-msg__time">13:15</p>
+            </div>
+            <div class="chat__msg chat-msg">
+                <p class="chat-msg__text">
+                    Привіт! Я маю питання щодо моєї замовленої послуги. Можете мені допомогти?
+                </p>
+                <p class="chat-msg__time">13:15</p>
+            </div>
+            <div class="chat__msg chat-msg">
+                <p class="chat-msg__text">
+                    Привіт! Я маю питання щодо моєї замовленої послуги. Можете мені допомогти?
+                </p>
+                <p class="chat-msg__time">13:15</p>
+            </div>
+            <div class="chat__msg chat-msg">
+                <p class="chat-msg__text">
+                    Привіт! Я маю питання щодо моєї замовленої послуги. Можете мені допомогти?
+                </p>
+                <p class="chat-msg__time">13:15</p>
+            </div>
+            <div class="chat__msg chat-msg">
+                <p class="chat-msg__text">
+                    Привіт! Я маю питання щодо моєї замовленої послуги. Можете мені допомогти?
+                </p>
+                <p class="chat-msg__time">13:15</p>
+            </div>
+            <div class="chat__msg chat-msg">
+                <p class="chat-msg__text">
+                    Привіт! Я маю питання щодо моєї замовленої послуги. Можете мені допомогти?
+                </p>
+                <p class="chat-msg__time">13:15</p>
+            </div>
+        </div>
+        <div class="fast-form fast-form--grey--light">
+            <input type="text" class="fast-form__input fast-form__input--regular" placeholder="Ваше Повідомлення">
+            <button class="fast-form__button button button--orange fast-form__button--send">
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<script src="assets/libs/swiper/swiper.js"></script>
+<script src="assets/scripts/index-cabinet.js"></script>
+
+</body>
+
+</html>

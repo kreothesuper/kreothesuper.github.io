@@ -1,0 +1,188 @@
+.review-slider {
+    .swiper-wrapper {
+        -webkit-transition-timing-function: linear !important;
+        transition-timing-function: linear !important;
+    }
+}
+
+.review {
+    &-slider {
+        & + & {
+            margin: 10px 0 0 0;
+        }
+    }
+
+    &-pagination {
+        &__list {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        &__item {
+            flex-shrink: 0;
+
+            font-family: var(--title-font);
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+
+            border-radius: 12px;
+
+            &.current {
+                background: var(--background-grey);
+            }
+        }
+
+        &__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    &-slider {
+        overflow: visible;
+
+        .swiper-wrapper {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .swiper-slide {
+            max-width: 440px;
+            height: auto;
+
+            @media screen and (max-width: 500px) {
+                max-width: calc(100vw - 16px);
+            }
+        }
+    }
+
+    &-card {
+        &__wrapper {
+            padding: 32px;
+            border-radius: 20px;
+
+            background: var(--background-dark-grey);
+
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+
+            height: 100%;
+
+            &--black {
+                background: var(--background-black);
+            }
+
+            &--small {
+                gap: 16px;
+            }
+
+            @media screen and (max-width: 350px) {
+                padding: 24px;
+            }
+        }
+
+        &__header,
+        &__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+        &__header {
+            @media screen and (max-width: 350px) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        &__content {
+            flex-grow: 1;
+
+            &--small {
+                display: -webkit-box; /* Add prefix for cross-browser compatibility */
+                -webkit-line-clamp: 3; /* Limit the number of lines to 3 */
+                -webkit-box-orient: vertical; /* Set the orientation to vertical */
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        &__footer {
+            padding: 8px;
+
+            &--full {
+                padding: 0;
+                justify-content: flex-start;
+            }
+        }
+    }
+
+    &-banner {
+        &__header {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            @media screen and (max-width: 420px) {
+                gap: 16px;
+            }
+        }
+
+        &__button {
+            flex-shrink: 0;
+            @media screen and (max-width: 1024px) {
+                width: 100%;
+            }
+        }
+
+        &__wrapper {
+            padding: 32px 48px;
+            border-radius: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+
+            background: var(--orange);
+
+            &--black {
+                background: var(--background-dark-grey);
+            }
+
+            &--about {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+
+            @media screen and (max-width: 1024px) {
+                flex-direction: column;
+                gap: 28px;
+
+                text-align: center;
+
+                padding: 28px 16px;
+            }
+            @media screen and (max-width: 420px) {
+                padding: 24px;
+            }
+            @media screen and (max-width: 350px) {
+                padding: 24px 16px;
+            }
+        }
+    }
+}

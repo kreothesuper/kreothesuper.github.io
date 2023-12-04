@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/style/font.css">
+
+    <link rel="stylesheet" href="assets/libs/range/range.css">
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
+
+    <link rel="stylesheet" href="assets/style/reset.css">
+    <link rel="stylesheet" href="assets/style/index.css">
+</head>
+
+<body>
+
+
+<div class="page-wrapper page-wrapper--service">
+    <header class="header">
+        <div class="header__wrapper">
+            <div class="container container--full">
+                <div class="header__row">
+                    <div class="header__icon">
+                        <svg class="icon">
+                            <use xlink:href="assets/images/sprite.svg#account_circle"></use>
+                        </svg>
+                    </div>
+                    <div class="header__logo logo">
+                        <img src="assets/images/icons/logo.svg" alt="" class="logo__img">
+                    </div>
+                    <div class="header__nav nav">
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">DotaBoost</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link nav-catalog-link">Послуги</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Про нас</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Робота</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Блог</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header__icon header__support">
+                        <svg class="icon">
+                            <use xlink:href="assets/images/sprite.svg#headset_mic"></use>
+                        </svg>
+                    </div>
+                    <div class="header__burger">
+                        <div class="burger">
+                            <div class="burger__wrapper">
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__profile profile-card">
+                        <div class="profile-card__wrapper profile-card-link">
+                            <div class="profile-card__img">
+                                <img src="assets/images/profile/img.jpg" alt="">
+                            </div>
+                            <div class="profile-card__info">
+                                <p class="profile-card__name">Marakesh</p>
+                            </div>
+                            <div class="profile-card__footer">
+                                <a href="#" data-popup=".popup-notification" class="profile-card__icon profile-card__icon--link">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite.svg#notifications"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="profile-card__list profile-card-list">
+                            <a href="#" class="profile-card__link title title--smallest title--white">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite.svg#account_circle"></use>
+                                </svg>
+                                Профіль
+                            </a>
+                            <a href="#" class="profile-card__link title title--smallest title--white">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite.svg#settings"></use>
+                                </svg>
+                                Налаштування
+                            </a>
+                            <a href="#" class="profile-card__link title title--smallest title--white">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite.svg#logout"></use>
+                                </svg>
+                                Вихід
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__sublist nav-catalog-block nav">
+                    <ul class="nav__list nav__list--center">
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--active nav__link--full">ММР Буст</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Калібровка</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Низький Пріорітет</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Оцінка Поведінки</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Моніторінг Замовлень</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu">
+        <div class="mobile-menu__wrapper">
+            <div class="mobile-menu__block profile-card">
+                <div class="profile-card__wrapper">
+                    <div class="profile-card__img">
+                        <img src="assets/images/profile/img.jpg" alt="">
+                    </div>
+                    <div class="profile-card__info">
+                        <p class="profile-card__name">Marakesh</p>
+                    </div>
+                    <div class="profile-card__footer profile-card__footer--end">
+                        <div class="profile-card__icon profile-card__icon--black">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#notifications"></use>
+                            </svg>
+                        </div>
+                        <div class="profile-card__icon profile-card__icon--black">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#settings"></use>
+                            </svg>
+                        </div>
+                        <div class="profile-card__icon profile-card__icon--black">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#logout"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu__block">
+                <ul class="mobile-menu__list">
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Буст ММР</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Калібровка</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Буст Порядності</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Низький Пріорітет</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Моніторинг Замовлень</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#supervised"></use>
+                        </svg>
+                        Про Нас
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#work"></use>
+                        </svg>
+                        Робота
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#newsmode"></use>
+                        </svg>
+                        Блог
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#faq"></use>
+                        </svg>
+                        FAQ
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+    <div class="main main--faq page-wrapper__content">
+        <div class="main__wrapper main__wrapper--padding--bottom--none">
+            <div class="container">
+                <div class="section__header section__header--row section-header">
+                    <div class="section-header__block">
+                        <div class="breadcrumbs">
+                            <ul class="breadcrumbs__list">
+                                <li class="breadcrumbs__item">
+                                    <a class="title title--small title--white">Послуги</a>
+                                </li>
+                                <li class="breadcrumbs__item">
+                                    <a class="title title--small title--white">ММР Буст</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="main__title main__title--small title title--base title--white">Замов послуги бустингу
+                            вже зараз!</p>
+                    </div>
+                    <div class="section-header__buttons">
+                        <div class="tip">
+                            <a href="#" class="button button--small button--lock button--black tip-label">
+                                100% Гарантія
+                                Конфіденційності
+                            </a>
+                            <div class="tip-content">
+                                <div class="tip-content__wrapper">
+                                    <p class="tip-content__title tip-content__title--blue title title--small title--blue">
+                                        Безпека
+                                    </p>
+                                    <p class="tip-content__text tip-content__text--white">
+                                        Піднімайте свій ММР без ризику, граючи з нашими професійними бустерами.
+                                        Отримуйте професійну підтримку та швидкий розвиток вашого рейтингу в Dota 2.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tip">
+                            <a href="#" class="button button--small button--person button--green tip-label">42
+                                Бустера Онлайн</a>
+                            <div class="tip-content tip-content--right">
+                                <div class="tip-content__wrapper tip-content__wrapper--green">
+                                    <p class="tip-content__title title title--small title--black">
+                                        Бустери Онлайн
+                                    </p>
+                                    <p class="tip-content__text">
+                                        Професійні гравці зі всіх куточків світу, готові допомогти вам досягти
+                                        небачиних раніше висот.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main__content">
+                    <div class="card calculator calculator--black">
+                        <form action="#" class="card__wrapper card__wrapper--calculator calculator-content">
+                            <div class="calculator__grid calculator__grid--big calculator-grid js-range">
+                                <div class="calculator-grid__block rank-wrapper">
+                                    <div class="calculator__block calculator__block--padding--small rank-item"
+                                         data-rank>
+                                        <div class="rank-item__content">
+                                            <p class="title title--thin title--grey">Початковий Ранг</p>
+                                            <p class="title title--smallest title--bold title--white rank-item__name">
+                                                Божественний 1</p>
+                                        </div>
+                                    </div>
+                                    <div class="calculator__block calculator__block--padding--small range-control">
+                                        <div class="range-control__wrapper">
+                                            <button class="range-control__button range-control__button--minus">
+                                            </button>
+                                            <div class="range-control__value">
+                                                <p class="title title--thin title--grey title--center">Початковий
+                                                    MMR</p>
+                                                <input id="behavior-from-input"
+                                                       class="js-range-from-input rank-value range-control__input text text--big text--white text--font--accent text--center"
+                                                       type="text" value="1" max="7500">
+                                            </div>
+                                            <button class="range-control__button range-control__button--plus">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculator-grid__block calculator-grid__block--big">
+                                    <div class="calculator__block calculator__block--padding--range">
+                                        <div class="range__container">
+                                            <div class="range__control">
+                                                <div class="range-slider" data-min="1" data-max="7500"></div>
+                                            </div>
+                                            <div class="range__value">
+                                                <p class="title title--white title--tiny title--bold">1</p>
+                                                <p class="title title--white title--tiny title--bold">7 500</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculator__grid">
+                                        <div class="calculator-grid__block">
+                                            <div class="select custom-select calculator-select">
+                                                <p class="calculator-select__title">Сервер</p>
+                                                <select class="select__tag" name="" id="">
+                                                    <option value="">Europa</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-grid__block calculator-grid__block--column--two">
+                                            <div class="select custom-select calculator-select">
+                                                <p class="calculator-select__title">Послуга</p>
+                                                <select class="select__tag" name="" id="">
+                                                    <option value="">Буст Порядності</option>
+                                                    <option value="">Калібровка</option>
+                                                    <option value="">Послуга
+                                                        Знижений Пріорітет
+                                                    </option>
+                                                    <option value="">MMR Буст</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculator-grid__block rank-wrapper">
+                                    <div class="calculator__block calculator__block--padding--small rank-item"
+                                         data-rank>
+                                        <div class="rank-item__content">
+                                            <p class="title title--thin title--grey">Кінцевий Ранг</p>
+                                            <p class="title title--smallest title--bold title--white rank-item__name">
+                                                Божественний 1</p>
+                                        </div>
+                                    </div>
+                                    <div class="calculator__block calculator__block--padding--small range-control">
+                                        <div class="range-control__wrapper">
+                                            <button class="range-control__button range-control__button--minus">
+                                            </button>
+                                            <div class="range-control__value">
+                                                <p class="title title--thin title--grey title--center">Кінцева
+                                                    Оцінка</p>
+                                                <input id="behavior-to-input"
+                                                       class="js-range-to-input rank-value range-control__input text text--big text--white text--font--accent text--center"
+                                                       type="text" value="7500" max="7500">
+                                            </div>
+                                            <button class="range-control__button range-control__button--plus">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="calculator__block calculator__additional calculator__block--full">
+                                <div class="calculator__list calculator-list">
+                                    <div class="calculator-list__item tip">
+                                        <label class="calculator-checkbox">
+                                            <input type="checkbox" name="buster"
+                                                   class="calculator-checkbox__input">
+                                            <span class="calculator-checkbox__checkmark"></span>
+                                            <span class="calculator-checkbox__label">
+                                                Грати з Бустером <span class="tip-label tip-label__content"></span>
+                                                <span class="tip-content">
+                                                    <span class="tip-content__wrapper tip-content__wrapper--yellow">
+                                                        <span class="tip-content__title title title--small title--black">
+                                                            Грати з Бустером
+                                                        </span>
+                                                        <span class="tip-content__text">
+                                                            Піднімайте свій ММР без ризику, граючи з нашими професійними бустерами. Отримуйте професійну підтримку та швидкий розвиток вашого рейтингу в Dota 2.
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span class="calculator-checkbox__border"></span>
+                                            <span class="calculator-checkbox__tag">+20%</span>
+                                        </label>
+
+                                    </div>
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="stream"
+                                               class="calculator-checkbox__input">
+                                        <span class="calculator-checkbox__checkmark"></span>
+                                        <span class="calculator-checkbox__label">Гра зі Стрімом</span>
+                                        <span class="calculator-checkbox__border"></span>
+                                        <span class="calculator-checkbox__tag">+20%</span>
+                                    </label>
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="offline"
+                                               class="calculator-checkbox__input">
+                                        <span class="calculator-checkbox__checkmark"></span>
+                                        <span class="calculator-checkbox__label">Офлайн Режим</span>
+                                        <span class="calculator-checkbox__border"></span>
+                                        <span class="calculator-checkbox__tag">+20%</span>
+                                    </label>
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="time"
+                                               class="calculator-checkbox__input">
+                                        <span class="calculator-checkbox__checkmark"></span>
+                                        <span class="calculator-checkbox__label">Обрати Час</span>
+                                        <span class="calculator-checkbox__border"></span>
+                                        <span class="calculator-checkbox__tag">+20%</span>
+                                    </label>
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="ban"
+                                               class="calculator-checkbox__input">
+                                        <span class="calculator-checkbox__checkmark"></span>
+                                        <span class="calculator-checkbox__label">Бан Героїв</span>
+                                        <span class="calculator-checkbox__border"></span>
+                                        <span class="calculator-checkbox__tag">Free</span>
+                                    </label>
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="pick"
+                                               class="calculator-checkbox__input">
+                                        <span class="calculator-checkbox__checkmark"></span>
+                                        <span class="calculator-checkbox__label">Вибрати  Героїв</span>
+                                        <span class="calculator-checkbox__border"></span>
+                                        <span class="calculator-checkbox__tag">+20%</span>
+                                    </label>
+                                    <label class="calculator-checkbox">
+                                        <input type="checkbox" name="turbo"
+                                               class="calculator-checkbox__input">
+                                        <span class="calculator-checkbox__checkmark"></span>
+                                        <span class="calculator-checkbox__label">Турбо Режим</span>
+                                        <span class="calculator-checkbox__border"></span>
+                                        <span class="calculator-checkbox__tag">+20%</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="calculator__footer">
+                                <div class="fast-form">
+                                    <input type="text" class="fast-form__input" placeholder="Введіть Промокод">
+                                    <button class="fast-form__button">
+
+                                    </button>
+                                </div>
+                                <div class="calculator-result">
+                                    <div class="calculator-result__text">
+                                        <p>
+                                            Сума 1219 ₴</p>
+                                    </div>
+                                    <button class="calculator-result__button">
+                                        Оформити Замовлення
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="calculator__info calculator-info">
+
+                            <div class="calculator-info__wrapper">
+                                <div class="calculator-info__header">
+                                    <p class="title title--base title--white title--mobile--center">Бустинг Рейтингу
+                                        ММР</p>
+
+                                    <div class="calculator-info__text">
+                                        <p class="text text--base text--white">
+                                            Занурся в епічну гру та випередь своїх суперників, піднімаючи свій рейтинг
+                                            до неймовірних висот. Наша команда талановитих та висококваліфікованих
+                                            бустерів допоможе тобі розкрити твій потенціал та покращити свою гру до
+                                            неперевершеності.
+                                        </p>
+                                        <p class="text text--base text--white">
+                                            Забудь про обмеження та досягни своїх геймінгових мрій разом з нами. Наші
+                                            бустери - це справжні майстри гри, які володіють вражаючими навичками та
+                                            стратегіями. Вони виконають свою місію - підняти твій рейтинг - з
+                                            максимальною ефективністю та професіоналізмом.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="calculator-info__content">
+                                    <div class="calculator-info__tag">
+                                        <p class="title title--large title--black">Додаткові Послуги</p>
+                                    </div>
+                                    <div class="calculator-info__list">
+                                        <div class="calculator-card">
+                                            <div class="calculator-card__wrapper">
+                                                <div class="calculator-card__header">
+                                                    <p class="title title--small title--orange">Грати з Бустером</p>
+                                                    <div class="calculator-card__tag">
+                                                        <p>+50%</p>
+                                                    </div>
+                                                </div>
+                                                <div class="calculator-card__content">
+                                                    <p class="text text--base text--white">
+                                                        Запрошуємо тебе разом з нашою командою професіоналів відкрити
+                                                        нові горизонти в світі Dota 2. Грай разом з бустерами, піднімай
+                                                        свій рейтинг та досягай неймовірних результатів у грі.
+                                                        Приєднуйся до нас сьогодні та стань справжнім героєм на полі
+                                                        бою!
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-card">
+                                            <div class="calculator-card__wrapper">
+                                                <div class="calculator-card__header">
+                                                    <p class="title title--small title--orange">Гра зі Стрімом</p>
+                                                    <div class="calculator-card__tag">
+                                                        <p>+20%</p>
+                                                    </div>
+                                                </div>
+                                                <div class="calculator-card__content">
+                                                    <p class="text text--base text--white">
+                                                        Випередь очікування та стеж за своєю грою в режимі реального
+                                                        часу завдяки нашій захоплюючій послузі "Гра зі стрімом". Отримай
+                                                        унікальну можливість спостерігати за ходом гри на своєму
+                                                        аккаунті в будь-який час. Занурся у світ Dota 2 та відчуй
+                                                        справжню силу гри, яка вже чекає на тебе!
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-card">
+                                            <div class="calculator-card__wrapper">
+                                                <div class="calculator-card__header">
+                                                    <p class="title title--small title--orange">Оффлайн Режим</p>
+                                                    <div class="calculator-card__tag">
+                                                        <p>Free</p>
+                                                    </div>
+                                                </div>
+                                                <div class="calculator-card__content">
+                                                    <p class="text text--base text--white">
+                                                        Збережи свою конфіденційність та досягни максимального рейтингу
+                                                        у Dota 2 з "Оффлайн Режим" від GameBoost. Наш бустер грає у
+                                                        невидимому режимі, забезпечуючи тобі анонімність та безпеку.
+                                                        Підвищуй свій рейтинг непомітно та ефективно!
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-card">
+                                            <div class="calculator-card__wrapper">
+                                                <div class="calculator-card__header">
+                                                    <p class="title title--small title--orange">Обрати Час</p>
+                                                    <div class="calculator-card__tag">
+                                                        <p>+50%</p>
+                                                    </div>
+                                                </div>
+                                                <div class="calculator-card__content">
+                                                    <p class="text text--base text--white">
+                                                        Забудь про обмеження і рушай до впевненого прогресу разом з
+                                                        нами. GameBoost гарантує якісне виконання роботи на твоєму
+                                                        аккаунті з урахуванням твого обраного часу. Приєднуйся до нашої
+                                                        команди професіоналів і відчуй справжню свободу в управлінні
+                                                        своїм геймінговим досвідом! </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-card">
+                                            <div class="calculator-card__wrapper">
+                                                <div class="calculator-card__header">
+                                                    <p class="title title--small title--orange">Бан Героїв</p>
+                                                    <div class="calculator-card__tag">
+                                                        <p>Free</p>
+                                                    </div>
+                                                </div>
+                                                <div class="calculator-card__content">
+                                                    <p class="text text--base text--white">
+                                                        Збережи свою унікальність та стиль гри, визначаючи самостійно,
+                                                        які герої можуть бути грантовані твоєму бустеру. Таким чином, ти
+                                                        забезпечуєш собі повний контроль над своїм геймплеєм та
+                                                        зберігаєш свою ідентичність у грі.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-card">
+                                            <div class="calculator-card__wrapper">
+                                                <div class="calculator-card__header">
+                                                    <p class="title title--small title--orange">Обрати Героїв</p>
+                                                    <div class="calculator-card__tag">
+                                                        <p>+30%</p>
+                                                    </div>
+                                                </div>
+                                                <div class="calculator-card__content">
+                                                    <p class="text text--base text--white">
+                                                        Обрати героя від GameBoost - твій шлях до гри на своїх умовах.
+                                                        Збережи свою геймінгову ідентичність та насолоджуйся грою на
+                                                        повну потужність з тими героями, які тобі найбільше до вподоби.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-card">
+                                            <div class="calculator-card__wrapper">
+                                                <div class="calculator-card__header">
+                                                    <p class="title title--small title--orange">Турбо Режим</p>
+                                                    <div class="calculator-card__tag">
+                                                        <p>+20%</p>
+                                                    </div>
+                                                </div>
+                                                <div class="calculator-card__content">
+                                                    <p class="text text--base text--white">
+                                                        Заощадь свій час та насолоджуйся швидким виконанням замовлення.
+                                                        Наші професіонали засвідчені в галузі та готові зробити все
+                                                        можливе, щоб забезпечити тобі високу якість послуги і
+                                                        задоволення від отриманих результатів.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <div class="container">
+                <div class="footer__box">
+                    <div class="footer__nav">
+                        <ul class="footer__list footer__list--center footer__list--gap--small">
+                            <li class="footer__logo logo">
+                                <img src="assets/images/icons/logo-small.svg" alt="" class="logo">
+                            </li>
+                            <li class="footer__icon tip">
+                                <a href="#" class="footer__link tip-label">
+                                    <svg>
+                                        <use xlink:href="assets/images/sprite.svg#shield_lock"></use>
+                                    </svg>
+                                </a>
+                                <div class="tip-content tip-content--left">
+                                    <div class="tip-content__wrapper">
+                                        <p class="tip-content__title tip-content__title--blue title title--small title--blue">
+                                            Безпека
+                                        </p>
+                                        <p class="tip-content__text tip-content__text--white">
+                                            Піднімайте свій ММР без ризику, граючи з нашими професійними бустерами.
+                                            Отримуйте професійну підтримку та швидкий розвиток вашого рейтингу в Dota 2.
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="footer__icon tip">
+                                <a href="#" class="footer__link tip-label">
+                                    <svg>
+                                        <use xlink:href="assets/images/sprite.svg#award_star"></use>
+                                    </svg>
+                                </a>
+                                <div class="tip-content tip-content--left">
+                                    <div class="tip-content__wrapper">
+                                        <p class="tip-content__title tip-content__title--blue title title--small title--blue">
+                                            Безпека
+                                        </p>
+                                        <p class="tip-content__text tip-content__text--white">
+                                            Піднімайте свій ММР без ризику, граючи з нашими професійними бустерами.
+                                            Отримуйте професійну підтримку та швидкий розвиток вашого рейтингу в Dota 2.
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="footer__icon">
+                                <div class="language-select">
+                                    <a href="#" class="language-select__link language-select__current">
+                                        <svg class="icon">
+                                            <use xlink:href="assets/images/sprite.svg#ua"></use>
+                                        </svg>
+                                    </a>
+                                    <div class="language-select__list">
+                                        <a href="#" class="language-select__link">
+                                            <svg class="icon">
+                                                <use xlink:href="assets/images/sprite.svg#ua"></use>
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="language-select__link">
+                                            <svg class="icon">
+                                                <use xlink:href="assets/images/sprite.svg#pl"></use>
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="language-select__link">
+                                            <svg class="icon">
+                                                <use xlink:href="assets/images/sprite.svg#us"></use>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__info">
+                        <div class="footer__row">
+                            <div class="footer-block">
+                                <div class="footer-block__header">
+                                    <p class="title title--small title--white">
+                                        Компанія
+                                    </p>
+                                </div>
+                                <div class="footer-block__content">
+                                    <ul class="footer__list">
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Послуги
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Про Нас
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Робота
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Блог
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                FAQ
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="footer-block">
+                                <div class="footer-block__header">
+                                    <p class="title title--small title--white">
+                                        Правові
+                                    </p>
+                                </div>
+                                <div class="footer-block__content">
+                                    <ul class="footer__list">
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Політика Конфіденційності
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Умови Використання
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="footer-block">
+                                <div class="footer-block__header">
+                                    <p class="title title--small title--white">
+                                        Контакти
+                                    </p>
+                                </div>
+                                <div class="footer-block__content">
+                                    <ul class="footer__list">
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Зв’язок з нами
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Telegram
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Instagram
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:admin@gameboost.com.ua" class="text text--grey text--semibold text--small text--font--accent">
+                                                admin@gameboost.com.ua
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__text">
+                    <div class="footer__payment payment">
+                        <ul class="payment__list">
+                            <li class="payment__item">
+                                <svg class="payment__icon">
+                                    <use xlink:href="assets/images/sprite.svg#visa"></use>
+                                </svg>
+                            </li>
+                            <li class="payment__item">
+                                <svg class="payment__icon">
+                                    <use xlink:href="assets/images/sprite.svg#mastercard"></use>
+                                </svg>
+                            </li>
+                            <li class="payment__item">
+                                <svg class="payment__icon">
+                                    <use xlink:href="assets/images/sprite.svg#apay"></use>
+                                </svg>
+                            </li>
+                            <li class="payment__item">
+                                <svg class="payment__icon">
+                                    <use xlink:href="assets/images/sprite.svg#gpay"></use>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="text text--tiny text--grey">
+                        Dota 2 є зареєстрованою торговою маркою компанії Valve Corporation. Ми не пов'язані з компанією Valve Corporation, не асоційовані з нею і не підтримуємо її. GameBoost не відображає погляди чи думки Valve Corporation.
+                    </p>
+                    <p class="text text--tiny text--grey">
+                        Всі права захищені &copy;GAMEBOOST 2023
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="popup popup-calculator">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--calculator calculator-confirm">
+            <div class="popup__close popup-close"></div>
+            <div class="popup__content">
+                <div class="calculator-confirm__header">
+                    <p class="title title--small title--white">
+                        Підтвердження Замовлення
+                    </p>
+                </div>
+                <div class="calculator-confirm__content">
+                    <div class="calculator-confirm__block calculator-summary">
+                        <div class="calculator-summary__wrapper">
+                            <div class="calculator-summary__list">
+                                <div class="calculator-summary__item">
+                                    <p class="text text--small text--white">Буст ММР</p>
+                                    <p class="text text--small text--white">1599 ₴</p>
+
+                                </div>
+                                <div class="calculator-summary__item">
+                                    <p class="text text--small text--white">Офф Тайм</p>
+                                    <p class="text text--small text--white">200 ₴</p>
+
+                                </div>
+                                <div class="calculator-summary__item">
+                                    <p class="text text--small text--white">Офлайн режим</p>
+                                    <p class="text text--small text--white">0 ₴</p>
+
+                                </div>
+                            </div>
+                            <div class="calculator-summary__footer">
+                                <div class="calculator-summary__block">
+                                    <p class="title title--tiny title--bold title--black">
+                                        Час Виконання
+                                    </p>
+                                    <p class="title title--tiny title--bold title--black">
+                                        48 год. 32 хв.
+                                    </p>
+                                </div>
+                                <div class="calculator-summary__block">
+                                    <p class="title title--tiny title--bold title--black">
+                                        Промокод 20%
+                                    </p>
+                                    <p class="title title--tiny title--bold title--black">
+                                        -280 ₴
+                                    </p>
+                                </div>
+                                <div class="calculator-summary__block calculator-summary__block--big">
+                                    <p class="text text--small text--center text--bold text--font--accent text--black">
+                                        Сума 1219 ₴
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calculator-confirm__block">
+                        <div class="calculator-confirm__form">
+                            <div class="form-input">
+                                <label for="email" class="title title--smallest title--white">Ваш
+                                    Е-Мейл</label>
+                                <input id="email" maxlength="320" type="text" name="email" placeholder="Електронна Пошта"
+                                       class="form-input__item">
+                            </div>
+                            <div class="form-input">
+                                <p class="title title--smallest title--white">Код Підтвердження</p>
+                                <div class="form-input__grid">
+                                    <input type="text" placeholder=""
+                                           class="code-input form-input__item form-input__item--center">
+                                    <input type="text" placeholder=""
+                                           class="code-input form-input__item form-input__item--center">
+                                    <input type="text" placeholder=""
+                                           class="code-input form-input__item form-input__item--center">
+                                    <input type="text" placeholder=""
+                                           class="code-input form-input__item form-input__item--center">
+                                </div>
+                            </div>
+                            <p class="title title--tiny title--white">Вже зареєстрований ?
+                                <a class="title title--tiny title--orange title--semibold" href="#">Перейти
+                                    до авторизації.</a>
+                            </p>
+                        </div>
+                        <div class="calculator-confirm__footer">
+                            <label for="policy-calc" class="form-checkbox">
+                                <input type="checkbox" name="policy" id="policy-calc" class="form-checkbox__item">
+                                <span class="form-checkbox__checkmark"></span>
+                                <span class="form-checkbox__label title title--regular title--smallest title--white">
+                                                Я ознайомлений та згоден з
+                                                <a class="title title--smallest title--orange" href="#">умови користування</a> та <a
+                                        class="title title--smallest title--orange" href="#">політикою конфіденційності</a>
+                                                </span>
+                            </label>
+                            <input type="submit" value="Сплатити" class="button button--middle button--full button--orange">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="assets/libs/swiper/swiper.js"></script>
+<script src="assets/libs/range/range.js"></script>
+<script src="assets/scripts/index.js"></script>
+
+</body>
+
+</html>

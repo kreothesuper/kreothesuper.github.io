@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/style/font.css">
+
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
+    <link rel="stylesheet" href="assets/libs/range/range.css">
+
+    <link rel="stylesheet" href="assets/style/reset.css">
+    <link rel="stylesheet" href="assets/style/index.css">
+</head>
+
+<body>
+
+<div class="page-wrapper">
+    <header class="header">
+        <div class="header__wrapper">
+            <div class="container container--full">
+                <div class="header__row">
+                    <div class="header__icon header__support">
+                        <svg class="icon">
+                            <use xlink:href="assets/images/sprite.svg#headset_mic"></use>
+                        </svg>
+                    </div>
+                    <div class="header__logo logo">
+                        <img src="assets/images/icons/logo.svg" alt="" class="logo__img">
+                    </div>
+                    <div class="header__nav nav">
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">DotaBoost</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link nav-catalog-link">Послуги</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Про нас</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Робота</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Блог</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="header__burger">
+                        <div class="burger">
+                            <div class="burger__wrapper">
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__profile profile-card">
+                        <div class="profile-card__wrapper profile-card-link">
+                            <div class="profile-card__img">
+                                <img src="assets/images/profile/img.jpg" alt="">
+                            </div>
+                            <div class="profile-card__info">
+                                <p class="profile-card__name">Marakesh</p>
+                            </div>
+                            <div class="profile-card__footer">
+                                <a href="#" data-popup=".popup-notification" class="profile-card__icon profile-card__icon--link">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite.svg#notifications"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="profile-card__list profile-card-list">
+                            <a href="#" class="profile-card__link title title--smallest title--white">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite.svg#account_circle"></use>
+                                </svg>
+                                Профіль
+                            </a>
+                            <a href="#" class="profile-card__link title title--smallest title--white">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite.svg#settings"></use>
+                                </svg>
+                                Налаштування
+                            </a>
+                            <a href="#" class="profile-card__link title title--smallest title--white">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite.svg#logout"></use>
+                                </svg>
+                                Вихід
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__sublist nav-catalog-block nav">
+                    <ul class="nav__list nav__list--center">
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">ММР Буст</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Калібровка</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Низький Пріорітет</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Оцінка Поведінки</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Моніторінг Замовлень</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu">
+        <div class="mobile-menu__wrapper">
+            <div class="mobile-menu__block profile-card">
+                <div class="profile-card__wrapper">
+                    <div class="profile-card__img">
+                        <img src="assets/images/profile/img.jpg" alt="">
+                    </div>
+                    <div class="profile-card__info">
+                        <p class="profile-card__name">Marakesh</p>
+                    </div>
+                    <div class="profile-card__footer profile-card__footer--end">
+                        <div class="profile-card__icon profile-card__icon--black">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#notifications"></use>
+                            </svg>
+                        </div>
+                        <div class="profile-card__icon profile-card__icon--black">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#settings"></use>
+                            </svg>
+                        </div>
+                        <div class="profile-card__icon profile-card__icon--black">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#logout"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu__block">
+                <ul class="mobile-menu__list">
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Буст ММР</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Калібровка</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Буст Порядності</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Низький Пріорітет</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Моніторинг Замовлень</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#supervised"></use>
+                        </svg>
+                        Про Нас
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#work"></use>
+                        </svg>
+                        Робота
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#newsmode"></use>
+                        </svg>
+                        Блог
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#faq"></use>
+                        </svg>
+                        FAQ
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+    <main class="page-wrapper__content">
+        <div class="hero">
+            <div class="hero__wrapper">
+                <div class="container container--full">
+                    <div class="hero-slider swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide hero-slide" data-color="blue">
+                                <div class="hero-slide__wrapper">
+                                    <div class="hero-slide__info">
+                                        <div class="hero-slide__tag">
+                                            <div class="hero-slide__icon">
+                                                <img src="assets/images/hero/storm-icon.png" alt="" class="">
+                                            </div>
+                                            <p class="title title--smallest title--white">Storm Spirit</p>
+                                        </div>
+                                        <p class="title title--big title--white">Швидкість та доступність</p>
+                                        <p class="title title--smallest title--white">
+                                            Не відставай від своїх друзів в Dota 2 з GameBoost! Наш сервіс допоможе тобі
+                                            швидко
+                                            і легко покращити свій рейтинг, освоїти нових героїв і стати справжнім
+                                            штормом
+                                            на
+                                            полі бою.
+                                        </p>
+                                        <a href="#" class="button button--middle button--orange button--arrow">Замовити
+                                            Буст</a>
+                                    </div>
+                                    <div class="hero-slide__img">
+                                        <img src="assets/images/hero/storm-img.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="hero-slide__bg">
+                                    <img src="assets/images/hero/storm-bg.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide hero-slide" data-color="orange">
+                                <div class="hero-slide__wrapper">
+                                    <div class="hero-slide__info">
+                                        <div class="hero-slide__tag hero-slide__tag--orange">
+                                            <div class="hero-slide__icon">
+                                                <img src="assets/images/hero/ember-icon.png" alt="" class="">
+                                            </div>
+                                            <p class="title title--smallest title--white">Ember Spirit</p>
+                                        </div>
+                                        <p class="title title--big title--white">Вогонь та Результат</p>
+                                        <p class="title title--smallest title--white">
+                                            Запали своїх супротивників в Дота 2 з GameBoost! Наш сервіс надасть тобі
+                                            доступ
+                                            до найкращих тренерів, які покажуть тобі всі хитрощі і фішки гри. Навчись
+                                            грати
+                                            на Ембер Спіриті і піднімай ММР самостійно!
+                                        </p>
+                                        <a href="#" class="button button--middle button--orange button--arrow">
+                                        <span class="button__content">
+                                            <span class="button__text">Замовити</span> Менторство
+                                        </span>
+                                        </a>
+                                    </div>
+                                    <div class="hero-slide__img">
+                                        <img src="assets/images/hero/ember-img.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="hero-slide__bg">
+                                    <img src="assets/images/hero/ember-bg.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide hero-slide" data-color="purple">
+                                <div class="hero-slide__wrapper">
+                                    <div class="hero-slide__info">
+                                        <div class=" hero-slide__tag hero-slide__tag--purple">
+                                            <div class="hero-slide__icon">
+                                                <img src="assets/images/hero/void-purple-icon.png" alt="" class="">
+                                            </div>
+                                            <p class="title title--smallest title--white">Void Spirit</p>
+                                        </div>
+                                        <p class="title title--big title--white">Таємниця і Майстерність</p>
+                                        <p class="title title--smallest title--white">
+                                            Наш сервіс гарантує повну конфіденційність та безпеку твоїх даних. Ми не
+                                            зберігаємо жодних особистих даних наших клієнтів і не передаємо їх третім
+                                            особам. Тож ти можеш бути впевнений, що ніхто не здогадається, що ти
+                                            скористався
+                                            нашими послугами.
+                                        </p>
+                                        <a href="#"
+                                           class="button button--middle button--purple button--arrow button--arrow--white">
+                                        <span class="button__content">
+                                            <span class="button__text">Замовити</span> Менторство
+                                        </span>
+                                        </a>
+                                    </div>
+                                    <div class="hero-slide__img">
+                                        <img src="assets/images/hero/void-purple-img.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="hero-slide__bg">
+                                    <img src="assets/images/hero/void-purple-bg.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-slide hero-slide" data-color="green">
+                                <div class="hero-slide__wrapper">
+                                    <div class="hero-slide__info">
+                                        <div class="hero-slide__tag hero-slide__tag--green">
+                                            <div class="hero-slide__icon">
+                                                <img src="assets/images/hero/void-green-icon.png" alt="" class="">
+                                            </div>
+                                            <p class="title title--smallest title--white">Void Spirit</p>
+                                        </div>
+                                        <p class="title title--big title--white">Надійність та Безпека</p>
+                                        <p class="title title--smallest title--white">
+                                            Почувай себе в безпеці в Дота 2 з GameBoost! Наш сервіс є твоїм особистим
+                                            сапортом, на який ти можеш розраховувати. Ми забезпечимо тобі комфортну і
+                                            безстресову гру, де ти не будеш хвилюватися про свою команду або своїх
+                                            супротивників.
+                                        </p>
+                                        <a href="#" class="button button--middle button--green--light button--arrow">
+                                        <span class="button__content">
+                                            Буст
+                                            Порядності
+                                        </span>
+                                        </a>
+                                    </div>
+                                    <div class="hero-slide__img">
+                                        <img src="assets/images/hero/void-green-img.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="hero-slide__bg">
+                                    <img src="assets/images/hero/void-green-bg.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-slider__control">
+                            <div class="swiper-button-prev">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite.svg#slider-arrow"></use>
+                                </svg>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-next">
+                                <svg class="icon">
+                                    <use xlink:href="assets/images/sprite.svg#slider-arrow"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="section">
+            <div class="section__wrapper">
+                <div class="container">
+                    <div class="section__header section__header--row section-header">
+                        <h2 class="section__title section__title--small title title--base title--white title--mobile--center">
+                            Прорахуй ціну <span class="title title--base title--green">твого бусту!</span>
+                        </h2>
+                        <div class="section-header__buttons">
+                            <div class="tip">
+                                <a href="#" class="button button--small button--person button--green tip-label">42 Бустера Онлайн</a>
+                                <div class="tip-content tip-content--right">
+                                    <div class="tip-content__wrapper tip-content__wrapper--green">
+                                        <p class="tip-content__title title title--small title--black">
+                                            Бустери Онлайн
+                                        </p>
+                                        <p class="tip-content__text">
+                                            Професійні гравці зі всіх куточків світу, готові допомогти вам досягти небачиних раніше висот.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tip">
+                                <a href="#" class="button button--small button--lock button--black tip-label">
+                                    100% Гарантія
+                                    Конфіденційності
+                                </a>
+                                <div class="tip-content">
+                                    <div class="tip-content__wrapper">
+                                        <p class="tip-content__title tip-content__title--blue title title--small title--blue">
+                                            Безпека
+                                        </p>
+                                        <p class="tip-content__text tip-content__text--white">
+                                            Піднімайте свій ММР без ризику, граючи з нашими професійними бустерами.
+                                            Отримуйте професійну підтримку та швидкий розвиток вашого рейтингу в Dota 2.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="section__content">
+                        <div class="card calculator">
+                            <div class="card__wrapper card__wrapper--calculator">
+                                <form class="calculator-mmr calculator-content">
+                                    <div class="calculator__grid calculator-grid js-range">
+                                        <div class="calculator-grid__block calculator-grid__block--full">
+                                            <div class="calculator__block calculator__block--title calculator__block--communication">
+                                                <p class="text text--small text--bold text--accent--font text--white">
+                                                    Оцінка Поведінки
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-grid__block">
+                                            <div class="calculator__block calculator__block--padding--small range-control">
+                                                <div class="range-control__wrapper">
+                                                    <button class="range-control__button range-control__button--minus">
+                                                    </button>
+                                                    <div class="range-control__value">
+                                                        <p class="title title--thin title--grey title--center">
+                                                            Початковий
+                                                            MMR</p>
+                                                        <input id="behavior-from-input"
+                                                               class="js-range-from-input range-control__input text text--big text--white text--font--accent text--center"
+                                                               type="text" value="1" max="12000">
+                                                    </div>
+                                                    <button class="range-control__button range-control__button--plus">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-grid__block calculator-grid__block--big">
+                                            <div class="calculator__block calculator__block--padding--range">
+                                                <div class="range__container">
+                                                    <div class="range__control">
+                                                        <div class="range-slider" data-min="1" data-max="12000"></div>
+                                                    </div>
+                                                    <div class="range__value">
+                                                        <p class="title title--white title--tiny title--bold">1</p>
+                                                        <p class="title title--white title--tiny title--bold">12 000</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-grid__block">
+                                            <div class="calculator__block calculator__block--padding--small range-control">
+                                                <div class="range-control__wrapper">
+                                                    <button class="range-control__button range-control__button--minus">
+                                                    </button>
+                                                    <div class="range-control__value">
+                                                        <p class="title title--thin title--grey title--center">Кінцева
+                                                            Оцінка</p>
+                                                        <input id="behavior-to-input"
+                                                               class="js-range-to-input range-control__input text text--big text--white text--font--accent text--center"
+                                                               type="text" value="12000" max="12000">
+                                                    </div>
+                                                    <button class="range-control__button range-control__button--plus">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculator__grid calculator-grid js-range">
+                                        <div class="calculator-grid__block calculator-grid__block--full">
+                                            <div class="calculator__block calculator__block--title calculator__block--behavior">
+                                                <p class="text text--small text--bold text--accent--font text--white">
+                                                    Оцінка Спілкування
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-grid__block">
+                                            <div class="calculator__block calculator__block--padding--small range-control">
+                                                <div class="range-control__wrapper">
+                                                    <button class="range-control__button range-control__button--minus">
+                                                    </button>
+                                                    <div class="range-control__value">
+                                                        <p class="title title--thin title--grey title--center">
+                                                            Початковий
+                                                            MMR</p>
+                                                        <input id="communication-from-input"
+                                                               class="js-range-from-input range-control__input text text--big text--white text--font--accent text--center"
+                                                               type="text" value="1" max="12000">
+                                                    </div>
+                                                    <button class="range-control__button range-control__button--plus">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-grid__block calculator-grid__block--big">
+                                            <div class="calculator__block calculator__block--padding--range">
+                                                <div class="range__container">
+                                                    <div class="range__control">
+                                                        <div class="range-slider" data-min="1" data-max="12000"></div>
+                                                    </div>
+                                                    <div class="range__value">
+                                                        <p class="title title--white title--tiny title--bold">1</p>
+                                                        <p class="title title--white title--tiny title--bold">12 000</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-grid__block">
+                                            <div class="calculator__block calculator__block--padding--small range-control">
+                                                <div class="range-control__wrapper">
+                                                    <button class="range-control__button range-control__button--minus">
+                                                    </button>
+                                                    <div class="range-control__value">
+                                                        <p class="title title--thin title--grey title--center">Кінцева
+                                                            Оцінка</p>
+                                                        <input id="communication-to-input"
+                                                               class="js-range-to-input range-control__input text text--big text--white text--font--accent text--center"
+                                                               type="text" value="1" max="12000">
+                                                    </div>
+                                                    <button class="range-control__button range-control__button--plus">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculator__grid calculator__lists calculator__grid--column--three calculator-grid">
+                                        <div class="calculator-grid__block calculator-grid__block--big">
+                                            <div class="select custom-select calculator-select" data-rank>
+                                                <p class="calculator-select__title">Ваш Ранг</p>
+                                                <select class="select__tag js-rank-select" name="" id="">
+                                                    <option value="herald-1">herald I</option>
+                                                    <option value="herald-2">herald 2</option>
+                                                    <option value="herald-3">herald 3
+                                                    </option>
+                                                    <option value="herald-4">herald 4</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-grid__block">
+                                            <div class="select custom-select calculator-select">
+                                                <p class="calculator-select__title">Сервер</p>
+                                                <select class="select__tag" name="" id="">
+                                                    <option value="">Europa</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-grid__block">
+                                            <div class="select custom-select calculator-select">
+                                                <p class="calculator-select__title">Послуга</p>
+                                                <select class="select__tag" name="" id="">
+                                                    <option value="">Буст Порядності</option>
+                                                    <option value="">Калібровка</option>
+                                                    <option value="">Послуга
+                                                        Знижений Пріорітет
+                                                    </option>
+                                                    <option value="">MMR Буст</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculator__block calculator__additional calculator__block--full">
+                                        <div class="calculator__list">
+                                            <label class="calculator-checkbox">
+                                                <input type="checkbox" name="buster"
+                                                       class="calculator-checkbox__input">
+                                                <span class="calculator-checkbox__checkmark"></span>
+                                                <span class="calculator-checkbox__label">Грати з Бустером</span>
+                                                <span class="calculator-checkbox__border"></span>
+                                                <span class="calculator-checkbox__tag">+20%</span>
+                                            </label>
+                                            <label class="calculator-checkbox">
+                                                <input type="checkbox" name="stream"
+                                                       class="calculator-checkbox__input">
+                                                <span class="calculator-checkbox__checkmark"></span>
+                                                <span class="calculator-checkbox__label">Гра зі Стрімом</span>
+                                                <span class="calculator-checkbox__border"></span>
+                                                <span class="calculator-checkbox__tag">+20%</span>
+                                            </label>
+                                            <label class="calculator-checkbox">
+                                                <input type="checkbox" name="offline"
+                                                       class="calculator-checkbox__input">
+                                                <span class="calculator-checkbox__checkmark"></span>
+                                                <span class="calculator-checkbox__label">Офлайн Режим</span>
+                                                <span class="calculator-checkbox__border"></span>
+                                                <span class="calculator-checkbox__tag">+20%</span>
+                                            </label>
+                                            <label class="calculator-checkbox">
+                                                <input type="checkbox" name="time"
+                                                       class="calculator-checkbox__input">
+                                                <span class="calculator-checkbox__checkmark"></span>
+                                                <span class="calculator-checkbox__label">Обрати Час</span>
+                                                <span class="calculator-checkbox__border"></span>
+                                                <span class="calculator-checkbox__tag">+20%</span>
+                                            </label>
+                                            <label class="calculator-checkbox">
+                                                <input type="checkbox" name="ban"
+                                                       class="calculator-checkbox__input">
+                                                <span class="calculator-checkbox__checkmark"></span>
+                                                <span class="calculator-checkbox__label">Бан Героїв</span>
+                                                <span class="calculator-checkbox__border"></span>
+                                                <span class="calculator-checkbox__tag">Free</span>
+                                            </label>
+                                            <label class="calculator-checkbox">
+                                                <input type="checkbox" name="pick"
+                                                       class="calculator-checkbox__input">
+                                                <span class="calculator-checkbox__checkmark"></span>
+                                                <span class="calculator-checkbox__label">Вибрати  Героїв</span>
+                                                <span class="calculator-checkbox__border"></span>
+                                                <span class="calculator-checkbox__tag">+20%</span>
+                                            </label>
+                                            <label class="calculator-checkbox">
+                                                <input type="checkbox" name="turbo"
+                                                       class="calculator-checkbox__input">
+                                                <span class="calculator-checkbox__checkmark"></span>
+                                                <span class="calculator-checkbox__label">Турбо Режим</span>
+                                                <span class="calculator-checkbox__border"></span>
+                                                <span class="calculator-checkbox__tag">+20%</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="calculator__footer">
+                                        <div class="fast-form">
+                                            <input type="text" class="fast-form__input" placeholder="Введіть Промокод">
+                                            <button class="fast-form__button">
+
+                                            </button>
+                                        </div>
+                                        <div class="calculator-result">
+                                            <div class="calculator-result__text">
+                                                <p>
+                                                    Сума 1219 ₴</p>
+                                            </div>
+                                            <button class="calculator-result__button" type="submit">
+                                                Оформити Замовлення
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="section__wrapper">
+                <div class="container">
+                    <div class="section__header">
+                        <h2 class="title title--base title--white title--mobile--center">Наші Клієнти в захваті!</h2>
+                    </div>
+                    <div class="section__content">
+                        <div class="swiper review-slider marquee-left">
+                            <div class="swiper-wrapper">
+                                <div class="review-card swiper-slide">
+                                    <div class="review-card__wrapper">
+                                        <div class="review-card__header">
+                                            <p class="title title--small title--white">
+                                                Буст MMR Буст MMR
+                                            </p>
+                                            <div class="review-card__rating rating">
+                                                <div class="rating__wrapper">
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-card__content">
+                                            <p class="text text--baset text--white">
+                                                Дуже задоволена послугою прокачки MMR у DotaBoost! Завдяки їхньому
+                                                професіоналізму та
+                                                ефективності, мій рейтинг значно зрос і я досягла нових висот у грі Dota
+                                                2. Рекомендую
+                                                цей сервіс!
+                                            </p>
+                                        </div>
+                                        <div class="review-card__footer">
+                                            <p class="title title--smallest title--white">№3213211123</p>
+                                            <p class="title title--smallest title--white">26.04.2023</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-card swiper-slide">
+                                    <div class="review-card__wrapper">
+                                        <div class="review-card__header">
+                                            <p class="title title--small title--white">
+                                                Буст MMR
+                                            </p>
+                                            <div class="review-card__rating rating">
+                                                <div class="rating__wrapper">
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-card__content">
+                                            <p class="text text--baset text--white">
+                                                Дуже задоволена послугою прокачки MMR у DotaBoost! Завдяки їхньому
+                                                професіоналізму та
+
+                                            </p>
+                                        </div>
+                                        <div class="review-card__footer">
+                                            <p class="title title--smallest title--white">№3213211123</p>
+                                            <p class="title title--smallest title--white">26.04.2023</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-card swiper-slide">
+                                    <div class="review-card__wrapper">
+                                        <div class="review-card__header">
+                                            <p class="title title--small title--white">
+                                                Буст MMR
+                                            </p>
+                                            <div class="review-card__rating rating">
+                                                <div class="rating__wrapper">
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-card__content">
+                                            <p class="text text--baset text--white">
+                                                Дуже задоволена послугою прокачки MMR у DotaBoost! Завдяки їхньому
+                                                професіоналізму та
+                                                ефективності
+                                            </p>
+                                        </div>
+                                        <div class="review-card__footer">
+                                            <p class="title title--smallest title--white">№3213211123</p>
+                                            <p class="title title--smallest title--white">26.04.2023</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="review-card swiper-slide">
+                                    <div class="review-card__wrapper">
+                                        <div class="review-card__header">
+                                            <p class="title title--small title--white">
+                                                Буст MMR
+                                            </p>
+                                            <div class="review-card__rating rating">
+                                                <div class="rating__wrapper">
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-card__content">
+                                            <p class="text text--baset text--white">
+                                                Дуже задоволена послугою прокачки MMR у DotaBoost! Завдяки їхньому
+                                                професіоналізму та
+                                                ефективності
+                                            </p>
+                                        </div>
+                                        <div class="review-card__footer">
+                                            <p class="title title--smallest title--white">№3213211123</p>
+                                            <p class="title title--smallest title--white">26.04.2023</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="review-card swiper-slide">
+                                    <div class="review-card__wrapper">
+                                        <div class="review-card__header">
+                                            <p class="title title--small title--white">
+                                                Буст MMR
+                                            </p>
+                                            <div class="review-card__rating rating">
+                                                <div class="rating__wrapper">
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-card__content">
+                                            <p class="text text--baset text--white">
+                                                Дуже задоволена послугою прокачки MMR у DotaBoost! Завдяки їхньому
+                                                професіоналізму та
+                                                ефективності
+                                            </p>
+                                        </div>
+                                        <div class="review-card__footer">
+                                            <p class="title title--smallest title--white">№3213211123</p>
+                                            <p class="title title--smallest title--white">26.04.2023</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper review-slider marquee-right">
+                            <div class="swiper-wrapper">
+                                <div class="review-card swiper-slide">
+                                    <div class="review-card__wrapper">
+                                        <div class="review-card__header">
+                                            <p class="title title--small title--white">
+                                                Буст MMR
+                                            </p>
+                                            <div class="review-card__rating rating">
+                                                <div class="rating__wrapper">
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-card__content">
+                                            <p class="text text--baset text--white">
+                                                Дуже задоволена послугою прокачки MMR у DotaBoost! Завдяки їхньому
+                                                професіоналізму та
+                                                ефективності
+                                            </p>
+                                        </div>
+                                        <div class="review-card__footer">
+                                            <p class="title title--smallest title--white">№3213211123</p>
+                                            <p class="title title--smallest title--white">26.04.2023</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="review-card swiper-slide">
+                                    <div class="review-card__wrapper">
+                                        <div class="review-card__header">
+                                            <p class="title title--small title--white">
+                                                Буст MMR
+                                            </p>
+                                            <div class="review-card__rating rating">
+                                                <div class="rating__wrapper">
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-card__content">
+                                            <p class="text text--baset text--white">
+                                                Дуже задоволена послугою прокачки MMR у DotaBoost! Завдяки їхньому
+                                                професіоналізму та
+                                                ефективності
+                                            </p>
+                                        </div>
+                                        <div class="review-card__footer">
+                                            <p class="title title--smallest title--white">№3213211123</p>
+                                            <p class="title title--smallest title--white">26.04.2023</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="review-card swiper-slide">
+                                    <div class="review-card__wrapper">
+                                        <div class="review-card__header">
+                                            <p class="title title--small title--white">
+                                                Буст MMR
+                                            </p>
+                                            <div class="review-card__rating rating">
+                                                <div class="rating__wrapper">
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-card__content">
+                                            <p class="text text--baset text--white">
+                                                Дуже задоволена послугою прокачки MMR у DotaBoost! Завдяки їхньому
+                                                професіоналізму та
+                                                ефективності
+                                            </p>
+                                        </div>
+                                        <div class="review-card__footer">
+                                            <p class="title title--smallest title--white">№3213211123</p>
+                                            <p class="title title--smallest title--white">26.04.2023</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="review-card swiper-slide">
+                                    <div class="review-card__wrapper">
+                                        <div class="review-card__header">
+                                            <p class="title title--small title--white">
+                                                Буст MMR
+                                            </p>
+                                            <div class="review-card__rating rating">
+                                                <div class="rating__wrapper">
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="review-card__content">
+                                            <p class="text text--baset text--white">
+                                                Дуже задоволена послугою прокачки MMR у DotaBoost! Завдяки їхньому
+                                                професіоналізму та
+                                                ефективності
+                                            </p>
+                                        </div>
+                                        <div class="review-card__footer">
+                                            <p class="title title--smallest title--white">№3213211123</p>
+                                            <p class="title title--smallest title--white">26.04.2023</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="review-card swiper-slide">
+                                    <div class="review-card__wrapper">
+                                        <div class="review-card__header">
+                                            <p class="title title--small title--white">
+                                                Буст MMR
+                                            </p>
+                                            <div class="review-card__rating rating">
+                                                <div class="rating__wrapper">
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-card__content">
+                                            <p class="text text--baset text--white">
+                                                Дуже задоволена послугою прокачки MMR у DotaBoost! Завдяки їхньому
+                                                професіоналізму та
+                                                ефективності
+                                            </p>
+                                        </div>
+                                        <div class="review-card__footer">
+                                            <p class="title title--smallest title--white">№3213211123</p>
+                                            <p class="title title--smallest title--white">26.04.2023</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="review-card swiper-slide">
+                                    <div class="review-card__wrapper">
+                                        <div class="review-card__header">
+                                            <p class="title title--small title--white">
+                                                Буст MMR
+                                            </p>
+                                            <div class="review-card__rating rating">
+                                                <div class="rating__wrapper">
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                    <svg class="rating__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#star"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-card__content">
+                                            <p class="text text--baset text--white">
+                                                Дуже задоволена послугою прокачки MMR у DotaBoost! Завдяки їхньому
+                                                професіоналізму та
+                                                ефективності
+                                            </p>
+                                        </div>
+                                        <div class="review-card__footer">
+                                            <p class="title title--smallest title--white">№3213211123</p>
+                                            <p class="title title--smallest title--white">26.04.2023</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section__footer">
+                        <div class="review-banner">
+                            <div class="review-banner__wrapper">
+                                <div class="review-banner__header">
+                                    <p class="title title--small title--black">Хочеш перевірити замовлення та відгук ?
+                                    </p>
+                                    <p class="title title--tiny title--black">Ми надаємо повністю прозору стрічку
+                                        замовлень, ви можете перевірити будь-яке замовлення маючи його номер. Ви маєте
+                                        можливість поділиться вашими враженнями від нашого сервісу після завершення
+                                        виконання замовлення бустером. </p>
+                                </div>
+                                <div class="review-banner__button">
+                                    <a href="#" class="button button--base button--check button--black">
+                                        Перевірити Замовлення</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section about ">
+            <div class="section__wrapper">
+                <div class="container">
+                    <div class="section__header section__header--link">
+                        <h2 class="title title--base title--white">Про GameBoost</h2>
+                    </div>
+                    <div class="section__content">
+                        <div class="about-grid animation-wrapper">
+                            <div class="animation-item about-grid__block about-grid__block--row--big card">
+                                <div class="card__wrapper">
+                                    <div class="card__header">
+                                        <p class="title title--middle title--orange">Професійні бустери</p>
+                                        <p class="title title--large title--white">
+                                            Наша Ефективність
+                                        </p>
+                                    </div>
+                                    <div class="card__content">
+                                        <p class="text text--base text--white">
+                                            Ми працюємо тільки з висококваліфікованими та професійними бустерами. Наші
+                                            експерти забезпечать найкращі результати для прокачки вашого рейтингу та
+                                            навичок у грі.
+                                        </p>
+                                        <p class="text text--base text--white">
+                                            Довіртеся професіоналам та досягніть максимальної ефективності в грі.
+                                        </p>
+                                    </div>
+                                    <div class="card__bg card__bg--desktop">
+                                        <img src="assets/images/about/1.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="animation-item about-grid__block card">
+                                <div class="card__wrapper">
+                                    <div class="card__header">
+                                        <p class="title title--middle title--orange">
+                                            Персоналізований сервіс
+                                        </p>
+                                        <p class="title title--large title--white">
+                                            Ваш комфорт
+                                        </p>
+                                    </div>
+                                    <div class="card__content">
+                                        <p class="text text--base text--white">
+                                            У GameBoost ми цінуємо кожного клієнта та його комфорт. Наші гнучкі опції,
+                                            персоналізований підхід та уважність до ваших потреб забезпечують
+                                            максимальне задоволення від користування нашим сервісом. Насолоджуйтеся
+                                            комфортом та якісним обслуговуванням з GameBoost
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="animation-item about-grid__block about-grid__block--height--big card">
+                                <div class="card__wrapper">
+                                    <div class="card__header">
+                                        <p class="title title--middle title--orange">
+                                            Позитивна атмосфера
+                                        </p>
+                                        <p class="title title--large title--white">
+                                            Детокс ком’юніті
+                                        </p>
+                                    </div>
+                                    <div class="card__bg card__bg--small">
+                                        <img src="assets/images/about/2.png" alt="">
+                                    </div>
+                                    <div class="card__content">
+                                        <p class="text text--base text--white">
+                                            GameBoost створює позитивну ігрову атмосферу, в якій ви можете
+                                            насолоджуватися грою вільною від токсичності. Наші бустери володіють високим
+                                            рівнем професіоналізму та підтримують позитивне спілкування, забезпечуючи
+                                            вам незабутньо-приємний досвід гри
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="section-bg">
+            <div class="section about">
+                <div class="section__wrapper">
+                    <div class="container">
+                        <div class="about__block">
+                            <div class="about__block about-grid animation-wrapper">
+                                <div class="animation-item about-grid__block about-grid__block--column--full card">
+                                    <div class="card__wrapper">
+                                        <div class="card__header card__header--half">
+                                            <p class="title title--base title--white">
+                                                Піднімай ММР разом <span class="title title--base title--gradient">з
+                                                        особистим скілом</span>
+                                            </p>
+                                        </div>
+                                        <div class="card__content card__content--half">
+                                            <p class="text text--base text--white">
+                                                Менторство від найкращих гравців світу дозволить вам підвищувати ігрові
+                                                навички разом з ММР. Адже, ментор не тільки вчить вас грати, а ще і грає
+                                                разом з вами
+                                            </p>
+                                        </div>
+                                        <div class="card__bg card__bg--right card__bg--mobile--relative">
+                                            <img class="img img--desktop" src="assets/images/about/3.png" alt="">
+                                            <img class="img img--mobile" src="assets/images/about/3-m.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="animation-item about-grid__block about-grid__block--row--big card">
+                                    <div class="card__wrapper">
+                                        <div class="card__header">
+                                            <p class="title title--small title--white">
+                                                Особистий менторинг
+                                            </p>
+
+                                        </div>
+                                        <div class="card__content">
+                                            <p class="text text--base text--white">
+                                                Наші бустери не лише виконують роль бустерів, але й виступають як
+                                                особисті ментори, які прокладуть вам шлях до успіху. Вони надаватимуть
+                                                цінні поради та стратегії, щоб допомогти вам розвиватися як гравець.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="animation-item about-grid__block about-grid__block--row--biggest card">
+                                    <div class="card__wrapper">
+                                        <div class="card__header">
+                                            <p class="title title--small title--white">
+                                                Спільний Буст
+                                            </p>
+
+                                        </div>
+                                        <div class="card__content">
+                                            <p class="text text--base text--white">
+                                                Наші бустери забезпечують швидке та ефективне піднесення вашого рейтингу
+                                                в Dota 2, допомагаючи вам досягти високих результатів.
+                                            </p>
+                                        </div>
+                                        <div class="card__bg">
+                                            <img src="assets/images/about/4.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="animation-item about-grid__block about-grid__block--row--big card">
+                                    <div class="card__wrapper">
+                                        <div class="card__header">
+                                            <p class="title title--small title--white">
+                                                Індивідуальний підхід
+                                            </p>
+
+                                        </div>
+                                        <div class="card__content">
+                                            <p class="text text--base text--white">
+                                                Наші бустери пристосовуються до ваших потреб та рівня гри. Вони
+                                                стежитимуть за вашим прогресом, надаватимуть зворотний зв'язок та
+                                                корисні поради, щоб допомогти вам досягти найкращих результатів.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="animation-item about-grid__block card card--link">
+                                    <a href="#"
+                                       class="card__wrapper card__wrapper--banner card__wrapper--padding--small card__wrapper--blue">
+                                        <div class="card__header card__header--margin--small">
+                                            <p class="title title--small title--black">
+                                                Замовити Менторство
+                                            </p>
+                                        </div>
+                                        <div class="card__content card__content--half">
+                                            <p class="text text--base text--black">
+                                                Замовити послугу бустингу ММР з особистим менторством
+                                            </p>
+                                        </div>
+                                        <div class="card__bg card__bg--right">
+                                            <img src="assets/images/about/5.png" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="section">
+                <div class="section__wrapper">
+                    <div class="container">
+                        <div class="section__header section__header--margin--small section__header--link">
+                            <h2 class="title title--base title--white">Блог</h2>
+                        </div>
+                        <div class="section__content">
+                            <div class="blog-grid">
+                                <div class="blog-card">
+                                    <a href="#" class="blog-card__wrapper">
+                                        <img src="assets/images/blog/1.jpg" alt="" class="blog-card__img">
+                                        <div class="blog-card__content">
+                                            <p class="title title--smallest title--grey">24 червня 2023р.</p>
+                                            <p class="blog-card__title title title--small title--white">Оголошено нового
+                                                героя в Dota
+                                                2!</p>
+                                            <p class="blog-card__text text text--base text--white">
+                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur
+                                                adipisicing elit. Cum dolorem explicabo nisi! Lorem ipsum dolor sit
+                                                amet.
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="blog-card">
+                                    <a href="#" class="blog-card__wrapper">
+                                        <img src="assets/images/blog/1.jpg" alt="" class="blog-card__img">
+                                        <div class="blog-card__content">
+                                            <p class="title title--smallest title--grey">24 червня 2023р.</p>
+                                            <p class="blog-card__title title title--small title--white">Оголошено нового
+                                                героя в Dota
+                                                2!</p>
+                                            <p class="blog-card__text text text--base text--white">
+                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur
+                                                adipisicing elit. Cum dolorem explicabo nisi! Lorem ipsum dolor sit
+                                                amet.
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="blog-card">
+                                    <a href="#" class="blog-card__wrapper">
+                                        <img src="assets/images/blog/1.jpg" alt="" class="blog-card__img">
+                                        <div class="blog-card__content">
+                                            <p class="title title--smallest title--grey">24 червня 2023р.</p>
+                                            <p class="blog-card__title title title--small title--white">Оголошено нового
+                                                героя в Dota
+                                                2!</p>
+                                            <p class="blog-card__text text text--base text--white">
+                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur
+                                                adipisicing elit. Cum dolorem explicabo nisi! Lorem ipsum dolor sit
+                                                amet.
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="blog-card">
+                                    <a href="#" class="blog-card__wrapper">
+                                        <img src="assets/images/blog/1.jpg" alt="" class="blog-card__img">
+                                        <div class="blog-card__content">
+                                            <p class="title title--smallest title--grey">24 червня 2023р.</p>
+                                            <p class="blog-card__title title title--small title--white">Оголошено нового
+                                                героя в Dota
+                                                2!</p>
+                                            <p class="blog-card__text text text--base text--white">
+                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur
+                                                adipisicing elit. Cum dolorem explicabo nisi! Lorem ipsum dolor sit
+                                                amet.
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="blog-card">
+                                    <a href="#" class="blog-card__wrapper">
+                                        <img src="assets/images/blog/1.jpg" alt="" class="blog-card__img">
+                                        <div class="blog-card__content">
+                                            <p class="title title--smallest title--grey">24 червня 2023р.</p>
+                                            <p class="blog-card__title title title--small title--white">Оголошено нового
+                                                героя в Dota
+                                                2!</p>
+                                            <p class="blog-card__text text text--base text--white">
+                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur
+                                                adipisicing elit. Cum dolorem explicabo nisi! Lorem ipsum dolor sit
+                                                amet.
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="blog-card">
+                                    <a href="#" class="blog-card__wrapper">
+                                        <img src="assets/images/blog/1.jpg" alt="" class="blog-card__img">
+                                        <div class="blog-card__content">
+                                            <p class="title title--smallest title--grey">24 червня 2023р.</p>
+                                            <p class="blog-card__title title title--small title--white">Оголошено нового
+                                                героя в Dota
+                                                2!</p>
+                                            <p class="blog-card__text text text--base text--white">
+                                                Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur
+                                                adipisicing elit. Cum dolorem explicabo nisi! Lorem ipsum dolor sit
+                                                amet.
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="section">
+            <div class="section__wrapper">
+                <div class="container">
+                    <div class="section__header section__header--link section__header--margin--small">
+                        <h2 class="title title--base title--white">Питання та Відповіді</h2>
+                    </div>
+                    <div class="section__content">
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <div class="faq-item__wrapper">
+                                    <div class="faq-item__header">
+                                        <p class="title title--white title--small">Як довго займає процес бусту мого
+                                            аккаунту?</p>
+                                    </div>
+                                    <div class="faq-item__content">
+                                        <p class="text text--white">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus nulla
+                                            veniam hic nihil distinctio. Impedit hic debitis laborum quaerat ipsam quas
+                                            cupiditate assumenda, ratione esse, earum excepturi corporis in aliquid?
+                                            Unde obcaecati harum nemo repellat recusandae, animi dolore deserunt, labore
+                                            ad quam quia, debitis officiis tempore minus doloremque odio! Non.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-item__wrapper">
+                                    <div class="faq-item__header">
+                                        <p class="title title--white title--small">Як довго займає процес бусту мого
+                                            аккаунту?</p>
+                                    </div>
+                                    <div class="faq-item__content">
+                                        <p class="text text--white">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus nulla
+                                            veniam hic nihil distinctio. Impedit hic debitis laborum quaerat ipsam quas
+                                            cupiditate assumenda, ratione esse, earum excepturi corporis in aliquid?
+                                            Unde obcaecati harum nemo repellat recusandae, animi dolore deserunt, labore
+                                            ad quam quia, debitis officiis tempore minus doloremque odio! Non.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-item__wrapper">
+                                    <div class="faq-item__header">
+                                        <p class="title title--white title--small">Як довго займає процес бусту мого
+                                            аккаунту?</p>
+                                    </div>
+                                    <div class="faq-item__content">
+                                        <p class="text text--white">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus nulla
+                                            veniam hic nihil distinctio. Impedit hic debitis laborum quaerat ipsam quas
+                                            cupiditate assumenda, ratione esse, earum excepturi corporis in aliquid?
+                                            Unde obcaecati harum nemo repellat recusandae, animi dolore deserunt, labore
+                                            ad quam quia, debitis officiis tempore minus doloremque odio! Non.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <div class="container">
+                <div class="footer__box">
+                    <div class="footer__nav">
+                        <ul class="footer__list footer__list--center footer__list--gap--small">
+                            <li class="footer__logo logo">
+                                <img src="assets/images/icons/logo-small.svg" alt="" class="logo">
+                            </li>
+                            <li class="footer__icon tip">
+                                <a href="#" class="footer__link tip-label">
+                                    <svg>
+                                        <use xlink:href="assets/images/sprite.svg#shield_lock"></use>
+                                    </svg>
+                                </a>
+                                <div class="tip-content tip-content--left">
+                                    <div class="tip-content__wrapper">
+                                        <p class="tip-content__title tip-content__title--blue title title--small title--blue">
+                                            Безпека
+                                        </p>
+                                        <p class="tip-content__text tip-content__text--white">
+                                            Піднімайте свій ММР без ризику, граючи з нашими професійними бустерами.
+                                            Отримуйте професійну підтримку та швидкий розвиток вашого рейтингу в Dota 2.
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="footer__icon tip">
+                                <a href="#" class="footer__link tip-label">
+                                    <svg>
+                                        <use xlink:href="assets/images/sprite.svg#award_star"></use>
+                                    </svg>
+                                </a>
+                                <div class="tip-content tip-content--left">
+                                    <div class="tip-content__wrapper">
+                                        <p class="tip-content__title tip-content__title--blue title title--small title--blue">
+                                            Безпека
+                                        </p>
+                                        <p class="tip-content__text tip-content__text--white">
+                                            Піднімайте свій ММР без ризику, граючи з нашими професійними бустерами.
+                                            Отримуйте професійну підтримку та швидкий розвиток вашого рейтингу в Dota 2.
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="footer__icon">
+                                <div class="language-select">
+                                    <a href="#" class="language-select__link language-select__current">
+                                        <svg class="icon">
+                                            <use xlink:href="assets/images/sprite.svg#ua"></use>
+                                        </svg>
+                                    </a>
+                                    <div class="language-select__list">
+                                        <a href="#" class="language-select__link">
+                                            <svg class="icon">
+                                                <use xlink:href="assets/images/sprite.svg#ua"></use>
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="language-select__link">
+                                            <svg class="icon">
+                                                <use xlink:href="assets/images/sprite.svg#pl"></use>
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="language-select__link">
+                                            <svg class="icon">
+                                                <use xlink:href="assets/images/sprite.svg#us"></use>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__info">
+                        <div class="footer__row">
+                            <div class="footer-block">
+                                <div class="footer-block__header">
+                                    <p class="title title--small title--white">
+                                        Компанія
+                                    </p>
+                                </div>
+                                <div class="footer-block__content">
+                                    <ul class="footer__list">
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Послуги
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Про Нас
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Робота
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Блог
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                FAQ
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="footer-block">
+                                <div class="footer-block__header">
+                                    <p class="title title--small title--white">
+                                        Правові
+                                    </p>
+                                </div>
+                                <div class="footer-block__content">
+                                    <ul class="footer__list">
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Політика Конфіденційності
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Умови Використання
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="footer-block">
+                                <div class="footer-block__header">
+                                    <p class="title title--small title--white">
+                                        Контакти
+                                    </p>
+                                </div>
+                                <div class="footer-block__content">
+                                    <ul class="footer__list">
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Зв’язок з нами
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Telegram
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text text--grey text--semibold text--small text--font--accent">
+                                                Instagram
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:admin@gameboost.com.ua" class="text text--grey text--semibold text--small text--font--accent">
+                                                admin@gameboost.com.ua
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__text">
+                    <div class="footer__payment payment">
+                        <ul class="payment__list">
+                            <li class="payment__item">
+                                <svg class="payment__icon">
+                                    <use xlink:href="assets/images/sprite.svg#visa"></use>
+                                </svg>
+                            </li>
+                            <li class="payment__item">
+                                <svg class="payment__icon">
+                                    <use xlink:href="assets/images/sprite.svg#mastercard"></use>
+                                </svg>
+                            </li>
+                            <li class="payment__item">
+                                <svg class="payment__icon">
+                                    <use xlink:href="assets/images/sprite.svg#apay"></use>
+                                </svg>
+                            </li>
+                            <li class="payment__item">
+                                <svg class="payment__icon">
+                                    <use xlink:href="assets/images/sprite.svg#gpay"></use>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="text text--tiny text--grey">
+                        Dota 2 є зареєстрованою торговою маркою компанії Valve Corporation. Ми не пов'язані з компанією Valve Corporation, не асоційовані з нею і не підтримуємо її. GameBoost не відображає погляди чи думки Valve Corporation.
+                    </p>
+                    <p class="text text--tiny text--grey">
+                        Всі права захищені &copy;GAMEBOOST 2023
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="popup popup-calculator">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--calculator calculator-confirm">
+            <div class="popup__close popup-close"></div>
+            <div class="popup__content">
+                <div class="calculator-confirm__header">
+                    <p class="title title--small title--white">
+                        Підтвердження Замовлення
+                    </p>
+                </div>
+                <div class="calculator-confirm__content">
+                    <div class="calculator-confirm__block calculator-summary">
+                        <div class="calculator-summary__wrapper">
+                            <div class="calculator-summary__list">
+                                <div class="calculator-summary__item">
+                                    <p class="text text--small text--white">Буст ММР</p>
+                                    <p class="text text--small text--white">1599 ₴</p>
+
+                                </div>
+                                <div class="calculator-summary__item">
+                                    <p class="text text--small text--white">Офф Тайм</p>
+                                    <p class="text text--small text--white">200 ₴</p>
+
+                                </div>
+                                <div class="calculator-summary__item">
+                                    <p class="text text--small text--white">Офлайн режим</p>
+                                    <p class="text text--small text--white">0 ₴</p>
+
+                                </div>
+                            </div>
+                            <div class="calculator-summary__footer">
+                                <div class="calculator-summary__block">
+                                    <p class="title title--tiny title--bold title--black">
+                                        Час Виконання
+                                    </p>
+                                    <p class="title title--tiny title--bold title--black">
+                                        48 год. 32 хв.
+                                    </p>
+                                </div>
+                                <div class="calculator-summary__block">
+                                    <p class="title title--tiny title--bold title--black">
+                                        Промокод 20%
+                                    </p>
+                                    <p class="title title--tiny title--bold title--black">
+                                        -280 ₴
+                                    </p>
+                                </div>
+                                <div class="calculator-summary__block calculator-summary__block--big">
+                                    <p class="text text--small text--center text--bold text--font--accent text--black">
+                                        Сума 1219 ₴
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calculator-confirm__block">
+                        <div class="calculator-confirm__form">
+                            <div class="form-input">
+                                <label for="email" class="title title--smallest title--white">Ваш
+                                    Е-Мейл</label>
+                                <input id="email" maxlength="320" type="text" name="email"
+                                       placeholder="Електронна Пошта"
+                                       class="form-input__item">
+                            </div>
+                            <div class="form-input">
+                                <p class="title title--smallest title--white">Код Підтвердження</p>
+                                <div class="form-input__grid">
+                                    <input type="text" placeholder=""
+                                           class="code-input form-input__item form-input__item--center">
+                                    <input type="text" placeholder=""
+                                           class="code-input form-input__item form-input__item--center">
+                                    <input type="text" placeholder=""
+                                           class="code-input form-input__item form-input__item--center">
+                                    <input type="text" placeholder=""
+                                           class="code-input form-input__item form-input__item--center">
+                                </div>
+                            </div>
+                            <p class="title title--tiny title--white">Вже зареєстрований ?
+                                <a class="title title--tiny title--orange title--semibold" href="#">Перейти
+                                    до авторизації.</a>
+                            </p>
+                        </div>
+                        <div class="calculator-confirm__footer">
+                            <label for="policy-calc" class="form-checkbox">
+                                <input type="checkbox" name="policy" id="policy-calc" class="form-checkbox__item">
+                                <span class="form-checkbox__checkmark"></span>
+                                <span class="form-checkbox__label title title--regular title--smallest title--white">
+                                                Я ознайомлений та згоден з
+                                                <a class="title title--smallest title--orange" href="#">умови користування</a> та <a
+                                        class="title title--smallest title--orange"
+                                        href="#">політикою конфіденційності</a>
+                                                </span>
+                            </label>
+                            <input type="submit" value="Сплатити"
+                                   class="button button--middle button--full button--orange">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="assets/libs/swiper/swiper.js"></script>
+<script src="assets/libs/range/range.js"></script>
+<script src="assets/scripts/index.js"></script>
+
+</body>
+
+</html>

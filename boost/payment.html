@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/style/font.css">
+
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
+    <link rel="stylesheet" href="assets/libs/range/range.css">
+
+    <link rel="stylesheet" href="assets/style/reset.css">
+    <link rel="stylesheet" href="assets/style/index.css">
+</head>
+
+<body class="body--grey">
+
+<div class="page-wrapper">
+    <header class="header">
+        <div class="header__wrapper">
+            <div class="container container--full">
+                <div class="header__row">
+                    <div class="header__icon header__support">
+                        <svg class="icon">
+                            <use xlink:href="assets/images/sprite.svg#account_circle"></use>
+                        </svg>
+                    </div>
+                    <div class="header__logo header__logo--small logo">
+                        <img src="assets/images/icons/logo-small.svg" alt="" class="logo__img">
+                    </div>
+                    <div class="header__game game-select">
+                        <a href="#" class="game-select__link game-select__current">
+                            <img src="assets/images/icons/dota2.svg" alt="">
+                            <span class="game-select__content">
+                                    <span class="title title--smallest title--white">Dota 2</span>
+                                </span>
+                        </a>
+                        <div class="game-select__list">
+                            <a href="#" class="game-select__link">
+                                <img src="assets/images/icons/cs2logo.svg" alt="">
+                                <span class="game-select__content">
+                                    <span class="title title--thin title--regular title--grey--dark">У Розробці</span>
+                                    <span class="title title--smallest title--white">CS 2</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header__nav nav">
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">DotaBoost</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link nav-catalog-link">Послуги</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Про нас</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Робота</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">Блог</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#" class="nav__link">FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header__burger">
+                        <div class="burger">
+                            <div class="burger__wrapper">
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__profile header__support">
+                        <a href="" class="header__button button button--middle button--black">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#account_circle"></use>
+                            </svg>
+                            Особистий кабінет
+                        </a>
+                    </div>
+                </div>
+                <div class="header__sublist nav-catalog-block nav">
+                    <ul class="nav__list nav__list--center">
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">ММР Буст</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Калібровка</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Низький Пріорітет</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Оцінка Поведінки</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link nav__link--full">Моніторінг Замовлень</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-menu">
+        <div class="mobile-menu__wrapper">
+            <a href="#" class="button button--middle button--full button--black">
+                <svg class="icon">
+                    <use xlink:href="assets/images/sprite.svg#headset_mic"></use>
+                </svg>
+                Зв’язок з нами
+            </a>
+            <div class="mobile-menu__block">
+                <ul class="mobile-menu__list">
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Буст ММР</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Калібровка</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Буст Порядності</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Низький Пріорітет</a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a href="#" class="mobile-menu__link">Моніторинг Замовлень</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#supervised"></use>
+                        </svg>
+                        Про Нас
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#work"></use>
+                        </svg>
+                        Робота
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#newsmode"></use>
+                        </svg>
+                        Блог
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="#" class="mobile-menu__link mobile-menu__link--grey">
+                        <svg>
+                            <use xlink:href="assets/images/sprite.svg#faq"></use>
+                        </svg>
+                        FAQ
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+    <main class="page-wrapper__content">
+        <div class="container">
+
+            <div class="calculator-confirm">
+                <div class="calculator-confirm__wrapper">
+                    <div class="calculator-confirm__header">
+                        <a href="#" class="calculator-confirm__back">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#arrow_down"></use>
+                            </svg>
+                        </a>
+                       <div class="calculator-confirm__title">
+                           <div class="calculator-confirm__breadcrumbs calculator-breadcrumbs">
+                               <div class="calculator-breadcrumbs__list">
+                                   <div class="calculator-breadcrumbs__item">Послуги</div>
+                                   <div class="calculator-breadcrumbs__item">ММР Буст</div>
+                                   <div class="calculator-breadcrumbs__item">Підтвердження Замовлення</div>
+                               </div>
+                           </div>
+                           <p class="title title--middle title--white">
+                               Підтвердження Замовлення
+                           </p>
+                       </div>
+                    </div>
+                    <div class="calculator-confirm__nav">
+                        <div class="calculator-nav">
+                            <div class="calculator-nav__item calculator-step calculator-step--passed">
+                                <div class="calculator-step__header">
+                                    <div class="calculator-step__content">
+                                        <p class="calculator-step__title">
+                                            КРОК 1
+                                        </p>
+                                        <p class="title title--large title--white">
+                                            Обери Послугу
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="calculator-step__line">
+                                    <svg>
+                                        <use xlink:href="assets/images/sprite.svg#step-line"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="calculator-nav__item calculator-step calculator-step--current">
+                                <div class="calculator-step__header">
+                                    <div class="calculator-step__content">
+                                        <p class="calculator-step__title">
+                                            КРОК 2
+                                        </p>
+                                        <p class="title title--large title--white">
+                                            Підтвердження
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="calculator-step__line">
+                                    <svg>
+                                        <use xlink:href="assets/images/sprite.svg#step-line"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="calculator-nav__item calculator-step">
+                                <div class="calculator-step__header">
+                                    <div class="calculator-step__content">
+                                        <p class="calculator-step__title">
+                                            КРОК 3
+                                        </p>
+                                        <p class="title title--large title--white">
+                                            Оплата
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="calculator-step__line">
+                                    <svg>
+                                        <use xlink:href="assets/images/sprite.svg#step-line"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="calculator-nav__item calculator-step">
+                                <div class="calculator-step__header">
+                                    <div class="calculator-step__content">
+                                        <p class="calculator-step__title">
+                                            КРОК 4
+                                        </p>
+                                        <p class="title title--large title--white">
+                                            Вкажіть Дані
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="calculator-step__line">
+                                    <svg>
+                                        <use xlink:href="assets/images/sprite.svg#step-line"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="#" class="calculator-confirm__content calculator-form">
+                        <div class="calculator-confirm__block calculator-summary">
+                            <div class="calculator-summary__wrapper">
+                                <div class="calculator-summary__info">
+                                    <div class="calculator-content">
+                                        <div class="calculator__grid calculator__grid--column--two calculator-grid">
+                                            <div class="calculator-grid__block rank-wrapper">
+                                                <div class="calculator__block calculator__block--grey calculator__block--padding--small rank-item"
+                                                     data-rank>
+                                                    <div class="rank-item__content">
+                                                        <p class="title title--thin title--grey">Початковий Ранг</p>
+                                                        <p class="title title--smallest title--bold title--white rank-item__name">
+                                                            Божественний 1</p>
+                                                    </div>
+                                                </div>
+                                                <div class="calculator__block calculator__block--grey calculator__block--padding--small range-control">
+                                                    <div class="range-control__wrapper">
+                                                        <button class="range-control__button range-control__button--disabled range-control__button--minus">
+                                                        </button>
+                                                        <div class="range-control__value">
+                                                            <p class="title title--thin title--grey title--center">Початковий
+                                                                MMR</p>
+                                                            <input id="behavior-from-input"
+                                                                   class="js-range-from-input rank-value range-control__input text text--big text--white text--font--accent text--center"
+                                                                   type="text" disabled value="1" max="7500">
+                                                        </div>
+                                                        <button class="range-control__button range-control__button--disabled range-control__button--plus">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="calculator-grid__block rank-wrapper">
+                                                <div class="calculator__block calculator__block--grey calculator__block--padding--small rank-item"
+                                                     data-rank>
+                                                    <div class="rank-item__content">
+                                                        <p class="title title--thin title--grey">Кінцевий Ранг</p>
+                                                        <p class="title title--smallest title--bold title--white rank-item__name">
+                                                            Божественний 1</p>
+                                                    </div>
+                                                </div>
+                                                <div class="calculator__block calculator__block--grey calculator__block--padding--small range-control">
+                                                    <div class="range-control__wrapper">
+                                                        <button class="range-control__button range-control__button--disabled range-control__button--minus">
+                                                        </button>
+                                                        <div class="range-control__value">
+                                                            <p class="title title--thin title--grey title--center">Кінцева
+                                                                Оцінка</p>
+                                                            <input id="behavior-to-input"
+                                                                   class="js-range-to-input rank-value range-control__input text text--big text--white text--font--accent text--center"
+                                                                   type="text" disabled value="7500" max="7500">
+                                                        </div>
+                                                        <button class="range-control__button range-control__button--disabled range-control__button--plus">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="calculator-grid__block calculator-grid__block--small">
+                                                <div class="calculator__block calculator__block--column calculator__block--padding--text calculator__block--grey calculator__block--padding--small">
+                                                    <p class="title title--thin title--grey">Послуга</p>
+                                                    <p class="title title--smallest title--bold title--white rank-item__name">
+                                                        MMR Буст</p>
+                                                </div>
+                                            </div>
+                                            <div class="calculator-grid__block calculator-grid__block--small">
+                                                <div class="calculator__block calculator__block--column calculator__block--padding--text calculator__block--grey calculator__block--padding--small">
+                                                    <p class="title title--thin title--grey">Сервер</p>
+                                                    <p class="title title--smallest title--bold title--white rank-item__name">
+                                                        Europa</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="calculator-summary__result">
+                                    <div class="calculator-summary__list">
+                                        <div class="calculator-summary__item">
+                                            <p class="text text--smallest text--white">Буст ММР</p>
+                                            <p class="text text--smallest text--white">1599 ₴</p>
+
+                                        </div>
+                                        <div class="calculator-summary__item">
+                                            <p class="text text--smallest text--white">Офф Тайм</p>
+                                            <p class="text text--smallest text--white">200 ₴</p>
+
+                                        </div>
+                                        <div class="calculator-summary__item">
+                                            <p class="text text--smallest text--white">Офлайн режим</p>
+                                            <p class="text text--smallest text--white">0 ₴</p>
+
+                                        </div>
+                                    </div>
+                                    <div class="calculator-summary__footer">
+                                        <div class="calculator-summary__block">
+                                            <p class="title title--thin title--white">
+                                                Час Виконання
+                                            </p>
+                                            <p class="text text--font--accent text--white text--small text--bold">
+                                                48 год. 32 хв.
+                                            </p>
+                                        </div>
+                                        <div class="calculator-summary__block">
+                                            <p class="title title--thin title--white">
+                                                Промокод 20%
+                                            </p>
+                                            <p class="text text--font--accent text--white text--small text--bold">
+                                                -280 ₴
+                                            </p>
+                                        </div>
+                                        <div class="calculator-summary__block calculator-summary__block--orange">
+                                            <p class="title title--thin title--black">
+                                                Всього
+                                            </p>
+                                            <p class="text text--font--accent text--black text--small text--bold">
+                                                1600 Грн
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calculator-confirm__block">
+                            <div class="calculator-confirm__form">
+                                <div class="form-input js-email-input">
+                                    <div class="form-input__header">
+                                        <label for="email" class="title title--smallest title--white tip tip--center">Ваш
+                                            Е-Мейл
+                                            <span class="tip-label tip-label__content"></span>
+                                            <span class="tip-content">
+                                                    <span class="tip-content__wrapper tip-content__wrapper--yellow">
+                                                        <span class="tip-content__title title title--small title--black">
+                                                            Грати з Бустером
+                                                        </span>
+                                                        <span class="tip-content__text">
+                                                            Піднімайте свій ММР без ризику, граючи з нашими професійними бустерами. Отримуйте професійну підтримку та швидкий розвиток вашого рейтингу в Dota 2.
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                        </label>
+                                        <p class="title title--tiny title--white">Вже зареєстрований ?
+                                            <a class="title title--tiny title--orange title--semibold" href="#">Перейти
+                                                до авторизації.</a>
+                                        </p>
+                                    </div>
+                                    <input id="email" maxlength="320" type="email" name="email" required
+                                           placeholder="Електронна Пошта"
+                                           class="form-input__item">
+                                </div>
+                                <div class="form-input">
+                                    <p class="title title--smallest title--white tip tip--center">Код Підтвердження
+                                        <span class="tip-label tip-label__content"></span>
+                                        <span class="tip-content">
+                                                    <span class="tip-content__wrapper tip-content__wrapper--yellow">
+                                                        <span class="tip-content__title title title--small title--black">
+                                                            Грати з Бустером
+                                                        </span>
+                                                        <span class="tip-content__text">
+                                                            Піднімайте свій ММР без ризику, граючи з нашими професійними бустерами. Отримуйте професійну підтримку та швидкий розвиток вашого рейтингу в Dota 2.
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                    </p>
+                                    <div class="form-input__grid">
+                                        <input type="text" required placeholder=""
+                                               class="code-input form-input__item form-input__item--center">
+                                        <input type="text" required placeholder=""
+                                               class="code-input form-input__item form-input__item--center">
+                                        <input type="text" required placeholder=""
+                                               class="code-input form-input__item form-input__item--center">
+                                        <input type="text" required placeholder=""
+                                               class="code-input form-input__item form-input__item--center">
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <p class="title title--smallest title--white tip tip--center">Спосіб Оплати
+                                        <span class="tip-label tip-label__content"></span>
+                                        <span class="tip-content">
+                                                    <span class="tip-content__wrapper tip-content__wrapper--yellow">
+                                                        <span class="tip-content__title title title--small title--black">
+                                                            Грати з Бустером
+                                                        </span>
+                                                        <span class="tip-content__text">
+                                                            Піднімайте свій ММР без ризику, граючи з нашими професійними бустерами. Отримуйте професійну підтримку та швидкий розвиток вашого рейтингу в Dota 2.
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                    </p>
+                                    <div class="form-input__payment">
+                                        <label class="form-payment">
+                                            <input type="radio" required name="payment" class="form-payment__input">
+                                            <span class="form-payment__checkmark"></span>
+                                            <img src="assets/images/icons/visa-payment.svg" alt=""
+                                                 class="form-payment__img">
+                                            <span class="form-payment__bg"></span>
+                                        </label>
+                                        <label class="form-payment">
+                                            <input type="radio" name="payment" class="form-payment__input">
+                                            <span class="form-payment__checkmark"></span>
+                                            <img src="assets/images/icons/binance.svg" alt="" class="form-payment__img">
+                                            <span class="form-payment__bg"></span>
+                                        </label>
+                                        <label class="form-payment">
+                                            <input type="radio" name="payment" class="form-payment__input">
+                                            <span class="form-payment__checkmark"></span>
+                                            <img src="assets/images/icons/google-pay.svg" alt=""
+                                                 class="form-payment__img">
+                                            <span class="form-payment__bg"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="calculator-confirm__footer">
+                                <label for="policy-calc" class="form-checkbox">
+                                    <input type="checkbox" name="policy" id="policy-calc" class="form-checkbox__item">
+                                    <span class="form-checkbox__checkmark"></span>
+                                    <span class="form-checkbox__label title title--regular title--tiny title--white">
+                                                Я ознайомлений та згоден з
+                                                <a class="title title--tiny title--orange"
+                                                   href="#">умови користування</a> та <a
+                                            class="title title--tiny title--orange"
+                                            href="#">політикою конфіденційності</a>
+                                                </span>
+                                </label>
+                                <button type="submit" class="button button--middle button--full button--orange">
+                                    Сплатити
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="popup popup-calculator">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--calculator calculator-confirm">
+            <div class="popup__close popup-close"></div>
+            <div class="popup__content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="assets/libs/swiper/swiper.js"></script>
+<script src="assets/libs/range/range.js"></script>
+<script src="assets/scripts/index.js"></script>
+
+</body>
+
+</html>

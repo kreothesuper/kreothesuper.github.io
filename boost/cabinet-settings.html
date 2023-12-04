@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/style/font.css">
+
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
+
+    <link rel="stylesheet" href="assets/style/reset.css">
+
+    <link rel="stylesheet" href="assets/style/general.css">
+    <link rel="stylesheet" href="assets/style/personal.css">
+</head>
+
+<body>
+
+
+<div class="page-wrapper">
+    <aside class="aside">
+        <nav class="aside__nav nav">
+            <ul class="nav__list nav-list">
+                <li class="nav-list__item nav-list__item--logo">
+                    <a href="#" class="nav-list__link nav-item nav-item--logo">
+                        <span class="nav-item__icon">
+                            <img src="assets/images/icons-cabinet/logo.svg" alt="" class="nav-list__logo">
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-list__item nav-list__item--burger">
+                    <a href="#" class="nav-list__link nav-item nav-item--burger">
+                        <span class="nav-item__icon nav-item__icon--big nav-item__icon--white">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite-cabinet.svg#arrow_down"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-list__item">
+                    <a href="#" class="nav-list__link nav-item nav-item--active">
+                        <span class="nav-item__icon">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite-cabinet.svg#home"></use>
+                            </svg>
+                        </span>
+                        <span class="nav-item__label">
+                            Головна
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-list__item">
+                    <a href="#" class="nav-list__link nav-item">
+                        <span class="nav-item__icon">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite-cabinet.svg#list_alt"></use>
+                            </svg>
+                        </span>
+                        <span class="nav-item__label">
+                            Замовлення
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-list__item">
+                    <a href="#" class="nav-list__link nav-item">
+                        <span class="nav-item__icon">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite-cabinet.svg#settings"></use>
+                            </svg>
+                        </span>
+                        <span class="nav-item__label">
+                            Налаштування
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-list__item nav-list__item--divider">
+                    <a href="#" class="nav-list__link nav-item ">
+                        <span class="nav-item__icon">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite-cabinet.svg#help"></use>
+                            </svg>
+                        </span>
+                        <span class="nav-item__label">
+                            Бустеропедія
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-list__item">
+                    <a href="#" class="nav-list__link nav-item">
+                        <span class="nav-item__icon">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite-cabinet.svg#headset_mic"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-list__item">
+                    <a href="#" class="nav-list__link nav-item">
+                        <span class="nav-item__icon">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite-cabinet.svg#logout"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div class="main">
+        <div class="main__box main__box--full">
+            <div class="main__block main__block--padding--middle settings">
+                <div class="settings__wrapper">
+                    <div class="settings-block">
+                        <div class="settings-block__header">
+                            <p class="settings-block__title text text--base text--semibold text--center">Персональна
+                                Інформація</p>
+                        </div>
+                        <div class="settings-block__content form">
+                            <form class="form__wrapper form__wrapper--full">
+                                <div class="form__grid form__grid--two--col form-grid">
+                                    <div class="form-grid__item form-grid__item--full form-input">
+                                        <label for="login"  class="title title--smallest title--white">Нікнейм
+
+                                        </label>
+                                        <input id="login" maxlength="30" type="text" name="login"
+                                               placeholder="Ваше Нікнейм" class="form-input__item">
+                                    </div>
+                                    <div class="form-grid__item form-grid__item--full form-input">
+                                        <label for="phone" class="title title--smallest title--white">Телефон
+
+                                        </label>
+                                        <div class="form-input__wrapper">
+                                            <div class="form-input__icon">
+                                                <p class="title title--smallest title--regular title--white">
+                                                    +380
+                                                </p>
+                                            </div>
+                                            <input id="phone" maxlength="13" type="text" name="login"
+                                                   placeholder="Ваш номер телефону" class="form-input__item">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__grid form__grid--two--col form-grid">
+                                    <div class="form-grid__item form-grid__item--full form-input">
+                                        <label for="name" class="title title--smallest title--white">Ім’я
+                                        </label>
+                                        <input id="name" maxlength="50" type="text" name="name"
+                                               placeholder="Ваше Ім’я" class="form-input__item">
+                                    </div>
+                                    <div class="form-grid__item form-grid__item--full form-input">
+                                        <label for="date" class="title title--smallest title--white">Дата Народження
+                                        </label>
+                                        <div class="form-input__wrapper">
+                                            <div class="form-input__icon">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite-cabinet.svg#calendar_today"></use>
+                                                </svg>
+                                            </div>
+                                            <input id="date" type="date" name="date"
+                                                   placeholder="ДД/ММ/РРРР" class="form-input__item">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="settings-block">
+                        <div class="settings-block__header">
+                            <p class="settings-block__title text text--base text--semibold text--center">Робоча
+                                Інформація</p>
+                        </div>
+                        <div class="settings-block__content form">
+                            <form class="form__wrapper form__wrapper--full">
+                                <div class="form__grid form-grid">
+                                    <div class="form-grid__item form-input">
+                                        <label for="mmr" class="title title--smallest title--white">Поточний Рейтинг
+
+                                        </label>
+                                        <input id="mmr" maxlength="5" type="text" name="mmr"
+                                               placeholder="Кількість ММР" class="form-input__item">
+                                    </div>
+                                    <div class="form-grid__item form-grid__item--big form-input">
+                                        <label for="steam" class="title title--smallest title--white">Посилання на
+                                            Steam
+
+                                        </label>
+
+                                        <input id="steam" type="text" name="steam"
+                                               placeholder="Ваш Steam" class="form-input__item">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="settings-block">
+                        <div class="settings-block__header">
+                            <p class="settings-block__title text text--base text--semibold text--center">
+                                Зміна Паролю</p>
+                        </div>
+                        <div class="settings-block__content form">
+                            <form class="form__wrapper form__wrapper--full">
+                                <div class="form__grid form__grid--two--col form-grid">
+                                    <div class="form-grid__item form-grid__item--full form-input">
+                                        <label for="password" class="title title--smallest title--white">Ваш Пароль
+
+                                        </label>
+                                        <input id="password" maxlength="16" minlength="5" type="text" name="password"
+                                               placeholder="Ваш Пароль" class="form-input__item">
+                                    </div>
+                                    <div class="form-grid__item form-grid__item--full form-input">
+                                        <label for="new-password" class="title title--smallest title--white">Новий
+                                            Пароль
+
+                                        </label>
+                                        <input id="new-password" maxlength="16" minlength="5" type="text" name="new-password"
+                                               placeholder="Ваш Новий Пароль" class="form-input__item">
+                                    </div>
+                                </div>
+                                <div class="form__grid form__grid--two--col form-grid">
+                                    <div class="form-grid__item form-grid__item--full form-input">
+                                    </div>
+                                    <div class="form-grid__item form-grid__item--full form-input">
+                                        <label for="new-password-repeat" class="title title--smallest title--white">Повторіть
+                                            Новий Пароль
+
+                                        </label>
+                                        <input maxlength="16" minlength="5" id="new-password-repeat" type="text" name="new-password-repeat"
+                                               placeholder="Повторіть Новий Пароль" class="form-input__item">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="settings-block">
+                        <div class="settings-block__header">
+                            <p class="settings-block__title text text--base text--semibold text--center">
+                                З’вязок з вами
+                            </p>
+                        </div>
+                        <div class="settings-block__content form">
+                            <form class="form__wrapper form__wrapper--full">
+                                <div class="form__grid form__grid--two--col form-grid">
+                                    <div class="form-grid__item form-grid__item--full form-input">
+                                        <label for="telegram" class="title title--smallest title--white">Ваш Телеграм
+                                        </label>
+                                        <div class="form-input__wrapper">
+                                            <div class="form-input__icon form-input__icon--blue">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite-cabinet.svg#telegram"></use>
+                                                </svg>
+                                            </div>
+                                            <input id="telegram" maxlength="30" type="text" name="telegram"
+                                                   placeholder="@dotaboostua" class="form-input__item">
+                                        </div>
+                                    </div>
+                                    <div class="form-grid__item form-grid__item--full form-input">
+                                        <label for="discord" class="title title--smallest title--white">Ваш Discord
+                                        </label>
+                                        <div class="form-input__wrapper">
+                                            <div class="form-input__icon form-input__icon--purple">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite-cabinet.svg#discord"></use>
+                                                </svg>
+                                            </div>
+                                            <input id="discord" maxlength="30" type="text" name="discord"
+                                                   placeholder="@dotaboostua" class="form-input__item">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <p class="title title--smallest">
+                                        Авторизація в Боті
+                                    </p>
+                                    <a href="#" class="button button--blue button--middle">
+                                        <svg class="icon">
+                                            <use xlink:href="assets/images/sprite-cabinet.svg#telegram"></use>
+                                        </svg>
+                                        Авторизація в Боті
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="settings-block">
+                        <div class="settings-block__header">
+                            <p class="settings-block__title text text--base text--semibold text--center">
+                                Повідомлення
+                            </p>
+                        </div>
+                        <div class="settings-block__content form">
+                            <form class="form__wrapper form__wrapper--full">
+                                <div class="settings-list">
+                                    <p class="title title--smallest">
+                                        Повідомлення на Електронну Пошту
+                                    </p>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="policy"
+                                               class="form-checkbox__item">
+                                        <span class="form-checkbox__wrapper">
+                                                <span class="form-checkbox__checkmark form-checkbox__checkmark--white form-checkbox__checkmark--grey--light"></span>
+                                                <span class="form-checkbox__label title title--smallest title--regular title--white">
+                                                    Отримувати повідомлення особистого кабінету на електронну пошту.
+                                                </span>
+                                            </span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="policy"
+                                               class="form-checkbox__item">
+                                        <span class="form-checkbox__checkmark form-checkbox__checkmark--white form-checkbox__checkmark--grey--light"></span>
+                                        <span class="form-checkbox__label title title--smallest title--regular title--white">
+                                                Отримувати листи електронною поштою з рекламними пропозиціями, спеціальними пропозиціями для вас.
+                                                </span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="policy"
+                                               class="form-checkbox__item">
+                                        <span class="form-checkbox__checkmark form-checkbox__checkmark--white form-checkbox__checkmark--grey--light"></span>
+                                        <span class="form-checkbox__label title title--smallest title--regular title--white">
+                                                Отримувати листи електронною поштою з новинами нашого сервісу: оновленнями, новими послугами та можливостями.
+                                            </span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="policy"
+                                               class="form-checkbox__item">
+                                        <span class="form-checkbox__checkmark form-checkbox__checkmark--white form-checkbox__checkmark--grey--light"></span>
+                                        <span class="form-checkbox__label title title--smallest title--regular title--white">
+                                                Отримувати на електронну пошту щотижневий дайджест с ігровими новинами, новинами українського кіберспорту, тощо.
+                                            </span>
+                                    </label>
+                                    <p class="title title--smallest">
+                                        Повідомлення через Чат Бот Телеграм
+                                    </p>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="policy"
+                                               class="form-checkbox__item">
+                                        <span class="form-checkbox__wrapper">
+                                                <span class="form-checkbox__checkmark form-checkbox__checkmark--white form-checkbox__checkmark--grey--light"></span>
+                                                <span class="form-checkbox__label title title--smallest title--regular title--white">
+                                                    Отримувати повідомлення особистого кабінету на електронну пошту.
+                                                </span>
+                                            </span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="policy"
+                                               class="form-checkbox__item">
+                                        <span class="form-checkbox__checkmark form-checkbox__checkmark--white form-checkbox__checkmark--grey--light"></span>
+                                        <span class="form-checkbox__label title title--smallest title--regular title--white">
+                                                Отримувати повідомлення від чат-боту з рекламними пропозиціями, спеціальними пропозиціями для вас.
+                                                </span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="policy"
+                                               class="form-checkbox__item">
+                                        <span class="form-checkbox__checkmark form-checkbox__checkmark--white form-checkbox__checkmark--grey--light"></span>
+                                        <span class="form-checkbox__label title title--smallest title--regular title--white">
+                                                Отримувати повідомлення від чат-боту з рекламними пропозиціями, спеціальними пропозиціями для вас.
+                                            </span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="checkbox" name="policy"
+                                               class="form-checkbox__item">
+                                        <span class="form-checkbox__checkmark form-checkbox__checkmark--white form-checkbox__checkmark--grey--light"></span>
+                                        <span class="form-checkbox__label title title--smallest title--regular title--white">
+                                                Отримувати в чат-боті щотижневий дайджест с ігровими новинами, новинами українського кіберспорту, тощо.
+                                            </span>
+                                    </label>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="assets/libs/swiper/swiper.js"></script>
+<script src="assets/scripts/index-cabinet.js"></script>
+
+</body>
+
+</html>
