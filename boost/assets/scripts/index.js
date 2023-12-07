@@ -459,6 +459,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             },
         });
+
+        marqueeLeftContainer.addEventListener('mouseenter',()=>{
+           marqueeLeftContainer.style.an = '0ms';
+        });
     }
 
 
@@ -474,6 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loopedSlides: 6,
         slidesPerView: 'auto',
         allowTouchMove: false,
+
         breakpoints: {
             600: {
                 spaceBetween: 15
