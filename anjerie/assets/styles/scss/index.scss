@@ -230,7 +230,7 @@ body {
         &:nth-child(1) {
             transition:
                 0.3s transform,
-                0.3s top;
+                0.3s top,.3s background-color;
         }
 
         &:nth-child(2) {
@@ -239,7 +239,7 @@ body {
             transition:
                 0.3s left,
                 0.3s opacity,
-                0.5s visibility;
+                0.5s visibility, .3s background-color;
         }
 
         &:nth-child(3) {
@@ -247,7 +247,7 @@ body {
 
             transition:
                 0.3s transform,
-                0.3s top;
+                0.3s top, .3s background-color;
         }
     }
 
@@ -282,8 +282,8 @@ body {
 
             height: calc(100% - 98px);
 
-            backdrop-filter: blur(12.5px);
-            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(35px);
+            background: rgba(0, 0, 0, 0.85);
 
             visibility: hidden;
             opacity: 0;
@@ -421,6 +421,9 @@ body {
     &--white .nav__item{
         color:#000;
     }
+    &--white .burger__item{
+        background-color: #000;
+    }
     &--white &__logo{
         fill: #000;
     }
@@ -437,6 +440,14 @@ body {
         &--active {
             color: #fff;
         }
+    }
+
+    &--open .burger__item{
+        background-color: #Fff;
+    }
+
+    &--open &__cart{
+        stroke: #fff;
     }
 
     &--open &__logo{
@@ -471,14 +482,14 @@ body {
     &__nav {
         @media screen and (max-width: 1024px) {
             position: fixed;
-            top: 98px;
+            top: 88px;
             left: 0;
 
             width: 100%;
-            height: calc(100% - 98px);
+            height: calc(100% - 88px);
 
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(12.5px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(35px);
 
             opacity: 0;
             visibility: hidden;
