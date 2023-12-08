@@ -1,6 +1,6 @@
 :root {
   --text-font: "Manrope", sans-serif;
-  --title-font: "EB Garamond", sans-serif;
+  --title-font: "EB Garamond", serif;
   --accent-color: #00b3ce;
   --grey-color: #817d8c;
   --black-color: #00171f;
@@ -11,6 +11,16 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: var(--black-color);
+  overscroll-behavior-y: none;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.page-wrapper__content {
+  flex-grow: 1;
 }
 
 .container {
@@ -53,7 +63,7 @@ body {
   }
 }
 .title--base {
-  font-family: var(--title--font);
+  font-family: var(--title-font);
   font-size: 64px;
   font-weight: 400;
   font-style: italic;
@@ -113,6 +123,7 @@ body {
   height: 50px;
   font-family: var(--text-font);
   font-size: 15px;
+  line-height: 1;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -144,6 +155,13 @@ body {
 .button--arrow--white {
   color: #fff;
   fill: #fff;
+  transition: 0.3s fill, 0.3s color, 0.3s transform;
+}
+@media screen and (min-width: 992px) {
+  .button--arrow--white:hover {
+    color: var(--accent-color);
+    fill: var(--accent-color);
+  }
 }
 @media screen and (max-width: 991px) {
   .button--arrow--white {
@@ -154,8 +172,9 @@ body {
 .button--arrow--blue {
   color: #00b3ce;
   fill: #00b3ce;
+  transition: 0.3s transform;
 }
-.button--arrow:hover .button__arrow {
+.button--arrow:hover {
   transform: translateX(10px);
 }
 @media screen and (min-width: 992px) {
@@ -256,6 +275,8 @@ body {
 .nav__item {
   color: #fff;
   transition: 0.3s color;
+  display: flex;
+  flex-direction: column;
 }
 .nav__item:hover {
   color: var(--accent-color);
@@ -352,12 +373,24 @@ body {
 }
 
 .header {
-  position: sticky;
-  top: -1px;
+  position: fixed;
+  top: 0px;
   width: 100%;
   background: #000;
   z-index: 10;
   transition: 0.3s background-color;
+}
+.header--white {
+  background-color: #fff;
+}
+.header--white .nav__item {
+  color: #000;
+}
+.header--white .header__logo {
+  fill: #000;
+}
+.header--white .header__cart {
+  stroke: #000;
 }
 .header--open {
   background-color: #161616;
@@ -367,6 +400,9 @@ body {
 }
 .header--open .nav__item--active {
   color: #fff;
+}
+.header--open .header__logo {
+  fill: #fff;
 }
 @media screen and (max-width: 1024px) {
   .header--open .header__nav {
@@ -416,6 +452,10 @@ body {
   align-items: center;
   gap: 20px;
 }
+.header__cart {
+  stroke: #fff;
+  fill: transparent;
+}
 .header__logo {
   position: absolute;
   left: 50%;
@@ -424,14 +464,13 @@ body {
   width: 166px;
   height: 50px;
   fill: #fff;
+  transition: 0.3s fill;
 }
 
 .cart__icon {
   width: 16px;
   height: 16px;
   display: block;
-  stroke: #fff;
-  fill: transparent;
 }
 @media screen and (max-width: 992px) {
   .cart__icon {
@@ -467,29 +506,29 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100vh;
+  min-height: 600px;
 }
 @media screen and (max-width: 991px) {
   .hero__row {
     flex-direction: column;
     align-items: flex-start;
+    height: auto;
   }
 }
 @media screen and (max-width: 991px) {
   .hero__block {
     position: relative;
-    height: 550px;
+    height: 350px;
     width: 100%;
   }
-}
-.hero__img {
-  height: 884px;
 }
 @media screen and (max-width: 991px) {
   .hero__img {
     position: absolute;
-    top: -220px;
-    left: 30px;
-    width: 900px;
+    top: -80px;
+    right: -150px;
+    width: 700px;
     height: auto;
   }
   .hero__img img {
@@ -497,11 +536,11 @@ body {
     height: 100%;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .hero__img {
-    left: -100px;
-    width: 200%;
-    top: -20%;
+    right: -30px;
+    width: 150%;
+    top: -10%;
     position: relative;
   }
 }
@@ -977,4 +1016,23 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.animation-item {
+  opacity: 0;
+}
+
+.animation-item.animation-item--animated {
+  animation: dropTop 1s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+}
+
+@keyframes dropTop {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }/*# sourceMappingURL=index.css.map */

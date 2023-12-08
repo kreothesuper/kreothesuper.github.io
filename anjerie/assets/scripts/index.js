@@ -1,5 +1,36 @@
+class Animations {
+    constructor() {
+        this.animationWrapperArray = document.querySelectorAll('.animation-wrapper');
+    }
+
+    toggleAnimation(animationWrapperElement) {
+        const animationItemArray = animationWrapperElement.querySelectorAll('.animation-item');
+        animationItemArray.forEach((animationItemElement, animationItemIndex) => {
+            animationItemElement.style.animationDelay = `${animationItemIndex * 0.2}s`;
+            animationItemElement.classList.add('animation-item--animated');
+        });
+    }
+
+    handleIntersection(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                this.toggleAnimation(entry.target);
+            }
+        });
+    }
+
+    init() {
+        if (!this.animationWrapperArray.length) return;
+
+        const observer = new IntersectionObserver(this.handleIntersection.bind(this));
+        this.animationWrapperArray.forEach(animationWrapper => {
+            observer.observe(animationWrapper);
+        });
+    }
+}
+
 const checkTargetOrKeyNav = event => {
-    console.log(event.target);
+
     if (
         event.target.classList.contains('nav__sublist') || 
         event.key === 'Escape'
@@ -69,4 +100,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting ) {
+            document.querySelector('header').classList.remove('header--white');
+          } else {
+            document.querySelector('header').classList.add('header--white');
+          }
+        });
+      }, {
+        rootMargin: '-1% 0% -99% 0%',
+        threshold: 0,
+      });
+      const blocks = document.querySelectorAll('.js-black');
+      for (let i = blocks.length - 1; i >= 0; i--) {
+        const block = blocks[i];
+        observer.observe(block);
+      }
+
+      const animation = new Animations();
+      animation.init();
 });
