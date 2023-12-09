@@ -70,12 +70,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const burger = document.querySelector('.burger');
     const header = document.querySelector('.header');
 
+   if(header && burger){
     burger.addEventListener('click', (e) => {
         e.preventDefault();
 
         header.classList.toggle('header--open');
         burger.classList.toggle('burger--active');
     });
+   }
+
+    const __sliderPaginationParams = {
+        el: '.slider-pagination',
+        hiddenClass: 'slider-pagination--hidden',
+        bulletClass: 'slider-pagination__bullet',
+        bulletActiveClass: 'slider-pagination__bullet--active',
+        lockClass: 'slider-pagination--lock'
+    }
 
 
     const gallerySlider = new Swiper('.js-gallery-slider', {
@@ -83,6 +93,26 @@ document.addEventListener('DOMContentLoaded', () => {
         spaceBetween: 22,
         loop: true,
         speed: 500,
+    });
+
+    const productSlider = new Swiper('.js-product-slider', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        speed: 500,
+        pagination:__sliderPaginationParams,
+        grid:{
+            rows:1,
+            fill:'row',
+        },
+        breakpoints:{
+            992:{
+                slidesPerView:2,
+
+                grid:{
+                    rows:2,
+                }
+            }
+        }
     });
 
 
