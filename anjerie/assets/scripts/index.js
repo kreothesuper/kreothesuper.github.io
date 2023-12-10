@@ -151,4 +151,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const animation = new Animations();
       animation.init();
+
+
+      const productFilter = document.querySelector('.product-filter');
+
+      if(productFilter){
+        const productFilterLink = productFilter.querySelector('.product-filter__button');
+
+        productFilterLink.addEventListener('click',(e)=>{
+            e.preventDefault();
+
+            productFilter.classList.toggle('product-filter--active');
+        });
+      }
 });
