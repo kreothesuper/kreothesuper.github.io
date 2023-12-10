@@ -433,14 +433,14 @@ body {
   position: fixed;
   top: 0px;
   width: 100%;
-  background: #000;
+  background: rgba(0, 0, 0, 0.85);
   z-index: 10;
+  -webkit-backdrop-filter: blur(35px);
+          backdrop-filter: blur(35px);
   transition: 0.3s background-color;
 }
 .header--white {
   background-color: rgba(255, 255, 255, 0.85);
-  -webkit-backdrop-filter: blur(35px);
-          backdrop-filter: blur(35px);
 }
 .header--white .nav__item {
   color: #000;
