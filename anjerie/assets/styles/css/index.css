@@ -685,6 +685,9 @@ body {
     display: block;
   }
 }
+.hero__block--features {
+  height: 100%;
+}
 @media screen and (max-width: 991px) {
   .hero__block {
     order: 2;
@@ -721,6 +724,18 @@ body {
     width: 150%;
     top: -10%;
     position: relative;
+  }
+}
+@media screen and (min-width: 992px) {
+  .hero__img--features {
+    height: 100%;
+    width: 100%;
+  }
+  .hero__img--features img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 @media screen and (max-width: 600px) {
