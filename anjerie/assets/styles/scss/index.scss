@@ -646,6 +646,9 @@ body {
         justify-content: space-between;
 
         height: 100px;
+        @media screen and (max-width:600px) {
+            height: 60px;
+        }
     }
     &__about {
         @media screen and (max-width: 1024px) {
@@ -660,11 +663,11 @@ body {
     &__nav {
         @media screen and (max-width: 1024px) {
             position: fixed;
-            top: 88px;
+            top: 60px;
             left: 0;
 
             width: 100%;
-            height: calc(100% - 88px);
+            height: calc(100% - 60px);
 
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(35px);
@@ -908,7 +911,7 @@ body {
             @media screen and (max-width: 600px) {
                 right: -30px;
                 width: 120%;
-                top: -20%;
+                top: -10%;
                 position: relative;
             }
         }
@@ -1983,6 +1986,11 @@ body {
     }
     &__footer {
         margin: auto 0 0 0;
+
+        @media screen and (max-width:600px) {
+            position: sticky;
+            bottom: 20px;
+        }
     }
 }
 
@@ -2038,8 +2046,8 @@ body {
     &--filled &__item {
         border-color: #000;
     }
-    &--error &__error {
-        opacity: 1;
+    &--error &__item {
+        border-color: #c91414;
     }
     &__item:focus ~ &__label,
     &__item:valid ~ &__label {
