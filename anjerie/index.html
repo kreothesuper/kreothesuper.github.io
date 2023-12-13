@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="assets/styles/css/index.css">
 </head>
 
+
+
 <body>
     <div class="page-wrapper">
         <header class="page-wrapper__header header">
@@ -651,23 +653,35 @@
                     </svg>
                     back
                </a>
-               <div class="cart cart--filled">
+               <div class="cart cart--filled cart-popup__icon">
                     <p class="cart__count">2</p>
                     <svg class="cart__icon">
                         <use xlink:href="assets/images/sprite.svg#shopping-bag-filled"></use>
                     </svg>
             </div>
             </div>
+            <div class="cart-popup__header cart-popup__header--mobile">
+                <a href="#" class="cart-popup__back js-cart-link">
+                    <svg>
+                        <use xlink:href="assets/images/sprite.svg#arrow"></use>
+                    </svg>
+               </a>
+               <p class="text text--base text--uppercase text--white">
+                your cart
+               </p>
+            </div>
             <div class="cart-popup__content">
                 <div class="cart-popup__list">
-                    <p class="text text--small text--black text--uppercase text--medium">your cart</p>
+                    <div class="cart-popup__item">
+                        <p class="text text--small  text--mobile--white text--black text--uppercase text--medium">your cart</p>
+                    </div>
                     <div class="cart-item">
                         <div class="cart-item__wrapper">
                             <div class="cart-item__row">
-                                <p class="text text--big text--black">
+                                <p class="text text--mobile--white text--big text--black">
                                     White Gold & White Diamond Bracelet
                                 </p>
-                                <p class="text text--big text--black text--medium">
+                                <p class="text text--mobile--white text--big text--black text--medium">
                                     €2,550
                                 </p>
                             </div>
@@ -682,10 +696,10 @@
                     <div class="cart-item">
                         <div class="cart-item__wrapper">
                             <div class="cart-item__row">
-                                <p class="text text--big text--black">
+                                <p class="text text--mobile--white text--big text--black">
                                     White Gold & White Diamond Bracelet
                                 </p>
-                                <p class="text text--big text--black text--medium">
+                                <p class="text text--mobile--white text--big text--black text--medium">
                                     €2,550
                                 </p>
                             </div>
@@ -700,7 +714,15 @@
                 </div>
             </div>
             <div class="cart-popup__footer">
-                <a href="#" class="button button--base button--black button--full">
+                <div class="cart-popup__total">
+                    <p>
+                        TOTAL
+                    </p>
+                    <p>
+                        €5,300
+                    </p>
+                </div>
+                <a href="#" class="button button--mobile--white button--base button--black button--full">
                     <span class="button__text">
                         checkout
                     </span>
