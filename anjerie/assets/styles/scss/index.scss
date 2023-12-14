@@ -946,7 +946,7 @@ body {
             @media screen and (max-width: 991px) {
                 min-height: auto;
                 display: flex;
-                height: calc(100vh - 100px);
+                min-height: calc(100vh - 100px);
                 flex-direction: column;
             }
         }
@@ -955,6 +955,31 @@ body {
         width: 100%;
         &--hidden{
             overflow: hidden;
+        }
+        &--mobile{
+            @media screen and (min-width:1025px) {
+                display: none;
+            }
+        }
+        &--full{
+            height: 100%;
+            .hero__img{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: 100%;
+                height: 100%;
+
+                img{
+                    object-fit: cover;
+                }
+
+                @media screen and (max-width:600px) {
+                    aspect-ratio: 1;
+                    height: auto;
+                }
+            }
         }
         &--black {
             background-color: #000;
@@ -996,6 +1021,9 @@ body {
         }
     }
     &__img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         &--absolute {
             @media screen and (max-width: 991px) {
                 position: absolute;
