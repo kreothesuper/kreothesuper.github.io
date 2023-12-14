@@ -58,14 +58,15 @@ const formatExpiry = (event) => {
 const checkTargetOrKeyNav = event => {
 
     if (
-        event.target.classList.contains('nav__sublist') ||
+        event.target.classList.contains('nav__sublist') || event.target.classList.contains('page-wrapper') ||
         event.key === 'Escape'
     ) {
         hideAllNavItems();
     }
 };
 const showNavItem = navItem => {
-    const header = document.querySelector('.header');
+    const header = document.querySelector('.header'),
+    pageWrapper = document.querySelector('.page-wrapper');
 
     if (navItem.classList.contains('nav__item--active')) return;
 
@@ -76,13 +77,17 @@ const showNavItem = navItem => {
 
     header.classList.add('header--open');
     navItem.classList.add('nav__item--active');
+    pageWrapper.classList.add('page-wrapper--hidden')
 };
 
 const hideAllNavItems = () => {
     const header = document.querySelector('.header'),
-        navItemArray = document.querySelectorAll('.nav__item');
+        navItemArray = document.querySelectorAll('.nav__item'),
+        pageWrapper = document.querySelector('.page-wrapper');
 
-    header.classList.remove('header--open');
+
+        header.classList.remove('header--open');
+        pageWrapper.classList.remove('page-wrapper--hidden')
 
     navItemArray.forEach(element => {
         element.classList.remove('nav__item--active')

@@ -22,6 +22,17 @@ body {
 .page-wrapper__content {
   flex-grow: 1;
 }
+.page-wrapper--hidden::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  display: block;
+  background: rgba(0, 0, 0, 0.85);
+  -webkit-backdrop-filter: blur(35px);
+          backdrop-filter: blur(35px);
+}
 
 .content--page {
   padding: 140px 0 45px 0;
@@ -415,9 +426,6 @@ body {
     left: 0;
     width: 100%;
     height: calc(100% - 98px);
-    -webkit-backdrop-filter: blur(35px);
-            backdrop-filter: blur(35px);
-    background: rgba(0, 0, 0, 0.85);
     visibility: hidden;
     opacity: 0;
     transition: 0.3s visibility, 0.5s opacity, 0.5s transform;
@@ -786,6 +794,9 @@ body {
   background: #000;
   border-radius: 99px;
   position: relative;
+}
+.hero__wrapper--home {
+  border-radius: 0 0 99px 99px;
 }
 @media screen and (max-width: 991px) {
   .hero__wrapper {
