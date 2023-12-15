@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sliderScrollbar = {
         el: '.slider-scrollbar',
-        dragClass: 'slider-scrollbar__drag'
+        dragClass: 'slider-scrollbar__drag',
+        draggable:true,
     }
     const partnersSlider = new Swiper('.js-partners-slider', {
         slidesPerView: 'auto',
@@ -102,6 +103,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+    const languageSelect = document.querySelector('.language-select');
 
+    if(languageSelect){
+        document.addEventListener('click',(e)=>{
+            if(!e.target.closest('.language-select')){
+                languageSelect.classList.remove('language-select--active');
+            }
+        })
+        const languageSelectCurrent = languageSelect.querySelector('.language-select__current');
+        languageSelectCurrent.addEventListener('click',(e)=>{
+            e.preventDefault();
+
+            languageSelect.classList.toggle('language-select--active')
+        });
+    }
 
 });

@@ -58,12 +58,23 @@
                             </a>
                         </div>
                         <div class="header__buttons">
-                            <a href="#" class="button header__button button--transparent button--base">
-                                <svg class="button__icon button__icon--blue">
-                                    <use xlink:href="assets/images/sprite.svg#raphael_paper"></use>
-                                </svg>
-                                Whitepaper
-                            </a>
+                            <div class="language-select">
+                                <a href="#" class="language-select__current">
+                                    <img src="assets/images/flags/us.svg" alt="" class="language-select__icon">
+                                   <p class="text text--white text--middle">
+                                    ENG
+                                   </p>
+                                </a>
+                                <div class="language-select__list">
+                                    <a href="#" class="language-select__item">
+                                        <img src="assets/images/flags/ru.svg" alt="" class="language-select__icon">
+                                        <p class="text text--white text--middle">
+                                        Русский
+
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
                             <a href="#" class="button button--buy">
                                 <span class="button__text">
                                     Buy now
@@ -94,25 +105,32 @@
                                         cryptocurrencies with the help of artificial intelligence.
                                     </p>
                                 </div>
-                                <div class="hero__buttons">
-                                    <a href="#" class="hero__button button button--transparent button--base">
-                                        <svg class="button__icon button__icon--blue">
-                                            <use xlink:href="assets/images/sprite.svg#raphael_paper"></use>
-                                        </svg>
-                                        Whitepaper
-                                    </a>
-                                    <a href="#" class="hero__button button button--transparent button--base">
-                                        <svg class="button__icon button__icon--pink">
-                                            <use xlink:href="assets/images/sprite.svg#scan"></use>
-                                        </svg>
-                                        KYC
-                                    </a>
-                                    <a href="#" class="hero__button button button--transparent button--base">
-                                        <svg class="button__icon button__icon--purple">
-                                            <use xlink:href="assets/images/sprite.svg#audit"></use>
-                                        </svg>
-                                        Audit
-                                    </a>
+                                <div class="hero__grid hero__info">
+                                    <div class="hero__buttons">
+                                        <a href="#" class="hero__button button button--transparent button--base">
+                                            <svg class="button__icon button__icon--blue">
+                                                <use xlink:href="assets/images/sprite.svg#raphael_paper"></use>
+                                            </svg>
+                                            Whitepaper
+                                        </a>
+                                        <a href="#" class="hero__button button button--transparent button--base">
+                                            <svg class="button__icon button__icon--pink">
+                                                <use xlink:href="assets/images/sprite.svg#scan"></use>
+                                            </svg>
+                                            KYC
+                                        </a>
+                                        <a href="#" class="hero__button button button--transparent button--base">
+                                            <svg class="button__icon button__icon--purple">
+                                                <use xlink:href="assets/images/sprite.svg#audit"></use>
+                                            </svg>
+                                            Audit
+                                        </a>
+                                    </div>
+                                    <div class="hero__label">
+                                        <p class="text text--base text--purple text--center">
+                                            Your individual mining power bonus will be calculated at the conclusion of the presale.
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="hero__video">
                                     <div class="video">
@@ -127,6 +145,9 @@
                             <div class="hero__timer">
                                 <div class="hero-timer">
                                     <div class="hero-timer__wrapper">
+                                        <div class="hero-timer__label">
+                                            $FXM Pre-Sale
+                                        </div>
                                         <div class="hero-timer__header">
                                             <div class="timer">
                                                 <div class="timer__header">
@@ -148,6 +169,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="timer__line timer-line">
+                                                    <div class="timer-line__header">
+                                                        <p class="timer-line__text">
+                                                            Phase 1 of 12
+                                                        </p>
+                                                    </div>
                                                     <div class="timer-line__wrapper">
                                                         <div class="timer-line__row js-timer-progress"></div>
                                                     </div>
@@ -171,7 +197,7 @@
                                                 </li>
                                                 <li class="hero-timer__list-item">
                                                     <p class="hero-timer__title">
-                                                        Your purchased BTCMTX:
+                                                        Your purchased FXM: 
                                                     </p>
                                                     <p class="hero-timer__text">
                                                         0
@@ -179,7 +205,7 @@
                                                 </li>
                                                 <li class="hero-timer__list-item">
                                                     <p class="hero-timer__title">
-                                                        Your stakeable BTCMTX:
+                                                        Your Eternal Power Add-on: 
                                                     </p>
                                                     <p class="hero-timer__text">
                                                         0
@@ -190,7 +216,7 @@
                                         <div class="hero-timer__footer">
                                             <a href="#"
                                                 class="hero-timer__button hero-timer__button--big hero-timer__button--black">
-                                                <span>1 BTCMTX</span> = $0.0113
+                                                <span>1 fxm</span> = $0.01
                                             </a>
                                             <a href="#" class="hero-timer__button">
                                                 <img src="assets/images/icons/eth.png" class="icon" alt="">
@@ -200,11 +226,32 @@
                                                 <img src="assets/images/icons/usdt.png" class="icon" alt="">
                                                 USDT
                                             </a>
-                                            <a href="#"
-                                                class="hero-timer__button hero-timer__button--card hero-timer__button--big">
-                                                <img src="assets/images/icons/card.svg" class="icon" alt="">
-                                                CARD
-                                            </a>
+                                           <div class="hero-timer__input hero-input">
+                                                <div class="hero-input__header">
+                                                    <p class="text text--middle text--grey">
+                                                        Pay with ETH
+                                                    </p>
+                                                    <p class="text text--middle text--grey">
+                                                        Max
+                                                    </p>
+                                                </div>
+                                                <div class="hero-input__item">
+                                                    <input type="text" value="0" class="hero-input__tag">
+                                                    <img src="assets/images/icons/eth.png" alt="" class="hero-input__icon">
+                                                </div>
+                                           </div>
+                                           <div class="hero-timer__input hero-input">
+                                            <div class="hero-input__header">
+                                                <p class="text text--middle text--grey">
+                                                    Recieve FXM
+                                                </p>
+                                               
+                                            </div>
+                                            <div class="hero-input__item">
+                                                <input type="text" value="0" class="hero-input__tag">
+                                                <img src="assets/images/icons/fxm.png" alt="" class="hero-input__icon">
+                                            </div>
+                                       </div>
                                         </div>
                                     </div>
                                 </div>
@@ -556,7 +603,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="slider-scrollbar"></div>
+                                <div class="slider-scrollbar "></div>
                             </div>
                         </div>
                     </div>
@@ -1059,6 +1106,42 @@
                 </div>
             </section>
         </main>
+        <div class="footer page-wrapper__footer footer">
+            <div class="footer__wrapper">
+                <div class="container">
+                    <div class="footer__row">
+                        <div class="footer__block">
+                            <div class="logo footer__logo">
+                                <img src="assets/images/logo.svg" alt="" class="logo__img">
+                            </div>
+                            <p class="text text--base text--grey">
+                                Copyright 2023 FlexiMine. All Rights Reserved.
+                            </p>
+                            <p class="text text--base text--grey">
+                                Disclaimer: Cryptocurrency may be unregulated in your jurisdiction. The value of cryptocurrencies may go down as well as up. Profits may be subject to capital gains or other taxes applicable in your jurisdiction.
+                            </p>
+                        </div>
+                        <ul class="footer__list">
+                            <li>
+                                <a href="#" class="text text--base text--grey text--uppercase">
+                                    PRIVACY POLICY
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text text--base text--grey text--uppercase">
+                                    COOKIES
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text text--base text--grey text--uppercase">
+                                    TERMS OF USE
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
