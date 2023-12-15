@@ -6,11 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
         draggable:true,
     }
     const partnersSlider = new Swiper('.js-partners-slider', {
-        slidesPerView: 'auto',
-        spaceBetween: 50,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        centeredSlides:true,
+        loop:true,
+        loopPreventsSliding:false,
+        autoplay:{
+            speed:5000,
+            delay:1500,
+        },
+        loopAdditionalSlides:3,
         breakpoints: {
             769: {
+                slidesPerView:'auto',
                 spaceBetween: 86,
+                centeredSlides:false,
+                loop:false,
+                autoplay:{
+                    enabled:false,
+                }
             }
         }
     });

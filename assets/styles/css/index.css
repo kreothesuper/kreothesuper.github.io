@@ -789,15 +789,38 @@ body {
 .partners-slider {
   overflow: visible;
 }
+@media screen and (max-width: 768px) {
+  .partners-slider {
+    padding: 0 60px;
+  }
+  .partners-slider .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+}
 .partners-slider__item {
   height: 45px;
   width: unset;
+}
+@media screen and (max-width: 768px) {
+  .partners-slider__item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+  }
 }
 .partners-slider__img {
   width: auto;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+@media screen and (max-width: 768px) {
+  .partners-slider__img {
+    width: 100%;
+  }
 }
 
 .section__footer {
