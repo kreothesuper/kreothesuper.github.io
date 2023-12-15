@@ -304,6 +304,10 @@ body {
   font-weight: 400;
   line-height: 1;
   color: #cacaca;
+  transition: 0.3s color;
+}
+.nav__link:hover {
+  color: #fff;
 }
 
 .hero {
@@ -905,6 +909,9 @@ body {
   position: relative;
   overflow: hidden;
 }
+.section-what__wrapper {
+  position: relative;
+}
 .section-what__content {
   max-width: 607px;
   width: 100%;
@@ -928,7 +935,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 0;
+  left: 600px;
   height: 600px;
   z-index: -1;
 }
@@ -941,7 +948,7 @@ body {
   .section-what__img {
     position: relative;
     top: 0;
-    right: 0;
+    left: 0;
     height: 100%;
     width: calc(100% + 50px);
     transform: translateX(-25px);

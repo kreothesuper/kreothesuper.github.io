@@ -339,6 +339,11 @@ body {
         font-weight: 400;
         line-height: 1;
         color: #cacaca;
+
+        transition: .3s color;
+        &:hover{
+            color:#fff;
+        }
     }
 }
 
@@ -975,6 +980,9 @@ color:#fff;
     &-what {
         position: relative;
         overflow: hidden;
+        &__wrapper{
+            position: relative;
+        }
         &__content {
             max-width: 607px;
             width: 100%;
@@ -995,7 +1003,7 @@ color:#fff;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            right: 0;
+            left: 600px;
             height: 600px;
             z-index: -1;
 
@@ -1007,7 +1015,7 @@ color:#fff;
             @media screen and (max-width: 1270px) {
                 position: relative;
                 top: 0;
-                right: 0;
+                left: 0;
                 height: 100%;
                 width: calc(100% + 50px);
                 transform: translateX(-25px);
