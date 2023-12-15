@@ -426,7 +426,7 @@ justify-content: center;
     width: 110px;
     height: 42px;
     position: absolute;
-    top: 40px;
+    top: 50px;
     right: -70px;
     display: block;
     background: url("/assets/images/icons/hero-arrow.svg") center center/contain no-repeat;
@@ -441,7 +441,7 @@ justify-content: center;
         font-family: "Prosto One", sans-serif;
         font-size: 82px;
         font-weight: 400;
-        line-height: 1.2;
+        line-height: 0.9;
 
         color: #fff;
 
@@ -453,7 +453,7 @@ justify-content: center;
     &__subtitle {
         font-family: "Prosto One", sans-serif;
         font-weight: 400;
-        line-height: 1.2;
+        line-height: 0.9;
         font-size: 40px;
 
         color: #cacaca;
@@ -472,9 +472,23 @@ justify-content: center;
 
         margin: 20px 0 0 0;
     }
-    &__video,
-    &__info {
-        margin: 40px 0 0 0;
+    &__video{
+        margin: 30px 0 0 0;
+    }
+    &__info{
+        margin: 25px 0 0 0;
+    }
+    &__info{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+
+        position: relative;
+        z-index: 3;
+
+        @media screen and (max-width: 1024px) {
+            grid-template-columns: minmax(0, 1fr);
+        }
     }
     &__buttons {
         display: flex;
@@ -496,7 +510,7 @@ justify-content: center;
         }
     }
     &__video {
-        height: 220px;
+        height: 200px;
         width: 100%;
 
         @media screen and (max-width: 768px) {
@@ -553,10 +567,8 @@ color:#fff;
             color:#fff;
             text-align: center;
 
-            margin:  0 0 16px 0;
             @media screen and (max-width:768px) {
                 font-size: 28px;
-                margin: 0 0 10px 0;
             }            
         }
         &__input{
@@ -567,7 +579,7 @@ color:#fff;
         &__wrapper {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 16px;
 
             overflow: hidden;
 
@@ -628,7 +640,7 @@ color:#fff;
                 }
             }
             &-item {
-                padding: 10px 0;
+                padding: 14px 0 8px 0;
 
                 position: relative;
                 z-index: 2;
@@ -756,13 +768,13 @@ color:#fff;
     }
     &__number {
         font-family: var(--main-font);
-        font-size: 56px;
+        font-size: 34px;
         font-weight: 500;
         color: #fff;
 
         @media screen and (max-width: 768px) {
             gap: 20px;
-            font-size: 44px;
+            font-size: 32px;
         }
     }
     &__item {
