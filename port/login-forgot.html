@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <header class="page-wrapper__header header">
+            <div class="header__wrapper">
+                <div class="container">
+                    <div class="header__row">
+                        <div class="header__logo logo">
+                            <img src="assets/images/logo.svg" alt="" class="logo__img">
+                        </div>
+                        <div class="header__control">
+                            <a href="tel:88000000000" class="phone-link">
+                                <svg class="phone-link__icon">
+                                    <use xlink:href="assets/images/sprite.svg#phone"></use>
+                                </svg>
+                                <span class="phone-link__text">
+                                    8 (800) 000-00-00
+                                </span>
+                            </a>
+                            <a href="#" class="button button--base button--bordered">
+                                <span class="button__text">
+                                    Вернуться на главную
+                                </span>
+                                <svg class="button__icon">
+                                    <use xlink:href="assets/images/sprite.svg#exit"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="page-wrapper__content content">
+            <div class="quiz">
+                <div class="container">
+                    <div class="quiz__grid">
+                        <div class="quiz-content">
+                            <div class="quiz-step step">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">личная информация</p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="input">
+                                            <div class="input__header">
+                                                <label for="fio" class="input__label">ФИО</label>
+                                            </div>
+                                            <div class="input__content">
+                                                <input id="fio" name="fio" type="text" class="input__item"
+                                                    placeholder="Иванов Иван Иванович">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="input">
+                                            <div class="input__header">
+                                                <p class="input__label">Фото</p>
+                                            </div>
+                                            <div class="input__content">
+                                                <div class="input-photo js-file">
+                                                    <div class="input-photo__grid">
+                                                        <div class="input-photo__preview">
+                                                            <img class="js-file-img"
+                                                                src="assets/images/photo-preview.png" alt="">
+                                                        </div>
+                                                        <div class="input-photo__content">
+                                                            <div class="input-photo__text">
+                                                                <p class="text text--base text--white">
+                                                                    Загрузите любую фотографию, где хорошо
+                                                                    видно........... Требования напишите тут
+                                                                </p>
+                                                                <p class="text text--base text--white">
+                                                                    Фото может быть только в формате PNG, JPG или JPEG,
+                                                                    размером не более 5 МБ
+                                                                </p>
+                                                            </div>
+                                                            <label class="input-photo__label">
+                                                                <input type="file" name="main-photo"
+                                                                    class="input-photo__tag js--input">
+                                                                <span class="input-photo__checkmark">Выбрать фото</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quiz-step step">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Специализация</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Выберите вашу специализацию и загрузите документ, подтверждающий вашу подготовку. 
+                                        </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-list">
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="slinger" type="radio" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="slinger" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Стропальщик</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="loader-driver" type="radio" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="loader-driver" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Водитель погрузчика</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="crane-operator" type="radio" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="crane-operator" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Крановщик</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="docker-mechanic" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="docker-mechanic" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Докер-механизатор</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check-content">
+                                                            <div class="check-content__heder">
+                                                                <p class="text text--base text--white">
+                                                                    Выберите подспециализацию (можно выбрать несколько):
+                                                                </p>
+                                                            </div>
+                                                            <div class="check-content__list">
+                                                                <div class="check">
+                                                                    <input type="checkbox" id="dop-1" name="name" class="check__input">
+                                                                    <div class="check__header">
+                                                                        <label for="dop-1" class="check__label">
+                                                                            <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                            <span class="check__text text text--base text--white text--white--clear">Стропальщик</span>
+                                                                        </label>
+                                                                        <div class="check__file file-input js-file">
+                                                                            <div class="file-input__wrapper">
+                                                                                <span class="file-input__row file-input__row--name">
+                                                                                    <svg class="file-input__icon">
+                                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                                    </svg>
+                                                                                    <span class="file-input__text js-file-name">
+                                                                                        Документ 17.08.2021.jpg
+                                                                                    </span>
+                                                                                </span>
+                                                                                <label class="file-input__label">
+                                                                                    <input type="file" class="file-input__tag js-file-input">
+                                                                                    <span class="file-input__row">
+                                                                                        <span class="file-input__text">
+                                                                                            Загрузить документ
+                                                                                        </span>
+                                                                                        <svg class="file-input__icon">
+                                                                                            <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                                        </svg>
+                                                                                    </span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="check">
+                                                                    <input type="checkbox" id="dop-2" name="name" class="check__input">
+                                                                    <div class="check__header">                                                                        
+                                                                        <label for="dop-2" class="check__label">
+                                                                            <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                            <span class="check__text text text--base text--white text--white--clear">Водитель погрузчика</span>
+                                                                        </label>
+                                                                        <div class="check__file file-input js-file">
+                                                                            <div class="file-input__wrapper">
+                                                                                <span class="file-input__row file-input__row--name">
+                                                                                    <svg class="file-input__icon">
+                                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                                    </svg>
+                                                                                    <span class="file-input__text js-file-name">
+                                                                                        Документ 17.08.2021.jpg
+                                                                                    </span>
+                                                                                </span>
+                                                                                <label class="file-input__label">
+                                                                                    <input type="file" class="file-input__tag js-file-input">
+                                                                                    <span class="file-input__row">
+                                                                                        <span class="file-input__text">
+                                                                                            Загрузить документ
+                                                                                        </span>
+                                                                                        <svg class="file-input__icon">
+                                                                                            <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                                        </svg>
+                                                                                    </span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="check">
+                                                                    <input type="checkbox" id="dop-3" name="name" class="check__input">
+                                                                    <div class="check__header">
+                                                                        <label for="dop-3" class="check__label">
+                                                                            <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                            <span class="check__text text text--base text--white text--white--clear">Крановщик</span>
+                                                                        </label>
+                                                                        <div class="check__file file-input js-file">
+                                                                            <div class="file-input__wrapper">
+                                                                                <span class="file-input__row file-input__row--name">
+                                                                                    <svg class="file-input__icon">
+                                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                                    </svg>
+                                                                                    <span class="file-input__text js-file-name">
+                                                                                        Документ 17.08.2021.jpg
+                                                                                    </span>
+                                                                                </span>
+                                                                                <label class="file-input__label">
+                                                                                    <input type="file" class="file-input__tag js-file-input">
+                                                                                    <span class="file-input__row">
+                                                                                        <span class="file-input__text">
+                                                                                            Загрузить документ
+                                                                                        </span>
+                                                                                        <svg class="file-input__icon">
+                                                                                            <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                                        </svg>
+                                                                                    </span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="talman" type="radio" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="talman" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Тальман</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="surveyor" type="radio" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="surveyor" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Сюрвейер</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="stevedore" type="radio" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="stevedore" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Стивидор</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="handyman" type="radio" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="handyman" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Разнорабочий</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                   
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                            <div class="quiz-step step">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Категории транспорта</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Выберите категории транспорта, указанные в вашем удостоверении тракториста-машиниста и загрузите документ для подтверждения 
+                                        </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-list">
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="b-category" name="category" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="b-category" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">B категория</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="check__content check__content--full check-content">
+                                                            <div class="check-content__grid">
+                                                                <input id="b-category" name="b-category" type="text" class="input__item"
+                                                                placeholder="Дата получения ДД.ММ.ГГ">
+                                                                <div class="file-input js-file">
+                                                                    <div class="file-input__wrapper">
+                                                                        <span class="file-input__row file-input__row--name">
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                            </svg>
+                                                                            <span class="file-input__text js-file-name">
+                                                                                Документ 17.08.2021.jpg
+                                                                            </span>
+                                                                        </span>
+                                                                        <label class="file-input__label">
+                                                                            <input type="file" class="file-input__tag js-file-input">
+                                                                            <span class="file-input__row">
+                                                                                <span class="file-input__text">
+                                                                                    Загрузить документ
+                                                                                </span>
+                                                                                <svg class="file-input__icon">
+                                                                                    <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                                </svg>
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="c-category" name="category" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="c-category" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">C категория</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="check__content check__content--full check-content">
+                                                            <div class="check-content__grid">
+                                                                <input name="c-category-date" type="text" class="input__item"
+                                                                placeholder="Дата получения ДД.ММ.ГГ">
+                                                                <div class="file-input js-file">
+                                                                    <div class="file-input__wrapper">
+                                                                        <span class="file-input__row file-input__row--name">
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                            </svg>
+                                                                            <span class="file-input__text js-file-name">
+                                                                                Документ 17.08.2021.jpg
+                                                                            </span>
+                                                                        </span>
+                                                                        <label class="file-input__label">
+                                                                            <input type="file" class="file-input__tag js-file-input">
+                                                                            <span class="file-input__row">
+                                                                                <span class="file-input__text">
+                                                                                    Загрузить документ
+                                                                                </span>
+                                                                                <svg class="file-input__icon">
+                                                                                    <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                                </svg>
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="d-category" name="category" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="d-category" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">D категория</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="check__content check__content--full check-content">
+                                                            <div class="check-content__grid">
+                                                                <input id="b-category" name="b-category" type="text" class="input__item"
+                                                                placeholder="Дата получения ДД.ММ.ГГ">
+                                                                <div class="file-input js-file">
+                                                                    <div class="file-input__wrapper">
+                                                                        <span class="file-input__row file-input__row--name">
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                            </svg>
+                                                                            <span class="file-input__text js-file-name">
+                                                                                Документ 17.08.2021.jpg
+                                                                            </span>
+                                                                        </span>
+                                                                        <label class="file-input__label">
+                                                                            <input type="file" class="file-input__tag js-file-input">
+                                                                            <span class="file-input__row">
+                                                                                <span class="file-input__text">
+                                                                                    Загрузить документ
+                                                                                </span>
+                                                                                <svg class="file-input__icon">
+                                                                                    <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                                </svg>
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="e-category" name="category" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="e-category" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">E категория</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="check__content check__content--full check-content">
+                                                            <div class="check-content__grid">
+                                                                <input id="b-category" name="b-category" type="text" class="input__item"
+                                                                placeholder="Дата получения ДД.ММ.ГГ">
+                                                                <div class="file-input js-file">
+                                                                    <div class="file-input__wrapper">
+                                                                        <span class="file-input__row file-input__row--name">
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                            </svg>
+                                                                            <span class="file-input__text js-file-name">
+                                                                                Документ 17.08.2021.jpg
+                                                                            </span>
+                                                                        </span>
+                                                                        <label class="file-input__label">
+                                                                            <input type="file" class="file-input__tag js-file-input">
+                                                                            <span class="file-input__row">
+                                                                                <span class="file-input__text">
+                                                                                    Загрузить документ
+                                                                                </span>
+                                                                                <svg class="file-input__icon">
+                                                                                    <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                                </svg>
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="quiz-step step">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Портальные краны</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Отметьте умение пользования указанными категориями техники, напишите вашу квалификацию и опыт работы. Можно добавить свои варианты
+                                                                                </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-list">
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="knight" name="category" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="knight" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">Витязь</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="check__content check__content--full check-content">
+                                                            <input id="b-category" name="b-category" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="albatross" name="category" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="albatross" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">Альбатрос</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="check__content check__content--full check-content">
+                                                            <input id="b-category" name="b-category" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="falcon" name="category" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="falcon" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">Сокол</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="check__content check__content--full check-content">
+                                                            <input id="b-category" name="b-category" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a href="#" class="step-list__add add-link">
+                                                <svg class="add-link__icon">
+                                                    <use xlink:href="assets/images/sprite.svg#plus"></use>
+                                                </svg>
+                                                <span class="add-link__text">
+                                                     Добавить вариант
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="quiz-step step">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Колесная техника</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Отметьте умение пользования указанными категориями техники, напишите вашу квалификацию и опыт работы. Можно добавить свои варианты
+                                        </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-list">
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="8-ton" name="wheel" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="8-ton" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">а/п г/п до 8 тн.</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="check__content check__content--full check-content">
+                                                            <input id="b-category" name="b-category" type="text" class="input__item"
+                                                            placeholder="Укажите ваш стаж">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="10-ton" name="wheel" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="10-ton" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">а/п г/п до 10 тн.</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="check__content check__content--full check-content">
+                                                            <input id="b-category" name="b-category" type="text" class="input__item"
+                                                            placeholder="Укажите ваш стаж">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a href="#" class="step-list__add add-link">
+                                                <svg class="add-link__icon">
+                                                    <use xlink:href="assets/images/sprite.svg#plus"></use>
+                                                </svg>
+                                                <span class="add-link__text">
+                                                     Добавить вариант
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="quiz-step step">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Дополнительная квалификация</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Отметьте наличие указанных дополнительных квалификаций
+                                        </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-list">
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="sud-kran" name="additional" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="sud-kran" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">Судовые краны, суд. лебедка
+                                                                  </span>
+                                                            </label>
+                                                        </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="addintional-2" name="additional" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="addintional-2" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">Сигнальщик-сцепщик ж/д вагонов
+                                                                  </span>
+                                                            </label>
+                                                        </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="checkbox" id="addintional-3" name="additional" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="addintional-3" class="check__label">
+                                                                <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                <span class="check__text text text--base text--semibold text--white text--white--clear">Пневмоустановка для производства крепёжных работ «Титан»
+                                                                  </span>
+                                                            </label>
+                                                        </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="quiz-step step">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Паспортные данные</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Загрузите изображения указанных страниц паспорта в любом из данных форматов: PNG, JPG, JPEG или PDF
+                                        </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-photo__grid">
+                                            <div class="input-photo file-input js-file">
+                                                <div class="input-photo__box">
+                                                    <div class="input-photo__header">
+                                                        <p class="text text--base text--semibold text--white--clear">
+                                                            2 страница
+                                                        </p>
+                                                    </div>
+                                                    <div class="input-photo__preview">
+                                                        <img class="js-file-img"
+                                                            src="assets/images/photo-preview.png" alt="">
+                                                            <div class="input-photo__overlay">
+                                                                <span class="file-input__row file-input__row--name">
+                                                                    <svg class="file-input__icon">
+                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                    </svg>
+                                                                    <span class="file-input__text js-file-name">
+                                                                        Документ 17.08.2021.jpg
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                    </div>
+                                                    <div class="input-photo__content">
+                                                        
+                                                        <label class="input-photo__label">
+                                                            <input type="file" name="passport-1"
+                                                                class="input-photo__tag js-file-input">
+                                                            <span class="input-photo__checkmark">Выбрать фото</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-photo file-input js-file">
+                                                <div class="input-photo__box">
+                                                    <div class="input-photo__header">
+                                                        <p class="text text--base text--semibold text--white--clear">
+                                                            3 страница
+                                                        </p>
+                                                    </div>
+                                                    <div class="input-photo__preview">
+                                                        <img class="js-file-img"
+                                                            src="assets/images/photo-preview.png" alt="">
+                                                            <div class="input-photo__overlay">
+                                                                <span class="file-input__row file-input__row--name">
+                                                                    <svg class="file-input__icon">
+                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                    </svg>
+                                                                    <span class="file-input__text js-file-name">
+                                                                        Документ 17.08.2021.jpg
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                    </div>
+                                                    <div class="input-photo__content">
+                                                        
+                                                        <label class="input-photo__label">
+                                                            <input type="file" name="passport-2"
+                                                                class="input-photo__tag js-file-input">
+                                                            <span class="input-photo__checkmark">Выбрать фото</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-photo file-input js-file">
+                                                <div class="input-photo__box">
+                                                    <div class="input-photo__header">
+                                                        <p class="text text--base text--semibold text--white--clear">
+                                                            5 страница
+                                                        </p>
+                                                    </div>
+                                                    <div class="input-photo__preview">
+                                                        <img class="js-file-img"
+                                                            src="assets/images/photo-preview.png" alt="">
+                                                            <div class="input-photo__overlay">
+                                                                <span class="file-input__row file-input__row--name">
+                                                                    <svg class="file-input__icon">
+                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                    </svg>
+                                                                    <span class="file-input__text js-file-name">
+                                                                        Документ 17.08.2021.jpg
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                    </div>
+                                                    <div class="input-photo__content">
+                                                        
+                                                        <label class="input-photo__label">
+                                                            <input type="file" name="passport-3"
+                                                                class="input-photo__tag js-file-input">
+                                                            <span class="input-photo__checkmark">Выбрать фото</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-photo file-input js-file">
+                                                <div class="input-photo__box">
+                                                    <div class="input-photo__header">
+                                                        <p class="text text--base text--semibold text--white--clear">
+                                                            13 страница
+                                                        </p>
+                                                    </div>
+                                                    <div class="input-photo__preview">
+                                                        <img class="js-file-img"
+                                                            src="assets/images/photo-preview.png" alt="">
+                                                            <div class="input-photo__overlay">
+                                                                <span class="file-input__row file-input__row--name">
+                                                                    <svg class="file-input__icon">
+                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                    </svg>
+                                                                    <span class="file-input__text js-file-name">
+                                                                        Документ 17.08.2021.jpg
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                    </div>
+                                                    <div class="input-photo__content">
+                                                        
+                                                        <label class="input-photo__label">
+                                                            <input type="file" name="passport-4"
+                                                                class="input-photo__tag js-file-input">
+                                                            <span class="input-photo__checkmark">Выбрать фото</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="quiz-step step">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Контактные данные</p>
+                                    </div>
+                                    <div class="step__content step-content">
+                                        <div class="step-content__grid">
+                                            <div class="step-content__block">
+                                                <div class="input">
+                                                    <div class="input__header">
+                                                        <label for="fio" class="input__label">Телефон</label>
+                                                    </div>
+                                                    <div class="input__content">
+                                                        <input id="fio" name="fio" type="text" class="input__item"
+                                                            placeholder="+7 (999) 999-99-99">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-content__block">
+                                                <div class="input">
+                                                    <div class="input__header">
+                                                        <label for="fio" class="input__label">E-mail</label>
+                                                    </div>
+                                                    <div class="input__content">
+                                                        <input id="fio" name="fio" type="text" class="input__item"
+                                                            placeholder="mail@mail.ru">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-content__block step-content__block--full">
+                                                <div class="step__text">
+                                                    <p class="text text--base text--white">
+                                                        На указанный номер телефона поступит SMS-сообщение c <span class="text text--base text--white--clear text--semibold">паролем</span>, который в дальнейшем будет использоваться для доступа в ваш Личный кабинет. Запомните или запишите его
+                                                    </p>
+                                                    <p class="text text--base text--white">
+                                                        Введите его в поле, которое появится после нажатия на кнопку «Отправить пароль»
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz-nav">
+                            <div class="quiz-nav__wrapper">
+                                <div class="quiz-nav__list">
+                                    <nav class="nav">
+                                        <ul class="nav__list">
+                                            <li class="nav__item">
+                                                <p class="nav__title">Этап 1</p>
+                                                <ul class="nav__sublist">
+                                                    <li class="nav__step nav__step--current">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 1
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Личная информация
+                                                        </p>
+                                                    </li>
+                                                    <li class="nav__step">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 2
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Специализация
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="nav__item">
+                                                <p class="nav__title">Этап 2</p>
+                                               
+                                            </li>
+                                            <li class="nav__item">
+                                                <p class="nav__title">Этап 3</p>
+                                               
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="quiz-nav__footer">
+                                    <a href="#" class="button button--base button--big button--accent button--full quiz-next-step">
+                                        <span class="button__text">Следующий шаг</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="page-wrapper__footer footer">
+            <div class="footer__wrapper">
+                <div class="container">
+                    <div class="footer__row">
+                        <div class="footer__block">
+                            <p class="footer__text footer__text--uppercase">
+                                port service group 2023
+                            </p>
+                        </div>
+                        <div class="footer__block">
+                            <a href="mailto:info@portsg.ru" class="footer__text">info@portsg.ru</a>
+                            <a href="tel:88000000000" class="phone-link">
+                                <svg class="phone-link__icon phone-link__icon--small phone-link__icon--grey">
+                                    <use xlink:href="assets/images/sprite.svg#phone"></use>
+                                </svg>
+                                <span class="phone-link__text phone-link__text--small phone-link__text--grey">
+                                    8 (800) 000-00-00
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="popup popup-login popup--active">
+        <div class="popup__wrapper">
+            <div class="popup__container">
+                <a href="#" class="popup__close"></a>
+                <div class="popup__box">
+                    <div class="popup__block">
+                        <p class="title title--small title--white">
+                            Вход в личный кабинет
+                        </p>
+                       
+                    </div>
+                    <div class="popup__block">
+                        <div class="input">
+                            <div class="input__header input__header--small--margin">
+                                <label for="fio" class="input__label">Телефон</label>
+                            </div>
+                            <div class="input__content">
+                                <input id="fio" name="fio" type="text" class="input__item"
+                                    placeholder="+7 (999) 999-99-99">
+                            </div>
+                        </div>
+                        <div class="input">
+                            <div class="input__header input__header--small--margin">
+                                <label for="fio" class="input__label">Пароль</label>
+                            </div>
+                            <div class="input__content">
+                                <input id="fio" name="fio" type="password" class="input__item"
+                                    placeholder="• • • • • • •">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup__block">
+                        <a href="#" class="button button--base button--big button--accent button--full">
+                            <span class="button__text">Войти</span>
+                        </a>
+                        <a href="#" class="button button--base button--link button--full" data-popup=".popup-forgot">
+                            <span class="button__text">Забыли пароль?</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup popup-forgot">
+        <div class="popup__wrapper">
+            <div class="popup__container">
+                <a href="#" class="popup__close"></a>
+                <div class="popup__box">
+                    <div class="popup__block">
+                        <p class="title title--small title--white">
+                            Восстановление пароля
+                        </p>
+                    </div>
+                    <div class="popup__block">
+                        <p class="text text--base text--white">
+                            Для восстановления введите номер вашего телефона
+                        </p>
+                        <p class="text text--base text--white">
+                            На него придёт новый пароль, используйте его для входа в личный кабинет
+                        </p>
+                    </div>
+                    <div class="popup__block">
+                        <div class="input">
+                            <div class="input__content">
+                                <input id="fio" name="fio" type="text" class="input__item"
+                                    placeholder="+7 (999) 999-99-99">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup__block">
+                        <a href="#" class="button button--base button--big button--accent button--full">
+                            <span class="button__text">Отправить пароль</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/scripts/index.js"></script>
+</body>
+
+</html>
