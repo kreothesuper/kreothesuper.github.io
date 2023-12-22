@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+svg {
+  cursor: pointer;
+}
+
+#line {
+}
+
+#line:hover {
+  d: path("M20 50 Q50 20 80 50") !important;
+  stroke: red;
+}
+    </style>
+</head>
+<body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="204" viewBox="0 0 23 204" fill="none">
+        <path opacity="1" d="M2.00001 2V2C26.7801 66.042 26.5652 137.875 2 202V202" stroke="#E7E7E7" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="4" height="204" viewBox="0 0 4 204" fill="none" id="line">
+        <path opacity="1" d="M2 2L1.99999 202" stroke="#E7E7E7" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+
+        <script>
+            const line = document.querySelector("#line");
+
+            line.addEventListener('mouseover',()=>{
+                const linePath = line.querySelector('path');
+                linePath.setAttribute('d','M2.00001 2V2C26.7801 66.042 26.5652 137.875 2 202V202');
+                line.setAttribute('width','23')
+                line.setAttribute('viewBox','0 0 23 204')
+            });
+            line.addEventListener('mouseout',()=>{
+                const linePath = line.querySelector('path');
+                linePath.setAttribute('d','M2 2L1.99999 202');
+                line.setAttribute('width','4')
+                line.setAttribute('viewBox','0 0 4 204')
+            });
+        </script>
+</body>
+</html>

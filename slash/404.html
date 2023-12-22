@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Roboto+Flex:opsz,wght@8..144,400;8..144,600;8..144,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper page-wrapper-404">
+        <header class="header page-wrapper__header">
+            <div class="header__wrapper">
+                <div class="header__nav header-nav">
+
+                    <ul class="header-nav__list">
+                        <li class="header-nav__item">
+                            <a href="#" class="header-nav__link header-nav__link--white title title--base">проблемы</a>
+                        </li>
+                        <li class="header-nav__item">
+                            <a href="#" class="header-nav__link title title--middle">процесс</a>
+                        </li>
+                        <li class="header-nav__item">
+                            <a href="#" class="header-nav__link title title--middle">менторы</a>
+                        </li>
+                        <li class="header-nav__item">
+                            <a href="#" class="header-nav__link title title--middle">кейсы</a>
+                        </li>
+                        <li class="header-nav__item">
+                            <a href="#" class="header-nav__link title title--middle">тарифы</a>
+                        </li>
+                        <li class="header-nav__item">
+                            <a href="#" class="header-nav__link title title--middle">полезности</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header__row">
+                    <div class="header__logo logo">
+                        <div class="logo-text">
+                            <span class="logo-text__slash">/</span>
+                            <span class="logo-text__label">слеш</span>
+                        </div>
+                    </div>
+                    <div class="header__burger">
+                        <div class="burger">
+                            <div class="burger__item"></div>
+                            <div class="burger__item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="page-wrapper__content content content-404">
+            <a href="#" class="button button--base button--green">
+                на главную
+            </a>
+        </main>
+    </div>
+
+    <div class="popup popup-analysis">
+        <div class="popup__wrapper">
+            <div class="popup__container">
+                <div class="popup__close"></div>
+                <div class="popup__header">
+                    <p class="title title--small title--grey">
+                        тариф
+                    </p>
+                    <p class="title title--base title--black">
+                        разбор
+                    </p>
+                </div>
+                <div class="popup__content">
+                    <form action="#" class="form">
+                        <div class="form__content">
+                            <label class="form-input">
+                                <input type="text" class="form-input__item" placeholder="телеграм">
+                            </label>
+                            <input type="submit" value="к оплате"
+                                class="button button--base button--base--small button--green button--full">
+                        </div>
+                        <div class="form__footer">
+                            <p class="form__text">
+                                нажимая на кнопку, вы соглашаетесь на обработку <a href="#">персональных данных</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup popup-upgrade">
+        <div class="popup__wrapper">
+            <div class="popup__container popup__container--black">
+                <div class="popup__close popup__close--black"></div>
+                <div class="popup__header">
+                    <p class="title title--small title--grey">
+                        тариф
+                    </p>
+                    <p class="title title--base title--white">
+                        Апгрейд
+                    </p>
+                </div>
+                <div class="popup__content">
+                    <form action="#" class="form">
+                        <div class="form__content">
+                            <label class="form-input">
+                                <input type="text" class="form-input__item" placeholder="телеграм">
+                            </label>
+                            <input type="submit" value="к оплате"
+                                class="button button--base button--base--small button--green button--full">
+                        </div>
+                        <div class="form__footer">
+                            <p class="form__text">
+                                нажимая на кнопку, вы соглашаетесь на обработку <a href="#">персональных данных</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup popup-thanks">
+        <div class="popup__wrapper">
+            <div class="popup__container popup__container--big popup__container--transparent">
+                <div class="popup__content">
+                    <div class="popup-thanks__content">
+                        <div class="popup-thanks__icon"></div>
+                        <p class="title title--base title--white">
+                            поймали!
+                        </p>
+                        <div class="popup-thanks__text">
+                            <p class="title title--small title--white">
+                                А если хочешь ещё больше полезностей, то добро пожаловать в <a href="#"
+                                    class="title title--small title--blue title--underline">телеграм</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const checkTargetOrKey = event => {
+            if (
+                event.target.classList.contains('popup__wrapper') ||
+                event.key === 'Escape' ||
+                event.target.closest('.popup-close')
+            ) {
+                hideAllPopups();
+            }
+        };
+        const showPopup = popupId => {
+            const popup = document.querySelector(popupId);
+            if (!popup) return
+
+            const pageWrapper = document.querySelector('.page-wrapper');
+
+            hideAllPopups();
+
+            popup.classList.add('popup--active');
+            pageWrapper.classList.add('no-scroll');
+
+            document.addEventListener('click', checkTargetOrKey);
+            document.addEventListener('keyup', checkTargetOrKey);
+        };
+
+        const hideAllPopups = () => {
+            const popups = document.querySelectorAll('.popup'),
+                pageWrapper = document.querySelector('.page-wrapper');
+
+            popups.forEach(popup => {
+                popup.classList.remove('popup--active');
+            });
+            pageWrapper.classList.remove('no-scroll');
+
+            document.removeEventListener('click', checkTargetOrKey);
+            document.removeEventListener('keyup', checkTargetOrKey);
+        };
+
+        const videoArray = document.querySelectorAll('.video');
+
+        if (videoArray.length) {
+            videoArray.forEach(video => {
+                const videoTag = video.querySelector('video');
+                video.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (videoTag.paused) {
+                        video.classList.add('video--play');
+                        videoTag.play();
+                    } else {
+                        video.classList.remove('video--play');
+                        videoTag.pause();
+                    }
+                });
+            });
+        }
+
+
+    
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log(entry);
+                    entry.target.classList.add('steps-item__count--active')
+                } else {
+                    entry.target.classList.remove('steps-item__count--active')
+                }
+            });
+        }, {
+            rootMargin: '-1% 0% -99% 0%',
+            threshold: 0,
+        });
+        const blocks = document.querySelectorAll('.steps-item__count');
+        for (let i = blocks.length - 1; i >= 0; i--) {
+            const block = blocks[i];
+            observer.observe(block);
+        }
+
+        const elem = document.querySelector('.steps');
+        const videoStep = document.querySelector('.js-step-video');
+        const lastChild = elem.querySelector('.steps-item:last-child');
+        const height = elem.getBoundingClientRect().height - lastChild.getBoundingClientRect().height;
+        elem.style.setProperty("--full-size", `${height}px`);
+
+
+        document.addEventListener('scroll', function () {
+            const posTop = elem.getBoundingClientRect().top;
+
+            if (posTop < 0 && -posTop < height) {
+                elem.style.setProperty("--size", `${-posTop + 100}px`);
+                const percent = (-posTop) / height * 100;
+                videoStep.currentTime = percent * (videoStep.duration / 100);
+            }
+            // console.log(posTop, window.scrollTop);
+            // elem.classList.toggle('visible', posTop + elem.clientHeight <= window.innerHeight && posTop >= 0);
+        });
+
+        const burger = document.querySelector('.burger'),
+            header = document.querySelector('.header');
+
+        burger.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            burger.classList.toggle('burger--active');
+            header.classList.toggle('header--active');
+        });
+
+
+        const menuLink = document.querySelectorAll('.menu__link');
+        const linkObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    menuLink.forEach(link => {
+                        console.log(id, link.hash)
+                        link.hash === `#${id}` ? link.closest('.menu__item').classList.add('menu__item--active') : link.closest('.menu__item').classList.remove('menu__item--active');
+
+                    });
+
+                    // blockLink.closest('.menu__item').classList.add('menu__item--active');
+                }
+            });
+        }, {
+            rootMargin: '-1% 0% -99% 0%',
+            threshold: 0,
+        });
+        if (menuLink.length) {
+            menuLink.forEach(link => {
+                console.log(link.hash);
+                const linkBlock = document.querySelector(`${link.hash}`)
+
+                if (linkBlock) {
+                    linkObserver.observe(linkBlock);
+                }
+            });
+        }
+
+        const example = document.querySelector('.example');
+        const videoExample = example.querySelector('video');
+
+        const exampleObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    videoExample.play();
+                    setInterval(() => {
+                        example.style.setProperty('--videoTime', `${(videoExample.currentTime / videoExample.duration * 100).toFixed(2)}%`);
+                    }, 10)
+                    setTimeout(() => {
+                        example.classList.add('example--access')
+                    }, Math.round(videoExample.duration * 1000));
+                }
+            });
+        }, {
+            rootMargin: '-1% 0% -99% 0%',
+            threshold: 0,
+        });
+
+        exampleObserver.observe(example);
+
+        const exampleLink = example.querySelectorAll('.example-link');
+
+        if (exampleLink.length) {
+            exampleLink.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    exampleLink.forEach(newLink => {
+                        newLink.classList.remove('example-link--active');
+                    })
+
+                    example.classList.remove('example--access');
+                    link.classList.add('example-link--active');
+                    videoExample.src = `assets/video/${link.dataset.video}`;
+
+                    videoExample.play();
+                    setInterval(() => {
+                        example.style.setProperty('--videoTime', `${(videoExample.currentTime / videoExample.duration * 100).toFixed(2)}%`);
+                    }, 10)
+                    setTimeout(() => {
+                        example.classList.add('example--access')
+                    }, Math.round(videoExample.duration * 1000));
+                });
+            });
+        }
+
+        const popupButtons = document.querySelectorAll('[data-popup]');
+        const popups = document.querySelectorAll('.popup');
+
+        if (popups.length) {
+            popupButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    const popupId = button.dataset.popup
+                    showPopup(popupId);
+                });
+            });
+        }
+
+        const formArray = document.querySelectorAll('.form');
+
+        if(formArray.length){
+            formArray.forEach(form=>{
+                form.addEventListener('submit',(e)=>{
+                    e.preventDefault();
+
+                    showPopup('.popup-thanks')
+                });
+            });
+        }
+
+    </script>
+</body>
+
+</html>
