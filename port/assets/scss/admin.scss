@@ -323,6 +323,14 @@ body{
                 }
             }
         }
+        &--full{
+            .nav__step{
+                padding-top: 0;
+                &--hidden{
+                    display: flex;
+                }
+            }
+        }
         &__wrapper{
             display: flex;
             flex-direction: column;
@@ -533,6 +541,10 @@ body{
         &:hover,&:focus{
             border-color: var(--color-white);
         }
+
+        &.error{
+            border-color: #FF7F7F;
+        }
     }
     &-photo{
         &.loadded &__overlay{
@@ -610,6 +622,9 @@ body{
         }
         &__tag{
             display: none;
+        }
+        &__tag.error ~ &__checkmark{
+            border-color: #FF7F7F;
         }
         &__checkmark{
             display: flex;

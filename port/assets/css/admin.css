@@ -291,6 +291,12 @@ body {
 .quiz-nav--static .nav__step--hidden {
   display: none;
 }
+.quiz-nav--full .nav__step {
+  padding-top: 0;
+}
+.quiz-nav--full .nav__step--hidden {
+  display: flex;
+}
 .quiz-nav__wrapper {
   display: flex;
   flex-direction: column;
@@ -488,6 +494,9 @@ body {
 .input__item:hover, .input__item:focus {
   border-color: var(--color-white);
 }
+.input__item.error {
+  border-color: #FF7F7F;
+}
 .input-photo.loadded .input-photo__overlay {
   opacity: 1;
 }
@@ -565,6 +574,9 @@ body {
 }
 .input-photo__tag {
   display: none;
+}
+.input-photo__tag.error ~ .input-photo__checkmark {
+  border-color: #FF7F7F;
 }
 .input-photo__checkmark {
   display: flex;

@@ -1,40 +1,4 @@
-const checkTargetOrKey = event => {
-    if (
-        event.target.classList.contains('popup__wrapper') ||
-        event.key === 'Escape' ||
-        event.target.closest('.popup-close')
-    ) {
-        hideAllPopups();
-    }
-};
-const showPopup = popupId => {
-    const popup = document.querySelector(popupId);
-    if (!popup) return
-
-    const pageWrapper = document.querySelector('.page-wrapper');
-
-    hideAllPopups();
-
-    popup.classList.add('popup--active');
-    pageWrapper.classList.add('no-scroll');
-
-    document.addEventListener('click', checkTargetOrKey);
-    document.addEventListener('keyup', checkTargetOrKey);
-};
-
-const hideAllPopups = () => {
-    const popups = document.querySelectorAll('.popup'),
-        pageWrapper = document.querySelector('.page-wrapper');
-
-    popups.forEach(popup => {
-        popup.classList.remove('popup--active');
-    });
-    pageWrapper.classList.remove('no-scroll');
-
-    document.removeEventListener('click', checkTargetOrKey);
-    document.removeEventListener('keyup', checkTargetOrKey);
-};
-
+// quiz dynamic input
 const quizContent = [
     {
         name: 'talman',
@@ -211,10 +175,9 @@ const quizContent = [
         ]
     },
 ]
-
 const rus_to_latin = (str) => {
 
-    var ru = {
+    const ru = {
         'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
         'е': 'e', 'ё': 'e', 'ж': 'j', 'з': 'z', 'и': 'i',
         'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
@@ -225,7 +188,7 @@ const rus_to_latin = (str) => {
 
     str = str.replace(/[ъь]+/g, '').replace(/й/g, 'i');
 
-    for (var i = 0; i < str.length; ++i) {
+    for (let i = 0; i < str.length; ++i) {
         n_str.push(
             ru[str[i]]
             || ru[str[i].toLowerCase()] == undefined && str[i]
@@ -235,7 +198,45 @@ const rus_to_latin = (str) => {
 
     return n_str.join('').replace(/\s/g, "-").toLowerCase();
 }
+// popup control function
+const checkTargetOrKey = event => {
+    if (
+        event.target.classList.contains('popup__wrapper') ||
+        event.key === 'Escape' ||
+        event.target.closest('.popup-close')
+    ) {
+        hideAllPopups();
+    }
+};
+const showPopup = popupId => {
+    const popup = document.querySelector(popupId);
+    if (!popup) return
 
+    const pageWrapper = document.querySelector('.page-wrapper');
+
+    hideAllPopups();
+
+    popup.classList.add('popup--active');
+    pageWrapper.classList.add('no-scroll');
+
+    document.addEventListener('click', checkTargetOrKey);
+    document.addEventListener('keyup', checkTargetOrKey);
+};
+const hideAllPopups = () => {
+    const popups = document.querySelectorAll('.popup'),
+        pageWrapper = document.querySelector('.page-wrapper');
+
+    popups.forEach(popup => {
+        popup.classList.remove('popup--active');
+    });
+    pageWrapper.classList.remove('no-scroll');
+
+    document.removeEventListener('click', checkTargetOrKey);
+    document.removeEventListener('keyup', checkTargetOrKey);
+};
+
+
+// quiz
 class Quiz {
     constructor() {
         this.quiz = document.querySelector('.quiz');
@@ -248,32 +249,13 @@ class Quiz {
         this.currentIndex = 0;
     }
 
+     // find dynamic input array from object
     findQuizContentByName = (name) => {
         return quizContent.find((item) => item.name === name);
     }
 
+     // control navigation function
     changeStep = (number) => {
-
-        if (this.quizSteps[this.currentIndex].classList.contains('step--changer')) {
-            this.specializtionInput = this.quiz.querySelector('input[name="specialization"]:checked');
-            if (!this.specializtionInput) return
-            const quizContentInput = this.findQuizContentByName(this.specializtionInput.value);
-
-            if (quizContentInput) {
-                this.quizNav.classList.add('quiz-nav--static')
-                this.quizSteps = this.quiz.querySelectorAll('.step:not(.step--static)');
-                this.quizNavItems = this.quizNav.querySelectorAll('.nav__step:not(.nav__step--static)');
-                const quizStepContent = this.quiz.querySelector('.step--skills').querySelector('.step__content');
-                quizContentInput.inputArray.forEach(input => {
-                    quizStepContent.innerHTML += this.createStepBlock(input.label, input.textInput);
-                });
-            } else {
-                this.quizNav.classList.remove('quiz-nav--static')
-                this.quizNavItems = this.quizNav.querySelectorAll('.nav__step:not(.nav__step--dynamic)');
-                this.quizSteps = this.quiz.querySelectorAll('.step:not(.step--dynamic)');
-            }
-
-        }
         this.currentIndex = number;
         this.quizSteps.forEach((step, index) => {
             index !== this.currentIndex ? step.classList.remove('step--active') : step.classList.add('step--active');
@@ -284,6 +266,30 @@ class Quiz {
         });
     }
 
+       // choosing a path function
+    changeStaticDynamicState = () => {
+        if (this.quizSteps[this.currentIndex].classList.contains('step--changer')) {
+            this.specializtionInput = this.quiz.querySelector('input[name="specialization"]:checked');
+            if (!this.specializtionInput) return
+            const quizContentInput = this.findQuizContentByName(this.specializtionInput.value);
+            if (quizContentInput) {
+                this.quizNav.classList.add('quiz-nav--static')
+                this.quizSteps = this.quiz.querySelectorAll('.step:not(.step--static)');
+                this.quizNavItems = this.quizNav.querySelectorAll('.nav__step:not(.nav__step--static)');
+                const quizStepContent = this.quiz.querySelector('.step--skills').querySelector('.step__content');
+                quizStepContent.innerHTML = '';
+                quizContentInput.inputArray.forEach(input => {
+                    quizStepContent.innerHTML += this.createStepBlock(input.label, input.textInput);
+                });
+            } else {
+                this.quizNav.classList.remove('quiz-nav--static')
+                this.quizNavItems = this.quizNav.querySelectorAll('.nav__step:not(.nav__step--dynamic)');
+                this.quizSteps = this.quiz.querySelectorAll('.step:not(.step--dynamic)');
+            }
+        }
+    }
+
+     // create dynamic block function
     createStepBlock = (name, textInput) => {
         const newName = rus_to_latin(name);
         const isTextInput = textInput ? ` <div class="check__content check__content--visible check__content--full check-content">
@@ -314,47 +320,60 @@ class Quiz {
     </div>`
     }
 
+    // check validity function
     checkInputValidity = (inputArray) => {
         for (var i = 0; i < inputArray.length; i++) {
             if (!inputArray[i].checkValidity()) {
+                inputArray[i].classList.add('error')
                 return false;
-            }
+            }                
         }
 
         return true;
     }
 
 
+    // init function
     init = () => {
         this.changeStep(0);
+
         if (this.quizNextStepButton) {
             this.quizNextStepButton.addEventListener('click', (e) => {
                 e.preventDefault();
+
+                // choosing a path
+                this.changeStaticDynamicState();
+
+                // validate input if we need
                 const stepRequiredInput = this.quizSteps[this.currentIndex].querySelectorAll('input');
+                stepRequiredInput.forEach(input=>input.addEventListener('change',(e)=>{
+                    input.classList.remove('error');
+                }));
                 if (!this.checkInputValidity(stepRequiredInput)) return
 
-                if (this.currentIndex === this.quizSteps.length - 1) {
-                    showPopup('.popup--thanks');
-                    currentStep = quizStepArray.length - 1;
-                    return false;
-                } else {
+                // form navigation
+                this.currentIndex === this.quizSteps.length - 1 ?
+                    showPopup('.popup--thanks')
+                    :
                     this.changeStep(this.currentIndex + 1)
-                }
             });
         }
         if (this.quizBackStepButton) {
             this.quizBackStepButton.addEventListener('click', (e) => {
                 e.preventDefault();
 
+                 // form navigation
                 if (this.currentIndex - 1 < 0) return;
                 this.changeStep(this.currentIndex - 1)
             });
         }
 
+
         this.quizNavItems.forEach((navItem, index) => {
             navItem.addEventListener('click', (e) => {
                 e.preventDefault();
-
+                
+                // form navigation
                 this.changeStep(index);
             });
         });
@@ -362,6 +381,7 @@ class Quiz {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    // popup buttons init
     const popupButtons = document.querySelectorAll('[data-popup]');
     const popups = document.querySelectorAll('.popup');
 
@@ -377,6 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    // file input control can be in class
     const fileArray = document.querySelectorAll('.js-file');
 
     if (fileArray.length) {
@@ -404,6 +425,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+    // clone input by button can be in class if need
     const stepListAdd = document.querySelectorAll('.step-list__add');
 
     if (stepListAdd.length) {
@@ -493,7 +516,4 @@ document.addEventListener("DOMContentLoaded", () => {
     const quiz = new Quiz;
 
     quiz.init();
-
-
-
 });
