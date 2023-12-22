@@ -1,7 +1,7 @@
 // quiz dynamic input
 const quizContent = [
     {
-        name: 'talman',
+        name: 'stevedore',
         inputArray: [
             {
                 label: 'Наличие профессионального образования',
@@ -41,7 +41,7 @@ const quizContent = [
         ]
     },
     {
-        name: 'surveyor',
+        name: 'talman',
         inputArray: [
             {
                 label: 'Выгрузка открытого/подвижного состава'
@@ -91,7 +91,7 @@ const quizContent = [
         ]
     },
     {
-        name: 'stevedore',
+        name: 'surveyor',
         inputArray: [
             {
                 label: 'Выгрузка открытого/подвижного состава'

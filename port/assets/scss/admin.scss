@@ -168,7 +168,9 @@ body{
         width: 13px;
         height: 13px;
         flex-shrink: 0;
-
+        &--accent{
+            fill: var(--accent-color);
+        }
     }
 
 }
@@ -239,7 +241,8 @@ body{
 
         @media screen and (max-width:600px) {
             flex-direction: column;
-            gap: 7px;
+            align-items: flex-end;
+            gap: 12px;
             padding: 0;
         }
     }
@@ -427,8 +430,11 @@ body{
     &-photo{
         &__grid{
             display: grid;
-            grid-template-columns: repeat(auto-fit,340px);
+            grid-template-columns: repeat(2,minmax(0,340px));
             gap: 50px;
+            @media screen and (max-width:1024px) {
+                grid-template-columns: repeat(2,minmax(0,1fr));
+            }
             @media screen and (max-width:600px) {
                 grid-template-columns: minmax(0,1fr);
             }
@@ -566,7 +572,8 @@ body{
             gap: 20px;
         }
         &__preview{
-            height: 340px;
+            width: 100%;
+            aspect-ratio: 1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -922,6 +929,7 @@ body{
     z-index: 12;
     display: none;
   
+    padding: 20px;
     &--active {
       display: block;
     }
@@ -936,8 +944,8 @@ body{
   
       @media screen and (max-width: 600px) {
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 15px;
+        right: 15px;
       }
   
       &:hover {
@@ -982,7 +990,7 @@ body{
     &__container {
       background: #141515;
       max-width: 460px;
-      width: 100%;
+      width: calc(100% - 40px);
       border-radius: 20px;
       max-height: 90%;
       height: max-content;
@@ -996,17 +1004,28 @@ body{
   
       overflow-y: auto;
       overflow-x: hidden;
+
+      @media screen and (max-width:600px) {
+        padding: 30px 20px;
+      }
+    
     }
 
     &__box{
         display: flex;
         flex-direction: column;
         gap: 30px;
+        @media screen and (max-width:600px) {
+            gap: 20px;
+          }
     }
     &__block{
         display: flex;
         flex-direction: column;
         gap: 25px;
+        @media screen and (max-width:600px) {
+            gap: 15px;
+          }
     }
   }
 
