@@ -248,18 +248,18 @@ class Quiz {
         this.currentIndex = 0;
     }
 
-    findQuizContentByName = (name) =>{
+    findQuizContentByName = (name) => {
         return quizContent.find((item) => item.name === name);
     }
 
     changeStep = (number) => {
-       
+
         if (this.quizSteps[this.currentIndex].classList.contains('step--changer')) {
             this.specializtionInput = this.quiz.querySelector('input[name="specialization"]:checked');
             if (!this.specializtionInput) return
             const quizContentInput = this.findQuizContentByName(this.specializtionInput.value);
 
-            if(quizContentInput){
+            if (quizContentInput) {
                 this.quizNav.classList.add('quiz-nav--static')
                 this.quizSteps = this.quiz.querySelectorAll('.step:not(.step--static)');
                 this.quizNavItems = this.quizNav.querySelectorAll('.nav__step:not(.nav__step--static)');
@@ -267,12 +267,12 @@ class Quiz {
                 quizContentInput.inputArray.forEach(input => {
                     quizStepContent.innerHTML += this.createStepBlock(input.label, input.textInput);
                 });
-            }else{
+            } else {
                 this.quizNav.classList.remove('quiz-nav--static')
                 this.quizNavItems = this.quizNav.querySelectorAll('.nav__step:not(.nav__step--dynamic)');
-                this.quizSteps = this.quiz.querySelectorAll('.step:not(.step--dynamic)');   
+                this.quizSteps = this.quiz.querySelectorAll('.step:not(.step--dynamic)');
             }
-           
+
         }
         this.currentIndex = number;
         this.quizSteps.forEach((step, index) => {
@@ -317,9 +317,9 @@ class Quiz {
     checkInputValidity = (inputArray) => {
         for (var i = 0; i < inputArray.length; i++) {
             if (!inputArray[i].checkValidity()) {
-              return false;
+                return false;
             }
-          }
+        }
 
         return true;
     }
@@ -337,7 +337,7 @@ class Quiz {
                     showPopup('.popup--thanks');
                     currentStep = quizStepArray.length - 1;
                     return false;
-                }else{
+                } else {
                     this.changeStep(this.currentIndex + 1)
                 }
             });
@@ -346,7 +346,7 @@ class Quiz {
             this.quizBackStepButton.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                if(this.currentIndex - 1 < 0) return;
+                if (this.currentIndex - 1 < 0) return;
                 this.changeStep(this.currentIndex - 1)
             });
         }
