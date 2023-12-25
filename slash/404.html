@@ -237,14 +237,13 @@
 
         document.addEventListener('scroll', function () {
             const posTop = elem.getBoundingClientRect().top;
+            const windowHeight = window.getBoundingClientRect().height / 2;
 
             if (posTop < 0 && -posTop < height) {
-                elem.style.setProperty("--size", `${-posTop + 100}px`);
-                const percent = (-posTop) / height * 100;
+                elem.style.setProperty("--size", `${-posTop + windowHeight}px`);
+                const percent = (-posTop) / windowHeight * 100;
                 videoStep.currentTime = percent * (videoStep.duration / 100);
             }
-            // console.log(posTop, window.scrollTop);
-            // elem.classList.toggle('visible', posTop + elem.clientHeight <= window.innerHeight && posTop >= 0);
         });
 
         const burger = document.querySelector('.burger'),
@@ -263,9 +262,12 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.id;
-                    menuLink.forEach(link => {
+                    menuLink.forEach((link,linkIndex) => {
                         console.log(id, link.hash)
-                        link.hash === `#${id}` ? link.closest('.menu__item').classList.add('menu__item--active') : link.closest('.menu__item').classList.remove('menu__item--active');
+                        if(link.hash === `#${id}`){
+                            
+                        }
+                        // link.hash === `#${id}` ? link.closest('.menu__item').classList.add('menu__item--active') : link.closest('.menu__item').classList.remove('menu__item--active');
 
                     });
 
