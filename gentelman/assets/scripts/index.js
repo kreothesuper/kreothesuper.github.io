@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded', () => {
     const __sliderPaginationParams = {
         el: '.slider-pagination',
         hiddenClass: 'slider-pagination--hidden',
@@ -10,32 +10,38 @@ document.addEventListener('DOMContentLoaded',()=>{
         nextEl: '.slider-button--next',
         prevEl: '.slider-button--prev',
         hiddenClass: 'slider-pagination--hidden',
-        disabledClass:'slider-button--disabled',
+        disabledClass: 'slider-button--disabled',
     }
-    const productSliderNav = new Swiper('.js-product-nav-slider',{
-        loop:true,
-        speed:500,
+    const __sliderProductNavParams = {
+        loop: true,
+        speed: 500,
         watchSlidesProgress: true,
-        slidesPerView:'auto',
-        spaceBetween:12,
-        navigation:__sliderNavigationParams,
-        breakpoints:{
-            701:{
-                spaceBetween:24,
+        slidesPerView: 'auto',
+        spaceBetween: 12,
+        navigation: __sliderNavigationParams,
+        breakpoints: {
+            701: {
+                spaceBetween: 24,
             }
         }
-    });
-
-    const productSlider = new Swiper(".js-product-slider",{
-        slidesPerView:1,
-        loop:true,
-        speed:500,
-        effect: "fade",
-        navigation:__sliderNavigationParams,
-        thumbs:{
-            swiper:productSliderNav,
-            slideThumbActiveClass:'product-label--active'
+    }
+    const __sliderProductParams = (sliderNav) => {
+        return {
+            slidesPerView: 1,
+            loop: true,
+            speed: 500,
+            effect: "fade",
+            navigation: __sliderNavigationParams,
+            thumbs: {
+                swiper: sliderNav,
+                slideThumbActiveClass: 'product-label--active'
+            }
         }
-    });
+    }
 
+    const productSliderNav = new Swiper('.js-product-nav-slider', __sliderProductNavParams);
+    const productSlider = new Swiper(".js-product-slider", __sliderProductParams(productSliderNav));
+
+    const productObjectNav = new Swiper('.js-object-nav-slider', __sliderProductNavParams);
+    const productObjectSlider = new Swiper(".js-object-slider", __sliderProductParams(productObjectNav));
 });
