@@ -51,32 +51,41 @@ document.addEventListener('DOMContentLoaded', () => {
         bulletActiveClass: 'slider-pagination__bullet--active',
         lockClass: 'slider-pagination--lock'
     }
-    const __sliderNavigationParams = {
-        nextEl: '.slider-button--next',
-        prevEl: '.slider-button--prev',
-        hiddenClass: 'slider-pagination--hidden',
-        disabledClass: 'slider-button--disabled',
+    const __sliderNavigationParams = (sliderPrevClass = '.slider-button--prev',sliderNextClass = '.slider-button--next') => {
+        return {
+            nextEl: sliderNextClass,
+            prevEl: sliderPrevClass,
+            hiddenClass: 'slider-pagination--hidden',
+            disabledClass: 'slider-button--disabled',
+        }
     }
     const __sliderProductNavParams = {
         loop: true,
         speed: 500,
         watchSlidesProgress: true,
-        slidesPerView: 'auto',
+        slidesPerView: "auto",
         spaceBetween: 12,
-        navigation: __sliderNavigationParams,
+        centeredSlides: true,
         breakpoints: {
             701: {
                 spaceBetween: 24,
             }
         }
     }
-    const __sliderProductParams = (sliderNav) => {
+    const __sliderProductImgParams = {
+        speed: 500,
+        navigation: __sliderNavigationParams(),
+        pagination:__sliderPaginationParams,
+        slidesPerView:1,
+    }
+    const __sliderProductParams = (sliderNav, sliderPrevButton,sliderNextButton) => {
         return {
             slidesPerView: 1,
             loop: true,
             speed: 500,
             effect: "fade",
-            navigation: __sliderNavigationParams,
+            allowTouchMove:false,
+            navigation: __sliderNavigationParams(sliderPrevButton, sliderNextButton),
             thumbs: {
                 swiper: sliderNav,
                 slideThumbActiveClass: 'product-label--active'
@@ -85,11 +94,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const productSliderNav = new Swiper('.js-product-nav-slider', __sliderProductNavParams);
-    const productSlider = new Swiper(".js-product-slider", __sliderProductParams(productSliderNav));
+    const productSlider = new Swiper(".js-product-slider", __sliderProductParams(productSliderNav, '.js-product-prev-button','.js-product-next-button'));
+
+    productSliderNav.on('slideChange', function () {
+        productSliderNav.slideTo(productSliderNav.activeIndex)
+      });
 
     const productObjectNav = new Swiper('.js-object-nav-slider', __sliderProductNavParams);
-    const productObjectSlider = new Swiper(".js-object-slider", __sliderProductParams(productObjectNav));
+    const productObjectSlider = new Swiper(".js-object-slider", __sliderProductParams(productObjectNav,'.js-object-prev-button','.js-object-next-button'));
 
+    const productImgSlider = new Swiper(".js-product-img-slider", __sliderProductImgParams);
 
     const popupButtons = document.querySelectorAll('[data-popup]');
     const popups = document.querySelectorAll('.popup');
