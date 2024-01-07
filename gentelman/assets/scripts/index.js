@@ -20,7 +20,7 @@ const showPopup = popupId => {
     popup.classList.add('popup--active');
     pageWrapper.classList.add('no-scroll');
 
-    if(popupGroup) popupGroup.classList.add('popup-group--active')
+    if (popupGroup) popupGroup.classList.add('popup-group--active')
 
     document.addEventListener('click', checkTargetOrKey);
     document.addEventListener('keyup', checkTargetOrKey);
@@ -36,9 +36,9 @@ const hideAllPopups = () => {
     });
     pageWrapper.classList.remove('no-scroll');
 
-    if(popupGroup) popupGroup.classList.remove('popup-group--active');
-    
-    
+    if (popupGroup) popupGroup.classList.remove('popup-group--active');
+
+
     document.removeEventListener('click', checkTargetOrKey);
     document.removeEventListener('keyup', checkTargetOrKey);
 };
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bulletActiveClass: 'slider-pagination__bullet--active',
         lockClass: 'slider-pagination--lock'
     }
-    const __sliderNavigationParams = (sliderPrevClass = '.slider-button--prev',sliderNextClass = '.slider-button--next') => {
+    const __sliderNavigationParams = (sliderPrevClass = '.slider-button--prev', sliderNextClass = '.slider-button--next') => {
         return {
             nextEl: sliderNextClass,
             prevEl: sliderPrevClass,
@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: "auto",
         spaceBetween: 12,
         centeredSlides: true,
+        slideToClickedSlide: true,
         breakpoints: {
             701: {
                 spaceBetween: 24,
@@ -75,16 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const __sliderProductImgParams = {
         speed: 500,
         navigation: __sliderNavigationParams(),
-        pagination:__sliderPaginationParams,
-        slidesPerView:1,
+        pagination: __sliderPaginationParams,
+        slidesPerView: 1,
     }
-    const __sliderProductParams = (sliderNav, sliderPrevButton,sliderNextButton) => {
+    const __sliderProductParams = (sliderNav, sliderPrevButton, sliderNextButton) => {
         return {
             slidesPerView: 1,
             loop: true,
             speed: 500,
             effect: "fade",
-            allowTouchMove:false,
+            allowTouchMove: false,
             navigation: __sliderNavigationParams(sliderPrevButton, sliderNextButton),
             thumbs: {
                 swiper: sliderNav,
@@ -94,14 +95,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const productSliderNav = new Swiper('.js-product-nav-slider', __sliderProductNavParams);
-    const productSlider = new Swiper(".js-product-slider", __sliderProductParams(productSliderNav, '.js-product-prev-button','.js-product-next-button'));
+    const productSlider = new Swiper(".js-product-slider", __sliderProductParams(productSliderNav, '.js-product-prev-button', '.js-product-next-button'));
 
-    productSliderNav.on('slideChange', function () {
-        productSliderNav.slideTo(productSliderNav.activeIndex)
-      });
+    productSlider.on('slideChange', function () {
+        productSliderNav.slideToLoop(productSlider.realIndex)
+    });
+
 
     const productObjectNav = new Swiper('.js-object-nav-slider', __sliderProductNavParams);
-    const productObjectSlider = new Swiper(".js-object-slider", __sliderProductParams(productObjectNav,'.js-object-prev-button','.js-object-next-button'));
+    const productObjectSlider = new Swiper(".js-object-slider", __sliderProductParams(productObjectNav, '.js-object-prev-button', '.js-object-next-button'));
+
+    productObjectSlider.on('slideChange', function () {
+        productObjectNav.slideToLoop(productObjectSlider.realIndex)
+    });
 
     const productImgSlider = new Swiper(".js-product-img-slider", __sliderProductImgParams);
 
@@ -122,9 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const popupFormArray = document.querySelectorAll('.popup form');
 
-    if(popupFormArray.length){
-        popupFormArray.forEach(form=>{
-            form.addEventListener('submit',(e)=>{
+    if (popupFormArray.length) {
+        popupFormArray.forEach(form => {
+            form.addEventListener('submit', (e) => {
                 e.preventDefault();
 
                 showPopup('.popup-thanks');
