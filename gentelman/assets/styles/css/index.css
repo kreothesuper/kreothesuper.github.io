@@ -324,10 +324,16 @@ body.no-scroll {
 .section__wrapper {
   padding: 32px 0;
 }
+.section__wrapper--reason {
+  padding: 32px 0 90px 0;
+}
 .section__box {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 64px);
+}
+.section__box--small {
+  min-height: calc(100vh - 122px);
 }
 @media screen and (min-height: 1200px) {
   .section__box {
@@ -552,6 +558,7 @@ body.no-scroll {
   .hero__box {
     gap: 45px;
     justify-content: center;
+    align-items: center;
   }
 }
 .hero__desc {
@@ -583,9 +590,9 @@ body.no-scroll {
 }
 @media screen and (min-width: 1701px) {
   .hero__desc {
-    right: 150px;
-    top: calc(100% - 150px);
-    max-width: 350px;
+    right: 100px;
+    top: calc(100% - 70px);
+    max-width: 580px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -779,12 +786,7 @@ body.no-scroll {
   counter-reset: services-list;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-@media screen and (max-width: 1366px) {
-  .services-list {
-    gap: 10px;
-  }
+  gap: 12px;
 }
 .services-list__item {
   counter-increment: services-list;
@@ -990,7 +992,7 @@ body.no-scroll {
   width: 100%;
   height: 100%;
   position: relative;
-  min-height: 500px;
+  min-height: 550px;
 }
 @media screen and (max-width: 1024px) {
   .product__img {
@@ -1461,7 +1463,7 @@ body.no-scroll {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 32px;
+  gap: 20px;
   flex-grow: 1;
 }
 .calculator__footer {
@@ -1594,6 +1596,7 @@ body.no-scroll {
 }
 .calculator-radio__input:checked ~ .calculator-radio__label {
   color: #424242;
+  text-decoration-color: #424242;
 }
 @media screen and (max-width: 1024px) {
   .calculator-radio__input:checked ~ .calculator-radio__label {
@@ -1604,7 +1607,9 @@ body.no-scroll {
   font-size: var(--input-size);
   font-weight: 400;
   color: rgba(66, 66, 66, 0.6);
-  transition: 0.3s color;
+  transition: 0.3s color, 0.3s text-decoration-color;
+  text-decoration-color: transparent;
+  text-decoration: underline;
 }
 @media screen and (max-width: 1024px) {
   .calculator-radio__label {
@@ -1667,7 +1672,7 @@ body.no-scroll {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
+  gap: 100px;
 }
 @media screen and (max-width: 700px) {
   .footer__block--logo {

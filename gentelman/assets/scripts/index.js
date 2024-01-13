@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     const __sliderProductNavParams = {
-        loop: true,
         speed: 500,
         watchSlidesProgress: true,
         slidesPerView: "auto",
@@ -82,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const __sliderProductParams = (sliderNav, sliderPrevButton, sliderNextButton) => {
         return {
             slidesPerView: 1,
-            loop: true,
             speed: 500,
             effect: "fade",
             allowTouchMove: false,
