@@ -278,8 +278,10 @@ body {
             transition: 0.3s width;
         }
         &:hover {
-            &::before {
-                width: 100%;
+            @media screen and (min-width:992px) {
+                &::before {
+                    width: 100%;
+                }
             }
         }
     }
@@ -305,8 +307,10 @@ body {
         }
         &:hover {
             border-color: transparent;
-            &::before {
-                width: 100%;
+            @media screen and (min-width:992px) {
+                &::before {
+                    width: 100%;
+                }
             }
         }
     }
@@ -317,24 +321,6 @@ body {
 
         @media screen and (max-width: 991px) {
             height: 40px;
-            &::before {
-                content: "";
-                z-index: 1;
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 0%;
-                height: 100%;
-                display: block;
-                background-color: var(--accent-color);
-
-                transition: 0.3s width;
-            }
-            &:hover {
-                &::before {
-                    width: 100%;
-                }
-            }
         }
         &--white {
             color: #fff;

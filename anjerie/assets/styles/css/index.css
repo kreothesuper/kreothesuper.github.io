@@ -264,8 +264,10 @@ body {
   background-color: var(--accent-color);
   transition: 0.3s width;
 }
-.button--black:hover::before {
-  width: 100%;
+@media screen and (min-width: 992px) {
+  .button--black:hover::before {
+    width: 100%;
+  }
 }
 .button--transparent {
   border: 1px solid #000;
@@ -288,8 +290,10 @@ body {
 .button--transparent:hover {
   border-color: transparent;
 }
-.button--transparent:hover::before {
-  width: 100%;
+@media screen and (min-width: 992px) {
+  .button--transparent:hover::before {
+    width: 100%;
+  }
 }
 .button--arrow {
   height: auto;
@@ -297,21 +301,6 @@ body {
 @media screen and (max-width: 991px) {
   .button--arrow {
     height: 40px;
-  }
-  .button--arrow::before {
-    content: "";
-    z-index: 1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 0%;
-    height: 100%;
-    display: block;
-    background-color: var(--accent-color);
-    transition: 0.3s width;
-  }
-  .button--arrow:hover::before {
-    width: 100%;
   }
 }
 .button--arrow--white {
