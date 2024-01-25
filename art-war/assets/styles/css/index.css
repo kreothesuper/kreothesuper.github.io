@@ -6,7 +6,7 @@
   --text-regular: 16px;
   --text-tiny: 14px;
   --text-link: 24px;
-  --text-popup:18px;
+  --text-popup: 18px;
   --font-title: "Bebas Neue", sans-serif;
   --title-hero: 96px;
   --title-base: 64px;
@@ -23,6 +23,7 @@
   --nav-height: 70px;
   --nav-item-radius: 40px;
   --content-gap: 132px;
+  --popup-width: 760px;
 }
 @media screen and (max-width: 1200px) {
   :root {
@@ -30,13 +31,14 @@
     --text-small: 14px;
     --text-regular: 12px;
     --text-tiny: 10px;
-    --text-popup:14px;
+    --text-popup: 14px;
     --title-base: 48px;
-    --title-tiny:16px;
-    --title-small:32px;
+    --title-tiny: 16px;
+    --title-small: 32px;
     --nav-text: 14px;
     --nav-text-spacing: -0.28px;
     --nav-height: 50px;
+    --popup-width: 626px;
   }
 }
 @media screen and (max-width: 960px) {
@@ -44,16 +46,17 @@
     --text-base: 18px;
     --text-small: 12px;
     --text-link: 20px;
-    --text-popup:12px;
+    --text-popup: 12px;
     --title-base: 36px;
     --title-hero: 64px;
-    --title-tiny:14px;
-    --title-small:24px;
+    --title-tiny: 14px;
+    --title-small: 24px;
     --nav-text: 10px;
     --nav-text-spacing: -0.2px;
     --nav-height: 36px;
     --nav-item-radius: 30px;
     --content-gap: 90px;
+    --popup-width: 500px;
   }
 }
 @media screen and (max-width: 640px) {
@@ -61,10 +64,9 @@
     --text-base: 14px;
     --text-middle: 16px;
     --text-link: 16px;
-    --text-popup:10px;
     --title-hero: 48px;
-    --title-tiny:12px;
-    --title-small:16px;
+    --title-tiny: 12px;
+    --title-small: 16px;
     --content-gap: 70px;
   }
 }
@@ -330,6 +332,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 45px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 1fr 200px;
+  transition: 1s linear;
+}
+.intro__wrapper.active {
+  grid-template-rows: 1fr var(--full-height);
 }
 @media screen and (max-width: 960px) {
   .intro__wrapper {
@@ -347,12 +356,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  max-height: 200px;
   overflow: hidden;
   transition: 0.3s max-height;
-}
-.intro__content.active {
-  max-height: 100%;
 }
 
 .nav__list {
@@ -383,7 +388,7 @@ body {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: 0.3s border-color, 0.3s color, 0.3s background-color;
+  transition: 0.05s border-color, 0.05s color, 0.05s background-color;
 }
 
 .tabs-nav__item {
@@ -393,7 +398,7 @@ body {
   border-color: var(--color-nge);
   font-weight: 700;
 }
-.tabs-nav__item--active {
+.tabs-nav__item--active, .tabs-nav__item:hover {
   font-weight: 800;
   background-color: var(--color-nge);
   color: var(--color-white);
@@ -541,6 +546,10 @@ body {
 .card:hover {
   cursor: pointer;
 }
+.card:hover .card__img {
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
+  transform: scale(1.02);
+}
 .card__img {
   width: 100%;
   aspect-ratio: 1;
@@ -550,6 +559,7 @@ body {
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+  transition: 0.05s box-shadow, 0.05s transform;
 }
 .card__img img {
   width: 100%;
@@ -625,10 +635,14 @@ body {
 .expanded {
   position: relative;
 }
-.expanded-block {
+.expanded.active .expanded-wrapper::before {
+  opacity: 0;
+  visibility: hidden;
+}
+.expanded-wrapper {
   position: relative;
 }
-.expanded-block::before {
+.expanded-wrapper::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -640,18 +654,14 @@ body {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.55) 80.6%);
   transition: 0.3s visibility, 0.5s opacity;
 }
-.expanded-block--big::before {
+.expanded-wrapper--big::before {
   height: 200px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.72) 43.75%, #fff 90.6%);
 }
 @media screen and (min-width: 641px) {
-  .expanded-block--mobile::before {
+  .expanded-wrapper--mobile::before {
     display: none;
   }
-}
-.expanded-block.active::before {
-  opacity: 0;
-  visibility: hidden;
 }
 .expanded-link {
   font-family: var(--font-text);
@@ -664,20 +674,29 @@ body {
   gap: 10px;
   position: relative;
   z-index: 3;
+  transition: 0.05s color;
 }
 .expanded-link::before {
   content: attr(data-open);
 }
-.expanded-link::after {
-  content: "";
+.expanded-link:hover .expanded-link__icon {
+  fill: var(--color-nge);
+}
+.expanded-link:hover {
+  color: var(--color-nge);
+}
+.expanded-link__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   width: 24px;
   height: 20px;
-  display: block;
-  background: url("../../images/icons/arrow-down-green.svg") center center/contain no-repeat;
-  transition: 0.3s transform;
+  fill: var(--color-green);
+  transition: 0.3s transform, 0.05s fill;
 }
 @media screen and (max-width: 640px) {
-  .expanded-link::after {
+  .expanded-link__icon {
     width: 16px;
     height: 20px;
   }
@@ -685,7 +704,7 @@ body {
 .expanded-link.active::before {
   content: attr(data-close);
 }
-.expanded-link.active::after {
+.expanded-link.active .expanded-link__icon {
   transform: rotate(180deg);
 }
 
@@ -705,12 +724,64 @@ body {
 .popup--active {
   display: block;
 }
+.popup__button {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  fill: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: calc(50% - 25px);
+  z-index: 4;
+  transition: 0.05s fill;
+  z-index: 4;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+}
+@media screen and (max-width: 480px) {
+  .popup__button {
+    display: none;
+  }
+}
+.popup__button:hover {
+  fill: var(--color-nge);
+  cursor: pointer;
+}
+.popup__button--prev {
+  left: calc(50% - var(--popup-width) / 2 - 100px);
+  transform: rotate(90deg);
+}
+@media screen and (max-width: 640px) {
+  .popup__button--prev {
+    left: 10px;
+  }
+}
+.popup__button--next {
+  right: calc(50% - var(--popup-width) / 2 - 100px);
+  transform: rotate(-90deg);
+}
+@media screen and (max-width: 640px) {
+  .popup__button--next {
+    right: 10px;
+  }
+}
+.popup__button .icon {
+  width: 20px;
+  height: 20px;
+}
 .popup__wrapper {
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
+  padding: 70px 10px;
+  overflow: auto;
+}
+.popup__content {
+  margin-top: var(--popup-height);
 }
 .popup__close {
   -webkit-backdrop-filter: blur(5px);
@@ -726,7 +797,7 @@ body {
   right: 20px;
   top: 20px;
   z-index: 3;
-  transition: 0.3s background-color;
+  transition: 0.05s background-color;
 }
 .popup__close::before, .popup__close::after {
   content: "";
@@ -782,41 +853,49 @@ body {
   }
   .popup__close::before, .popup__close::after {
     height: 12px;
+    width: 1px;
+    left: calc(50% - 0.5px);
     top: calc(50% - 6px);
   }
 }
 .popup__container {
-  background-color: #fff;
-  max-width: 760px;
+  max-width: var(--popup-width);
   width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+@media screen and (max-width: 640px) {
+  .popup__container {
+    max-width: calc(100% - 50px);
+  }
+}
+.popup-card__box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.popup-card__wrapper {
   border-radius: 50px;
-  max-height: 90%;
-  height: -moz-max-content;
-  height: max-content;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 @media screen and (max-width: 1200px) {
-  .popup__container {
-    max-width: 626px;
+  .popup-card__wrapper {
     border-radius: 40px;
   }
 }
 @media screen and (max-width: 960px) {
-  .popup__container {
-    max-width: 500px;
+  .popup-card__wrapper {
     border-radius: 30px;
   }
 }
 @media screen and (max-width: 640px) {
-  .popup__container {
-    max-width: 300px;
+  .popup-card__wrapper {
     border-radius: 20px;
   }
+}
+.popup-card__desc {
+  max-width: 300px;
+  width: 100%;
 }
 .popup-card__header {
   position: relative;
@@ -939,12 +1018,29 @@ body {
      object-fit: cover;
   border-radius: 14px;
 }
-.popup-card--film .popup-card__header {
+.popup-card--movie .popup-card__header, .popup-card--books .popup-card__header, .popup-card--games .popup-card__header {
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 50vh;
   height: auto;
   width: 100%;
+}
+.popup-card--art .popup-card__header {
+  height: 450px;
+}
+@media screen and (max-width: 1200px) {
+  .popup-card--art .popup-card__header {
+    height: 370px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .popup-card--art .popup-card__header {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .popup-card--art .popup-card__header {
+    height: 170px;
+  }
 }/*# sourceMappingURL=index.css.map */
