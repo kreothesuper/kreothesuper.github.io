@@ -401,6 +401,8 @@ body {
 @media screen and (max-width: 767px) {
   .aside-list__link {
     padding: 15px 0;
+    font-size: 18px;
+    color: var(--color-grey-dark);
   }
 }
 .aside--active::before {
@@ -476,6 +478,11 @@ body {
   display: block;
   order: 2;
   background-color: #d9d9d9;
+}
+@media screen and (max-width: 767px) {
+  .block__title a, .block__title::after {
+    display: none;
+  }
 }
 .block__wrapper {
   display: flex;
@@ -635,18 +642,6 @@ body {
   flex-shrink: 0;
   -o-object-fit: contain;
      object-fit: contain;
-}
-.social-link__icon--telegram {
-  fill: #29a6e7;
-}
-.social-link__icon--vk {
-  fill: #0277ff;
-}
-.social-link__icon--dzen {
-  fill: #000;
-}
-.social-link__icon--youtube {
-  fill: #ff0000;
 }
 .social-link__icon--grey {
   fill: #d9d9d9;
