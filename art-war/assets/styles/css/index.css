@@ -76,6 +76,11 @@ body {
   font-size: var(--text-base);
   color: #000;
 }
+body.no-scroll {
+  overflow: hidden;
+  touch-action: none;
+  -ms-touch-action: none;
+}
 
 .content__wrapper {
   display: flex;
@@ -777,11 +782,8 @@ body {
   height: 100%;
   left: 0;
   top: 0;
-  padding: 70px 10px;
+  padding: 30px 10px;
   overflow: auto;
-}
-.popup__content {
-  margin-top: var(--popup-height);
 }
 .popup__close {
   -webkit-backdrop-filter: blur(5px);

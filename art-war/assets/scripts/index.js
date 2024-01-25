@@ -507,11 +507,10 @@ const showCardPopup = (cardCategory, cardIndex, popupCardContent) => {
 
     // center card
     const elementHeight = popupCardContent.offsetHeight;
-    const viewportHeight = window.innerHeight;
-    const topMargin = elementHeight < viewportHeight ? (viewportHeight - elementHeight) / 2 : 0;
+    const viewportHeight = popupCardContent.closest('.popup__wrapper').clientHeight;
+    console.log(viewportHeight);
+    const topMargin = elementHeight  < viewportHeight - 60 ? (viewportHeight - 60 - elementHeight) / 2 : 0;
     popupCardContent.style.marginTop = `${topMargin}px`;
-
-    console.log(window.innerHeight, elementHeight);
 }
 
 const checkTargetOrKey = event => {
@@ -609,8 +608,6 @@ document.addEventListener("DOMContentLoaded", () => {
         expandedArray.forEach(expanded => {
             const expandedLink = expanded.querySelector('.expanded-link'),
                 expandedBlock = expanded.querySelector('.expanded-block');
-
-            console.log(expandedBlock.clientHeight);
 
             expanded.style.setProperty('--full-height', `${expandedBlock.clientHeight}px`);
 

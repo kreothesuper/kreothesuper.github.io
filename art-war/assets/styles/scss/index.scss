@@ -101,6 +101,11 @@ body {
     font-size: var(--text-base);
 
     color: #000;
+    &.no-scroll{
+        overflow: hidden;
+        touch-action: none;
+        -ms-touch-action: none;
+    }
 }
 
 .content {
@@ -854,14 +859,9 @@ body {
         left: 0;
         top: 0;
 
-        padding: 70px 10px;
+        padding: 30px 10px;
 
         overflow: auto;
-    }
-
-    &__content{
-        // transform: translateY(var(--popup-height));
-        margin-top: var(--popup-height);
     }
 
     &__close {
