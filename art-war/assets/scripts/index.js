@@ -470,7 +470,7 @@ const createCard = (object, categoryName, index) => {
     const ifSubtitle = object.subtitle ? `<p class="text text--base text--grey--dark">${object.subtitle}</p>` : '';
     const ifDesc = object.text ? `<p class="text text--regular text--grey--light popup-card__desc">${object.text}</p>` : '';
     const ifQuoteTitle = object.quote && object.quote.name ? `<p class="title title--tiny title--black">${object.quote.name}</p>` : '';
-    const ifYoutube = object.youtube ? ` <div class="popup-card__block"> <iframe class="popup-card__video"  src="https://www.youtube.com/embed/${object.youtube};controls=0" title="YouTube video player" frameborder="0" allowfullscreen></iframe> </div>` : '';
+    const ifYoutube = object.youtube ? ` <div class="popup-card__block"><div id="popup-card-video"></div></div>` : '';
     return `
     <div class="popup-card popup-card--${categoryName}" data-id="${index}" data-category="${categoryName}">
         <div class="popup-card__wrapper">
@@ -512,13 +512,17 @@ const showCardPopup = (cardCategory, cardIndex, popupCardContent) => {
     const cardContent = createCard(foundObject.items[cardIndex], cardCategory, cardIndex);
     popupCardContent.innerHTML = cardContent;
 
+    // load video 
+    if(foundObject.items[cardIndex].youtube){
+        onYouTubeIframeAPIReady(foundObject.items[cardIndex].youtube);
+    }
+
     //show card
     showPopup('.popup--card');
 
     // center card
     const elementHeight = popupCardContent.offsetHeight;
     const viewportHeight = popupCardContent.closest('.popup__wrapper').clientHeight;
-    console.log(viewportHeight);
     const topMargin = elementHeight  < viewportHeight - 60 ? (viewportHeight - 60 - elementHeight) / 2 : 0;
     popupCardContent.style.marginTop = `${topMargin}px`;
 }
@@ -609,6 +613,18 @@ const initTabs = () => {
 }
 
 
+const  onYouTubeIframeAPIReady = (videoID) => {
+    console.log('324');
+
+    player = new YT.Player('popup-card-video', {
+      height: '360',
+      width: '640',
+      videoId: videoID,
+      playerVars: { 'autoplay': 0, 'controls': 0 },
+    });
+  }
+
+
 document.addEventListener("DOMContentLoaded", () => {
     initTabs();
 
@@ -686,4 +702,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
 });
