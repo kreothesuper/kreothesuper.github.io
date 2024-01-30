@@ -99,17 +99,22 @@
 
     display: flex;
     flex-direction: column;
-    background: url("../../images/page-bg.png") right top/contain no-repeat;
+
+    background-image: url("../../images/page-bg.webp"), url("../../images/page-bg.png");
+    background-position: right top;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-color: #000;
+
     padding: 40px 0;
 
     @media screen and (max-width:1600px) {
-        background-position:8vw top;
+        // background-position:8vw top;
     }
     @media screen and (max-width:1024px) {
         padding: 30px 0;
 
-        background: url("../../images/page-bg-m.png") right top/contain no-repeat;
+        background-image: url("../../images/page-bg-m.webp"), url("../../images/page-bg-m.png");
         background-color: #000;
     }
     &__content {
