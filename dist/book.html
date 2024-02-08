@@ -296,173 +296,552 @@
                             </div>
                         </div>
                     </div>
-                    <div class="block-aside__item block-grid">
-                        <div class="block-grid__item block-grid__item--small">
-                            <label class="country-input">
-                                <input type="radio" checked name="country" id="" class="country-input__item">
-                                <span class="country-input__wrapper">
-                                    <svg class="country-input__icon">
-                                        <use xlink:href="img/sprites/sprite.svg#usa" />
-                                    </svg>
-                                    <span class="country-input__text">США</span>
-                                </span>
-                            </label>
+                    <div class="block-aside__item calendar-status">
+                        <div class="calendar-status__count calendar-count">
+                            <p class="calendar-count__number">
+                                97 <span>дней</span>
+                            </p>
+                            <p class="calendar-count__status">Свободно</p>
                         </div>
-                        <div class="block-grid__item block-grid__item--small">
-                            <label class="country-input">
-                                <input type="radio" name="country" id="" class="country-input__item">
-                                <span class="country-input__wrapper">
-                                    <svg class="country-input__icon">
-                                        <use xlink:href="img/sprites/sprite.svg#eu" />
-                                    </svg>
-                                    <span class="country-input__text">ЕВРОПА</span>
-                                </span>
-                            </label>
+                        <div class="calendar-status__count calendar-count calendar-count--red">
+                            <p class="calendar-count__number">
+                                97 <span>дней</span>
+                            </p>
+                            <p class="calendar-count__status">Забронировано</p>
                         </div>
-                        <div class="block-grid__item select select--full select--big custom-select">
-                                <select class="select__tag" name="" id="">
-                                    <option value="">Выберите период</option>
-                                    <option value="">Выберите период 12341234 13242134 </option>
-                                </select>
-                        </div>
-                        <div class="block-grid__item">
-                            <label class="date-input">
-                                <input type="date" name="" id="" class="date-input__item">
-                                <span class="date-input__wrapper">
-                                    <span class="date-input__text">Выберите дату</span>
-                                    <svg class="date-input__icon">
-                                        <use xlink:href="img/sprites/sprite.svg#calendar" />
-                                    </svg>
-                                </span>
-                            </label>
+                        <div class="calendar-status__submit calendar-submit">
+                            <div class="calendar-submit__wrapper">
+                                <p class="calendar-submit__text">Вы выбрали <span>6 дней</span></p>
+                                <button class="calendar-submit__button">Подтвердить ›</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="block__item schedule-grid">
-                <div class="schedule-card schedule-card--pink schedule-grid__item">
-                    <div class="schedule-card__header">
-                        <p class="schedule-card__title">
-                            ASC HM US
-                        </p>
-                    </div>
-                    <div class="schedule-card__row">
-                        <div class="schedule-time">
-                            <p class="schedule-time__number">
-                                15:30
-                            </p>
-                            <p class="schedule-time__text">
-                                Начало
-                            </p>
+            <div class="block__item calendar" id="calendar">
+                <div class="calendar-header">
+                    <div class="calendar-header__wrapper">
+                        <div class="calendar__mounth calendar__mounth--prev" id="prevMonth">
+                            <p>Март<span>«2023»</span></p>
+                            <svg class="icon">
+                                <use xlink:href="img/sprites/sprite.svg#arrow-double" />
+                            </svg>
                         </div>
-                        <div class="schedule-time">
-                            <p class="schedule-time__number">
-                                15:30
-                            </p>
-                            <p class="schedule-time__text">
-                                Начало
-                            </p>
+                        <div class="calendar__mounth calendar__mounth--current" id="currentMonth">
+                            Апрель «2023»
+                        </div>
+                        <div class="calendar__mounth calendar__mounth--next" id="nextMonth">
+                            <svg class="icon">
+                                <use xlink:href="img/sprites/sprite.svg#arrow-double" />
+                            </svg>
+                            <p>Май <span>«2023»</span></p>
                         </div>
                     </div>
                 </div>
-                <div class="schedule-card schedule-card--green schedule-grid__item">
-                    <div class="schedule-card__header">
-                        <p class="schedule-card__title">
-                            ASC HM US
-                        </p>
+                <div class="calendar-content">
+                    <div class="calendar-week">
+                        <label class="calendar-day ">
+                            <input type="checkbox" class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
                     </div>
-                    <div class="schedule-card__row">
-                        <div class="schedule-time">
-                            <p class="schedule-time__number">
-                                15:30
-                            </p>
-                            <p class="schedule-time__text">
-                                Начало
-                            </p>
-                        </div>
-                        <div class="schedule-time">
-                            <p class="schedule-time__number">
-                                15:30
-                            </p>
-                            <p class="schedule-time__text">
-                                Начало
-                            </p>
-                        </div>
+                    <div class="calendar-week">
+                        <label class="calendar-day ">
+                            <input type="checkbox" class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+
                     </div>
-                </div>
-                <div class="schedule-card schedule-card--green schedule-grid__item">
-                    <div class="schedule-card__header">
-                        <p class="schedule-card__title">
-                            ASC HM US
-                        </p>
+                    <div class="calendar-week">
+                        <label class="calendar-day ">
+                            <input type="checkbox" class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+
                     </div>
-                    <div class="schedule-card__row">
-                        <div class="schedule-time">
-                            <p class="schedule-time__number">
-                                15:30
-                            </p>
-                            <p class="schedule-time__text">
-                                Начало
-                            </p>
-                        </div>
-                        <div class="schedule-time">
-                            <p class="schedule-time__number">
-                                15:30
-                            </p>
-                            <p class="schedule-time__text">
-                                Начало
-                            </p>
-                        </div>
+                    <div class="calendar-week">
+                        <label class="calendar-day ">
+                            <input type="checkbox" class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+
                     </div>
-                </div>
-                <div class="schedule-card schedule-grid__item">
-                    <div class="schedule-card__header">
-                        <p class="schedule-card__title">
-                            ASC HM US
-                        </p>
-                    </div>
-                    <div class="schedule-card__row">
-                        <div class="schedule-time">
-                            <p class="schedule-time__number">
-                                15:30
-                            </p>
-                            <p class="schedule-time__text">
-                                Начало
-                            </p>
-                        </div>
-                        <div class="schedule-time">
-                            <p class="schedule-time__number">
-                                15:30
-                            </p>
-                            <p class="schedule-time__text">
-                                Начало
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="schedule-card schedule-grid__item">
-                    <div class="schedule-card__header">
-                        <p class="schedule-card__title">
-                            ASC HM US
-                        </p>
-                    </div>
-                    <div class="schedule-card__row">
-                        <div class="schedule-time">
-                            <p class="schedule-time__number">
-                                15:30
-                            </p>
-                            <p class="schedule-time__text">
-                                Начало
-                            </p>
-                        </div>
-                        <div class="schedule-time">
-                            <p class="schedule-time__number">
-                                15:30
-                            </p>
-                            <p class="schedule-time__text">
-                                Начало
-                            </p>
-                        </div>
+                    <div class="calendar-week">
+                        <label class="calendar-day ">
+                            <input type="checkbox" class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+                        <label class="calendar-day ">
+                            <input type="checkbox" disabled class="calendar-day__input">
+                            <div class="calendar-day__wrapper">
+                                <div class="calendar-day__header">
+                                    15 <br> <span>Сентября</span>
+                                </div>
+                                <svg class="calendar-day__icon">
+                                    <use xlink:href="img/sprites/sprite.svg#check" />
+                                </svg>
+                                <div class="calendar-day__footer">
+                                    Четверг
+                                </div>
+                            </div>
+                        </label>
+
                     </div>
                 </div>
             </div>

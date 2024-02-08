@@ -151,57 +151,63 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Create a new Date object
-  var date = new Date();
+  // Get the calendar element
+  var date = new Date(); // creates a new date object with the current date and time
+  var year = date.getFullYear(); // gets the current year
+  var month = date.getMonth(); // gets the current month (index based, 0-11)
 
-  // Get the current year, month, and day
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
+  var day = document.querySelector(".calendar-content"); // selects the element with class "calendar-dates"
+  var currdate = document.querySelector("#currentMonth"); // selects the element with class "calendar-current-date"
+  var prenexIcons = [document.querySelector("#nextMonth"), document.querySelector("#prevMonth")]; // selects all elements with class "calendar-navigation span"
 
-  // Create a new array to store the days of the week
-  var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]; // array of month names
 
-  // Create a new array to store the months of the year
-  var monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var days = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"]; // array of month names
 
-  // Create a function to generate the calendar
-  function generateCalendar(year, month) {
-    // Create a new array to store the days of the month
-    var daysInMonth = [];
-
-    // Get the number of days in the month
-    var numDaysInMonth = new Date(year, month, 0).getDate();
-
-    // Add the days of the month to the array
-    for (var i = 1; i <= numDaysInMonth; i++) {
-      daysInMonth.push(i);
+  // function to generate the calendar
+  var manipulate = function manipulate() {
+    var dayone = new Date(year, month, 1).getDay();
+    var lastdate = new Date(year, month + 1, 0).getDate();
+    var dayend = new Date(year, month, lastdate).getDay();
+    var monthlastdate = new Date(year, month, 0).getDate();
+    var getPrevMonth = month - 1 < 0 ? months[11] : months[month - 1];
+    var getNextMonth = month + 1 > 11 ? months[0] : months[month + 1];
+    var lit = "";
+    for (var i = dayone; i > 0; i--) {
+      lit += "\n            <label class=\"calendar-day calendar-day--inactive\">\n            <input type=\"checkbox\" class=\"calendar-day__input\">\n            <div class=\"calendar-day__wrapper\">\n                <div class=\"calendar-day__header\">\n                ".concat(monthlastdate - i + 1, "<br> <span>").concat(getPrevMonth, "</span>\n                </div>\n                <svg class=\"calendar-day__icon\">\n                    <use xlink:href=\"img/sprites/sprite.svg#check\" />\n                </svg>\n                <div class=\"calendar-day__footer\">\n                    \u0427\u0435\u0442\u0432\u0435\u0440\u0433\n                </div>\n            </div>\n        </label>\n            ");
     }
-
-    // Create a new array to store the weeks of the month
-    var weeksInMonth = [];
-
-    // Add the weeks of the month to the array
-    for (var _i = 0; _i < daysInMonth.length; _i += 7) {
-      weeksInMonth.push(daysInMonth.slice(_i, _i + 7));
+    for (var _i = 1; _i <= lastdate; _i++) {
+      var isInactive = _i === 4 ? 'disabled' : null;
+      var isToday = _i === date.getDate() && month === new Date().getMonth() && year === new Date().getFullYear() ? "active" : "";
+      lit += "\n                <label class=\"calendar-day ".concat(isToday, "\">\n                    <input type=\"checkbox\" ").concat(isInactive, " class=\"calendar-day__input\">\n                    <div class=\"calendar-day__wrapper\">\n                        <div class=\"calendar-day__header\">\n                            ").concat(_i, " <br> <span>").concat(months[month], "</span>\n                        </div>\n                        <svg class=\"calendar-day__icon\">\n                            <use xlink:href=\"img/sprites/sprite.svg#check\" />\n                        </svg>\n                        <div class=\"calendar-day__footer\">\n                            \u0427\u0435\u0442\u0432\u0435\u0440\u0433\n                        </div>\n                    </div>\n                </label>\n            ");
     }
-
-    // Return the calendar
-    return {
-      year: year,
-      month: month,
-      daysOfWeek: daysOfWeek,
-      monthsOfYear: monthsOfYear,
-      daysInMonth: daysInMonth,
-      weeksInMonth: weeksInMonth
-    };
-  }
-
-  // Generate the calendar
-  var calendar = generateCalendar(year, month);
-
-  // Log the calendar to the console
-  console.log(calendar);
+    for (var _i2 = dayend; _i2 < 6; _i2++) {
+      lit += "\n                <label class=\"calendar-day calendar-day--inactive\">\n                    <input type=\"checkbox\" class=\"calendar-day__input\">\n                    <div class=\"calendar-day__wrapper\">\n                        <div class=\"calendar-day__header\">\n                            ".concat(_i2 - dayend + 1, "<br> <span>").concat(months[month + 1], "</span>\n                        </div>\n                        <svg class=\"calendar-day__icon\">\n                            <use xlink:href=\"img/sprites/sprite.svg#check\" />\n                        </svg>\n                        <div class=\"calendar-day__footer\">\n                            \u0427\u0435\u0442\u0432\u0435\u0440\u0433\n                        </div>\n                    </div>\n                </label>\n            ");
+    }
+    currdate.innerText = "".concat(months[month], " \xAB").concat(year, "\xBB");
+    prenexIcons[1].querySelector('p').innerHTML = "".concat(getPrevMonth, " \xAB").concat(year, "\xBB");
+    prenexIcons[0].querySelector('p').innerHTML = "".concat(getNextMonth, " \xAB").concat(year, "\xBB");
+    day.innerHTML = lit;
+    var allCurrentDays = day.querySelectorAll('.calendar-day');
+    allCurrentDays.forEach(function (element, index) {
+      var daysofWeek = element.querySelector('.calendar-day__footer');
+      daysofWeek.innerHTML = days[index % 7];
+    });
+  };
+  manipulate();
+  prenexIcons.forEach(function (icon) {
+    icon.addEventListener("click", function () {
+      month = icon.id === "prevMonth" ? month - 1 : month + 1;
+      if (month < 0 || month > 11) {
+        date = new Date(year, month, new Date().getDate());
+        year = date.getFullYear();
+        month = date.getMonth();
+      } else {
+        date = new Date();
+      }
+      manipulate();
+    });
+  });
   var formArray = document.querySelectorAll('.form');
   if (formArray.length) {
     formArray.forEach(function (form) {
