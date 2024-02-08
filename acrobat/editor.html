@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
+
+    <link rel="stylesheet" href="assets/styles/css/fonts.css">
+
+    <link rel="stylesheet" href="assets/styles/css/reset.css">
+    <link rel="stylesheet" href="assets/styles/css/index.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <aside class="page-wrapper__aside aside">
+            <div class="aside__wrapper">
+                <div class="aside__header">
+                    <a href="#" class="aside__logo logo">
+                        <img src="assets/images/logo.svg" alt="" class="logo__img">
+                    </a>
+                    <div class="aside__burger">
+                        <div class="burger">
+                            <div class="burger__item"></div>
+                            <div class="burger__item"></div>
+                            <div class="burger__item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aside__nav">
+                    <div class="aside-block">
+                        <ul class="aside-list">
+                            <li class="aside-list__item aside-list__item--button">
+                                <a href="#" class="button button--small button--bordered--light button--bordered button--full">
+                                    Купить рекламу
+                                    <svg class="button__icon button__icon--big button__icon--mobile">
+                                        <use xlink:href="assets/images/sprite.svg#arrow-long"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="aside-list__item aside-list__item--button">
+                                <a href="#" class="button button--small button--bordered--light button--bordered button--full">
+                                    Обсудить задачу
+                                    <svg class="button__icon button__icon--big button__icon--mobile">
+                                        <use xlink:href="assets/images/sprite.svg#arrow-long"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="aside-block">
+                        <ul class="aside-list">
+                            <li class="aside-list__item">
+                                <a href="#" class="aside-list__link">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite.svg#home"/>
+                                    </svg>
+                                    Главная
+                                </a>
+                            </li>
+                            <li class="aside-list__item">
+                                <a href="#" class="aside-list__link">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite.svg#media"/>
+                                    </svg>
+                                    Наши медиа
+                                </a>
+                            </li>
+                            <li class="aside-list__item">
+                                <a href="#" class="aside-list__link">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite.svg#blog"/>
+                                    </svg>
+                                    Блог
+                                </a>
+                            </li>
+                            <li class="aside-list__item">
+                                <a href="#" class="aside-list__link">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite.svg#contacts"/>
+                                    </svg>
+                                    Контакты
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="page-wrapper__content content editor">
+            <div class="content__wrapper">
+                <div class="block">
+                    <div class="block__wrapper catalog">
+                        <a href="#" class="content__back text text--small text--medium text--grey--lighter">Вернуться
+                            назад</a>
+                        <div class="block__item">
+                            <p class="editor__status text text--base text--grey">Опубликовано</p>
+                        </div>
+                        <div class="block__item">
+                           <div class="card">
+                                <div class="card__wrapper card__wrapper--radius--small card__wrapper--big">
+                                    <input type="text" class="input input--big" placeholder="Заголовок">
+                                </div>
+                           </div>
+                        </div>
+                        <div class="block__item">
+                            <div class="card">
+                                <div class="card__wrapper card__wrapper--radius--small card__wrapper--big">
+                                    <input type="text" class="input input--big input--editor">
+                                </div>
+                           </div>
+                        </div>
+                        <div class="block__item block js-editor editor">
+                            <div class="card">
+                                <div class="card__wrapper card__wrapper--radius--small card__wrapper--big block__wrapper">
+                                    <div class="block__header block__header--gap--big js-editor-link editor-block__link">
+                                        <p class="text text--base text--grey">Категории</p>
+                                        <div class="editor-tags">
+                                            <p class="text text--base text--grey--light">Обзоры,</p>
+                                            <p class="text text--base text--grey--light">Косметика,</p>
+                                            <p class="text text--base text--grey--light">Новости,</p>
+                                        </div>
+                                    </div>
+                                    <div class="block__content js-editor-block editor-block__content">
+                                        <div class="editor-block__grid editor-block__grid--equal">
+                                            <div class="block">
+                                                <div class="block__wrapper">
+                                                    <input type="text" name="" id="" class="input" placeholder="Поиск категорий...">
+                                                    <div class="editor-category">
+                                                        <div class="editor-category__list category-list">
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="block">
+                                                <div class="block__wrapper">
+                                                    <div class="block__header">
+                                                        <input type="text" name="" id="" class="input" placeholder="Название категории">
+                                                        <a href="#" class="button button--editor button--editor--green button--editor--small">
+                                                            Добавить +
+                                                        </a>
+                                                    </div>
+                                                    <div class="editor-category">
+                                                        <div class="editor-category__list category-list">
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-list__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox" class="category-radio__checkbox">
+                                                                    <span class="category-radio__label">Название категории</span>
+                                                                </label>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                        <div class="block__item block js-editor editor">
+                            <div class="card">
+                                <div class="card__wrapper card__wrapper--radius--small card__wrapper--big block__wrapper">
+                                    <div class="block__header block__header--gap--big js-editor-link editor-block__link">
+                                        <p class="text text--base text--grey">Обложка статьи</p>
+                                    </div>
+                                    <div class="block__content js-editor-block editor-block__content">
+                                        <div class="editor-block__grid">
+                                            <div class="editor-block__cover">
+                                                <img src="assets/images/article/1.png" alt="">
+                                            </div>
+                                            <div class="editor-block__control">
+                                                <div class="block__wrapper block__wrapper--end">
+                                                    <label class="file-input button button--editor button--editor--blue">
+                                                        <input type="file" name="" id="" class="file-input__item">
+                                                        <span>Загрузить</span>
+                                                    </label>
+                                                    <a href="#" class="button button--editor button--editor--red">Удалить</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                        <div class="block__item block js-editor editor">
+                            <div class="card">
+                                <div class="card__wrapper card__wrapper--radius--small card__wrapper--big block__wrapper">
+                                    <div class="block__header block__header--gap--big js-editor-link editor-block__link">
+                                        <p class="text text--base text--grey">Превью</p>
+                                    </div>
+                                    <div class="block__content js-editor-block editor-block__content">
+                                        <div class="editor-block__grid editor-block__grid--equal">
+                                            <div class="editor-block__item card">
+                                                <div class="card__block blog blog--editor">
+                                                    <div class="blog__wrapper blog__wrapper--bordered">
+                                                        <div class="blog__img">
+                                                            <img src="assets/images/blog/1.png" alt="">
+                                                        </div>
+                                                        <div class="blog__content">
+                                                            <p class="text text--base text--black text--bold blog__title">
+                                                                Как появились сервисы для проверки отношений
+                                                            </p>
+                                                            <p class="text text--small text--grey--light">
+                                                                И на чем была построена рекламная кампания сервисов “для
+                                                                ревнивых”
+                                                            </p>
+                                                        </div>
+                                                        <div class="blog__footer">
+                                                            <div class="blog__tags">
+                                                                <span class="tag">Бизнес</span>
+                                                                <span class="tag">Социальные сети</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="editor-block__control">
+                                                <div class="block__wrapper">
+                                                    <input type="text" name="" id="" class="input" value="Как появились сервисы для проверки отношений">
+                                                    <textarea class="input input--textarea">И на чем была построена рекламная кампания сервисов “для ревнивых”</textarea>
+                                                </div>
+                                                <div class="block__wrapper block__wrapper--end">
+                                                    <label class="file-input button button--editor button--editor--blue">
+                                                        <input type="file" name="" id="" class="file-input__item">
+                                                        <span>Загрузить</span>
+                                                    </label>
+                                                    <a href="#" class="button button--editor button--editor--red">Удалить</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                        <div class="block__item">
+                            <div class="card">
+                                <div class="card__wrapper card__wrapper--link card__wrapper--radius--small card__wrapper--big">
+                                    <input type="text" class="input input--big" placeholder="link">
+                                </div>
+                           </div>
+                        </div>
+                        <div class="block__item">
+                            <div class="editor__row">
+                                <div class="editor__item">
+                                    <div class="card">
+                                        <div class="card__wrapper card__wrapper--center card__wrapper--big card__wrapper--radius--small">
+                                            <p class="editor__status text text--base text--grey">Опубликовано</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="editor__item">
+                                    <div class="card">
+                                        <a href="#" class="card__wrapper card__wrapper--center card__wrapper--big card__wrapper--radius--small">
+                                            <p class="editor__view text text--base text--grey">Предпросмотр</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="select custom-select">
+                                    <select class="select__tag" name="" id="">
+                                        <option value="">Опубликовать</option>
+                                        <option value="">Сохранить черновик</option>
+                                    </select>
+                                </div>
+                                <a href="#" class="button button--editor button--editor--green">Выполнить действие</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <script src="assets/libs/swiper/swiper.js"></script>
+    <script src="assets/scripts/index.js"></script>
+</body>
+
+</html>

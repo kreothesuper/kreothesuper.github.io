@@ -1,3 +1,96 @@
+const selectInit = () => {
+    const selectArray = document.querySelectorAll('.custom-select');
+
+    if (selectArray.length > 0) {
+        selectArray.forEach((element, index) => {
+            const selectTag = element.querySelector('select'),
+                selectOption = selectTag.querySelectorAll('option');
+
+            const selectWrapper = document.createElement('div'),
+                selectLabel = document.createElement('div'),
+                selectItemList = document.createElement('div'),
+                selectLabelSpan = document.createElement('span');
+
+            const selectItemArray = [];
+
+            selectWrapper.classList.add('select__wrapper');
+
+            selectLabel.classList.add('select__label');
+            selectLabelSpan.classList.add('select__name');
+
+            selectLabelSpan.textContent = selectTag[selectTag.selectedIndex].textContent;
+            selectLabel.append(selectLabelSpan);
+
+            selectItemList.classList.add('select__content', 'select__content--hidden')
+
+            selectWrapper.append(selectLabel);
+            element.append(selectWrapper);
+
+            selectOption.forEach((element, index) => {
+                const selectItem = document.createElement('div');
+
+                selectItem.classList.add('select__item');
+                selectItem.textContent = element.textContent;
+
+                // Check if the delegated event is triggered properly
+                selectItem.addEventListener('click', (e) => {
+                    const selectItemTag = e.target.closest('.select').querySelector('select'),
+                        selectItemOptions = selectItemTag.querySelectorAll('option');
+
+
+                    selectItemOptions.forEach((element, index) => {
+                        if (element.textContent === selectItem.textContent) {
+                            selectItemTag.selectedIndex = index;
+                            selectLabelSpan.textContent = element.textContent;
+
+                            // Trigger change event when selectIndex is changed
+                            const event = new Event('change', { bubbles: true });
+                            selectItemTag.dispatchEvent(event);
+                        }
+                    });
+
+                    selectLabel.click();
+                });
+
+                selectItemArray.push(selectItem);
+                selectItemList.append(selectItem);
+            });
+
+            selectWrapper.append(selectItemList);
+
+            // Check if the click event is properly handled
+            selectLabel.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                closeAllSelect(selectLabel);
+                window.innerHeight - selectItemList.getBoundingClientRect().bottom < 100 ? (selectItemList.classList.add('select__content--top'), selectLabel.classList.add('select__label--top')) : (selectItemList.classList.remove('select__content--top'), selectLabel.classList.remove('select__label--top'))
+
+                selectItemList.classList.toggle('select__content--hidden');
+                selectLabel.classList.toggle('select__label--active');
+                element.classList.toggle('select--active');
+            });
+
+            selectTag.addEventListener('change', () => {
+                const selectItemOptions = selectTag.options,
+                    selectedItem = selectItemOptions[selectTag.selectedIndex];
+
+                selectLabelSpan.textContent = selectedItem.textContent;
+            })
+        });
+
+        document.addEventListener('click', closeAllSelect);
+    }
+}
+
+const closeAllSelect = (select) => {
+    const selectContentArray = document.querySelectorAll('.select__content'),
+        selectLabelArray = document.querySelectorAll('.select__label');
+
+    selectLabelArray.forEach((element, index) => {
+        element !== select ? (element.classList.remove('select__label--active'), selectContentArray[index].classList.add('select__content--hidden')) : null;
+    });
+}
+
 const checkTargetOrKey = event => {
     if (
         event.target.classList.contains('popup__wrapper') ||
@@ -77,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const aside = document.querySelector('.aside');
 
     if (burger && aside) {
-        burger.addEventListener('click',(e)=>{
+        burger.addEventListener('click', (e) => {
             e.preventDefault();
 
             burger.classList.toggle('burger--active');
@@ -87,9 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const filter = document.querySelector('.filter');
 
-    if(filter){
-        filter.addEventListener('click',(e)=>{
-            if(e.target.classList.contains('filter__link') || e.target.classList.contains('filter')){
+    if (filter) {
+        filter.addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter__link') || e.target.classList.contains('filter')) {
                 e.preventDefault();
                 filter.classList.toggle('filter--active');
             }
@@ -187,4 +280,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+    const editorBlockArray = document.querySelectorAll('.js-editor');
+
+    if (editorBlockArray.length) {
+        editorBlockArray.forEach(editorBlock => {
+            const editorLink = editorBlock.querySelector('.js-editor-link');
+
+            editorLink.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                editorBlock.classList.toggle('active');
+            });
+        });
+    }
+
+    selectInit();
 });
