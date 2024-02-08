@@ -35,7 +35,8 @@ const selectInit = () => {
                 // Check if the delegated event is triggered properly
                 selectItem.addEventListener('click', (e) => {
                     const selectItemTag = e.target.closest('.select').querySelector('select'),
-                        selectItemOptions = selectItemTag.querySelectorAll('option');
+                        selectItemOptions = selectItemTag.querySelectorAll('option'),
+                        selectItems = e.target.closest('.select').querySelectorAll('.select__item');
 
 
                     selectItemOptions.forEach((element, index) => {
@@ -43,16 +44,31 @@ const selectInit = () => {
                             selectItemTag.selectedIndex = index;
                             selectLabelSpan.textContent = element.textContent;
 
+                            selectItems.forEach((item,itemIndex)=>{
+                                if(itemIndex === index){
+                                    item.classList.add('select__item--hidden')
+                                }else{
+                                    item.classList.remove('select__item--hidden');
+                                }
+                            });
+                        
                             // Trigger change event when selectIndex is changed
                             const event = new Event('change', { bubbles: true });
                             selectItemTag.dispatchEvent(event);
                         }
                     });
-
                     selectLabel.click();
                 });
 
                 selectItemArray.push(selectItem);
+                const selectItems = selectItemList.querySelectorAll('.select__item');
+                selectItems.forEach((item,itemIndex)=>{
+                    if(itemIndex === selectTag.selectedIndex){
+                        item.classList.add('select__item--hidden')
+                    }else{
+                        item.classList.remove('select__item--hidden');
+                    }
+                });
                 selectItemList.append(selectItem);
             });
 
