@@ -81,9 +81,10 @@ var selectInit = function selectInit() {
       element.append(selectWrapper);
       selectOption.forEach(function (element, index) {
         var selectItem = document.createElement('div');
+        var selectSpan = document.createElement('span');
         selectItem.classList.add('select__item');
-        selectItem.textContent = element.textContent;
-
+        selectSpan.textContent = element.textContent;
+        selectItem.append(selectSpan);
         // Check if the delegated event is triggered properly
         selectItem.addEventListener('click', function (e) {
           var selectItemTag = e.target.closest('.select').querySelector('select'),

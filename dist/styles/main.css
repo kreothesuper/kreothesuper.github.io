@@ -213,7 +213,6 @@ body {
 .content {
   display: flex;
   align-items: stretch;
-  overflow: hidden;
 }
 
 .content__wrapper {
@@ -440,6 +439,12 @@ body {
   background: linear-gradient(0, #2a243e, #342f45);
   font-weight: 700;
   color: #fff;
+  transition: 0.3s opacity;
+}
+
+.date-input__wrapper:hover,
+.country-input__wrapper:hover {
+  opacity: 0.8;
 }
 
 .date-input__icon,
@@ -673,6 +678,25 @@ body {
 .button--green {
   color: #fff;
   background: linear-gradient(160deg, rgba(38, 54, 69, 0.4) 10%, #1B836A);
+  position: relative;
+  overflow: hidden;
+}
+
+.button--green::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+
+.button--green:hover::before {
+  opacity: 1;
 }
 
 .text {
@@ -782,6 +806,11 @@ body {
   cursor: pointer;
 }
 
+.select__name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .select__item {
   border-radius: 0;
   width: 100%;
@@ -792,12 +821,26 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.select__item span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.select__item:hover {
+  cursor: pointer;
+  background: #5e5a75;
+}
+
 .select__label {
   display: flex;
   align-items: center;
   gap: 20px;
   border-bottom: 1px solid transparent;
-  transition: 0.3s border-color, 0.3s border-radius;
+  transition: 0.3s border-color, 0.3s border-radius, 0.3s opacity;
+}
+
+.select__label:hover {
+  opacity: 0.8;
 }
 
 .select__label::after {
@@ -1086,12 +1129,14 @@ body {
   background: rgba(33, 203, 133, 0.04);
   border-radius: 20px;
   border: 1px solid #21cb85;
+  transition: 0.3s background;
 }
 
 .promo-button__icon {
   width: 22px;
   height: 22px;
   fill: #21cb85;
+  transition: 0.3s fill;
 }
 
 .promo-button__text {
@@ -1100,6 +1145,14 @@ body {
   font-family: "Magistral Extra", sans-serif;
   font-weight: 700;
   color: #fff;
+}
+
+.promo-button:hover .promo-button__icon {
+  fill: #fff;
+}
+
+.promo-button:hover {
+  background: #21cb85;
 }
 
 .promo__title {
@@ -1199,6 +1252,8 @@ body {
   text-transform: uppercase;
   background-color: #774ce7;
   border-radius: 20px;
+  border: 1px solid #774ce7;
+  transition: 0.3s background;
 }
 
 .hero-button__icon {
@@ -1206,6 +1261,10 @@ body {
   height: 28px;
   flex-shrink: 0;
   fill: #fff;
+}
+
+.hero-button:hover {
+  background: transparent;
 }
 
 .advantages__wrapper {
@@ -1563,6 +1622,7 @@ body {
   gap: 16px;
   padding: 20px 0 20px 50px;
   position: relative;
+  border-radius: 0 20px 20px 0;
   fill: #4d4669;
 }
 
@@ -1579,9 +1639,12 @@ body {
   transition: 0.3s opacity;
 }
 
+.aside-link:hover {
+  background: linear-gradient(90deg, rgba(75, 58, 122, 0.6), rgba(46, 40, 68, 0.6));
+}
+
 .aside-link--active {
   background: linear-gradient(90deg, rgba(75, 58, 122, 0.6), rgba(46, 40, 68, 0.6));
-  border-radius: 0 20px 20px 0;
   fill: #8d64f7;
 }
 
@@ -2191,6 +2254,11 @@ body {
   position: relative;
   transition: 0.3s background;
   overflow: hidden;
+  transition: 0.3s opacity;
+}
+
+.balance-nav__link:hover {
+  opacity: 0.7;
 }
 
 .balance-nav__link::before {
@@ -2267,10 +2335,16 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  transition: 0.3s background;
 }
 
 .balance-table__link::after {
   transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.balance-table__link:hover::before,
+.balance-table__link:hover::after {
+  background: #fff;
 }
 
 .balance-tabs {
@@ -2293,6 +2367,11 @@ body {
   height: 70px;
   padding: 0 0 0 25px;
   position: relative;
+  transition: 0.3s opacity;
+}
+
+.payments-nav__link:hover {
+  opacity: 0.8;
 }
 
 .payments-nav__link::before {
@@ -2524,6 +2603,11 @@ body {
 
 .login__link a {
   color: #8d64f7;
+  transition: 0.3s opacity;
+}
+
+.login__link:hover a {
+  opacity: 0.8;
 }
 
 .login__content {
