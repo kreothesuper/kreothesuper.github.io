@@ -532,6 +532,9 @@ body {
 .content__wrapper--editor {
   max-width: 1150px;
 }
+.content__wrapper--letter {
+  max-width: 600px;
+}
 @media screen and (max-width: 767px) {
   .content__wrapper {
     gap: 70px;
@@ -1731,4 +1734,70 @@ body {
 }
 .select__item--hidden {
   display: none;
+}
+
+.copy__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+.copy-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.copy__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  fill: #D9D9D9;
+  transition: 0.3s fill;
+}
+.copy__link:hover {
+  fill: #F0F0F0;
+}
+.copy__icon {
+  width: 100%;
+  height: 100%;
+}
+
+.table {
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+  background: #fff;
+}
+.table__row {
+  display: grid;
+  grid-template-columns: 186px minmax(0, 1fr);
+}
+.table__row:not(:last-child) {
+  border-bottom: 1px solid #f3f3f3;
+}
+.table__column {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.table__column:not(:last-child) {
+  border-right: 1px solid #f3f3f3;
+}
+
+.letter-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.letter-status::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  display: block;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--status-color);
 }/*# sourceMappingURL=index.css.map */

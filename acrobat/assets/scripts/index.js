@@ -44,14 +44,14 @@ const selectInit = () => {
                             selectItemTag.selectedIndex = index;
                             selectLabelSpan.textContent = element.textContent;
 
-                            selectItems.forEach((item,itemIndex)=>{
-                                if(itemIndex === index){
+                            selectItems.forEach((item, itemIndex) => {
+                                if (itemIndex === index) {
                                     item.classList.add('select__item--hidden')
-                                }else{
+                                } else {
                                     item.classList.remove('select__item--hidden');
                                 }
                             });
-                        
+
                             // Trigger change event when selectIndex is changed
                             const event = new Event('change', { bubbles: true });
                             selectItemTag.dispatchEvent(event);
@@ -62,10 +62,10 @@ const selectInit = () => {
 
                 selectItemArray.push(selectItem);
                 const selectItems = selectItemList.querySelectorAll('.select__item');
-                selectItems.forEach((item,itemIndex)=>{
-                    if(itemIndex === selectTag.selectedIndex){
+                selectItems.forEach((item, itemIndex) => {
+                    if (itemIndex === selectTag.selectedIndex) {
                         item.classList.add('select__item--hidden')
-                    }else{
+                    } else {
                         item.classList.remove('select__item--hidden');
                     }
                 });
@@ -98,6 +98,7 @@ const selectInit = () => {
     }
 }
 
+
 const closeAllSelect = (select) => {
     const selectContentArray = document.querySelectorAll('.select__content'),
         selectLabelArray = document.querySelectorAll('.select__label');
@@ -106,6 +107,15 @@ const closeAllSelect = (select) => {
         element !== select ? (element.classList.remove('select__label--active'), selectContentArray[index].classList.add('select__content--hidden')) : null;
     });
 }
+
+const copyText = (text) => {
+    const tempElement = document.createElement("textarea");  
+    tempElement.value = text;  
+    document.body.appendChild(tempElement);  
+    tempElement.select();  
+    document.execCommand("copy");  
+    document.body.removeChild(tempElement);  
+  }
 
 const checkTargetOrKey = event => {
     if (
@@ -312,4 +322,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     selectInit();
+
+
+
+    const copyArray = document.querySelectorAll('.copy');
+
+    if(copyArray.length){
+        copyArray.forEach(copy=>{
+            const copyText = copy.querySelector('.copy-text').textContent;
+            const copyLink = copy.querySelector('.copy__link');
+
+            copyLink.addEventListener('click',(e)=>{
+                e.preventDefault();
+
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(copyText).then(() => {});
+                } else {
+                    copyText(copyText);
+                }
+            });
+        });
+    }
 });
