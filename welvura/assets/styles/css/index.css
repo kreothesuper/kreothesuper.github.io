@@ -38,6 +38,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #212335;
   font-family: var(--font-main);
@@ -252,17 +256,17 @@ body {
     margin: 90px 0 0 0;
   }
 }
-@media screen and (max-width: 991px) {
-  .section__wrapper {
-    padding: 50px 0;
-  }
-}
 .section__header {
   margin: 0 0 45px 0;
 }
 .section__header--small {
   max-width: 400px;
   width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .section__header--small {
+    max-width: 280px;
+  }
 }
 @media screen and (max-width: 991px) {
   .section__header--video {
@@ -1288,4 +1292,265 @@ body {
 }
 .video--active .icon {
   background: url("../../images/icons/pause.svg") center center/contain no-repeat;
+}
+
+.steps__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.steps__wrapper::before {
+  content: "";
+  width: 150px;
+  height: 150px;
+  display: block;
+  position: absolute;
+  top: -30px;
+  left: calc(50% - 175px);
+  transform: rotate(-170deg);
+  background: url("../../images/decor/triangle-blue.webp") center center/contain no-repeat;
+}
+@media screen and (max-width: 991px) {
+  .steps__wrapper::before {
+    transform: rotate(173deg);
+    right: -53px;
+    left: unset;
+    top: -69px;
+  }
+}
+.steps__wrapper::after {
+  content: "";
+  width: 340px;
+  height: 340px;
+  display: block;
+  position: absolute;
+  transform: rotate(32deg);
+  top: calc(50% - 170px);
+  right: calc(50% - 250px);
+  background: url("../../images/decor/triangle-red.webp") center center/contain no-repeat;
+}
+@media screen and (max-width: 991px) {
+  .steps__wrapper::after {
+    width: 172px;
+    height: 172px;
+    transform: rotate(-160deg);
+    right: -76px;
+    top: 260px;
+  }
+}
+.steps__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.steps__row:last-child {
+  position: relative;
+  z-index: 4;
+}
+@media screen and (max-width: 991px) {
+  .steps__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 45px;
+  }
+  .steps__row:nth-child(2) {
+    position: relative;
+    z-index: 4;
+  }
+}
+@media screen and (max-width: 991px) {
+  .steps__row:nth-child(odd) .steps-block__content {
+    align-items: flex-start;
+  }
+  .steps__row:nth-child(odd) .steps-block::before {
+    left: -20px;
+    border-radius: 0 120px 120px 0;
+    width: calc(100vw - 20px);
+  }
+}
+@media screen and (max-width: 991px) {
+  .steps__row .steps-block__content {
+    align-items: flex-end;
+  }
+  .steps__row .steps-block::before {
+    right: -20px;
+    left: unset;
+    border-radius: 120px 0 0 120px;
+    width: calc(100vw - 20px);
+  }
+}
+.steps-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 430px;
+  width: 100%;
+  padding: 115px 0 0 0;
+  position: relative;
+}
+.steps-content::before {
+  content: "";
+  width: 163px;
+  height: 190px;
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  right: -100px;
+  background: url("../../images/decor/cubeAndFish.webp") center center/contain no-repeat;
+}
+@media screen and (max-width: 991px) {
+  .steps-content {
+    grid-row-start: 2;
+    padding-top: 0;
+  }
+  .steps-content::before {
+    width: 130px;
+    height: 150px;
+    bottom: unset;
+    top: -30px;
+    right: -50px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .steps-content__title {
+    max-width: 350px;
+    width: 100%;
+  }
+}
+.steps-block {
+  position: relative;
+  padding: 45px 0;
+  height: -moz-max-content;
+  height: max-content;
+}
+.steps-block::before {
+  content: "";
+  position: absolute;
+  width: calc(100% + 160px);
+  height: 100%;
+  left: -100px;
+  top: 0;
+  border-radius: 150px;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  background: linear-gradient(135deg, rgba(52, 102, 251, 0.14) 0%, rgba(52, 102, 251, 0.06) 33.33%, rgba(52, 102, 251, 0.2) 66.67%, rgba(52, 102, 251, 0.04) 100%);
+  z-index: 0;
+}
+.steps-block--small::before {
+  width: calc(100% + 100px);
+}
+.steps-block__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.steps-block__img {
+  position: absolute;
+  z-index: 3;
+}
+.steps-block__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.steps-block__img--tg {
+  width: 160px;
+  height: 230px;
+  right: 0;
+  top: -40px;
+}
+@media screen and (max-width: 991px) {
+  .steps-block__img--tg {
+    width: 120px;
+    height: 170px;
+    top: -30px;
+    right: 30px;
+  }
+}
+.steps-block__img--phone {
+  width: 170px;
+  height: 230px;
+  right: 60px;
+  top: -70px;
+  transform: rotate(-10deg);
+}
+@media screen and (max-width: 991px) {
+  .steps-block__img--phone {
+    width: 106px;
+    height: 146px;
+    top: calc(50% - 73px);
+    right: unset;
+    left: -40px;
+  }
+}
+.steps-block__img--cookie {
+  width: 420px;
+  height: 420px;
+  right: -60px;
+  top: -240px;
+  transform: rotate(-170deg);
+}
+@media screen and (max-width: 991px) {
+  .steps-block__img--cookie {
+    transform: rotate(0deg) scale(1, -1);
+    width: 260px;
+    height: 260px;
+    top: -33px;
+    right: -100px;
+  }
+}
+.steps-block__title {
+  font-size: 26px;
+  font-weight: 400;
+  color: #Fff;
+  line-height: 1.2;
+  max-width: 400px;
+  width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .steps-block__title {
+    font-size: 20px;
+    max-width: 210px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .steps-block__title--middle {
+    max-width: 265px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .steps-block__title--big {
+    max-width: 235px;
+  }
+}
+.steps-block__text {
+  font-size: 20px;
+  line-height: 1.2;
+  color: #4f7bff;
+  font-weight: 400;
+  max-width: 330px;
+  width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .steps-block__text {
+    font-size: 16px;
+  }
+}
+.steps-block__text--big {
+  max-width: 415px;
+}
+@media screen and (max-width: 991px) {
+  .steps-block__text--big {
+    max-width: 220px;
+  }
+}
+.steps-block__text--middle {
+  max-width: 390px;
+}
+@media screen and (max-width: 991px) {
+  .steps-block__text--middle {
+    max-width: 265px;
+  }
 }/*# sourceMappingURL=index.css.map */
