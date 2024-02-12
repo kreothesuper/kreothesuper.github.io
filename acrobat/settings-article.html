@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
+
+    <link rel="stylesheet" href="assets/styles/css/fonts.css">
+
+    <link rel="stylesheet" href="assets/styles/css/reset.css">
+    <link rel="stylesheet" href="assets/styles/css/index.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <aside class="page-wrapper__aside aside">
+            <div class="aside__wrapper">
+                <div class="aside__header">
+                    <a href="#" class="aside__logo logo">
+                        <img src="assets/images/logo.svg" alt="" class="logo__img">
+                    </a>
+                    <div class="aside__burger">
+                        <div class="burger">
+                            <div class="burger__item"></div>
+                            <div class="burger__item"></div>
+                            <div class="burger__item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aside__nav">
+                    <div class="aside-block">
+                        <ul class="aside-list">
+                            <li class="aside-list__item">
+                                <a href="#" class="aside-list__link">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite.svg#settings" />
+                                    </svg>
+                                    Настройки
+                                </a>
+                            </li>
+                            <li class="aside-list__item">
+                                <a href="#" class="aside-list__link">
+                                    <svg class="icon">
+                                        <use xlink:href="assets/images/sprite.svg#media" />
+                                    </svg>
+                                   Статьи
+                                </a>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="page-wrapper__content page-wrapper__content--editor content">
+            <div class="content__wrapper content__wrapper--editor">
+                <div class="block">
+                    <div class="block__wrapper block__wrapper--big">
+                        <a href="#" class="content__back text text--small text--medium text--grey--lighter">Вернуться
+                            назад</a>
+                        <div class="settings-filter">
+                            <a href="#" class="settings-filter__button button button--base button--base--middle button--base--small--radius button--full button--white">Добавить +</a>
+                            <div class="card settings-filter__input">
+                                <div class="card__wrapper card__wrapper--radius--small">
+                                    <input type="text" class="input input--big" placeholder="Поиск...">
+                                </div>
+                           </div>
+                        </div>    
+                        <div class="block__wrapper">
+                            <div class="block__item">
+                                <div class="table table--article table-article">
+                                    <div class="table__wrapper">
+                                        <div class="table__row table__row--article">
+                                            <div class="table__column table__column--article">
+                                                <p class="text text--base text--grey">№</p>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <p class="text text--base text--grey">Обложка</p>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <p class="text text--base text--grey">Название</p>
+                                            </div>
+                                            <div class="table__column table__column--article js-editor table-filter">
+                                                <p class="text text--base text--grey js-editor-link table-filter__link">
+                                                    Категории
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#filter"/></use>
+                                                    </svg>
+                                                </p>
+                                                <div class="js-editor-block card table-filter__block">
+                                                    <div class="card__wrapper card__wrapper--big category-expanded">
+                                                        <div class="category-expanded__wrapper">
+                                                            <div class="category-expanded__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox"
+                                                                        class="category-radio__checkbox">
+                                                                    <span
+                                                                        class="category-radio__label category-radio__label--small">Бьюти</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-expanded__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox"
+                                                                        class="category-radio__checkbox">
+                                                                    <span
+                                                                        class="category-radio__label category-radio__label--small">Бьюти</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-expanded__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox"
+                                                                        class="category-radio__checkbox">
+                                                                    <span
+                                                                        class="category-radio__label category-radio__label--small">Бьюти</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-expanded__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox"
+                                                                        class="category-radio__checkbox">
+                                                                    <span
+                                                                        class="category-radio__label category-radio__label--small">Бьюти</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="category-expanded__item">
+                                                                <label class="category-radio">
+                                                                    <input type="checkbox"
+                                                                        class="category-radio__checkbox">
+                                                                    <span
+                                                                        class="category-radio__label category-radio__label--small">Бьюти</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="table__column table__column--article table-filter">
+                                                <p class="text text--base text--grey table-filter__link">
+                                                    Дата
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#sort"/></use>
+                                                    </svg>
+                                                </p>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <p class="text text--base text--grey">Статус</p>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <p class="text text--base text--grey">Действия</p>
+                                            </div>
+                                        </div>
+                                        <div class="table__row table__row--article">
+                                            <div class="table__column table__column--article">
+                                                <p class="text text--base text--grey">1</p>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <img src="assets/images/article/1.png" alt=""
+                                                    class="table-article__preview">
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <p class="text text--base text--grey">Кампания, которая увеличила поток
+                                                    клиентов во флагманский магазин на 11%</p>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <ul class="table-category js-list">
+                                                    <li class="table-category__item">
+                                                        <p class="text text--base text--grey">Мода</p>
+                                                    </li>
+                                                    <li class="table-category__item">
+                                                        <p class="text text--base text--grey">Тренды</p>
+                                                    </li>
+                                                    <li class="table-category__item">
+                                                        <p class="text text--base text--grey">Тренды</p>
+                                                    </li>
+                                                    <li class="table-category__item">
+                                                        <p class="text text--base text--grey">Тренды</p>
+                                                    </li>
+                                                    <li class="table-category__item">
+                                                        <p class="text text--base text--grey">Тренды</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <p class="text text--base text--grey">20.10.2023</p>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <p class="status" style="--status-color:#40C700"></p>
+                                            </div>
+
+                                            <div class="table__column table__column--article">
+                                                <div class="table__controls">
+                                                    <a href="#" class="table__control">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#edit" />
+                                                        </svg>
+                                                    </a>
+                                                    <a href="#" class="table__control table__control--remove">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#remove" />
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table__row table__row--article">
+                                            <div class="table__column table__column--article">
+                                                <p class="text text--base text--grey">1</p>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <img src="assets/images/article/1.png" alt=""
+                                                    class="table-article__preview">
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <p class="text text--base text--grey">Кампания, которая увеличила поток
+                                                    клиентов во флагманский магазин на 11%</p>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <ul class="table-category js-list">
+                                                    <li class="table-category__item">
+                                                        <p class="text text--base text--grey">Мода</p>
+                                                    </li>
+                                                    <li class="table-category__item">
+                                                        <p class="text text--base text--grey">Тренды</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <p class="text text--base text--grey">20.10.2023</p>
+                                            </div>
+                                            <div class="table__column table__column--article">
+                                                <p class="status" style="--status-color:#40C700"></p>
+                                            </div>
+
+                                            <div class="table__column table__column--article">
+                                                <div class="table__controls">
+                                                    <a href="#" class="table__control">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#edit" />
+                                                        </svg>
+                                                    </a>
+                                                    <a href="#" class="table__control table__control--remove">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#remove" />
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <script src="assets/libs/swiper/swiper.js"></script>
+    <script src="assets/scripts/index.js"></script>
+</body>
+
+</html>

@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(copyArray.length){
         copyArray.forEach(copy=>{
-            const copyText = copy.querySelector('.copy-text').textContent;
+            const copyText = copy.querySelector('.copy-text').textContent.trim().replace(/\s+/g, ' ');
             const copyLink = copy.querySelector('.copy__link');
 
             copyLink.addEventListener('click',(e)=>{
@@ -341,6 +341,35 @@ document.addEventListener('DOMContentLoaded', () => {
                     copyText(copyText);
                 }
             });
+        });
+    }
+
+    const listArray = document.querySelectorAll('.js-list');
+
+    if(listArray.length){
+        listArray.forEach(list=>{
+            const listChildArray = list.querySelectorAll('li');
+            const listLimit = list.dataset.count || 3;
+
+            if(listChildArray.length){
+                if(listChildArray.length >= listLimit + 1){
+                    const cloneElement = listChildArray[0].cloneNode();
+                    cloneElement.dataset.linkText = `еще ${listChildArray.length - listLimit + 1}`;
+                    cloneElement.classList.add('link');
+                    list.append(cloneElement);
+    
+                    cloneElement.addEventListener('click',(e)=>{
+                        e.preventDefault();
+                        list.classList.toggle('active');
+                    });
+                    
+                    listChildArray.forEach((listChild, listChildIndex)=>{
+                        if(listChildIndex >= listLimit - 1){
+                            listChild.classList.add('hidden');
+                        }
+                    });
+                }
+            }
         });
     }
 });
