@@ -381,20 +381,25 @@ body {
   max-width: 100%;
   position: relative;
 }
-.promo-title__block::before {
+.promo-title__block::before, .promo-title__block::after {
   content: "";
   position: absolute;
-  height: 100%;
-  width: 1920px;
+  height: 2px;
+  width: 100vw;
   left: 0;
-  top: 0;
   display: block;
-  background: url("../../images/decor/promo-bg.webp") left top/contain no-repeat;
+  background: linear-gradient(-20deg, #49CBFF 33.3333%, #FF7228 66.6667%, rgba(25, 27, 40, 0) 100%);
 }
-.promo-title__block--right::before {
-  background: url("../../images/decor/promo-bg.webp") right top/contain no-repeat;
+.promo-title__block::before {
+  top: -1px;
+}
+.promo-title__block::after {
+  bottom: -1px;
+}
+.promo-title__block--right::before, .promo-title__block--right::after {
   right: 50px;
   left: unset;
+  background: linear-gradient(20deg, #49CBFF 33.3333%, #FF7228 66.6667%, rgba(25, 27, 40, 0) 100%);
 }
 .promo-title__block--right--small::before {
   right: 100px;
