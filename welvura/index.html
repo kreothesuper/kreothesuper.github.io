@@ -7,13 +7,11 @@
     <title>welvura</title>
 
     <!-- general  -->
-    <link rel="preload" as="style" href="assets/styles/css/core.css">
-    <link rel="stylesheet" href="assets/styles/css/core.css">
+    <link rel="preload" as="style" fetchpriority="high" href="assets/styles/css/core.css">
+    <link rel="stylesheet" fetchpriority="high" href="assets/styles/css/core.css">
 
     <link rel="stylesheet" href="assets/styles/css/reset.css">
     <link rel="stylesheet" href="assets/styles/css/index.css">
-
- 
 
 
     <!-- open graph -->
@@ -138,7 +136,7 @@
                                                     class="video__play">
                                                     <span class="icon"></span>
                                                 </a>
-                                                <img src="assets/images/video/video-img.webp" alt="notebook img"
+                                                <img src="assets/images/video/video-img.webp" loading="lazy" alt="notebook img"
                                                     class="video__item">
                                             </div>
                                         </div>
@@ -510,7 +508,7 @@
                                     <picture>
                                         <source media="(max-width: 991px)" srcset="assets/images/about/about-m.webp" />
                                         <source media="(min-width: 992px)" srcset="assets/images/about/about.webp" />
-                                        <img src="assets/images/about/about.webp" alt="cookie image" />
+                                        <img loading="lazy" src="assets/images/about/about.webp" alt="cookie image" />
                                     </picture>
                                 </div>
                                 <div class="about__content">
