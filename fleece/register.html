@@ -37,54 +37,77 @@
 
 <div class="page-wrapper page-wrapper__login">
     <div class="page-wrapper__content content login">
-       <div class="content__wrapper login__wrapper">
-                <div class="login__container">
-                    <div class="login__header">
-                        <div class="login__logo logo">
-                            <img src="img/logo.webp" alt="" class="logo__img">
-                        </div>
-                        <div class="login__desc">
-                            <p class="title title--white title--uppercase login__title">Авторизация пользователя</p>
-                            <p class="text text--base text--white">
-                                Ещё нет аккаунта? <a href="register.html" class="text text--accent">Создать аккаунт ›</a>
-                            </p>
-                        </div>
+        <div class="content__wrapper login__wrapper">
+            <div class="login__container">
+                <div class="login__header">
+                    <div class="login__logo logo">
+                        <img src="img/logo.webp" alt="" class="logo__img">
                     </div>
-                    <div class="login__content">
-                        <form action="#" class="form">
-                            <div class="form__wrapper">
-                                <div class="form__content">
-                                    <label class="form-input">
-                                        <span class="form-input__label" data-error="Неверный формат">Введите E-mail</span>
-                                        <input type="email" required class="form-input__item">
-                                    </label>
-                                    <label class="form-input">
-                                        <span class="form-input__label" data-error="Обязательное поле">Введите пароль</span>
-                                        <input type="password" required minlength="3" class="form-input__item">
-                                    </label>
-                                </div>
-                                <div class="form__footer">
-                                    <div class="form__row">
-                                        <label class="form-checkbox">
-                                            <input type="checkbox" class="form-checkbox__item">
-                                            <span class="form-checkbox__checkmark"></span>
-                                            <span class="form-checkbox__label text text--base text--accent" >Запомнить меня</span>
-                                        </label>
-                                        <a href="forgot.html" class="text text--base text--white">Забыли пароль?</a>
-                                    </div>
-                                    <input type="submit" value="Авторизоваться" class="button button--base button--base--full button--full button--accent">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="login__footer">
-                        <p class="login__text">
-                            Нажимая “Регистрация” вы соглашаетесь с правилами сообщества, политикой
-                            использования файлов cookie, политикой использования AML/KYC
+                    <div class="login__desc">
+                        <p class="title title--white title--uppercase login__title">Авторизация пользователя</p>
+                        <p class="text text--base text--white">
+                            Ещё нет аккаунта? <a href="register.html" class="text text--accent">Создать аккаунт ›</a>
                         </p>
                     </div>
                 </div>
-       </div>
+                <div class="login__content">
+                    <form action="#" class="form">
+                        <div class="form__wrapper">
+                            <div class="form__content grid">
+                                <div class="grid__row">
+                                    <div class="grid__block grid__block--full">
+                                        <label class="form-input">
+                                            <span class="form-input__label" data-error="Неверный формат">Введите E-mail</span>
+                                            <input type="email" required class="form-input__item">
+                                        </label>
+                                    </div>
+                                    <div class="grid__block grid__block--middle">
+                                        <label class="form-input">
+                                            <span class="form-input__label" data-error="Неверный формат">Телефон</span>
+                                            <input type="text" required class="form-input__item">
+                                        </label>
+                                    </div>
+                                    <div class="grid__block grid__block--middle">
+                                        <label class="form-input">
+                                            <span class="form-input__label" data-error="Неверный формат">Ваше имя</span>
+                                            <input type="text" required class="form-input__item">
+                                        </label>
+                                    </div>
+                                    <div class="grid__block grid__block--middle">
+                                        <label class="form-input">
+                                            <span class="form-input__label" data-error="Неверный формат">Придумайте пароль</span>
+                                            <input type="text" required class="form-input__item">
+                                        </label>
+                                    </div>
+                                    <div class="grid__block grid__block--middle">
+                                        <label class="form-input">
+                                            <span class="form-input__label" data-error="Неверный формат">Повторите пароль</span>
+                                            <input type="text" required class="form-input__item">
+                                        </label>
+                                    </div>
+                                    <div class="grid__block grid__block--full">
+                                        <label class="form-input">
+                                            <span class="form-input__label" data-error="Неверный формат">Введите пароль</span>
+                                            <input type="text" required class="form-input__item">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__footer">
+
+                                <input type="submit" value="Создать аккаунт" class="button button--base button--base--full button--full button--accent">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="login__footer">
+                    <p class="login__text">
+                        Нажимая “Регистрация” вы соглашаетесь с правилами сообщества, политикой
+                        использования файлов cookie, политикой использования AML/KYC
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="popup popup-img">
     <div class="popup__wrapper">

@@ -142,6 +142,30 @@ var selectInit = function selectInit() {
     document.addEventListener('click', closeAllSelect);
   }
 };
+var showPopup = function showPopup(popupId) {
+  var popup = document.querySelector(popupId);
+  if (!popup) return;
+  hideAllPopups();
+  popup.classList.add('popup--active');
+  document.body.classList.add('no-scroll');
+  document.addEventListener('click', checkTargetOrKey);
+  document.addEventListener('keyup', checkTargetOrKey);
+};
+var hideAllPopups = function hideAllPopups() {
+  var popups = document.querySelectorAll('.popup');
+  popups.forEach(function (popup) {
+    popup.classList.remove('popup--active');
+  });
+  document.body.classList.remove('no-scroll');
+  document.removeEventListener('click', checkTargetOrKey);
+  document.removeEventListener('keyup', checkTargetOrKey);
+};
+var checkTargetOrKey = function checkTargetOrKey(event) {
+  if (event.target.classList.contains('popup__wrapper') || event.key === 'Escape' || event.target.closest('.popup__close')) {
+    event.preventDefault();
+    hideAllPopups();
+  }
+};
 var closeAllSelect = function closeAllSelect(select) {
   var selectContentArray = document.querySelectorAll('.select__content'),
     selectLabelArray = document.querySelectorAll('.select__label');
@@ -159,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!formInputArray.length) return;
       formInputArray.forEach(function (formInput) {
         var input = formInput.querySelector('input');
+        if (!input) return;
         input.addEventListener('input', function () {
           formInput.classList.remove('form-input--error');
         });
@@ -216,6 +241,15 @@ document.addEventListener('DOMContentLoaded', function () {
       faqItemHeader.addEventListener('click', function (e) {
         e.preventDefault();
         faqItem.classList.toggle('faq-item--active');
+      });
+    });
+  }
+  var popupButtonArray = document.querySelectorAll('[data-popup]');
+  if (popupButtonArray.length) {
+    popupButtonArray.forEach(function (button) {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        showPopup("".concat(button.dataset.popup));
       });
     });
   }

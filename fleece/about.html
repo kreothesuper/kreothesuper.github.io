@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li class="aside-list__item">
-                            <a href="#" class="aside-list__link">
+                            <a href="profile.html" class="aside-list__link">
                                 <svg class="icon">
                                     <use xlink:href="img/sprites/sprite.svg#profile"></use>
                                 </svg>
@@ -127,7 +127,7 @@
                             </a>
                         </li>
                         <li class="aside-list__item">
-                            <a href="#" class="aside-list__link">
+                            <a href="contracts.html" class="aside-list__link">
                                 <svg class="icon">
                                     <use xlink:href="img/sprites/sprite.svg#pen"></use>
                                 </svg>
@@ -352,9 +352,9 @@
             </div>
             <div class="header-profile">
                 <div class="header-profile__wrapper">
-                    <div class="header-profile__img">
+                    <a href="profile.html" class="header-profile__img">
                         <img src="img/profile.jpg" alt="">
-                    </div>
+                    </a>
                     <div class="header-profile__name">
                         <p class="text text--white text--bold">Maxim Dorov</p>
                     </div>
@@ -417,7 +417,116 @@
             </div>
         </div>
     </div>
-    
+    <div class="popup popup-img">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--img">
+            <a href="#" class="popup__close">
+            </a>
+            <div class="popup__box">
+                <div class="img-popup">
+                    <div class="img-popup__header">
+                        <svg class="icon">
+                            <use xlink:href="img/sprites/sprite.svg#images"></use>
+                        </svg>
+                    </div>
+                    <div class="img-popup__text">
+                        <p class="text text--base text--center text--white">
+                            Размер аватарки не должен превышать <span class="text text--bold text--accent">600 Кб</span>
+                        </p>
+                        <p class="text text--base text--center text--white">
+                            Рекомендованое разрешение <span class="text text--bold text--accent">200х200 px</span>
+                        </p>
+                    </div>
+                    <div class="img-popup__footer">
+                        <label class="form-file">
+                            <input type="file" required class="form-file__item">
+                            <span class="form-file__checkmark">
+                                        <svg class="icon">
+                                            <use xlink:href="img/sprites/sprite.svg#upload"></use>
+                                        </svg>
+                                    </span>
+                            <span class="form-file__success">
+                                         <svg class="icon">
+                                            <use xlink:href="img/sprites/sprite.svg#check-solid"></use>
+                                        </svg>
+                                        файл загружен
+                                    </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-congratulations">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--congratulations">
+            <a href="#" class="popup__close">
+            </a>
+            <div class="popup__box">
+                <div class="congratulations">
+                    <div class="congratulations__img">
+                        <img src="img/congratulations.png" alt="">
+                    </div>
+                    <div class="congratulations__text">
+                        <p class="title title--base title--center title--accent">
+                            Поздравляем!
+                        </p>
+                        <p class="text text--big text--center text--white">
+                            Вы успешно верефицировали аккаунт и можете приступать к покупке контрактов
+                        </p>
+                    </div>
+                    <div class="congratulations__footer">
+                        <a href="contracts.html" class="button button--base button--transparent">ПЕРЕЙТИ НА СТРАНИЦУ КОНТРАКТОВ ›</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-calc">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--calc">
+            <a href="#" class="popup__close">
+            </a>
+            <div class="popup__box">
+                <div class="popup-calc__content">
+                    <div class="popup-calc__header">
+                        <p class="text text--big text--white text--center">Рассчёт по вашим параметрам</p>
+                    </div>
+                    <div class="popup-calc__list">
+                       <div class="popup-calc__row">
+                           <p class="text text--base text--bold text--white">
+                               Сумма всех пополнений
+                           </p>
+                           <p class="text text--base text--bold text--accent">
+                               $ 5.980
+                           </p>
+                       </div>
+                        <div class="popup-calc__row">
+                            <p class="text text--base text--bold text--white">
+                                Итоговая сумма
+                            </p>
+                            <p class="text text--base text--bold text--accent">
+                                $ 70.360
+                            </p>
+                        </div>
+                        <div class="popup-calc__row">
+                            <p class="text text--base  text--bold text--white">
+                                Общий доход
+                            </p>
+                            <p class="text text--base text--bold text--accent">
+                                $ 6.445
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 <script src="js/vendor.js"></script>
