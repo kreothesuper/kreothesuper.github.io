@@ -21,9 +21,9 @@ const selectInit = () => {
             selectLabelSpan.textContent = selectTag[selectTag.selectedIndex].textContent;
             selectLabel.append(selectLabelSpan);
 
-            if(selectTag[selectTag.selectedIndex].hidden) {
+            if (selectTag[selectTag.selectedIndex].hidden) {
                 selectLabel.classList.add('select__label--disabled')
-            }else{
+            } else {
                 selectLabel.classList.remove('select__label--disabled')
 
             }
@@ -42,7 +42,7 @@ const selectInit = () => {
 
                 selectItem.append(selectSpan);
 
-                if(element.hidden){
+                if (element.hidden) {
                     selectItem.classList.add('select__item--disabled');
                 }
 
@@ -58,7 +58,7 @@ const selectInit = () => {
                             selectItemTag.selectedIndex = index;
                             selectLabelSpan.textContent = element.textContent;
 
-        
+
 
                             selectItems.forEach((item, itemIndex) => {
                                 if (itemIndex === index) {
@@ -105,11 +105,23 @@ const selectInit = () => {
             selectTag.addEventListener('change', () => {
                 const selectItemOptions = selectTag.options,
                     selectedItem = selectItemOptions[selectTag.selectedIndex];
-        
+
                 selectLabelSpan.textContent = selectedItem.textContent;
-                if(selectedItem.hidden) {
+                if (selectedItem.hidden) {
                     selectLabel.classList.add('select__label--disabled')
-                }else{
+                } else {
+                    selectLabel.classList.remove('select__label--disabled')
+
+                }
+            })
+            selectTag.addEventListener('reset', () => {
+                const selectItemOptions = selectTag.options,
+                    selectedItem = selectItemOptions[0]; 
+
+                selectLabelSpan.textContent = selectedItem.textContent;
+                if (selectedItem.hidden) {
+                    selectLabel.classList.add('select__label--disabled')
+                } else {
                     selectLabel.classList.remove('select__label--disabled')
 
                 }
@@ -163,13 +175,13 @@ const closeAllSelect = (select) => {
 }
 
 const copyText = (text) => {
-    const tempElement = document.createElement("textarea");  
-    tempElement.value = text;  
-    document.body.appendChild(tempElement);  
-    tempElement.select();  
-    document.execCommand("copy");  
-    document.body.removeChild(tempElement);  
-  }
+    const tempElement = document.createElement("textarea");
+    tempElement.value = text;
+    document.body.appendChild(tempElement);
+    tempElement.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempElement);
+}
 
 const checkTargetOrKey = event => {
     if (
@@ -367,10 +379,10 @@ document.addEventListener('DOMContentLoaded', () => {
         editorBlockArray.forEach(editorBlock => {
             const editorLinkArray = editorBlock.querySelectorAll('.js-editor-link');
 
-            editorLinkArray.forEach(editorLink=>{
+            editorLinkArray.forEach(editorLink => {
                 editorLink.addEventListener('click', (e) => {
                     e.preventDefault();
-    
+
                     editorBlock.classList.toggle('active');
                 });
             });
@@ -385,16 +397,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const copyArray = document.querySelectorAll('.copy');
 
-    if(copyArray.length){
-        copyArray.forEach(copy=>{
+    if (copyArray.length) {
+        copyArray.forEach(copy => {
             const copyText = copy.querySelector('.copy-text').textContent.trim().replace(/\s+/g, ' ');
             const copyLink = copy.querySelector('.copy__link');
 
-            copyLink.addEventListener('click',(e)=>{
+            copyLink.addEventListener('click', (e) => {
                 e.preventDefault();
 
                 if (navigator.clipboard) {
-                    navigator.clipboard.writeText(copyText).then(() => {});
+                    navigator.clipboard.writeText(copyText).then(() => { });
                 } else {
                     copyText(copyText);
                 }
@@ -404,30 +416,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const listArray = document.querySelectorAll('.js-list');
 
-    if(listArray.length){
-        listArray.forEach(list=>{
+    if (listArray.length) {
+        listArray.forEach(list => {
             const listChildArray = list.querySelectorAll('li');
             const listLimit = list.dataset.count || 3;
 
-            if(listChildArray.length){
-                if(listChildArray.length >= listLimit + 1){
+            if (listChildArray.length) {
+                if (listChildArray.length >= listLimit + 1) {
                     const cloneElement = listChildArray[0].cloneNode();
                     cloneElement.dataset.linkText = `еще ${listChildArray.length - listLimit + 1}`;
                     cloneElement.classList.add('link');
                     list.append(cloneElement);
-    
-                    cloneElement.addEventListener('click',(e)=>{
+
+                    cloneElement.addEventListener('click', (e) => {
                         e.preventDefault();
                         list.classList.toggle('active');
                     });
-                    
-                    listChildArray.forEach((listChild, listChildIndex)=>{
-                        if(listChildIndex >= listLimit - 1){
+
+                    listChildArray.forEach((listChild, listChildIndex) => {
+                        if (listChildIndex >= listLimit - 1) {
                             listChild.classList.add('hidden');
                         }
                     });
                 }
             }
+        });
+    }
+
+    const adminFilterArray = document.querySelectorAll('.admin-filter');
+
+
+    if (adminFilterArray.length) {
+        function isAnyInputFilled(inputs) {
+            for (let input of inputs) {
+                if ((input.type === 'checkbox' || input.type === 'radio') && input.checked) {
+                    return true;
+                } else if (input.tagName === 'SELECT' && input.value !== '') {
+                    return true;
+                } else if (input.tagName === 'INPUT' && input.value.trim() !== '') {
+                    return true;
+                }
+            }
+            return false;
+        }
+        adminFilterArray.forEach(adminFilter => {
+            const inputs = adminFilter.querySelectorAll('input, select');
+            const submit = adminFilter.querySelector("[type='submit']");
+
+            isAnyInputFilled(inputs) ? submit.classList.remove('button--disabled') : submit.classList.add('button--disabled');
+
+            adminFilter.addEventListener('change', () => {
+                isAnyInputFilled(inputs) ? submit.classList.remove('button--disabled') : submit.classList.add('button--disabled');
+            })
+
+           
+            adminFilter.addEventListener('reset', () => {
+                const selectArray = adminFilter.querySelectorAll('select');
+
+                if (selectArray.length) {
+                    selectArray.forEach(select => {
+                        const event = new Event('reset', { bubbles: true });
+                        select.dispatchEvent(event);
+                    });
+                }
+            })
         });
     }
 });

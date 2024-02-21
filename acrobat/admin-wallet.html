@@ -99,16 +99,18 @@
                             <div class="block__item block js-editor editor active">
                                 <div class="card">
                                     <form action="#"
-                                        class="card__wrapper card__wrapper--radius--small card__wrapper--big block__wrapper">
+                                        class="card__wrapper card__wrapper--radius--middle card__wrapper--big block__wrapper admin-filter">
                                         <div
-                                            class="block__header block__header--between block__header--gap--big js-editor-link ">
-                                            <p class="text text--tiny text--grey editor-block__link">Фильтры</p>
-                                            <a href="#" class="text text--red text--tiny block__link">Сбросить все
-                                                фильтры</a>
+                                            class="block__header block__header--between block__header--gap--big  ">
+                                            <p class="text text--tiny text--grey editor-block__link editor-block__link--mobile--between js-editor-link">Фильтры</p>
+                                                <button type="reset" class="text text--red text--tiny block__link">
+                                                    Сбросить все
+                                                    фильтры
+                                                </button>
                                         </div>
                                         <div
                                             class="block__content js-editor-block editor-block__content editor-block__content--small">
-                                            <div class="admin-filter">
+                                            <div class="admin-filter__list">
                                                 <label
                                                     class="input-wrapper admin-filter__item admin-filter__item--small ">
                                                     <p class="text text--tiny text--grey--light">id пользователя</p>
@@ -124,8 +126,8 @@
                                                     <div class="select select--input custom-select">
                                                         <select class="select__tag" name="" id="">
                                                             <option hidden value="">Выбрать</option>
-                                                            <option value="">Опубликовать</option>
-                                                            <option value="">Сохранить черновик</option>
+                                                            <option value="1">Опубликовать</option>
+                                                            <option value="1">Сохранить черновик</option>
                                                         </select>
                                                     </div>
                                                 </label>
@@ -139,8 +141,8 @@
                                                     <div class="select select--input custom-select">
                                                         <select class="select__tag" name="" id="">
                                                             <option hidden value="">Выбрать</option>
-                                                            <option value="">Опубликовать</option>
-                                                            <option value="">Сохранить черновик</option>
+                                                            <option value="1">Опубликовать</option>
+                                                            <option value="1">Сохранить черновик</option>
                                                         </select>
                                                     </div>
                                                 </label>
@@ -149,8 +151,8 @@
                                                     <div class="select select--input custom-select">
                                                         <select class="select__tag" name="" id="">
                                                             <option hidden value="">Выбрать</option>
-                                                            <option value="">Опубликовать</option>
-                                                            <option value="">Сохранить черновик</option>
+                                                            <option value="1">Опубликовать</option>
+                                                            <option value="1">Сохранить черновик</option>
                                                         </select>
                                                     </div>
                                                 </label>
@@ -165,8 +167,8 @@
                                                     <div class="select select--input custom-select">
                                                         <select class="select__tag" name="" id="">
                                                             <option hidden value="">Выбрать</option>
-                                                            <option value="">Опубликовать</option>
-                                                            <option value="">Сохранить черновик</option>
+                                                            <option value="1">Опубликовать</option>
+                                                            <option value="1">Сохранить черновик</option>
                                                         </select>
                                                     </div>
                                                 </label>
@@ -176,8 +178,8 @@
                                                     <div class="select select--input custom-select">
                                                         <select class="select__tag" name="" id="">
                                                             <option hidden value="">Выбрать</option>
-                                                            <option value="">Опубликовать</option>
-                                                            <option value="">Сохранить черновик</option>
+                                                            <option value="1">Опубликовать</option>
+                                                            <option value="1">Сохранить черновик</option>
                                                         </select>
                                                     </div>
                                                 </label>
@@ -187,8 +189,8 @@
                                                     <div class="select select--input custom-select">
                                                         <select class="select__tag" name="" id="">
                                                             <option hidden value="">Выбрать</option>
-                                                            <option value="">Опубликовать</option>
-                                                            <option value="">Сохранить черновик</option>
+                                                            <option value="1">Опубликовать</option>
+                                                            <option value="1">Сохранить черновик</option>
                                                         </select>
                                                     </div>
                                                 </label>
@@ -198,8 +200,8 @@
                                                     <div class="select select--input custom-select">
                                                         <select class="select__tag" name="" id="">
                                                             <option hidden value="">Выбрать</option>
-                                                            <option value="">Опубликовать</option>
-                                                            <option value="">Сохранить черновик</option>
+                                                            <option value="1">Опубликовать</option>
+                                                            <option value="1">Сохранить черновик</option>
                                                         </select>
                                                     </div>
                                                 </label>
@@ -214,17 +216,19 @@
                                                 <div class="select select--input custom-select">
                                                     <select class="select__tag" name="" id="">
                                                         <option hidden value="">Выбрать</option>
-                                                        <option value="">Опубликовать</option>
-                                                        <option value="">Сохранить черновик</option>
+                                                        <option value="1">Опубликовать</option>
+                                                        <option value="1">Сохранить черновик</option>
                                                     </select>
                                                 </div>
                                             </label>
-                                               
-                                                <a href="#"
-                                                    class="button button--tiny admin-filter__button button--green button--disabled">Применить</a>
-                                                <a href="#"
-                                                    class="text text--red text--tiny admin-filter__link">Сбросить все
-                                                    фильтры</a>
+                                               <button type="submit" class="button button--tiny admin-filter__button button--green">
+                                                Применить
+                                               </button>
+                                             
+                                                <button type="reset" class="text text--red text--tiny admin-filter__link">
+                                                    Сбросить все
+                                                    фильтры
+                                                </button>    
                                                     <a href="#"
                                                     class="text text--grey--lighter js-editor-link text--tiny admin-filter__link">Скрыть фильтры</a>
                                             </div>
@@ -232,11 +236,11 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="block__item block__item--divider block editor">
+                            <div class="block__item block__item--desktop block__item--divider block editor">
                                 <div class="editor__row">
                                     <div class="card">
                                         <div
-                                            class="card__wrapper card__wrapper--radius--small card__wrapper--big block__wrapper">
+                                            class="card__wrapper card__wrapper--radius--middle card__wrapper--big block__wrapper">
                                             <div class="card__column">
                                                 <p class="text text--tiny text--grey--light">
                                                     Всего транзакций
@@ -247,17 +251,17 @@
                                     </div>
                                     <div class="card">
                                         <div
-                                            class="card__wrapper card__wrapper--radius--small card__wrapper--big block__wrapper">
+                                            class="card__wrapper card__wrapper--radius--middle card__wrapper--big block__wrapper">
                                             <div class="card__column">
                                                 <p class="text text--tiny text--grey--light">
                                                     Успешные оплаты
                                                 </p>
                                                 <div
-                                                    class="editor-block__grid editor-block__grid--admin editor-block__grid--equal">
-                                                    <div class="editor-block__item">
+                                                    class="card-grid">
+                                                    <div class="card-grid__item">
                                                         <p class="text text--tiny text--grey">625 344 шт.</p>
                                                     </div>
-                                                    <div class="editor-block__item">
+                                                    <div class="card-grid__item">
                                                         <p class="text text--tiny text--grey"><span
                                                                 class="text text--green">1 258 824 890</span> ₽</p>
                                                     </div>
@@ -267,17 +271,17 @@
                                     </div>
                                     <div class="card">
                                         <div
-                                            class="card__wrapper card__wrapper--radius--small card__wrapper--big block__wrapper">
+                                            class="card__wrapper card__wrapper--radius--middle card__wrapper--big block__wrapper">
                                             <div class="card__column">
                                                 <p class="text text--tiny text--grey--light">
                                                     Неудачные оплаты
                                                 </p>
                                                 <div
-                                                    class="editor-block__grid editor-block__grid--admin editor-block__grid--equal">
-                                                    <div class="editor-block__item">
+                                                    class="card-grid">
+                                                    <div class="card-grid__item">
                                                         <p class="text text--tiny text--grey">1 625 344 шт.</p>
                                                     </div>
-                                                    <div class="editor-block__item">
+                                                    <div class="card-grid__item">
                                                         <p class="text text--tiny text--grey"><span
                                                                 class="text text--red">1 258 824 890</span> ₽</p>
                                                     </div>
@@ -287,17 +291,17 @@
                                     </div>
                                     <div class="card">
                                         <div
-                                            class="card__wrapper card__wrapper--radius--small card__wrapper--big block__wrapper">
+                                            class="card__wrapper card__wrapper--radius--middle card__wrapper--big block__wrapper">
                                             <div class="card__column">
                                                 <p class="text text--tiny text--grey--light">
                                                     Возвраты
                                                 </p>
                                                 <div
-                                                    class="editor-block__grid editor-block__grid--admin editor-block__grid--equal">
-                                                    <div class="editor-block__item">
+                                                    class="card-grid">
+                                                    <div class="card-grid__item">
                                                         <p class="text text--tiny text--grey">625 344 шт.</p>
                                                     </div>
-                                                    <div class="editor-block__item">
+                                                    <div class="card-grid__item">
                                                         <p class="text text--tiny text--grey"><span
                                                                 class="text text--yellow">1 258 824 890</span> ₽</p>
                                                     </div>
