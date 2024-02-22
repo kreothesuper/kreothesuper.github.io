@@ -3005,6 +3005,19 @@ button{
 
         background: var(--status-color);
     }
+    &--small{
+        gap: 5px;
+
+        span{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        &::before{
+            width: 8px;
+            height: 8px;
+        }
+    }
 }
 
 .settings {

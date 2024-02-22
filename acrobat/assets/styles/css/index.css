@@ -2474,6 +2474,18 @@ button:hover {
   border-radius: 50%;
   background: var(--status-color);
 }
+.status--small {
+  gap: 5px;
+}
+.status--small span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.status--small::before {
+  width: 8px;
+  height: 8px;
+}
 
 .settings-filter {
   display: flex;
