@@ -378,6 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (editorBlockArray.length) {
         editorBlockArray.forEach(editorBlock => {
             const editorLinkArray = editorBlock.querySelectorAll('.js-editor-link');
+            const formMessage = editorBlock.querySelector('.form-message');
 
             editorLinkArray.forEach(editorLink => {
                 editorLink.addEventListener('click', (e) => {
@@ -385,6 +386,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     editorBlock.classList.toggle('active');
                 });
+            });
+
+            editorBlock.addEventListener('submit',(e)=>{
+                e.preventDefault();
+
+                editorBlock.classList.remove('active');
+                if(formMessage){
+                    formMessage.classList.add('form-message--success');
+                    setTimeout(()=>{
+                        formMessage.classList.remove('form-message--success');
+                    },1000)
+                }
             });
         });
     }
@@ -401,6 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
         copyArray.forEach(copy => {
             const copyText = copy.querySelector('.copy-text').textContent.trim().replace(/\s+/g, ' ');
             const copyLink = copy.querySelector('.copy__link');
+            const copySuccess = copy.querySelector('.form-message');
 
             copyLink.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -410,6 +424,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     copyText(copyText);
                 }
+
+                if(copySuccess){
+                    copySuccess.classList.add('form-message--success');
+                    setTimeout(()=>{
+                        copySuccess.classList.remove('form-message--success');
+                    },1000)
+                }
+
             });
         });
     }

@@ -119,8 +119,8 @@
                                     </div>
                                     <div class="card">
                                         <div
-                                            class="card__wrapper card__wrapper--radius--middle card__wrapper--big block__wrapper">
-                                            <div class="card__column card__column--mobile--big copy">
+                                            class="card__wrapper card__wrapper--radius--middle card__wrapper--big block__wrapper copy">
+                                            <div class="card__column card__column--mobile--big  form-message" data-message="Скопировано">
                                                 <div class="copy__row">
                                                     <p class="text text--tiny text--grey--light">
                                                         Карта, платежный шлюз
@@ -205,10 +205,10 @@
                             </div>
                             <div class="block__item block__item--divider block editor">
                                 <div class="editor__row">
-                                    <div class="block js-editor admin-toggle">
+                                    <form action="#" class="block js-editor admin-toggle">
                                         <div class="block__wrapper">
                                             <div class="card">
-                                                <a href="#" class="card__wrapper card__wrapper--mixed card__wrapper--radius--middle js-editor-link admin-toggle__link">
+                                                <a href="#" class="card__wrapper card__wrapper--mixed card__wrapper--radius--middle js-editor-link admin-toggle__link form-message" data-message="Пароль изменен">
                                                     <p class="text text--tiny text--grey">Сменить пароль</p>
                                                 </a>
                                             </div>
@@ -219,40 +219,40 @@
                                                             <p class="text text--tiny text--grey--light">Введите новый пароль</p>
                                                             <input type="text" class="input input--light input--small">
                                                         </label>
-                                                        <a href="#" class="button button--green button--tiny button--full">Сохранить новый пароль</a>
+                                                        <input type="submit" class="button button--green button--tiny button--full" value="Сохранить новый пароль">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="block js-editor admin-toggle">
+                                    </form>
+                                    <form action="#" class="block js-editor admin-toggle">
                                         <div class="block__wrapper">
                                             <div class="card">
-                                                <a href="#" class="card__wrapper card__wrapper--mixed card__wrapper--radius--middle js-editor-link admin-toggle__link admin-toggle__link--close">
+                                                <a href="#" class="card__wrapper card__wrapper--mixed card__wrapper--radius--middle js-editor-link admin-toggle__link admin-toggle__link--close form-message" data-message="Карта отвязана">
                                                     <p class="text text--tiny text--grey">Отвязать карту</p>
                                                 </a>
                                             </div>
                                             <div class="card admin-toggle__block">
                                                 <div class="card__wrapper card__wrapper--big card__wrapper--radius--middle">
                                                     <div class="card__column card__column--big">
-                                                        <a href="#" class="button button--red button--tiny button--full">Отвязать карту пользователя</a>
+                                                        <input type="submit" value="Отвязать карту пользователя" class="button button--red button--tiny button--full">
                                                         <p class="text text--tiny text--grey--light text--center">Отменить</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="block js-editor admin-toggle">
+                                    </form>
+                                    <form action="#" class="block js-editor admin-toggle">
                                         <div class="block__wrapper ">
                                             <div class="card">
-                                                <a href="#" class="card__wrapper card__wrapper--mixed card__wrapper--radius--middle js-editor-link admin-toggle__link">
+                                                <a href="#" class="card__wrapper card__wrapper--mixed card__wrapper--radius--middle js-editor-link admin-toggle__link form-message" data-message="Платеж перенесен">
                                                     <p class="text text--tiny text--grey ">Перенести платеж</p>
                                                 </a>
                                             </div>
                                             <div class="card admin-toggle__block">
                                                 <div class="card__wrapper card__wrapper--big card__wrapper--radius--middle">
                                                     <div class="card__column card__column--big">
-                                                        <div class="card__row">
+                                                        <div class="card__row card__row--mobile--column">
                                                             <label class=" input-wrapper input-wrapper--small">
                                                                 <p class="text text--tiny text--grey--light">Новая дата платежа:</p>
                                                                 <input type="text" class="input input--light input--small">
@@ -262,12 +262,12 @@
                                                                 <input type="text" class="input input--light input--small">
                                                             </label>
                                                         </div>
-                                                        <a href="#" class="button button--green button--tiny button--full">Перенести платеж</a>
+                                                        <input type="submit" class="button button--green button--tiny button--full" value="Перенести платеж">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                     <div class="block">
                                         <div class="block__wrapper">
                                             <div class="card">

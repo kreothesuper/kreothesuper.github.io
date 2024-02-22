@@ -194,9 +194,20 @@ body {
   flex-direction: column;
   gap: 5px;
 }
+@media screen and (max-width: 767px) {
+  .input-wrapper {
+    max-width: 100%;
+    width: 100%;
+  }
+}
 .input-wrapper--small {
   max-width: 130px;
   width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .input-wrapper--small {
+    max-width: 100%;
+  }
 }
 
 .burger {
@@ -858,6 +869,13 @@ button:hover {
   gap: 13px;
   justify-content: flex-start;
   flex-wrap: wrap;
+}
+@media screen and (max-width: 767px) {
+  .card__row--mobile--column {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
 }
 .card__column {
   display: flex;
@@ -1820,6 +1838,9 @@ button:hover {
     gap: 5px;
   }
 }
+.editor-tags--gap--big {
+  gap: 15px;
+}
 .editor-tags::before {
   content: "";
   width: 1px;
@@ -2203,6 +2224,9 @@ button:hover {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
   background: #fff;
   width: 100%;
+}
+.table--radius--big {
+  border-radius: 20px;
 }
 .table--article, .table--users {
   padding: 0 15px;
@@ -2619,4 +2643,32 @@ button:hover {
 }
 .tabs__content.active {
   display: block;
+}
+
+.form-message {
+  position: relative;
+  overflow: hidden;
+}
+.form-message::before {
+  content: attr(data-message);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 14;
+  font-size: var(--text-tiny);
+  color: #0029FF;
+  font-weight: 500;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s visibility, 0.5s opacity;
+}
+.form-message--success::before {
+  opacity: 1;
+  visibility: visible;
 }/*# sourceMappingURL=index.css.map */

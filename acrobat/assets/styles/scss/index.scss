@@ -248,10 +248,16 @@ body {
         display: flex;
         flex-direction: column;
         gap: 5px;
-
+        @media screen and (max-width:767px) {
+            max-width: 100%;
+            width: 100%;
+        }
         &--small {
             max-width: 130px;
             width: 100%;
+            @media screen and (max-width:767px) {
+                max-width: 100%;
+            }
         }
     }
 }
@@ -1076,6 +1082,15 @@ button{
             gap: 13px;
             justify-content: flex-start;
             flex-wrap: wrap;
+        }
+        &--mobile{
+            &--column{
+                @media screen and (max-width:767px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 15px;
+                }
+            }
         }
     }
 
@@ -2234,6 +2249,12 @@ button{
             gap: 5px;
         }
 
+        &--gap{
+            &--big{
+                gap: 15px;
+            }
+        }
+
         &::before {
             content: '';
             width: 1px;
@@ -2696,6 +2717,11 @@ button{
     background: #fff;
     width: 100%;
 
+    &--radius{
+        &--big{
+            border-radius: 20px;
+        }
+    }
     &--article,
     &--users {
         padding: 0 15px;
@@ -3185,6 +3211,42 @@ button{
 
         &.active {
             display: block;
+        }
+    }
+}
+
+.form{
+    &-message{
+        position: relative;
+        overflow: hidden;
+        &::before{
+            content: attr(data-message);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 14;
+
+            font-size: var(--text-tiny);
+            color: #0029FF;
+            font-weight: 500;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: .3s visibility, .5s opacity;
+        }
+
+        &--success{
+            &::before{
+                opacity: 1;
+                visibility: visible;
+            }
         }
     }
 }
