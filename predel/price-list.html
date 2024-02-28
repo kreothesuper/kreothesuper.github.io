@@ -23,7 +23,7 @@
         <div class="header__wrapper">
             <div class="container">
                 <div class="header__row">
-                    <a href="#" class="header__logo logo">
+                    <a href="index.html" class="header__logo logo">
                         <img src="assets/images/logo.svg" alt="" class="logo__img">
                         <p class="logo__text">Избавим от лома и превратим его в деньги</p>
                     </a>
@@ -61,7 +61,7 @@
                                         <a href="about.html" class="nav__link">О компании</a>
                                     </li>
                                     <li class="nav__item">
-                                        <a href="#" class="nav__link">Контакты</a>
+                                        <a href="#contacts" class="nav__link">Контакты</a>
                                     </li>
                                     <li class="nav__item">
                                         <a href="price-list.html" class="nav__link">Прайс-лист</a>
@@ -3386,7 +3386,7 @@
                     </div>
                 </div>
             </div>
-            <div class="section">
+            <div class="section" id="contacts">
                 <div class="section__wrapper banner">
                     <div class="container container--mobile--full">
                         <div class="banner__wrapper">
@@ -3407,7 +3407,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="banner__block form">
+                            <form action="#" class="banner__block form">
                                 <div class="banner__form grid">
                                     <div class="grid__column grid__column--half grid">
                                         <div class="grid__column grid__column--full">
@@ -3435,7 +3435,7 @@
                                     </div>
 
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -3447,7 +3447,7 @@
             <div class="container">
                 <div class="footer__box">
                     <div class="footer__row">
-                        <a href="#" class="footer__logo logo">
+                        <a href="index.html" class="footer__logo logo">
                             <img src="assets/images/logo.svg" alt="" class="logo__img">
                             <p class="logo__text">Избавим от лома и превратим его в деньги</p>
                         </a>
@@ -3460,7 +3460,7 @@
                                     <a href="about.html" class="nav__link">О компании</a>
                                 </li>
                                 <li class="nav__item">
-                                    <a href="#" class="nav__link">Контакты</a>
+                                    <a href="#contacts" class="nav__link">Контакты</a>
                                 </li>
                                 <li class="nav__item">
                                     <a href="price-list.html" class="nav__link">Прайс-лист</a>
@@ -3492,17 +3492,79 @@
                         </div>
                     </div>
                     <div class="footer__copyright">
-                        <p class="footer__text">
-                            © Металл Плюс 2024
-                        </p>
+
                         <p class="footer__text">
                             Разработано: <a href="#">akcent.agency</a>
+                        </p>
+                        <p class="footer__text">
+                            © Металл Плюс 2024
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+</div>
+
+<div class="popup popup-form">
+    <div class="popup__wrapper">
+        <div class="popup__container">
+            <a href="#" class="popup__close"></a>
+            <form action="#" class="popup__box form">
+                <div class="popup__header">
+                    <p class="popup__title">
+                        Для расчёта стоимости заполните поля ниже
+                    </p>
+                    <p class="text text--base text--black">
+                        Наш менеджер перезвонит вам в&nbsp;течение 10&nbsp;минут
+                    </p>
+                </div>
+                <div class="popup__content">
+                    <div class="popup__inputs">
+                        <input type="text" placeholder="Ваш номер телефона" class="input">
+                        <input type="text" placeholder="Откуда забирать? " class="input">
+                    </div>
+                    <div class="file-input">
+                        <p class="text text--base text--black file-input__title">
+                            Фотография объекта или непосредственно лома
+                        </p>
+                        <label class="file-input__label js-file">
+                            <input type="file" name="" id="" class="file-input__item js-file-input">
+                            <img src="assets/images/holder.webp" alt="" class="file-input__img js-file-img">
+                            <span class="text text--base text--green text--semibold js-file-name file-input__name">Прикрепить фотогрфию</span>
+                        </label>
+                    </div>
+                    <button type="submit"
+                            class="button button--base button--green button--full">
+                        Отправить на расчёт
+                        <svg class="button__icon">
+                            <use xlink:href="assets/images/sprite.svg#arrow"></use>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="popup popup-thanks">
+    <div class="popup__wrapper">
+        <div class="popup__container">
+            <a href="#" class="popup__close"></a>
+            <form action="#" class="popup__box form">
+                <div class="popup__header popup__header--center">
+                    <div class="popup__img">
+                        <img src="assets/images/icons/check-popup.svg" alt="" class="icon">
+                    </div>
+                    <p class="popup__title">
+                        Ваша заявка отправлена
+                    </p>
+                    <p class="text text--base text--black">
+                        Наш менеджер перезвонит вам в&nbsp;течение 10&nbsp;минут
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script src="assets/libs/swiper/swiper.js"></script>
