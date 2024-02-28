@@ -34,13 +34,28 @@ const checkTargetOrKey = event => {
     if (
         event.target.classList.contains('popup__wrapper') ||
         event.key === 'Escape' ||
-        event.target.closest('.popup-close')
+        event.target.closest('.popup__close')
     ) {
         event.preventDefault();
         hideAllPopups();
     }
 };
 
+const getCurrentDate = () => {
+    const currentDate = new Date();
+    let day = currentDate.getDate(),
+        month = currentDate.getMonth() + 1,
+        year = currentDate.getFullYear();
+
+    if (day < 10) {
+        day = '0' + day;
+    }
+    if (month < 10) {
+        month = '0' + month;
+    }
+
+    return `${day}.${month}.${year}`;
+}
 
 
 class Animations {
@@ -63,7 +78,7 @@ class Animations {
                 animationItemArray.forEach((animationItemElement, animationItemIndex) => {
                     animationItemElement.classList.add('visible');
                 });
-            }else{
+            } else {
                 animationItemArray.forEach((animationItemElement, animationItemIndex) => {
                     animationItemElement.classList.remove('visible');
                 });
@@ -74,8 +89,7 @@ class Animations {
     init() {
         if (!this.animationWrapperArray.length) return;
 
-        const observer = new IntersectionObserver(this.handleIntersection.bind(this),{
-        });
+        const observer = new IntersectionObserver(this.handleIntersection.bind(this), {});
         this.animationWrapperArray.forEach(animationWrapper => {
             observer.observe(animationWrapper);
         });
@@ -97,7 +111,7 @@ const showPopup = popupId => {
 
     hideAllPopups();
 
-    popup.style.setProperty('--popup-margin',`${centerElementVertically(popup)}`)
+    popup.style.setProperty('--popup-margin', `${centerElementVertically(popup)}`)
 
     popup.classList.add('popup--active');
     document.body.classList.add('no-scroll');
@@ -119,7 +133,7 @@ const hideAllPopups = () => {
 };
 
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded', () => {
     initTabs();
 
     //animation init
@@ -129,7 +143,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const burger = document.querySelector('.burger'),
         headerNav = document.querySelector('.header__nav');
 
-    burger.addEventListener('click',(e)=>{
+    burger.addEventListener('click', (e) => {
         e.preventDefault();
 
         burger.classList.toggle('burger--active')
@@ -138,19 +152,19 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
     const gallerySlider = new Swiper('.gallery-slider', {
-        centeredSlides:true,
-        slidesPerView:'auto',
-        spaceBetween:15,
-        loop:true,
-        speed:1000,
-        autoplay:{
-            delay:3000,
+        spaceBetween: 15,
+        centeredSlides: true,
+        speed: 5000,
+        autoplay: {
+            delay: 1,
         },
-        loopAdditionalSlides:0,
-        loopPreventsSliding:false,
-        breakpoints:{
-            640:{
-                spaceBetween:20,
+        loop: true,
+        slidesPerView: 'auto',
+        allowTouchMove: false,
+        disableOnInteraction: true,
+        breakpoints: {
+            600: {
+                spaceBetween: 20
             }
         }
     });
@@ -158,19 +172,19 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     const scanItemArray = document.querySelectorAll('.scan');
 
-    if(scanItemArray.length){
-        const setScanStyle = (scanBlock, scanItem) =>{
-            scanBlock.style.setProperty('--top-offset',`-${scanBlock.offsetTop}px`);
-            scanBlock.style.setProperty('--left-offset',`-${scanBlock.offsetLeft}px`);
-            scanBlock.style.setProperty('--width',`${scanItem.getBoundingClientRect().width}px`);
-            scanBlock.style.setProperty('--height',`${scanItem.getBoundingClientRect().height}px`);
+    if (scanItemArray.length) {
+        const setScanStyle = (scanBlock, scanItem) => {
+            scanBlock.style.setProperty('--top-offset', `-${scanBlock.offsetTop}px`);
+            scanBlock.style.setProperty('--left-offset', `-${scanBlock.offsetLeft}px`);
+            scanBlock.style.setProperty('--width', `${scanItem.getBoundingClientRect().width}px`);
+            scanBlock.style.setProperty('--height', `${scanItem.getBoundingClientRect().height}px`);
         }
-        scanItemArray.forEach(scanItem=>{
+        scanItemArray.forEach(scanItem => {
             const scanBlock = scanItem.querySelector('.scan-item');
-            setScanStyle(scanBlock,scanItem);
+            setScanStyle(scanBlock, scanItem);
 
-            window.addEventListener('resize',()=>{
-                setScanStyle(scanBlock,scanItem);
+            window.addEventListener('resize', () => {
+                setScanStyle(scanBlock, scanItem);
             })
         });
     }
@@ -198,9 +212,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     const formArray = document.querySelectorAll('.form');
 
-    if(formArray.length){
-        formArray.forEach(form=>{
-            form.addEventListener('submit',(e)=>{
+    if (formArray.length) {
+        formArray.forEach(form => {
+            form.addEventListener('submit', (e) => {
                 e.preventDefault();
 
                 showPopup('.popup-thanks')
@@ -222,5 +236,14 @@ document.addEventListener('DOMContentLoaded',()=>{
                 showPopup(popupId);
             });
         });
+    }
+
+    const dateArray = document.querySelectorAll('.js-date');
+
+    if (dateArray.length) {
+        const currentDate = getCurrentDate();
+        dateArray.forEach(date => {
+            date.innerHTML = currentDate;
+        })
     }
 });
