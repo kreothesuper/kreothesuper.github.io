@@ -759,12 +759,16 @@ body.no-scroll {
   height: 35px;
   flex-shrink: 0;
   object-fit: contain;
+  transition: 0.3s transform;
 }
 @media screen and (max-width: 960px) {
   .list-item__icon {
     width: 20px;
     height: 20px;
   }
+}
+.list-item:hover .list-item__icon {
+  transform: scale(1.14);
 }
 
 .map {
