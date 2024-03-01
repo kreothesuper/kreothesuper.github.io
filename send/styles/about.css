@@ -1,0 +1,333 @@
+.about {
+  width: 100%;
+}
+.about__wrapper {
+  margin-top: 100px;
+}
+
+.about__title {
+  font-size: 55px;
+  line-height: 66px;
+  color: #191a1b;
+  margin: 29px 0 0 0;
+  text-align: start;
+  text-transform: uppercase;
+}
+
+.distributor_about__wrapper {
+  margin: 70px auto 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 43px;
+}
+
+.distributor_about__top {
+  color: #fff;
+  padding: 163px 120px;
+  border-radius: 40px;
+  background: url(../images/about_bg.png) no-repeat scroll center / cover transparent;
+}
+
+.distributor_about__title {
+  font-size: 50px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 45px;
+  line-height: 1.2;
+  max-width: 630px;
+}
+
+.distributor_about__subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+  max-width: 630px;
+  color: #E3E4E6;
+}
+
+.about_directions {
+  margin-bottom: 210px;
+}
+
+.about_directions .top-title {
+  margin-bottom: 50px;
+}
+
+.about_directions__list {
+  display: grid;
+  gap: 20px;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);;
+}
+
+.about_directions__item {
+  background-color: #F8F8FB;
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.about_directions__title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.25;
+  margin-top: auto;
+}
+
+.about_directions__desc {
+  font-size: 18px;
+  font-weight: 600;
+  color: #5F6163;
+  line-height: 1.25;
+}
+
+.about_directions__item svg {
+  display: block;
+  line-height: 1;
+  margin-bottom: 40px;
+}
+
+.about_directions__item:nth-child(3) {
+  grid-row: span 2;
+}
+
+.about_directions__item:nth-child(3) svg {
+  margin: 0 auto 40px;
+  max-width: 100%;
+}
+
+
+.about_history__blockquote {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #5F6163;
+  text-align: center;
+  position: relative;
+  padding: 0 100px;
+}
+
+.about_history__blockquote b {
+  color: #191A1B;
+  font-weight: 700;
+}
+
+.about_history__blockquote svg {
+  display: block;
+  line-height: 1;
+  color: #EAEBEE;
+  width: 60px;
+  height: 52px;
+  position: absolute;
+}
+
+.about_history__blockquote svg:first-child {
+  left: 0;
+  top: -15px;
+}
+
+.about_history__blockquote svg:last-child {
+  right: 0;
+  bottom: -15px;
+}
+
+.about_history__list {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.about_history__list_gradient {
+  position: relative;
+  line-height: 200px;
+  background-color: red;
+}
+
+/*.about_history__list:after {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 200px;
+  content: '';
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  z-index: 1;
+  pointer-events: none;
+}*/
+
+
+.about_history .top-title {
+  margin-bottom: 50px;
+  position: sticky;
+  top: 90px;
+}
+
+.about_history__item_fake {
+  position: sticky;
+  top: 190px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.about_history__item_fake:after {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(100vh - 190px);
+  content: '';
+  background: linear-gradient(0deg, rgba(255,255,255,1) 100px, rgba(255,255,255,0) 305px);
+  z-index: 11;
+  pointer-events: none;
+}
+
+.about_history__item {
+  background-color: #F8F8FB;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 75px 120px;
+  box-sizing: border-box;
+  height: auto;
+  user-select: none;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 7px #fff;
+  position: sticky;
+  top: 160px;
+}
+.about_history__item:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 200px;
+  background-color: #fff;
+}
+.about_history__item:nth-child(n + 5) {
+  position: relative;
+  top: 0;
+}
+
+.about_history__item:last-child {
+  margin-bottom: 100px;
+}
+
+.about_history__year {
+  font-size: 105px;
+  font-weight: 300;
+  line-height: 1;
+  color: #51A8C3;
+  margin-right: auto;
+}
+
+
+.about_history__desc {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #5F6163;
+  flex: 0 0 60%;
+}
+
+.about_history__desc p:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.about_history__desc b {
+  color: #191A1B;
+  font-weight: 700;
+}
+
+.about .main-rel-section {
+  margin-top: -193px;
+}
+
+
+
+@media screen and (max-width: 1240px) {
+  .distributor_about__top { padding: 110px 70px; }
+  .about_directions__item { padding: 30px; }
+
+  .about_history__item { padding: 50px; }
+  .about_history__year { font-size: 80px; }
+  .about_history__desc { flex: 1 1 auto; margin-left: 60px; font-size: 17px; }
+
+
+}
+
+@media screen and (max-width: 1024px) {
+  .about_directions__item { padding: 25px 20px; }
+  .about_directions__item svg { width: 40px; height: 40px; margin-bottom: 25px; }
+  .about_directions__item:nth-child(3) svg { width: auto; height: auto; max-width: 200px; }
+  .about_directions__title { font-size: 16px; margin-bottom: 15px; }
+  .about_directions__desc { font-size: 14px; }
+}
+
+
+@media screen and (max-width: 767px) {
+  .distributor_about__top { padding: 30px 20px; height: 430px; box-sizing: border-box; }
+  .distributor_about__title { margin-bottom: 25px; font-size: 30px; }
+  .distributor_about__subtitle { font-size: 14px; }
+  .distributor_about__wrapper { margin-bottom: 80px; margin-top: 0; }
+
+  .about_directions { margin-bottom: 80px; }
+  .about_directions__list { display: flex; flex-direction: column; }
+
+  .about_directions__item:nth-child(3) { order: 5; }
+
+
+  .about_history__item { padding: 25px 20px; flex-direction: column; }
+  .about_history__year { font-size: 40px; }
+  .about_history__desc { margin-left: 0; font-size: 14px; margin-top: 25px; }
+
+  .about_history__blockquote { font-size: 16px; padding: 20px 60px; }
+  .about_history__blockquote svg { width: 30px; height: 30px; }
+  .about_history__blockquote svg:first-child { top: 20px; }
+  .about_history__blockquote svg:last-child { bottom: 20px; }
+
+
+
+  .about_history__item_fake {
+    top: 90px;
+  }
+
+  .about_history__item_fake:after {
+    height: calc(100vh - 90px);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 30px, rgba(255,255,255,0) 155px);
+  }
+
+}
+@media screen and (max-width: 540px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
