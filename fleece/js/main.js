@@ -160,6 +160,16 @@ var hideAllPopups = function hideAllPopups() {
   document.removeEventListener('click', checkTargetOrKey);
   document.removeEventListener('keyup', checkTargetOrKey);
 };
+var showModal = function showModal(popupId) {
+  var popup = document.querySelector(popupId);
+  if (!popup) return;
+  popup.classList.add('popup--active');
+  document.body.classList.add('no-scroll');
+  setTimeout(function () {
+    popup.classList.remove('popup--active');
+    document.body.classList.remove('no-scroll');
+  }, 3000);
+};
 var checkTargetOrKey = function checkTargetOrKey(event) {
   if (event.target.classList.contains('popup__wrapper') || event.key === 'Escape' || event.target.closest('.popup__close')) {
     event.preventDefault();
@@ -238,9 +248,12 @@ document.addEventListener('DOMContentLoaded', function () {
   if (faqItemArray.length) {
     faqItemArray.forEach(function (faqItem) {
       var faqItemHeader = faqItem.querySelector('.faq-item__header');
+      var faqItemText = faqItem.querySelector('.faq-item__text');
+      faqItem.style.setProperty('--content-height', "".concat(faqItemText.scrollHeight, "px"));
       faqItemHeader.addEventListener('click', function (e) {
         e.preventDefault();
         faqItem.classList.toggle('faq-item--active');
+        faqItem.style.setProperty('--content-height', "".concat(faqItemText.scrollHeight, "px"));
       });
     });
   }
@@ -251,6 +264,30 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         showPopup("".concat(button.dataset.popup));
       });
+    });
+  }
+  var modalButtonArray = document.querySelectorAll('[data-modal]');
+  if (modalButtonArray.length) {
+    modalButtonArray.forEach(function (button) {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        showModal("".concat(button.dataset.modal));
+      });
+    });
+  }
+  var formWrapperArray = document.querySelectorAll('.js-form-wrapper');
+  if (formWrapperArray.length) {
+    formWrapperArray.forEach(function (formWrapper) {
+      var formTitle = formWrapper.querySelector('.js-form-title'),
+        formInputArray = formWrapper.querySelectorAll('.form-input');
+      if (formWrapperArray.length && formTitle) {
+        formInputArray.forEach(function (input) {
+          input.addEventListener('change', function (e) {
+            formTitle.dataset.error = input.dataset.formError;
+            e.target.checkValidity() ? formTitle.classList.remove('js-form-title-error') : formTitle.classList.add('js-form-title-error');
+          });
+        });
+      }
     });
   }
 });

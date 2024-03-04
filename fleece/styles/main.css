@@ -133,25 +133,33 @@ meter {
 }
 
 @font-face {
-  font-family: "Magistral Extra";
-  src: url("../fonts/Magistral-ExtraBold.woff2") format("woff2"), url("../fonts/Magistral-ExtraBold.woff") format("woff");
+  font-family: "Intro";
+  src: url("../fonts/Intro-Bold.woff2") format("woff2"), url("../fonts/Intro-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Magistral";
-  src: url("../fonts/Magistral-Medium.woff2") format("woff2"), url("../fonts/Magistral-Medium.woff") format("woff");
-  font-weight: 500;
+  font-family: "Intro";
+  src: url("../fonts/Intro-Regular.woff2") format("woff2"), url("../fonts/Intro-Regular.woff") format("woff");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Magistral";
-  src: url("../fonts/Magistral-Bold.woff2") format("woff2"), url("../fonts/Magistral-Bold.woff") format("woff");
-  font-weight: bold;
+  font-family: "Intro Inline";
+  src: url("../fonts/Intro-Inline.woff2") format("woff2"), url("../fonts/Intro-Inline.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Intro";
+  src: url("../fonts/Intro-Black.woff2") format("woff2"), url("../fonts/Intro-Black.woff") format("woff");
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
@@ -273,6 +281,10 @@ body {
 
 .title--accent {
   color: var(--color-accent);
+}
+
+.title--center {
+  text-align: center;
 }
 
 .title--uppercase {
@@ -1003,6 +1015,8 @@ body {
   display: flex;
   gap: 20px;
   overflow: auto;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
 }
 
 .contract-row::-webkit-scrollbar {
@@ -1232,6 +1246,19 @@ body {
   height: 124px;
 }
 
+.js-form-title-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.js-form-title-error::after {
+  content: attr(data-error);
+  color: #d93050;
+  font-size: 12px;
+}
+
 .form-notice__wrapper {
   padding: 50px 20px;
   border: solid 1px #dca057;
@@ -1348,6 +1375,22 @@ body {
   gap: 10px;
 }
 
+.form-input--error .form-input__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-input--error .form-input__label::after {
+  content: attr(data-error);
+  color: #d93050;
+}
+
+.form-input--error .form-input__item {
+  border-color: #d93050;
+}
+
 .form-input__row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 166px;
@@ -1378,6 +1421,7 @@ body {
   color: #fff;
   font-size: 16px;
   font-weight: 400;
+  transition: 0.3s border-color;
 }
 
 .form-input__item--orange {
@@ -1434,6 +1478,7 @@ body {
   border-radius: 6px;
   text-align: center;
   width: max-content;
+  transition: 0.3s background-color;
 }
 
 .form-file__checkmark .icon {
@@ -1443,6 +1488,7 @@ body {
   display: block;
   flex-shrink: 0;
   fill: var(--color-accent);
+  transition: 0.3s fill;
 }
 
 .form-file__checkmark::after {
@@ -1451,6 +1497,20 @@ body {
   font-weight: 800;
   text-transform: uppercase;
   color: var(--color-accent);
+  transition: 0.3s color;
+}
+
+.form-file__checkmark:hover {
+  background-color: #dca057;
+  cursor: pointer;
+}
+
+.form-file__checkmark:hover::after {
+  color: #fff;
+}
+
+.form-file__checkmark:hover .icon {
+  fill: #fff;
 }
 
 .form__row {
@@ -1875,6 +1935,15 @@ body {
   display: block;
 }
 
+.popup--modal {
+  height: max-content;
+  top: 10px;
+  right: 10px;
+  left: unset;
+  max-width: 280px;
+  width: 100%;
+}
+
 .popup__wrapper {
   position: absolute;
   width: 100%;
@@ -1882,6 +1951,11 @@ body {
   left: 0;
   top: 0;
   padding: 30px 10px;
+}
+
+.popup__wrapper--modal {
+  position: relative;
+  padding: 0;
 }
 
 .popup__close {
@@ -1967,6 +2041,15 @@ body {
   max-width: 100%;
   background: transparent;
   padding: 20px;
+}
+
+.popup__container--modal {
+  position: relative;
+  left: 0;
+  top: 0;
+  transform: translate(0);
+  max-height: unset;
+  padding: 40px 20px;
 }
 
 .popup-calc__content {
@@ -2245,6 +2328,10 @@ body {
   z-index: 12;
 }
 
+.header__language {
+  flex-shrink: 0;
+}
+
 .header__wrapper {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 400px;
@@ -2258,7 +2345,7 @@ body {
   display: flex;
   align-items: center;
   gap: var(--regular-gap);
-  padding: 10px 30px 10px 50px;
+  padding: 10px 30px 10px 30px;
 }
 
 .header__block--gradient {
@@ -2519,13 +2606,17 @@ body {
   gap: 16px;
 }
 
+.faq-item {
+  overflow: hidden;
+}
+
 .faq-item--active .faq-item__header {
   border-radius: 6px 6px 0 0;
   color: var(--color-accent);
 }
 
 .faq-item--active .faq-item__content {
-  display: flex;
+  height: var(--content-height);
 }
 
 .faq-item--active .faq-item__icon {
@@ -2539,13 +2630,19 @@ body {
 
 .faq-item__content {
   background: #0e0f14;
+  padding: 0;
+  height: 0px;
+  transition: 0.3s height, 0.3s padding;
+  border-radius: 0 0 6px 6px;
+}
+
+.faq-item__text {
   padding: 30px;
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 20px;
   font-size: 15px;
   color: #b1b4c1;
-  border-radius: 0 0 6px 6px;
 }
 
 .faq-item__header {
@@ -2607,6 +2704,10 @@ body {
   color: #fff;
   border-radius: 6px;
   transition: 0.3s color, 0.3s background-color;
+}
+
+.history-tabs__link:hover {
+  color: var(--color-accent);
 }
 
 .history-tabs__link.active {
@@ -2953,7 +3054,7 @@ body {
     gap: 10px;
   }
 
-  .faq-item__content {
+  .faq-item__text {
     padding: 30px 15px;
   }
 
