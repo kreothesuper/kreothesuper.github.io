@@ -406,8 +406,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initTabs();
 
-
-
     const copyArray = document.querySelectorAll('.copy');
 
     if (copyArray.length) {
@@ -471,11 +469,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (adminFilterArray.length) {
         function isAnyInputFilled(inputs) {
             for (let input of inputs) {
+                console.log(input.tagName)
                 if ((input.type === 'checkbox' || input.type === 'radio') && input.checked) {
                     return true;
                 } else if (input.tagName === 'SELECT' && input.value !== '') {
                     return true;
                 } else if (input.tagName === 'INPUT' && input.value.trim() !== '') {
+                    return true;
+                } else if (input.tagName === 'TEXTAREA' && input.value.trim() !== '') {
                     return true;
                 }
             }
@@ -504,4 +505,20 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         });
     }
+
+
+    function calcHeight(value) {
+        let numberOfLineBreaks = (value.match(/\n/g) || []).length;
+        return numberOfLineBreaks;
+    }
+
+    let textareaArray = document.querySelectorAll(".js-resize-input");
+       if(textareaArray.length){
+           textareaArray.forEach(textarea=>{
+               textarea.style.setProperty('--input-height', `${calcHeight(textarea.value)}px`)
+               textarea.addEventListener("keyup", () => {
+                   textarea.style.setProperty('--input-height', `${calcHeight(textarea.value)}px`)
+               });
+           });
+       }
 });

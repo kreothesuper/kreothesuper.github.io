@@ -394,7 +394,7 @@
                                                 </a>
                                             </div>
                                             <div class="table__column table__column--admin">
-                                                <a href="#"
+                                                <a href="#" data-popup=".popup-return"
                                                     class="button button--tiny button--tiny--small button--orange">
                                                     Вернуть
 
@@ -442,7 +442,7 @@
                                                 </a>
                                             </div>
                                             <div class="table__column table__column--admin">
-                                                <a href="#"
+                                                <a href="#" data-popup=".popup-return"
                                                     class="button button--tiny button--tiny--small button--orange">
                                                     Вернуть
 
@@ -460,6 +460,65 @@
             </div>
         </main>
     </div>
+
+    <div class="popup popup--modal popup-return">
+        <div class="popup__wrapper popup__wrapper--modal">
+            <div class="popup__container popup__container--modal card">
+                <div class="card__wrapper card__wrapper--full card__wrapper--big card__wrapper--radius--middle">
+                    <form action="#" class="card__column card__column--big">
+                        <p class="text text--tiny text--grey--light">
+                            Выполнить возврат средств?
+                        </p>
+                        <span class="card__divider"></span>
+                        <div class="card__column card__column--small">
+                            <p class="text text--tiny text--grey">
+                                anastasiamisukova24@gmail.com
+                            </p>
+                            <p class="text text--tiny text--grey">
+                                22.02.2024 в 12:28:04
+
+                            </p>
+                            <p class="text text--tiny text--grey">
+                                162534******2314
+
+                            </p>
+                            <p class="text text--tiny text--grey">
+                                Пробный
+
+                            </p>
+                            <p class="text text--tiny text--grey">
+                                99 ₽
+                            </p>
+
+                        </div>
+                        <button type="submit" data-popup=".popup-thanks" class="button button--tiny button--orange button--full">
+                            Вернуть средства
+                        </button>
+                        <a href="#" class="popup-close text--center text text--tiny text--grey--white">
+                            Отменить
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup popup--modal popup-thanks">
+        <div class="popup__wrapper popup__wrapper--modal">
+            <div class="popup__container popup__container--modal card">
+                <div class="card__wrapper card__wrapper--full card__wrapper--big card__wrapper--radius--middle">
+                   <div class="card__row card__row--start">
+                       <svg class="card__icon">
+                           <use xlink:href="assets/images/sprite.svg#check-thanks"></use>
+                       </svg>
+                       <p class="text text--tiny text--grey">
+                           Возврат успешно выполнен!
+                       </p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <script src="assets/libs/swiper/swiper.js"></script>
