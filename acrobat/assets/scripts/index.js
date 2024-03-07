@@ -521,4 +521,19 @@ document.addEventListener('DOMContentLoaded', () => {
                });
            });
        }
+
+
+       const tableExpandArray = document.querySelectorAll('.js-table-expanded');
+
+       if(tableExpandArray.length){
+           tableExpandArray.forEach(table=>{
+               const tableLink = table.querySelector('.js-table-expanded-link');
+
+               tableLink.addEventListener('click',(e)=>{
+                   e.preventDefault();
+
+                   table.classList.toggle('active');
+               });
+           });
+       }
 });

@@ -96,18 +96,24 @@
                        class="content__back content__back--start text text--small text--medium text--grey--lighter">Вернуться
                         назад</a>
                     <div class="block__wrapper block__wrapper--full">
-                        <div class="block__item block">
+                        <div class="block__item block__item--mobile block__item--mobile">
+                            <a href="#" data-popup=".popup-add-admin" class="card">
+                                <div class="card__wrapper card__wrapper--center card__wrapper--button card__wrapper--radius--middle card__wrapper--big">
+                                    <p data-popup=".popup-add-admin" class="text text--tiny text--grey">Добавить +</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="block__item block__item--desktop block">
                             <div class="card">
-                                <div
-                                        class="card__wrapper card__wrapper--radius--middle card__wrapper--big block__wrapper">
-                                    <div class="block__header block__header--between block__header--gap--big">
-                                        <div class="block__header block__header--gap--big">
+                                <div class="card__wrapper card__wrapper--radius--middle card__wrapper--big block__wrapper">
+                                    <div class="block__header  block__header--between block__header--gap--big">
+                                        <div class="block__header block__header--desktop block__header--gap--big">
                                             <p class="text text--tiny text--grey">Всего администраторов</p>
                                             <div class="editor-tags editor-tags--gap--big">
                                                 <p class="text text--tiny text--grey--light">6</p>
                                             </div>
                                         </div>
-                                        <div class="block__header block__header--desktop block__header--gap--big">
+                                        <div class="block__header block__header--gap--big">
                                                 <a href="#" data-popup=".popup-add-admin" class="text text--tiny text--grey">Добавить +</a>
                                         </div>
                                     </div>
@@ -115,9 +121,9 @@
                             </div>
                         </div>
                         <div class="block__item">
-                            <div class="table table--radius--big table--article table-article">
-                                <div class="table__wrapper table__wrapper--admin">
-                                    <div class="table__row table__row--admins">
+                            <div class="table table--radius--big table--admins">
+                                <div class="table__wrapper table__wrapper--admins table__wrapper--admin">
+                                    <div class="table__row table__row--admins table__row--admins--title">
                                         <div class="table__column table__column--admin">
                                             <p class="text text--tiny text--grey">Имя</p>
                                         </div>
@@ -133,26 +139,52 @@
                                         <div class="table__column table__column--admin">
                                             <p class="text text--tiny text--grey">Действия</p>
                                         </div>
-
                                     </div>
-                                    <div class="table__row table__row--admins">
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-name" class="table__control table__control--grey">
+                                    <div class="js-table-expanded table__row table__row--admins">
+                                        <a href="#" class="table__column js-table-expanded-link table__column--mobile table__column--title">
+                                            <p class="text text--tiny text--grey">аnastasiatetenkina3@gmail.com</p>
+                                        </a>
+                                        <div class="table__column table__column--admin table__column--admin--list table-column"   data-title="Имя">
+                                            <a href="#" data-popup=".popup-name" class="table-column__block">
+                                                <span class="table__control table__control--mobile--big table__control--grey">
                                                 <svg class="icon">
                                                     <use xlink:href="assets/images/sprite.svg#edit"></use>
                                                 </svg>
+                                            </span>
+                                                <p class="text text--tiny text--grey">Арсений Новиков</p>
                                             </a>
-                                            <p class="text text--tiny text--grey">Арсений Новиков</p>
                                         </div>
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-email" class="table__control table__control--grey">
+                                        <div class="table__column table__column--admin table__column--admin--list table-column"   data-title="Email">
+                                            <a href="#" data-popup=".popup-email" class="table-column__block">
+                                                <span class="table__control table__control--mobile--big table__control--grey">
                                                 <svg class="icon">
                                                     <use xlink:href="assets/images/sprite.svg#edit"></use>
                                                 </svg>
+                                            </span>
+                                                <p class="text text--tiny text--grey">anastasiamisukova24@gmail.com</p>
                                             </a>
-                                            <p class="text text--tiny text--grey">anastasiamisukova24@gmail.com</p>
                                         </div>
-                                        <div class="table__column table__column--admin">
+                                        <div class="table__column table__column--mobile table__column--admin table__column--admin--list table-column"   data-title="Роль">
+                                            <div class="select select--full select--input select--input--relative custom-select">
+                                                <select class="select__tag">
+                                                    <option value="">Администратор</option>
+                                                    <option value="">Оператор</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="table__column table__column--mobile table__column--admin table__column--admin--list table-column"   data-title="Пароль">
+                                            <a href="#" data-popup=".popup-password" class="table-column__block">
+                                                <span class="table__control table__control--mobile--big table__control--grey">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite.svg#edit"></use>
+                                                </svg>
+                                            </span>
+                                                <p class="text text--tiny text--grey">newpassword123456789</p>
+                                            </a>
+                                        </div>
+
+                                        <div class="table__column table__column--desktop table__column--admin">
                                             <a href="#" data-popup=".popup-role" class="table__control table__control--grey">
                                                 <svg class="icon">
                                                     <use xlink:href="assets/images/sprite.svg#edit"></use>
@@ -160,33 +192,60 @@
                                             </a>
                                             <p class="text text--tiny text--grey">Администратор</p>
                                         </div>
-                                        <div class="table__column table__column--admin">
-
-                                            <p class="text text--tiny text--grey">22.02.2024 в 12:28</p>
+                                        <div class="table__column  table__column--admin table__column--admin--list table-column"   data-title="Дата добавления">
+                                            <div  class="table-column__block">
+                                                <p class="text text--tiny text--grey">02.03.2024 в 21:43</p>
+                                            </div>
                                         </div>
-                                        <div class="table__column table__column--admin">
+                                        <div class="table__column table__column--desktop table__column--admin">
                                             <a href="#" data-popup=".popup-password" class="text text--tiny text--grey text--grey--light">Изменить пароль</a>
                                         </div>
-
                                     </div>
-                                    <div class="table__row table__row--admins">
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-name" class="table__control table__control--grey">
+                                    <div class="js-table-expanded table__row table__row--admins">
+                                        <a href="#" class="table__column js-table-expanded-link table__column--mobile table__column--title">
+                                            <p class="text text--tiny text--grey">аnastasiatetenkina3@gmail.com</p>
+                                        </a>
+                                        <div class="table__column table__column--admin table__column--admin--list table-column"   data-title="Имя">
+                                            <a href="#" data-popup=".popup-name" class="table-column__block">
+                                                <span class="table__control table__control--mobile--big table__control--grey">
                                                 <svg class="icon">
                                                     <use xlink:href="assets/images/sprite.svg#edit"></use>
                                                 </svg>
+                                            </span>
+                                                <p class="text text--tiny text--grey">Арсений Новиков</p>
                                             </a>
-                                            <p class="text text--tiny text--grey">Арсений Новиков</p>
                                         </div>
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-email" class="table__control table__control--grey">
+                                        <div class="table__column table__column--admin table__column--admin--list table-column"   data-title="Email">
+                                            <a href="#" data-popup=".popup-email" class="table-column__block">
+                                                <span class="table__control table__control--mobile--big table__control--grey">
                                                 <svg class="icon">
                                                     <use xlink:href="assets/images/sprite.svg#edit"></use>
                                                 </svg>
+                                            </span>
+                                                <p class="text text--tiny text--grey">anastasiamisukova24@gmail.com</p>
                                             </a>
-                                            <p class="text text--tiny text--grey">anastasiamisukova24@gmail.com</p>
                                         </div>
-                                        <div class="table__column table__column--admin">
+                                        <div class="table__column table__column--mobile table__column--admin table__column--admin--list table-column"   data-title="Роль">
+                                            <div class="select select--full select--input select--input--relative custom-select">
+                                                <select class="select__tag">
+                                                    <option value="">Администратор</option>
+                                                    <option value="">Оператор</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="table__column table__column--mobile table__column--admin table__column--admin--list table-column"   data-title="Пароль">
+                                            <a href="#" data-popup=".popup-password" class="table-column__block">
+                                                <span class="table__control table__control--mobile--big table__control--grey">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite.svg#edit"></use>
+                                                </svg>
+                                            </span>
+                                                <p class="text text--tiny text--grey">newpassword123456789</p>
+                                            </a>
+                                        </div>
+
+                                        <div class="table__column table__column--desktop table__column--admin">
                                             <a href="#" data-popup=".popup-role" class="table__control table__control--grey">
                                                 <svg class="icon">
                                                     <use xlink:href="assets/images/sprite.svg#edit"></use>
@@ -194,82 +253,14 @@
                                             </a>
                                             <p class="text text--tiny text--grey">Администратор</p>
                                         </div>
-                                        <div class="table__column table__column--admin">
-
-                                            <p class="text text--tiny text--grey">22.02.2024 в 12:28</p>
+                                        <div class="table__column  table__column--admin table__column--admin--list table-column"   data-title="Дата добавления">
+                                            <div  class="table-column__block">
+                                                <p class="text text--tiny text--grey">02.03.2024 в 21:43</p>
+                                            </div>
                                         </div>
-                                        <div class="table__column table__column--admin">
+                                        <div class="table__column table__column--desktop table__column--admin">
                                             <a href="#" data-popup=".popup-password" class="text text--tiny text--grey text--grey--light">Изменить пароль</a>
                                         </div>
-
-                                    </div>
-                                    <div class="table__row table__row--admins">
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-name" class="table__control table__control--grey">
-                                                <svg class="icon">
-                                                    <use xlink:href="assets/images/sprite.svg#edit"></use>
-                                                </svg>
-                                            </a>
-                                            <p class="text text--tiny text--grey">Арсений Новиков</p>
-                                        </div>
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-email" class="table__control table__control--grey">
-                                                <svg class="icon">
-                                                    <use xlink:href="assets/images/sprite.svg#edit"></use>
-                                                </svg>
-                                            </a>
-                                            <p class="text text--tiny text--grey">anastasiamisukova24@gmail.com</p>
-                                        </div>
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-role" class="table__control table__control--grey">
-                                                <svg class="icon">
-                                                    <use xlink:href="assets/images/sprite.svg#edit"></use>
-                                                </svg>
-                                            </a>
-                                            <p class="text text--tiny text--grey">Администратор</p>
-                                        </div>
-                                        <div class="table__column table__column--admin">
-
-                                            <p class="text text--tiny text--grey">22.02.2024 в 12:28</p>
-                                        </div>
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-password" class="text text--tiny text--grey text--grey--light">Изменить пароль</a>
-                                        </div>
-
-                                    </div>
-                                    <div class="table__row table__row--admins">
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-name" class="table__control table__control--grey">
-                                                <svg class="icon">
-                                                    <use xlink:href="assets/images/sprite.svg#edit"></use>
-                                                </svg>
-                                            </a>
-                                            <p class="text text--tiny text--grey">Арсений Новиков</p>
-                                        </div>
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-email" class="table__control table__control--grey">
-                                                <svg class="icon">
-                                                    <use xlink:href="assets/images/sprite.svg#edit"></use>
-                                                </svg>
-                                            </a>
-                                            <p class="text text--tiny text--grey">anastasiamisukova24@gmail.com</p>
-                                        </div>
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-role" class="table__control table__control--grey">
-                                                <svg class="icon">
-                                                    <use xlink:href="assets/images/sprite.svg#edit"></use>
-                                                </svg>
-                                            </a>
-                                            <p class="text text--tiny text--grey">Администратор</p>
-                                        </div>
-                                        <div class="table__column table__column--admin">
-
-                                            <p class="text text--tiny text--grey">22.02.2024 в 12:28</p>
-                                        </div>
-                                        <div class="table__column table__column--admin">
-                                            <a href="#" data-popup=".popup-password" class="text text--tiny text--grey text--grey--light">Изменить пароль</a>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -356,7 +347,7 @@
                         <input type="text"
                                class="input input--light input--small">
                     </label>
-                    <button type="submit" class="button button--tiny button--green button--full">
+                    <button type="submit" class="button button--tiny button--tiny--mobile--small button--green button--full">
                         Сохранить изменения
                     </button>
                     <a href="#" class="popup-close text--center text text--tiny text--grey--white">
@@ -382,7 +373,7 @@
                         <input type="text"
                                class="input input--light input--small">
                     </label>
-                    <button type="submit" class="button button--tiny button--green button--full">
+                    <button type="submit" class="button button--tiny button--tiny--mobile--small button--green button--full">
                         Сохранить изменения
                     </button>
                     <a href="#" class="popup-close text--center text text--tiny text--grey--white">
@@ -408,7 +399,7 @@
                             <option value="">Оператор</option>
                         </select>
                     </div>
-                    <button type="submit" class="button button--tiny button--green button--full">
+                    <button type="submit" class="button button--tiny button--tiny--mobile--small button--green button--full">
                         Сохранить изменения
                     </button>
                     <a href="#" class="popup-close text--center text text--tiny text--grey--white">
@@ -441,7 +432,7 @@
                         <input type="text"
                                class="input input--light input--small">
                     </label>
-                    <button type="submit" class="button button--tiny button--green button--full">
+                    <button type="submit" class="button button--tiny button--tiny--mobile--small button--green button--full">
                         Сохранить изменения
                     </button>
                     <a href="#" class="popup-close text--center text text--tiny text--grey--white">
@@ -498,7 +489,7 @@
                                 </div>
                             </div>
                     </div>
-                    <button type="submit" class="button button--tiny button--green button--full">
+                    <button type="submit" class="button button--tiny button--tiny--mobile--small button--green button--full">
                        Добавить
                     </button>
                     <a href="#" class="popup-close text--center text text--tiny text--grey--white">
