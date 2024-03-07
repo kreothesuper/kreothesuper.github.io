@@ -395,10 +395,11 @@ button:hover {
   height: 200px;
 }
 .input--textarea--auto {
-  height: calc(16px + var(--input-height) * 15 + 10px + 2px);
-  line-height: 14px;
-  overflow: hidden;
-  min-height: 28px;
+  min-height: 14px;
+  height: auto;
+}
+.input--textarea--auto textarea {
+  min-height: 24px;
 }
 .input--light {
   border-color: var(--color-grey);
@@ -2997,6 +2998,28 @@ button:hover {
 .form-message--success::before {
   opacity: 1;
   visibility: visible;
+}
+
+.textarea-grow {
+  display: grid;
+  overflow: hidden;
+}
+
+.textarea-grow::after {
+  content: attr(data-replicated-value) " ";
+  white-space: pre-wrap;
+  visibility: hidden;
+}
+
+.textarea-grow > textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+.textarea-grow > textarea,
+.textarea-grow::after {
+  font: inherit;
+  grid-area: 1/1/2/2;
 }
 
 /*# sourceMappingURL=index.css.map */
