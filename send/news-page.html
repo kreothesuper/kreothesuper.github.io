@@ -1622,7 +1622,7 @@
                     </nav>
                     <div class="contacts-header">
                         <h1 class="contacts-title">Новости</h1>
-                        <div class="contacts-filter filter js-filter">
+                        <div class="contacts-filter contacts-filter--desktop filter js-filter">
                             <div class="filter__wrapper">
                                 <div class="filter__header">
                                     <p class="filter__title">Фильтр:</p>
@@ -2155,6 +2155,64 @@
                             </a>
                         </div>
                     </div>
+                    <div class="contacts-filter contacts-filter--mobile filter js-filter">
+                        <div class="filter__wrapper">
+                            <div class="filter__header">
+                                <p class="filter__title">Фильтр:</p>
+                            </div>
+                            <div class="filter-content">
+                                <div class="filter-current js-filter-link">
+                                    <div class="filter-radio">
+                                        <span class="filter-radio__label js-filter-current">Все новости</span>
+                                    </div>
+                                    <svg class="filter-current__icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_31_639)">
+                                            <path d="M11.7598 3.62372L10.7518 2.61572L6.71977 6.64772L5.99977 7.32658L5.27977 6.64772L1.24777 2.61572L0.239768 3.62372L5.99977 9.38372L11.7598 3.62372Z" fill="#E10600"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_31_639">
+                                                <rect width="12" height="12" fill="white" transform="translate(12) rotate(90)"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="filter-list">
+                                    <div class="filter-list__wrapper">
+                                        <div class="filter-list__block">
+                                            <label class="filter-radio">
+                                                <input type="radio" checked name="filter-m" class="filter-radio__input">
+                                                <span class="filter-radio__label js-filter-label">Все новости</span>
+                                            </label>
+                                            <label class="filter-radio">
+                                                <input type="radio" name="filter-m" class="filter-radio__input">
+                                                <span class="filter-radio__label js-filter-label">Мероприятия</span>
+                                            </label>
+                                        </div>
+                                        <div class="filter-list__block">
+                                            <p class="filter-list__title">По вендорам:</p>
+                                            <label class="filter-radio">
+                                                <input type="radio" name="filter-m" class="filter-radio__input">
+                                                <span class="filter-radio__label js-filter-label">Asus</span>
+                                            </label>
+                                            <label class="filter-radio">
+                                                <input type="radio" name="filter-m" class="filter-radio__input">
+                                                <span class="filter-radio__label js-filter-label">Lenovo</span>
+                                            </label>
+                                            <label class="filter-radio">
+                                                <input type="radio" name="filter-m" class="filter-radio__input">
+                                                <span class="filter-radio__label js-filter-label">Micron</span>
+                                            </label>
+                                            <label class="filter-radio">
+                                                <input type="radio" name="filter-m" class="filter-radio__input">
+                                                <span class="filter-radio__label js-filter-label">Тринити</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="buttons-box-item">
                         <ul class="buttons-box-list">
                             <li>
@@ -2246,6 +2304,7 @@
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -2433,7 +2492,6 @@
             const inputElement = input.closest('.filter-radio');
             currentText.textContent = inputElement.querySelector('.js-filter-label').textContent;
         }
-
         const closeAllFilter = ()=>{
             filterArray.forEach(filter=>{
                 filter.classList.remove('active');

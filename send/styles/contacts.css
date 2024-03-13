@@ -6,6 +6,7 @@
 }
 .contacts {
   width: 100%;
+  position: relative;
 }
 .contacts__wrapper {
   display: flex;
@@ -542,6 +543,12 @@
   background: #fff;
 }
 
+@media screen and (min-width: 501px) {
+  .contacts-filter--mobile{
+    display: none;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .filter-content{
     width: 100%;
@@ -553,12 +560,19 @@
 
   .filter{
     width: 100%;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
   }
 
-  .contacts-filter{
-    position: fixed;
-    bottom: 30px;
+  .contacts-filter--desktop{
+    display: none;
+  }
 
+
+  .contacts-filter{
+    position: sticky;
+    bottom: 30px;
     left: 30px;
     width: calc(100vw - 60px);
   }
