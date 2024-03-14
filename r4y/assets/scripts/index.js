@@ -1,3 +1,40 @@
+const checkTargetOrKey = event => {
+    if (
+        event.target.classList.contains('popup__wrapper') ||
+        event.key === 'Escape' ||
+        event.target.closest('.popup-close')
+    ) {
+        hideAllPopups();
+    }
+};
+const showPopup = popupId => {
+    const popup = document.querySelector(popupId);
+    if (!popup) return
+
+    const pageWrapper = document.querySelector('body');
+
+    hideAllPopups();
+
+    popup.classList.add('popup--active');
+    pageWrapper.classList.add('no-scroll');
+
+    document.addEventListener('click', checkTargetOrKey);
+    document.addEventListener('keyup', checkTargetOrKey);
+};
+
+const hideAllPopups = () => {
+    const popups = document.querySelectorAll('.popup'),
+        pageWrapper = document.querySelector('body');
+
+    popups.forEach(popup => {
+        popup.classList.remove('popup--active');
+    });
+    pageWrapper.classList.remove('no-scroll');
+
+    document.removeEventListener('click', checkTargetOrKey);
+    document.removeEventListener('keyup', checkTargetOrKey);
+};
+
 document.addEventListener('DOMContentLoaded',()=>{
     const burger = document.querySelector('.burger');
     const header = document.querySelector('.header')
@@ -129,4 +166,18 @@ document.addEventListener('DOMContentLoaded',()=>{
             prevEl: '.partners-slider-button-prev',
         },
     });
+
+    const popupButtons = document.querySelectorAll('[data-popup]');
+    const popups = document.querySelectorAll('.popup');
+
+    if (popups.length) {
+        popupButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const popupId = button.dataset.popup
+                showPopup(popupId);
+            });
+        });
+    }
 })
