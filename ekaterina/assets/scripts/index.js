@@ -300,32 +300,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })
 
-    let panelsSection = document.querySelector("#about"),
-        panelsContainer = document.querySelector("#about-container .section__wrapper"),
-        tween;
-
-    const panels = gsap.utils.toArray("#about-container .section__wrapper");
-    tween = gsap.to(panels, {
-        xPercent: -100 * ( panels.length - 1 ),
-
-        ease: "none",
-        scrollTrigger: {
-            trigger: "#about-container",
-            pin: true,
-            start: "top top",
-            end:'center bottom',
-            scrub: 1,
-            anticipatePin: 1,
-            snap: {
-                snapTo: 1 / (panels.length - 1),
-                inertia: false,
-                duration: {min: 0.1, max: 0.1}
-            },
-        }
-    });
-
-
-
 
     const burgerArray = document.querySelectorAll('.burger');
     const nav = document.querySelector('.nav');
@@ -392,18 +366,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
-    gsap.to("#panels", {
+    gsap.to('.about', {
         scrollTrigger: {
-            trigger: "#panels",
-            pin: true,
-            pinSpacing: false,
+            trigger: '.about',
             start: "top top",
             end: "bottom top",
-  
-            id: "hero"
-        }
-    });
+            scrub: true,
+            toggleClass: 'animated'
+        },
+        ease: "power1.inOut",
+        duration: 50,
+        repeat: 1,
+});
+
 
 
     const popupButtonArray = document.querySelectorAll('[data-popup]');

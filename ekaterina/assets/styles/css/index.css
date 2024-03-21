@@ -967,6 +967,12 @@ body.no-scroll {
 .about {
   position: relative;
 }
+.about.animated .about__block:nth-child(2) {
+  display: flex;
+}
+.about.animated .about__block:nth-child(1) {
+  display: none;
+}
 .about__decor {
   position: absolute;
   bottom: 0;
@@ -982,6 +988,12 @@ body.no-scroll {
     width: 100%;
     height: 100%;
   }
+}
+.about__block:nth-child(1) {
+  display: flex;
+}
+.about__block:nth-child(2) {
+  display: none;
 }
 .about__wrapper {
   display: flex;
@@ -2030,6 +2042,8 @@ path {
   padding: 0;
   overflow: hidden;
   width: 200vw;
+  position: relative;
+  z-index: 4;
 }
 
 #about-container .section__wrapper {
@@ -2043,6 +2057,10 @@ path {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+}
+#about-container .section__wrapper .block {
+  position: relative;
+  z-index: 4;
 }
 
 /*# sourceMappingURL=index.css.map */
