@@ -379,6 +379,18 @@ document.addEventListener('DOMContentLoaded', () => {
         repeat: 1,
 });
 
+    gsap.to("#panels", {
+        scrollTrigger: {
+            trigger: "#panels",
+            pin: true,
+            pinSpacing: false,
+            start: "top top",
+            end: "bottom top",
+
+            id: "hero"
+        }
+    });
+
 
 
     const popupButtonArray = document.querySelectorAll('[data-popup]');
