@@ -101,8 +101,8 @@ const checkTargetOrKey = event => {
     }
 };
 
-function init(){
-    new SmoothScroll(document,80,20)
+function init() {
+    new SmoothScroll(document, 80, 20)
 }
 
 function SmoothScroll(target, speed, smooth) {
@@ -119,8 +119,8 @@ function SmoothScroll(target, speed, smooth) {
         ? document.documentElement
         : target // safari is the new IE
 
-    target.addEventListener('mousewheel', scrolled, { passive: false })
-    target.addEventListener('DOMMouseScroll', scrolled, { passive: false })
+    target.addEventListener('mousewheel', scrolled, {passive: false})
+    target.addEventListener('DOMMouseScroll', scrolled, {passive: false})
 
     function scrolled(e) {
         e.preventDefault(); // disable default scrolling
@@ -133,14 +133,14 @@ function SmoothScroll(target, speed, smooth) {
         if (!moving) update()
     }
 
-    function normalizeWheelDelta(e){
-        if(e.detail){
-            if(e.wheelDelta)
-                return e.wheelDelta/e.detail/40 * (e.detail>0 ? 1 : -1) // Opera
+    function normalizeWheelDelta(e) {
+        if (e.detail) {
+            if (e.wheelDelta)
+                return e.wheelDelta / e.detail / 40 * (e.detail > 0 ? 1 : -1) // Opera
             else
-                return -e.detail/3 // Firefox
-        }else
-            return e.wheelDelta/120 // IE,Safari,Chrome
+                return -e.detail / 3 // Firefox
+        } else
+            return e.wheelDelta / 120 // IE,Safari,Chrome
     }
 
     function update() {
@@ -156,14 +156,14 @@ function SmoothScroll(target, speed, smooth) {
             moving = false
     }
 
-    var requestFrame = function() { // requestAnimationFrame cross browser
+    var requestFrame = function () { // requestAnimationFrame cross browser
         return (
             window.requestAnimationFrame ||
             window.webkitRequestAnimationFrame ||
             window.mozRequestAnimationFrame ||
             window.oRequestAnimationFrame ||
             window.msRequestAnimationFrame ||
-            function(func) {
+            function (func) {
                 window.setTimeout(func, 1000 / 50);
             }
         );
@@ -219,9 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
             nextEl: '.slider-button--next',
             prevEl: '.slider-button--prev',
         },
-        pagination:{
-            type:'fraction',
-            el:'.slider-pagination'
+        pagination: {
+            type: 'fraction',
+            el: '.slider-pagination'
         },
         on: {
             slideChange: function (swiper) {
@@ -273,7 +273,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // }
 
 
-
     gsap.from(".branch__img", {
         ease: "none",
         // yPercent: -100,
@@ -292,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "none",
         yPercent: -50,
         duration: 5000,
-        rotation:30,
+        rotation: 30,
         scrollTrigger: {
             scrub: true,
             trigger: ".branch-wrapper",
@@ -358,9 +357,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-
-
-
     const decorArray = document.querySelectorAll(".decor");
 
     decorArray.forEach(decor => {
@@ -413,30 +409,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // }
 
 
-    let panelsSection = document.querySelector("#about"),
-        panelsContainer = document.querySelector("#about-container .section__wrapper"),
-        tween;
-
-    const panels = gsap.utils.toArray(".overlay-wrapper .overlay-section");
-    tween = gsap.to(panels, {
-        yPercent: -100 * ( panels.length - 1 ),
-
-        ease: "none",
-        scrollTrigger: {
-            trigger: '.overlay-wrapper',
-            pin: true,
-            start: "top top",
-            end: "bottom top",
-            scrub: 1,
-            anticipatePin: 1,
-            snap: {
-                snapTo: 1 / (panels.length - 1),
-                inertia: false,
-                duration: {min: 0.1, max: 0.1}
-            },
-        }
-    });
-
+    // let panelsSection = document.querySelector("#about"),
+    //     panelsContainer = document.querySelector("#about-container .section__wrapper"),
+    //     tween;
+    //
+    // const panelsWrapper = document.querySelector('.overlay-wrapper');
+    // const panels = document.querySelectorAll('.overlay-section');
+    // const movementFactor = .8;
+    // panels.forEach((panel,i)=>{
+    //     gsap.fromTo(panel, {
+    //         y: () => i ? -movementFactor * 0.5 * panelsWrapper.offsetHeight : 0
+    //     }, {
+    //         y: () => movementFactor * 0.5 * panelsWrapper.offsetHeight,
+    //         ease: "none",
+    //         scrollTrigger: {
+    //             trigger: panelsWrapper,
+    //             start: () => i ? "top bottom" : "-1px top",
+    //             end: "bottom top",
+    //             scrub: true,
+    //
+    //         }
+    //     });
+    // });
 
 
     const popupButtonArray = document.querySelectorAll('[data-popup]');
