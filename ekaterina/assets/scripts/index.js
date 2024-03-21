@@ -358,7 +358,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 start: "-500vh top",
                 end: "bottom top",
                 scrub: true,
-                markers:true,
             },
             ease: "power1.inOut",
             duration: 500,
