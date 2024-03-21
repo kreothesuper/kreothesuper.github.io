@@ -242,6 +242,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
+    gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+
     gsap.to(".hero-img__item", {
         backgroundPosition: `${-innerHeight / 100}px 50%`,
         ease: "none",
@@ -252,6 +254,23 @@ document.addEventListener('DOMContentLoaded', () => {
             end: "bottom top",
         },
     });
+
+    const sectionBg = document.querySelectorAll('.section-bg');
+
+    if(sectionBg.length){
+        sectionBg.forEach(element=>{
+            gsap.to(element, {
+                backgroundPosition: `50% ${-innerHeight / 10}px`,
+                ease: "none",
+                scrollTrigger: {
+                    scrub: true,
+                    trigger: element,
+                    start: "top bottom",
+                    end: "bottom top",
+                },
+            });
+        })
+    }
 
 
 
@@ -292,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
             trigger: ".branch-wrapper",
             start: "-200vh top",
             end: "top top",
-  
+
         },
     });
 
@@ -306,7 +325,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrub: true,
                 trigger: ".hero",
                 start: "top top",
-                end: "bottom  top",
+                end: "bottom top",
+                markers:true,
             },
         });
     })
@@ -339,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+
 
 
     const decorArray = document.querySelectorAll(".decor");
@@ -391,21 +411,21 @@ document.addEventListener('DOMContentLoaded', () => {
         repeat: 1,
 });
 
-    const overlaySection = document.querySelectorAll('.overlay-section');
-
-    if(overlaySection.length){
-        overlaySection.forEach(section=>{
-            gsap.to(section, {
-                scrollTrigger: {
-                    trigger: section,
-                    pin: true,
-                    pinSpacing: false,
-                    start: "top top",
-                    end: "bottom top",
-                }
-            });
-        })
-    }
+    // const overlaySection = document.querySelectorAll('.overlay-section');
+    //
+    // if(overlaySection.length){
+    //     overlaySection.forEach(section=>{
+    //         gsap.to(section, {
+    //             scrollTrigger: {
+    //                 trigger: section,
+    //                 // pin: true,
+    //                 // pinSpacing: false,
+    //                 start: "top top",
+    //                 end: "bottom top",
+    //             }
+    //         });
+    //     })
+    // }
 
 
 

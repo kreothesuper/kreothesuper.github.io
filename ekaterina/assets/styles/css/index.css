@@ -683,20 +683,23 @@ body.no-scroll {
   mix-blend-mode: multiply;
 }
 .section--about {
-  background: #072828;
+  background: url("../../images/about.webp") center center/cover no-repeat;
   position: relative;
 }
 .section--about::before {
   content: "";
+  position: absolute;
+  opacity: 0.8;
+  background: #072828;
+  z-index: 1;
   width: 100%;
   height: 100%;
   display: block;
-  position: absolute;
   left: 0;
   top: 0;
-  background: url("../../images/about.webp") top center/cover no-repeat;
-  opacity: 0.2;
-  z-index: 1;
+}
+.section-family {
+  background: url("../../images/info/1.webp") center center/cover no-repeat;
 }
 .section__header {
   margin: 0 0 45px 0;
@@ -1006,6 +1009,7 @@ body.no-scroll {
   position: absolute;
   bottom: 0;
   left: 50%;
+  z-index: 5;
   transform: translateX(-50%);
 }
 @media screen and (max-width: 767px) {
