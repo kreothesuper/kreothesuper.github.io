@@ -269,10 +269,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         },
     });
-    gsap.to(".branch__img", {
+    gsap.to(".branch__container", {
         ease: "none",
         yPercent: -50,
         duration: 5000,
+        rotation:30,
         scrollTrigger: {
             scrub: true,
             trigger: ".branch-wrapper",

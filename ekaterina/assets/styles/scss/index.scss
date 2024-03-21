@@ -418,12 +418,16 @@ body{
 
   &--active {
     opacity: 1;
+    &::before{
+      display: none;
+    }
     @media screen and (max-width: 767px) {
       width: 17px;
       height: 17px;
     }
     .burger__item {
       top: 12px;
+      opacity: 1;
 
       background: linear-gradient(90deg, #FFD88C,#998254);
       &:nth-child(1) {
@@ -545,7 +549,7 @@ body{
     position: fixed;
     bottom: 20px;
     right: calc(50% - 600px);
-    z-index: 4;
+    z-index: 6;
     
     @media screen and (max-width: 1300px) {
       right: 20px;
@@ -990,6 +994,18 @@ body{
 }
 
 .footer{
+  &-wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__form{
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
   &__wrapper{
     padding: 40px 0;
   }
@@ -1228,7 +1244,7 @@ body{
         width: 100%;
         height: 100%;
         object-fit: contain;
-        object-position: left center;
+        object-position: center center;
       }
     }
     @media screen and (max-width: 767px) {
@@ -1393,13 +1409,28 @@ body{
     align-items: center;
     justify-content: center;
     transition: .3s background-color;
-
+    fill: #FFD88C;
     flex-shrink: 0;
     @media screen and (max-width: 767px) {
       padding: 4px 8px;
     }
     &:hover{
-      background: #fff;
+      background: #FFD88C;
+      fill: #295E5E;
+    }
+    &__icon{
+      content: '';
+      width: 15px;
+      height: 15px;
+      display: block;
+
+      flex-shrink: 0;
+
+      transition: .3s fill;
+      @media screen and (max-width: 767px) {
+        width: 10px;
+        height: 10px;
+      }
     }
     & + &{
       &::after{
@@ -1417,23 +1448,9 @@ body{
         }
       }
     }
-    &::before{
-      content: '';
-      width: 15px;
-      height: 15px;
-      display: block;
 
-      flex-shrink: 0;
-      background: url("../../images/icons/slider-arrow.svg") center center/contain no-repeat;
-      @media screen and (max-width: 767px) {
-        width: 10px;
-        height: 10px;
-      }
-    }
-    &--next{
-      &::before{
+    &--next &__icon{
         transform: rotate(180deg);
-      }
     }
   }
 }
@@ -1496,9 +1513,7 @@ body{
     }
   }
   &__content{
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
+    display: none;
 
     transition: .3s visibility,.5s opacity;
     &.active{
@@ -1713,10 +1728,15 @@ body{
   opacity: 0;
   visibility: hidden;
 
+  overflow: hidden;
+
   transition: .5s visibility,1s opacity;
   &.active{
     opacity: 1;
     visibility: visible;
+  }
+  &.active &__wrapper{
+    transform: translateY(0);
   }
   &__callback{
     @media screen and (min-width: 768px) {
@@ -1735,6 +1755,8 @@ body{
     justify-content: space-between;
     gap: 60px;
     overflow: auto;
+    transform: translateX(100%);
+    transition: 1s transform;
     @media screen and (max-width: 767px) {
       padding:20px 40px 40px 40px;
     }
@@ -1758,7 +1780,6 @@ body{
   &__burger{
     margin-left: auto;
     @media screen and (min-width: 768px) {
-      display: none;
     }
   }
   &__title{
@@ -1963,11 +1984,14 @@ path {
   -webkit-backdrop-filter: blur(4px);
   background: rgba(0, 0, 0, 0.3);
 
-  display: none;
   z-index: 12;
+  opacity: 0;
+  visibility: hidden;
 
+  transition: .5s visibility, 1s opacity;
   &--active {
-    display: block;
+    opacity: 1;
+    visibility: visible;
   }
 
   &__wrapper {

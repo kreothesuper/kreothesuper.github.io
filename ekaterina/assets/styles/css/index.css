@@ -377,6 +377,9 @@ body.no-scroll {
 .burger--active {
   opacity: 1;
 }
+.burger--active::before {
+  display: none;
+}
 @media screen and (max-width: 767px) {
   .burger--active {
     width: 17px;
@@ -385,6 +388,7 @@ body.no-scroll {
 }
 .burger--active .burger__item {
   top: 12px;
+  opacity: 1;
   background: linear-gradient(90deg, #FFD88C, #998254);
 }
 .burger--active .burger__item:nth-child(1) {
@@ -500,7 +504,7 @@ body.no-scroll {
   position: fixed;
   bottom: 20px;
   right: calc(50% - 600px);
-  z-index: 4;
+  z-index: 6;
 }
 @media screen and (max-width: 1300px) {
   .hero__callback {
@@ -911,6 +915,18 @@ body.no-scroll {
   color: #000;
 }
 
+.footer-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footer-wrapper__form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .footer__wrapper {
   padding: 40px 0;
 }
@@ -1155,7 +1171,7 @@ body.no-scroll {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    object-position: left center;
+    object-position: center center;
   }
 }
 @media screen and (max-width: 767px) {
@@ -1327,6 +1343,7 @@ body.no-scroll {
   align-items: center;
   justify-content: center;
   transition: 0.3s background-color;
+  fill: #FFD88C;
   flex-shrink: 0;
 }
 @media screen and (max-width: 767px) {
@@ -1335,7 +1352,22 @@ body.no-scroll {
   }
 }
 .slider-button:hover {
-  background: #fff;
+  background: #FFD88C;
+  fill: #295E5E;
+}
+.slider-button__icon {
+  content: "";
+  width: 15px;
+  height: 15px;
+  display: block;
+  flex-shrink: 0;
+  transition: 0.3s fill;
+}
+@media screen and (max-width: 767px) {
+  .slider-button__icon {
+    width: 10px;
+    height: 10px;
+  }
 }
 .slider-button + .slider-button::after {
   content: "";
@@ -1353,21 +1385,7 @@ body.no-scroll {
     top: 4px;
   }
 }
-.slider-button::before {
-  content: "";
-  width: 15px;
-  height: 15px;
-  display: block;
-  flex-shrink: 0;
-  background: url("../../images/icons/slider-arrow.svg") center center/contain no-repeat;
-}
-@media screen and (max-width: 767px) {
-  .slider-button::before {
-    width: 10px;
-    height: 10px;
-  }
-}
-.slider-button--next::before {
+.slider-button--next .slider-button__icon {
   transform: rotate(180deg);
 }
 
@@ -1431,9 +1449,7 @@ body.no-scroll {
   color: #FFD88C;
 }
 .tabs__content {
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
+  display: none;
   transition: 0.3s visibility, 0.5s opacity;
 }
 .tabs__content.active {
@@ -1652,11 +1668,15 @@ body.no-scroll {
   z-index: 14;
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
   transition: 0.5s visibility, 1s opacity;
 }
 .nav.active {
   opacity: 1;
   visibility: visible;
+}
+.nav.active .nav__wrapper {
+  transform: translateY(0);
 }
 @media screen and (min-width: 768px) {
   .nav__callback {
@@ -1674,6 +1694,8 @@ body.no-scroll {
   justify-content: space-between;
   gap: 60px;
   overflow: auto;
+  transform: translateX(100%);
+  transition: 1s transform;
 }
 @media screen and (max-width: 767px) {
   .nav__wrapper {
@@ -1700,11 +1722,6 @@ body.no-scroll {
 }
 .nav__burger {
   margin-left: auto;
-}
-@media screen and (min-width: 768px) {
-  .nav__burger {
-    display: none;
-  }
 }
 .nav__title {
   background: linear-gradient(90deg, #ffd88c 0%, #998254 100%);
@@ -1898,11 +1915,14 @@ path {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   background: rgba(0, 0, 0, 0.3);
-  display: none;
   z-index: 12;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s visibility, 1s opacity;
 }
 .popup--active {
-  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 .popup__wrapper {
   position: absolute;
