@@ -1,3 +1,22 @@
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    background-color: #163F3F;
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #FFDF9E;
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #163F3F;
+    border-radius: 20px;
+  }
+}
+
 :root{
   --main-font:'Roboto Condensed', sans-serif;
   --title-font:'Lora', serif;
@@ -38,10 +57,7 @@ body{
   font-size: var(--text-base);
   line-height: 1.25;
 
-  &.no-scroll{
-    overflow: hidden;
-    touch-action: none;
-  }
+  @include custom-scrollbar();
 }
 
 .content__wrapper{
@@ -77,8 +93,14 @@ body{
     }
   }
   &--advantages{
+    padding: 0 30px 0 75px;
     @media screen and (max-width: 991px) {
       padding: 0 15px 0 0;
+    }
+  }
+  &--branch{
+    padding-left: 100px;
+    @media screen and (min-width: 767px) {
     }
   }
 }
@@ -1905,6 +1927,8 @@ body{
     overflow: auto;
     transform: translateX(100%);
     transition: 1s transform;
+
+    @include custom-scrollbar();
     @media screen and (max-width: 767px) {
       padding:20px 40px 40px 40px;
     }
@@ -2222,6 +2246,7 @@ path {
     top: 50%;
     max-height:calc(100% - 30px);
     overflow: auto;
+    @include custom-scrollbar();
     left: 50%;
     transform: translate(-50%,-50%);
 
