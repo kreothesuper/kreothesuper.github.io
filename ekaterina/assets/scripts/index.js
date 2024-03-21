@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "none",
         yPercent: -50,
         duration: 5000,
-        rotation: 30,
+        rotation: -30,
         scrollTrigger: {
             scrub: true,
             trigger: ".branch-wrapper",
