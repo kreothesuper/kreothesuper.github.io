@@ -266,7 +266,17 @@ document.addEventListener('DOMContentLoaded', () => {
             trigger: ".branch-wrapper",
             start: "-800vh top",
             end: "top top",
-  
+
+        },
+    });
+    gsap.to(".branch__img", {
+        ease: "none",
+        yPercent: -50,
+        duration: 5000,
+        scrollTrigger: {
+            scrub: true,
+            trigger: ".branch-wrapper",
+            start: "top top",
         },
     });
 
@@ -345,13 +355,14 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.to(rect, {
             scrollTrigger: {
                 trigger: decorContainer,
-                start: "top top",
+                start: "-500vh top",
                 end: "bottom top",
                 scrub: true,
+                markers:true,
             },
             ease: "power1.inOut",
-            duration: 50,
-            repeat: 1,
+            duration: 500,
+            repeat: 0,
             motionPath: {
                 path,
                 align: path,
@@ -372,24 +383,29 @@ document.addEventListener('DOMContentLoaded', () => {
             start: "top top",
             end: "bottom top",
             scrub: true,
-            toggleClass: 'animated'
+            toggleClass: 'animated',
+            // pin: true,
         },
         ease: "power1.inOut",
-        duration: 50,
+        duration: 5000,
         repeat: 1,
 });
 
-    gsap.to("#panels", {
-        scrollTrigger: {
-            trigger: "#panels",
-            pin: true,
-            pinSpacing: false,
-            start: "top top",
-            end: "bottom top",
+    const overlaySection = document.querySelectorAll('.overlay-section');
 
-            id: "hero"
-        }
-    });
+    if(overlaySection.length){
+        overlaySection.forEach(section=>{
+            gsap.to(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    pin: true,
+                    pinSpacing: false,
+                    start: "top top",
+                    end: "bottom top",
+                }
+            });
+        })
+    }
 
 
 
