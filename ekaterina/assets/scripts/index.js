@@ -326,7 +326,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 trigger: ".hero",
                 start: "top top",
                 end: "bottom top",
-                markers:true,
             },
         });
     })
@@ -376,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.to(rect, {
             scrollTrigger: {
                 trigger: decorContainer,
-                start: "-500vh top",
+                start: "top bottom",
                 end: "bottom top",
                 scrub: true,
             },
