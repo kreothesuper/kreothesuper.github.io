@@ -110,6 +110,9 @@ body {
 .text--blue--deep {
   color: var(--color-blue-deep);
 }
+.text--blue--light {
+  color: var(--color-blue-dark);
+}
 .text--black {
   color: #333;
 }
@@ -738,6 +741,9 @@ button:hover {
 .content__wrapper--letter {
   max-width: 600px;
 }
+.content__wrapper--home {
+  max-width: 1260px;
+}
 .content__wrapper--full {
   height: 100%;
 }
@@ -881,6 +887,12 @@ button:hover {
 .card__wrapper--big {
   padding: var(--card-padding-big);
 }
+.card__wrapper--gap--tiny {
+  gap: 2px;
+}
+.card__wrapper--row {
+  flex-direction: row;
+}
 .card__wrapper--full {
   width: 100%;
 }
@@ -943,10 +955,16 @@ button:hover {
   justify-content: space-between;
   gap: 10px;
 }
+.card__row--stretch {
+  align-items: stretch;
+}
 .card__row--tag {
   gap: 13px;
   justify-content: flex-start;
   flex-wrap: wrap;
+}
+.card__row--gap--big {
+  gap: 20px;
 }
 .card__row--start {
   justify-content: flex-start;
@@ -1064,6 +1082,9 @@ button:hover {
   .grid__button {
     display: none;
   }
+}
+.grid__block--full {
+  grid-column: 1/-1;
 }
 
 .social-list {
@@ -3020,6 +3041,55 @@ button:hover {
 .textarea-grow::after {
   font: inherit;
   grid-area: 1/1/2/2;
+}
+
+.partners-slider {
+  position: relative;
+}
+.partners-slider__swiper {
+  padding: 20px 0;
+  margin: -20px 0;
+}
+.partners-slider__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.partners-slider__item {
+  width: 80px;
+  height: 80px;
+}
+.partners-slider__button {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  transition: 0.3s background-color;
+}
+.partners-slider__button:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+.partners-slider__button svg {
+  width: 14px;
+  height: 14px;
+  stroke: #fff;
+}
+.partners-slider__button--prev svg {
+  transform: rotate(180deg) translateX(1px);
+}
+@media screen and (max-width: 767px) {
+  .partners-slider__button {
+    display: none;
+  }
+}
+.partners-slider__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /*# sourceMappingURL=index.css.map */

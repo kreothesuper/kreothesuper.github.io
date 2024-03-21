@@ -244,6 +244,17 @@ document.addEventListener('DOMContentLoaded', () => {
         pagination: __sliderPaginationParams,
     });
 
+    const partnersSlider = new Swiper('.partners-slider__swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        speed: 500,
+        loop:true,
+        navigation:{
+            prevEl:'.partners-slider__button--prev',
+            nextEl:'.partners-slider__button--next',
+        }
+    });
+
     const popupButtons = document.querySelectorAll('[data-popup]');
     const popups = document.querySelectorAll('.popup');
 
@@ -464,7 +475,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const adminFilterArray = document.querySelectorAll('.admin-filter');
-
 
     if (adminFilterArray.length) {
         function isAnyInputFilled(inputs) {

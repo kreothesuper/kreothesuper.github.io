@@ -9,6 +9,7 @@
     --color-blue-dark: #4082c6;
     --color-blue-deep: #0023DB;
 
+
     // title
     --title-base: 35px;
 
@@ -146,6 +147,10 @@ body {
 
         &--deep {
             color: var(--color-blue-deep);
+        }
+
+        &--light{
+            color: var(--color-blue-dark);
         }
     }
 
@@ -931,6 +936,10 @@ button{
             max-width: calc(570px + 30px);
         }
 
+        &--home{
+            max-width: calc(1230px + 30px);
+        }
+
         &--full{
             height: 100%;
         }
@@ -1107,6 +1116,16 @@ button{
             padding: var(--card-padding-big);
         }
 
+        &--gap{
+            &--tiny{
+                gap: 2px;
+            }
+        }
+
+        &--row{
+            flex-direction: row;
+        }
+
         &--full{
             width: 100%;
         }
@@ -1182,10 +1201,18 @@ button{
         justify-content: space-between;
         gap: 10px;
 
+        &--stretch{
+            align-items: stretch;
+        }
         &--tag {
             gap: 13px;
             justify-content: flex-start;
             flex-wrap: wrap;
+        }
+        &--gap{
+            &--big{
+                gap: 20px;
+            }
         }
         &--start{
             justify-content: flex-start;
@@ -1335,6 +1362,12 @@ button{
 
         @media screen and (min-width: 768px) {
             display: none;
+        }
+    }
+
+    &__block{
+        &--full{
+            grid-column:1/-1;
         }
     }
 }
@@ -3662,4 +3695,60 @@ button{
 .textarea-grow::after {
     font: inherit;
     grid-area: 1 / 1 / 2 / 2;
+}
+
+.partners{
+    &-slider{
+        position: relative;
+        &__swiper{
+            padding: 20px 0;
+            margin: -20px 0;
+        }
+        &__wrapper{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        &__item{
+            width: 80px;
+            height: 80px;
+        }
+        &__button{
+            width: 25px;
+            height: 25px;
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            background: rgba(#000,.2);
+
+            transition: .3s background-color;
+            &:hover{
+                background: rgba(#000,.5);
+            }
+            svg{
+                width: 14px;
+                height: 14px;
+                stroke: #fff;
+            }
+
+            &--prev{
+                svg{
+                    transform: rotate(180deg) translateX(1px);
+                }
+            }
+            
+            @media screen and (max-width: 767px) {
+                display: none;
+            }
+        }
+        &__img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
 }
