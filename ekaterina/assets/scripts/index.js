@@ -444,4 +444,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+
+    const mapListLink = document.querySelectorAll('.map-list__link');
+    const map = document.querySelector('.map');
+    const mapIcons = document.querySelectorAll('.map-icon__item');
+
+    if(mapListLink.length && map){
+        mapListLink.forEach(link=>{
+            const name = link.dataset.name;
+            link.addEventListener('click',(e)=>{
+                e.preventDefault();
+                if(map.dataset.current === name ){
+                    link.classList.remove('active');
+                    map.dataset.current = '';
+                    mapIcons.forEach(icon=>icon.classList.remove('hidden'));
+                }else{
+                    map.dataset.current = name;
+                    mapListLink.forEach(mapLink =>{
+                        mapLink !== link ? mapLink.classList.remove('active') : mapLink.classList.add('active');
+                    });
+                    mapIcons.forEach(icon=>{
+                        icon.dataset.name === name ? icon.classList.remove('hidden') : icon.classList.add('hidden');
+                    });
+                }
+            });
+        });
+    }
 })

@@ -1261,6 +1261,27 @@ body{
       gap: 15px;
     }
   }
+  &__item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 80%;
+    height: 90%;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      height: 100%;
+    }
+
+    svg{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
   &__img{
     @media screen and (min-width: 768px) {
       position: absolute;
@@ -1272,17 +1293,13 @@ body{
       display: flex;
       align-items: center;
       justify-content: flex-start;
-
       img{
-        width: 80%;
-        height: 90%;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
         object-position: center center;
 
-        @media screen and (max-width: 767px) {
-          width: 100%;
-          height: 100%;
-        }
+
       }
     }
     @media screen and (max-width: 767px) {
@@ -1297,12 +1314,10 @@ body{
       }
     }
   }
-
   &__content{
     position: relative;
     z-index: 3;
   }
-
   &__advantages{
     display: flex;
     flex-direction: column;
@@ -1312,7 +1327,6 @@ body{
       gap: 6px;
     }
   }
-
   &-list{
     display: flex;
     flex-direction: column;
@@ -1322,18 +1336,22 @@ body{
       gap: 16px;
       text-align: left;
     }
+    &__item{
+      transition: .3s transform;
+      &:hover{
+        transform: scale(0.9);
+      }
+    }
     &__link{
       display: flex;
       align-items: center;
       justify-content: flex-end;
       transition: .3s transform,.3s color;
-      &:hover{
+      &:hover,&.active{
         color: #FFD88C;
-        transform: scale(0.9);
       }
     }
   }
-
   &-advantages{
     &__header{
       display: flex;
@@ -1361,6 +1379,15 @@ body{
         }
       }
 
+    }
+  }
+
+  &-icon{
+    &__item{
+      transition: .5s opacity;
+      &.hidden{
+        opacity: 0;
+      }
     }
   }
 }
