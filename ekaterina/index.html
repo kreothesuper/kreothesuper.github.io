@@ -45,7 +45,9 @@
                             <svg class="button__icon">
                                 <use xlink:href="assets/images/sprite.svg#home"></use>
                             </svg>
-                            ВЫБРАТЬ КВАРТИРУ
+                            <span class="button__text">
+                                ВЫБРАТЬ КВАРТИРУ
+                            </span>
                         </a>
                         <div class="header__burger">
                             <div class="burger">
@@ -543,49 +545,37 @@
             </div>
             <div class="overlay-wrapper">
                 <div data-speed="0.20" class="decor-container animation-wrapper overlay-section">
-                    <div class="section section--about about section-bg" id="about">
+                    <div class="section section--about about section-bg animation-wrapper" id="about">
                         <div class="about__container">
                             <div class="about__block section__wrapper section__wrapper--center">
                                 <div class="container">
-                                    <div class="section-title animation-wrapper">
-                                        <div class="section-title__item section-title__item--full animation-item">
-                                            <p class=" title title--base title--center title--uppercase title--gradient animation-item__text">
-                                                Самый удалённый
-                                            </p>
-                                        </div>
-                                        <div class="section-title__item section-title__item--full animation-item">
-                                            <p class=" title title--base title--center title--uppercase title--gradient animation-item__text">
-                                                ОТ ПРОМЫШЛЕННОСТИ
-
-                                            </p>
-                                        </div>
-                                        <div class="section-title__item section-title__item--full animation-item">
-                                            <p class=" title title--base title--center title--uppercase title--white animation-item__text">
-                                                район города
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="about__block section__wrapper section__wrapper--center">
-                                <div class="container">
                                     <div class="about__wrapper">
-                                        <div class="section-title animation-wrapper">
+                                        <div class="section-title ">
                                             <div class="section-title__item section-title__item--full animation-item">
                                                 <p class=" title title--base title--center title--uppercase title--gradient animation-item__text">
-                                                    ПРОГУЛКИ ПО ГОРЕ
+                                                    Самый удалённый
                                                 </p>
                                             </div>
                                             <div class="section-title__item section-title__item--full animation-item">
                                                 <p class=" title title--base title--center title--uppercase title--white animation-item__text">
-                                                    КАЖДЫЙ ДЕНЬ
+                                                    ОТ ПРОМЫШЛЕННОСТИ
+                                                </p>
+                                            </div>
+                                            <div class="section-title__item section-title__item--full animation-item">
+                                                <p class=" title title--base title--center title--uppercase title--white animation-item__text">
+                                                    район города
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="section__content animation-wrapper">
+                                        <div class="section__content ">
                                             <div class="about__text animation-item">
                                                 <p class="text text--base text--white text--center animation-item__text">
-                                                    В шаговой доступности экологическая тропа на гору Невинскую, с которой взору
+                                                    В шаговой доступности экологическая тропа на гору Невинскую,
+                                                </p>
+                                            </div>
+                                            <div class="about__text animation-item">
+                                                <p class="text text--base text--white text--center animation-item__text">
+                                                     с которой взору
                                                     открывается царство воды и зелени.
                                                 </p>
                                             </div>
@@ -695,7 +685,7 @@
                         </div>
                     </div>
                 </div>
-                <div data-speed=".1" id="map" class="section section--green map decor-container">
+                <div data-speed=".1" id="map" class="section section--green map decor-container overlay-section">
                     <div class="section__wrapper section__wrapper--map section__wrapper--center">
                         <div class="map__wrapper">
                             <div class="map__content animation-wrapper">
@@ -920,13 +910,19 @@
                         <div class="section__content tabs plans">
                             <div class="tabs-nav">
                                 <div class="tabs-nav__item">
-                                    <a href="#" class="tabs__link tabs-nav__link">1к</a>
+                                    <a href="#" class="tabs__link tabs-nav__link">
+                                        <span>1к</span>
+                                    </a>
                                 </div>
                                 <div class="tabs-nav__item">
-                                    <a href="#" class="tabs__link tabs-nav__link">2к</a>
+                                    <a href="#" class="tabs__link tabs-nav__link">
+                                        <span>2к</span>
+                                    </a>
                                 </div>
                                 <div class="tabs-nav__item">
-                                    <a href="#" class="tabs__link tabs-nav__link">3к</a>
+                                    <a href="#" class="tabs__link tabs-nav__link">
+                                        <span>3к</span>
+                                    </a>
                                 </div>
                             </div>
                             <div class="tabs__content">
@@ -971,14 +967,18 @@
                                                 <div class="plans__buttons">
                                                     <a href="#" data-popup=".popup-callback"
                                                        class="button button--base button--base--big button--base--regular button--bordered button--bordered">
-                                                        Подать заявку
+                                                        <span class="button__text">
+                                                            Подать заявку
+                                                        </span>
                                                     </a>
                                                     <a href="#" data-popup=".popup-plans"
                                                        class="button button--base button--base--big button--base--regular button--bordered button--bordered">
                                                         <svg class="button__icon button__icon--accent">
                                                             <use xlink:href="assets/images/sprite.svg#print"></use>
                                                         </svg>
-                                                        Печать
+                                                        <span class="button__text">
+                                                            Печать
+                                                        </span>
                                                     </a>
                                                 </div>
                                                 <div class="plans-location">

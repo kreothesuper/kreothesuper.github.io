@@ -255,22 +255,22 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
-    const sectionBg = document.querySelectorAll('.section-bg');
-
-    if(sectionBg.length){
-        sectionBg.forEach(element=>{
-            gsap.to(element, {
-                backgroundPosition: `50% ${-innerHeight / 10}px`,
-                ease: "none",
-                scrollTrigger: {
-                    scrub: true,
-                    trigger: element,
-                    start: "top bottom",
-                    end: "bottom top",
-                },
-            });
-        })
-    }
+    // const sectionBg = document.querySelectorAll('.section-bg');
+    //
+    // if(sectionBg.length){
+    //     sectionBg.forEach(element=>{
+    //         gsap.to(element, {
+    //             backgroundPosition: `50% ${-innerHeight / 10}px`,
+    //             ease: "none",
+    //             scrollTrigger: {
+    //                 scrub: true,
+    //                 trigger: element,
+    //                 start: "top bottom",
+    //                 end: "bottom top",
+    //             },
+    //         });
+    //     })
+    // }
 
 
 
@@ -396,20 +396,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    gsap.to('.about', {
-        scrollTrigger: {
-            trigger: '.about',
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-            toggleClass: 'animated',
-            // pin: true,
-        },
-        ease: "power1.inOut",
-        duration: 5000,
-        repeat: 1,
-});
-
     // const overlaySection = document.querySelectorAll('.overlay-section');
     //
     // if(overlaySection.length){
@@ -425,6 +411,31 @@ document.addEventListener('DOMContentLoaded', () => {
     //         });
     //     })
     // }
+
+
+    let panelsSection = document.querySelector("#about"),
+        panelsContainer = document.querySelector("#about-container .section__wrapper"),
+        tween;
+
+    const panels = gsap.utils.toArray(".overlay-wrapper .overlay-section");
+    tween = gsap.to(panels, {
+        yPercent: -100 * ( panels.length - 1 ),
+
+        ease: "none",
+        scrollTrigger: {
+            trigger: '.overlay-wrapper',
+            pin: true,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+            anticipatePin: 1,
+            snap: {
+                snapTo: 1 / (panels.length - 1),
+                inertia: false,
+                duration: {min: 0.1, max: 0.1}
+            },
+        }
+    });
 
 
 
