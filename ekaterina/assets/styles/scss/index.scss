@@ -1491,7 +1491,11 @@ body{
       left: -120px;
       top: -66px;
       right: unset;
-
+    }
+    &--mobile{
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
     }
     &--desktop{
       @media screen and (max-width: 767px) {
