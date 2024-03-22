@@ -19,10 +19,10 @@
     --title-small: 20px;
     --title-middle:26px;
     --title-tiny: 18px;
-    --text-base: 8px;
-    --text-small:8px;
+    --text-base: 12px;
+    --text-small:10px;
     --input-size: 12px;
-    --button-base: 12px;
+    --button-base: 14px;
   }
 }
 
@@ -78,7 +78,7 @@ body::-webkit-scrollbar-track {
 @media screen and (max-width: 767px) {
   .container--about {
     height: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 .container--advantages {
@@ -92,6 +92,12 @@ body::-webkit-scrollbar-track {
 .container--branch {
   padding-left: 100px;
 }
+@media screen and (max-width: 767px) {
+  .container--branch {
+    padding-left: 30px;
+  }
+}
+
 .page-wrapper::before {
   content: "";
   position: fixed;
@@ -581,7 +587,8 @@ body::-webkit-scrollbar-track {
   .hero__decor {
     width: 90px;
     height: 180px;
-    left: 50px;
+    left: calc(50% - 120px);
+    top: 0;
   }
   .hero__decor svg {
     width: 100%;
@@ -610,6 +617,7 @@ body::-webkit-scrollbar-track {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 475px minmax(0, 1fr);
   gap: 40px;
+  position: relative;
 }
 @media screen and (max-width: 767px) {
   .hero__grid {
@@ -752,6 +760,11 @@ body::-webkit-scrollbar-track {
 .section-family {
   background: url("../../images/info/1.webp") center center/cover no-repeat;
 }
+@media screen and (max-width: 767px) {
+  .section-family {
+    background-position: top right;
+  }
+}
 .section__header {
   margin: 0 0 45px 0;
 }
@@ -764,6 +777,13 @@ body::-webkit-scrollbar-track {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 220px));
   gap: 56px;
+}
+@media screen and (max-width: 767px) {
+  .section__row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
 }
 .section__img {
   position: absolute;
@@ -813,17 +833,25 @@ body::-webkit-scrollbar-track {
     padding-bottom: 160px;
   }
 }
+@media screen and (max-width: 767px) {
+  .section__wrapper--family {
+    padding: 100px 0 60px 0;
+    height: 580px;
+  }
+}
 .section__wrapper--small {
   min-height: unset;
 }
 @media screen and (max-width: 767px) {
   .section__wrapper--branch {
     padding-bottom: 60px;
+    height: 700px;
   }
 }
 @media screen and (max-width: 767px) {
   .section__wrapper--map {
     padding-bottom: 0;
+    height: 840px;
   }
 }
 .section-title__item {
@@ -1037,6 +1065,11 @@ body::-webkit-scrollbar-track {
   color: #FFD88C;
   transform: scale(0.9);
 }
+@media screen and (max-width: 767px) {
+  .footer-list__link {
+    font-size: 12px;
+  }
+}
 
 .phone {
   transition: 0.5s linear;
@@ -1044,6 +1077,11 @@ body::-webkit-scrollbar-track {
 .phone:hover {
   color: #FFD88C;
   transform: scale(0.9);
+}
+@media screen and (max-width: 767px) {
+  .phone {
+    font-size: 14px;
+  }
 }
 
 .about {
@@ -1077,8 +1115,8 @@ body::-webkit-scrollbar-track {
   margin: 0 auto;
 }
 @media screen and (max-width: 767px) {
-  .about__text {
-    max-width: 200px;
+  .about__block {
+    height: 700px;
   }
 }
 
@@ -1116,6 +1154,7 @@ body::-webkit-scrollbar-track {
   justify-content: center;
   position: relative;
   height: 100%;
+  overflow: hidden;
 }
 .advantages__img img {
   position: relative;
@@ -1142,7 +1181,7 @@ body::-webkit-scrollbar-track {
 }
 @media screen and (max-width: 767px) {
   .advantages__block--text {
-    padding-bottom: 30px;
+    padding-bottom: 0px;
   }
 }
 
@@ -1178,6 +1217,11 @@ body::-webkit-scrollbar-track {
   display: flex;
   flex-direction: column;
 }
+@media screen and (max-width: 767px) {
+  .map__wrapper {
+    height: 100%;
+  }
+}
 .map__header {
   display: flex;
   flex-direction: column;
@@ -1211,8 +1255,11 @@ body::-webkit-scrollbar-track {
 }
 @media screen and (max-width: 767px) {
   .map__item {
-    width: 100%;
+    width: 120%;
     height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }
 .map__item svg {
@@ -1221,6 +1268,9 @@ body::-webkit-scrollbar-track {
   height: 100%;
   left: 0;
   top: 0;
+}
+.map__img {
+  position: relative;
 }
 @media screen and (min-width: 768px) {
   .map__img {
@@ -1273,9 +1323,11 @@ body::-webkit-scrollbar-track {
 }
 @media screen and (max-width: 767px) {
   .map-list {
-    flex-direction: row;
-    gap: 16px;
+    gap: 12px;
     text-align: left;
+    position: absolute;
+    left: 30px;
+    bottom: 0;
   }
 }
 .map-list__item {
@@ -1292,6 +1344,11 @@ body::-webkit-scrollbar-track {
 }
 .map-list__link:hover, .map-list__link.active {
   color: #FFD88C;
+}
+@media screen and (max-width: 767px) {
+  .map-list__link {
+    justify-content: flex-start;
+  }
 }
 .map-advantages__header {
   display: flex;
@@ -1327,6 +1384,7 @@ body::-webkit-scrollbar-track {
 }
 .map-icon__item {
   transition: 0.5s opacity;
+  opacity: 0.6;
 }
 .map-icon__item.hidden {
   opacity: 0;
@@ -1345,6 +1403,7 @@ body::-webkit-scrollbar-track {
   .count__wrapper {
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
 }
 .count__item {
@@ -1359,17 +1418,35 @@ body::-webkit-scrollbar-track {
   right: 0;
   z-index: 0;
 }
+.count__decor--mobile {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .count__decor--desktop {
+    display: none;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .count__decor {
+    width: 68vw;
+  }
+  .count__decor svg {
+    width: 100%;
+    height: 100%;
+  }
+}
 @media screen and (max-width: 767px) {
   .count__decor {
-    width: 240px;
-    height: 450px;
-    right: 600px;
-    top: 10%;
+    top: 120px;
+    left: 30px;
   }
 }
 
 .slider {
   position: relative;
+}
+.slider-advantages {
+  padding-bottom: 30px;
 }
 .slider-controls {
   display: flex;
@@ -1404,7 +1481,8 @@ body::-webkit-scrollbar-track {
 @media screen and (max-width: 991px) {
   .slider-navigation--advantages {
     right: unset;
-    left: calc(50% + 10px);
+    left: calc(50% + 12px);
+    bottom: 0px;
   }
 }
 @media screen and (max-width: 420px) {
@@ -1588,7 +1666,7 @@ body::-webkit-scrollbar-track {
 }
 @media screen and (max-width: 767px) {
   .tabs-nav__link {
-    padding: 4px 8px;
+    padding: 4px 12px;
   }
 }
 .tabs-nav__link:hover {
@@ -1990,6 +2068,11 @@ path {
   width: 100%;
   height: auto;
 }
+@media screen and (max-width: 767px) {
+  .branch-wrapper__decor {
+    top: 40%;
+  }
+}
 .branch__grid {
   position: relative;
 }
@@ -2041,7 +2124,7 @@ path {
 }
 @media screen and (max-width: 767px) {
   .branch__text {
-    max-width: 105px;
+    max-width: 160px;
   }
 }
 .branch__img {
@@ -2064,12 +2147,15 @@ path {
 }
 
 @media screen and (max-width: 767px) {
+  .decor path {
+    stroke: rgba(255, 255, 255, 0.5);
+  }
   .decor .rect {
     width: 20px;
     height: 20px;
   }
   .decor .rect circle {
-    r: 20px;
+    r: 50px;
   }
 }
 
@@ -2226,9 +2312,11 @@ path {
 @keyframes animationImg {
   0% {
     height: 0;
+    transform: scale(1);
   }
   100% {
     height: 100%;
+    transform: scale(1.08);
   }
 }
 @keyframes pulse {

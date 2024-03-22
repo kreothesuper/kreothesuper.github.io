@@ -41,12 +41,12 @@
     --title-middle:26px;
     --title-tiny: 18px;
 
-    --text-base: 8px;
-    --text-small:8px;
+    --text-base: 12px;
+    --text-small:10px;
 
     --input-size: 12px;
 
-    --button-base: 12px;
+    --button-base: 14px;
   }
 }
 
@@ -89,7 +89,7 @@ body{
     gap: 100px;
     @media screen and (max-width: 767px) {
       height: 100%;
-      justify-content: space-around;
+      justify-content: space-between;
     }
   }
   &--advantages{
@@ -100,7 +100,8 @@ body{
   }
   &--branch{
     padding-left: 100px;
-    @media screen and (min-width: 767px) {
+    @media screen and (max-width: 767px) {
+      padding-left: 30px;
     }
   }
 }
@@ -636,8 +637,8 @@ body{
     @media screen and (max-width: 768px) {
       width: 90px;
       height: 180px;
-      left: 50px;
-
+      left: calc(50% - 120px);
+      top: 0;
       svg{
         width: 100%;
         height: 100%;
@@ -664,7 +665,8 @@ body{
     display: grid;
     grid-template-columns: minmax(0,1fr) 475px minmax(0,1fr);
     gap: 40px;
-    
+
+    position: relative;
     @media screen and (max-width: 767px) {
       grid-template-columns: minmax(0,1fr);
       gap: 20px;
@@ -824,6 +826,9 @@ body{
   }
   &-family{
     background: url("../../images/info/1.webp") center center/cover no-repeat;
+    @media screen and (max-width: 767px) {
+      background-position: top right;
+    }
   }
   &__header{
     margin: 0 0 45px 0;
@@ -835,6 +840,12 @@ body{
     display: grid;
     grid-template-columns: repeat(2,minmax(0,220px));
     gap: 56px;
+
+    @media screen and (max-width: 767px) {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
   }
   &__img{
     position: absolute;
@@ -882,7 +893,10 @@ body{
       gap: 100px;
       @media screen and (min-width: 768px) {
         padding-bottom: 160px;
-
+      }
+      @media screen and (max-width: 767px) {
+        padding: 100px 0 60px 0;
+        height: 580px;
       }
     }
     &--small{
@@ -891,11 +905,13 @@ body{
     &--branch{
       @media screen and (max-width: 767px) {
         padding-bottom: 60px;
+        height: 700px;
       }
     }
     &--map{
       @media screen and (max-width: 767px) {
         padding-bottom: 0;
+        height: 840px;
       }
     }
   }
@@ -1125,6 +1141,10 @@ body{
         color: #FFD88C;
         transform: scale(0.9);
       }
+      
+      @media screen and (max-width: 767px) {
+        font-size: 12px;
+      }
     }
   }
 }
@@ -1134,6 +1154,10 @@ body{
   &:hover{
     color: #FFD88C;
     transform: scale(.9);
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
   }
 }
 
@@ -1163,9 +1187,10 @@ body{
   &__text{
     width: 100%;
     margin: 0 auto;
-    
+  }
+  &__block{
     @media screen and (max-width: 767px) {
-      max-width: 200px;
+      height: 700px;
     }
   }
 }
@@ -1199,8 +1224,8 @@ body{
     justify-content: center;
 
     position: relative;
-
     height: 100%;
+    overflow: hidden;
     img{
       position: relative;
       z-index: 2;
@@ -1227,7 +1252,7 @@ body{
 
       padding-bottom: 70px;
       @media screen and (max-width: 767px) {
-        padding-bottom: 30px;
+        padding-bottom: 0px;
       }
     }
   }
@@ -1262,6 +1287,9 @@ body{
     width: 100%;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 767px) {
+      height: 100%;
+    }
   }
   &__header{
     display: flex;
@@ -1292,8 +1320,12 @@ body{
     width: 80%;
     height: 90%;
     @media screen and (max-width: 767px) {
-      width: 100%;
+      width: 120%;
       height: 100%;
+
+      position: absolute;
+      left: 0;
+      top: 0;
     }
 
     svg{
@@ -1305,6 +1337,7 @@ body{
     }
   }
   &__img{
+    position: relative;
     @media screen and (min-width: 768px) {
       position: absolute;
       width: 100%;
@@ -1354,9 +1387,11 @@ body{
     flex-direction: column;
     gap: 12px;
     @media screen and (max-width: 767px) {
-      flex-direction: row;
-      gap: 16px;
+      gap: 12px;
       text-align: left;
+      position: absolute;
+      left: 30px;
+      bottom: 0;
     }
     &__item{
       transition: .3s transform;
@@ -1371,6 +1406,9 @@ body{
       transition: .3s transform,.3s color;
       &:hover,&.active{
         color: #FFD88C;
+      }
+      @media screen and (max-width: 767px) {
+        justify-content: flex-start;
       }
     }
   }
@@ -1407,6 +1445,7 @@ body{
   &-icon{
     &__item{
       transition: .5s opacity;
+      opacity: .6;
       &.hidden{
         opacity: 0;
       }
@@ -1425,6 +1464,7 @@ body{
     @media screen and (max-width: 767px) {
       flex-direction: column;
       align-items: center;
+      gap: 20px;
     }
   }
   &__item{
@@ -1441,17 +1481,33 @@ body{
     right: 0;
 
     z-index: 0;
+    &--mobile{
+      display: none;
+    }
+    &--desktop{
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1440px) {
+      width: 68vw;
+      svg{
+        width: 100%;
+        height: 100%;
+      }
+    }
     @media screen and (max-width: 767px) {
-      width: 240px;
-      height: 450px;
-      right: 600px;
-      top: 10%;
+      top: 120px;
+      left: 30px;
     }
   }
 }
 
 .slider{
   position: relative;
+  &-advantages{
+    padding-bottom: 30px;
+  }
   &-controls{
     display: flex;
     align-items: center;
@@ -1482,7 +1538,8 @@ body{
       z-index: 4;
       @media screen and (max-width: 991px) {
         right: unset;
-        left: calc(50% + 10px);
+        left: calc(50% + 12px);
+        bottom: 0px;
       }
       @media screen and (max-width: 420px) {
         left: 220px;
@@ -1670,7 +1727,7 @@ body{
           transition: .3s opacity;
         }
       @media screen and (max-width: 767px) {
-        padding: 4px 8px;
+        padding: 4px 12px;
       }
       &:hover{
         color: #285D5D;
@@ -2060,6 +2117,10 @@ path {
         width: 100%;
         height: auto;
       }
+      
+      @media screen and (max-width: 767px) {
+        top: 40%;
+      }
     }
   }
   &__grid{
@@ -2111,7 +2172,7 @@ path {
     max-width: 215px;
     width: 100%;
     @media screen and (max-width: 767px) {
-      max-width: 105px;
+      max-width: 160px;
     }
   }
   &__img{
@@ -2137,11 +2198,14 @@ path {
 
 .decor{
   @media screen and (max-width: 767px) {
+    path{
+      stroke: rgba(#fff,.5);
+    }
     .rect{
       width: 20px;
       height: 20px;
       circle{
-        r:20px;
+        r:50px;
       }
     }
   }
@@ -2315,9 +2379,12 @@ path {
 @keyframes animationImg {
   0%{
     height: 0;
+    transform: scale(1);
   }
   100%{
     height: 100%;
+
+    transform: scale(1.08);
   }
 }
 
