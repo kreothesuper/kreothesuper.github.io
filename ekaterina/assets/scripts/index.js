@@ -255,24 +255,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
-<<<<<<< Updated upstream
-    // const sectionBg = document.querySelectorAll('.section-bg');
-    //
-    // if(sectionBg.length){
-    //     sectionBg.forEach(element=>{
-    //         gsap.to(element, {
-    //             backgroundPosition: `50% ${-innerHeight / 10}px`,
-    //             ease: "none",
-    //             scrollTrigger: {
-    //                 scrub: true,
-    //                 trigger: element,
-    //                 start: "top bottom",
-    //                 end: "bottom top",
-    //             },
-    //         });
-    //     })
-    // }
-=======
     const sectionBg = document.querySelectorAll('.section-bg');
 
     if(sectionBg.length && window.innerWidth > 767){
@@ -289,7 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
     }
->>>>>>> Stashed changes
 
 
     gsap.from(".branch__img", {
@@ -411,24 +392,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-<<<<<<< Updated upstream
-    // const overlaySection = document.querySelectorAll('.overlay-section');
-    //
-    // if(overlaySection.length){
-    //     overlaySection.forEach(section=>{
-    //         gsap.to(section, {
-    //             scrollTrigger: {
-    //                 trigger: section,
-    //                 // pin: true,
-    //                 // pinSpacing: false,
-    //                 start: "top top",
-    //                 end: "bottom top",
-    //             }
-    //         });
-    //     })
-    // }
-
-=======
     const overlaySection = document.querySelectorAll('.overlay-section');
     const overlayWrapper = document.querySelector('.overlay-wrapper');
     // gsap.to(overlayWrapper, {
@@ -469,30 +432,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
     }
->>>>>>> Stashed changes
 
-    // let panelsSection = document.querySelector("#about"),
-    //     panelsContainer = document.querySelector("#about-container .section__wrapper"),
-    //     tween;
-    //
-    // const panelsWrapper = document.querySelector('.overlay-wrapper');
-    // const panels = document.querySelectorAll('.overlay-section');
-    // const movementFactor = .8;
-    // panels.forEach((panel,i)=>{
-    //     gsap.fromTo(panel, {
-    //         y: () => i ? -movementFactor * 0.5 * panelsWrapper.offsetHeight : 0
-    //     }, {
-    //         y: () => movementFactor * 0.5 * panelsWrapper.offsetHeight,
-    //         ease: "none",
-    //         scrollTrigger: {
-    //             trigger: panelsWrapper,
-    //             start: () => i ? "top bottom" : "-1px top",
-    //             end: "bottom top",
-    //             scrub: true,
-    //
-    //         }
-    //     });
-    // });
 
     const popupButtonArray = document.querySelectorAll('[data-popup]');
 
@@ -532,9 +472,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-<<<<<<< Updated upstream
-=======
 
 
->>>>>>> Stashed changes
 })
