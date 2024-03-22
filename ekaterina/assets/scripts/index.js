@@ -255,6 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
+<<<<<<< Updated upstream
     // const sectionBg = document.querySelectorAll('.section-bg');
     //
     // if(sectionBg.length){
@@ -271,6 +272,24 @@ document.addEventListener('DOMContentLoaded', () => {
     //         });
     //     })
     // }
+=======
+    const sectionBg = document.querySelectorAll('.section-bg');
+
+    if(sectionBg.length && window.innerWidth > 767){
+        sectionBg.forEach(element=>{
+            gsap.to(element, {
+                backgroundPosition: `50% ${-innerHeight / 10}px`,
+                ease: "none",
+                scrollTrigger: {
+                    scrub: true,
+                    trigger: element,
+                    start: "top bottom",
+                    end: "bottom top",
+                },
+            });
+        })
+    }
+>>>>>>> Stashed changes
 
 
     gsap.from(".branch__img", {
@@ -392,6 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+<<<<<<< Updated upstream
     // const overlaySection = document.querySelectorAll('.overlay-section');
     //
     // if(overlaySection.length){
@@ -408,6 +428,48 @@ document.addEventListener('DOMContentLoaded', () => {
     //     })
     // }
 
+=======
+    const overlaySection = document.querySelectorAll('.overlay-section');
+    const overlayWrapper = document.querySelector('.overlay-wrapper');
+    // gsap.to(overlayWrapper, {
+    //     scrollTrigger: {
+    //         trigger: overlayWrapper,
+    //         pin: true,
+    //         pinSpacing: false,
+    //         start: "top top",
+    //         end: "bottom top",
+    //
+    //         id: "hero"
+    //     }
+    // });
+
+    console.log(window.innerWidth)
+    if(overlaySection.length && window.innerWidth >= 768){
+        overlaySection.forEach((section, i)=>{
+            gsap.to(section, {
+                ease:'none',
+                scrollTrigger: {
+                    trigger: section,
+                    pin: true,
+                    pinSpacing: false,
+                    start: "top top",
+                    end: "bottom top",
+                }
+            });
+            const sectionWrapper = section.querySelector('.section__wrapper');
+            gsap.to(sectionWrapper, {
+                ease:'none',
+                yPercent:-20,
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub:true,
+                }
+            });
+        })
+    }
+>>>>>>> Stashed changes
 
     // let panelsSection = document.querySelector("#about"),
     //     panelsContainer = document.querySelector("#about-container .section__wrapper"),
@@ -431,7 +493,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //         }
     //     });
     // });
-
 
     const popupButtonArray = document.querySelectorAll('[data-popup]');
 
@@ -471,4 +532,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 })
