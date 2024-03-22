@@ -1398,12 +1398,15 @@ body::-webkit-scrollbar-track {
   align-items: flex-start;
   justify-content: space-between;
   gap: 30px;
+  position: relative;
 }
 @media screen and (max-width: 767px) {
   .count__wrapper {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    width: max-content;
+    margin: 0 auto;
   }
 }
 .count__item {
@@ -1419,7 +1422,11 @@ body::-webkit-scrollbar-track {
   z-index: 0;
 }
 .count__decor--mobile {
-  display: none;
+  width: 1000px;
+  height: 550px;
+  left: -120px;
+  top: -66px;
+  right: unset;
 }
 @media screen and (max-width: 767px) {
   .count__decor--desktop {
@@ -1435,13 +1442,6 @@ body::-webkit-scrollbar-track {
     height: 100%;
   }
 }
-@media screen and (max-width: 767px) {
-  .count__decor {
-    top: 120px;
-    left: 30px;
-  }
-}
-
 .slider {
   position: relative;
 }
@@ -2156,6 +2156,9 @@ path {
   }
   .decor .rect circle {
     r: 50px;
+  }
+  .decor .rect--small circle {
+    r: 30px;
   }
 }
 
