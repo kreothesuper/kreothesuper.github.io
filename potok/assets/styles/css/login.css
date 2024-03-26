@@ -1,0 +1,211 @@
+:root {
+  --title-font: "Lato", sans-serif;
+  --input-font: "Nunito Sans", sans-serif;
+  --color-blue:#8AB1F6;
+  --color-black:#262262;
+  --color-error:#FF6D6D;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.login-loader {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  animation: spin infinite 2s;
+}
+.login__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  padding: 32px;
+  min-height: 100vh;
+}
+.login-password:has([type=text]) .login-password__icon {
+  background-image: url("../../images/icons/eye-open.svg");
+}
+.login-password:has([type=password]) .login-password__icon {
+  background-image: url("../../images/icons/eye-close.svg");
+}
+.login-password__icon {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.login-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.login-input__title {
+  font-family: var(--title-font);
+  font-size: 16px;
+  color: #26203B;
+  font-weight: 600;
+}
+.login-input__error {
+  font-family: var(--input-font);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  color: var(--color-error);
+}
+.login-input__error::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  background: url("../../images/icons/error.svg") center center/contain no-repeat;
+}
+.login-input__item {
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  background-color: #F2F3F7;
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s border-color, 0.3s background-color;
+}
+.login-input__item.error {
+  background: #FFF5F5;
+  border-color: #FFD8D8;
+}
+.login-input__item:has(input:focus, input:active) {
+  background-color: #fff;
+  border-color: #8AB1F6;
+}
+.login-input__item input {
+  flex-grow: 1;
+  color: #212121;
+  font-family: var(--input-font);
+  font-weight: 400;
+  font-size: 16px;
+}
+.login-input__item input::placeholder {
+  color: #C5C0DB;
+}
+.login-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../../images/login-bg.svg") center center/cover no-repeat;
+}
+.login-img__item {
+  width: 360px;
+  height: 500px;
+  object-fit: contain;
+}
+.login-img__logo {
+  position: absolute;
+  left: 30px;
+  bottom: 60px;
+  width: 220px;
+  height: 55px;
+}
+.login-form.loading .login-form__loader {
+  opacity: 1;
+}
+.login-form.loading .login-form__content {
+  opacity: 0;
+}
+.login-form__loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+.login-form:invalid .login-form__button {
+  background: #f4f3fe;
+  color: #c5c0db;
+  pointer-events: none;
+}
+.login-form__wrapper {
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 140px;
+}
+.login-form__header {
+  margin: 0 0 60px 0;
+}
+.login-form__loader {
+  opacity: 0;
+}
+.login-form__box {
+  position: relative;
+}
+.login-form__content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  transition: 0.3s opacity;
+}
+.login-form__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.login-form__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.login-form__title {
+  font-family: var(--title-font);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-black);
+  text-align: center;
+}
+.login-form__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 52px;
+  padding: 10px;
+  border-radius: 50px;
+  background: var(--color-blue);
+  font-family: var(--title-font);
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+  color: #fff;
+  transition: 0.3s color, 0.3s background-color, 0.3s opacity;
+}
+.login-form__button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/*# sourceMappingURL=login.css.map */

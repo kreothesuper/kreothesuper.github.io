@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/styles/css/fonts.css">
+    <link rel="stylesheet" href="assets/styles/css/reset.css">
+    <link rel="stylesheet" href="assets/styles/css/login.css">
+</head>
+<body>
+
+<div class="login">
+    <div class="login__grid">
+        <div class="login-img">
+            <img src="assets/images/login.svg" alt="" class="login-img__item">
+            <a href="#" class="login-img__logo logo">
+                <img src="assets/images/logo.svg" alt="" class="logo__img">
+            </a>
+        </div>
+        <form action="#" class="login-form loading">
+            <div class="login-form__wrapper">
+                <div class="login-form__header">
+                    <p class="login-form__title">
+                        Вход в аккаунт
+                    </p>
+                </div>
+                <div class="login-form__box">
+                    <div class="login-loader login-form__loader">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 4C11.1634 4 4 11.1634 4 20C4 21.1046 3.10457 22 2 22C0.89543 22 0 21.1046 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20C40 21.1046 39.1046 22 38 22C36.8954 22 36 21.1046 36 20C36 11.1634 28.8366 4 20 4Z" fill="#8271E9"/>
+                        </svg>
+                    </div>
+                    <div class="login-form__content">
+                        <div class="login-form__list">
+                            <div class="login-input">
+                                <p class="login-input__title">
+                                    Логин
+                                </p>
+                                <label class="login-input__item">
+                                    <input type="text" required placeholder="Text">
+                                </label>
+                            </div>
+                            <div class="login-input">
+                                <p class="login-input__title">
+                                    Пароль
+                                </p>
+                                <label class="login-input__item login-password js-password">
+                                    <input class="js-password-input" type="password" required placeholder="Text">
+                                    <span class="login-form__icon login-password__icon js-password-link"></span>
+                                </label>
+                            </div>
+                            <div class="login-input ">
+                                <p class="login-input__title">
+                                    Пароль
+                                </p>
+                                <label class="login-input__item error login-password js-password">
+                                    <input class="js-password-input" type="password" required placeholder="Text">
+                                    <span class="login-form__icon login-password__icon js-password-link"></span>
+                                </label>
+                                <span class="login-input__error">
+                            Введен неверный пароль
+                        </span>
+                            </div>
+                        </div>
+                        <button type="submit" class="login-form__button">
+                            Войти
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',()=>{
+
+        const passwordArray = document.querySelectorAll('.js-password');
+
+        if(passwordArray.length){
+            passwordArray.forEach(password=>{
+                const passwordInput = password.querySelector('.js-password-input');
+                const passwordLink = password.querySelector('.js-password-link');
+
+                if(passwordLink && passwordInput){
+                    passwordLink.addEventListener('click',(e)=>{
+                        passwordInput.type === 'text' ? passwordInput.type = 'password' : passwordInput.type = 'text';
+                    });
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
