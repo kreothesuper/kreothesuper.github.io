@@ -32,6 +32,7 @@ function wrapText(text, maxWidth, fontSize, fontFamily, letterSpacing, justifica
 
     return lines;
 }
+
 const initTabs = () => {
     const tabs = [...document.querySelectorAll(".tabs")];
 
@@ -208,7 +209,7 @@ function SmoothScroll(target, speed, smooth) {
 document.addEventListener('DOMContentLoaded', () => {
     const animation = new Animations();
     animation.init();
-init();
+    init();
 
     initTabs();
 
@@ -278,7 +279,7 @@ init();
     gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
     gsap.to(".hero-img__bg", {
-        xPercent:-100,
+        xPercent: -100,
         ease: "none",
         scrollTrigger: {
             scrub: true,
@@ -378,30 +379,30 @@ init();
                 e.preventDefault();
                 header.classList.toggle('active');
                 nav.classList.toggle('active');
-                if(nav.classList.contains('active')){
+                if (nav.classList.contains('active')) {
                     gsap.to(navDecorRect, {
                         ease: "power1.inOut",
                         duration: 3,
                         repeat: 0,
                         motionPath: {
-                            path:navDecorPath,
+                            path: navDecorPath,
                             align: navDecorPath,
                             autoRotate: true,
-                            end:.25,
+                            end: .25,
                             alignOrigin: [0.5, 0.5]
                         },
                     });
-                }else{
+                } else {
                     gsap.to(navDecorRect, {
                         ease: "power1.inOut",
                         duration: 3,
                         repeat: 0,
                         motionPath: {
-                            path:navDecorPath,
+                            path: navDecorPath,
                             align: navDecorPath,
                             autoRotate: true,
-                            start:.25,
-                            end:0,
+                            start: .25,
+                            end: 0,
                             alignOrigin: [0.5, 0.5]
                         },
                     });
@@ -427,11 +428,11 @@ init();
                     duration: 3,
                     repeat: 0,
                     motionPath: {
-                        path:navDecorPath,
+                        path: navDecorPath,
                         align: navDecorPath,
                         autoRotate: true,
-                        start:.25,
-                        end:0,
+                        start: .25,
+                        end: 0,
                         alignOrigin: [0.5, 0.5]
                     },
                 });
@@ -458,12 +459,11 @@ init();
                 end: "bottom top",
                 scrub: true,
             },
-            opacity:0,
             ease: "power1.inOut",
             duration: 5,
             repeat: 0,
             motionPath: {
-                path:path,
+                path: path,
                 align: path,
                 autoRotate: true,
                 start: start,
@@ -548,11 +548,11 @@ init();
                     mapListLink.forEach(mapLink => {
                         mapLink !== link ? mapLink.classList.remove('active') : mapLink.classList.add('active');
                     });
-                    if(map.dataset.current !== 'all'){
+                    if (map.dataset.current !== 'all') {
                         mapIcons.forEach(icon => {
                             icon.dataset.name === name ? icon.classList.remove('hidden') : icon.classList.add('hidden');
                         });
-                    }else{
+                    } else {
                         mapIcons.forEach(icon => icon.classList.remove('hidden'));
                     }
 
@@ -560,4 +560,11 @@ init();
             });
         });
     }
-})
+});
+
+window.addEventListener('load',()=>{
+    const decorArray = document.querySelectorAll(".decor");
+    decorArray.forEach(decor=>{
+       decor.querySelector('.rect').classList.add('visible')
+    });
+});
