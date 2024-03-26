@@ -61,7 +61,7 @@ body.no-scroll {
   width: 100%;
   margin: 0 auto;
   max-width: 1080px;
-  padding: 0 30px;
+  padding: 0 15px;
 }
 .container--header {
   max-width: 1080px;
@@ -671,6 +671,19 @@ body.no-scroll {
     transform: translateY(-20px);
   }
 }
+.hero-img__bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.hero-img__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .hero-img__item {
   overflow: hidden;
   border-radius: 300px;
@@ -678,12 +691,13 @@ body.no-scroll {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("../../images/hero/clouds.jpg") center center/cover repeat-x;
 }
 .hero-img__item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative;
+  z-index: 3;
 }
 .hero-img__item::after {
   content: "";
@@ -1150,6 +1164,7 @@ body.no-scroll {
 .about__text {
   width: 100%;
   margin: 0 auto;
+  max-width: 500px;
 }
 @media screen and (max-width: 767px) {
   .about__block {
@@ -1180,7 +1195,7 @@ body.no-scroll {
 }
 @media screen and (max-width: 991px) {
   .advantages__grid {
-    grid-template-columns: minmax(196px, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(150px, 1fr) minmax(0, 1fr);
     gap: 25px;
     grid-auto-rows: unset;
     min-height: 200px;
@@ -1530,11 +1545,6 @@ body.no-scroll {
     right: unset;
     left: calc(50% + 12px);
     bottom: 0px;
-  }
-}
-@media screen and (max-width: 420px) {
-  .slider-navigation--advantages {
-    left: 220px;
   }
 }
 .slider-button {
@@ -1995,7 +2005,6 @@ body.no-scroll {
   flex-direction: column;
   justify-content: space-between;
   gap: 60px;
-  overflow: auto;
   transform: translateX(100%);
   transition: 1s transform;
 }

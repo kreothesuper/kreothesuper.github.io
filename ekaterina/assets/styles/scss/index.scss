@@ -76,7 +76,7 @@ body{
   margin: 0 auto;
   max-width: 1080px;
 
-  padding: 0 30px;
+  padding: 0 15px;
   &--header{
     max-width: 1080px;
     padding: 0 15px;
@@ -726,6 +726,22 @@ body{
       transform: translateY(-20px);
     }
 
+    &__bg{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      z-index: 1;
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
     &__item{
       overflow: hidden;
       border-radius: 300px;
@@ -734,14 +750,15 @@ body{
       display: flex;
       align-items: center;
       justify-content: center;
-
       img{
         width: 100%;
         height: 100%;
         object-fit: cover;
+
+        position: relative;
+        z-index: 3;
       }
 
-      background: url("../../images/hero/clouds.jpg") center center/cover repeat-x;
       &::after{
         content: '';
         width: 100%;
@@ -1227,6 +1244,7 @@ body{
   &__text{
     width: 100%;
     margin: 0 auto;
+    max-width: 500px;
   }
   &__block{
     @media screen and (max-width: 767px) {
@@ -1253,7 +1271,7 @@ body{
     gap: 35px;
     position: relative;
     @media screen and (max-width: 991px) {
-      grid-template-columns: minmax(196px,1fr) minmax(0,1fr);
+      grid-template-columns: minmax(150px,1fr) minmax(0,1fr);
       gap: 25px;
       grid-auto-rows: unset;
       min-height: 200px;
@@ -1599,7 +1617,6 @@ body{
         bottom: 0px;
       }
       @media screen and (max-width: 420px) {
-        left: 220px;
       }
     }
   }
@@ -2062,7 +2079,6 @@ body{
     flex-direction: column;
     justify-content: space-between;
     gap: 60px;
-    overflow: auto;
     transform: translateX(100%);
     transition: 1s transform;
     @include custom-scrollbar();

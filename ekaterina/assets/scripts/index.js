@@ -1,3 +1,37 @@
+function wrapText(text, maxWidth, fontSize, fontFamily, letterSpacing, justification) {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    context.font = `${fontSize}px ${fontFamily}`;
+    context.letterSpacing = letterSpacing;
+
+    const words = text.split(' ');
+    let lines = [];
+    let currentLine = words[0];
+
+    for (let i = 1; i < words.length; i++) {
+        const word = words[i];
+        const width = context.measureText(currentLine + ' ' + word).width;
+
+        if (width < maxWidth) {
+            currentLine += ' ' + word;
+        } else {
+            lines.push(currentLine);
+            currentLine = word;
+        }
+    }
+
+    lines.push(currentLine);
+
+    // Handle justification if needed
+    if (justification === 'center') {
+        lines = lines.map(line => line.padStart((maxWidth - context.measureText(line).width) / 2 + context.measureText(line).width, ' '));
+    } else if (justification === 'right') {
+        lines = lines.map(line => line.padStart(maxWidth, ' '));
+    }
+
+
+    return lines;
+}
 const initTabs = () => {
     const tabs = [...document.querySelectorAll(".tabs")];
 
@@ -54,9 +88,9 @@ class Animations {
     init() {
         if (!this.animationWrapperArray.length) return;
 
+
         const observer = new IntersectionObserver(this.handleIntersection.bind(this), {
             // rootMargin:''
-
         });
         this.animationWrapperArray.forEach(animationWrapper => {
             observer.observe(animationWrapper);
@@ -243,8 +277,8 @@ init();
 
     gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
-    gsap.to(".hero-img__item", {
-        backgroundPosition: `${-innerHeight / 100}px center`,
+    gsap.to(".hero-img__bg", {
+        xPercent:-100,
         ease: "none",
         scrollTrigger: {
             scrub: true,
@@ -478,50 +512,4 @@ init();
             });
         });
     }
-
-
-    function wrapText(text, maxWidth, fontSize, fontFamily, letterSpacing, justification) {
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
-        context.font = `${fontSize}px ${fontFamily}`;
-        context.letterSpacing = letterSpacing;
-
-        const words = text.split(' ');
-        let lines = [];
-        let currentLine = words[0];
-
-        for (let i = 1; i < words.length; i++) {
-            const word = words[i];
-            const width = context.measureText(currentLine + ' ' + word).width;
-
-            if (width < maxWidth) {
-                currentLine += ' ' + word;
-            } else {
-                lines.push(currentLine);
-                currentLine = word;
-            }
-        }
-
-        lines.push(currentLine);
-
-        // Handle justification if needed
-        if (justification === 'center') {
-            lines = lines.map(line => line.padStart((maxWidth - context.measureText(line).width) / 2 + context.measureText(line).width, ' '));
-        } else if (justification === 'right') {
-            lines = lines.map(line => line.padStart(maxWidth, ' '));
-        }
-
-        return lines;
-    }
-
-    const text = "Your text here";
-    const maxWidth = 200;
-    const fontSize = 16;
-    const fontFamily = "Arial";
-    const letterSpacing = 1;
-    const justification = "left"; // or "center" or "right"
-
-    const wrappedText = wrapText(text, maxWidth, fontSize, fontFamily, letterSpacing, justification);
-    console.log(wrappedText);
-
 })
