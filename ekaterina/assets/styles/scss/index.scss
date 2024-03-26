@@ -58,6 +58,12 @@ body{
   line-height: 1.25;
 
   @include custom-scrollbar();
+  &.no-scroll{
+    overflow: hidden;
+    touch-action: none;
+
+    padding-right: var(--scrollbar-width);
+  }
 }
 
 .content__wrapper{
@@ -107,6 +113,7 @@ body{
 }
 
 .page-wrapper{
+  overflow: hidden;
   &::before{
     content: '';
     position: fixed;
@@ -120,6 +127,11 @@ body{
     background: url("../../images/main-bg.png") top center/cover no-repeat;
     background-attachment: fixed;
     opacity: .3;
+    
+    @media screen and (max-width: 767px) {
+      background-image: url("../../images/main-bg-m.png");
+      background-position: center center;
+    }
   }
 }
 
@@ -300,6 +312,7 @@ body{
       line-height: 1;
       @media screen and (max-width: 767px) {
         font-size: 20px;
+        line-height: 1.2;
         text-transform: uppercase;
       }
     }
@@ -423,20 +436,22 @@ body{
   align-items: center;
   justify-content: center;
 
-  &::before{
-    content: 'меню';
-    font-family: var(--main-font);
-    font-size: var(--text-base);
-    line-height: 1.25;
-    letter-spacing: 0.05em;
-    color: #fff;
-    text-transform: uppercase;
-    @media screen and (max-width: 767px) {
-      display: none;
+  &--open{
+    &::before{
+      content: 'меню';
+      font-family: var(--main-font);
+      font-size: var(--text-base);
+      line-height: 1.25;
+      letter-spacing: 0.05em;
+      color: #fff;
+      text-transform: uppercase;
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
     }
-  }
-  &:hover {
-    cursor: pointer;
+    &:hover {
+      cursor: pointer;
+    }
   }
   
   @media screen and (max-width: 767px) {
@@ -483,6 +498,9 @@ body{
 
   &--active {
     opacity: 1;
+  }
+
+  &--close{
     &::before{
       display: none;
     }
@@ -634,7 +652,10 @@ body{
     position: absolute;
     top: -50px;
     left: 150px;
-
+    .rect{
+      opacity: 0;
+      animation: heroDecor 1s linear forwards;
+    }
     @media screen and (max-width: 768px) {
       width: 90px;
       height: 180px;
@@ -890,6 +911,9 @@ body{
     &--center{
       justify-content: center;
     }
+    &--count{
+      overflow: unset;
+    }
     &--family{
       gap: 100px;
       @media screen and (min-width: 768px) {
@@ -927,6 +951,15 @@ body{
         width: 100%;
       }
     }
+  }
+}
+
+@keyframes heroDecor {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
   }
 }
 
@@ -1047,6 +1080,12 @@ body{
   gap: 8px;
   &:hover{
     cursor: pointer;
+  }
+  &--popup{
+    @media screen and (max-width: 767px) {
+      max-width: 180px;
+      margin: 0 auto;
+    }
   }
   &__input{
     display: none;
@@ -1216,7 +1255,9 @@ body{
     @media screen and (max-width: 991px) {
       grid-template-columns: minmax(196px,1fr) minmax(0,1fr);
       gap: 25px;
-      grid-auto-rows: 200px;
+      grid-auto-rows: unset;
+      min-height: 200px;
+      height: max-content;
     }
   }
   &__img{
@@ -1254,6 +1295,7 @@ body{
       padding-bottom: 70px;
       @media screen and (max-width: 767px) {
         padding-bottom: 0px;
+        padding-top: 70px;
       }
     }
   }
@@ -1519,7 +1561,9 @@ body{
 .slider{
   position: relative;
   &-advantages{
-    padding-bottom: 30px;
+    @media screen and (max-width: 767px) {
+      padding-bottom: 30px;
+    }
   }
   &-controls{
     display: flex;
@@ -1985,6 +2029,28 @@ body{
       display: none;
     }
   }
+  &__decor{
+    left: 0;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    width: 140px;
+    height: 245px;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 45px;
+  }
+  &__button{
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
   &__wrapper{
     width: 600px;
     height: 100%;
@@ -1999,7 +2065,6 @@ body{
     overflow: auto;
     transform: translateX(100%);
     transition: 1s transform;
-
     @include custom-scrollbar();
     @media screen and (max-width: 767px) {
       padding:20px 40px 40px 40px;
@@ -2089,6 +2154,9 @@ path {
   &__text{
     opacity: 0;
     transform: translateY(100%);
+    &--small{
+      transform: translateY(150px);
+    }
   }
   &__img{
     img{
@@ -2098,6 +2166,9 @@ path {
   &.animated &__text{
     animation: animationTitle 2.4s cubic-bezier(.7, 0, .3, 1) forwards;
     animation-delay: var(--animation-delay);
+    &--small{
+      animation: animationTitleSmall 2.4s cubic-bezier(.7, 0, .3, 1) forwards;
+    }
   }
   &.animated &__img{
     img{
@@ -2139,6 +2210,15 @@ path {
   &__grid{
     position: relative;
   }
+  &__title{
+    position: absolute;
+    bottom: -150px;
+    left: 50%;
+    width: max-content;
+    @media screen and (max-width: 767px) {
+      bottom: -50px;
+    }
+  }
   &__content{
     position: relative;
     display: flex;
@@ -2175,10 +2255,10 @@ path {
     }
     
     @media screen and (max-width: 767px) {
-      width: 100px;
-      height: 156px;
-      left: calc(50% - 80px);
-      top: calc(50% - 72px);
+      width: 140px;
+      height: 215px;
+      left: calc(50% - 100px);
+      top: calc(50% - 108px);
     }
   }
   &__text{
@@ -2197,8 +2277,8 @@ path {
     height: 470px;
     
     @media screen and (max-width: 767px) {
-      width: 115px;
-      height: 180px;
+      width: 156px;
+      height: 245px;
     }
     img{
       width: 100%;
@@ -2214,6 +2294,12 @@ path {
     path{
       stroke: rgba(#fff,.5);
     }
+    &--fill{
+      path{
+        stroke: transparent;
+        fill: rgba(#fff,.5);;
+      }
+    }
     .rect{
       width: 20px;
       height: 20px;
@@ -2222,9 +2308,19 @@ path {
       }
       &--small{
         circle{
-          r: 30px;
+          r: 15px;
         }
       }
+      &--middle{
+        circle{
+          r:30px;
+        }
+      }
+    }
+  }
+  &--transparent{
+    path{
+      opacity: 0;
     }
   }
 }
@@ -2393,6 +2489,21 @@ path {
 }
 
 
+@keyframes animationTitleSmall {
+  0%{
+    transform: translateY(150px);
+    opacity: 0;
+  }
+  75%{
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
 
 @keyframes animationImg {
   0%{
@@ -2436,7 +2547,8 @@ path {
 .overlay-wrapper{
   display: flex;
   flex-direction: column;
-
+  position: relative;
+  z-index: 4;
 }
 
 .overlay-section{

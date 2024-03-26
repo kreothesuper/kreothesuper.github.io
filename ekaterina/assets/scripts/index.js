@@ -174,10 +174,9 @@ function SmoothScroll(target, speed, smooth) {
 document.addEventListener('DOMContentLoaded', () => {
     const animation = new Animations();
     animation.init();
+init();
 
     initTabs();
-
-    init();
 
     const swiper = new Swiper('.slider-advantages', {
         speed: 400,
@@ -245,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
     gsap.to(".hero-img__item", {
-        backgroundPosition: `${-innerHeight / 100}px 50%`,
+        backgroundPosition: `${-innerHeight / 100}px center`,
         ease: "none",
         scrollTrigger: {
             scrub: true,
@@ -257,8 +256,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sectionBg = document.querySelectorAll('.section-bg');
 
-    if(sectionBg.length && window.innerWidth > 767){
-        sectionBg.forEach(element=>{
+    if (sectionBg.length && window.innerWidth > 767) {
+        sectionBg.forEach(element => {
             gsap.to(element, {
                 backgroundPosition: `50% ${-innerHeight / 10}px`,
                 ease: "none",
@@ -334,23 +333,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.nav');
 
     if (burgerArray.length && nav) {
+        document.body.style.setProperty('--scrollbar-width', `${window.innerWidth - document.documentElement.clientWidth}px`)
         burgerArray.forEach(burger => {
             burger.addEventListener('click', (e) => {
                 e.preventDefault();
 
                 nav.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
                 burgerArray.forEach(burgerElement => {
                     burgerElement.classList.toggle('burger--active');
-
                 })
             });
         });
 
         nav.addEventListener('click', (e) => {
             if (e.target.classList.contains('nav')) {
+                document.body.classList.remove('no-scroll');
+                nav.classList.remove('active');
+
                 burgerArray.forEach(burgerElement => {
                     burgerElement.classList.remove('burger--active');
-                    nav.classList.remove('active');
                 })
             }
         })
@@ -406,11 +408,10 @@ document.addEventListener('DOMContentLoaded', () => {
     //     }
     // });
 
-    console.log(window.innerWidth)
-    if(overlaySection.length && window.innerWidth >= 768){
-        overlaySection.forEach((section, i)=>{
+    if (overlaySection.length && window.innerWidth >= 768) {
+        overlaySection.forEach((section, i) => {
             gsap.to(section, {
-                ease:'none',
+                ease: 'none',
                 scrollTrigger: {
                     trigger: section,
                     pin: true,
@@ -421,13 +422,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             const sectionWrapper = section.querySelector('.section__wrapper');
             gsap.to(sectionWrapper, {
-                ease:'none',
-                yPercent:-20,
+                ease: 'none',
+                yPercent: -20,
                 scrollTrigger: {
                     trigger: section,
                     start: "top top",
                     end: "bottom top",
-                    scrub:true,
+                    scrub: true,
                 }
             });
         })
@@ -451,27 +452,76 @@ document.addEventListener('DOMContentLoaded', () => {
     const map = document.querySelector('.map');
     const mapIcons = document.querySelectorAll('.map-icon__item');
 
-    if(mapListLink.length && map){
-        mapListLink.forEach(link=>{
+    if (mapListLink.length && map) {
+        mapListLink.forEach(link => {
             const name = link.dataset.name;
-            link.addEventListener('click',(e)=>{
+            link.addEventListener('click', (e) => {
                 e.preventDefault();
-                if(map.dataset.current === name ){
+                if (map.dataset.current === name) {
                     link.classList.remove('active');
                     map.dataset.current = '';
-                    mapIcons.forEach(icon=>icon.classList.remove('hidden'));
-                }else{
+                    mapIcons.forEach(icon => icon.classList.remove('hidden'));
+                } else {
                     map.dataset.current = name;
-                    mapListLink.forEach(mapLink =>{
+                    mapListLink.forEach(mapLink => {
                         mapLink !== link ? mapLink.classList.remove('active') : mapLink.classList.add('active');
                     });
-                    mapIcons.forEach(icon=>{
-                        icon.dataset.name === name ? icon.classList.remove('hidden') : icon.classList.add('hidden');
-                    });
+                    if(map.dataset.current !== 'all'){
+                        mapIcons.forEach(icon => {
+                            icon.dataset.name === name ? icon.classList.remove('hidden') : icon.classList.add('hidden');
+                        });
+                    }else{
+                        mapIcons.forEach(icon => icon.classList.remove('hidden'));
+                    }
+
                 }
             });
         });
     }
 
+
+    function wrapText(text, maxWidth, fontSize, fontFamily, letterSpacing, justification) {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        context.font = `${fontSize}px ${fontFamily}`;
+        context.letterSpacing = letterSpacing;
+
+        const words = text.split(' ');
+        let lines = [];
+        let currentLine = words[0];
+
+        for (let i = 1; i < words.length; i++) {
+            const word = words[i];
+            const width = context.measureText(currentLine + ' ' + word).width;
+
+            if (width < maxWidth) {
+                currentLine += ' ' + word;
+            } else {
+                lines.push(currentLine);
+                currentLine = word;
+            }
+        }
+
+        lines.push(currentLine);
+
+        // Handle justification if needed
+        if (justification === 'center') {
+            lines = lines.map(line => line.padStart((maxWidth - context.measureText(line).width) / 2 + context.measureText(line).width, ' '));
+        } else if (justification === 'right') {
+            lines = lines.map(line => line.padStart(maxWidth, ' '));
+        }
+
+        return lines;
+    }
+
+    const text = "Your text here";
+    const maxWidth = 200;
+    const fontSize = 16;
+    const fontFamily = "Arial";
+    const letterSpacing = 1;
+    const justification = "left"; // or "center" or "right"
+
+    const wrappedText = wrapText(text, maxWidth, fontSize, fontFamily, letterSpacing, justification);
+    console.log(wrappedText);
 
 })

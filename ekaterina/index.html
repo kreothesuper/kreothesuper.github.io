@@ -50,7 +50,7 @@
                             </span>
                         </a>
                         <div class="header__burger">
-                            <div class="burger">
+                            <div class="burger burger--open">
                                 <div class="burger__item"></div>
                                 <div class="burger__item"></div>
                                 <div class="burger__item"></div>
@@ -62,13 +62,30 @@
             </div>
         </div>
         <div class="nav">
-            <div class="nav__wrapper">
+            <div class="nav__wrapper decor-container">
+                <div class="nav__decor decor" data-start="1.2" data-end="1">
+                    <svg width="108" height="368" viewBox="0 0 108 368" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path class="path" stroke="white"
+                              d="M3 0.5h0s104.5 0 104.5 104.5v158s0 104.5 -104.5 104.5h0s-104.5 0 -104.5 -104.5v-158s0 -104.5 104.5 -104.5"/>
+                        <g class="rect rect--middle">
+                            <circle cx="36.5" cy="36.5" r="36" stroke="url(#paint0_linear_770_132)"/>
+                            <defs>
+                                <linearGradient id="paint0_linear_770_132" x1="36.5" y1="0" x2="36.5" y2="73"
+                                                gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#F6C564"/>
+                                    <stop offset="1" stop-color="#90733B"/>
+                                </linearGradient>
+                            </defs>
+                        </g>
+                    </svg>
+                </div>
                 <div class="nav__header">
                     <p class="nav__title">
                         Главная
                     </p>
                     <div class="nav__burger">
-                        <div class="burger">
+                        <div class="burger burger--close">
                             <div class="burger__item"></div>
                             <div class="burger__item"></div>
                             <div class="burger__item"></div>
@@ -118,6 +135,15 @@
                             </a>
                         </li>
                     </ul>
+                    <a href="#"
+                       class="nav__button button button--base button--bordered button--bordered--gradient">
+                        <svg class="button__icon">
+                            <use xlink:href="assets/images/sprite.svg#home"></use>
+                        </svg>
+                        <span class="button__text">
+                                ВЫБРАТЬ КВАРТИРУ
+                            </span>
+                    </a>
                 </div>
                 <div class="nav__footer">
                     <ul class="social">
@@ -159,6 +185,7 @@
     </header>
     <main class="content page-wrapper__content">
         <div class="content__wrapper">
+
             <div class="page-block">
                 <div class="hero animation-wrapper decor-container" id="hero">
 
@@ -489,8 +516,8 @@
                     </div>
                 </div>
             </div>
-            <div class="section  branch-wrapper decor-container">
-                <div class="branch-wrapper__decor decor" data-start="0.35" data-end=".6">
+            <div class="section  branch-wrapper decor-container overlay-section">
+                <div class="branch-wrapper__decor decor" data-start="0.35" data-end=".5">
                     <svg width="1311" height="512" viewBox="0 0 1311 512" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path fill="#fff" class="path"
@@ -507,7 +534,7 @@
                         </g>
                     </svg>
                 </div>
-                <div class="branch-wrapper__decor decor" data-start="0" data-end=".2">
+                <div class="branch-wrapper__decor decor decor--transparent" data-start="0" data-end=".2">
                     <svg width="1311" height="512" viewBox="0 0 1311 512" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path fill="#fff" class="path"
@@ -524,7 +551,7 @@
                         </g>
                     </svg>
                 </div>
-                <div class="section__wrapper section__wrapper--branch">
+                <div class="section__wrapper section__wrapper--branch animation-wrapper">
                     <div class="container container--branch">
                         <div class="branch__text">
                             <p class="text text--base text--white">
@@ -533,6 +560,18 @@
                             </p>
                         </div>
                         <div class="branch__content">
+                            <div class="branch__title section-title">
+                                <div class="section-title__item section-title__item--full animation-item">
+                                    <p class=" title title--base title--uppercase title--gradient animation-item__text">
+                                       Экология
+                                    </p>
+                                </div>
+                                <div class="section-title__item section-title__item--full animation-item">
+                                    <p class=" title title--base title--uppercase title--white animation-item__text">
+                                        вокруг нас
+                                    </p>
+                                </div>
+                            </div>
                             <div class="branch__decor">
 
                             </div>
@@ -559,7 +598,7 @@
                                                 </p>
                                             </div>
                                             <div class="section-title__item section-title__item--full animation-item">
-                                                <p class=" title title--base title--center title--uppercase title--white animation-item__text">
+                                                <p class=" title title--base title--center title--uppercase title--gradient animation-item__text">
                                                     ОТ ПРОМЫШЛЕННОСТИ
                                                 </p>
                                             </div>
@@ -793,6 +832,11 @@
                                                     Супермаркеты
                                                 </a>
                                             </li>
+                                            <li class="map-list__item animation-item">
+                                                <a data-name="all" href="#" class="text text--base text--white map-list__link animation-item__text">
+                                                    Все
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -801,7 +845,6 @@
                                 <div class="map__item">
                                     <img src="assets/images/map-2.png" alt="">
                                     <svg class="map-icon" width="1021" height="969" viewBox="0 0 1021 969" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <path data-name="school" class="map-icon__item" fill-rule="evenodd" clip-rule="evenodd" d="M304.307 875.846C311.993 875.846 318.224 876.884 318.224 878.166C318.224 879.446 311.993 880.485 304.307 880.485C296.621 880.485 290.39 879.446 290.39 878.166C290.39 876.884 296.621 875.846 304.307 875.846ZM281.576 867.96L301.369 858.063C301.369 858.063 302.916 857.444 303.689 857.444C304.477 857.444 305.404 858.034 306.275 858.415C311.479 860.693 326.42 867.96 326.42 867.96C326.42 867.96 327.348 868.269 327.348 869.197C327.348 870.124 326.42 870.434 326.42 870.434L320.544 873.217C320.544 873.217 323.637 866.104 304.771 866.104C285.906 866.104 287.761 873.217 287.761 873.217L285.69 872.276V885.984C288.784 886.832 284.978 893.629 284.978 893.629C284.978 893.629 281.172 886.832 284.265 885.984V871.628L280.957 870.124C280.957 870.124 280.339 869.815 280.339 868.887C280.212 868.416 281.576 867.96 281.576 867.96ZM318.07 875.691V871.671C318.07 871.671 318.998 868.269 304.771 868.269C290.545 868.269 290.235 871.052 290.235 871.052V875.691C290.235 875.691 292.091 873.836 304.153 873.836C316.214 873.836 318.07 875.691 318.07 875.691Z" fill="#FFDF9E"/>
                                         <path data-name="school" class="map-icon__item" fill-rule="evenodd" clip-rule="evenodd" d="M319.307 937.846C326.993 937.846 333.224 938.884 333.224 940.166C333.224 941.446 326.993 942.485 319.307 942.485C311.621 942.485 305.39 941.446 305.39 940.166C305.39 938.884 311.621 937.846 319.307 937.846ZM296.576 929.96L316.369 920.063C316.369 920.063 317.916 919.444 318.689 919.444C319.477 919.444 320.404 920.034 321.275 920.415C326.479 922.693 341.42 929.96 341.42 929.96C341.42 929.96 342.348 930.269 342.348 931.197C342.348 932.124 341.42 932.434 341.42 932.434L335.544 935.217C335.544 935.217 338.637 928.104 319.771 928.104C300.906 928.104 302.761 935.217 302.761 935.217L300.69 934.276V947.984C303.784 948.832 299.978 955.629 299.978 955.629C299.978 955.629 296.172 948.832 299.265 947.984V933.628L295.957 932.124C295.957 932.124 295.339 931.815 295.339 930.887C295.212 930.416 296.576 929.96 296.576 929.96ZM333.07 937.691V933.671C333.07 933.671 333.998 930.269 319.771 930.269C305.545 930.269 305.235 933.052 305.235 933.052V937.691C305.235 937.691 307.091 935.836 319.153 935.836C331.214 935.836 333.07 937.691 333.07 937.691Z" fill="#FFDF9E"/>
                                         <path data-name="school" class="map-icon__item" fill-rule="evenodd" clip-rule="evenodd" d="M604.307 250.846C611.993 250.846 618.224 251.884 618.224 253.166C618.224 254.446 611.993 255.485 604.307 255.485C596.621 255.485 590.39 254.446 590.39 253.166C590.39 251.884 596.621 250.846 604.307 250.846ZM581.576 242.96L601.369 233.063C601.369 233.063 602.916 232.444 603.689 232.444C604.477 232.444 605.404 233.034 606.275 233.415C611.479 235.693 626.42 242.96 626.42 242.96C626.42 242.96 627.348 243.269 627.348 244.197C627.348 245.124 626.42 245.434 626.42 245.434L620.544 248.217C620.544 248.217 623.637 241.104 604.771 241.104C585.906 241.104 587.761 248.217 587.761 248.217L585.69 247.276V260.984C588.784 261.832 584.978 268.629 584.978 268.629C584.978 268.629 581.172 261.832 584.265 260.984V246.628L580.957 245.124C580.957 245.124 580.339 244.815 580.339 243.887C580.212 243.416 581.576 242.96 581.576 242.96ZM618.07 250.691V246.671C618.07 246.671 618.998 243.269 604.771 243.269C590.545 243.269 590.235 246.052 590.235 246.052V250.691C590.235 250.691 592.091 248.836 604.153 248.836C616.214 248.836 618.07 250.691 618.07 250.691Z" fill="#FFDF9E"/>
                                         <path data-name="school" class="map-icon__item" fill-rule="evenodd" clip-rule="evenodd" d="M596.307 185.846C603.993 185.846 610.224 186.884 610.224 188.166C610.224 189.446 603.993 190.485 596.307 190.485C588.621 190.485 582.39 189.446 582.39 188.166C582.39 186.884 588.621 185.846 596.307 185.846ZM573.576 177.96L593.369 168.063C593.369 168.063 594.916 167.444 595.689 167.444C596.477 167.444 597.404 168.034 598.275 168.415C603.479 170.693 618.42 177.96 618.42 177.96C618.42 177.96 619.348 178.269 619.348 179.197C619.348 180.124 618.42 180.434 618.42 180.434L612.544 183.217C612.544 183.217 615.637 176.104 596.771 176.104C577.906 176.104 579.761 183.217 579.761 183.217L577.69 182.276V195.984C580.784 196.832 576.978 203.629 576.978 203.629C576.978 203.629 573.172 196.832 576.265 195.984V181.628L572.957 180.124C572.957 180.124 572.339 179.815 572.339 178.887C572.212 178.416 573.576 177.96 573.576 177.96ZM610.07 185.691V181.671C610.07 181.671 610.998 178.269 596.771 178.269C582.545 178.269 582.235 181.052 582.235 181.052V185.691C582.235 185.691 584.091 183.836 596.153 183.836C608.214 183.836 610.07 185.691 610.07 185.691Z" fill="#FFDF9E"/>
@@ -832,7 +875,7 @@
                 </div>
             </div>
             <div class="section count animation-wrapper">
-                <div class="section__wrapper section__wrapper--center">
+                <div class="section__wrapper section__wrapper--count section__wrapper--center">
                     <div class="count__decor count__decor--desktop  decor" data-start="0.6" data-end="1.2">
                         <svg class="" width="941" height="616" viewBox="0 0 941 616"
                              fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -852,7 +895,7 @@
                     </div>
                     <div class="container">
                         <div class="count__wrapper ">
-                            <div class="count__decor count__decor--mobile decor" data-start="0.6" data-end="1.2">
+                            <div class="count__decor count__decor--mobile decor decor--fill" data-start=".6" data-end="1">
                                 <svg width="390" height="361" viewBox="0 0 390 361" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path class="path" fill-rule="evenodd" clip-rule="evenodd" d="M442.367 123.955L0.219986 5.48237C-63.7922 -11.6696 -129.589 26.3181 -146.741 90.3302C-163.893 154.342 -125.905 220.139 -61.8931 237.291L380.254 355.764C444.266 372.916 510.062 334.928 527.214 270.916C544.366 206.904 506.379 141.107 442.367 123.955ZM-147.707 90.0714C-165.002 154.617 -126.698 220.962 -62.1519 238.257L379.995 356.73C444.54 374.025 510.885 335.72 528.18 271.175C545.475 206.629 507.171 140.284 442.626 122.989L0.478805 4.51644C-64.0668 -12.7785 -130.412 25.5258 -147.707 90.0714Z" fill="white"/>
                                     <g class="rect rect--small" id="rect">
@@ -868,7 +911,7 @@
 
                                 </svg>
                             </div>
-                            <div class="count__decor count__decor--mobile decor" data-start="0" data-end=".8">
+                            <div class="count__decor count__decor--mobile decor decor--transparent" data-start="0" data-end=".8">
                                 <svg width="390" height="361" viewBox="0 0 390 361" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path class="path" fill-rule="evenodd" clip-rule="evenodd" d="M442.367 123.955L0.219986 5.48237C-63.7922 -11.6696 -129.589 26.3181 -146.741 90.3302C-163.893 154.342 -125.905 220.139 -61.8931 237.291L380.254 355.764C444.266 372.916 510.062 334.928 527.214 270.916C544.366 206.904 506.379 141.107 442.367 123.955ZM-147.707 90.0714C-165.002 154.617 -126.698 220.962 -62.1519 238.257L379.995 356.73C444.54 374.025 510.885 335.72 528.18 271.175C545.475 206.629 507.171 140.284 442.626 122.989L0.478805 4.51644C-64.0668 -12.7785 -130.412 25.5258 -147.707 90.0714Z" fill="white"/>
                                     <g class="rect rect--small" id="rect">
@@ -1028,11 +1071,10 @@
                                                          class="plans-location__layout">
                                                     <img src="assets/images/plans/compass.webp" alt=""
                                                          class="plans-location__compass">
-
                                                 </div>
                                             </div>
                                             <div class="plans__img animation-item">
-                                                <img class="animation-item__text" src="assets/images/plans/1.webp"
+                                                <img class="animation-item__text animation-item__text--small" src="assets/images/plans/1.webp"
                                                      alt="">
                                             </div>
                                         </div>
@@ -1177,7 +1219,7 @@
                                                 </div>
                                             </div>
                                             <div class="plans__img animation-item">
-                                                <img class="animation-item__text" src="assets/images/plans/1.webp"
+                                                <img class="animation-item__text animation-item__text--small" src="assets/images/plans/1.webp"
                                                      alt="">
                                             </div>
                                         </div>
@@ -1322,7 +1364,7 @@
                                                 </div>
                                             </div>
                                             <div class="plans__img animation-item">
-                                                <img class="animation-item__text" src="assets/images/plans/1.webp"
+                                                <img class="animation-item__text animation-item__text--small" src="assets/images/plans/1.webp"
                                                      alt="">
                                             </div>
                                         </div>
@@ -1578,7 +1620,7 @@
                             <input type="text" placeholder="+7 (000) 000-00-00" class="input__item input__item--black">
                         </label>
                         <div class="form__row">
-                            <label class="radio">
+                            <label class="radio radio--popup">
                                 <input type="radio" name="time" class="radio__input">
                                 <span class="radio__checkmark"></span>
                                 <span class="radio__text radio__text--black">Даю согласие на обработку персональных данных</span>
