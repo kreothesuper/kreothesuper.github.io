@@ -486,6 +486,15 @@ body.no-scroll {
   -webkit-backdrop-filter: blur(4px);
   background: rgba(22, 63, 63, 0.2);
 }
+@media screen and (max-width: 767px) {
+  .header.active .header__logo {
+    width: 70px;
+    height: 70px;
+  }
+  .header.active .header__text {
+    font-size: 9px;
+  }
+}
 .header__row {
   display: flex;
   align-items: center;
@@ -521,6 +530,7 @@ body.no-scroll {
   width: 88px;
   height: 88px;
   flex-shrink: 0;
+  transition: 0.3s width, 0.3s height;
 }
 @media screen and (max-width: 767px) {
   .header__logo {
@@ -544,6 +554,7 @@ body.no-scroll {
   position: absolute;
   top: 0;
   left: 0;
+  transition: 0.3s font-size;
 }
 @media screen and (max-width: 767px) {
   .header__text {
@@ -2024,7 +2035,7 @@ body.no-scroll {
 }
 @media screen and (max-width: 767px) {
   .nav__wrapper {
-    padding: 20px 40px 40px 40px;
+    padding: 20px 40px 20px 40px;
   }
 }
 .nav__footer {
@@ -2084,7 +2095,7 @@ body.no-scroll {
 }
 @media screen and (max-width: 767px) {
   .nav-list__link {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 .nav-list__link:hover {

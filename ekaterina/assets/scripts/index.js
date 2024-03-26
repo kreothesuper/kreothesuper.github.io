@@ -365,14 +365,47 @@ init();
 
     const burgerArray = document.querySelectorAll('.burger');
     const nav = document.querySelector('.nav');
+    const header = document.querySelector('.header');
+
+    const navDecorPath = document.querySelector('.nav-decor__path');
+    const navDecorRect = document.querySelector('.nav-decor__rect');
+
 
     if (burgerArray.length && nav) {
         document.body.style.setProperty('--scrollbar-width', `${window.innerWidth - document.documentElement.clientWidth}px`)
         burgerArray.forEach(burger => {
             burger.addEventListener('click', (e) => {
                 e.preventDefault();
-
+                header.classList.toggle('active');
                 nav.classList.toggle('active');
+                if(nav.classList.contains('active')){
+                    gsap.to(navDecorRect, {
+                        ease: "power1.inOut",
+                        duration: 3,
+                        repeat: 0,
+                        motionPath: {
+                            path:navDecorPath,
+                            align: navDecorPath,
+                            autoRotate: true,
+                            end:.25,
+                            alignOrigin: [0.5, 0.5]
+                        },
+                    });
+                }else{
+                    gsap.to(navDecorRect, {
+                        ease: "power1.inOut",
+                        duration: 3,
+                        repeat: 0,
+                        motionPath: {
+                            path:navDecorPath,
+                            align: navDecorPath,
+                            autoRotate: true,
+                            start:.25,
+                            end:0,
+                            alignOrigin: [0.5, 0.5]
+                        },
+                    });
+                }
                 document.body.classList.toggle('no-scroll');
                 burgerArray.forEach(burgerElement => {
                     burgerElement.classList.toggle('burger--active');
@@ -384,7 +417,7 @@ init();
             if (e.target.classList.contains('nav')) {
                 document.body.classList.remove('no-scroll');
                 nav.classList.remove('active');
-
+                header.classList.toggle('active');
                 burgerArray.forEach(burgerElement => {
                     burgerElement.classList.remove('burger--active');
                 })
