@@ -3,6 +3,7 @@
   --title-font:"Lato", sans-serif;
   --accent-font:'SF Pro Display', sans-serif;
   --input-font:'Sora', sans-serif;
+  --title-second-font:'Exo', sans-serif;
 
   --color-black: #1C1D1D;
   --color-black-second:#121826;
@@ -106,6 +107,19 @@ body{
       height: 45px;
       border-radius: 8px;
     }
+    &--small{
+      font-size: 14px;
+      font-weight: 400;
+
+      width: max-content;
+      max-width: 100%;
+      padding: 10px 17px;
+
+      min-width: 210px;
+      &--check{
+        min-width: 140px;
+      }
+    }
   }
   &--middle{
     font-size: 22px;
@@ -123,6 +137,11 @@ body{
       opacity: .6;
     }
   }
+  &--bordered{
+    border: 2px solid var(--color-button-primary);
+    color: var(--color-button-primary);
+    fill: var(--color-button-primary);
+  }
   &--transparent{
     color: #000;
   }
@@ -138,8 +157,11 @@ body{
     width: 24px;
     height: 24px;
     &--small{
-      width: 14px;
-      height: 14px;
+      width: 16px;
+      height: 16px;
+    }
+    &--green{
+      fill: #78D387;
     }
   }
 }
@@ -280,7 +302,14 @@ body{
     width: 15px;
     height: 15px;
 
+    flex-shrink: 0;
     transition: .3s fill;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
     &:hover{
       fill: var(--color-button-primary);
     }
@@ -308,6 +337,44 @@ body{
 }
 
 .catalog {
+  &-calendar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 44px;
+    &__button{
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+
+      border-radius: 50%;
+      background: var(--color-button-primary);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .icon{
+        width: 12px;
+        height: 12px;
+        fill: #fff;
+      }
+
+      &--prev{
+        transform: rotate(90deg);
+      }
+      &--next{
+        transform: rotate(-90deg);
+      }
+    }
+    &__text{
+      font-family: var(--title-font);
+      color: var(--color-black-second);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+  }
   &-empty{
     display: flex;
     flex-direction: column;
@@ -557,6 +624,15 @@ body{
         height: 120px;
         border-radius: 8px;
       }
+      &--big{
+        padding: 0;
+
+        img{
+          width: 230px;
+          height: 230px;
+          border-radius: 20px;
+        }
+      }
     }
     &__header{
       display: flex;
@@ -577,6 +653,16 @@ body{
       padding: 25px 30px 25px 15px;
 
       flex-grow: 1;
+
+      &--small{
+        padding: 20px;
+      }
+    }
+
+    &__column{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
     &__text{
@@ -602,6 +688,12 @@ body{
       font-size: 22px;
       font-weight: 400;
       line-height: 1.2;
+
+      &--small{
+        font-size: 20px;
+        font-weight: 600;
+        font-family: var(--title-second-font);
+      }
     }
 
     &__row{
@@ -810,6 +902,17 @@ body{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    &--row{
+      flex-direction: row;
+    }
+    &--gap{
+      &--small{
+        gap: 10px;
+      }
+      &--middle{
+        gap: 25px;
+      }
+    }
   }
 }
 
@@ -817,10 +920,36 @@ body{
   display: flex;
   flex-direction: column;
   gap: 6px;
+  &--gap{
+    &--big{
+      gap: 12px;
+    }
+  }
   &__title{
+
+    font-family: var(--text-font);
     font-size: 13px;
     line-height: 1.2;
     color: #6c737b;
+    &--big{
+      font-family: var(--title-font);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+
+      color: var(--color-blue-text);
+    }
+  }
+
+  &__icon{
+    width: 30px;
+    height: 20px;
+    fill: var(--color-grey);
+    flex-shrink: 0;
+    &:first-child{
+      border-right: 1px solid var(--color-grey-light);
+      padding-right: 10px;
+    }
   }
   &__text{
     font-family: var(--text-font);
@@ -872,6 +1001,9 @@ body{
       text-align: center;
 
       padding: 10px;
+      &--big{
+        height: 40px;
+      }
       input{
         text-align: center;
         font-size: 16px;
@@ -886,12 +1018,20 @@ body{
       border-radius: 10px;
       border-width: 1px;
       padding: 10px 20px;
+      &--content{
+        width: max-content;
+      }
       &--textarea{
         height: 66px;
+        &--big{
+          height: 150px;
+        }
       }
       input,textarea{
         font-size: 15px;
         font-weight: 400;
+        width: 100%;
+        height: 100%;
         &::placeholder{
           font-size: 15px;
         }
@@ -1044,6 +1184,24 @@ body{
 
 .edit{
   &-block{
+    &__grid{
+      display: grid;
+      grid-template-columns: 140px minmax(0,1fr);
+      gap: 80px;
+    }
+    &__img{
+      width: 140px;
+      height: 140px;
+
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #E4E8ED;
+      border-radius: 20px;
+    }
     &__header{
       &:not(:last-child){
         margin: 0 0 20px 0;
@@ -1077,6 +1235,71 @@ body{
       transform: translateX(-50%) translateY(0px);
       visibility: visible;
       opacity: 1;
+      &--left{
+        transform: translate(0);
+      }
+    }
+    &__edit{
+      position: absolute;
+      bottom: -15px;
+      right: -12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 4;
+
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      fill: #fff;
+      background: var(--color-button-primary);
+
+      .icon{
+        width: 18px;
+        height: 18px;
+      }
+    }
+    &__img{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::before{
+        content: 'Выберите иконку';
+        font-size: 10px;
+        line-height: 15px;
+        color: var(--color-grey);
+        font-family: var(--title-font);
+        width: 50px;
+        display: block;
+
+        text-align: center;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        z-index: 2;
+
+        opacity: 0;
+      }
+      &--checked{
+        img{
+          opacity: 1;
+        }
+      }
     }
     &__content{
       position: absolute;
@@ -1099,7 +1322,23 @@ body{
       opacity: 0;
       visibility: hidden;
 
+      z-index: 5;
+
       transition: .3s visibility,.5s opacity,.5s transform;
+      &--img{
+        padding: 15px;
+        gap: 15px;
+        border-radius: 8px;
+
+        border: transparent;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 1px -1px 4px 0 rgba(0, 0, 0, 0.1);
+
+      }
+      &--left{
+        left: 4px;
+        transform: translateX(0);
+        top: calc(100% - 40px);
+      }
     }
   }
   &-empty{
@@ -1112,7 +1351,7 @@ body{
     &__img{
       width: 240px;
       height: 240px;
-      object-fit: contain;
+      object-fit: conta;
     }
     &__content{
       display: flex;
@@ -1149,6 +1388,25 @@ body{
 
     width: 86px;
     border-radius: 6px;
+
+    position: relative;
+    &--checked{
+      &::before{
+        content: '';
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: -4px;
+        bottom: -4px;
+
+        background: url("../../images/icons/check-big.svg") center center/contain no-repeat;
+      }
+    }
+    &--img{
+      padding: 0;
+      aspect-ratio: 1;
+      border-radius: 12px;
+    }
     &__icon{
       width: 32px;
       height: 32px;
@@ -1475,6 +1733,14 @@ body{
 
       padding: 24px 52px;
     }
+    &--middle{
+      max-width: 650px;
+      border-radius: 16px;
+      padding: 45px 52px 30px 52px;
+      &--small{
+        padding: 32px 52px 52px 52px;
+      }
+    }
     &--tiny{
       max-width: 620px;
       padding: 30px;
@@ -1545,6 +1811,7 @@ body{
   }
 
   &__title{
+    font-family: var(--title-font);
     font-size: 28px;
     line-height:1.2;
     letter-spacing: -0.02em;
@@ -1555,6 +1822,10 @@ body{
     max-width: 320px;
     width: 100%;
     margin: 0 auto;
+
+    &--small{
+      font-size: 22px;
+    }
   }
 }
 

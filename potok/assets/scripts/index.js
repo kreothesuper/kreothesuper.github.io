@@ -105,4 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+    const formWrapperArray = document.querySelectorAll('.js-form-wrapper');
+
+    if(formWrapperArray.length){
+        formWrapperArray.forEach(form=>{
+            form.addEventListener('submit',(e)=>{
+                e.target.checkValidity() ? form.classList.remove('error') : form.classList.add('error');
+            });
+        });
+    }
 });
