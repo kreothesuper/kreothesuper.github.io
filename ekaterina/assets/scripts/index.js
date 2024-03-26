@@ -420,7 +420,21 @@ init();
                 header.classList.toggle('active');
                 burgerArray.forEach(burgerElement => {
                     burgerElement.classList.remove('burger--active');
-                })
+                });
+
+                sap.to(navDecorRect, {
+                    ease: "power1.inOut",
+                    duration: 3,
+                    repeat: 0,
+                    motionPath: {
+                        path:navDecorPath,
+                        align: navDecorPath,
+                        autoRotate: true,
+                        start:.25,
+                        end:0,
+                        alignOrigin: [0.5, 0.5]
+                    },
+                });
             }
         })
     }
@@ -444,11 +458,12 @@ init();
                 end: "bottom top",
                 scrub: true,
             },
+            opacity:0,
             ease: "power1.inOut",
-            duration: 500,
+            duration: 5,
             repeat: 0,
             motionPath: {
-                path,
+                path:path,
                 align: path,
                 autoRotate: true,
                 start: start,
