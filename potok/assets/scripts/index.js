@@ -115,4 +115,57 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+
+
+    const canlendarInputArray = document.querySelectorAll('.calendar-input');
+
+    if(canlendarInputArray.length){
+        canlendarInputArray.forEach(calendarInput=>{
+            const calendar = new VanillaCalendar(calendarInput,{
+                input: true,
+                actions: {
+                    changeToInput(e, self) {
+                        if (!self.HTMLInputElement) return;
+                        if (self.selectedDates[0]) {
+                            self.HTMLInputElement.value = self.selectedDates[0];
+                            // if you want to hide the calendar after picking a date
+                            self.hide();
+                        } else {
+                            self.HTMLInputElement.value = '';
+                        }
+                    },
+                },
+                settings: {
+                    lang: 'ru',
+                    visibility: {
+                        positionToInput: 'left',
+                        theme:'light',
+
+                    },
+                },
+            });
+            calendar.init();
+        })
+    }
+
+
+    const formArray = document.querySelectorAll('.js-form');
+
+    if(formArray.length){
+        const checkValidity = (form, button) =>{
+            form.checkValidity() ? button.classList.remove('disabled') : button.classList.add('disabled');
+        }
+        formArray.forEach(form=>{
+            const submitButton = form.querySelector('[type="submit"]');
+
+            if (submitButton){
+                checkValidity(form,submitButton);
+
+                form.addEventListener('change',()=>{
+                    checkValidity(form,submitButton);
+                });
+            }
+        });
+    }
 });

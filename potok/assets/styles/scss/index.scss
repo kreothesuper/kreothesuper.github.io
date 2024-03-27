@@ -495,6 +495,12 @@ body{
 
     transition: .3s border-color;
 
+    &--dropdown{
+      border-radius: 8px;
+      &.current{
+        background: var(--color-input-fill);
+      }
+    }
     &--transparent{
       border: none;
     }
@@ -1020,6 +1026,10 @@ body{
       padding: 10px 20px;
       &--content{
         width: max-content;
+        &--date{
+          max-width:140px;
+          text-align: center;
+        }
       }
       &--textarea{
         height: 66px;
@@ -1100,6 +1110,9 @@ body{
     &.loaded &__checkmark{
       display: none;
     }
+    &.loaded &__img{
+      display: block;
+    }
     &__desc{
       font-family: var(--text-font);
       font-size: 18px;
@@ -1131,6 +1144,8 @@ body{
       object-fit: cover;
 
       z-index: 3;
+
+      display: none;
     }
     &__checkmark{
       display: flex;
@@ -1842,3 +1857,95 @@ body{
     border-color: #FF6D6D;
   }
 }
+
+  .vanilla-calendar[data-calendar-theme="light"]{
+    padding: 32px;
+    box-shadow: 0 4px 32px 0 rgba(170, 170, 170, 0.03);
+    background: #fff;
+    border-radius: 12px;
+
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #EBEBEB;
+    .vanilla-calendar{
+      &-arrow{
+        fill: #333333;
+        color: #333333;
+
+        position: absolute;
+        right: 30px;
+        top: 50%;
+
+        width: 16px;
+        height: 16px;
+        transform: translateY(-50%);
+        &::before{
+          background-image: url("data:image/svg+xml,%3Csvg width='9' height='14' viewBox='0 0 9 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.9701 0.999884L7.62695 6.65674L1.9701 12.3136' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: contain;
+
+          transform: rotate(180deg);
+        }
+        &_next{
+          right: 0;
+          &::before{
+            transform: rotate(0);
+          }
+        }
+      }
+      &-header{
+        margin-bottom: 56px;
+        position: relative;
+        &__content{
+          padding: 0;
+          justify-content: flex-start;
+        }
+      }
+      &-days{
+        gap: 0 4px;
+      }
+      &-content{
+        gap: 32px;
+      }
+      &-month,&-year{
+        font-size: 24px;
+        color: #333;
+        font-weight: 700;
+
+        pointer-events: none;
+      }
+      &-day{
+        width: 56px;
+        height: 56px;
+        &__btn{
+          font-size: 24px;
+          font-weight: 500;
+          color: #32343D;
+
+          border-radius: 50%;
+          background: transparent ;
+          transition: .3s background-color,.3s color;
+          &:hover{
+            background: #8E97FD;
+            color: #fff;
+          }
+          &_selected{
+            background: #8E97FD;
+            color: #fff;
+          }
+          &_prev{
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+      }
+      &-week{
+        margin: 0;
+        &__day{
+          font-size: 24px;
+          font-weight: 500;
+          color: #8271E9;
+        }
+      }
+    }
+  }
