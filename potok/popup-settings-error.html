@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/styles/css/fonts.css">
+    <link rel="stylesheet" href="assets/styles/css/reset.css">
+    <link rel="stylesheet" href="assets/styles/css/index.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+    <main class="page-wrapper__content content">
+        <div class="content__wrapper">
+            <div class="container">
+                <div class="content__header content__header--margin--big ">
+                    <a href="#" class="button button--middle button--transparent">
+                        <svg class="button__icon">
+                            <use xlink:href="assets/images/sprite.svg#cross"></use>
+                        </svg>
+                        <span class="button__text">
+                            Закрыть
+                        </span>
+                    </a>
+                    <a href="#" class="button button--base button--blue">
+                        Сохранить
+                    </a>
+                </div>
+                <form action="#" class="content__box form">
+                    <div class="form__wrapper form__wrapper--gap">
+                        <div class="edit-block">
+                            <div class="edit-block__header">
+                                <p class="edit-block__title">
+                                    Название
+                                </p>
+                            </div>
+                            <div class="edit-block__content form__content">
+                                <div class="input">
+                                    <label class="input__item">
+                                        <input type="text" placeholder="Введите название практики"
+                                        >
+                                    </label>
+                                </div>
+                                <div class="file-input">
+                                    <label class="file-input__label">
+                                        <input type="file" class="file-input__item">
+                                        <span class="file-input__checkmark">
+                                            <span class="file-input__text">
+                                                Рекомендуем загружать изобажения в разрешении 720x480
+                                            </span>
+                                            <span class="file-input__button">
+                                                <svg class="icon">
+                                                    <use xlink:href="assets/images/sprite.svg#image-icon"></use>
+                                                </svg> Загрузить
+                                            </span>
+                                        </span>
+                                        <img src="" alt="" class="file-input__img">
+                                    </label>
+                                    <span class="file-input__desc">
+                                        Формат: png, jpg
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-block">
+                            <div class="edit-block__header">
+                                <p class="edit-block__title">
+                                    Категория
+                                </p>
+                            </div>
+                            <div class="edit-block__content form__content">
+                                <div class="edit-block__list edit-block__list--row">
+                                    <label class="tag-radio tag-radio--transparent tag-radio--big">
+                                        <input type="radio" name="category" class="tag-radio__input">
+                                        <span class="tag-radio__text">
+                                            Изучай
+                                        </span>
+                                    </label>
+                                    <label class="tag-radio tag-radio--transparent tag-radio--big">
+                                        <input type="radio" name="category" class="tag-radio__input">
+                                        <span class="tag-radio__text">
+                                            Практики
+                                        </span>
+                                    </label>
+                                    <label class="tag-radio tag-radio--transparent tag-radio--big">
+                                        <input type="radio" name="category" class="tag-radio__input">
+                                        <span class="tag-radio__text">
+                                            Программы
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-block">
+                            <div class="edit-block__header">
+                                <p class="edit-block__title">
+                                    Публикация
+                                </p>
+                            </div>
+                            <div class="edit-block__content form__content">
+                                <div class="edit-block__list">
+                                    <label class="radio radio--blue">
+                                        <input type="radio" name="sort" class="radio__input">
+                                        <span class="radio__checkmark"></span>
+                                        <span class="radio__text">
+                                          Без публикации
+                                        </span>
+                                    </label>
+                                    <label class="radio radio--blue">
+                                        <input type="radio" name="sort" class="radio__input">
+                                        <span class="radio__checkmark"></span>
+                                        <span class="radio__text">
+                                         Тестовая публикация
+                                        </span>
+                                    </label>
+                                    <label class="radio radio--blue">
+                                        <input type="radio" name="sort" class="radio__input">
+                                        <span class="radio__checkmark"></span>
+                                        <span class="radio__text">
+                                       Опубликовать для пользователей
+                                        </span>
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-block">
+                            <div class="edit-block__header">
+                                <p class="edit-block__title">
+                                    Описание
+                                </p>
+                            </div>
+                            <div class="edit-block__content form__content">
+                                <div class="input">
+                                    <label class="input__item input__item--textarea">
+                                        <textarea
+                                                placeholder="До 300 символов (включая числа, буквы и символы)" maxlength="300"></textarea>
+                                    </label>
+                                </div>
+                                <label class="input">
+
+                                </label>
+                            </div>
+                        </div>
+                        <div class="edit-block">
+                            <div class="edit-block__header">
+                                <p class="edit-block__title">
+                                    Материалы
+                                </p>
+                            </div>
+                            <div class="edit-block__content form__content">
+                                <div class="material">
+                                    <div class="material__row">
+                                        <p class="material__title">
+                                            Список материалов
+                                        </p>
+                                        <div class="dropdown js-dropdown material-dropdown">
+                                            <a href="#" class="button button--base button--blue js-dropdown-link">
+                                                <svg class="button__icon button__icon--small">
+                                                    <use xlink:href="assets/images/sprite.svg#plus"></use>
+                                                </svg>
+                                                Добавить
+                                            </a>
+                                            <div class="material-dropdown__content">
+                                                <a href="#" class="material-link">
+                                                    <svg class="material-link__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                    </svg>
+                                                    Документ
+                                                </a>
+                                                <a href="#" class="material-link">
+                                                    <svg class="material-link__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#video"></use>
+                                                    </svg>
+                                                    Видео
+                                                </a>
+                                                <a href="#" class="material-link">
+                                                    <svg class="material-link__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#audio"></use>
+                                                    </svg>
+                                                    Аудио
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="material-list">
+                                        <div class="material-list__item material-item">
+                                            <div class="material-item__row">
+                                                <div class="material-item__block">
+                                                    <button class="material-item__move">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#move"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <img src="assets/images/material/pdf.svg" alt=""
+                                                         class="material-item__icon">
+                                                </div>
+                                                <div class="material-item__header">
+                                                    <p class="material-item__title">
+                                                        Книга “Знаки”
+                                                    </p>
+                                                    <p class="material-item__text">
+                                                        Введите описание...
+                                                    </p>
+                                                    <p class="material-item__time">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#clock"></use>
+                                                        </svg>
+                                                        15 мин
+                                                    </p>
+                                                </div>
+                                                <div class="material-item__settings">
+                                                    <a href="#" class="material-item__control">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#edit"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a href="#" class="material-item__control">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#trash"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="material-list__item material-item loading">
+                                            <div class="material-item__row">
+                                                <div class="material-item__block">
+                                                    <button class="material-item__move">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#move"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <img src="assets/images/material/pdf.svg" alt=""
+                                                         class="material-item__icon">
+                                                </div>
+                                                <div class="material-item__header">
+                                                    <p class="material-item__title">
+                                                        Книга “Знаки”
+                                                    </p>
+                                                    <p class="material-item__text">
+                                                        Введите описание...
+                                                    </p>
+                                                    <p class="material-item__time">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#clock"></use>
+                                                        </svg>
+                                                        15 мин
+                                                    </p>
+                                                </div>
+                                                <div class="material-item__status material-status">
+                                                    <div class="material-status__row">
+                                                        <svg class="material-status__icon">
+                                                            <use xlink:href="assets/images/sprite.svg#refresh"></use>
+                                                        </svg>
+                                                        <p class="material-status__text">
+                                                            Обработка материала...
+                                                        </p>
+                                                        <a href="#" class="material-status__close">
+                                                            <svg class="material-status__icon">
+                                                                <use xlink:href="assets/images/sprite.svg#cross"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="material-list__item material-item loading">
+                                            <div class="material-item__row">
+                                                <div class="material-item__block">
+                                                    <button class="material-item__move">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#move"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <img src="assets/images/material/pdf.svg" alt=""
+                                                         class="material-item__icon">
+                                                </div>
+                                                <div class="material-item__header">
+                                                    <p class="material-item__title">
+                                                        Книга “Знаки”
+                                                    </p>
+                                                    <p class="material-item__text">
+                                                        Введите описание...
+                                                    </p>
+                                                    <p class="material-item__time">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#clock"></use>
+                                                        </svg>
+                                                        15 мин
+                                                    </p>
+                                                </div>
+                                                <div class="material-item__status material-status">
+                                                    <div class="material-status__row">
+                                                        <div class="material-status__column">
+                                                            <p class="material-status__text">
+                                                                Загрузка…
+                                                            </p>
+                                                            <div class="material-status__percent">
+                                                                <div class="material-status__line"
+                                                                     style="--percent:85%"></div>
+                                                                <p class="material-status__text">
+                                                                    85%
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <a href="#" class="material-status__close">
+                                                            <svg class="material-status__icon">
+                                                                <use xlink:href="assets/images/sprite.svg#cross"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="material-list__item material-item error">
+                                            <div class="material-item__row">
+                                                <div class="material-item__block">
+                                                    <button class="material-item__move">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#move"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <img src="assets/images/material/pdf.svg" alt=""
+                                                         class="material-item__icon">
+                                                </div>
+                                                <div class="material-item__header">
+                                                    <p class="material-item__title">
+                                                        Книга “Знаки”
+                                                    </p>
+                                                    <p class="material-item__text">
+                                                        Введите описание...
+                                                    </p>
+                                                    <p class="material-item__time">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#clock"></use>
+                                                        </svg>
+                                                        15 мин
+                                                    </p>
+                                                </div>
+                                                <div class="material-item__settings">
+                                                    <a href="#" class="material-item__control">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#edit"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a href="#" class="material-item__control">
+                                                        <svg class="icon">
+                                                            <use xlink:href="assets/images/sprite.svg#trash"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="material-empty">
+                                        <img src="assets/images/empty.svg" alt="" class="material-empty__img">
+                                        <div class="material-empty__content">
+                                            <p class="material-empty__title">
+                                                Добавьте учебные материалы
+                                            </p>
+                                            <p class="material-empty__text">
+                                                Чтобы опубликовать урок добавьте материал
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+<div class="popup popup--active">
+    <div class="popup__wrapper">
+        <div class="popup__container js-form-wrapper error">
+            <div class="popup__header">
+                <p class="popup__title">
+                    Свойства материалов
+                </p>
+                <a href="#" class="popup__close">
+                    <svg class="icon">
+                        <use xlink:href="assets/images/sprite.svg#cross"></use>
+                    </svg>
+                </a>
+            </div>
+            <div class="popup__content">
+                <form class="form">
+                    <div class="form__wrapper">
+                        <div class="form__content">
+                            <div class="input">
+                                <p class="input__title">
+                                    Название *
+                                </p>
+                                <label class="input__item input__item--small">
+                                    <input type="text" placeholder="" class="input-item" required value="Meditation_-_Погружение_50310007.mp3"
+                                           maxlength="255">
+                                    <span class="input__text">
+                                <span class="input-count">42</span>/255
+                            </span>
+                                </label>
+                            </div>
+                            <div class="input">
+                                <p class="input__title">
+                                    Описание
+                                </p>
+                                <label class="input__item input__item--small input__item--small--textarea">
+                                    <textarea class="input-item">ряд психических упражнений, используемых в составе духовно-религиозной или оздоровительной практики</textarea>
+                                    <span class="input__text">
+                                <span class="input-count">42</span>/255
+                            </span>
+                                </label>
+                            </div>
+                            <div class="input">
+                                <p class="input__title">
+                                    Продолжительность *
+                                </p>
+                                <div class="input__row">
+                                    <label class="input__item   input__item--time">
+                                        <input type="text" minlength="1" placeholder="00" maxlength="2">
+                                    </label>
+                                    <span class="input__text input__text--grey">
+                                            ч
+                                    </span>
+                                    <label class="input__item  input__item--time">
+                                        <input type="text" placeholder="00" maxlength="2">
+                                    </label>
+                                    <span class="input__text input__text--grey">
+                                            мин
+                                        </span>
+                                    <label class="input__item  input__item--time">
+                                        <input type="text" placeholder="00" maxlength="2">
+                                    </label>
+                                    <span class="input__text input__text--grey">
+                                         с
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="file-info">
+                            <div class="file-info__row">
+                                <p class="file-info__text">
+                                    Текущий файл:
+                                </p>
+                                <p class="file-info__text file-info__text--bold">
+                                    Файл (12,83 МБ)
+                                </p>
+                            </div>
+                            <div class="file-info__row">
+                                <p class="file-info__text">
+                                    Оригинальное имя:
+                                </p>
+                                <p class="file-info__text">
+                                    Meditation_02
+                                </p>
+                            </div>
+                            <div class="file-info__row">
+                                <p class="file-info__text">
+                                    Создан:
+                                </p>
+                                <p class="file-info__text">
+                                    20 февр. 2024 г., 12:02
+                                </p>
+                            </div>
+                            <div class="file-info__footer">
+                                <a href="#" class="file-info__button">
+                                    Просмотреть
+                                </a>
+                            </div>
+                        </div>
+                        <div class="popup__buttons">
+                            <a href="#" class="button button--base button--base--big button--grey">Отмена</a>
+                            <button type="submit" class="button button--base button--base--big button--blue">
+                                Сохранить
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-notification popup--active" style="--status-color: #FF6D6D">
+    <p class="popup-notification__text">
+        Материал не удалось сохранить.
+    </p>
+    <a href="#" class="popup__close popup__close--white popup__close--relative">
+        <svg class="icon">
+            <use xlink:href="assets/images/sprite.svg#cross"></use>
+        </svg>
+    </a>
+</div>
+
+
+<script src="assets/scripts/index.js"></script>
+</body>
+</html>

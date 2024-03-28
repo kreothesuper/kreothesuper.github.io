@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/styles/css/fonts.css">
+    <link rel="stylesheet" href="assets/styles/css/reset.css">
+    <link rel="stylesheet" href="assets/styles/css/index.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+    <aside class="page-wrapper__aside aside">
+        <div class="aside__wrapper">
+            <div class="aside__header">
+                <div class="aside__logo logo">
+                    <img src="assets/images/logo.svg" alt="" class="logo__img">
+                </div>
+            </div>
+            <div class="aside__content">
+                <nav class="aside__nav nav">
+                    <ul class="nav__list">
+                        <li class="nav__item js-dropdown">
+                            <a href="#" class="nav__link nav-link js-dropdown-link">
+                                <svg class="nav-link__icon">
+                                    <use xlink:href="assets/images/sprite.svg#home"></use>
+                                </svg>
+                                <span class="nav-link__text">
+                                    Библиотека
+                                </span>
+                            </a>
+                            <ul class="nav__sublist">
+                                <li class="nav__item">
+                                    <a href="#" class="nav__link nav-link">
+                                        <svg class="nav-link__icon">
+                                            <use xlink:href="assets/images/sprite.svg#calendar"></use>
+                                        </svg>
+                                        События
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </aside>
+    <main class="page-wrapper__content content">
+        <div class="content__wrapper">
+            <div class="container container--small">
+                <div class="content__header content__header--end">
+                    <div class="profile-card">
+                        <div class="profile-card__wrapper">
+                            <div class="profile-card__content">
+                                <svg class="profile-card__icon">
+                                    <use xlink:href="assets/images/sprite.svg#user"></use>
+                                </svg>
+                                <span class="profile-card__name">Имя Фамилия</span>
+                            </div>
+                            <a href="#" data-popup=".popup-exit" class="profile-card__exit">
+                                Выход
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content__box content__box--small">
+                    <div class="catalog">
+                        <div class="catalog__wrapper">
+                            <div class="catalog__header catalog-header">
+                                <div class="catalog-header__row">
+                                    <div class="js-dropdown catalog-dropdown">
+                                        <a href="#" class="catalog-button js-dropdown-link">
+                                            <svg class="catalog-button__icon">
+                                                <use xlink:href="assets/images/sprite.svg#filter"></use>
+                                            </svg>
+                                            <span class="catalog-button__text">
+                                                Фильтр
+                                            </span>
+                                            <svg class="catalog-button__arrow">
+                                                <use xlink:href="assets/images/sprite.svg#chevron-down"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="catalog-dropdown__content">
+                                            <div class="catalog-dropdown__block">
+                                                <p class="catalog-dropdown__title">
+                                                    Категории
+                                                </p>
+                                                <div class="catalog-dropdown__list">
+                                                    <label class="tag-radio">
+                                                        <input type="checkbox" name="category" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                                Отношения
+                                            </span>
+                                                    </label>
+                                                    <label class="tag-radio">
+                                                        <input type="checkbox" name="category" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                                Деньги
+                                            </span>
+                                                    </label>
+                                                    <label class="tag-radio">
+                                                        <input type="checkbox" name="category" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                                Здоровье
+                                            </span>
+                                                    </label>
+                                                    <label class="tag-radio">
+                                                        <input type="checkbox" name="category" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                                Энергия
+                                            </span>
+                                                    </label>
+                                                    <label class="tag-radio">
+                                                        <input type="checkbox" name="category" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                                Предназначение
+                                            </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-dropdown__block">
+                                                <p class="catalog-dropdown__title">
+                                                    Продолжительность
+                                                </p>
+                                                <div class="catalog-dropdown__list">
+                                                    <label class="tag-radio">
+                                                        <input type="radio" name="time" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                                От 10 до 20 минут
+                                            </span>
+                                                    </label>
+                                                    <label class="tag-radio">
+                                                        <input type="radio" name="time" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                              Более 20 минут
+                                            </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-dropdown__block">
+                                                <p class="catalog-dropdown__title">
+                                                    Статус
+                                                </p>
+                                                <div class="catalog-dropdown__list">
+                                                    <label class="tag-radio">
+                                                        <input type="radio" name="status" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                               Активный
+                                            </span>
+                                                    </label>
+                                                    <label class="tag-radio">
+                                                        <input type="radio" name="status" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                              На тестировании
+                                            </span>
+                                                    </label>
+                                                    <label class="tag-radio">
+                                                        <input type="radio" name="status" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                              В процессе остановки
+                                            </span>
+                                                    </label>
+                                                    <label class="tag-radio">
+                                                        <input type="radio" name="status" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                              Остановлены
+                                            </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-dropdown__block">
+                                                <p class="catalog-dropdown__title">
+                                                    Раздел
+                                                </p>
+                                                <div class="catalog-dropdown__list">
+                                                    <label class="tag-radio">
+                                                        <input type="radio" name="status" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                               Изучай
+                                            </span>
+                                                    </label>
+                                                    <label class="tag-radio">
+                                                        <input type="radio" name="status" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                              На тестировании
+                                            </span>
+                                                    </label>
+                                                    <label class="tag-radio">
+                                                        <input type="radio" name="status" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                              В процессе остановки
+                                            </span>
+                                                    </label>
+                                                    <label class="tag-radio">
+                                                        <input type="radio" name="status" class="tag-radio__input">
+                                                        <span class="tag-radio__text">
+                                              Остановлены
+                                            </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="js-dropdown catalog-dropdown">
+                                        <a href="#" class="catalog-button js-dropdown-link">
+                                            <svg class="catalog-button__icon">
+                                                <use xlink:href="assets/images/sprite.svg#sort"></use>
+                                            </svg>
+                                            <span class="catalog-button__text">
+                                   Сначала новые
+                                </span>
+                                            <svg class="catalog-button__arrow">
+                                                <use xlink:href="assets/images/sprite.svg#chevron-down"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="catalog-dropdown__content catalog-dropdown__content--small">
+                                            <div class="catalog-dropdown__block catalog-dropdown__block--small">
+                                                <label class="radio">
+                                                    <input type="radio"  name="sort" class="radio__input">
+                                                    <span class="radio__checkmark"></span>
+                                                    <span class="radio__text">
+                                           По Алфавиту
+                                        </span>
+                                                </label>
+                                                <label class="radio">
+                                                    <input type="radio" checked name="sort" class="radio__input">
+                                                    <span class="radio__checkmark"></span>
+                                                    <span class="radio__text">
+                                            Сначала новые
+                                        </span>
+                                                </label>
+                                                <label class="radio">
+                                                    <input type="radio" name="sort" class="radio__input">
+                                                    <span class="radio__checkmark"></span>
+                                                    <span class="radio__text">
+                                          Сначала старые
+                                        </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="catalog-dropdown">
+                                        <a href="#" class="catalog-button catalog-button--blue">
+                                            <svg class="catalog-button__icon">
+                                                <use xlink:href="assets/images/sprite.svg#plus"></use>
+                                            </svg>
+                                            <span class="catalog-button__text">
+                                              Создать
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="catalog-header__search">
+                                    <form action="#" class="search-input">
+                                        <svg class="search-input__icon">
+                                            <use xlink:href="assets/images/sprite.svg#search"></use>
+                                        </svg>
+                                        <input type="text" class="search-input__item" placeholder="Поиск">
+                                        <button type="reset" class="search-input__reset">
+                                            <svg class="icon">
+                                                <use xlink:href="assets/images/sprite.svg#cross"></use>
+                                            </svg>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="catalog__list ">
+                                <div class="catalog-item">
+                                    <div class="catalog-item__img">
+                                        <img src="assets/images/catalog/1.jpg" alt="">
+                                    </div>
+                                    <div class="catalog-item__content">
+                                        <div class="catalog-item__row">
+                                            <div class="catalog-item__header">
+                                                <p class="catalog-item__title">
+                                                    Овладение волнами гнева
+                                                </p>
+                                                <p class="catalog-item__text">
+                                                    В рамках этой динамичной и поддерживающей программы вы отправитесь в преобразующее путешествие самоисследования и роста
+                                                </p>
+                                            </div>
+                                            <div class="catalog-item__block">
+                                                <a href="#" class="catalog-item__delete">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#trash"></use>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="catalog-item__row catalog-item__row--center">
+                                            <div class="catalog-item__list">
+                                                <div class="catalog-tag">
+                                                    <svg class="catalog-tag__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#clock"></use>
+                                                    </svg>
+                                                    <p class="catalog-tag__text">12 min</p>
+                                                </div>
+                                                <div class="catalog-tag">
+                                                    <p class="catalog-tag__text">07.12.23</p>
+                                                </div>
+                                                <a href="#" class="catalog-category">
+                                                    <p class="catalog-category__text">
+                                                        Отношения
+                                                    </p>
+                                                </a>
+                                            </div>
+                                            <div class="catalog-item__block">
+                                                <div class="js-dropdown catalog-dropdown">
+                                                    <a href="#" class="catalog-button catalog-button--big catalog-button--transparent js-dropdown-link">
+                                            <span class="catalog-button__text catalog-button__text--big catalog-button__text--status" style="--status-color:#78D387">
+                                               Активный
+                                            </span>
+                                                        <svg class="catalog-button__arrow">
+                                                            <use xlink:href="assets/images/sprite.svg#chevron-down"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <div class="catalog-dropdown__content catalog-dropdown__content--tiny">
+                                                        <div class="catalog-dropdown__block catalog-dropdown__block--small">
+                                                            <a href="#" class="catalog-button catalog-button--start catalog-button--big catalog-button--transparent">
+                                                    <span class="catalog-button__text catalog-button__text--big catalog-button__text--status" style="--status-color:#78D387">
+                                                        Тестировать
+                                                    </span>
+                                                            </a>
+                                                            <a href="#" class="catalog-button catalog-button--start catalog-button--big catalog-button--transparent">
+                                                    <span class="catalog-button__text catalog-button__text--big catalog-button__text--status" style="--status-color:#FF6D6D">
+                                                        Остановить
+                                                    </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="catalog-item">
+                                    <div class="catalog-item__img">
+                                        <img src="assets/images/catalog/1.jpg" alt="">
+                                    </div>
+                                    <div class="catalog-item__content">
+                                        <div class="catalog-item__row">
+                                            <div class="catalog-item__header">
+                                                <p class="catalog-item__title">
+                                                    Овладение волнами гнева
+                                                </p>
+                                                <p class="catalog-item__text">
+                                                    В рамках этой динамичной и поддерживающей программы вы отправитесь в преобразующее путешествие самоисследования и роста
+                                                </p>
+                                            </div>
+                                            <div class="catalog-item__block">
+                                                <a href="#" class="catalog-item__delete">
+                                                    <svg class="icon">
+                                                        <use xlink:href="assets/images/sprite.svg#trash"></use>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="catalog-item__row catalog-item__row--center">
+                                            <div class="catalog-item__list">
+                                                <div class="catalog-tag">
+                                                    <svg class="catalog-tag__icon">
+                                                        <use xlink:href="assets/images/sprite.svg#clock"></use>
+                                                    </svg>
+                                                    <p class="catalog-tag__text">12 min</p>
+                                                </div>
+                                                <div class="catalog-tag">
+                                                    <p class="catalog-tag__text">07.12.23</p>
+                                                </div>
+                                                <a href="#" class="catalog-category">
+                                                    <p class="catalog-category__text">
+                                                        Отношения
+                                                    </p>
+                                                </a>
+                                            </div>
+                                            <div class="catalog-item__block">
+                                                <div class="js-dropdown catalog-dropdown">
+                                                    <a href="#" class="catalog-button catalog-button--big catalog-button--transparent js-dropdown-link">
+                                            <span class="catalog-button__text catalog-button__text--big catalog-button__text--status" style="--status-color:#78D387">
+                                               Активный
+                                            </span>
+                                                        <svg class="catalog-button__arrow">
+                                                            <use xlink:href="assets/images/sprite.svg#chevron-down"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <div class="catalog-dropdown__content catalog-dropdown__content--tiny">
+                                                        <div class="catalog-dropdown__block catalog-dropdown__block--small">
+                                                            <a href="#" class="catalog-button catalog-button--start catalog-button--big catalog-button--transparent">
+                                                    <span class="catalog-button__text catalog-button__text--big catalog-button__text--status" style="--status-color:#78D387">
+                                                        Тестировать
+                                                    </span>
+                                                            </a>
+                                                            <a href="#" class="catalog-button catalog-button--start catalog-button--big catalog-button--transparent">
+                                                    <span class="catalog-button__text catalog-button__text--big catalog-button__text--status" style="--status-color:#FF6D6D">
+                                                        Остановить
+                                                    </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+<div class="popup popup-exit">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--tiny">
+            <div class="popup__header  popup__header--margin--middle">
+                <p class="popup__text popup__text--size--small popup__text--accent popup__text--bold">
+                    Уверены, что хотите выйти из профиля?
+                </p>
+            </div>
+            <div class="popup__buttons">
+                <a href="#" class="button button--base button--base--big button--grey">Остаться </a>
+                <a href="#" class="button button--base button--base--big button--blue">Выйти</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-notification popup--active" style="--status-color: #8AB1F6">
+    <p class="popup-notification__text">
+        “Овладение волнами гнева” сохранено
+    </p>
+    <a href="#" class="popup__close popup__close--white popup__close--relative">
+        <svg class="icon">
+            <use xlink:href="assets/images/sprite.svg#cross"></use>
+        </svg>
+    </a>
+</div>
+
+<script src="assets/scripts/index.js"></script>
+</body>
+</html>
