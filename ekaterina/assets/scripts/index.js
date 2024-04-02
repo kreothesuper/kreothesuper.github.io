@@ -1,38 +1,3 @@
-function wrapText(text, maxWidth, fontSize, fontFamily, letterSpacing, justification) {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    context.font = `${fontSize}px ${fontFamily}`;
-    context.letterSpacing = letterSpacing;
-
-    const words = text.split(' ');
-    let lines = [];
-    let currentLine = words[0];
-
-    for (let i = 1; i < words.length; i++) {
-        const word = words[i];
-        const width = context.measureText(currentLine + ' ' + word).width;
-
-        if (width < maxWidth) {
-            currentLine += ' ' + word;
-        } else {
-            lines.push(currentLine);
-            currentLine = word;
-        }
-    }
-
-    lines.push(currentLine);
-
-    // Handle justification if needed
-    if (justification === 'center') {
-        lines = lines.map(line => line.padStart((maxWidth - context.measureText(line).width) / 2 + context.measureText(line).width, ' '));
-    } else if (justification === 'right') {
-        lines = lines.map(line => line.padStart(maxWidth, ' '));
-    }
-
-
-    return lines;
-}
-
 const initTabs = () => {
     const tabs = [...document.querySelectorAll(".tabs")];
 
@@ -209,7 +174,7 @@ function SmoothScroll(target, speed, smooth) {
 document.addEventListener('DOMContentLoaded', () => {
     const animation = new Animations();
     animation.init();
-    init();
+    // init();
 
     initTabs();
 
@@ -478,17 +443,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const overlaySection = document.querySelectorAll('.overlay-section');
     const overlayWrapper = document.querySelector('.overlay-wrapper');
-    // gsap.to(overlayWrapper, {
-    //     scrollTrigger: {
-    //         trigger: overlayWrapper,
-    //         pin: true,
-    //         pinSpacing: false,
-    //         start: "top top",
-    //         end: "bottom top",
-    //
-    //         id: "hero"
-    //     }
-    // });
 
     if (overlaySection.length && window.innerWidth >= 768) {
         overlaySection.forEach((section, i) => {
@@ -560,6 +514,38 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+
+
+    const rangeArray = document.querySelectorAll('.js-range');
+    if (rangeArray.length > 0) {
+        rangeArray.forEach(range => {
+            const rangeElement = range.querySelector('.range-slider'),
+                rangeMax = rangeElement.dataset.max,
+                rangeMin = rangeElement.dataset.min,
+                rangeInputMin = range.querySelector('.js-range-from-input'),
+                rangeInputMax = range.querySelector('.js-range-to-input');
+            if(rangeInputMin && rangeInputMax){
+                const rangeSliderElement = rangeSlider(rangeElement, {
+                    min: rangeMin,
+                    max: rangeMax,
+                    step: .2,
+                    value: [rangeMin,rangeMax],
+                    disabled: false,
+                    rangeSlideDisabled: false,
+                    thumbsDisabled: [false, false],
+                    orientation: 'horizontal',
+                    onInput: function (valueSet) {
+                        rangeInputMin.value = valueSet[0];
+                        rangeInputMax.value = valueSet[1];
+                    },
+                });
+
+                rangeInputMin.value = rangeSliderElement.value()[0];
+                rangeInputMax.value = rangeSliderElement.value()[1];
+            }
+        });
+    }
 });
 
 window.addEventListener('load',()=>{
@@ -568,3 +554,4 @@ window.addEventListener('load',()=>{
        decor.querySelector('.rect').classList.add('visible')
     });
 });
+
