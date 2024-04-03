@@ -267,6 +267,13 @@ body {
   font-weight: 800;
 }
 
+
+.title--big--small{
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
 .title--regular {
   font-weight: 400;
 }
@@ -544,6 +551,10 @@ body {
   text-transform: uppercase;
 }
 
+.button--start{
+  justify-content: flex-start;
+}
+
 .button--base--regular {
   text-transform: unset;
 }
@@ -599,6 +610,10 @@ body {
   color: #111219;
 }
 
+.button--transparent:hover .button__icon{
+  fill: #fff;
+}
+
 .button--accent {
   border: solid 1px #dca057;
   background-color: rgba(181, 132, 73, 0.1);
@@ -639,6 +654,23 @@ body {
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   border-left: 5px solid var(--color-accent);
+}
+
+.button--wallet--exchange .button__icon,.button--wallet--add .button__icon{
+  transition: .3s transform;
+}
+
+.button--wallet--exchange:hover .button__icon{
+  transform: rotate(360deg);
+}
+
+.button--wallet--add:hover .button__icon{
+  transform: rotate(180deg);
+}
+
+
+.button--wallet--withdrawal:hover .button__icon{
+  animation: .3s shake linear forwards;
 }
 
 .button--full {
@@ -683,6 +715,24 @@ body {
   width: 14px;
   height: 14px;
   fill: var(--color-block-bg);
+}
+
+@keyframes shake {
+  0%{
+    transform: translateY(0);
+  }
+  25%{
+transform: translateY(10%);
+}
+  50%{
+    transform: translateY(0);
+  }
+  75%{
+    transform: translateY(-10%);
+  }
+  100%{
+    transform: translateY(0);
+  }
 }
 
 .select {
