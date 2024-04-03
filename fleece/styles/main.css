@@ -560,6 +560,7 @@ body {
 .button--base--tiny{
   height: 50px;
   padding: 10px 20px;
+  gap: 10px;
 }
 
 .button--transparent {
@@ -573,8 +574,24 @@ body {
   box-shadow: inset 0px -3px 0 0 #dca057;
 }
 
+.button--transparent--border--white{
+  border-color: #fff;
+}
+
+.button--transparent--border--orange{
+  border-color: #d27251;
+}
+
 .button--transparent--tiny{
   box-shadow: none;
+}
+
+.button--transparent--white{
+  color: #fff;
+}
+
+.button--transparent--orange{
+  border-color: #d27251;
 }
 
 .button--transparent:hover {
@@ -643,6 +660,14 @@ body {
 
 .button__icon--white {
   fill: #fff;
+}
+
+.button__icon--orange{
+  fill: #d27251;
+}
+
+.button__icon--accent{
+  fill: var(--color-accent);
 }
 
 .button__icon--dollar{
@@ -889,6 +914,27 @@ body {
 
 .card__header {
   width: 100%;
+}
+
+.card__row{
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: stretch;
+  gap: 30px;
+
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card__buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  a{
+    width: 100%;
+  }
 }
 
 .card__wrapper {
@@ -2995,6 +3041,10 @@ body {
   .container--big {
     max-width: 1470px;
     padding: 0 15px;
+  }
+
+  .card__row{
+    flex-direction: column;
   }
 
   .calculator__grid {
