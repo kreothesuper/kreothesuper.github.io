@@ -49,7 +49,7 @@ var initTabs = function initTabs() {
           element.classList.toggle("active", i === tabIndex);
         });
       };
-      openTab(0);
+      openTab(1);
       tabLinks.forEach(function (link, i) {
         link.addEventListener("click", function (e) {
           e.preventDefault();

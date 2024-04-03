@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -181,6 +181,7 @@
             </div>
         </div>
         <div class="content__wrapper">
+            <link rel="stylesheet" href="../../../../../upprice/src/blocks/modules/header/header.scss">
             <div class="header">
                 <div class="header__wrapper">
                     <div class="header__logo logo">
@@ -277,7 +278,7 @@
                         <div class="header-notification notification">
                             <a href="#" class="notification-link">
                                 <svg class="notification-link__icon">
-                                    <use xlink:href="img/sprites/sprite.svg#bell"/>
+                                    <use xlink:href="img/sprites/sprite.svg#bell" />
                                 </svg>
                             </a>
                             <div class="notification-content">
@@ -357,130 +358,223 @@
                 </div>
             </div>
             <div class="content__block content__block--padding--none">
-                <div class="block">
-                    <div class="block__wrapper block__wrapper--gap--none">
-                        <div class="block__header block__item">
-                            <p class="block__title">
-                                <svg class="icon">
-                                    <use xlink:href="img/sprites/sprite.svg#partners"></use>
-                                </svg>
-                                Список партнёров
-                            </p>
-                            <label class="form-input  form-input--row form-input--small">
-                                            <span class="form-input__label"
-                                                  data-error="Неверный формат">Выберите линию:</span>
-                                <span class="select custom-select">
-                                                    <select class="select__tag" name="" id="">
-                                                        <option value="">Линия 1</option>
-                                                        <option value="">Линия 2</option>
-                                                        <option value="">Линия 3</option>
-                                                        <option value="">Линия 4</option>
-                                                        <option value="">Линия 5</option>
-                                                    </select>
-                                           </span>
-                            </label>
-                        </div>
-                        <div class="block__content block__item grid">
-                            <div class="grid__row">
-                                <div class="grid__block grid__block--full table">
-                                    <div class="table__row table__row--partners">
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                Имя
-                                            </p>
+                <div class="content__block grid">
+                    <div class="grid__row grid__row--auto">
+                        <div class="grid__block ">
+                            <div class="block grid">
+                                <div class="block__wrapper--gap--none">
+                                    <div class="block__item block__item--dark profile-card">
+                                        <div class="profile-card__img">
+                                            <img src="img/profile.webp" alt="">
+                                            <a href="#" data-popup=".popup-img" class="profile-card__button">
+                                                <svg class="icon">
+                                                    <use xlink:href="img/sprites/sprite.svg#upload"></use>
+                                                </svg>
+                                                загрузить
+                                            </a>
                                         </div>
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                ID
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                Тип контракта
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                Статус
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                Сумма
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                Полученный доход
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                    <div class="table__row table__row--partners">
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Alex Moqer
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                69977804
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Пролонгированный
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Активен
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--accent text--bold">
-                                                $ 9.870
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--green text--bold">
-                                                $ 50.370
-                                            </p>
+                                        <div class="profile-card__content">
+                                            <div class="profile-card__header">
+                                                <p class="profile-card__name">Maxim Dorov</p>
+                                                <p class="text text--small text--grey">Ваш ID: <span class="text text--accent">97854035</span></p>
+                                            </div>
+                                            <div class="profile-card__row">
+                                                <div class="profile-card__info">
+                                                    <p class="profile-card__tag text text--base text--bold text--accent">25.04.2023</p>
+                                                    <p class="text text--grey text--small">Дата регистрации</p>
+                                                </div>
+                                                <div class="profile-card__info">
+                                                    <p class="profile-card__tag text text--base text--bold text--accent">ID: 9877815</p>
+                                                    <p class="text text--grey text--small">Вас пригласил</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="table__row table__row--partners">
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Alex Moqer
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                69977804
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Пролонгированный
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Активен
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--accent text--bold">
-                                                $ 9.870
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--green text--bold">
-                                                $ 50.370
-                                            </p>
+                                    <div class="block__item block__item--dark">
+                                        <label class="form-input form-input--copy">
+                                            <span class="form-input__label form-input__label--white" data-error="Неверный формат">Реферальная ссылка:</span>
+                                            <input type="text" required class="form-input__item form-input__item--radius--small  form-input__item--orange" disabled value="https://affiliate.market.yandex.ru/?clid=1641">
+                                            <svg class="form-input__copy">
+                                                <use xlink:href="img/sprites/sprite.svg#copy-regular"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="block__wrapper">
+                                    <div class="block__item block__item--verification">
+                                        <div class="block__box">
+                                            <div class="block__header block__header--column">
+                                                <p class="text text--big text--white text--center">
+                                                    Верификация не пройдена
+                                                </p>
+                                                <p class="text text--base text--grey text--center">
+                                                    После верификации вы сможете вывести средства
+                                                </p>
+                                            </div>
+                                            <a href="verification.html" class="button button--base button--center button--transparent">
+                                                ЗАВЕРШИТЬ ПРОВЕРКУ
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="block__wrapper">
+                                    <div class="block__item block__item--verification block__item--verification--true">
+                                        <div class="block__box">
+                                            <div class="block__header block__header--column">
+                                                <p class="text text--big text--white">
+                                                    Аккаунт верифицирован
+                                                </p>
+                                                <p class="text text--base text--grey">
+                                                    Вы успешно верефицировали аккаунт и можете приступать к
+                                                    покупке контрактов
+                                                </p>
+                                            </div>
+                                            <a href="#" class="button button--base button--transparent">
+                                                КОНТРАКТЫ ›
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="grid__block grid__block--big block">
+                            <div class="block__wrapper block__wrapper--gap--none form">
+                                <form action="" class="block__item block__item--dark form__wrapper js-form-wrapper">
+                                    <p class="block__title js-form-title">
+                                        Личные данные
+                                    </p>
+                                    <div class="grid">
+                                        <div class="grid__row">
+                                            <div class="grid__block grid__block--small">
+                                                <label class="form-input" data-form-error="Неверный формат">
+                                                    <span class="form-input__label">Ваше имя</span>
+                                                    <input type="text" required minlength="3" class="form-input__item form-input__item--radius--small">
+                                                </label>
+                                            </div>
+                                            <div class="grid__block grid__block--small">
+                                                <label class="form-input" data-form-error="Неверный формат">
+                                                    <span class="form-input__label">Ваша фамилия</span>
+                                                    <input type="text" required class="form-input__item form-input__item--radius--small">
+                                                </label>
+                                            </div>
+                                            <div class="grid__block grid__block--small">
+                                                <label class="form-input" data-form-error="Неверный формат">
+                                                    <span class="form-input__label">Ваше отчество</span>
+                                                    <input type="text" required class="form-input__item form-input__item--radius--small">
+                                                </label>
+                                            </div>
+                                            <div class="grid__block grid__block--small">
+                                                <label class="form-input" data-form-error="Неверный формат">
+                                                    <span class="form-input__label" data-error="Неверный формат">Дата рождения</span>
+                                                    <input type="text" required class="form-input__item form-input__item--radius--small">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form__footer form__footer--end">
+                                        <button data-modal=".popup-modal"  type="submit" class="button button--base button--base--small button--accent button--gap--small">
+                                            <svg class="button__icon button__icon--white">
+                                                <use xlink:href="img/sprites/sprite.svg#check-solid"></use>
+                                            </svg>
+                                            СОХРАНИТЬ
+                                        </button>
+                                    </div>
+                                </form>
+                                <form action="" class="block__item block__item--dark form__wrapper js-form-wrapper">
+                                    <p class="block__title js-form-title">
+                                        Контакты
+                                    </p>
+                                    <div class="grid">
+                                        <div class="grid__row">
+                                            <div class="grid__block">
+                                                <label class="form-input" data-form-error="Неверный формат">
+                                                    <span class="form-input__label" >E-mail</span>
+                                                    <input type="email" required class="form-input__item form-input__item--radius--small" value="Cup@gmail.com">
+                                                </label>
+                                            </div>
+                                            <div class="grid__block">
+                                                <label class="form-input" data-form-error="Неверный формат">
+                                                    <span class="form-input__label" >Телефон</span>
+                                                    <input type="text" minlength="4" required class="form-input__item form-input__item--radius--small">
+                                                </label>
+                                            </div>
+                                            <div class="grid__block">
+                                                <label class="form-input" data-form-error="Неверный формат">
+                                                    <span class="form-input__label" >Telegram</span>
+                                                    <input type="text" minlength="4" required class="form-input__item form-input__item--radius--small">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form__footer form__footer--end">
+                                        <button type="submit" data-popup=".popup--modal" class="button button--base button--base--small button--accent button--gap--small">
+                                            <svg class="button__icon button__icon--white">
+                                                <use xlink:href="img/sprites/sprite.svg#check-solid"></use>
+                                            </svg>
+                                            СОХРАНИТЬ
+                                        </button>
+                                    </div>
+                                </form>
+                                <form action="" class="block__item block__item--dark form__wrapper js-form-wrapper">
+                                    <p class="block__title js-form-title">
+                                        Криптокошелек для вывода
+                                    </p>
+                                    <div class="grid">
+                                        <div class="grid__row">
+                                            <div class="grid__block grid__block--full">
+                                                <label class="form-input" data-form-error="Неверный формат">
+                                                    <span class="form-input__label">Ваш USDT кошелек TRC20</span>
+                                                    <input type="text" required class="form-input__item form-input__item--radius--small">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form__footer form__footer--end">
+                                        <button type="submit" class="button button--base button--base--small button--accent button--gap--small">
+                                            <svg class="button__icon button__icon--white">
+                                                <use xlink:href="img/sprites/sprite.svg#check-solid"></use>
+                                            </svg>
+                                            СОХРАНИТЬ
+                                        </button>
+                                    </div>
+                                </form>
+                                <form action="" class="block__item block__item--dark form__wrapper js-form-wrapper">
+                                    <p class="block__title js-form-title">
+                                        Изменение пароля
+                                    </p>
+                                    <div class="grid">
+                                        <div class="grid__row">
+                                            <div class="grid__block">
+                                                <label class="form-input" data-form-error="Неверный формат">
+                                                    <span class="form-input__label" >Введите старый пароль</span>
+                                                    <input type="password" required class="form-input__item form-input__item--radius--small">
+                                                </label>
+                                            </div>
+                                            <div class="grid__block">
+                                                <label class="form-input" data-form-error="Неверный формат">
+                                                    <span class="form-input__label" >Введите новый пароль</span>
+                                                    <input type="password" required class="form-input__item form-input__item--radius--small">
+                                                </label>
+                                            </div>
+                                            <div class="grid__block">
+                                                <label class="form-input" data-form-error="Неверный формат">
+                                                    <span class="form-input__label" >Подтвердите пароль</span>
+                                                    <input type="password" required class="form-input__item form-input__item--radius--small">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form__footer form__footer--end">
+                                        <button type="submit" class="button button--base button--base--small button--accent button--gap--small">
+                                            <svg class="button__icon button__icon--white">
+                                                <use xlink:href="img/sprites/sprite.svg#check-solid"></use>
+                                            </svg>
+                                            СОХРАНИТЬ
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -502,8 +596,7 @@
                         </div>
                         <div class="img-popup__text">
                             <p class="text text--base text--center text--white">
-                                Размер аватарки не должен превышать <span
-                                    class="text text--bold text--accent">600 Кб</span>
+                                Размер аватарки не должен превышать <span class="text text--bold text--accent">600 Кб</span>
                             </p>
                             <p class="text text--base text--center text--white">
                                 Рекомендованое разрешение <span class="text text--bold text--accent">200х200 px</span>
@@ -550,8 +643,7 @@
                             </p>
                         </div>
                         <div class="congratulations__footer">
-                            <a href="contracts.html" class="button button--base button--transparent">ПЕРЕЙТИ НА СТРАНИЦУ
-                                КОНТРАКТОВ ›</a>
+                            <a href="contracts.html" class="button button--base button--transparent">ПЕРЕЙТИ НА СТРАНИЦУ КОНТРАКТОВ ›</a>
                         </div>
                     </div>
                 </div>
@@ -602,13 +694,14 @@
     </div>
 
 
-    <div class="popup popup--modal popup-modal">
+    <div class="popup popup--modal popup--modal--big popup--active popup-modal">
         <div class="popup__wrapper popup__wrapper--modal">
             <div class="popup__container popup__container--modal">
-
                 <div class="popup__box">
-                    <p class="text text--white text--big text--bold text--center">
-                        Успешно
+                    <p class="text text--white text--base text--bold text--center">
+                        Средства успешно были зачислены на Ваш счёт
+                        <br>
+                        Благодарим за покупку контракта
                     </p>
                 </div>
             </div>

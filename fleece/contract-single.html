@@ -10,21 +10,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
-    <link rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png">
-    <link rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png">
-    <link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png">
-    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="img/favicons/apple-touch-icon-167x167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
-    <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -401,7 +390,7 @@
                 <p class="title title--small title--white">Калькулятор сложного процента</p>
             </div>
             <div class="block__content">
-                <div class="calculator">
+                <div class="calculator tabs">
                     <div class="calculator__grid">
                         <div class="calculator__block card">
                             <div class="card__wrapper card__wrapper--big form">
@@ -411,48 +400,37 @@
                                             Что нужно вычислить?
                                         </p>
                                     </div>
-                                    <div class="form__content calculator__list">
-                                        <label class="calculator-radio">
-                                            <input type="radio" name="calculator-type" class="calculator-radio__input">
+                                    <div class="form__content calculator__list tabs__nav">
+                                        <a href="#" class="calculator-radio tabs__link">
                                             <span class="calculator-radio__checkmark">
-
                                             </span>
                                             <span class="text text--base text--white">Конечную сумму</span>
-                                        </label>
-                                        <label class="calculator-radio">
-                                            <input type="radio" name="calculator-type" class="calculator-radio__input">
+                                        </a>
+                                        <a href="#" class="calculator-radio tabs__link">
                                             <span class="calculator-radio__checkmark">
-
                                             </span>
                                             <span class="text text--base text--white">Процентную ставку</span>
-                                        </label>
-                                        <label class="calculator-radio">
-                                            <input type="radio" name="calculator-type" class="calculator-radio__input">
+                                        </a>
+                                        <a href="#" class="calculator-radio tabs__link">
                                             <span class="calculator-radio__checkmark">
-
                                             </span>
                                             <span class="text text--base text--white">Стартовый капитал</span>
-                                        </label>
-                                        <label class="calculator-radio">
-                                            <input type="radio" name="calculator-type" class="calculator-radio__input">
+                                        </a>
+                                        <a href="#" class="calculator-radio tabs__link">
                                             <span class="calculator-radio__checkmark">
-
                                             </span>
                                             <span class="text text--base text--white">Срок достижения цели</span>
-                                        </label>
-                                        <label class="calculator-radio">
-                                            <input type="radio" name="calculator-type" class="calculator-radio__input">
+                                        </a>
+                                        <a href="#" class="calculator-radio tabs__link">
                                             <span class="calculator-radio__checkmark">
-
                                             </span>
                                             <span class="text text--base text--white">Размер пополнений</span>
-                                        </label>
-                                        
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="calculator__block card">
+                        <div class="calculator__block tabs__content card">
                             <div class="card__wrapper card__wrapper--big form">
                                 <div class="form__wrapper form__wrapper--start">
                                     <div class="form__header">
@@ -485,6 +463,246 @@
                                     <label class="form-input">
                                         <span class="form-input__label" data-error="Неверный формат">Период реинвестирования</span>
                                             <span class="select custom-select ">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option value="">Раз в месяц</option>
+                                                        <option value="">Раз в день</option>
+                                                        <option value="">Раз в год </option>
+
+                                                    </select>
+                                        </span>
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Дополнительные вложения</span>
+                                        <span class="form-input__row">
+                                            <input type="text" required class="form-input__item form-input__item--radius--small">
+                                            <span class="select custom-select form-input__select">
+                                                    <select class="select__tag" name="" id="">
+                                                         <option value="">Раз в месяц</option>
+                                                        <option value="">Раз в день</option>
+                                                        <option value="">Раз в год </option>
+                                                    </select>
+                                           </span>
+                                        </span>
+                                    </label>
+                                    <div class="form__footer form__footer--end">
+                                        <a href="#" data-popup=".popup-calc" class="button button--base button--transparent">рассчитать</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calculator__block tabs__content card">
+                            <div class="card__wrapper card__wrapper--big form">
+                                <div class="form__wrapper form__wrapper--start">
+                                    <div class="form__header">
+                                        <p class="form__title form__title--accent">
+                                            Заполните параметры 2:
+                                        </p>
+                                    </div>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Стартовый капитал (в долларах)</span>
+                                        <input type="text" required class="form-input__item form-input__item--radius--small">
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Срок инвестирования</span>
+                                        <span class="form-input__row">
+                                            <input type="text" required class="form-input__item form-input__item--radius--small">
+                                            <span class="select custom-select form-input__select">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option value="">Месяцев</option>
+                                                        <option value="">Лет</option>
+                                                        <option value="">Дней </option>
+
+                                                    </select>
+                                           </span>
+                                        </span>
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Процентная ставка (% годовых)</span>
+                                        <input type="text" required class="form-input__item form-input__item--radius--small">
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Период реинвестирования</span>
+                                        <span class="select custom-select ">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option value="">Раз в месяц</option>
+                                                        <option value="">Раз в день</option>
+                                                        <option value="">Раз в год </option>
+
+                                                    </select>
+                                        </span>
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Дополнительные вложения</span>
+                                        <span class="form-input__row">
+                                            <input type="text" required class="form-input__item form-input__item--radius--small">
+                                            <span class="select custom-select form-input__select">
+                                                    <select class="select__tag" name="" id="">
+                                                         <option value="">Раз в месяц</option>
+                                                        <option value="">Раз в день</option>
+                                                        <option value="">Раз в год </option>
+                                                    </select>
+                                           </span>
+                                        </span>
+                                    </label>
+                                    <div class="form__footer form__footer--end">
+                                        <a href="#" data-popup=".popup-calc" class="button button--base button--transparent">рассчитать</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calculator__block tabs__content card">
+                            <div class="card__wrapper card__wrapper--big form">
+                                <div class="form__wrapper form__wrapper--start">
+                                    <div class="form__header">
+                                        <p class="form__title form__title--accent">
+                                            Заполните параметры 2:
+                                        </p>
+                                    </div>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Стартовый капитал (в долларах)</span>
+                                        <input type="text" required class="form-input__item form-input__item--radius--small">
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Срок инвестирования</span>
+                                        <span class="form-input__row">
+                                            <input type="text" required class="form-input__item form-input__item--radius--small">
+                                            <span class="select custom-select form-input__select">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option value="">Месяцев</option>
+                                                        <option value="">Лет</option>
+                                                        <option value="">Дней </option>
+
+                                                    </select>
+                                           </span>
+                                        </span>
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Процентная ставка (% годовых)</span>
+                                        <input type="text" required class="form-input__item form-input__item--radius--small">
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Период реинвестирования</span>
+                                        <span class="select custom-select ">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option value="">Раз в месяц</option>
+                                                        <option value="">Раз в день</option>
+                                                        <option value="">Раз в год </option>
+
+                                                    </select>
+                                        </span>
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Дополнительные вложения</span>
+                                        <span class="form-input__row">
+                                            <input type="text" required class="form-input__item form-input__item--radius--small">
+                                            <span class="select custom-select form-input__select">
+                                                    <select class="select__tag" name="" id="">
+                                                         <option value="">Раз в месяц</option>
+                                                        <option value="">Раз в день</option>
+                                                        <option value="">Раз в год </option>
+                                                    </select>
+                                           </span>
+                                        </span>
+                                    </label>
+                                    <div class="form__footer form__footer--end">
+                                        <a href="#" data-popup=".popup-calc" class="button button--base button--transparent">рассчитать</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calculator__block tabs__content card">
+                            <div class="card__wrapper card__wrapper--big form">
+                                <div class="form__wrapper form__wrapper--start">
+                                    <div class="form__header">
+                                        <p class="form__title form__title--accent">
+                                            Заполните параметры 2:
+                                        </p>
+                                    </div>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Стартовый капитал (в долларах)</span>
+                                        <input type="text" required class="form-input__item form-input__item--radius--small">
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Срок инвестирования</span>
+                                        <span class="form-input__row">
+                                            <input type="text" required class="form-input__item form-input__item--radius--small">
+                                            <span class="select custom-select form-input__select">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option value="">Месяцев</option>
+                                                        <option value="">Лет</option>
+                                                        <option value="">Дней </option>
+
+                                                    </select>
+                                           </span>
+                                        </span>
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Процентная ставка (% годовых)</span>
+                                        <input type="text" required class="form-input__item form-input__item--radius--small">
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Период реинвестирования</span>
+                                        <span class="select custom-select ">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option value="">Раз в месяц</option>
+                                                        <option value="">Раз в день</option>
+                                                        <option value="">Раз в год </option>
+
+                                                    </select>
+                                        </span>
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Дополнительные вложения</span>
+                                        <span class="form-input__row">
+                                            <input type="text" required class="form-input__item form-input__item--radius--small">
+                                            <span class="select custom-select form-input__select">
+                                                    <select class="select__tag" name="" id="">
+                                                         <option value="">Раз в месяц</option>
+                                                        <option value="">Раз в день</option>
+                                                        <option value="">Раз в год </option>
+                                                    </select>
+                                           </span>
+                                        </span>
+                                    </label>
+                                    <div class="form__footer form__footer--end">
+                                        <a href="#" data-popup=".popup-calc" class="button button--base button--transparent">рассчитать</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calculator__block tabs__content card">
+                            <div class="card__wrapper card__wrapper--big form">
+                                <div class="form__wrapper form__wrapper--start">
+                                    <div class="form__header">
+                                        <p class="form__title form__title--accent">
+                                            Заполните параметры 4:
+                                        </p>
+                                    </div>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Стартовый капитал (в долларах)</span>
+                                        <input type="text" required class="form-input__item form-input__item--radius--small">
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Срок инвестирования</span>
+                                        <span class="form-input__row">
+                                            <input type="text" required class="form-input__item form-input__item--radius--small">
+                                            <span class="select custom-select form-input__select">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option value="">Месяцев</option>
+                                                        <option value="">Лет</option>
+                                                        <option value="">Дней </option>
+
+                                                    </select>
+                                           </span>
+                                        </span>
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Процентная ставка (% годовых)</span>
+                                        <input type="text" required class="form-input__item form-input__item--radius--small">
+                                    </label>
+                                    <label class="form-input">
+                                        <span class="form-input__label" data-error="Неверный формат">Период реинвестирования</span>
+                                        <span class="select custom-select ">
                                                     <select class="select__tag" name="" id="">
                                                         <option value="">Раз в месяц</option>
                                                         <option value="">Раз в день</option>

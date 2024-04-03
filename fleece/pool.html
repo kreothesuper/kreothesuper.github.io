@@ -356,128 +356,136 @@
                     </div>
                 </div>
             </div>
-            <div class="content__block content__block--padding--none">
-                <div class="block">
-                    <div class="block__wrapper block__wrapper--gap--none">
-                        <div class="block__header block__item">
-                            <p class="block__title">
-                                <svg class="icon">
-                                    <use xlink:href="img/sprites/sprite.svg#partners"></use>
-                                </svg>
-                                Список партнёров
-                            </p>
-                            <label class="form-input  form-input--row form-input--small">
-                                            <span class="form-input__label"
-                                                  data-error="Неверный формат">Выберите линию:</span>
-                                <span class="select custom-select">
-                                                    <select class="select__tag" name="" id="">
-                                                        <option value="">Линия 1</option>
-                                                        <option value="">Линия 2</option>
-                                                        <option value="">Линия 3</option>
-                                                        <option value="">Линия 4</option>
-                                                        <option value="">Линия 5</option>
-                                                    </select>
-                                           </span>
-                            </label>
-                        </div>
-                        <div class="block__content block__item grid">
-                            <div class="grid__row">
-                                <div class="grid__block grid__block--full table">
-                                    <div class="table__row table__row--partners">
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                Имя
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                ID
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                Тип контракта
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                Статус
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                Сумма
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--small text--grey">
-                                                Полученный доход
-                                            </p>
-                                        </div>
+            <div class="content__block">
+                <div class="content__block grid">
+                    <div class="grid__row grid__row--auto">
+                        <div class="grid__block grid__block--big block">
+                            <div class="block__box block__box--gap--big">
+                                <div class="card__header card__header--row card__header--mobile--column">
+                                    <div class="card__column">
+                                        <p class="title title--base title--white">
+                                            Extra pool
+                                        </p>
+                                        <p class="text text--base text--grey">
+                                            Контракт
+                                        </p>
+                                    </div>
+                                    <div class="card__wrapper">
+                                        <p class="text text--middle text--bold text--white">
+                                            Срок контракта: <span class="text text--accent">36 месяцев</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card__box">
+                                    <p  class="text text--white text--base">
+                                        Контракт с заранее определенным процентом доходности и сроком работы. Эти данные указываются в момент
+                                        изъятия средств в админке.
+                                    </p>
+                                    <p  class="text text--accent text--base">
+                                        На странице контракта необходимо добавить счетчик с отображением общей суммы собранного пула, эта сумма
+                                        должна изменяться в режиме реального времени при внесении в пул средств.
+                                    </p>
+                                    <p  class="text text--white text--base">
+                                        В админке необходимо добавить изъятие из этого пула средств в ручном режиме, в следующем формате:
+                                        Внесенные средства в пул идут поочередно от пользователей, при изъятии средств для закупа из пула в работу
+                                        идут только те средства которые попали в сумму кратную 51.000.
+                                    </p>
+                                    <p  class="text text--white text--base">
+                                        То-есть, если сумма в пуле 49,000 и кто то из пользователей решил внести 5.000, и сумма в пуле стала равна
+                                        54,000, при изъятии на закуп средств в работу пойдет только 2.000 его средств, а 3.000 останутся в пуле и
+                                        доходность он с них не получит.
+                                    </p>
+                                </div>
+                                <form action="" class="form">
+                                    <div class="form__row form__row--solid">
+                                        <label class="form-input" >
+                                            <input type="text" required="" class="form-input__item form-input__item--radius--small" placeholder="Введите сумму">
+                                        </label>
+                                        <button type="submit" class="button button--base button--base--tiny button--transparent button--transparent--tiny">
+                                            АКТИВИРОВАТЬ КОНТРАКТ ›
+                                            <span class="button__icon button__icon--dollar">
+                                                 <svg class="icon">
+                                                <use xlink:href="img/sprites/sprite.svg#dollar"></use>
+                                            </svg>
+                                            </span>
 
+                                        </button>
                                     </div>
-                                    <div class="table__row table__row--partners">
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Alex Moqer
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                69977804
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Пролонгированный
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Активен
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--accent text--bold">
-                                                $ 9.870
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--green text--bold">
-                                                $ 50.370
-                                            </p>
-                                        </div>
+                                </form>
+                                <form action="" class="form">
+                                    <div class="form__row form__row--solid">
+                                        <label class="form-input" >
+                                            <input type="text" required="" disabled class="form-input__item form-input__item--radius--small" placeholder="Введите сумму" value="600 $">
+                                        </label>
+                                        <button type="submit" class="button button--base button--base--tiny button--transparent button--transparent--tiny">
+                                            АКТИВИРОВАТЬ КОНТРАКТ ›
+                                            <span class="button__icon button__icon--dollar">
+                                                 <svg class="icon">
+                                                <use xlink:href="img/sprites/sprite.svg#dollar"></use>
+                                            </svg>
+                                            </span>
+                                        </button>
                                     </div>
-                                    <div class="table__row table__row--partners">
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Alex Moqer
+                                </form>
+                            </div>
+                        </div>
+                        <div class="grid__block">
+                            <div class="card">
+                                <div class="card__wrapper card__wrapper--big">
+                                    <div class="card__box card__box--start">
+                                        <div class="card__header">
+                                            <p class="text text--big text--white text--center">
+                                                Общая сумма пула
                                             </p>
                                         </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                69977804
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Пролонгированный
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--white text--bold">
-                                                Активен
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--accent text--bold">
-                                                $ 9.870
-                                            </p>
-                                        </div>
-                                        <div class="table__column">
-                                            <p class="text text--base text--green text--bold">
-                                                $ 50.370
-                                            </p>
+                                        <div class="card__content">
+                                            <div class="calculator-circle">
+                                                <div class="calculator-circle__wrapper">
+                                                    <div class="calculator-circle__content">
+                                                        <div class="calculator-circle__header">
+                                                            <p class="text text--white text--center">Текущий период</p>
+                                                            <div class="calculator-cirlce__info">
+                                                                <p class="title title--big title--center title--accent">
+                                                                    $ 1087.35
+                                                                </p>
+                                                                <p class="text text--center text--accent">+$ 97.3 /
+                                                                    Сутки</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="calculator-circle__timer calculator-timer">
+                                                            <div class="calculator-timer__header">
+                                                                <p class="text text--base text--white">До конца периода</p>
+                                                            </div>
+                                                            <div class="calculator-timer__content">
+                                                                <div class="calculator-timer__block">
+                                                                    <p class="calculator-timer__number">
+                                                                        00
+                                                                    </p>
+                                                                    <p class="calculator-timer__text">Дней</p>
+                                                                </div>
+                                                                <div class="calculator-timer__block">
+                                                                    <p class="calculator-timer__number">
+                                                                        00
+                                                                    </p>
+                                                                    <p class="calculator-timer__text">Час</p>
+                                                                </div>
+                                                                <div class="calculator-timer__block">
+                                                                    <p class="calculator-timer__number">
+                                                                        00
+                                                                    </p>
+                                                                    <p class="calculator-timer__text">Мин</p>
+                                                                </div>
+                                                                <div class="calculator-timer__block">
+                                                                    <p class="calculator-timer__number">
+                                                                        00
+                                                                    </p>
+                                                                    <p class="calculator-timer__text">Сек</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
