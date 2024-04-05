@@ -4,6 +4,7 @@
   --title-font:"Lora", serif;
   --text-base:16px;
   --text-small:12px;
+  --text-middle:18px;
   --text-big:20px;
   --title-big:80px;
   --title-base:50px;
@@ -22,6 +23,7 @@
     --title-tiny: 18px;
     --text-base: 12px;
     --text-small:10px;
+    --text-middle:14px;
     --input-size: 12px;
     --button-base: 14px;
   }
@@ -266,11 +268,22 @@ body.no-scroll {
   letter-spacing: 0.05em;
   font-weight: 400;
 }
+.text--midddle {
+  font-size: var(--text-middle);
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
 .text--big {
   font-size: var(--text-big);
   line-height: 1.2;
   letter-spacing: 0.05em;
   font-weight: 400;
+}
+@media screen and (max-width: 767px) {
+  .text--big--small {
+    font-size: 16px;
+  }
 }
 .text--small {
   font-size: var(--text-small);
@@ -282,6 +295,9 @@ body.no-scroll {
 }
 .text--grey {
   color: #8c8c8c;
+}
+.text--grey--light {
+  color: rgba(255, 255, 255, 0.5);
 }
 .text--black {
   color: #000;
@@ -373,6 +389,9 @@ body.no-scroll {
 }
 .title--regular {
   font-weight: 400;
+}
+.title--font--accent {
+  font-family: var(--main-font);
 }
 .title--spacing--big {
   letter-spacing: 0.1em;
@@ -2154,7 +2173,7 @@ svg {
 }
 
 path {
-  stroke-width: 2;
+  stroke-width: 1;
 }
 
 .animation-item {
@@ -2180,6 +2199,11 @@ path {
 }
 .animation-item.animated .animation-item__text--small {
   animation: animationTitleSmall 2.4s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  animation-delay: var(--animation-delay);
+}
+.animation-item.animated .animation-item__text--tiny {
+  animation: animationTitleTiny 2.4s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  animation-delay: var(--animation-delay);
 }
 .animation-item.animated .animation-item__img img {
   animation: animationImg 2.4s forwards;
@@ -2498,6 +2522,19 @@ path {
     opacity: 1;
   }
 }
+@keyframes animationTitleTiny {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  75% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 @keyframes animationImg {
   0% {
     height: 0;
@@ -2601,6 +2638,7 @@ path {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .catalog-radio:hover {
   cursor: pointer;
@@ -2625,7 +2663,21 @@ path {
   display: none;
 }
 .catalog-radio__input:checked ~ .catalog-radio__checkmark {
-  border-color: #FFD88C;
+  border-color: transparent;
+}
+.catalog-radio__input:checked ~ svg circle {
+  animation: playAnimation 2s forwards;
+}
+.catalog-radio svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.catalog-radio svg circle {
+  cx: 15;
+  cy: 15;
 }
 .catalog-item__wrapper {
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -2821,7 +2873,10 @@ path {
   right: -15vw;
   top: 50%;
   width: 90vw;
-  transform: translateY(-40%);
+  transform: translateY(-30%);
+}
+.phone-section__decor svg {
+  width: 100%;
 }
 @media screen and (max-width: 1440px) {
   .phone-section__decor {
@@ -2833,6 +2888,14 @@ path {
     width: 800px;
     transform: rotate(-30deg);
     top: 50px;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .phone-section__decor {
+    width: 650px;
+    transform: rotate(-30deg);
+    top: 25px;
     height: 500px;
   }
 }
@@ -2907,6 +2970,125 @@ path {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.documents-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+.documents-item__wrapper {
+  padding: 32px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 767pz) {
+  .documents-item__wrapper {
+    padding: 26px 0;
+  }
+}
+.documents-item__icon {
+  width: 32px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.documents-item__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.documents-item__column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.documents-item__download {
+  width: 26px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+@media screen and (max-width: 767px) {
+  .documents-item__download {
+    display: none;
+  }
+}
+
+.mortgage__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.mortgage-item__wrapper {
+  display: grid;
+  grid-template-columns: 260px 170px minmax(0, 1fr) 250px;
+  grid-auto-rows: 96px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+@media screen and (max-width: 767px) {
+  .mortgage-item__wrapper {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: auto;
+    gap: 16px;
+    padding: 25px;
+  }
+}
+.mortgage-item__block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+@media screen and (min-width: 768px) {
+  .mortgage-item__block:not(:last-child) {
+    border-right: 1px solid #fff;
+  }
+}
+.mortgage-item__column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+@media screen and (max-width: 767px) {
+  .mortgage-item__column {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+.mortgage-item__bank {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.mortgage-item__bank img {
+  width: 60px;
+  height: 30px;
+  object-fit: contain;
+  object-position: center center;
+}
+@media screen and (max-width: 767px) {
+  .mortgage-item__bank {
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .mortgage-item__bank img {
+    width: 30px;
+  }
+}
+
+@keyframes playAnimation {
+  from {
+    stroke-dashoffset: 251.2;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
