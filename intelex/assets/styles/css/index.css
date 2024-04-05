@@ -738,4 +738,52 @@ body {
   flex-shrink: 0;
 }
 
+.breadcrumbs__list {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+@media screen and (max-width: 640px) {
+  .breadcrumbs__list {
+    display: none;
+  }
+}
+.breadcrumbs__button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+.breadcrumbs__button .icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-accent);
+  transform: rotate(180deg);
+}
+@media screen and (min-width: 641px) {
+  .breadcrumbs__button {
+    display: none;
+  }
+}
+.breadcrumbs__item {
+  flex-shrink: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+.breadcrumbs__item:last-child {
+  pointer-events: none;
+  font-weight: 400;
+  color: rgba(53, 53, 53, 0.5);
+}
+.breadcrumbs__item:not(:last-child)::after {
+  content: "/";
+  font-weight: 400;
+  color: rgba(53, 53, 53, 0.5);
+  margin: 0 12px;
+}
+
 /*# sourceMappingURL=index.css.map */

@@ -838,3 +838,54 @@ body {
     }
   }
 }
+
+
+.breadcrumbs{
+  &__list{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    @media screen and (max-width: 640px) {
+      display: none;
+    }
+  }
+  &__button{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-accent);
+    .icon{
+      width: 24px;
+      height: 24px;
+      fill: var(--color-accent);
+
+      transform: rotate(180deg);
+    }
+    
+    @media screen and (min-width: 641px) {
+      display: none;
+    }
+  }
+  &__item{
+    flex-shrink: 0;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    color: var(--color-accent);
+    &:last-child{
+      pointer-events: none;
+      font-weight: 400;
+      color: rgba(#353535,.5);
+    }
+    &:not(:last-child){
+      &::after{
+        content: '/';
+        font-weight: 400;
+        color: rgba(#353535,.5);
+        margin: 0 12px;
+      }
+    }
+  }
+}
