@@ -309,7 +309,20 @@ document.addEventListener('DOMContentLoaded', () => {
             trigger: ".branch-wrapper",
             start: "-200vh top",
             end: "top top",
+        },
+    });
 
+    gsap.from(".architecture__img", {
+        ease: "none",
+        // yPercent: -100,
+        y: '10vh',
+        rotation: -30,
+        duration: 5000,
+        scrollTrigger: {
+            scrub: true,
+            trigger: ".architecture",
+            start: "top bottom",
+            end: "bottom top",
         },
     });
 
