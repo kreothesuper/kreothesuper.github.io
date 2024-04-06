@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/styles/css/reset.css">
+    <link rel="stylesheet" href="assets/styles/css/index.css">
+
+</head>
+<body>
+
+<div class="page-wrapper">
+    <header class="page-wrapper__header header">
+        <div class="header__wrapper">
+            <div class="container">
+                <div class="header__row">
+                    <a href="/" class="header__logo logo">
+                        <img src="assets/images/logo.png" alt="" class="logo__img">
+                    </a>
+                    <nav class="header__nav nav">
+                        <ul class="nav__list">
+                            <li class="nav-item">
+                                <a href="#" class="nav-item__link">О компании</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-item__link">Работа у нас</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-item__link">Наши проекты</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-item__link">Пресс-центр</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-item__link">Контакты</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="header__search">
+                        <div class="search js-search">
+                            <div class="search-content">
+                                <div class="search-input">
+                                    <input type="text" class="search-input__item" placeholder="Поиск...">
+                                </div>
+                            </div>
+                            <a href="#" class="search-link">
+                                <svg class="search__icon search__icon--open js-header-link">
+                                    <use xlink:href="assets/images/sprite.svg#search"></use>
+                                </svg>
+                                <svg class="search__icon search__icon--close js-header-link">
+                                    <use xlink:href="assets/images/sprite.svg#cross"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header__burger">
+                        <div class="burger">
+                            <div class="burger__item"></div>
+                            <div class="burger__item"></div>
+                            <div class="burger__item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="content page-wrapper__content">
+        <div class="content__wrapper">
+            <section class="section projects">
+                <div class="section__wrapper">
+                    <div class="container">
+                        <div class="projects__img">
+                            <img src="assets/images/project-image.jpg" alt="">
+                        </div>
+                        <div class="projects__content">
+                            <div class="projects__header">
+                                <h2 class="title title--black--blue title--base">
+                                    Наши проекты
+                                </h2>
+                                <div class="select">
+                                    <span class="select__text">
+                                        Тема:
+                                    </span>
+                                    <label for="theme" class="select__input">
+                                        <select id="theme" class="select__tag">
+                                            <option>Все</option>
+                                            <option>Все</option>
+                                            <option>Все</option>
+                                        </select>
+                                        <span class="select__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="projects__list">
+                                <div class="block js-block">
+                                    <div class="block__box" >
+                                        <div class="block__header block__header--toggle js-block-toggle">
+                                            <p class="title title--small">
+                                                Оформление ж/д грузоперевозок
+                                            </p>
+                                        </div>
+                                        <div class="block__content">
+                                            <div class="projects__grid js-block-content">
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                АС ЭТРАН
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">Электронная Транспортная
+                                                                Накладная</p>
+                                                            <p class="card__text">
+                                                                Автоматизированная система оформления железнодорожных грузовых
+                                                                перевозок,
+                                                                документооборота и расчётов с клиентами
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                Личный кабинет клиента РЖД
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Личный кабинет клиента ОАО «РЖД»
+                                                                в сфере грузовых перевозок
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Онлайн-портал, позволяющий получать информацию о дислокации, техническом
+                                                                состоянии вагонов и контейнеров, а также об операциях с ними в процессе
+                                                                перевозки
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                АСУ ТО
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Автоматизированная Система Управления Транспортным Обслуживанием
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Система, обеспечивающая оформление, расчёты и контроль исполнения услуги
+                                                                по перевозкам грузов по расписанию («твердым ниткам графика»)
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                «РЖД-Груз»
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Мобильное приложение «РЖД Груз»
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Приложение позволяет грузоотправителю получать информацию о дислокации,
+                                                                техническом состоянии вагонов и контейнеров, а также об операциях с ними
+                                                                в процессе перевозки
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                C-KNIS
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Информационная система расчёта за грузовые перевозки для Латвийских
+                                                                железных дорог (LDz)
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Автоматизирует все основные технологические процессы на товарной станции
+                                                                и позволяет оформлять грузовые перевозки в электронном виде
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block js-block">
+                                    <div class="block__box js-block">
+                                        <div class="block__header block__header--toggle js-block-toggle">
+                                            <p class="title title--small">
+                                                АСУ грузовых компаний и системы для организации перевозок
+                                            </p>
+                                        </div>
+                                        <div class="block__content">
+                                            <div class="projects__grid js-block-content">
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                VAGCONTROL
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Информационная система операторской компании
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Обеспечивает надежное управление парком вагонов и автоматизирует расчеты с контрагентами, ведет единый реестр вагонов и формирует единый лицевой счет клиента.
+                                                                документооборота и расчётов с клиентами
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                АС РПВ
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Автоматизированная Система
+                                                                Распределения Порожних Вагонов
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Система динамического, в режиме реального времени,управления парком порожних приватных полувагонов для обеспечения заказов грузоотправителей
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                ОСВВ
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Облачный Сервис Владельцев Вагонов
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Облачное решение, рассчитанное на операторов небольших парков вагонов, не имеющих собственной информационной системы или необходимых ресурсов для интеграции с ЭТП ГП ОАО «РЖД» в полном объёме
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block js-block">
+                                    <div class="block__box js-block">
+                                        <div class="block__header block__header--toggle js-block-toggle">
+                                            <p class="title title--small">
+                                                Комплексная логистика
+                                            </p>
+                                        </div>
+                                        <div class="block__content">
+                                            <div class="projects__grid js-block-content">
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                ЭТП ГП
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Электронная Торговая Площадка
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Грузовые Перевозки
+                                                                Сервис, позволяющий грузоотправителям
+                                                                заказать перевозку в подвижном составе
+                                                                различных собственников
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                АС УВК
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Автоматизированная система
+                                                                Управление взаимоотношениями с клиентами
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Программный комплекс для организации взаимодействия с клиентами при предоставлении транспортно-логистических услуг на основании индивидуальных потребностей заказчиков
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                АС КТЛО
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Автоматизированная Система Комплексного Транспортно-Логистического Обслуживания
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Система, обеспечивающая полный цикл
+                                                                информационной поддержки продажи комплексных транспортно-логистических услуг
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block js-block">
+                                    <div class="block__box js-block">
+                                        <div class="block__header block__header--toggle js-block-toggle">
+                                            <p class="title title--small">
+                                                Контроль доходов от охраны грузов
+                                            </p>
+                                        </div>
+                                        <div class="block__content">
+                                            <div class="projects__grid js-block-content">
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                АСУ ОГСД
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Автоматизированная Система Управления Охраной грузов и сбором доходов
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Система централизованного учёта, контроля и ведения отчётности подразделений ФГП ВО ЖДТ России, обеспечивающая мониторинг охраняемых вагонов с момента приёмки до момента выдачи грузополучателю
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block js-block">
+                                    <div class="block__box js-block">
+                                        <div class="block__header block__header--toggle js-block-toggle">
+                                            <p class="title title--small">
+                                                Системы для пассажирских перевозок
+                                            </p>
+                                        </div>
+                                        <div class="block__content">
+                                            <div class="projects__grid js-block-content">
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                АРМ «Эффективность»
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Автоматизированное рабочее место «Эффективность»
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Позволяет получать оценки эффективности работы поездов дальнего следования
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                ПК «Банк показателей»
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Программный комплекс «Банк показателей»
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Универсальная платформа для создания систем поддержки принятия управленческих решений на основе анализа корпоративных показателей производственно-хозяйственной деятельности компании
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                ПК ТД
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Программный комплекс «Технические документы»
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Позволяет разрабатывать технологические документы для организации пригородных перевозок
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                АС «КомПас»
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                Автоматизированная система планирования и организации перевозок
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Поддержка принятия решений по организации пассажирских перевозок и ценовой политике на основе анализа перевозки пассажиров поездами дальнего следования.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block js-block">
+                                    <div class="block__box js-block">
+                                        <div class="block__header block__header--toggle js-block-toggle">
+                                            <p class="title title--small">
+                                                Инновационные технологии
+                                            </p>
+                                        </div>
+                                        <div class="block__content">
+                                            <div class="projects__grid js-block-content">
+                                                <div class="card">
+                                                    <div class="card__wrapper">
+                                                        <div class="card__header">
+                                                            <p class="card__title">
+                                                                Платформа ХМ
+                                                            </p>
+                                                        </div>
+                                                        <div class="card__content">
+                                                            <p class="card__text card__text--big">
+                                                                XM Low-code платформа для создания ERP и CRM приложений
+                                                            </p>
+                                                            <p class="card__text">
+                                                                Создавайте приложения быстро, правильно и на будущее.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block js-block">
+                                    <div class="block__box js-block">
+                                        <div class="block__header block__header--toggle js-block-toggle">
+                                            <p class="title title--small">
+                                                Архивные проекты
+                                            </p>
+                                        </div>
+                                        <div class="block__content">
+                                            <div class="projects__grid js-block-content">
+                                                <div class="card">
+                                                    <div class="card__wrapper card__wrapper--center card__wrapper--small card__wrapper--grey">
+                                                        <div class="card__header card__header--center">
+                                                            <p class="card__title card__title--semibold card__title--black">
+                                                                Платформа ХМ
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper card__wrapper--center card__wrapper--small card__wrapper--grey">
+                                                        <div class="card__header card__header--center">
+                                                            <p class="card__title card__title--semibold card__title--black">
+                                                                АС СБ
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper card__wrapper--center card__wrapper--small card__wrapper--grey">
+                                                        <div class="card__header card__header--center">
+                                                            <p class="card__title card__title--semibold card__title--black">
+                                                                Платформа ХМ
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper card__wrapper--center card__wrapper--small card__wrapper--grey">
+                                                        <div class="card__header card__header--center">
+                                                            <p class="card__title card__title--semibold card__title--black">
+                                                                АСУ СК ДОГ
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper card__wrapper--center card__wrapper--small card__wrapper--grey">
+                                                        <div class="card__header card__header--center">
+                                                            <p class="card__title card__title--semibold card__title--black">
+                                                                КСУМ
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper card__wrapper--center card__wrapper--small card__wrapper--grey">
+                                                        <div class="card__header card__header--center">
+                                                            <p class="card__title card__title--semibold card__title--black">
+                                                                САЮД
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper card__wrapper--center card__wrapper--small card__wrapper--grey">
+                                                        <div class="card__header card__header--center">
+                                                            <p class="card__title card__title--semibold card__title--black">
+                                                                АС «Лингурус»
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper card__wrapper--center card__wrapper--small card__wrapper--grey">
+                                                        <div class="card__header card__header--center">
+                                                            <p class="card__title card__title--semibold card__title--black">
+                                                                МЭТП/ЭТП ТУ
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card__wrapper card__wrapper--center card__wrapper--small card__wrapper--grey">
+                                                        <div class="card__header card__header--center">
+                                                            <p class="card__title card__title--semibold card__title--black">
+                                                                Электронная площадка «Пассажирские перевозки»
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="page-wrapper__footer footer">
+        <div class="footer__wrapper">
+            <div class="container">
+                <div class="footer__column">
+                    <div class="footer__block">
+                        <p class="footer__title">
+                            +7 (499) 929-83-71, Москва, ул. Верхняя Красносельская, д. 3, стр. 5
+                        </p>
+                    </div>
+                    <div class="footer__block">
+                        <p class="footer__text">
+                            © Все права принадлежат ООО «ИНТЭЛЛЕКС» <br>
+                            2001-2022
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="assets/scripts/index.js"></script>
+</body>
+</html>
