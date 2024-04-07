@@ -1628,7 +1628,9 @@ body {
 .footer{
   position: relative;
   overflow: hidden;
-
+  &--home{
+    background: #F8F8F8;
+  }
   &__decor{
     position: absolute;
     left: 0;
@@ -1642,12 +1644,14 @@ body {
   }
   &__wrapper{
     padding: 50px 0 50px 0;
-    background: linear-gradient(90deg, #2047a2 0%, #50b9e2 100%);
+    background: url("../../images/footer-bg.svg") top center/cover no-repeat;
     &--home{
       background: url("../../images/footer-bg-home.jpg") top center/cover no-repeat;
     }
     @media screen and (max-width: 640px) {
       padding: 55px 0 40px 0;
+
+      background: url("../../images/footer-bg-m.svg") top center/cover no-repeat;
     }
   }
   &__column{
