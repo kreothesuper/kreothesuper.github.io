@@ -854,9 +854,42 @@ body {
 
   &-about{
     background: url("../../images/about.jpg") center center/cover no-repeat;
+    position: relative;
+    &__decor{
+      position: absolute;
+      overflow: hidden;
+      left: 0;
+      width: 100%;
+
+      svg{
+        width: calc(260% + 1.3px);
+        height: 120px;
+        transform: translateX(-50%) rotateY(180deg);
+      }
+      &--top{
+        top: -1px;
+      }
+      &--bottom{
+        transform: rotate(180deg);
+        bottom: -1px;
+      }
+    }
   }
   &-photo{
     background: #F8F8F8;
+    position: relative;
+    &__decor{
+      position: absolute;
+      left: 0;
+      width: 100%;
+
+      svg{
+        width: calc(216% + 1.3px);
+        height: 41px;
+
+        fill: #Fff;
+      }
+    }
     &__img{
       border-radius: 30px;
       display: flex;
@@ -1591,6 +1624,18 @@ body {
 }
 
 .footer{
+  position: relative;
+  &__decor{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    svg{
+      fill: #fff;
+      width: calc(216% + 1.3px);
+      height: 41px;
+    }
+  }
   &__wrapper{
     padding: 50px 0 50px 0;
     background: linear-gradient(90deg, #2047a2 0%, #50b9e2 100%);
