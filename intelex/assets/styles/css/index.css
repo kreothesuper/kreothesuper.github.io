@@ -265,7 +265,7 @@ body {
 @media screen and (max-width: 991px) {
   .header__logo {
     width: 105px;
-    height: 30px;
+    height: 40px;
   }
 }
 .header--nav .header__nav {
@@ -485,6 +485,11 @@ body {
     gap: 14px;
   }
 }
+@media screen and (max-width: 640px) {
+  .projects__select {
+    width: 100%;
+  }
+}
 .projects__header {
   display: flex;
   align-items: center;
@@ -503,6 +508,11 @@ body {
 @media screen and (max-width: 640px) {
   .projects__header:not(:last-child) {
     margin: 0 0 30px 0;
+  }
+}
+@media screen and (max-width: 640px) {
+  .projects__header--small {
+    padding: 0 16px;
   }
 }
 .projects__img {
@@ -693,6 +703,16 @@ body {
     padding: 60px 0;
   }
 }
+@media screen and (max-width: 640px) {
+  .section__wrapper--mobile--small {
+    padding-bottom: 30px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .section:first-child .section__wrapper {
+    padding-top: 30px;
+  }
+}
 .section__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -706,7 +726,7 @@ body {
 }
 .section__box {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 60px;
 }
@@ -861,12 +881,17 @@ body {
 @media screen and (min-width: 992px) {
   .aside {
     position: sticky;
-    top: 0;
+    top: 70px;
   }
 }
 @media screen and (max-width: 991px) {
   .aside {
     max-width: 100%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .aside__header {
+    padding: 0 16px;
   }
 }
 
@@ -1074,6 +1099,7 @@ body {
   display: flex;
   align-items: center;
   position: relative;
+  flex-grow: 1;
 }
 .select__icon {
   content: "";
@@ -1083,6 +1109,9 @@ body {
   display: block;
   background: url("../../images/icons/chevron-down.svg") center center/contain no-repeat;
   transition: 0.3s transform;
+}
+.select__tag {
+  width: 100%;
 }
 .select__tag:active ~ .select__icon {
   transform: rotate(180deg);
@@ -1109,6 +1138,9 @@ body {
 @media screen and (max-width: 640px) {
   .article__header {
     margin: 0 0 24px 0;
+  }
+  .article__header--small {
+    padding: 0 16px;
   }
 }
 .article__footer {
@@ -1410,6 +1442,10 @@ body {
   gap: 8px;
 }
 
+.pr-person__text {
+  max-width: 180px;
+  width: 100%;
+}
 .pr-person__wrapper {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

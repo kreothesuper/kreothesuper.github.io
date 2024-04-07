@@ -290,7 +290,7 @@ body {
     margin: 0 auto 0 0;
     @media screen and (max-width: 991px) {
       width: 105px;
-      height: 30px;
+      height: 40px;
     }
   }
   &--nav &__nav{
@@ -538,6 +538,12 @@ body {
     }
   }
 
+  &__select{
+    @media screen and (max-width: 640px) {
+      width: 100%;
+    }
+  }
+
   &__header {
     display: flex;
     align-items: center;
@@ -552,6 +558,12 @@ body {
       margin: 0 0 40px 0;
       @media screen and (max-width: 640px) {
         margin: 0 0 30px 0;
+      }
+    }
+    
+    @media screen and (max-width: 640px) {
+      &--small{
+        padding: 0 16px;
       }
     }
   }
@@ -772,6 +784,20 @@ body {
         padding: 60px 0;
       }
     }
+    
+    &--mobile{
+      &--small{
+        @media screen and (max-width: 640px) {
+          padding-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  &:first-child &__wrapper{
+    @media screen and (max-width: 640px) {
+      padding-top: 30px;
+    }
   }
 
   &__grid{
@@ -787,7 +813,7 @@ body {
 
   &__box {
     display: flex;
-    align-items: stretch;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 60px;
     @media screen and (max-width: 991px) {
@@ -820,6 +846,10 @@ body {
     flex-direction: column;
     gap: 16px;
 
+    &--mobile{
+      &--small{
+      }
+    }
     &--row{
       @media screen and (min-width: 641px) {
         flex-direction: row;
@@ -950,11 +980,17 @@ body {
 
   @media screen and (min-width: 992px) {
     position: sticky;
-    top: 0;
+    top: 70px;
   }
 
   @media screen and (max-width: 991px) {
     max-width: 100%;
+  }
+  
+  &__header{
+    @media screen and (max-width: 640px) {
+      padding: 0 16px;
+    }
   }
 }
 
@@ -1196,6 +1232,7 @@ body {
     align-items: center;
 
     position: relative;
+    flex-grow: 1;
   }
 
   &__icon {
@@ -1208,6 +1245,10 @@ body {
     background: url("../../images/icons/chevron-down.svg") center center/contain no-repeat;
 
     transition: .3s transform;
+  }
+
+  &__tag{
+    width: 100%;
   }
 
 
@@ -1242,6 +1283,9 @@ body {
     margin: 0 0 40px 0;
     @media screen and (max-width: 640px) {
       margin: 0 0 24px 0;
+      &--small{
+        padding: 0 16px;
+      }
     }
   }
   &__footer{
@@ -1588,6 +1632,10 @@ body {
 }
 
 .pr-person{
+  &__text{
+    max-width: 180px;
+    width: 100%;
+  }
   &__wrapper{
     display: grid;
     grid-template-columns: repeat(2,minmax(0,1fr));
