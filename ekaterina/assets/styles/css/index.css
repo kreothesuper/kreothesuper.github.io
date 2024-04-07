@@ -3245,6 +3245,23 @@ path {
   }
 }
 
+.family {
+  position: relative;
+}
+.family__decor {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+@media screen and (max-width: 767px) {
+  .family__decor {
+    transform: rotate(90deg);
+    width: 90px;
+    height: 180px;
+    bottom: unset;
+    top: 0;
+  }
+}
 .family__wrapper {
   display: flex;
   gap: 45px;
@@ -3299,6 +3316,76 @@ path {
   top: 50px;
   right: 0;
   transform: translateX(100%);
+}
+
+.fort {
+  position: relative;
+  background: url("../../images/fort.jpg") center center/cover no-repeat;
+}
+.fort__decor {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: auto;
+}
+.fort__decor svg {
+  width: 100%;
+  height: auto;
+}
+.fort__rectangle {
+  position: absolute;
+  left: calc(50% - 135px);
+  top: calc(30% - 210px);
+  width: 270px;
+  height: 420px;
+  border-radius: 400px;
+  display: block;
+  background: rgba(30, 103, 103, 0.5);
+}
+@media screen and (max-width: 767px) {
+  .fort__rectangle {
+    width: 140px;
+    height: 220px;
+    left: calc(50% - 70px);
+    top: calc(30% - 110px);
+  }
+}
+.fort__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+}
+.fort__title {
+  margin: 0 auto;
+  text-align: right;
+}
+.fort__title .animation-item:nth-child(1) {
+  transform: translateX(-40px);
+}
+@media screen and (max-width: 767px) {
+  .fort__title .animation-item:nth-child(1) {
+    transform: translateX(-10px);
+  }
+}
+.fort__text {
+  max-width: 330px;
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .fort__text {
+    max-width: 215px;
+  }
+}
+.fort__text--small {
+  max-width: 300px;
+  margin-left: auto;
+}
+@media screen and (max-width: 767px) {
+  .fort__text--small {
+    max-width: 190px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

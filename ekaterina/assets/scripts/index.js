@@ -325,6 +325,19 @@ document.addEventListener('DOMContentLoaded', () => {
             end: "bottom top",
         },
     });
+    gsap.from(".fort__rectangle", {
+        ease: "none",
+        // yPercent: -100,
+        y: '40vh',
+        rotation: -180,
+        duration: 5000,
+        scrollTrigger: {
+            scrub: true,
+            trigger: ".fort",
+            start: "top bottom",
+            end: "bottom top",
+        },
+    });
 
     const heroParallaxArray = document.querySelectorAll('.hero-parallax');
 
