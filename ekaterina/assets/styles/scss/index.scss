@@ -123,6 +123,7 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
   &__callback{
     position: fixed;
     bottom: 20px;
@@ -143,13 +144,12 @@ body{
     position: fixed;
     left: 0;
     top: 0;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     display: block;
 
     z-index: 1;
     background: url("../../images/main-bg.png") top center/cover no-repeat;
-    background-attachment: fixed;
     opacity: .3;
     
     @media screen and (max-width: 767px) {
