@@ -2727,17 +2727,14 @@ path {
 .catalog-radio__input {
   display: none;
 }
+.catalog-radio__input:hover ~ svg {
+  transform: rotate(0);
+}
 .catalog-radio__input:hover ~ svg circle {
-  animation: playAnimation 2s forwards;
-}
-.catalog-radio__input:hover ~ .catalog-radio__checkmark {
-  border-color: transparent;
-}
-.catalog-radio__input:checked ~ .catalog-radio__checkmark {
-  border-color: transparent;
+  stroke-dashoffset: 0;
 }
 .catalog-radio__input:checked ~ svg circle {
-  animation: playAnimation 2s forwards;
+  stroke-dashoffset: 0;
 }
 .catalog-radio svg {
   position: absolute;
@@ -2745,10 +2742,13 @@ path {
   height: 100%;
   left: 0;
   top: 0;
+  transform: rotate(-45deg);
+  transition: 1s 0.2s cubic-bezier(0.74, 0, 0.24, 0.99);
 }
 .catalog-radio svg circle {
   cx: 15;
   cy: 15;
+  transition: 1.3s cubic-bezier(0.74, 0, 0.24, 0.99);
 }
 .catalog-item__wrapper {
   border: 1px solid rgba(255, 255, 255, 0.2);

@@ -449,8 +449,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(decor.dataset.mStart && decor.dataset.mEnd && window.innerWidth < 767){
             start = decor.dataset.mStart;
             end = decor.dataset.mEnd;
-
-            console.log('234');
         }
 
         gsap.to(rect, {
@@ -582,18 +580,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    (function init100vh(){
-        function setHeight() {
-            var windowHeight = window.innerHeight; // Height of the visible viewport
-            var documentHeight = document.documentElement.clientHeight; // Height of the document
-            var vh = Math.max(windowHeight, documentHeight); // Get the maximum height
-
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-        setHeight();
-        window.addEventListener('resize', setHeight);
-    })();
 });
 
 window.addEventListener('load',()=>{

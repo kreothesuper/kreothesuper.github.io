@@ -2855,17 +2855,19 @@ path {
     &__input{
       display: none;
     }
+    &__input:hover ~ svg{
+      transform: rotate(0);
+
+    }
     &__input:hover ~ svg circle{
-      animation: playAnimation 2s forwards;
+      stroke-dashoffset: 0;
     }
     &__input:hover ~ &__checkmark{
-      border-color: transparent;
     }
     &__input:checked ~ &__checkmark{
-      border-color: transparent;
     }
     &__input:checked ~ svg circle{
-      animation: playAnimation 2s forwards;
+      stroke-dashoffset: 0;
     }
 
     svg{
@@ -2874,11 +2876,15 @@ path {
       height: 100%;
       left: 0;
       top: 0;
+      transform: rotate(-45deg);
 
+      transition: 1s .2s cubic-bezier(.74,0,.24,.99);;
       circle{
         cx:15;
         cy:15;
 
+
+        transition: 1.3s cubic-bezier(.74,0,.24,.99);
       }
     }
   }
