@@ -441,8 +441,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const decorContainer = decor.closest('.decor-container');
         let animationTriggered = false;
 
-        const start = decor.dataset.start || 0,
+        let start = decor.dataset.start || 0,
             end = decor.dataset.end || 1;
+
+        console.log(decor.dataset.mStart)
+
+        if(decor.dataset.mStart && decor.dataset.mEnd && window.innerWidth < 767){
+            start = decor.dataset.mStart;
+            end = decor.dataset.mEnd;
+
+            console.log('234');
+        }
 
         gsap.to(rect, {
             scrollTrigger: {
