@@ -258,8 +258,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (sectionBg.length && window.innerWidth > 767) {
         sectionBg.forEach(element => {
+            const sectionBgItem = element.querySelector('.section-bg__item');
             gsap.to(element, {
-                backgroundPosition: `50% ${-innerHeight / 10}px`,
+                backgroundPosition: `50% ${-innerHeight / 2}px`,
+                ease: "none",
+                scrollTrigger: {
+                    scrub: true,
+                    trigger: element,
+                    start: "top bottom",
+                    end: "bottom top",
+                },
+            });
+            gsap.to(sectionBgItem, {
+                y:'-30vh',
                 ease: "none",
                 scrollTrigger: {
                     scrub: true,
@@ -315,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from(".architecture__img", {
         ease: "none",
         // yPercent: -100,
-        y: '10vh',
+        y: '40vh',
         rotation: -30,
         duration: 5000,
         scrollTrigger: {
@@ -329,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "none",
         // yPercent: -100,
         y: '40vh',
-        rotation: -180,
+        rotation: -30,
         duration: 5000,
         scrollTrigger: {
             scrub: true,

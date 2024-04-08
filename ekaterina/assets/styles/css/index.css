@@ -918,6 +918,11 @@ body.no-scroll {
     min-height: auto;
   }
 }
+@media screen and (min-width: 768px) {
+  .section__wrapper--long {
+    aspect-ratio: 1;
+  }
+}
 .section__wrapper--between {
   justify-content: space-between;
   height: 100%;
@@ -961,6 +966,32 @@ body.no-scroll {
     padding-bottom: 0;
     height: 840px;
   }
+}
+.section-bg {
+  position: relative;
+}
+.section-bg__decor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+.section-bg__item {
+  height: calc(100% + 30vh);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-bg__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .section-title__item {
   width: max-content;
@@ -2668,6 +2699,12 @@ path {
 .catalog-radio__input {
   display: none;
 }
+.catalog-radio__input:hover ~ svg circle {
+  animation: playAnimation 2s forwards;
+}
+.catalog-radio__input:hover ~ .catalog-radio__checkmark {
+  border-color: transparent;
+}
 .catalog-radio__input:checked ~ .catalog-radio__checkmark {
   border-color: transparent;
 }
@@ -2684,6 +2721,7 @@ path {
 .catalog-radio svg circle {
   cx: 15;
   cy: 15;
+  animation: playAnimationBack 2s forwards;
 }
 .catalog-item__wrapper {
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -3094,6 +3132,14 @@ path {
     stroke-dashoffset: 0;
   }
 }
+@keyframes playAnimationBack {
+  to {
+    stroke-dashoffset: 251.2;
+  }
+  from {
+    stroke-dashoffset: 0;
+  }
+}
 .about-hero__wrapper {
   padding-top: 200px;
 }
@@ -3157,7 +3203,6 @@ path {
 }
 
 .architecture {
-  background: url("../../images/architecture-bg.jpg") top center/cover no-repeat;
   position: relative;
 }
 .architecture::before {
@@ -3213,6 +3258,7 @@ path {
   width: 370px;
   height: 550px;
   object-fit: contain;
+  transform: translateY(-10vh);
 }
 @media screen and (max-width: 767px) {
   .architecture__decor img {
@@ -3251,7 +3297,22 @@ path {
 .family__decor {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 120px;
+}
+@media screen and (max-width: 1800px) {
+  .family__decor--big {
+    display: none;
+  }
+}
+@media screen and (min-width: 1801px) {
+  .family__decor--small {
+    display: none;
+  }
+}
+@media screen and (max-width: 1800px) {
+  .family__decor {
+    bottom: 0;
+  }
 }
 @media screen and (max-width: 767px) {
   .family__decor {
@@ -3266,6 +3327,11 @@ path {
   display: flex;
   gap: 45px;
 }
+@media screen and (min-width: 1660px) {
+  .family__wrapper {
+    padding-left: 100px;
+  }
+}
 @media screen and (max-width: 767px) {
   .family__wrapper {
     flex-direction: column;
@@ -3279,6 +3345,11 @@ path {
   .family__title .animation-item:nth-child(1) {
     transform: translateX(-30px);
   }
+}
+.family__text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 .family__img {
   max-width: 700px;
@@ -3320,7 +3391,6 @@ path {
 
 .fort {
   position: relative;
-  background: url("../../images/fort.jpg") center center/cover no-repeat;
 }
 .fort__decor {
   position: absolute;
@@ -3355,7 +3425,12 @@ path {
 .fort__wrapper {
   display: flex;
   flex-direction: column;
-  gap: 150px;
+  gap: 300px;
+}
+@media screen and (max-width: 767px) {
+  .fort__wrapper {
+    gap: 150px;
+  }
 }
 .fort__title {
   margin: 0 auto;
