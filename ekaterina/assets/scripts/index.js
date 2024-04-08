@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
     gsap.to(".hero-img__bg", {
-        xPercent: -100,
+        backgroundPosition: `${-innerHeight / 2}px top`,
         ease: "none",
         scrollTrigger: {
             scrub: true,

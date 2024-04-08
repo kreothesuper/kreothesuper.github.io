@@ -738,7 +738,10 @@ body.no-scroll {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: url("../../images/hero/clouds.jpg") top center/cover repeat-x;
+  background-image: url("../../images/hero/clouds.jpg");
+  background-position: top 0;
+  background-size: cover;
+  background-repeat: repeat-x;
 }
 .hero-img__item {
   overflow: hidden;
@@ -903,6 +906,9 @@ body.no-scroll {
   overflow: hidden;
   position: relative;
   z-index: 3;
+}
+.section__wrapper--architecture {
+  padding-top: 30%;
 }
 @media screen and (max-width: 767px) {
   .section__wrapper {
@@ -2940,6 +2946,7 @@ path {
 @media screen and (max-width: 1440px) {
   .phone-section__decor {
     right: 0;
+    transform: translateY(-40%);
   }
 }
 @media screen and (max-width: 767px) {
@@ -3259,7 +3266,7 @@ path {
   align-items: flex-end;
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 30%;
   transform: translateY(-50%);
 }
 @media screen and (max-width: 767px) {
@@ -3326,16 +3333,18 @@ path {
 }
 @media screen and (max-width: 1800px) {
   .family__decor {
-    bottom: 0;
+    bottom: 50px;
+    right: -150px;
   }
 }
 @media screen and (max-width: 767px) {
   .family__decor {
     transform: rotate(90deg);
     width: 90px;
-    height: 180px;
+    height: 100px;
     bottom: unset;
-    top: 0;
+    top: -50px;
+    right: -30px;
   }
 }
 .family__wrapper {
@@ -3389,10 +3398,17 @@ path {
   height: 100%;
   overflow: hidden;
 }
+.family__img-wrapper {
+  width: 100%;
+  height: 100%;
+}
 .family__img img {
   width: 100%;
   height: 0;
   object-fit: cover;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 .family__text {
   max-width: 360px;
@@ -3449,7 +3465,7 @@ path {
 .fort__wrapper {
   display: flex;
   flex-direction: column;
-  gap: 300px;
+  gap: 150px;
 }
 @media screen and (max-width: 767px) {
   .fort__wrapper {
