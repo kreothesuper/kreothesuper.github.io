@@ -585,7 +585,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     (function init100vh(){
         function setHeight() {
-            var vh = window.innerHeight * 0.01;
+            var windowHeight = window.innerHeight; // Height of the visible viewport
+            var documentHeight = document.documentElement.clientHeight; // Height of the document
+            var vh = Math.max(windowHeight, documentHeight); // Get the maximum height
+            
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         }
         setHeight();
