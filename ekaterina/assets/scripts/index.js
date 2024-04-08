@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from(".fort__rectangle", {
         ease: "none",
         // yPercent: -100,
-        y: '40vh',
+        y: '25vh',
         rotation: -30,
         duration: 5000,
         scrollTrigger: {

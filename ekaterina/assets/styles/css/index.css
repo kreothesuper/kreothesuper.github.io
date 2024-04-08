@@ -907,13 +907,19 @@ body.no-scroll {
   position: relative;
   z-index: 3;
 }
-.section__wrapper--architecture {
-  padding-top: 30%;
-}
 @media screen and (max-width: 767px) {
   .section__wrapper {
     padding: 60px 0;
     min-height: auto;
+  }
+}
+.section__wrapper--architecture {
+  padding-top: 30%;
+}
+@media screen and (max-width: 767px) {
+  .section__wrapper--architecture {
+    padding: 60px 0;
+    min-height: 700px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -986,7 +992,7 @@ body.no-scroll {
   align-items: center;
   justify-content: center;
 }
-.section-bg__item img {
+.section-bg__item img, .section-bg__item picture {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3165,6 +3171,11 @@ path {
 .about-hero__wrapper {
   padding-top: 200px;
 }
+@media screen and (max-width: 767px) {
+  .about-hero__wrapper {
+    padding-top: 120px;
+  }
+}
 .about-hero__content {
   display: flex;
   flex-direction: column;
@@ -3261,6 +3272,11 @@ path {
   flex-direction: column;
   gap: 40px;
 }
+@media screen and (max-width: 767px) {
+  .architecture__wrapper {
+    gap: 100px;
+  }
+}
 .architecture__decor {
   display: flex;
   align-items: flex-end;
@@ -3343,7 +3359,7 @@ path {
     width: 90px;
     height: 100px;
     bottom: unset;
-    top: -50px;
+    top: -90px;
     right: -30px;
   }
 }
@@ -3360,6 +3376,7 @@ path {
   .family__wrapper {
     flex-direction: column;
     align-items: flex-start;
+    gap: 60px;
   }
 }
 .family__title .animation-item:nth-child(1) {
@@ -3428,6 +3445,13 @@ path {
   right: 0;
   transform: translateX(100%);
 }
+@media screen and (max-width: 767px) {
+  .family__title {
+    top: unset;
+    bottom: -25px;
+    right: -15px;
+  }
+}
 
 .fort {
   position: relative;
@@ -3470,6 +3494,7 @@ path {
 @media screen and (max-width: 767px) {
   .fort__wrapper {
     gap: 150px;
+    padding: 0 30px;
   }
 }
 .fort__title {

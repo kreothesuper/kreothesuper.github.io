@@ -179,12 +179,12 @@
                 <div class="about-hero__wrapper section__wrapper section__wrapper--center">
                     <div class="container">
                         <div class="about-hero__box">
-                            <div class="about-hero__decor hero-parallax decor" data-start="0.6" data-end="1">
+                            <div class="about-hero__decor hero-parallax decor" data-start="0.4" data-end="1">
                                 <svg width="267" height="470" viewBox="0 0 267 470" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path class="path" id="path" stroke="white" fill="transparent"
                                           d="M133.5 0.5h0s133 0 133 133v203s0 133 -133 133h0s-133 0 -133 -133v-203s0 -133 133 -133"/>
-                                    <g class="rect" id="rect">
+                                    <g class="rect rect--middle" id="rect">
                                         <circle cx="36.5" cy="36.5" r="36" stroke="url(#paint0_linear_770_132)"/>
                                         <defs>
                                             <linearGradient id="paint0_linear_770_132" x1="36.5" y1="0" x2="36.5"
@@ -234,7 +234,13 @@
             <section class="section architecture animation-wrapper section-bg">
                 <div class="section-bg__decor">
                     <div class="section-bg__item">
-                        <img src="assets/images/architecture-bg.jpg" alt="">
+                        <picture>
+                            <source media="(max-width: 640px)"
+                                    srcset="assets/images/architecture-bg-m.jpg">
+                            <source media="(min-width: 641px)"
+                                    srcset="assets/images/architecture-bg.jpg">
+                            <img src="assets/images/architecture-bg.jpg" alt="" />
+                        </picture>
                     </div>
                 </div>
                 <div class="architecture__label animation-item">
@@ -483,10 +489,6 @@
                             </div>
                             <div class="animation-item">
                                 <div class="form__footer form-footer animation-item__text">
-                                    <p class="form-footer__text">
-                                        Нажимая на кнопку, вы даёте согласие
-                                        на обработку персональных данных
-                                    </p>
                                     <button type="submit"
                                             class="button button--base button--base--regular button--bordered">
                                         <span class="button__text">
