@@ -56,7 +56,7 @@ class Animations {
 
 
         const observer = new IntersectionObserver(this.handleIntersection.bind(this), {
-            // rootMargin:''
+            threshold: 0.1
         });
         this.animationWrapperArray.forEach(animationWrapper => {
             observer.observe(animationWrapper);
@@ -259,16 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sectionBg.length && window.innerWidth > 767) {
         sectionBg.forEach(element => {
             const sectionBgItem = element.querySelector('.section-bg__item');
-            gsap.to(element, {
-                backgroundPosition: `50% ${-innerHeight / 2}px`,
-                ease: "none",
-                scrollTrigger: {
-                    scrub: true,
-                    trigger: element,
-                    start: "top bottom",
-                    end: "bottom top",
-                },
-            });
             gsap.to(sectionBgItem, {
                 y:'-30vh',
                 ease: "none",
