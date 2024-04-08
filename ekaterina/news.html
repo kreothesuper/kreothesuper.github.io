@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
+    <link rel="stylesheet" href="assets/libs/range/range.css">
+
+    <link rel="stylesheet" href="assets/styles/css/reset.css">
+    <link rel="stylesheet" href="assets/styles/css/index.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+    <header class="page-wrapper__header header">
+        <div class="header__wrapper">
+            <div class="container container--header">
+                <div class="header__row">
+                    <div class="header__block header__block--logo">
+                        <p class="header__text">
+                            МОЯ СЕМЬЯ. МОЙ ДОМ. МОЯ ИСТОРИЯ.
+                        </p>
+
+                        <div class="header__logo logo">
+                            <img src="assets/images/logo.webp" alt="" class="logo__img">
+                        </div>
+                    </div>
+                    <div class="header__block">
+                        <a href="#" class="header__phone phone text text--base text--white text--uppercase">
+                            +7 (999) 999 99-99
+                        </a>
+                        <a href="#"
+                           class="header__button button button--base button--bordered button--bordered--gradient">
+                            <svg class="button__icon">
+                                <use xlink:href="assets/images/sprite.svg#home"></use>
+                            </svg>
+                            <span class="button__text">
+                                ВЫБРАТЬ КВАРТИРУ
+                            </span>
+                        </a>
+                        <div class="header__burger">
+                            <div class="burger burger--open">
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="nav__wrapper decor-container">
+                <div class="nav__decor" data-start="1.2" data-end="1">
+                    <svg width="108" height="368" viewBox="0 0 108 368" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path class="nav-decor__path" stroke="white"
+                              d="M3 0.5h0s104.5 0 104.5 104.5v158s0 104.5 -104.5 104.5h0s-104.5 0 -104.5 -104.5v-158s0 -104.5 104.5 -104.5"/>
+                        <g class="nav-decor__rect rect--middle">
+                            <circle cx="36.5" cy="36.5" r="36" stroke="url(#paint0_linear_770_132)"/>
+                            <defs>
+                                <linearGradient id="paint0_linear_770_132" x1="36.5" y1="0" x2="36.5" y2="73"
+                                                gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#F6C564"/>
+                                    <stop offset="1" stop-color="#90733B"/>
+                                </linearGradient>
+                            </defs>
+                        </g>
+                    </svg>
+                </div>
+                <div class="nav__header">
+                    <p class="nav__title">
+                        Главная
+                    </p>
+                    <div class="nav__burger">
+                        <div class="burger burger--close">
+                            <div class="burger__item"></div>
+                            <div class="burger__item"></div>
+                            <div class="burger__item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav__content">
+                    <ul class="nav-list">
+                        <li class="nav-list__item">
+                            <a href="#" class="nav-list__link">
+                                О проекте
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a href="#" class="nav-list__link">
+                                Квартиры
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a href="#" class="nav-list__link">
+                                Условия покупки
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a href="#" class="nav-list__link">
+                                Правовая информация
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a href="#" class="nav-list__link">
+                                Новости
+                            </a>
+                        </li>
+                        <li class="nav-list__item">
+                            <a href="#" class="nav-list__link">
+                                Контакты
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#"
+                       class="nav__button button button--base button--bordered button--bordered--gradient">
+                        <svg class="button__icon">
+                            <use xlink:href="assets/images/sprite.svg#home"></use>
+                        </svg>
+                        <span class="button__text">
+                                ВЫБРАТЬ КВАРТИРУ
+                            </span>
+                    </a>
+                </div>
+                <div class="nav__footer">
+                    <ul class="social">
+                        <li class="social__item">
+                            <a href="#" class="social__link social__link--accent">
+                                <svg class="social__icon ">
+                                    <use xlink:href="assets/images/sprite.svg#telegram"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="social__item">
+                            <a href="#" class="social__link social__link--accent">
+                                <svg class="social__icon ">
+                                    <use xlink:href="assets/images/sprite.svg#vk"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="social__item">
+                            <a href="#" class="social__link social__link--accent">
+                                <svg class="social__icon ">
+                                    <use xlink:href="assets/images/sprite.svg#mail"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="index.html" class="nav__logo logo">
+                        <img src="assets/images/logo.webp" alt="" class="logo__img">
+                    </a>
+                    <div class="nav__callback">
+                        <a href="#" data-popup=".popup-callback" class="callback">
+                            <svg class="callback__icon">
+                                <use xlink:href="assets/images/sprite.svg#phone"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="page-wrapper__callback">
+        <a href="#" data-popup=".popup-callback" class="callback">
+            <svg class="callback__icon">
+                <use xlink:href="assets/images/sprite.svg#phone"></use>
+            </svg>
+        </a>
+    </div>
+    <main class="content page-wrapper__content page-wrapper__content--page">
+        <div class="content__wrapper">
+            <section class="section animation-wrapper">
+                <div class="section__wrapper">
+                    <div class="container">
+                        <div class="section__header section__header--margin--big animation-item">
+                            <p class="title title--small title--uppercase title--spacing--big title--white title--center animation-item__text">
+                                НОВОСТИ
+                            </p>
+                        </div>
+                        <div class="section__content news animation-item">
+                            <div class="news__list animation-item__text animation-item__text--small">
+                                <div data-popup=".popup-news" class="news-item">
+                                    <div class="news-item__wrapper">
+                                        <div class="news-item__content">
+                                            <p class="news-item__text">
+                                                Старт продаж квартир в ЖК «Екатерининский»
+                                            </p>
+                                            <p class="news-item__text news-item__date">
+                                                02.03.2024
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-popup=".popup-news" class="news-item">
+                                    <div class="news-item__wrapper">
+                                        <div class="news-item__img">
+                                            <img src="assets/images/news/1.jpg" alt="">
+                                        </div>
+                                        <div class="news-item__content">
+                                            <p class="news-item__text">
+                                                Старт продаж квартир в ЖК «Екатерининский»
+                                            </p>
+                                            <p class="news-item__text news-item__date">
+                                                02.03.2024
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div class="footer-wrapper">
+        <div class="section animation-wrapper footer-wrapper__form">
+            <div class="section__wrapper section__wrapper--small section__wrapper--center">
+                <div class="container">
+                    <form action="#" class="form">
+                        <div class="form__wrapper">
+                            <div class="form__header">
+                                <div class="animation-item">
+                                    <p class="title title--center title--uppercase title--small title--white animation-item__text">
+                                        ОСТАЛИСЬ ВОПРОСЫ?
+                                    </p>
+                                </div>
+                                <div class="animation-item">
+                                    <p class="text text--base text--white text--center animation-item__text">
+                                        Готовы на них ответить!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form__content">
+                                <div class="animation-item">
+                                    <label class="input animation-item__text">
+                                        <input type="text" placeholder="Екатерина Великая" class="input__item">
+                                    </label>
+                                </div>
+                                <div class="animation-item">
+                                    <label class="input animation-item__text">
+                                        <input type="text" placeholder="+7 (000) 000-00-00" class="input__item">
+                                    </label>
+                                </div>
+
+                                <div class="form__row">
+                                    <div class="animation-item">
+                                        <label class="radio animation-item__text">
+                                            <input type="radio" name="time" class="radio__input">
+                                            <span class="radio__checkmark"></span>
+                                            <span class="radio__text">Сейчас</span>
+                                        </label>
+                                    </div>
+                                    <div class="animation-item">
+                                        <label class="radio animation-item__text">
+                                            <input type="radio" name="time" class="radio__input">
+                                            <span class="radio__checkmark"></span>
+                                            <span class="radio__text">Точное время</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="animation-item">
+                                <div class="form__footer form-footer animation-item__text">
+                                    <p class="form-footer__text">
+                                        Нажимая на кнопку, вы даёте согласие
+                                        на обработку персональных данных
+                                    </p>
+                                    <button type="submit"
+                                            class="button button--base button--base--regular button--bordered">
+                                        <span class="button__text">
+                                            Жду звонка
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer class="page-wrapper__footer footer">
+            <div class="footer__wrapper">
+                <div class="container">
+                    <div class="footer__row">
+                        <div class="footer__nav">
+                            <ul class="footer-list">
+                                <li class="footer-list__item">
+                                    <a href="#" class="footer-list__link text text--small text--white">
+                                        О проекте
+                                    </a>
+                                </li>
+                                <li class="footer-list__item">
+                                    <a href="#" class="footer-list__link text text--small text--white">
+                                        Условия покупки
+                                    </a>
+                                </li>
+                                <li class="footer-list__item">
+                                    <a href="#" class="footer-list__link text text--small text--white">
+                                        Правовая информация
+                                    </a>
+                                </li>
+                                <li class="footer-list__item">
+                                    <a href="#" class="footer-list__link text text--small text--white">
+                                        Квартиры
+                                    </a>
+                                </li>
+                                <li class="footer-list__item">
+                                    <a href="#" class="footer-list__link text text--small text--white">
+                                        Новости
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer__block">
+                            <a href="index.html" class="footer__logo logo">
+                                <img src="assets/images/logo.webp" alt="" class="logo__img">
+                            </a>
+                        </div>
+                        <div class="footer__block">
+                            <div class="footer__contact">
+                                <a href="tel:+7 (999) 999 99-99" class="phone text text--base text--white">+7 (999) 999
+                                    99-99</a>
+                                <ul class="social">
+                                    <li class="social__item">
+                                        <a href="#" class="social__link">
+                                            <svg class="social__icon">
+                                                <use xlink:href="assets/images/sprite.svg#telegram"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link">
+                                            <svg class="social__icon">
+                                                <use xlink:href="assets/images/sprite.svg#vk"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" class="social__link">
+                                            <svg class="social__icon">
+                                                <use xlink:href="assets/images/sprite.svg#mail"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+
+<div class="popup popup-callback">
+    <div class="popup__wrapper">
+        <div class="popup__container">
+            <a href="#" class="popup__close"></a>
+            <form action="#" class="form">
+                <div class="form__wrapper">
+                    <div class="form__header">
+                        <p class="title title--center title--uppercase title--small title--black">
+                            ЕСТЬ ВОПРОСЫ?
+                        </p>
+                        <p class="text text--base text--black text--center">
+                            Готовы на них ответить!
+                        </p>
+                    </div>
+                    <div class="form__content">
+                        <label class="input">
+                            <input type="text" placeholder="Екатерина Великая" class="input__item input__item--black">
+                        </label>
+                        <label class="input">
+                            <input type="text" placeholder="+7 (000) 000-00-00" class="input__item input__item--black">
+                        </label>
+                        <div class="form__row">
+                            <label class="radio radio--popup">
+                                <input type="radio" name="time" class="radio__input">
+                                <span class="radio__checkmark"></span>
+                                <span class="radio__text radio__text--black">Даю согласие на обработку персональных данных</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form__footer form-footer">
+                        <button type="submit"
+                                class="button button--base button--base--regular button--bordered button--bordered--black">
+                            <span class="button__text">
+                                Жду звонка
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-news">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--full">
+            <div class="popup-news__wrapper">
+                <div class="container">
+                    <div class="popup-news__content">
+                        <a href="#" class="popup__close popup__close--news"></a>
+                        <div class="popup-news__header">
+                            <div class="popup-news__title">
+                                <p class="title title--small title--black title--uppercase">
+                                    ОТЧЕТ ПО СТРОИТЕЛЬСТВУ
+                                </p>
+                                <p class="title title--small title--gradient title--uppercase">
+                                    ЖК «ЕКАТЕРИНИНСКИЙ»
+                                </p>
+                            </div>
+                            <p class="popup-news__date">
+                                02.03.2024
+                            </p>
+                            <div class="popup-news__text">
+                                <p>
+                                    Мать Петра III, дочь Петра I, скончалась приблизительно месяца через два после того, как произвела его на свет, от чахотки, в маленьком городке Киле, в Голштинии, с горя, что ей пришлось там жить, да еще в таком неудачном замужестве. Карл Фридрих, герцог Голштинский[ii], племянник Карла XII, короля Шведского, отец Петра III, был принц слабый, неказистый, малорослый, хилый и бедный (смотри «Дневник» Бергхольца[iii] в «Магазине» Бюшинга[iv]). Он умер в 1739 году и оставил сына, которому было около одиннадцати лет, под опекой своего двоюродного брата Адольфа-Фридриха, епископа Любекского, герцога Голштинского, впоследствии короля Шведского, избранного на основании предварительных статей мира в Або по предложению императрицы Елисаветы[v].
+                                </p>
+                                <p>
+                                    Во главе воспитателей Петра III стоял обер-гофмаршал его двора Брюммер[vi], швед родом; ему подчинены были обер-камергер Бергхольц, автор вышеприведенного «Дневника», и четыре камергера; из них двое – Адлерфельдт[vii], автор «Истории Карла XII», и Вахтмейстер[viii] – были шведы, а двое других, Вольф и Мардефельд,- голштинцы. Этого принца воспитывали в виду Шведского престола при дворе, слишком большом для страны, в которой он находился, и разделенном на несколько партий, горевших ненавистью; из них каждая хотела овладеть умом принца, которого она должна была воспитать, и, следовательно, вселяла в него отвращение, которое все партии взаимно питали по отношению к своим противникам. Молодой принц от всего сердца ненавидел Брюммера, внушавшего ему страх, и обвинял его в чрезмерной строгости. Он презирал Бергхольца, который был другом и угодником Брюммера, и не любил никого из своих приближенных, потому что они его стесняли.
+                                </p>
+                                <p>
+                                    С десятилетнего возраста Петр III обнаружил наклонность к пьянству. Его понуждали к чрезмерному представительству и не выпускали из виду ни днем ни ночью. Кого он любил всего более в детстве и в первые годы своего пребывания в России, так это были два старых камердинера: один – Крамер, ливонец, другой – Румберг, швед. Последний был ему особенно дорог. Это был человек довольно грубый и жесткий, из драгунов Карла XII. Брюммер, а следовательно, и Бергхольц, который на все смотрел лишь глазами Брюммера, были преданны принцу, опекуну и правителю; все остальные были недовольны этим принцем и еще более – его приближенными. Вступив на русский престол, императрица Елисавета послала в Голштинию камергера Корфа[ix], вызвать племянника, которого принц-правитель и отправил немедленно, в сопровождении обер-гофмаршала Брюммера, обер-камергера Бергхольца и камергера Дукера, приходившегося племянником первому.
+                                </p>
+                                <img src="assets/images/family.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-choice">
+    <div class="popup__wrapper">
+        <div class="popup__container">
+            <a href="#" class="popup__close"></a>
+            <form action="#" class="form">
+                <div class="form__wrapper">
+                    <div class="form__header form__header--gap--big">
+                        <p class="title title--center title--uppercase title--small title--black">
+                            ВАШ ВЫБОР
+                        </p>
+                        <div class="choice">
+                            <div class="choice__row">
+                                <div class="choice__block">
+                                    <p class="choice__text">1 комната</p>
+                                </div>
+                                <div class="choice__block">
+                                    <p class="choice__text">39,4 м² </p>
+                                </div>
+                                <div class="choice__block">
+                                    <p class="choice__text">Дом 1</p>
+                                </div>
+                                <div class="choice__block">
+                                    <p class="choice__text">Секция 3</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__content">
+                        <label class="input">
+                            <input type="text" placeholder="Екатерина Великая" class="input__item input__item--black">
+                        </label>
+                        <label class="input">
+                            <input type="text" placeholder="+7 (000) 000-00-00" class="input__item input__item--black">
+                        </label>
+                        <div class="form__row">
+                            <label class="radio radio--popup">
+                                <input type="radio" name="time" class="radio__input">
+                                <span class="radio__checkmark"></span>
+                                <span class="radio__text radio__text--black">Даю согласие на обработку персональных данных</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form__footer form-footer">
+                        <button type="submit"
+                                class="button button--base button--base--regular button--bordered button--bordered--black">
+                            <span class="button__text">
+                                Жду звонка
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-plans">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--plans">
+            <div class="popup-plans__wrapper">
+                <div class="popup-plans__img">
+                    <img src="assets/images/plans-popup.webp" alt="">
+                </div>
+                <div class="popup-plans__footer">
+                    <a href="#"
+                       class="button button--base button--base--big button--base--regular button--bordered button--bordered">
+                        <svg class="button__icon button__icon--accent">
+                            <use xlink:href="assets/images/sprite.svg#print"></use>
+                        </svg>
+                        <span class="button__text">
+                            Печать
+                        </span>
+                    </a>
+                    <a href="#"
+                       class="button button--base button--base--big button--base--regular button--bordered button--bordered">
+                        <span class="button__text">
+                            Подать заявку
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--swiper-->
+<script src="assets/libs/swiper/swiper.js"></script>
+<!--gsap-->
+<script src="assets/libs/gsap/index.js"></script>
+<script src="assets/libs/gsap/MotionPathPlugin.js"></script>
+<script src="assets/libs/gsap/scrollTrigger.js"></script>
+<!--range-->
+<script src="assets/libs/range/range.js"></script>
+<!--main-->
+<script src="assets/scripts/index.js"></script>
+</body>
+</html>
