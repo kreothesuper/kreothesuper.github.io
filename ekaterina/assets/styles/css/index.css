@@ -2418,6 +2418,9 @@ path {
   opacity: 1;
   visibility: visible;
 }
+.popup--active .popup__container--full {
+  transform: translate(0);
+}
 .popup__wrapper {
   position: absolute;
   width: 100%;
@@ -2522,8 +2525,9 @@ path {
   top: unset;
   bottom: 0;
   max-height: 80vh;
-  transform: translate(0);
+  transform: translateY(100%);
   padding: 60px 0;
+  transition: 1s 0.3s linear;
 }
 .popup__container--plans {
   padding: 0;
