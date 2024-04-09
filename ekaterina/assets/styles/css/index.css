@@ -2414,9 +2414,15 @@ path {
   visibility: hidden;
   transition: 0.5s visibility, 1s opacity;
 }
+.popup.popup-news {
+  transition-delay: 0.5s;
+}
 .popup--active {
   opacity: 1;
   visibility: visible;
+}
+.popup--active.popup-news {
+  transition-delay: 0s;
 }
 .popup--active .popup__container--full {
   transform: translate(0);
@@ -2755,6 +2761,14 @@ path {
   cy: 15;
   transition: 1.3s cubic-bezier(0.74, 0, 0.24, 0.99);
 }
+.catalog-item__link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
 .catalog-item__wrapper {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
@@ -2808,6 +2822,8 @@ path {
   gap: 10px;
   max-width: 140px;
   width: 100%;
+  position: relative;
+  z-index: 3;
 }
 @media screen and (max-width: 767px) {
   .catalog-item__buttons {
@@ -3638,6 +3654,11 @@ path {
 }
 .popup-news__content {
   position: relative;
+}
+@media screen and (max-width: 640px) {
+  .popup-news__content {
+    padding: 0 30px;
+  }
 }
 .popup-news__date {
   font-family: var(--main-font);
