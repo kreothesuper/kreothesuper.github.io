@@ -9,23 +9,25 @@ const selectInit = () => {
             const selectWrapper = document.createElement('div'),
                 selectLabel = document.createElement('div'),
                 selectItemList = document.createElement('div'),
-                selectLabelSpan = document.createElement('span');
+                selectLabelSpan = document.createElement('span'),
+                selectLabelIcon = document.createElement('span');
 
             const selectItemArray = [];
 
             selectWrapper.classList.add('select__wrapper');
 
             selectLabel.classList.add('select__label');
+            selectLabelIcon.classList.add('icon');
             selectLabelSpan.classList.add('select__name');
 
             selectLabelSpan.textContent = selectTag[selectTag.selectedIndex].textContent;
             selectLabel.append(selectLabelSpan);
+            selectLabel.append(selectLabelIcon)
 
             if (selectTag[selectTag.selectedIndex].hidden) {
                 selectLabel.classList.add('select__label--disabled')
             } else {
                 selectLabel.classList.remove('select__label--disabled')
-
             }
 
             selectItemList.classList.add('select__content', 'select__content--hidden')
@@ -59,7 +61,6 @@ const selectInit = () => {
                             selectLabelSpan.textContent = element.textContent;
 
 
-
                             selectItems.forEach((item, itemIndex) => {
                                 if (itemIndex === index) {
                                     item.classList.add('select__item--hidden')
@@ -69,7 +70,7 @@ const selectInit = () => {
                             });
 
                             // Trigger change event when selectIndex is changed
-                            const event = new Event('change', { bubbles: true });
+                            const event = new Event('change', {bubbles: true});
                             selectItemTag.dispatchEvent(event);
                         }
                     });
@@ -116,7 +117,7 @@ const selectInit = () => {
             })
             selectTag.addEventListener('reset', () => {
                 const selectItemOptions = selectTag.options,
-                    selectedItem = selectItemOptions[0]; 
+                    selectedItem = selectItemOptions[0];
 
                 selectLabelSpan.textContent = selectedItem.textContent;
                 if (selectedItem.hidden) {
@@ -162,7 +163,6 @@ const initTabs = () => {
         });
     }
 }
-
 
 
 const closeAllSelect = (select) => {
@@ -248,10 +248,10 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 'auto',
         spaceBetween: 10,
         speed: 500,
-        loop:true,
-        navigation:{
-            prevEl:'.partners-slider__button--prev',
-            nextEl:'.partners-slider__button--next',
+        loop: true,
+        navigation: {
+            prevEl: '.partners-slider__button--prev',
+            nextEl: '.partners-slider__button--next',
         }
     });
 
@@ -399,15 +399,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            editorBlock.addEventListener('submit',(e)=>{
+            editorBlock.addEventListener('submit', (e) => {
                 e.preventDefault();
 
                 editorBlock.classList.remove('active');
-                if(formMessage){
+                if (formMessage) {
                     formMessage.classList.add('form-message--success');
-                    setTimeout(()=>{
+                    setTimeout(() => {
                         formMessage.classList.remove('form-message--success');
-                    },1000)
+                    }, 1000)
                 }
             });
         });
@@ -429,16 +429,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
 
                 if (navigator.clipboard) {
-                    navigator.clipboard.writeText(copyText).then(() => { });
+                    navigator.clipboard.writeText(copyText).then(() => {
+                    });
                 } else {
                     copyText(copyText);
                 }
 
-                if(copySuccess){
+                if (copySuccess) {
                     copySuccess.classList.add('form-message--success');
-                    setTimeout(()=>{
+                    setTimeout(() => {
                         copySuccess.classList.remove('form-message--success');
-                    },1000)
+                    }, 1000)
                 }
 
             });
@@ -492,6 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             return false;
         }
+
         adminFilterArray.forEach(adminFilter => {
             const inputs = adminFilter.querySelectorAll('input, select');
             const submit = adminFilter.querySelector("[type='submit']");
@@ -502,13 +504,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 isAnyInputFilled(inputs) ? submit.classList.remove('button--disabled') : submit.classList.add('button--disabled');
             })
 
-           
+
             adminFilter.addEventListener('reset', () => {
                 const selectArray = adminFilter.querySelectorAll('select');
 
                 if (selectArray.length) {
                     selectArray.forEach(select => {
-                        const event = new Event('reset', { bubbles: true });
+                        const event = new Event('reset', {bubbles: true});
                         select.dispatchEvent(event);
                     });
                 }
@@ -523,27 +525,66 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let textareaArray = document.querySelectorAll(".js-resize-input");
-       if(textareaArray.length){
-           textareaArray.forEach(textarea=>{
-               textarea.style.setProperty('--input-height', `${calcHeight(textarea.value)}px`)
-               textarea.addEventListener("keyup", () => {
-                   textarea.style.setProperty('--input-height', `${calcHeight(textarea.value)}px`)
-               });
-           });
-       }
+    if (textareaArray.length) {
+        textareaArray.forEach(textarea => {
+            textarea.style.setProperty('--input-height', `${calcHeight(textarea.value)}px`)
+            textarea.addEventListener("keyup", () => {
+                textarea.style.setProperty('--input-height', `${calcHeight(textarea.value)}px`)
+            });
+        });
+    }
 
 
-       const tableExpandArray = document.querySelectorAll('.js-table-expanded');
+    const tableExpandArray = document.querySelectorAll('.js-table-expanded');
 
-       if(tableExpandArray.length){
-           tableExpandArray.forEach(table=>{
-               const tableLink = table.querySelector('.js-table-expanded-link');
+    if (tableExpandArray.length) {
+        tableExpandArray.forEach(table => {
+            const tableLink = table.querySelector('.js-table-expanded-link');
 
-               tableLink.addEventListener('click',(e)=>{
-                   e.preventDefault();
+            tableLink.addEventListener('click', (e) => {
+                e.preventDefault();
 
-                   table.classList.toggle('active');
-               });
-           });
-       }
+                table.classList.toggle('active');
+            });
+        });
+    }
+
+    const fileArray = document.querySelectorAll('.js-file');
+
+    if(fileArray.length){
+        const getFileName =  (fileInput,fileLabel,fileDownload,file) =>{
+            const fileList = fileInput.files[0];
+            if(fileList){
+                const fileName = fileList.name;
+                fileLabel.textContent = fileName;
+                file.classList.remove('empty')
+
+                if(fileDownload){
+                    const fileURL = URL.createObjectURL(fileList);
+                    fileDownload.href = fileURL;
+                }
+            }
+        }
+        fileArray.forEach(file=>{
+            const fileInput = file.querySelector('.js-file-input'),
+                fileLabel = file.querySelector('.js-file-label'),
+                fileReset = file.querySelector('.js-file-reset'),
+                fileDownload = file.querySelector('.js-file-download');
+
+            if(fileInput){
+                file.classList.add('empty')
+                getFileName(fileInput,fileLabel,fileDownload,file);
+                fileInput.addEventListener('change', function() {
+                    getFileName(fileInput,fileLabel,fileDownload,file);
+                });
+                if(fileReset){
+                    fileReset.addEventListener('click',(e)=>{
+                        e.preventDefault();
+                        file.classList.add('empty')
+                        fileLabel.textContent = "загрузите файл";
+                    });
+                }
+            }
+        });
+    }
 });

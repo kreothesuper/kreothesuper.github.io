@@ -18,6 +18,7 @@
     --text-base: 15px;
     --text-small: 13px;
     --text-big: 15px;
+    --text-huge: 20px;
     --text-middle: 13px;
 
     // card
@@ -100,6 +101,12 @@ body {
         line-height: 1.2;
     }
 
+    &--huge {
+        font-size: var(--text-huge);
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
     &--small {
         font-size: var(--text-small);
         font-weight: 400;
@@ -121,6 +128,7 @@ body {
     &--green {
         color: #40C700;
     }
+
 
     &--yellow {
         color: #FFB800;
@@ -431,6 +439,7 @@ button{
 
     &--full {
         width: 100%;
+        max-width: 100%;
     }
 
     &--middle{
@@ -495,14 +504,14 @@ button{
     border: 1px solid #4b4b4b;
     height: 40px;
 
-    padding: 15px;
+    padding:5px 15px;
 
     font-family: var(--main-font);
     font-size: var(--text-base);
     color: var(--color-grey-dark);
 
-
-
+    display: flex;
+    align-items: center;
     &--big {
         padding: 0;
         border: none;
@@ -570,7 +579,7 @@ button{
     &--light {
         border-color: var(--color-grey);
 
-        &::placeholder {
+        &::placeholder, input::placeholder {
             color: var(--color-grey);
         }
     }
@@ -580,6 +589,12 @@ button{
 
     &--editor {
         height: 600px;
+    }
+
+    &--font{
+        &--medium{
+            font-weight: 500;
+        }
     }
 
     &-wrapper {
@@ -607,7 +622,7 @@ button{
             display: flex;
             align-items: flex-start;
             gap: 15px;
-            
+
             @media screen and (max-width: 767px) {
                 flex-direction: column;
             }
@@ -654,28 +669,28 @@ button{
 
         &:nth-child(1) {
             transition:
-                0.3s transform,
-                0.3s top,
-                0.3s background-color;
+                    0.3s transform,
+                    0.3s top,
+                    0.3s background-color;
         }
 
         &:nth-child(2) {
             top: calc(50% - 1.5px);
 
             transition:
-                0.3s left,
-                0.3s opacity,
-                0.5s visibility,
-                0.3s background-color;
+                    0.3s left,
+                    0.3s opacity,
+                    0.5s visibility,
+                    0.3s background-color;
         }
 
         &:nth-child(3) {
             top: calc(100% - 3px);
 
             transition:
-                0.3s transform,
-                0.3s top,
-                0.3s background-color;
+                    0.3s transform,
+                    0.3s top,
+                    0.3s background-color;
         }
     }
 
@@ -768,8 +783,8 @@ button{
             opacity: 0;
             visibility: hidden;
             transition:
-                0.3s visibility,
-                0.5s opacity;
+                    0.3s visibility,
+                    0.5s opacity;
         }
     }
 
@@ -813,8 +828,8 @@ button{
         gap: 40px;
 
         transition:
-            0.3s visibility,
-            0.5s opacity;
+                0.3s visibility,
+                0.5s opacity;
 
         @media screen and (max-width: 767px) {
             flex-direction: column-reverse;
@@ -1006,7 +1021,7 @@ button{
         }
 
         @media screen and (max-width: 767px) {
-            gap: 70px;
+            gap: 40px;
 
             padding: 15px 15px 40px 15px;
         }
@@ -1166,6 +1181,19 @@ button{
 }
 
 .card {
+    &-table{
+        display: flex;
+        align-items: center;
+        gap: 35px;
+        overflow:auto;
+        @include custom-scrollbar();
+        &__item{
+            flex-shrink: 0;
+            &--big{
+                flex:1 0 auto;
+            }
+        }
+    }
     &__divider{
         width: 100%;
         height: 1px;
@@ -1372,7 +1400,7 @@ button{
         display: grid;
         grid-template-columns: repeat(2,minmax(0,1fr));
         gap: 15px;
-       
+
         &__item {
             p{
                 text-overflow: ellipsis;
@@ -1381,7 +1409,7 @@ button{
                 max-width: 100%;
             }
             & + &{
-              
+
                 position: relative;
                 &::before {
                     content: '';
@@ -1408,7 +1436,7 @@ button{
         &--gap{
             &--big{
                 gap: 30px;
-                
+
             }
         }
     }
@@ -1442,7 +1470,7 @@ button{
 
     &--media {
         @media screen and (max-width:767px) {
-            grid-auto-rows: 94px;
+            //grid-auto-rows: 94px;
         }
     }
 
@@ -2797,9 +2825,6 @@ button{
         display: none;
     }
 
-
-
-
     &--input {
         box-shadow: none;
         padding: 0 10px;
@@ -2811,7 +2836,6 @@ button{
             border-radius: 10px 10px 0 0;
             z-index: 12;
         }
-
 
         .select {
             &__label {
@@ -2836,7 +2860,7 @@ button{
                 align-items: center;
                 gap: 10px;
                 white-space: nowrap;
-            
+
 
                 &::before {
                     content: '';
@@ -2859,7 +2883,7 @@ button{
                     border-radius: 10px 10px 0 0;
                 }
 
-                &::after {
+                .icon {
                     width: 8px;
                     height: 15px;
                 }
@@ -2925,13 +2949,60 @@ button{
             }
         }
 
+        &--big{
+            border: 2px solid #0029FF;
+            font-size: var(--text-big);
+            .select{
+                &__label{
+                    height: 36px;
+                }
+                &__item{
+                    padding: 10px 0;
+                    border-top:1px solid #2B4DFF;
+                }
+                &__label,&__item{
+                    color:#2B4DFF;
+                    &::before{
+                        width: 12px;
+                        height: 12px;
+                    }
+                }
+                &__item{
+                    &::before{
+                        border-color: #2B4DFF;
+                    }
+                }
+                &__content{
+                    padding:0 10px;
+                    border: 2px solid #0029FF;
+                    border-top: none;
+
+                    width: calc(100% + 4px);
+                    left: -2px;
+                }
+            }
+        }
+
+        &--filter{
+            .select{
+                &__label{
+                    .icon{
+                        width: 14px;
+                        height: 14px;
+                        background:url("../../images/icons/filter.svg") center center/contain no-repeat;
+                    }
+                }
+            }
+        }
     }
 
     &--full{
         width: 100%;
-        .select__label::after{
-            width: 20px;
-            height: 20px;
+        .select__label{
+            .icon{
+                width: 20px;
+                height: 20px;
+            }
         }
     }
     &__label {
@@ -2941,7 +3012,7 @@ button{
         gap: 10px;
         justify-content: space-between;
 
-        &::after {
+        .icon {
             content: '';
             width: 12px;
             height: 18px;
@@ -3238,7 +3309,7 @@ button{
         &--admin {
             min-width: max-content;
         }
-        
+
         &--admins{
             @media screen and (max-width: 767px) {
                 display: flex;
@@ -3555,12 +3626,34 @@ button{
             flex-direction: column;
         }
 
+        &__row{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            @media screen and (max-width:640px) {
+                flex-direction: column;
+                align-items:flex-start;
+                width: 100%;
+            }
+        }
+
+
+
         &__button {
             max-width: 150px;
             width: 100%;
 
             @media screen and (max-width:640px) {
                 max-width: 100%;
+            }
+        }
+
+        &__select{
+            min-width: 200px;
+            @media screen and (max-width:640px) {
+                max-width: 100%;
+                width: 100%;
             }
         }
 
@@ -3605,7 +3698,7 @@ button{
         }
         &--close{
             &::after{
-            background: url("../../images/icons/close.svg") center center/contain no-repeat;
+                background: url("../../images/icons/close.svg") center center/contain no-repeat;
 
             }
         }
@@ -3868,7 +3961,7 @@ button{
                     transform: rotate(180deg) translateX(1px);
                 }
             }
-            
+
             @media screen and (max-width: 767px) {
                 display: none;
             }
@@ -3877,6 +3970,35 @@ button{
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+    }
+}
+
+.js-file{
+    &-input{
+        display: none;
+        &:checked{
+            background: red;
+        }
+    }
+    &-label{
+        pointer-events: none;
+    }
+    &.empty{
+        .js-file{
+            &-download{
+                pointer-events: none;
+                border-color: #D3D3D3;
+                color: #D3D3D3;
+            }
+            &-reset{
+                pointer-events: none;
+                background: #D3D3D3;
+                color: #FFFFFF;
+            }
+            &-label{
+                color: #999999;
+            }
         }
     }
 }

@@ -13,6 +13,7 @@
   --text-base: 15px;
   --text-small: 13px;
   --text-big: 15px;
+  --text-huge: 20px;
   --text-middle: 13px;
   --card-padding: 10px;
   --card-padding-big: 15px;
@@ -68,6 +69,11 @@ body {
 }
 .text--base {
   font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.text--huge {
+  font-size: var(--text-huge);
   font-weight: 500;
   line-height: 1.2;
 }
@@ -338,6 +344,7 @@ button:hover {
 }
 .button--full {
   width: 100%;
+  max-width: 100%;
 }
 .button--middle {
   padding: 15px;
@@ -390,10 +397,12 @@ button:hover {
   border-radius: 10px;
   border: 1px solid #4b4b4b;
   height: 40px;
-  padding: 15px;
+  padding: 5px 15px;
   font-family: var(--main-font);
   font-size: var(--text-base);
   color: var(--color-grey-dark);
+  display: flex;
+  align-items: center;
 }
 .input--big {
   padding: 0;
@@ -451,11 +460,14 @@ button:hover {
 .input--light {
   border-color: var(--color-grey);
 }
-.input--light::placeholder {
+.input--light::placeholder, .input--light input::placeholder {
   color: var(--color-grey);
 }
 .input--editor {
   height: 600px;
+}
+.input--font--medium {
+  font-weight: 500;
 }
 .input-wrapper {
   display: flex;
@@ -804,7 +816,7 @@ button:hover {
 }
 @media screen and (max-width: 767px) {
   .content__wrapper {
-    gap: 70px;
+    gap: 40px;
     padding: 15px 15px 40px 15px;
   }
 }
@@ -934,6 +946,32 @@ button:hover {
   }
 }
 
+.card-table {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  overflow: auto;
+}
+.card-table::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  border-radius: 20px;
+  background: transparent;
+}
+.card-table::-webkit-scrollbar-thumb {
+  background-color: #4b4b4b;
+  border-radius: 20px;
+}
+.card-table::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 20px;
+}
+.card-table__item {
+  flex-shrink: 0;
+}
+.card-table__item--big {
+  flex: 1 0 auto;
+}
 .card__divider {
   width: 100%;
   height: 1px;
@@ -1151,11 +1189,6 @@ button:hover {
 .grid--partners {
   grid-template-columns: repeat(auto-fit, 80px);
   grid-auto-rows: 80px;
-}
-@media screen and (max-width: 767px) {
-  .grid--media {
-    grid-auto-rows: 94px;
-  }
 }
 .grid__button {
   grid-column: 1/-1;
@@ -2336,7 +2369,7 @@ button:hover {
 .select--input .select__label--active {
   border-radius: 10px 10px 0 0;
 }
-.select--input .select__label::after {
+.select--input .select__label .icon {
   width: 8px;
   height: 15px;
 }
@@ -2391,10 +2424,43 @@ button:hover {
   padding: 0;
   top: 0;
 }
+.select--input--big {
+  border: 2px solid #0029FF;
+  font-size: var(--text-big);
+}
+.select--input--big .select__label {
+  height: 36px;
+}
+.select--input--big .select__item {
+  padding: 10px 0;
+  border-top: 1px solid #2B4DFF;
+}
+.select--input--big .select__label, .select--input--big .select__item {
+  color: #2B4DFF;
+}
+.select--input--big .select__label::before, .select--input--big .select__item::before {
+  width: 12px;
+  height: 12px;
+}
+.select--input--big .select__item::before {
+  border-color: #2B4DFF;
+}
+.select--input--big .select__content {
+  padding: 0 10px;
+  border: 2px solid #0029FF;
+  border-top: none;
+  width: calc(100% + 4px);
+  left: -2px;
+}
+.select--input--filter .select__label .icon {
+  width: 14px;
+  height: 14px;
+  background: url("../../images/icons/filter.svg") center center/contain no-repeat;
+}
 .select--full {
   width: 100%;
 }
-.select--full .select__label::after {
+.select--full .select__label .icon {
   width: 20px;
   height: 20px;
 }
@@ -2405,7 +2471,7 @@ button:hover {
   gap: 10px;
   justify-content: space-between;
 }
-.select__label::after {
+.select__label .icon {
   content: "";
   width: 12px;
   height: 18px;
@@ -2925,6 +2991,18 @@ button:hover {
     flex-direction: column;
   }
 }
+.settings-filter__row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+@media screen and (max-width: 640px) {
+  .settings-filter__row {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+}
 .settings-filter__button {
   max-width: 150px;
   width: 100%;
@@ -2932,6 +3010,15 @@ button:hover {
 @media screen and (max-width: 640px) {
   .settings-filter__button {
     max-width: 100%;
+  }
+}
+.settings-filter__select {
+  min-width: 200px;
+}
+@media screen and (max-width: 640px) {
+  .settings-filter__select {
+    max-width: 100%;
+    width: 100%;
   }
 }
 .settings-filter__input {
@@ -3207,6 +3294,29 @@ button:hover {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.js-file-input {
+  display: none;
+}
+.js-file-input:checked {
+  background: red;
+}
+.js-file-label {
+  pointer-events: none;
+}
+.js-file.empty .js-file-download {
+  pointer-events: none;
+  border-color: #D3D3D3;
+  color: #D3D3D3;
+}
+.js-file.empty .js-file-reset {
+  pointer-events: none;
+  background: #D3D3D3;
+  color: #FFFFFF;
+}
+.js-file.empty .js-file-label {
+  color: #999999;
 }
 
 /*# sourceMappingURL=index.css.map */
