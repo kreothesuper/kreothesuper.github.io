@@ -68,6 +68,7 @@ body {
         height: 100%;
 
         object-fit: contain;
+
     }
 }
 
@@ -819,6 +820,12 @@ button{
 
     &__logo {
         width: 150px;
+        &--small{
+            width: 60px;
+            @media screen and (min-width: 768px) {
+                margin: 0 auto;
+            }
+        }
     }
 
     &__nav {
@@ -1550,6 +1557,14 @@ button{
 .icon {
     width: 100%;
     height: 100%;
+
+    &--play{
+        fill: #2B4DFF;
+    }
+
+    &--pause{
+        fill:#FF7A00;
+    }
 }
 
 .media {
@@ -3135,11 +3150,19 @@ button{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background: #fff;
     width: 100%;
-
     &--radius{
         &--big{
             border-radius: 20px;
         }
+    }
+    &--parser{
+        overflow: auto;
+        @include custom-scrollbar();
+
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: transparent;
     }
     &--article,
     &--users {
@@ -3389,6 +3412,22 @@ button{
             }
         }
 
+        &--parser{
+            gap: 35px;
+            grid-template-columns: 90px minmax(0,1fr) 80px 130px 130px 70px;
+
+            border: 1px solid #f3f3f3;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+            background: #fff;
+
+            padding: 0 15px;
+
+            &:not(:first-child){
+                margin: 15px 0 0 0;
+            }
+        }
+
         &--logs {
             grid-template-columns: 130px 60px minmax(0, 1fr);
             gap: 15px;
@@ -3513,6 +3552,13 @@ button{
 
         &:not(:last-child) {
             border-right: 1px solid #f3f3f3;
+        }
+
+        &--parser{
+            padding: 10px 0;
+            &:not(:last-child){
+                border-right: none;
+            }
         }
 
         &--title{
