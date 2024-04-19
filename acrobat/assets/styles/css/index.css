@@ -3372,4 +3372,43 @@ button:hover {
   color: #999999;
 }
 
+.round-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.round-checkbox:hover {
+  cursor: pointer;
+}
+.round-checkbox__input {
+  display: none;
+}
+.round-checkbox__input:checked ~ .round-checkbox__checkmark {
+  background: #40C700;
+}
+.round-checkbox__input:checked ~ .round-checkbox__checkmark::before {
+  left: calc(100% - 15px);
+}
+.round-checkbox__checkmark {
+  flex-shrink: 0;
+  width: 30px;
+  height: 16px;
+  background: #D3D3D3;
+  position: relative;
+  border-radius: 10px;
+  transition: 0.3s background-color;
+}
+.round-checkbox__checkmark::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  left: 1px;
+  top: calc(50% - 7px);
+  transition: 0.3s left;
+}
+
 /*# sourceMappingURL=index.css.map */
