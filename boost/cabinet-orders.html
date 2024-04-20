@@ -1363,6 +1363,23 @@
                             <input id="mmr-end" maxlength="5" type="text" name="mmr-end"
                                    placeholder="MMR після Гри" class="form-input__item">
                         </div>
+                        <div class="form-grid__item form-grid__item--full form-input">
+                            <label for="id-match" class="title title--smallest title--white">ID Матча
+
+                            </label>
+                            <input id="id-match" maxlength="5" type="text" name="mmr-start"
+                                   placeholder="MMR до Гри" class="form-input__item">
+                        </div>
+                        <div class="form-grid__item form-grid__item--full form-input">
+                            <label for="mmr-end" class="title title--smallest title--white">Герой
+                            </label>
+                           <div class="select custom-select calculator-select calculator-select--small">
+                               <select name="" id="" class="select__tag">
+                                   <option value="">Arc Warden</option>
+                                   <option value="">Axe</option>
+                               </select>
+                           </div>
+                        </div>
                     </div>
                     <div class="form__block">
                         <div class="form-input">
@@ -1519,6 +1536,45 @@
                         </div>
                         <div class="form-grid__item--full form__footer--row">
                             <input type="submit" class="button button--middle button--white button--full" value="Виконано Частково">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-order-start">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--small">
+            <div class="popup__header">
+                <div class="popup__title">
+                    <p class="title title--small title--white">Взяти Замовлення</p>
+                    <p class="title title--smallest">Ви впевненні що хочете взяте це замовлення ?</p>
+                </div>
+                <a href="#" class="popup__close popup-close"></a>
+            </div>
+            <div class="popup__content notification-list form">
+                <form class="form__wrapper form__wrapper--full">
+                    <div class="form__grid form-grid">
+                        <div class="form-grid__item--full order">
+                            <div class="order-item__tag order-item__tag--big">
+                                <span class="order-item__title title title--small title--white">
+                                    Груповий MMR Boost
+                                </span>
+                                <div class="order-item__row">
+                                    <span class="title title--smallest title--white">
+                                    1360-4120
+                                    </span>
+                                    <span class="title title--smallest title--white">
+                                        ~45 Матчів
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-grid__item--full form__footer form__footer--row">
+                            <input type="submit" class="button button--middle button--gray button--full" value="Ні">
+                            <input type="submit" class="button button--middle button--white button--full" value="Так">
                         </div>
                     </div>
                 </form>

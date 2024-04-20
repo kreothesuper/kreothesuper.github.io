@@ -688,6 +688,14 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+
+  position: relative;
+}
+.profile-card__load{
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  right: 8px;
 }
 @media screen and (max-width: 350px) {
   .profile-card__img {
@@ -730,6 +738,27 @@
 .profile-card__copy:active {
   background: rgba(16, 16, 16, 0.08);
 }
+
+.profile-load__checkmark{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #181818;
+}
+
+.profile-load__checkmark .icon{
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+}
+
+.profile-load__input{
+  display: none;
+}
+
 
 .copy-link {
   display: flex;

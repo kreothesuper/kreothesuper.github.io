@@ -14,6 +14,53 @@
 
     <link rel="stylesheet" href="assets/style/general.css">
     <link rel="stylesheet" href="assets/style/personal.css">
+
+    <style>
+        .form-input{
+            --error-color:#F30000;
+        }
+        .form-input--error::after{
+            content: attr(data-error);
+
+            font-family: var(--title-font);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--error-color);
+        }
+        .form-input--error .form-input__item{
+            border-color:var(--error-color);
+            color: var(--error-color);
+        }
+
+        .form-input--error .form-input__item::placeholder{
+            color:var(--error-color);
+        }
+        .form-input__item{
+            border: 2px solid transparent;
+        }
+
+        .form-input__item:not(:first-child){
+            margin: 10px 0 0 0;
+        }
+
+        .profile-card__icon{
+            border:2px solid transparent;
+        }
+        .profile-card--notice .profile-card__icon{
+            border-color: #FFC700;
+        }
+        .profile-card--notice .profile-card__icon::after{
+            content: '';
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            display: block;
+            background: url("profile-notice.svg") center center/contain no-repeat;
+            top: 18px;
+            right: 18px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 
 <body>
@@ -567,6 +614,12 @@
                         </div>
                     </div>
                     <div class="form__grid form-grid">
+
+                        <div class="form-grid__item form-grid__item--full form-input form-input--error" data-error="Неверная почта">
+                            <label for="mmr-start" class="title title--smallest title--white"> Електронна Пошта
+                            </label>
+                            <input minlength="5" maxlength="16" type="text" name="mmr-start" placeholder="Email" class="form-input__item">
+                        </div>
                         <div class="form-grid__item form-grid__item--full form-input">
                             <label for="mmr-start" class="title title--smallest title--white"> Електронна Пошта
 
@@ -641,6 +694,7 @@
                         </div>
                     </div>
                     <div class="form__grid form-grid">
+
                         <div class="form-grid__item form-grid__item--full form-input">
                             <label for="mmr-start" class="title title--smallest title--white"> Електронна Пошта
 
@@ -654,6 +708,7 @@
                             <input id="mmr-end" type="text" name="mmr-end"
                                    placeholder="Password" class="form-input__item">
                         </div>
+
                         <div class="form-grid__item form-grid__item--full form-input">
                             <label for="mmr-end" class="title title--smallest title--white">Повторіть пароль
                             </label>

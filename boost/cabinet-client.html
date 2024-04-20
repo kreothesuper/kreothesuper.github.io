@@ -14,6 +14,26 @@
 
     <link rel="stylesheet" href="assets/style/general.css">
     <link rel="stylesheet" href="assets/style/personal.css">
+
+    <style>
+        .profile-card__icon{
+            border:2px solid transparent;
+        }
+        .profile-card--notice .profile-card__icon{
+            border-color: #FFC700;
+        }
+        .profile-card--notice .profile-card__icon::after{
+            content: '';
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            display: block;
+            background: url("profile-notice.svg") center center/contain no-repeat;
+            top: 18px;
+            right: 18px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 
 <body>
@@ -63,7 +83,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="header__profile profile-card">
+                    <div class="header__profile profile-card profile-card--notice">
                         <div class="profile-card__wrapper profile-card-link">
                             <div class="profile-card__img">
                                 <img src="assets/images/profile/img.jpg" alt="">
@@ -250,6 +270,14 @@
                         <div class="profile-card">
                             <div class="profile-card__wrapper ">
                                 <div class="profile-card__img profile-card__img--big profile-card__img--mobile--small">
+                                         <label class="profile-card__load profile-load">
+                                    <input type="file" class="profile-load__input">
+                                    <span class="profile-load__checkmark">
+                                        <svg class="icon">
+                                             <use xlink:href="assets/images/sprite.svg#photo-load"></use>
+                                        </svg>
+                                    </span>
+                                </label>
                                     <img src="assets/images/profile/img.jpg" alt="">
                                 </div>
                                 <div class="profile-card__info">
@@ -278,7 +306,7 @@
                                 </svg>
                                 Підтримка
                             </a>
-                            <a href="#" data-popup=".popup-order-end"
+                            <a href="#" data-popup=".popup-order-start"
                                class="order-item__button order-item__button--grey">
                                 <svg class="icon">
                                     <use xlink:href="assets/images/sprite-cabinet.svg#add_circle"></use>
@@ -1345,6 +1373,45 @@
             <input type="text" class="fast-form__input fast-form__input--regular" placeholder="Ваше Повідомлення">
             <button class="fast-form__button button button--orange fast-form__button--send">
             </button>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-order-start">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--small">
+            <div class="popup__header">
+                <div class="popup__title">
+                    <p class="title title--small title--white">Взяти Замовлення</p>
+                    <p class="title title--smallest">Ви впевненні що хочете взяте це замовлення ?</p>
+                </div>
+                <a href="#" class="popup__close popup-close"></a>
+            </div>
+            <div class="popup__content notification-list form">
+                <form class="form__wrapper form__wrapper--full">
+                    <div class="form__grid form-grid">
+                        <div class="form-grid__item--full order">
+                            <div class="order-item__tag order-item__tag--big">
+                                <span class="order-item__title title title--small title--white">
+                                    Груповий MMR Boost
+                                </span>
+                                <div class="order-item__row">
+                                    <span class="title title--smallest title--white">
+                                    1360-4120
+                                    </span>
+                                    <span class="title title--smallest title--white">
+                                        ~45 Матчів
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-grid__item--full form__footer form__footer--row">
+                            <input type="submit" class="button button--middle button--gray button--full" value="Ні">
+                            <input type="submit" class="button button--middle button--white button--full" value="Так">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

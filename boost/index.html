@@ -580,10 +580,9 @@
                                         </div>
                                     </div>
                                     <div class="calculator__footer">
-                                        <div class="fast-form">
+                                        <div class="fast-form error" data-error="Неправильный Промокод">
                                             <input type="text" class="fast-form__input" placeholder="Введіть Промокод">
                                             <button class="fast-form__button">
-
                                             </button>
                                         </div>
                                         <div class="calculator-result">
@@ -1588,7 +1587,7 @@
                                 <div class="footer-block__content">
                                     <ul class="footer__list">
                                         <li>
-                                            <a href="#"
+                                            <a href="#" data-popup=".popup-help"
                                                class="text text--grey text--semibold text--small text--font--accent">
                                                 Зв’язок з нами
                                             </a>
@@ -1755,6 +1754,39 @@
                                    class="button button--middle button--full button--orange">
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-help">
+    <div class="popup__wrapper">
+        <div class="popup__container popup__container--help">
+            <div class="popup__close popup-close"></div>
+            <div class="popup__content help">
+                <div class="help__content">
+                    <p class="title title--base title--base">Потрібна Допомога ?</p>
+                    <p class="text text--base text--white">
+                        Оберіть зручний спосіб комунікації з нами, та напишіть нам для вирішення вашого питання. Наша служба підтримки з задоволенням вас проконсультує.
+                    </p>
+                </div>
+                <div class="help__footer">
+                    <a href="#" class="button button--orange button--middle">
+                        <svg class="icon">
+                            <use xlink:href="assets/images/sprite-cabinet.svg#chat_bubble_empty"></use>
+                        </svg>
+                        Онлайн Чат</a>
+                    <a href="#" class="button button--icon button--blue">
+                        <svg class="icon">
+                            <use xlink:href="assets/images/sprite-cabinet.svg#telegram"></use>
+                        </svg>
+                    </a>
+                    <a href="#" class="button button--icon button--blue--dark">
+                        <svg class="icon">
+                            <use xlink:href="assets/images/sprite-cabinet.svg#mail"></use>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>

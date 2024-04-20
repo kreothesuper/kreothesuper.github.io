@@ -507,26 +507,25 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     const rangeControl = document.querySelectorAll('.range-control');
 
-    if (rangeControl.length) {
-        rangeControl.forEach(element => {
+    if(rangeControl.length){
+        rangeControl.forEach(element=>{
             const rangeButtonMinus = element.querySelector('.range-control__button--minus'),
                 rangeButtonPlus = element.querySelector('.range-control__button--plus'),
                 rangeControlValue = element.querySelector('.range-control__input');
 
-            rangeButtonMinus.addEventListener('click', (e) => {
+            rangeButtonMinus.addEventListener('click',(e)=>{
                 e.preventDefault();
 
-                if (rangeControlValue.value - 30 < 0) return
+                if(rangeControlValue.value - 30 < 0) return
                 rangeControlValue.value -= 30;
 
                 const event = new Event('change', {bubbles: true});
                 rangeControlValue.dispatchEvent(event);
             });
-            rangeButtonPlus.addEventListener('click', (e) => {
+            rangeButtonPlus.addEventListener('click',(e)=>{
                 e.preventDefault();
 
-                console.log(+rangeControlValue.value, +rangeControlValue.max)
-                if (+rangeControlValue.value + 30 > +rangeControlValue.max) return
+                if(rangeControlValue.value + 30 > rangeControlValue.max) return
                 rangeControlValue.value = parseInt(rangeControlValue.value) + 30;
 
                 const event = new Event('change', {bubbles: true});
