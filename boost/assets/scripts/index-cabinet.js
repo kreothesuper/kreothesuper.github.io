@@ -157,7 +157,7 @@ const selectInit = () => {
             const selectWrapper = document.createElement('div'),
                 selectLabel = document.createElement('div'),
                 selectItemList = document.createElement('div'),
-                selectLabelSpan = document.createElement('span'),
+                selectLabelSpan = document.createElement('input'),
                 selectLabelArea = document.createElement('span');
 
             selectWrapper.classList.add('select__wrapper');
@@ -166,7 +166,8 @@ const selectInit = () => {
             selectLabelSpan.classList.add('select__name');
             selectLabelArea.classList.add('select__area');
 
-            selectLabelSpan.textContent = selectTag[selectTag.selectedIndex].textContent;
+            selectLabelSpan.disabled = true;
+            selectLabelSpan.value = selectTag[selectTag.selectedIndex].textContent;
             element.style.setProperty('--bg-name', `url('../images/ranks/${selectTag.value}.png')`);
             selectLabel.append(selectLabelSpan);
 
@@ -175,6 +176,7 @@ const selectInit = () => {
             selectWrapper.append(selectLabel);
             element.append(selectLabelArea);
             element.append(selectWrapper);
+
 
             selectOption.forEach((element, index) => {
                 const selectItem = document.createElement('div');
@@ -206,6 +208,20 @@ const selectInit = () => {
 
             selectWrapper.append(selectItemList);
 
+            if(element.classList.contains('select--search')){
+                selectLabelSpan.disabled = false;
+                selectLabelSpan.addEventListener('input',(e)=>{
+                    const selectItemArray = selectItemList.querySelectorAll('.select__item');
+                    selectItemArray.forEach(item=>{
+                       if(!item.textContent.toLowerCase().startsWith(e.target.value.toLowerCase())){
+                            item.classList.add('select__item--hidden')
+                       }else{
+                            item.classList.remove('select__item--hidden')
+                       }
+                    });
+                })
+            }
+
             if (selectOption.length < 2) {
                 element.classList.add('non-active');
                 return false
@@ -216,6 +232,11 @@ const selectInit = () => {
                 e.stopPropagation();
 
                 closeAllSelect(selectLabel);
+                const selectLabelText = selectLabelSpan.textContent;
+                selectLabelSpan.focus();
+                selectLabelText.textContent = '';
+                selectLabelSpan.textContent = selectLabelText;
+
                 window.innerHeight - selectItemList.getBoundingClientRect().bottom < 100 ? (selectItemList.classList.add('select__content--top'), selectLabel.classList.add('select__label--top')) : (selectItemList.classList.remove('select__content--top'), selectLabel.classList.remove('select__label--top'))
 
                 selectItemList.classList.toggle('select__content--hidden');
@@ -227,7 +248,7 @@ const selectInit = () => {
                 const selectItemOptions = selectTag.options,
                     selectedItem = selectItemOptions[selectTag.selectedIndex];
 
-                selectLabelSpan.textContent = selectedItem.textContent;
+                selectLabelSpan.value = selectedItem.textContent;
                 element.style.setProperty('--bg-name', `url('../images/ranks/${selectTag.value}.png')`);
             })
         });
@@ -240,8 +261,8 @@ const closeAllSelect = (select) => {
     const selectContentArray = document.querySelectorAll('.select__content'),
         selectLabelArray = document.querySelectorAll('.select__label');
     const customSelect = document.querySelectorAll('.custom-select');
-
     selectLabelArray.forEach((element, index) => {
+        element.blur();
         element !== select ? (element.classList.remove('select__label--active'), selectContentArray[index].classList.add('select__content--hidden'), customSelect[index].classList.remove('active')) : null;
     });
 }
