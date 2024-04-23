@@ -35,6 +35,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 var initTabs = function initTabs() {
   var tabs = _toConsumableArray(document.querySelectorAll(".tabs"));
+  var tabsStartIndex = localStorage.getItem("tab-index") || 0;
   if (tabs.length > 0) {
     tabs.forEach(function (tab) {
       var tabContent = _toConsumableArray(tab.querySelectorAll(".tabs__content"));
@@ -49,7 +50,8 @@ var initTabs = function initTabs() {
           element.classList.toggle("active", i === tabIndex);
         });
       };
-      openTab(1);
+      openTab(+tabsStartIndex);
+      localStorage.setItem("tab-index", 0);
       tabLinks.forEach(function (link, i) {
         link.addEventListener("click", function (e) {
           e.preventDefault();
@@ -288,6 +290,17 @@ document.addEventListener('DOMContentLoaded', function () {
           });
         });
       }
+    });
+  }
+
+
+  const dataLinkArray = document.querySelectorAll('[data-tab-index]');
+
+  if(dataLinkArray.length){
+    dataLinkArray.forEach(link=>{
+      link.addEventListener('click',(e)=>{
+        localStorage.setItem("tab-index", link.dataset.tabIndex);
+      })
     });
   }
 });
