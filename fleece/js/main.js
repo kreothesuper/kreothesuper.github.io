@@ -186,6 +186,38 @@ var closeAllSelect = function closeAllSelect(select) {
   });
 };
 document.addEventListener('DOMContentLoaded', function () {
+  const noticeArray = document.querySelectorAll('[data-notice]');
+
+  if(noticeArray.length){
+    noticeArray.forEach(element=>{
+      element.addEventListener('mouseover',()=>{
+        let pageNotice = document.querySelector('.page-notice');
+
+        if(pageNotice) pageNotice.remove();
+
+        const left = element.getBoundingClientRect().left;
+        const top = element.getBoundingClientRect().top;
+        const width = element.getBoundingClientRect().width;
+
+        pageNotice = document.createElement('div');
+        pageNotice.classList.add('page-notice');
+
+        pageNotice.style.left = `${left}px`;
+        pageNotice.style.top = `${top}px`;
+        pageNotice.style.width = `${width}px`;
+
+        pageNotice.textContent = element.dataset.notice;
+
+        document.body.append(pageNotice);
+      });
+      element.addEventListener('mouseout',()=>{
+        let pageNotice = document.querySelector('.page-notice');
+
+        if(pageNotice) pageNotice.remove();
+      });
+    });
+  }
+
   selectInit();
   initTabs();
   var formArray = document.querySelectorAll('.form');
