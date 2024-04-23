@@ -489,7 +489,11 @@
                         </p>
                     </div>
                     <div class="card__content">
-                        <div class="calculator-circle">
+                        <div class="calculator-circle js-timer">
+                            <svg class="calculator-circle__border">
+                                <circle id="success-value" r="168" cx="50%" cy="50%"  fill="none" stroke-width="16" stroke-linecap="round" stroke-dasharray="0, 0">
+                                </circle>
+                              </svg>
                             <div class="calculator-circle__wrapper">
                                 <div class="calculator-circle__content">
                                     <div class="calculator-circle__header">
@@ -501,31 +505,32 @@
                                             <p class="text text--center text--accent">+$ 97.3 / Сутки</p>
                                         </div>
                                     </div>
-                                    <div class="calculator-circle__timer calculator-timer">
+                                    <div class="calculator-circle__timer calculator-timer ">
+
                                         <div class="calculator-timer__header">
                                             <p class="text text--base text--white">До конца периода</p>
                                         </div>
                                         <div class="calculator-timer__content">
                                             <div class="calculator-timer__block">
-                                                <p class="calculator-timer__number">
+                                                <p class="calculator-timer__number js-timer-days">
                                                     00
                                                 </p>
                                                 <p class="calculator-timer__text">Дней</p>
                                             </div>
                                             <div class="calculator-timer__block">
-                                                <p class="calculator-timer__number">
+                                                <p class="calculator-timer__number js-timer-hours">
                                                     00
                                                 </p>
-                                                <p class="calculator-timer__text">Час</p>
+                                                <p class="calculator-timer__text ">Час</p>
                                             </div>
                                             <div class="calculator-timer__block">
-                                                <p class="calculator-timer__number">
+                                                <p class="calculator-timer__number js-timer-minutes">
                                                     00
                                                 </p>
                                                 <p class="calculator-timer__text">Мин</p>
                                             </div>
                                             <div class="calculator-timer__block">
-                                                <p class="calculator-timer__number">
+                                                <p class="calculator-timer__number js-timer-seconds">
                                                     00
                                                 </p>
                                                 <p class="calculator-timer__text">Сек</p>
