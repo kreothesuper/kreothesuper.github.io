@@ -113,7 +113,9 @@
 			}, 15000); // Stop after 15 seconds
 		}
 
-		document.addEventListener('click', function () {
+		const rocket = document.querySelector('.rocket__wrapper')
+
+		rocket.addEventListener('click', function () {
 			if (x <= 3) {
 				clearTimeout(timeoutId); // Clear previous timeout
 				clearInterval(intervalId); // Clear previous interval
