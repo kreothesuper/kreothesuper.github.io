@@ -114,7 +114,7 @@
 		let timeoutId;
 
 		function changeBackgroundPosition() {
-			screen.style.backgroundPosition = `0 ${yPos}px`;
+			screen.style.setProperty('--position',`0 ${yPos}px`);
 			screen.classList.add('rocket-active');
 			screen.style.setProperty('blur',`${1 * x}px`);
 			screen.classList.add(`stage-${x}`)
