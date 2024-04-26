@@ -43,7 +43,21 @@
 						<div class="rocket__wrapper">
 							<div class="rocket__item">
 								<img src="assets/images/rocket.png" alt="" class="rocket__img">
-								<img src="assets/images/flame.png" alt="" class="rocket__flame">
+								<!-- <img src="assets/images/flame.png" alt="" class="rocket__flame"> -->
+								<div class="rocket__flame rocket-flame">
+									<div class="rocket-flame__item">
+									<img src="assets/images/flame-1.png" alt="">
+
+									</div>
+									<div class="rocket-flame__item">
+									<img src="assets/images/flame-2.png" alt="">
+
+									</div>
+									<div class="rocket-flame__item">
+									<img src="assets/images/flame-3.png" alt="">
+
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -102,19 +116,18 @@
 		function changeBackgroundPosition() {
 			screen.style.backgroundPosition = `0 ${yPos}px`;
 			screen.classList.add('rocket-active');
-			screen.style.setProperty('blur',`${0.2 * x}px`)
-			yPos += 25 * x; // Change this value to adjust the speed of the movement
+			screen.style.setProperty('blur',`${1 * x}px`);
+			screen.classList.add(`stage-${x}`)
+			yPos += 15 * x; // Change this value to adjust the speed of the movement
 		}
 
 		function startBackgroundAnimation() {
 			intervalId = setInterval(changeBackgroundPosition, 100); // Change every 100 milliseconds
-			timeoutId = setTimeout(() => {
-				clearInterval(intervalId);
-			}, 15000); // Stop after 15 seconds
 		}
 
 		const rocket = document.querySelector('.rocket__wrapper')
 
+		startBackgroundAnimation();
 		rocket.addEventListener('click', function () {
 			if (x <= 3) {
 				clearTimeout(timeoutId); // Clear previous timeout
