@@ -3,9 +3,7 @@
 .app{
     width: 100%;
     height: 100%;
-    background:#000 linear-gradient(0deg, rgba(197,41,39,.5) 0%, rgba(0,0,0,1) 59%);
-    background-attachment: fixed;
-
+    background: #1B1834;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -14,12 +12,166 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.app__wrapper--home::before{
+    width: 300px;
+    height: 300px;
+
+    right: -100px;
+    top: -100px;
+}
+
+.app__wrapper::before{
+    content: '';
+    width: 200px;
+    height: 200px;
+    display: block;
+
+    position: absolute;
+    right: -75px;
+    top: -75px;
+
+    z-index: 3;
+
+ 
+
+    background: url(../images/moon.png) center center/contain no-repeat;
 }
 
 .screen{
     display: flex;
     flex-direction: column;
+    background: url(../../bg-4.svg) 0 0/contain repeat;
+    background-position: var(--position);
+
+    transition: .1s linear;
+    position: relative;
+    z-index: 4;
     /* display: none; */
+}
+
+
+@keyframes screen {
+    0%{
+        background-position: 0 100vh;
+    }
+    25%{
+        background-position: 0 0;
+    }
+    50%{
+        background-position: 0 -100vh;
+    }
+    75%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 100vh;
+    }
+}
+.screen::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    z-index: 1;
+    -webkit-backdrop-filter: blur(var(--blur));
+    backdrop-filter: blur(var(--blur));
+}
+
+.screen.rocket-active .rocket__flame{
+    opacity: 1;
+    animation: flame 2s infinite;
+}
+
+.screen.rocket-active .rocket__item{
+    animation: none;
+    transform: translateY(-15px);
+}
+
+.screen__wrapper{
+    position: relative;
+    z-index: 2;
+}
+
+.rocket__content{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rocket__wrapper{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.rocket__item{
+    height: 100%;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: rocket 5s linear infinite;
+}
+
+.rocket__img{
+    position: relative;
+    z-index: 2;
+}
+
+.rocket__flame{
+    position: absolute;
+    bottom: -25px;
+    left: calc(50% - 135px);
+    width: 40%;
+    height: 30%;
+    object-fit: contain;
+
+    z-index: 1;
+
+    opacity: 0;
+
+    transition: .3s opacity;
+}
+
+@keyframes rocket {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes flame {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: .8;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.screen.rocket{
+    height: 100vh;
 }
 
 .screen.active{
@@ -189,10 +341,36 @@
     color: #fff;
 }
 
+.block__text{
+    font-size: 12px;
+    font-weight: 400;
+    color: #fff;
+
+    letter-spacing: 1.1px;
+}
+
+.block__text--uppercase{
+    text-transform: uppercase;
+}
+
+.block__text--center{
+    text-align: center;
+}
+
 .block__content{
     background: rgba(256,256,256,.15);
     border-radius: 16px;
     padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.block__grid{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 16px;
 }
 
 .block__row{
@@ -238,6 +416,11 @@
     gap: 8px;
 }
 
+.link--column{
+    flex-direction: column;
+    text-align: center;
+}
+
 .link__icon{
     width: 48px;
     height: 48px;
@@ -258,10 +441,26 @@
     font-weight: 500;
 }
 
+.link__title--big{
+    font-size: 18px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
 .link__text{
     font-size: 12px;
     font-weight: 500;
     color: #fff;
+}
+
+.link__text--big{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.link__text--accent{
+    color: #bc2621;
 }
 
 .link__text span{
