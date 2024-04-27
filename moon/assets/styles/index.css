@@ -44,14 +44,32 @@
 .screen{
     display: flex;
     flex-direction: column;
-    background: url(../../bg-4.svg) 0 0/contain repeat;
-    background-position: var(--position);
+    /* background: url(../images/bg-5.png) 0 0/contain repeat; */
+    /* background-position: var(--position); */
 
     transition: .1s linear;
     position: relative;
     z-index: 4;
     /* display: none; */
+}
 
+.screen__bg{
+    position: absolute;
+    left: -25%;
+    top: -25%;
+    width: 150%;
+    height: 150%;
+
+        background: url(../images/bg-5.png) 0 0/contain repeat;
+    background-position: var(--position);
+    z-index: 1;
+
+    -webkit-filter: blur(var(--blur));
+    filter: blur(var(--blur));
+
+    transition: .1s linear;
+
+    transform: rotate(22deg);
 }
 
 
@@ -81,18 +99,27 @@
     height: 100%;
     display: block;
 
-    z-index: 1;
+    z-index: 2;
     -webkit-backdrop-filter: blur(var(--blur));
     backdrop-filter: blur(var(--blur));
 }
 
-.screen.stage-2 .rocket-flame__item:nth-child(2){
+.screen[data-stage="2"] .rocket-flame__item:nth-child(2){
     opacity: 1;
 }
 
-.screen.stage-3 .rocket-flame__item:nth-child(3){
+.screen[data-stage="3"] .rocket-flame__item:nth-child(3){
     opacity: 1;
 }
+
+.screen[data-stage="2"] .rocket-flame__item:nth-child(1){
+    opacity: 0;
+}
+
+.screen[data-stage="3"] .rocket-flame__item:nth-child(1){
+    opacity: 0;
+}
+
 
 .screen.rocket-active .rocket__flame{
     opacity: 1;
@@ -145,8 +172,8 @@
 
 .rocket-flame{
     position: absolute;
-    bottom: -25px;
-    left: 2%;
+    bottom: -10px;
+    left: 17%;
     width: 40%;
     height: 30%;
     object-fit: contain;

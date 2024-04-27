@@ -21,6 +21,7 @@
 	<div class="app">
 		<div class="app__wrapper app__wrapper--home">
 			<div class="app__item screen rocket">
+				<div class="screen__bg"></div>
 				<div class="screen__wrapper">
 					<div class="screen__header">
 						<a href="#" class="button button--base">Join clan</a>
@@ -46,7 +47,7 @@
 								<!-- <img src="assets/images/flame.png" alt="" class="rocket__flame"> -->
 								<div class="rocket__flame rocket-flame">
 									<div class="rocket-flame__item">
-									<img src="assets/images/flame-1.png" alt="">
+									<img src="assets/images/flame-1-new.png" alt="">
 
 									</div>
 									<div class="rocket-flame__item">
@@ -107,35 +108,42 @@
 
 
 	<script>
-		const screen = document.querySelector('.screen');
-		let yPos = 25;
-		let x = 1;
-		let intervalId;
-		let timeoutId;
+	const screen = document.querySelector('.screen');
+let yPos = 25;
+let x = 1;
+let intervalId;
+let timeoutId;
 
-		function changeBackgroundPosition() {
-			screen.style.setProperty('--position',`0 ${yPos}px`);
-			screen.classList.add('rocket-active');
-			screen.style.setProperty('blur',`${1 * x}px`);
-			screen.classList.add(`stage-${x}`)
-			yPos += 15 * x; // Change this value to adjust the speed of the movement
-		}
+function changeBackgroundPosition() {
+    screen.style.setProperty('--position', `0 ${yPos}px`);
+    screen.classList.add('rocket-active');
+    // screen.style.setProperty('--blur', `${.2 * x}px`);
+    // screen.classList.add(`stage-${x}`);
+	screen.dataset.stage = x;
+    yPos += 15 * x; // Change this value to adjust the speed of the movement
+}
 
-		function startBackgroundAnimation() {
-			intervalId = setInterval(changeBackgroundPosition, 100); // Change every 100 milliseconds
-		}
+function startBackgroundAnimation() {
+    intervalId = setInterval(changeBackgroundPosition, 100); // Change every 100 milliseconds
+}
 
-		const rocket = document.querySelector('.rocket__wrapper')
+const rocket = document.querySelector('.rocket__wrapper')
+startBackgroundAnimation();
 
-		startBackgroundAnimation();
-		rocket.addEventListener('click', function () {
-			if (x <= 3) {
-				clearTimeout(timeoutId); // Clear previous timeout
-				clearInterval(intervalId); // Clear previous interval
-				startBackgroundAnimation();
-				x++;
-			}
-		});
+rocket.addEventListener('click', function () {
+    if (x <= 3) {
+        clearTimeout(timeoutId); // Clear previous timeout
+        clearInterval(intervalId); // Clear previous interval
+        startBackgroundAnimation();
+        x++;
+        timeoutId = setTimeout(() => {
+            clearInterval(intervalId); // Reset speed back to normal after 1 second
+            x = 1; // Reset speed multiplier
+			screen.dataset.stage = x;
+            startBackgroundAnimation();
+        }, 1000); // 1 second timeout
+    }
+});
 	</script>
 
 </body>
