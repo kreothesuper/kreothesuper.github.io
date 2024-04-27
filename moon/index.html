@@ -110,17 +110,20 @@
 	<script>
 	const screen = document.querySelector('.screen');
 let yPos = 25;
+let yPosBefore = 25;
 let x = 1;
 let intervalId;
 let timeoutId;
 
 function changeBackgroundPosition() {
     screen.style.setProperty('--position', `0 ${yPos}px`);
+	screen.style.setProperty('--position-before', `0 ${yPos - 1}px`);
     screen.classList.add('rocket-active');
     // screen.style.setProperty('--blur', `${.2 * x}px`);
     // screen.classList.add(`stage-${x}`);
 	screen.dataset.stage = x;
     yPos += 15 * x; // Change this value to adjust the speed of the movement
+	// yPosBefore += 14.8 * x; 
 }
 
 function startBackgroundAnimation() {

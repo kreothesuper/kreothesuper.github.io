@@ -16,13 +16,7 @@
     overflow: hidden;
 }
 
-.app__wrapper--home::before{
-    width: 300px;
-    height: 300px;
 
-    right: -100px;
-    top: -100px;
-}
 
 .app__wrapper::before{
     content: '';
@@ -39,6 +33,14 @@
  
 
     background: url(../images/moon.png) center center/contain no-repeat;
+}
+
+.app__wrapper--home::before{
+    width: 400px;
+    height:400px;
+
+    right: -150px;
+    top: -150px;
 }
 
 .screen{
@@ -60,7 +62,7 @@
     width: 150%;
     height: 150%;
 
-        background: url(../images/bg-5.png) 0 0/contain repeat;
+    background: url(../images/bg-5.png) 0 0/contain repeat;
     background-position: var(--position);
     z-index: 1;
 
@@ -93,17 +95,30 @@
 .screen::before{
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
+    left: -25%;
+    top: -25%;
+    width: 150%;
+    height: 150%;
 
+    background: url(../images/bg-5.png) 0 0/contain repeat;
+    background-position: var(--position-before);
     z-index: 2;
-    -webkit-backdrop-filter: blur(var(--blur));
-    backdrop-filter: blur(var(--blur));
+
+    -webkit-filter: blur(.4px);
+
+    transition: .1s linear, .3s opacitty;
+
+
+    transform: rotate(22deg);
 }
 
+.screen[data-stage="2"]::before,.screen[data-stage="3"]::before{
+    opacity: 1;
+}
+
+.screen[data-stage="3"] .rocket-flame__item:nth-child(3){
+    opacity: 1;
+}
 .screen[data-stage="2"] .rocket-flame__item:nth-child(2){
     opacity: 1;
 }
@@ -145,10 +160,10 @@
 
 .rocket__wrapper{
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    left:25%;
+    top: 25%;
+    width: 50%;
+    height: 50%;
 }
 
 .rocket__item{
