@@ -65,23 +65,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         });
     }
 
-    const pageNav = document.querySelector('.page-nav');
-
-    if(pageNav){
-        const pageNavLink = pageNav.querySelectorAll('.page-nav__item');
-
-        if(pageNavLink.length){
-            pageNavLink.forEach(link=>{
-                if(!link.classList.contains('active')) return
-                link.addEventListener('click',(e)=>{
-                    e.preventDefault();
-
-                    pageNav.classList.toggle('active');
-                });
-            });
-        }
-    }
-
     const cardArray = document.querySelectorAll('.card-item');
 
     if(cardArray.length){
@@ -139,39 +122,44 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
 
 
-    const partnersSlider = new Swiper('.partners-slider', {
-        loop: true,
-        slidesPerView:3,
-        spaceBetween:30,
-        grid:{
-            rows:2,
-            fill:'rows',
-        },
-        breakpoints:{
-            768:{
-                grid:{
-                    rows: 1
-                },
-                slidesPerView: 'auto',
-            }
-        },
-        pagination: {
-            el: '.partners-slider-pagination',
-            bulletClass: 'slider-pagination__bullet',
-            bulletActiveClass: 'slider-pagination__bullet--active',
-        },
+    const swiperArray = document.querySelectorAll('.swiper');
 
-        navigation: {
-            nextEl: '.partners-slider-button-next',
-            prevEl: '.partners-slider-button-prev',
-        },
-    });
+    if(swiperArray.length){
+        const partnersSlider = new Swiper('.partners-slider', {
+            loop: true,
+            slidesPerView:3,
+            spaceBetween:30,
+            grid:{
+                rows:2,
+                fill:'rows',
+            },
+            breakpoints:{
+                768:{
+                    grid:{
+                        rows: 1
+                    },
+                    slidesPerView: 'auto',
+                }
+            },
+            pagination: {
+                el: '.partners-slider-pagination',
+                bulletClass: 'slider-pagination__bullet',
+                bulletActiveClass: 'slider-pagination__bullet--active',
+            },
+
+            navigation: {
+                nextEl: '.partners-slider-button-next',
+                prevEl: '.partners-slider-button-prev',
+            },
+        });
+    }
 
     const popupButtons = document.querySelectorAll('[data-popup]');
     const popups = document.querySelectorAll('.popup');
 
     if (popups.length) {
         popupButtons.forEach(button => {
+            console.log(popupButtons)
             button.addEventListener('click', (e) => {
                 e.preventDefault();
 
@@ -180,4 +168,50 @@ document.addEventListener('DOMContentLoaded',()=>{
             });
         });
     }
+
+    const formArray = document.querySelectorAll('.form');
+
+    if(formArray.length){
+        formArray.forEach(form=>{
+            const formSubmit = form.querySelector('[type="submit"]');
+            const formRequiredInput = form.querySelectorAll('[required]')
+            if(formRequiredInput.length){
+                formSubmit.addEventListener('click',()=>{
+                    const errorInputArray = [];
+
+                    const formError = document.createElement('div');
+                    formError.classList.add('form-error');
+                    formSubmit.after(formError);
+
+                    formRequiredInput.forEach(input=>{
+                        const inputBlock = input.closest('.input');
+                        if(inputBlock.dataset.error){
+                            !input.checkValidity() ? errorInputArray.push(inputBlock.dataset.error) : null;
+                        }
+                    });
+                    formError.innerHTML = '';
+                    errorInputArray.forEach(error=>{
+                        const errorText = document.createElement('span');
+                        errorText.textContent = error;
+                        formError.append(errorText)
+                    });
+                });
+            }
+        });
+    }
+
+    // const anchorArray = document.querySelectorAll('a[href*="#"]');
+
+    // if(anchorArray.length){
+    //     anchorArray.forEach(link=>{
+    //         if(!link.hash > 0) return;
+    //         const linkBlock = document.querySelector(`#${link.hash}`);
+    //         if(!linkBlock) return;
+    //         link.addEventListener('click',(e)=>{
+    //             e.preventDefault();
+
+    //             linkBlock.scrollIntoView({behavior: "smooth"})
+    //         });
+    //     });
+    // }
 })
