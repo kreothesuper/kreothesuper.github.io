@@ -89,4 +89,21 @@ document.addEventListener('DOMContentLoaded',()=>{
             }
         });
     }
+
+    const teamSlider = document.querySelector('.team-slider');
+
+    if(teamSlider){
+        let marqueeLeft = new Swiper('.team-slider', {
+            slidesPerView:1,
+            spaceBetween:20,
+            pagination: {
+                el: ".swiper-pagination",
+              },
+            breakpoints:{
+                768:{
+                    slidesPerView:3,
+                }
+            }
+        });
+    }
 });
