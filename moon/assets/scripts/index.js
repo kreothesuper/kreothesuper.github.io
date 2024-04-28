@@ -26,7 +26,7 @@ class RocketCount {
             this.changeScore();
         }, 500);
 
-        if(this.level >= this.maxLevel){
+        if(this.taps >= (this.maxLevel * this.pointToNextLevel) - 1){
             this.taps = 0;
             this.level = 1;
         }else{
