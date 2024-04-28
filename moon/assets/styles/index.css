@@ -1,10 +1,16 @@
 
 
+html{
+    touch-action: manipulation;
+}
 .app{
     width: 100%;
     height: 100%;
     background: #1B1834;
     font-family: 'Montserrat', sans-serif;
+
+    --duration:5s;
+
 }
 
 .app__wrapper{
@@ -53,43 +59,23 @@
     position: relative;
     z-index: 4;
     /* display: none; */
+
 }
 
-.screen__bg{
-    position: absolute;
-    left: -25%;
-    top: -25%;
-    width: 150%;
-    height: 150%;
 
-    background: url(../images/bg-5.png) 0 0/contain repeat;
-    background-position: var(--position);
-    z-index: 1;
 
-    -webkit-filter: blur(var(--blur));
-    filter: blur(var(--blur));
-
-    transition: .1s linear;
-
-    transform: rotate(22deg);
-}
 
 
 @keyframes screen {
     0%{
-        background-position: 0 100vh;
+        transform: translateY(0);
     }
-    25%{
+    /* 50%{
         background-position: 0 0;
-    }
-    50%{
-        background-position: 0 -100vh;
-    }
-    75%{
-        background-position: 0 0;
-    }
+    } */
+   
     100%{
-        background-position: 0 100vh;
+        transform: translateY(400vh);
     }
 }
 .screen::before{
@@ -100,8 +86,7 @@
     width: 150%;
     height: 150%;
 
-    background: url(../images/bg-5.png) 0 0/contain repeat;
-    background-position: var(--position-before);
+    /* background: url(../images/bg-5.png) 0 0/contain repeat; */
     z-index: 2;
 
     -webkit-filter: blur(.4px);
@@ -178,6 +163,12 @@
     margin: 0 auto;
 
     animation: rocket 5s linear infinite;
+
+    transition: .3s transform;
+}
+
+.rocket__item:hover{
+    transform: scale(.8);
 }
 
 .rocket__img{
@@ -614,4 +605,6 @@
     background-color: rgba(197,41,39,1);
 
 }
+
+
 

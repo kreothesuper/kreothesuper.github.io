@@ -8,6 +8,7 @@
 
 	<link rel="stylesheet" href="assets/styles/reset.css">
 	<link rel="stylesheet" href="assets/styles/index.css">
+	<link rel="stylesheet" href="assets/styles/css/index.css">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +20,13 @@
 <body>
 
 	<div class="app">
+		<div id="stars"></div>
+
+		<div id="stars2"></div>
+		<div id="stars3"></div>
 		<div class="app__wrapper app__wrapper--home">
 			<div class="app__item screen rocket">
+				
 				<div class="screen__bg"></div>
 				<div class="screen__wrapper">
 					<div class="screen__header">
@@ -28,14 +34,12 @@
 						<div class="score">
 							<div class="score__wrapper">
 								<div class="score__count">
-									<span>
+									<span class="rocket-point-count">
 										30 000
 									</span>
 								</div>
 								<div class="score__level" style="--score-color:#FFA000">
-									<span>
-										level 1
-									</span>
+										level <span class="rocket-level-number">1</span>
 								</div>
 							</div>
 						</div>
@@ -108,7 +112,7 @@
 
 
 	<script>
-	const screen = document.querySelector('.screen');
+	const screen = document.querySelector('.app');
 let yPos = 25;
 let yPosBefore = 25;
 let x = 1;
@@ -133,22 +137,48 @@ function startBackgroundAnimation() {
 const rocket = document.querySelector('.rocket__wrapper')
 startBackgroundAnimation();
 
+// rocket.addEventListener('click', function () {
+//     if (x <= 3) {
+//         clearTimeout(timeoutId); // Clear previous timeout
+//         clearInterval(intervalId); // Clear previous interval
+//         startBackgroundAnimation();
+//         x++;
+//         timeoutId = setTimeout(() => {
+//             clearInterval(intervalId); // Reset speed back to normal after 1 second
+//             x = 1; // Reset speed multiplier
+// 			screen.dataset.stage = x;
+//             startBackgroundAnimation();
+//         }, 1000); // 1 second timeout
+//     }
+// });
+
 rocket.addEventListener('click', function () {
-    if (x <= 3) {
-        clearTimeout(timeoutId); // Clear previous timeout
-        clearInterval(intervalId); // Clear previous interval
-        startBackgroundAnimation();
-        x++;
-        timeoutId = setTimeout(() => {
-            clearInterval(intervalId); // Reset speed back to normal after 1 second
-            x = 1; // Reset speed multiplier
-			screen.dataset.stage = x;
-            startBackgroundAnimation();
-        }, 1000); // 1 second timeout
-    }
+	screen.style.setProperty('--duration','4s')
 });
+
+
+
+// let taps = 0;
+// let timeout;
+
+// function handleTap() {
+//   taps++;
+//   clearTimeout(timeout);
+
+//   timeout = setTimeout(() => {
+//     console.log("Counter reset");
+//     taps = 0;
+//   }, 500);
+
+//   console.log("Taps: " + taps);
+// }
+
+// document.addEventListener('click',()=>{
+// 	handleTap();
+// });
 	</script>
 
+<script src="assets/scripts/index.js"></script>
 </body>
 
 </html>
