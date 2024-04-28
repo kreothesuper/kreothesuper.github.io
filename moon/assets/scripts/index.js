@@ -36,7 +36,7 @@ class RocketCount {
         this.timeout = setTimeout(() => {
             this.taps = 0;
             this.level = 1;
-
+            this.rocketElement.dataset.level = this.level;
             this.changeScore();
         }, 500);
 
