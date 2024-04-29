@@ -24,7 +24,7 @@ class RocketCount {
         this.interpolationFactor = 0.1;
         this.startSpeed = .5;
         this.speed = .5;
-        this.direction = 1; // -1 (to-left), 1 (to-right) 
+        this.direction = -1; // -1 (to-left), 1 (to-right) 
         this.el = document.querySelector('.app-bg');
         this.el.children[1].style.cssText = `position: absolute; top: ${100 * -this.direction}%;`;
         this.render();
