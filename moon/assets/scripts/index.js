@@ -18,14 +18,15 @@ class RocketCount {
         this.rocketLevel = this.rocketElement.querySelector('.rocket-level-number');
         this.rocketPoint = this.rocketElement.querySelector('.rocket-point-count');
 
-        this.el = document.querySelector('.app-bg');
-        // this.el.children[1].style.cssText = `position: absolute; left: ${100 * -this.direction}%;`;
+
 
         this.lerp = { current: 0, target: 0 };
         this.interpolationFactor = 0.1;
         this.startSpeed = .5;
         this.speed = .5;
-        this.direction = -1; // -1 (to-left), 1 (to-right) 
+        this.direction = 1; // -1 (to-left), 1 (to-right) 
+        this.el = document.querySelector('.app-bg');
+        this.el.children[1].style.cssText = `position: absolute; top: ${100 * -this.direction}%;`;
         this.render();
     }
 
@@ -39,8 +40,6 @@ class RocketCount {
             this.rocketElement.dataset.level = this.level;
             this.changeScore();
         }, 500);
-
-        console.log(this.taps, this.maxLevel * this.pointToNextLevel)
 
         if (this.taps >= (this.maxLevel * this.pointToNextLevel) - 1) {
             this.taps = 0;
@@ -63,6 +62,7 @@ class RocketCount {
     animate() {
         if(this.taps === 0){
             this.speed = 0;
+            this.rocketElement.dataset.level = '0';
         }else{
             this.speed = this.startSpeed * this.level;
         }
