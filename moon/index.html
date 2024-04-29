@@ -23,10 +23,6 @@
 <body>
 
 	<div class="app">
-		<div id="stars"></div>
-
-		<div id="stars2"></div>
-		<div id="stars3"></div>
 		<div class="app__wrapper app__wrapper--home">
 			<div class="app__item screen rocket">
 				<div class="app-bg">
@@ -39,25 +35,36 @@
 
 				</div>
 				<div class="screen__wrapper">
-					<div class="screen__header">
-						<a href="#" class="button button--base">Join clan</a>
+					<div class="screen__header screen__header--home">
+						<div class="screen__buttons">
+							<a href="#" class="button button--base popup-button">
+								PVP
+								<svg class="button__icon">
+									<use xlink:href="assets/images/sprite.svg#swords"></use>
+								</svg>
+							</a>
+							<a href="#" class="button button--base popup-button">
+								Wheel
+							</a>
+						</div>
 						<div class="score">
 							<div class="score__wrapper">
-								<div class="score__count">
+								<div class="score__count score__count--left">
 									<span class="rocket-point-count">
-										30 000
+										0
 									</span>
+									<div class="score__level score__level--left" style="--score-color:#FFA000">
+										level <span class="rocket-level-number">1</span>
+									</div>
 								</div>
-								<div class="score__level" style="--score-color:#FFA000">
-									level <span class="rocket-level-number">1</span>
-								</div>
+								
 							</div>
 						</div>
 					</div>
 					<div class="screen__content rocket__content">
 						<div class="rocket__wrapper">
 							<div class="rocket__item">
-								<svg class="rocket__img" width="234" height="479" viewBox="0 0 234 479" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<svg class="rocket__img rocket-img" width="234" height="479" viewBox="0 0 234 479" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<g clip-path="url(#clip0_11_2)">
 									<g class="flame flame-4" opacity="0.2" filter="url(#filter0_f_11_2)">
 									<path class="flame flame-3" d="M25.8515 455.375C24.7282 455.375 21.1567 459 20 459C20 452.992 21.4205 438.639 21.4205 438.639C21.8448 435.887 21.9681 433.082 22.4922 430.352C23.8796 423.125 25.2517 415.888 26.936 408.727C29.3225 398.58 31.9472 388.488 34.5386 378.391C36.6009 370.355 38.7085 362.329 40.8988 354.327C43.9875 343.044 46.9666 331.724 50.3641 320.532C54.98 305.327 59.7032 290.145 64.8555 275.116C67.9026 266.228 71.5408 257.502 75.5232 248.989C78.5693 242.477 82.1186 236.092 86.2704 230.237C90.85 223.778 96.3851 217.999 101.461 211.888C101.866 211.4 101.938 210.636 102.164 210C107.846 210 113.529 210 119.272 210.143C120.975 210.712 122.626 211.101 124.254 211.57C130.461 213.354 136.745 214.917 142.839 217.028C150.393 219.645 156.74 223.932 159.995 231.715C160.123 232.02 160.65 232.156 160.992 232.371C160.992 239.514 160.992 246.657 160.825 253.895C160.447 254.394 161.079 253.801 160.992 254.23C159.084 263.609 154.939 273.537 150.12 281.768C142.079 295.506 133.85 309.14 125.383 322.619C118.68 333.29 111.632 343.753 104.495 354.141C98.3814 363.04 92.0275 371.78 85.5888 380.448C78.8079 389.577 71.8465 398.573 64.8787 407.561C58.3931 415.927 51.9083 424.299 45.2138 432.497C38.8958 440.234 32.2896 447.735 25.8515 455.375C26.6619 454.161 24.9172 456.483 25.8515 455.375Z" fill="url(#paint0_linear_11_2)"/>
@@ -200,14 +207,7 @@
 					<div class="screen__footer">
 						<nav class="nav">
 							<ul class="nav__list">
-								<li class="nav__item">
-									<a href="#" class="nav-link">
-										<svg class="nav-link__icon">
-											<use xlink:href="assets/images/sprite.svg#gem"></use>
-										</svg>
-										<span class="nav-link__text">Game X2</span>
-									</a>
-								</li>
+								
 								<li class="nav__item">
 									<a href="friends.html" class="nav-link">
 										<svg class="nav-link__icon">
@@ -241,6 +241,17 @@
 		</div>
 	</div>
 
+	<div class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__container">
+				<div class="popup__content">
+					<p class="popup__title">
+						Coming Soon
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<script>
 		// 	const screen = document.querySelector('.app');

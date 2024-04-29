@@ -15,6 +15,7 @@ class RocketCount {
         this.sliderStartSpeed = 5000;
 
         this.rocketElement = document.querySelector('.rocket');
+        this.rocketImg = this.rocketElement.querySelector('.rocket-img');
         this.rocketLevel = this.rocketElement.querySelector('.rocket-level-number');
         this.rocketPoint = this.rocketElement.querySelector('.rocket-point-count');
 
@@ -84,11 +85,10 @@ class RocketCount {
     }
 
     init() {
-        document.addEventListener('click', () => {
+        this.rocketImg.addEventListener('click', () => {
             this.handleTap();
         });
-
-
+        this.changeScore();
 
         // this.slider.params.speed = 0;
     }
@@ -98,6 +98,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const rocketGame = new RocketCount;
 
     rocketGame.init();
+
+
+    const popupButtons = document.querySelectorAll('.popup-button'),
+    popup = document.querySelector('.popup');
+
+    if(popupButtons && popup){
+        popupButtons.forEach(button=>{
+            button.addEventListener('click',(e)=>{
+                e.preventDefault();
+
+                popup.classList.add('active');
+
+                setTimeout(()=>{
+                    popup.classList.remove('active');
+                },1000)
+            });
+        });
+    }
 });
 
 

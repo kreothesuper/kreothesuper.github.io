@@ -59,9 +59,14 @@ html{
     position: relative;
     z-index: 4;
     /* display: none; */
-
 }
 
+
+.screen__buttons{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 16px;
+}
 
 
 
@@ -220,6 +225,10 @@ html{
     gap: 8px;
 }
 
+.screen__header--home{
+    width: 210px;
+}
+
 .screen__icon{
     width: 64px;
     height: 64px;
@@ -306,7 +315,7 @@ html{
 .score__wrapper{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 16px;
 
@@ -317,6 +326,12 @@ html{
     color: #fff;
     font-size: 56px;
     font-weight: 700;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    width: 100%;
 }
 
 .score__level{
@@ -532,19 +547,24 @@ html{
     align-items: center;
     justify-content: center;
     text-align: center;
+    gap: 12px;
 
     color: #fff;
+    fill: #fff;
     font-weight: 500;
 
     background: rgba(256,256,256,.1);
 }
 
+
 .button--accent{
     background-color: rgba(197,41,39,1);
-
 }
 
-
+.button__icon{
+    width: 16px;
+    height: 16px;
+}
 
 
 
