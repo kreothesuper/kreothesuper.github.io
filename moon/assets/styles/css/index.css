@@ -1,5 +1,8 @@
 .app {
   position: relative;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
 }
 .app-bg {
   position: absolute;
@@ -9,6 +12,14 @@
   height: 100%;
   display: flex;
   flex-direction: column-reverse;
+}
+.app-bg-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(22deg);
 }
 .app-bg__item {
   width: 100%;
