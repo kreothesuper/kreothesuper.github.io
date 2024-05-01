@@ -860,6 +860,9 @@ body {
 
 .plans {
     &-item {
+        &:hover &__img{
+            transform: scale(1.1);
+        }
         &__wrapper {
             padding: 25px 25px 40px 25px;
             border: solid 1px #ececec;
@@ -882,6 +885,9 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
+
+            transition: .3s transform;
+
             &--big{
                 height: 350px;
             }
@@ -1452,10 +1458,15 @@ body {
 
             transition: .3s border-color;
         }
+        &:hover &__img{
+            transform: scale(1.1);
+        }
         &__img{
             width: 100px;
             height: 100px;
             object-fit: contain;
+
+            transition: .3s transform;
         }
         &__input{
             display: none;
