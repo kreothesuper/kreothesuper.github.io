@@ -88,6 +88,22 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 
+  var plansSlider = new Swiper(".plans-slider", {
+    slidesPerView: 1,
+    pagination: {
+      el: '.swiper-pagination'
+    },
+    navigation: {
+      nextEl: '.plans-slider-button-next',
+      prevEl: '.plans-slider-button-prev',
+    },
+    effect: 'fade',
+    speed: 500,
+    fadeEffect: {
+      crossFade: true
+    },
+  });
+
   var objectSlider = new Swiper(".place-slider", {
     spaceBetween: 10,
     slidesPerView: 2,
@@ -111,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   var featuresSlider = new Swiper(".features-slider", {
     slidesPerView: 1,
     effect: 'fade',
-    speed: 500,
+    speed: 700,
     fadeEffect: {
       crossFade: true
     },
