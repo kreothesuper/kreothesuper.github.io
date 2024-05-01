@@ -1,6 +1,7 @@
 :root {
   --color-accent: #44A1F8;
   --color-black: #000;
+  --color-black-dark: #353535;
   --color-grey: #5B5959;
   --color-red: #EC3323;
   --color-black-deep: #3D4459;
@@ -153,6 +154,9 @@ body {
 .text--black--deep {
   color: var(--color-black-deep);
 }
+.text--black--dark {
+  color: var(--color-black-dark);
+}
 .text--black--light {
   color: #353535;
 }
@@ -251,6 +255,11 @@ body {
 @media screen and (min-width: 992px) {
   .button--mobile {
     display: none;
+  }
+}
+@media screen and (max-width: 991px) {
+  .button--mobile--center {
+    margin: 0 auto;
   }
 }
 .button--center {
@@ -393,7 +402,7 @@ body {
     background-color: var(--color-accent);
     transition: 0.3s width;
   }
-  .nav-item:hover::before {
+  .nav-item:hover::before, .nav-item.active::before {
     width: 100%;
   }
 }
@@ -631,6 +640,8 @@ body {
   background: #fff;
   border-radius: 24px;
   padding: 32px 40px;
+  display: block;
+  position: relative;
 }
 @media screen and (max-width: 640px) {
   .card__wrapper {
@@ -649,6 +660,7 @@ body {
 }
 .card__wrapper--vacancy {
   padding: 20px 25px;
+  box-shadow: none;
 }
 .card__wrapper--grey {
   background: #F7F7F7;
@@ -656,6 +668,13 @@ body {
 .card__wrapper--center {
   display: flex;
   align-items: center;
+}
+.card__link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 .card__row {
   display: flex;
@@ -792,7 +811,7 @@ body {
   padding: 75px 0;
   background: url("../../images/count-bg.svg") center center/cover no-repeat;
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 520px) {
   .section__wrapper--count {
     background-image: url("../../images/count-bg-m.svg");
   }
@@ -1868,8 +1887,19 @@ body {
   gap: 10px;
 }
 @media screen and (max-width: 640px) {
+  .vacancy__wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+.vacancy__title {
+  max-width: 200px;
+  width: 100%;
+}
+@media screen and (max-width: 640px) {
   .vacancy__title {
-    display: none;
+    max-width: 100%;
   }
 }
 .vacancy__grid {
@@ -1890,7 +1920,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 100px 60px;
+  gap: 50px 10px;
 }
 @media screen and (max-width: 640px) {
   .clients__grid {
@@ -1901,13 +1931,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
+  height: 120px;
   max-width: 280px;
   width: 100%;
+  padding: 25px;
+  box-shadow: 0px 0px 25px 0px transparent;
+  transition: 0.3s box-shadow;
+}
+.clients-item:hover {
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.16);
 }
 @media screen and (max-width: 640px) {
   .clients-item {
-    height: 40px;
+    height: 100px;
+    padding: 15px;
     width: calc(50% - 20px);
     max-width: unset;
   }
@@ -1942,7 +1979,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 30px;
 }
 @media screen and (max-width: 640px) {
@@ -1983,7 +2020,7 @@ body {
     display: none;
   }
 }
-.word__decor path {
+.word.animated path {
   animation: elementor-headline-dash forwards;
   animation-duration: var(--animation-duration, 1.2s);
   animation-iteration-count: 1;
@@ -2008,7 +2045,7 @@ body {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 40px;
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 991px) {
   .count__grid {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -2030,6 +2067,11 @@ body {
   line-height: 1.2;
   font-weight: 600;
   color: #fff;
+}
+@media screen and (max-width: 420px) {
+  .count__number {
+    font-size: 50px;
+  }
 }
 .count__text {
   font-size: 24px;
@@ -2096,4 +2138,19 @@ body {
     width: 56px;
     height: 56px;
   }
+}
+
+.vacancy-card {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 24px;
+  transition: 0.3s box-shadow;
+}
+.vacancy-card:hover {
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.15);
+}
+.vacancy-card__text {
+  transition: 0.3s color;
+}
+.vacancy-card:hover .vacancy-card__text {
+  color: rgb(0, 162, 255);
 }/*# sourceMappingURL=index.css.map */

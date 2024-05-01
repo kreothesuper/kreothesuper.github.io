@@ -1,6 +1,7 @@
 :root {
   --color-accent: #44A1F8;
   --color-black: #000;
+  --color-black-dark: #353535;
   --color-grey: #5B5959;
   --color-red: #EC3323;
   --color-black-deep: #3D4459;
@@ -162,7 +163,7 @@ body {
     line-height: 24px;
   }
 
-  &--semibold{
+  &--semibold {
     font-weight: 600;
   }
 
@@ -179,6 +180,10 @@ body {
 
     &--deep {
       color: var(--color-black-deep);
+    }
+
+    &--dark {
+      color: var(--color-black-dark);
     }
 
     &--light {
@@ -275,7 +280,8 @@ body {
 
   &--full {
     width: 100%;
-    &--mobile{
+
+    &--mobile {
       @media screen and (max-width:640px) {
         width: 100%;
       }
@@ -296,6 +302,12 @@ body {
   &--mobile {
     @media screen and (min-width: 992px) {
       display: none;
+    }
+
+    &--center {
+      @media screen and (max-width:991px) {
+        margin: 0 auto;
+      }
     }
   }
 
@@ -465,7 +477,8 @@ body {
         transition: .3s width;
       }
 
-      &:hover::before {
+      &:hover::before,
+      &.active::before {
         width: 100%;
       }
     }
@@ -754,6 +767,9 @@ body {
     border-radius: 24px;
     padding: 32px 40px;
 
+    display: block;
+    position: relative;
+
     @media screen and (max-width: 640px) {
       padding: 24px 16px;
     }
@@ -770,6 +786,8 @@ body {
 
     &--vacancy {
       padding: 20px 25px;
+      box-shadow: none;
+
     }
 
     &--grey {
@@ -781,6 +799,15 @@ body {
       display: flex;
       align-items: center;
     }
+  }
+
+  &__link {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
   }
 
   &__row {
@@ -946,13 +973,16 @@ body {
 
   &__wrapper {
     padding: 60px 0;
-    &--count{
+
+    &--count {
       padding: 75px 0;
       background: url("../../images/count-bg.svg") center center/cover no-repeat;
-      @media screen and (max-width:640px) {
+
+      @media screen and (max-width:520px) {
         background-image: url("../../images/count-bg-m.svg");
       }
     }
+
     &--mission {
       position: relative;
       z-index: 2;
@@ -1031,20 +1061,21 @@ body {
     }
   }
 
-  &__img{
+  &__img {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    img{
+    img {
       width: 100%;
       height: 100%;
-    object-fit: contain;
+      object-fit: contain;
 
     }
-    &--desktop{
+
+    &--desktop {
       @media screen and (max-width:640px) {
         display: none;
       }
@@ -2250,11 +2281,20 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+
+    @media screen and (max-width:640px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
   }
 
   &__title {
+    max-width: 200px;
+    width: 100%;
+
     @media screen and (max-width:640px) {
-      display: none;
+      max-width: 100%;
     }
   }
 
@@ -2278,7 +2318,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 100px 60px;
+    gap: 50px 10px;
 
     @media screen and (max-width:640px) {
       gap: 24px 10px;
@@ -2290,12 +2330,22 @@ body {
     align-items: center;
     justify-content: center;
 
-    height: 80px;
+    height: 120px;
     max-width: 280px;
     width: 100%;
 
+    padding: 25px;
+    box-shadow: 0px 0px 25px 0px transparent;
+
+    transition: .3s box-shadow;
+
+    &:hover {
+      box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.16);
+    }
+
     @media screen and (max-width:640px) {
-      height: 40px;
+      height: 100px;
+      padding: 15px;
       width: calc(50% - 20px);
       max-width: unset;
     }
@@ -2330,7 +2380,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     gap: 30px;
 
@@ -2354,6 +2404,7 @@ body {
 .word {
   position: relative;
   display: inline-block;
+
   &__decor {
     position: absolute;
     top: 50%;
@@ -2369,9 +2420,13 @@ body {
     stroke-width: 10px;
 
     fill: transparent;
+
     @media screen and (max-width:640px) {
       display: none;
     }
+  }
+
+  &.animated {
     path {
       -webkit-animation: elementor-headline-dash forwards;
       animation: elementor-headline-dash forwards;
@@ -2395,35 +2450,43 @@ body {
   }
 }
 
-.count{
+.count {
   position: relative;
   z-index: 2;
-  &__grid{
+
+  &__grid {
     display: grid;
-    grid-template-columns: repeat(3,minmax(0,1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 40px;
-    @media screen and (max-width:640px) {
-      grid-template-columns: minmax(0,1fr);
+
+    @media screen and (max-width:991px) {
+      grid-template-columns: minmax(0, 1fr);
     }
   }
-  &-item{
+
+  &-item {
     display: flex;
     flex-direction: column;
     gap: 10px;
     text-align: center;
+
     @media screen and (max-width:640px) {
       text-align: left;
     }
   }
 
-  &__number{
+  &__number {
     font-family: 'Poppins', sans-serif;
     font-size: 60px;
     line-height: 1.2;
     font-weight: 600;
     color: #fff;
+    @media screen and (max-width:420px) {
+      font-size: 50px;
+    }
   }
-  &__text{
+
+  &__text {
     font-size: 24px;
     line-height: 32px;
     color: #fff;
@@ -2432,10 +2495,11 @@ body {
   }
 }
 
-.about-section{
+.about-section {
   position: relative;
   background-color: #F3F7FC;
-  &::before{
+
+  &::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -2447,34 +2511,40 @@ body {
 
     z-index: 1;
   }
-  &__content{
+
+  &__content {
     position: relative;
     z-index: 2;
   }
 }
 
-.about{
-  &-list{
+.about {
+  &-list {
     display: flex;
     flex-direction: column;
     gap: 35px;
+
     @media screen and (max-width:640px) {
       gap: 24px;
     }
-    &__item{
+
+    &__item {
       display: flex;
       align-items: center;
       gap: 35px;
+
       @media screen and (max-width:640px) {
         gap: 16px;
       }
     }
-    &__text{
+
+    &__text {
       @media screen and (max-width:640px) {
         font-size: 16px;
       }
     }
-    &__img{
+
+    &__img {
       width: 120px;
       height: 120px;
       object-fit: contain;
@@ -2486,5 +2556,24 @@ body {
         height: 56px;
       }
     }
+  }
+}
+
+.vacancy-card {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15);
+  border-radius: 24px;
+
+  transition: .3s box-shadow;
+
+  &:hover {
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .15);
+  }
+
+  &__text {
+    transition: .3s color;
+  }
+
+  &:hover &__text {
+    color: rgb(0, 162, 255);
   }
 }
