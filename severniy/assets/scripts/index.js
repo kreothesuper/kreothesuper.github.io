@@ -1,3 +1,29 @@
+const plansObject = [
+  {
+    id: 1,
+    title: '2-комнатная квартира',
+    text: 'Площадь 76,3 м2 | Этаж 7 <br> Сдача объекта 3 квартал 2026 года',
+    price: '12 700 000',
+  },
+  {
+    id: 2,
+    title: 'Студия',
+    text: 'Площадь 76,3 м2 | Этаж 7 <br> Сдача объекта 3 квартал 2026 года',
+    price: '12 750 000',
+  },
+  {
+    id: 3,
+    title: '2-комнатная квартира',
+    text: 'Площадь 76,3 м2 | Этаж 7 <br> Сдача объекта 3 квартал 2026 года',
+    price: '12 750 000',
+  },
+]
+
+
+const findObjectById = (id) =>{
+  return plansObject.find(obj => obj.id === id);
+}
+
 const initTabs = () => {
   const tabs = [...document.querySelectorAll(".tabs")];
   const tabsStartIndex = localStorage.getItem("tab-index") || 0;
@@ -57,12 +83,12 @@ const hideAllPopups = () => {
 
 const checkTargetOrKey = event => {
   if (
-      event.target.classList.contains('popup__wrapper') ||
-      event.key === 'Escape' ||
-      event.target.closest('.popup__close')
+    event.target.classList.contains('popup__wrapper') ||
+    event.key === 'Escape' ||
+    event.target.closest('.popup__close')
   ) {
-      event.preventDefault();
-      hideAllPopups();
+    event.preventDefault();
+    hideAllPopups();
   }
 };
 
@@ -192,5 +218,35 @@ document.addEventListener('DOMContentLoaded', () => {
         showPopup(`${button.dataset.popup}`);
       });
     });
+  }
+
+
+  const optionList = document.querySelector('.options__list'),
+    optionItem = document.querySelector('.options__item');
+
+  if (optionItem && optionList) {
+    const optionPrice = optionItem.querySelector('.js-options-price'),
+      optionTitle = optionItem.querySelector('.js-options-title'),
+      optionText = optionItem.querySelector('.js-options-text'),
+      optionImg = optionItem.querySelector('.js-options-img'); 
+    const changeOptions = (id) =>{
+      selectedImg = optionList.querySelector(`[value='${id}']`).closest('.options-radio').querySelector('.options-radio__img').src;
+      newOption = findObjectById(+id);
+      if(!newOption) return;
+      optionPrice.textContent = `${newOption.price} ₽`;
+      optionTitle.textContent = newOption.title;
+      optionText.innerHTML = newOption.text;
+      optionImg.src = selectedImg;
+
+    }
+    optionList.addEventListener('change', (e) => {
+      const selectedId = e.target.value;
+      changeOptions(selectedId);
+    });
+
+    const activeItem = optionList.querySelector(':checked') || optionList.querySelector('[value="1"]');
+
+    activeItem.checked = true;
+    changeOptions(activeItem.value);
   }
 });
