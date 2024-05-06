@@ -144,13 +144,15 @@ const closeAllSelect = (select) => {
 
 document.addEventListener('DOMContentLoaded',()=>{
     const burger = document.querySelector('.burger'),
-    header = document.querySelector('.header');
+    header = document.querySelector('.header'),
+    headerNav = document.querySelector('.header-nav');
 
     if(burger && header){
         burger.addEventListener('click',(e)=>{
             e.preventDefault();
 
             header.classList.toggle('header--active');
+            headerNav.classList.toggle('header-nav--active');
             burger.classList.toggle('burger--active');
         });
     }
