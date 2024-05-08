@@ -265,6 +265,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const popupId = button.dataset.popup
                 showPopup(popupId);
+
+                if(popupId === '.popup-image' && document.querySelector('.popup-image__item')){
+                    document.querySelector('.popup-image__item').src = button.dataset.popupSrc;
+                }
             });
         });
     }
