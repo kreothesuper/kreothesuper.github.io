@@ -903,6 +903,7 @@ body {
     font-size: 16px;
     line-height: 24px;
     color: #353535;
+    background-color: #fff;
 
     text-align: center;
     flex-shrink: 0;
@@ -2579,5 +2580,18 @@ body {
 
   &:hover &__text {
     color: rgb(0, 162, 255);
+  }
+}
+
+
+.card{
+  &-hover{
+    transition: .3s color, .3s background-color;
+    &:hover{
+      background-color: #E6F6FF;
+    }
+    &:hover &__title{
+      color: #00A2FF;
+    }
   }
 }
