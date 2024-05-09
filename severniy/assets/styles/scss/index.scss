@@ -146,6 +146,9 @@ body {
             background: var(--shine-effect);
             animation: shine 5s ease-in-out infinite;
         }
+        &:hover::before{
+            opacity: 0;
+        }
     }
 
     &--base {
@@ -168,6 +171,25 @@ body {
     &--red {
         background-color: #fb1727;
         color: #fff;
+
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+
+            background: #fff;
+            display: block;
+            opacity: 0;
+
+            transition: .3s opacity;
+        }
+        &:hover::after{
+            opacity: .2;
+        }
     }
 
     &--grey {
@@ -194,6 +216,24 @@ body {
     &--green {
         background-color: #01a523;
         color: #fff;
+
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+
+            background: #fff;
+            display: block;
+            opacity: 0;
+
+            transition: .3s opacity;
+        }
+        &:hover::after{
+            opacity: .2;
+        }
     }
 
     &--center {

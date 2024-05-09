@@ -110,6 +110,9 @@ body {
   background: var(--shine-effect);
   animation: shine 5s ease-in-out infinite;
 }
+.button--shine:hover::before {
+  opacity: 0;
+}
 .button--base {
   font-family: var(--title-font);
   height: 40px;
@@ -126,6 +129,22 @@ body {
 .button--red {
   background-color: #fb1727;
   color: #fff;
+  position: relative;
+}
+.button--red::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #fff;
+  display: block;
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+.button--red:hover::after {
+  opacity: 0.2;
 }
 .button--grey {
   background: #eeeeee;
@@ -143,6 +162,21 @@ body {
 .button--green {
   background-color: #01a523;
   color: #fff;
+}
+.button--green::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #fff;
+  display: block;
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+.button--green:hover::after {
+  opacity: 0.2;
 }
 .button--center {
   margin: 0 auto;
