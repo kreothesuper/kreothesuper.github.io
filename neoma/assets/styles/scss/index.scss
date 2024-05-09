@@ -960,7 +960,7 @@ body {
             gap: 70px;
 
             @media screen and (max-width:1240px) {
-                gap: 20px;
+                gap: 30px;
             }
 
             @media screen and (max-width:767px) {
@@ -1095,7 +1095,7 @@ body {
         }
 
         @media screen and (max-width:767px) {
-            gap: 20px;
+            gap: 30px;
         }
     }
 
@@ -2205,6 +2205,12 @@ body {
 
     @media screen and (max-width:767px) {
         gap: 15px;
+    }
+    &__title{
+        @media screen and (min-width:768px) {
+            max-width: 320px;
+            width: 100%;
+        }
     }
 
     &__img {
@@ -3923,13 +3929,10 @@ body {
         }
 
         &__grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            display: flex;
+            align-items: stretch;
             gap: 20px;
-
             @media screen and (max-width:991px) {
-                gap: 20px;
-                display: flex;
                 scroll-snap-type: x mandatory;
 
                 overflow-x: auto;
@@ -3950,11 +3953,11 @@ body {
         background: rgba(#111111, .8);
         border-radius: 8px;
 
+        flex: 33% 0 auto;
 
         @media screen and (max-width:991px) {
             background: transparent;
 
-            flex: 1 0 auto;
             width: 100%;
         }
 
@@ -4201,4 +4204,18 @@ body {
     &__icon{
 
     }
+}
+
+#phase-2{
+    order: 2;
+
+}
+
+#phase-3{
+    order: 3;
+  
+}
+
+.js-configure-list.hidden{
+    display: none;
 }

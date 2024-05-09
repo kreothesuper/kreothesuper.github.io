@@ -6,41 +6,36 @@ const stepObject = [
             {
                 id: 1,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '7%', '-', '-', '$105,00'],
-                    ['No time limit', '5', '$1.000,00', '$400,00', '$700,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$400,00', '$700,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '5 days', '10%($1.000,00)', '4%($400,00)', '7%($700,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($400,00)', '7%($700,00)', '80/20', 'Trailing', 'Refundable']
                 ]
             },
             {
                 id: 2,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '7%', '-', '-', '$245,00'],
-                    ['No time limit', '5', '$2.500,00', '$1.000,00', '$1.750,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$1.000,00', '$1.750,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '5 days', '10%($2.500,00)', '4%($1.000,00)', '7%($1.750,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($1.000,00)', '7%($1.750,00)', '80/20', 'Trailing', 'Refundable']
                 ]
             },
             {
                 id: 3,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '7%', '-', '-', '$395,00'],
-                    ['No time limit', '5', '$5.000,00', '$2.000,00', '$3.500,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$2.000,00', '$3.500,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '5 days', '10%($5.000,00)', '4%($2.000,00)', '7%($3.500,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($2.000,00)', '7%($3.500,00)', '80/20', 'Trailing', 'Refundable']
                 ]
             },
             {
                 id: 4,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '7%', '-', '-', '$595,00'],
-                    ['No time limit', '5', '$10.000,00', '$4.000,00', '$7.000,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$4.000,00', '$7.000,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '5 days', '10%($10.000,00)', '4%($4.000,00)', '7%($7.000,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($4.000,00)', '7%($7.000,00)', '80/20', 'Trailing', 'Refundable']
                 ]
             },
             {
                 id: 5,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '7%', '-', '-', '$1.295,00'],
-                    ['No time limit', '5', '$25.000,00', '$10.000,00', '$17.500,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$10.000,00', '$17.500,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '5 days', '10%($25.000,00)', '4%($10.000,00)', '7%($17.500,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($10.000,00)', '7%($17.500,00)', '80/20', 'Trailing', 'Refundable']
                 ]
             },
 
@@ -52,42 +47,36 @@ const stepObject = [
             {
                 id: 1,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '8%', '-', '-', '$155,00'],
-                    ['No time limit', '1', '$1.000,00', '$400,00', '$800,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$400,00', '$800,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '1 days', '10%($1.000,00)', '4%($400,00)', '8%($800,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($400,00)', '8%($800,00)', '80/20', 'Trailing', 'Refundable']
                 ]
             },
             {
                 id: 2,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '8%', '-', '-', '$295,00'],
-                    ['No time limit', '1', '$2.500,00', '$1.000,00', '$2.000,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$1.000,00', '$2.000,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '1 days', '10%($2.500,00)', '4%($1.000,00)', '8%($2.000,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($1.000,00)', '8%($2.000,00)', '80/20', 'Trailing', 'Refundable']
                 ]
             },
             {
                 id: 3,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '8%', '-', '-', '$495,00'],
-                    ['No time limit', '1', '$5.000,00', '$2.000,00', '$4.000,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$2.000,00', '$4.000,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '1 days', '10%($5.000,00)', '4%($2.000,00)', '8%($4.000,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($2.000,00)', '8%($4.000,00)', '80/20', 'Trailing', 'Refundable']
                 ]
             },
-
             {
                 id: 4,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '8%', '-', '-', '$695,00'],
-                    ['No time limit', '1', '$10.000,00', '$4.000,00', '$8.000,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$4.000,00', '$8.000,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '1 days', '10%($10.000,00)', '4%($4.000,00)', '8%($8.000,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($4.000,00)', '8%($8.000,00)', '80/20', 'Trailing', 'Refundable']
                 ]
             },
             {
                 id: 5,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '8%', '-', '-', '$1.395,00'],
-                    ['No time limit', '1', '$25.000,00', '$10.000,00', '$20.000,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$10.000,00', '$20.000,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '1 days', '10%($25.000,00)', '4%($10.000,00)', '8%($20.000,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($10.000,00)', '8%($20.000,00)', '80/20', 'Trailing', 'Refundable']
                 ]
             },
 
@@ -99,47 +88,46 @@ const stepObject = [
             {
                 id: 1,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '8%', '-', '-', '$155,00'],
-                    ['No time limit', '1', '$1.000,00', '$400,00', '$800,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$400,00', '$800,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '1 days', '6 & 6%($600,00)', '4%($400,00)', '8%($800,00)', '-', 'Balance Based', '-'],
+                    ['No time limit', '-', '-', '4%($400,00)', '8%($800,00)', '80/20', 'Balance Based', '-'],
+                    ['No time limit', '1 days', '6 & 6%($600,00)', '4%($400,00)', '8%($800,00)', '-', 'Balance Based', '-'],
                 ]
             },
             {
                 id: 2,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '8%', '-', '-', '$295,00'],
-                    ['No time limit', '1', '$2.500,00', '$1.000,00', '$2.000,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$1.000,00', '$2.000,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '1 days', '6 & 6%($2.500,00)', '4%($1.000,00)', '8%($2.000,00)', '-', 'Balance Based', '-'],
+                    ['No time limit', '-', '-', '4%($1.000,00)', '8%($2.000,00)', '80/20', 'Balance Based', '-'],
+                    ['No time limit', '1 days', '6 & 6%($1.500,00)', '4%($1.000,00)', '8%($2.000,00)', '-', 'Balance Based', '-'],
                 ]
             },
             {
                 id: 3,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '8%', '-', '-', '$495,00'],
-                    ['No time limit', '1', '$5.000,00', '$2.000,00', '$4.000,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$2.000,00', '$4.000,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '1 days', '6 & 6%($5.000,00)', '4%($2.000,00)', '8%($4.000,00)', '-', 'Balance Based', '-'],
+                    ['No time limit', '-', '-', '4%($2.000,00)', '8%($4.000,00)', '80/20', 'Balance Based', '-'],
+                    ['No time limit', '1 days', '6 & 6%($3.000,00)', '4%($2.000,00)', '8%($4.000,00)', '-', 'Balance Based', '-'],
                 ]
             },
-
             {
                 id: 4,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '8%', '-', '-', '$695,00'],
-                    ['No time limit', '1', '$10.000,00', '$4.000,00', '$8.000,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$4.000,00', '$8.000,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '1 days', '6 & 6%($6.000,00)', '4%($4.000,00)', '8%($8.000,00)', '-', 'Balance Based', '-'],
+                    ['No time limit', '-', '-', '4%($4.000,00)', '8%($8.000,00)', '80/20', 'Balance Based', '-'],
+                    ['No time limit', '1 days', '6 & 6%($6.000,00)', '4%($4.000,00)', '8%($8.000,00)', '-', 'Balance Based', '-'],
                 ]
             },
             {
                 id: 5,
                 phaseArray: [
-                    ['-', '-', '10%', '4%', '8%', '-', '-', '$1.395,00'],
-                    ['No time limit', '1', '$25.000,00', '$10.000,00', '$20.000,00', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '$10.000,00', '$20.000,00', '80/20', 'Trailing', 'Refundable']
+                    ['No time limit', '1 days', '6 & 6%($15.000,00)', '4%($10.000,00)', '8%($20.000,00)', '-', 'Balance Based', '-'],
+                    ['No time limit', '-', '-', '4%($10.000,00)', '8%($20.000,00)', '80/20', 'Balance Based', '-'],
+                    ['No time limit', '1 days', '6 & 6%($15.000,00)', '4%($10.000,00)', '8%($20.000,00)', '-', 'Balance Based', '-'],
                 ]
             },
 
         ],
-    }
+    },
 ];
 
 
@@ -381,9 +369,16 @@ document.addEventListener('DOMContentLoaded', () => {
             configureListArray.forEach((element, index) => {
                 const configureItemArray = element.querySelectorAll('.js-configure-list-item');
 
-                configureItemArray.forEach((item, itemIndex) => {
-                    item.querySelector('.js-configure-text').textContent = itemsArray[index][itemIndex];
-                });
+                if(index <= itemsArray.length - 1){
+                    configureItemArray.forEach((item, itemIndex) => {
+                        element.classList.remove('hidden');
+                        if (itemsArray[index] && itemsArray[index][itemIndex]) {
+                            item.querySelector('.js-configure-text').textContent = itemsArray[index][itemIndex];
+                        }
+                    });
+                }else{
+                    element.classList.add('hidden');
+                }
             });
         }
 

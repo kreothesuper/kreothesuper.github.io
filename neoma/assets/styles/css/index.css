@@ -784,7 +784,7 @@ body {
 }
 @media screen and (max-width: 1240px) {
   .footer-top__row {
-    gap: 20px;
+    gap: 30px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -905,7 +905,7 @@ body {
 }
 @media screen and (max-width: 767px) {
   .footer__column {
-    gap: 20px;
+    gap: 30px;
   }
 }
 .footer__wrapper {
@@ -1816,6 +1816,12 @@ body {
 @media screen and (max-width: 767px) {
   .why {
     gap: 15px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .why__title {
+    max-width: 320px;
+    width: 100%;
   }
 }
 .why__img {
@@ -3300,14 +3306,12 @@ body {
   }
 }
 .configure-content__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  align-items: stretch;
   gap: 20px;
 }
 @media screen and (max-width: 991px) {
   .configure-content__grid {
-    gap: 20px;
-    display: flex;
     scroll-snap-type: x mandatory;
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -3321,11 +3325,11 @@ body {
 .configure-block {
   background: rgba(17, 17, 17, 0.8);
   border-radius: 8px;
+  flex: 33% 0 auto;
 }
 @media screen and (max-width: 991px) {
   .configure-block {
     background: transparent;
-    flex: 1 0 auto;
     width: 100%;
   }
 }
@@ -3529,4 +3533,15 @@ body {
      object-fit: cover;
   position: relative;
   z-index: 2;
+}
+#phase-2 {
+  order: 2;
+}
+
+#phase-3 {
+  order: 3;
+}
+
+.js-configure-list.hidden {
+  display: none;
 }/*# sourceMappingURL=index.css.map */
