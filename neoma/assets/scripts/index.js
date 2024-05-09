@@ -1,3 +1,186 @@
+
+const stepObject = [
+    {
+        id: 1,
+        priceArray: [
+            {
+                id: 1,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '7%', '-', '-', '$105,00'],
+                    ['No time limit', '5', '$1.000,00', '$400,00', '$700,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$400,00', '$700,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 2,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '7%', '-', '-', '$245,00'],
+                    ['No time limit', '5', '$2.500,00', '$1.000,00', '$1.750,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$1.000,00', '$1.750,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 3,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '7%', '-', '-', '$395,00'],
+                    ['No time limit', '5', '$5.000,00', '$2.000,00', '$3.500,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$2.000,00', '$3.500,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 4,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '7%', '-', '-', '$595,00'],
+                    ['No time limit', '5', '$10.000,00', '$4.000,00', '$7.000,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$4.000,00', '$7.000,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 5,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '7%', '-', '-', '$1.295,00'],
+                    ['No time limit', '5', '$25.000,00', '$10.000,00', '$17.500,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$10.000,00', '$17.500,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+
+        ],
+    },
+    {
+        id: 2,
+        priceArray: [
+            {
+                id: 1,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '8%', '-', '-', '$155,00'],
+                    ['No time limit', '1', '$1.000,00', '$400,00', '$800,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$400,00', '$800,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 2,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '8%', '-', '-', '$295,00'],
+                    ['No time limit', '1', '$2.500,00', '$1.000,00', '$2.000,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$1.000,00', '$2.000,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 3,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '8%', '-', '-', '$495,00'],
+                    ['No time limit', '1', '$5.000,00', '$2.000,00', '$4.000,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$2.000,00', '$4.000,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+
+            {
+                id: 4,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '8%', '-', '-', '$695,00'],
+                    ['No time limit', '1', '$10.000,00', '$4.000,00', '$8.000,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$4.000,00', '$8.000,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 5,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '8%', '-', '-', '$1.395,00'],
+                    ['No time limit', '1', '$25.000,00', '$10.000,00', '$20.000,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$10.000,00', '$20.000,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+
+        ],
+    },
+    {
+        id: 3,
+        priceArray: [
+            {
+                id: 1,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '8%', '-', '-', '$155,00'],
+                    ['No time limit', '1', '$1.000,00', '$400,00', '$800,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$400,00', '$800,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 2,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '8%', '-', '-', '$295,00'],
+                    ['No time limit', '1', '$2.500,00', '$1.000,00', '$2.000,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$1.000,00', '$2.000,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 3,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '8%', '-', '-', '$495,00'],
+                    ['No time limit', '1', '$5.000,00', '$2.000,00', '$4.000,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$2.000,00', '$4.000,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+
+            {
+                id: 4,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '8%', '-', '-', '$695,00'],
+                    ['No time limit', '1', '$10.000,00', '$4.000,00', '$8.000,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$4.000,00', '$8.000,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 5,
+                phaseArray: [
+                    ['-', '-', '10%', '4%', '8%', '-', '-', '$1.395,00'],
+                    ['No time limit', '1', '$25.000,00', '$10.000,00', '$20.000,00', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '$10.000,00', '$20.000,00', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+
+        ],
+    }
+];
+
+
+const findObjectById = (id, object) => {
+    return object.find(obj => obj.id == id);
+}
+
+
+const initTabs = () => {
+    const tabs = [...document.querySelectorAll(".tabs")];
+
+    if (tabs.length > 0) {
+        tabs.forEach((tab) => {
+            const tabContent = [...tab.querySelectorAll(".tabs__content")];
+            const tabLinks = [...tab.querySelectorAll(".tabs__link")];
+
+            const openTab = (tabIndex = 0) => {
+                tabContent.forEach((element, i) => {
+                    const isActive = i === tabIndex;
+                    element.classList.toggle("active", isActive);
+                });
+
+                tabLinks.forEach((element, i) => {
+                    element.classList.toggle("active", i === tabIndex);
+                });
+            }
+
+            openTab(0)
+
+            tabLinks.forEach((link, i) => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    openTab(i);
+                });
+            });
+        });
+    }
+}
+
+
+
 const selectInit = () => {
     const selectArray = document.querySelectorAll('.custom-select');
 
@@ -70,7 +253,7 @@ const selectInit = () => {
                             });
 
                             // Trigger change event when selectIndex is changed
-                            const event = new Event('change', {bubbles: true});
+                            const event = new Event('change', { bubbles: true });
                             selectItemTag.dispatchEvent(event);
                         }
                     });
@@ -142,13 +325,21 @@ const closeAllSelect = (select) => {
     });
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded', () => {
     const burger = document.querySelector('.burger'),
-    header = document.querySelector('.header'),
-    headerNav = document.querySelector('.header-nav');
+        header = document.querySelector('.header'),
+        headerNav = document.querySelector('.header-nav');
 
-    if(burger && header){
-        burger.addEventListener('click',(e)=>{
+    if (burger && header) {
+
+        const observer = new IntersectionObserver(
+            ([e]) => e.target.classList.toggle("is-pinned", e.intersectionRatio < 1),
+            { threshold: [1] }
+        );
+
+        observer.observe(headerNav);
+
+        burger.addEventListener('click', (e) => {
             e.preventDefault();
 
             header.classList.toggle('header--active');
@@ -161,20 +352,73 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     const reviewSlider = document.querySelector('.review-slider');
 
-    if(reviewSlider){
-        const review = new Swiper(reviewSlider,{
-            slidesPerView:1,
-            spaceBetween:20,
-            speed:500,
-            breakpoints:{
-                768:{
-                    slidesPerView:3,
+    if (reviewSlider) {
+        const review = new Swiper(reviewSlider, {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            speed: 500,
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
                 }
             },
             navigation: {
                 nextEl: '.review-slider__button--next',
                 prevEl: '.review-slider__button--prev',
-              },
+            },
         });
+    }
+
+
+    const configureList = document.querySelector('.js-configure');
+
+    if (configureList) {
+        const drawNewPhase = (balanceId, phaseId) => {
+            const phase = findObjectById(phaseId, stepObject),
+                balance = findObjectById(balanceId, phase.priceArray),
+                itemsArray = balance.phaseArray;
+
+            configureListArray.forEach((element, index) => {
+                const configureItemArray = element.querySelectorAll('.js-configure-list-item');
+
+                configureItemArray.forEach((item, itemIndex) => {
+                    item.querySelector('.js-configure-text').textContent = itemsArray[index][itemIndex];
+                });
+            });
+        }
+
+        const configureListArray = configureList.querySelectorAll('.js-configure-list');
+        const balanceChecked = configureList.querySelector("[name='balance']:checked").value;
+        const phaseChecked = configureList.querySelector("[name='phase']:checked").value;
+
+        drawNewPhase(balanceChecked, phaseChecked);
+
+        configureList.addEventListener('change', () => {
+            const balanceChecked = configureList.querySelector("[name='balance']:checked").value;
+            const phaseChecked = configureList.querySelector("[name='phase']:checked").value;
+
+            drawNewPhase(balanceChecked, phaseChecked);
+        });
+    }
+
+    initTabs();
+
+
+    const videoArray = document.querySelectorAll('.video');
+
+    if (videoArray.length) {
+        videoArray.forEach(video => {
+            const videoElement = document.querySelector('video');
+         
+            video.addEventListener('click', function () {
+                if (videoElement.paused) {
+                    videoElement.play();
+                    video.classList.add('play');
+                } else {
+                    videoElement.pause();
+                    video.classList.remove('play');
+                }
+            });
+        })
     }
 });
