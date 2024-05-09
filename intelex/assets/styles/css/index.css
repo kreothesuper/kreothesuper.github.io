@@ -2162,11 +2162,13 @@ body {
 .card-hover {
   transition: 0.3s color, 0.3s background-color;
 }
-.card-hover:hover {
-  background-color: #E6F6FF;
-}
-.card-hover:hover .card-hover__title {
-  color: #00A2FF;
+@media (hover: hover) and (pointer: fine) {
+  .card-hover:hover {
+    background-color: #E6F6FF;
+  }
+  .card-hover:hover .card-hover__title {
+    color: #00A2FF;
+  }
 }
 
 .js-filter-block-list:not(.active) .js-filter-block-item:nth-child(n+6) {
