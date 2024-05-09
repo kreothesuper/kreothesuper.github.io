@@ -2167,4 +2167,14 @@ body {
 }
 .card-hover:hover .card-hover__title {
   color: #00A2FF;
+}
+
+.js-filter-block-list:not(.active) .js-filter-block-item:nth-child(n+6) {
+  display: none;
+}
+.js-filter-block-list:not(.active) .js-filter-block-link::before {
+  content: attr(data-closed);
+}
+.js-filter-block-link::before {
+  content: attr(data-open);
 }/*# sourceMappingURL=index.css.map */

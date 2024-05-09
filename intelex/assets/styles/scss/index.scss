@@ -2595,3 +2595,19 @@ body {
     }
   }
 }
+
+.js-filter-block{
+  &-list:not(.active) &-item:nth-child(n + 6){
+    display: none;
+  }
+  &-list:not(.active) &-link{
+    &::before{
+      content: attr(data-closed);
+    }
+  }
+  &-link{
+    &::before{
+      content: attr(data-open);
+    }
+  }
+}

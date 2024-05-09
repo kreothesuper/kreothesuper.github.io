@@ -1,3 +1,4 @@
+
 class Animations {
     constructor() {
         this.animationWrapperArray = document.querySelectorAll('.animation-wrapper');
@@ -177,4 +178,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const filterBlockList = document.querySelectorAll('.js-filter-block-list');
+
+    if(filterBlockList.length){
+        filterBlockList.forEach(list=>{
+            const filterBlockLink = list.querySelector('.js-filter-block-link');
+
+            filterBlockLink.addEventListener('click',(e)=>{
+                e.preventDefault();
+
+                list.classList.toggle('active');
+            });
+        });
+    }
 });
