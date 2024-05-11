@@ -954,6 +954,14 @@ body {
             gap: 10px;
             align-items: center;
         }
+
+        &__header{
+            .title{
+                @media screen and (max-width:767px) {
+                    font-size: 20px;
+                }
+            }
+        }
     }
 
     &-top {
@@ -1017,9 +1025,7 @@ body {
         padding-top: 24px;
 
         @media screen and (max-width:767px) {
-            padding-top: 0;
-            border: none;
-
+            margin-top: 24px;
             text-align: center;
         }
 
@@ -1039,9 +1045,13 @@ body {
         }
 
         &__title{
+            font-family: var(--font-main);
             font-size: 18px;    
             color: #fff;
-            font-weight: 600;
+            font-weight: 700;
+            @media screen and (max-width:767px) {
+                font-size: 20px;
+            }
         }
 
         &__input {
@@ -1457,6 +1467,12 @@ body {
 
         &--tools{
             gap: 50px;
+        }
+
+        &--desktop{
+            @media screen and (max-width:767px) {
+                display: none;
+            }
         }
     }
 
