@@ -288,6 +288,9 @@ body {
 
         @media screen and (max-width:767px) {
             font-size: 24px;
+            &--tiny{
+                font-size: 20px;
+            }
         }
     }
 
@@ -1374,6 +1377,13 @@ body {
             @media screen and (min-width:992px) {
                 max-width: 555px;
                 width: 100%;
+            }
+        }
+        &--mobile{
+            &--full{
+                @media screen and (max-width:767px) {
+                    width: 100%;
+                }
             }
         }
     }
@@ -2917,14 +2927,14 @@ body {
             flex-grow: 1;
             height: 60px;
             border-radius: 8px;
-            background-color: #242424;
+            background-color: #1C1F23;
             color: #fff;
             font-size: 18px;
             padding: 0 20px;
             width: 100%;
 
             &::placeholder {
-                color: #5F5F5F;
+                color: #545C64;
             }
         }
     }
@@ -3953,12 +3963,12 @@ body {
         background: rgba(#111111, .8);
         border-radius: 8px;
 
-        flex: 33% 0 auto;
 
         @media screen and (max-width:991px) {
             background: transparent;
-
             width: 100%;
+
+            flex: 1 0 auto;
         }
 
         &__header{

@@ -47,47 +47,6 @@ const stepObject = [
             {
                 id: 1,
                 phaseArray: [
-                    ['No time limit', '1 days', '10%($1.000,00)', '4%($400,00)', '8%($800,00)', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '4%($400,00)', '8%($800,00)', '80/20', 'Trailing', 'Refundable']
-                ]
-            },
-            {
-                id: 2,
-                phaseArray: [
-                    ['No time limit', '1 days', '10%($2.500,00)', '4%($1.000,00)', '8%($2.000,00)', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '4%($1.000,00)', '8%($2.000,00)', '80/20', 'Trailing', 'Refundable']
-                ]
-            },
-            {
-                id: 3,
-                phaseArray: [
-                    ['No time limit', '1 days', '10%($5.000,00)', '4%($2.000,00)', '8%($4.000,00)', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '4%($2.000,00)', '8%($4.000,00)', '80/20', 'Trailing', 'Refundable']
-                ]
-            },
-            {
-                id: 4,
-                phaseArray: [
-                    ['No time limit', '1 days', '10%($10.000,00)', '4%($4.000,00)', '8%($8.000,00)', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '4%($4.000,00)', '8%($8.000,00)', '80/20', 'Trailing', 'Refundable']
-                ]
-            },
-            {
-                id: 5,
-                phaseArray: [
-                    ['No time limit', '1 days', '10%($25.000,00)', '4%($10.000,00)', '8%($20.000,00)', '-', 'Trailing', 'Free'],
-                    ['No time limit', '-', '-', '4%($10.000,00)', '8%($20.000,00)', '80/20', 'Trailing', 'Refundable']
-                ]
-            },
-
-        ],
-    },
-    {
-        id: 3,
-        priceArray: [
-            {
-                id: 1,
-                phaseArray: [
                     ['No time limit', '1 days', '6 & 6%($600,00)', '4%($400,00)', '8%($800,00)', '-', 'Balance Based', '-'],
                     ['No time limit', '-', '-', '4%($400,00)', '8%($800,00)', '80/20', 'Balance Based', '-'],
                     ['No time limit', '1 days', '6 & 6%($600,00)', '4%($400,00)', '8%($800,00)', '-', 'Balance Based', '-'],
@@ -128,6 +87,48 @@ const stepObject = [
 
         ],
     },
+    {
+        id: 3,
+        priceArray: [
+            {
+                id: 1,
+                phaseArray: [
+                    ['No time limit', '1 days', '10%($1.000,00)', '4%($400,00)', '8%($800,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($400,00)', '8%($800,00)', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 2,
+                phaseArray: [
+                    ['No time limit', '1 days', '10%($2.500,00)', '4%($1.000,00)', '8%($2.000,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($1.000,00)', '8%($2.000,00)', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 3,
+                phaseArray: [
+                    ['No time limit', '1 days', '10%($5.000,00)', '4%($2.000,00)', '8%($4.000,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($2.000,00)', '8%($4.000,00)', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 4,
+                phaseArray: [
+                    ['No time limit', '1 days', '10%($10.000,00)', '4%($4.000,00)', '8%($8.000,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($4.000,00)', '8%($8.000,00)', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+            {
+                id: 5,
+                phaseArray: [
+                    ['No time limit', '1 days', '10%($25.000,00)', '4%($10.000,00)', '8%($20.000,00)', '-', 'Trailing', 'Free'],
+                    ['No time limit', '-', '-', '4%($10.000,00)', '8%($20.000,00)', '80/20', 'Trailing', 'Refundable']
+                ]
+            },
+
+        ],
+    },
+
 ];
 
 
