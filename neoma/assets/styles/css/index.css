@@ -1906,19 +1906,31 @@ body {
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 767px) {
+  .faq-tab__nav {
+    justify-content: space-between;
+  }
+}
 .faq-tab__link {
   flex: 1 0 auto;
-  padding: 15px 25px;
+  padding: 15px 12.5px;
   font-size: 18px;
   line-height: 1;
   font-weight: 600;
   color: #fff;
   border: 2px solid transparent;
   border-radius: 25px;
-  transition: 0.3s border-color;
+  transition: 0.3s border-color, 0.3s padding;
+}
+.faq-tab__link:last-child {
+  padding-right: 0;
+}
+.faq-tab__link:first-child {
+  padding-left: 0;
 }
 .faq-tab__link.active {
   border-color: var(--color-accent);
+  padding: 15px 25px;
 }
 .faq__nav {
   display: flex;
@@ -3197,7 +3209,7 @@ body {
 .form-select .select__label, .form-select .select__item {
   flex-grow: 1;
   height: 60px;
-  background-color: #242424;
+  background-color: #1C1F23;
   color: #fff;
   font-size: 18px;
   padding: 0 20px;

@@ -2306,11 +2306,14 @@ body {
         &__nav{
             display: flex;
             align-items: center;
+            @media screen and (max-width:767px) {
+                justify-content: space-between;
+            }
         }
         &__link{
             flex: 1 0 auto;
 
-            padding: 15px 25px;
+            padding: 15px 12.5px;
             font-size: 18px;
             line-height: 1;
             font-weight: 600;
@@ -2319,9 +2322,16 @@ body {
             border: 2px solid transparent;
             border-radius: 25px;
 
-            transition: .3s border-color;
+            transition: .3s border-color,.3s padding;
+            &:last-child{
+                padding-right: 0;
+            }
+            &:first-child{
+                padding-left: 0;
+            }
             &.active{
                 border-color: var(--color-accent);
+                padding: 15px 25px;
             }
         }
     }
@@ -3807,7 +3817,7 @@ body {
         &__label,&__item {
             flex-grow: 1;
             height: 60px;
-            background-color: #242424;
+            background-color: #1C1F23;
             color: #fff;
             font-size: 18px;
             padding: 0 20px;
