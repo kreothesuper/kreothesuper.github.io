@@ -348,6 +348,9 @@ document.addEventListener('DOMContentLoaded', () => {
             speed: 500,
             breakpoints: {
                 768: {
+                    slidesPerView: 2,
+                },
+                1024: {
                     slidesPerView: 3,
                 }
             },
