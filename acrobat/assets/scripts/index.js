@@ -244,6 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
         pagination: __sliderPaginationParams,
     });
 
+   
+
     const partnersSlider = new Swiper('.partners-slider__swiper', {
         slidesPerView: 'auto',
         spaceBetween: 10,
@@ -252,9 +254,23 @@ document.addEventListener('DOMContentLoaded', () => {
         navigation: {
             prevEl: '.partners-slider__button--prev',
             nextEl: '.partners-slider__button--next',
-        }
+        },
+        
     });
 
+    const postsSlider = new Swiper('.posts-slider', {
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        speed: 500,
+        navigation: {
+            prevEl: '.posts-slider__button--prev',
+            nextEl: '.posts-slider__button--next',
+        },
+        pagination: __sliderPaginationParams,
+ 
+        
+    });
+   
     const popupButtons = document.querySelectorAll('[data-popup]');
     const popups = document.querySelectorAll('.popup');
 
