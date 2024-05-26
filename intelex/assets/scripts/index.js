@@ -186,9 +186,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             filterBlockLink.addEventListener('click',(e)=>{
                 e.preventDefault();
-
                 list.classList.toggle('active');
             });
         });
+        
     }
 });
