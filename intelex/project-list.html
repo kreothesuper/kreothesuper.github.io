@@ -422,6 +422,9 @@
 
         sortSelect.addEventListener('change', (e) => {
             const currentSortLabel = e.target.value;
+            gridTitle.forEach(title=>{
+                title.classList.remove('active');
+            })
             if (currentSortLabel === 'all') {
                 gridBlock.forEach(block => {
                     block.dataset.number = '1';
