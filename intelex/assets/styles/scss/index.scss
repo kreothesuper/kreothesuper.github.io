@@ -2648,11 +2648,22 @@ body {
 
   &__label {
     position: relative;
+    flex-grow: 1;
+    @media screen and (min-width:641px) {
+      width: 220px;
+    }
   }
 
   &__current {
     border: 1px solid #838A91;
 
+    span{
+      white-space: nowrap;
+flex-grow: 1;
+width: 100%;
+overflow: hidden;
+text-overflow: ellipsis;
+    }
   }
 
   &__content {
@@ -2697,6 +2708,7 @@ body {
   }
 
   &__current {
+    justify-content: space-between;
     &::after {
       content: '';
       width: 16px;
