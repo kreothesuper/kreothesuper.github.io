@@ -1,3 +1,38 @@
+const checkTargetOrKey = event => {
+    if (
+        event.target.classList.contains('popup__wrapper') ||
+        event.key === 'Escape' ||
+        event.target.closest('.popup-close')
+    ) {
+        event.preventDefault();
+        hideAllPopups();
+    }
+};
+const showPopup = popupId => {
+    const popup = document.querySelector(popupId);
+    if (!popup) return
+
+    hideAllPopups();
+
+    popup.classList.add('popup--active');
+    document.body.classList.add('no-scroll');
+
+    document.addEventListener('click', checkTargetOrKey);
+    document.addEventListener('keyup', checkTargetOrKey);
+};
+
+const hideAllPopups = () => {
+    const popups = document.querySelectorAll('.popup');
+
+    popups.forEach(popup => {
+        popup.classList.remove('popup--active');
+    });
+    document.body.classList.remove('no-scroll');
+
+    document.removeEventListener('click', checkTargetOrKey);
+    document.removeEventListener('keyup', checkTargetOrKey);
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const words = [{color:'#DF6C38',label:'правообладателей'}, {color:'#63B058',label:'аналитиков'}, {color:'#56BEEE',label:'таргетологов'},{color:'#D7348A',label:'маркетологов'}];
     let currentIndex = 0;
@@ -35,16 +70,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    const ratesArray = document.querySelectorAll('.rates-item');
+    const blockArray = document.querySelectorAll('.toggle-block');
 
-    if(ratesArray){
-        ratesArray.forEach(rate=>{
-            const rateTitle = rate.querySelector('.rates-item__title');
+    if(blockArray){
+        blockArray.forEach(block=>{
+            const blockLink = block.querySelector('.toggle-block-link');
 
-            rateTitle.addEventListener('click',(e)=>{
+            blockLink.addEventListener('click',(e)=>{
                 e.preventDefault();
 
-                rate.classList.toggle('rates-item--active');
+                block.classList.toggle('active');
+            });
+        });
+    }
+
+    const popupButtons = document.querySelectorAll('[data-popup]');
+    const popups = document.querySelectorAll('.popup');
+
+    if (popups.length) {
+        popupButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const popupId = button.dataset.popup
+                showPopup(popupId);
             });
         });
     }
