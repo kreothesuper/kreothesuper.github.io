@@ -33,4 +33,19 @@ document.addEventListener('DOMContentLoaded', () => {
         headerNav.classList.toggle('header__nav--active');
         burger.classList.toggle('burger--active');
     });
+
+
+    const ratesArray = document.querySelectorAll('.rates-item');
+
+    if(ratesArray){
+        ratesArray.forEach(rate=>{
+            const rateTitle = rate.querySelector('.rates-item__title');
+
+            rateTitle.addEventListener('click',(e)=>{
+                e.preventDefault();
+
+                rate.classList.toggle('rates-item--active');
+            });
+        });
+    }
 });
