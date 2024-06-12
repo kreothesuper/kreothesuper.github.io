@@ -59,9 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('load', () => {
     const loader = document.querySelector('.loader');
     const screen = document.querySelector('.screen');
+    const video = document.querySelector('.video');
 
     setTimeout(() => {
         loader.classList.add('loaded');
         screen.classList.add('loaded');
+        video.play();
     }, 500)
 });
