@@ -66,6 +66,9 @@ body {
     flex-grow: 1;
     position: relative;
     z-index: 2;
+
+    display: flex;
+    flex-direction: column;
     &-row {
         display: flex;
         align-items: stretch;
@@ -100,6 +103,7 @@ body {
         gap: 120px;
         justify-content: flex-end;
         height: 100%;
+        flex-grow: 1;
 
         @media screen and (max-width:1024px) {
             gap: 90px;
@@ -209,6 +213,11 @@ body {
 
     transform: translateY(100%);
     transition:1s .5s transform linear;
+
+    @media screen and (max-width:1024px) {
+        min-height: 100svh;
+        height: auto;
+    }
     &.loaded {
         transform: translateY(0);
     }
@@ -232,7 +241,7 @@ body {
         justify-content: center;
     
         transition: 1s linear opacity;
-
+        overflow: hidden;
         video {
             width: 120%;
             height: 120%;
@@ -455,7 +464,9 @@ body {
 
     transform: translateX(100%);
     transition: .5s linear transform;
-
+@media screen and (max-width:1024px) {
+overflow: auto;
+    }
     &-menu {
         transform: translateX(-100%);
     }
@@ -535,6 +546,7 @@ body {
     &__content {
         display: flex;
         flex-direction: column;
+        gap: 20px;
         padding: 50px 100px 25px 100px;
 
         @media screen and (max-width:1024px) {
@@ -749,6 +761,11 @@ body {
         display: flex;
         align-items: center;
         gap: 25px;
+
+        @media screen and (max-width:1024px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
 
     &__submit {
