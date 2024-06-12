@@ -4,6 +4,7 @@
     --color-black: #1A1A1A;
     --color-grey: #71758D;
     --color-grey-light: #8e8e8e;
+    --color-accent:#7755EA;
 }
 
 html {
@@ -97,7 +98,7 @@ body {
     }
 
     &--gradient {
-        background: linear-gradient(96deg, #7755ea 0%, #1fdea3 100%);
+        background: linear-gradient(96deg, var(--color-accent) 0%, #1fdea3 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -162,7 +163,7 @@ body {
 
     &--dotted {
         padding: 20px;
-        border: 2px dashed #7755ea;
+        border: 2px dashed var(--color-accent);
         border-radius: 72px;
 
         @media screen and (max-width:767px) {
@@ -207,7 +208,7 @@ body {
             display: block;
 
             filter: blur(32px);
-            background: linear-gradient(270deg, #7755ea 0%, #1fdea3 100%);
+            background: linear-gradient(270deg, var(--color-accent) 0%, #1fdea3 100%);
 
             position: absolute;
             top: -30px;
@@ -260,7 +261,7 @@ body {
         display: block;
         filter: blur(7px);
         border-radius: 50px;
-        background: linear-gradient(270deg, #7755ea 0%, #1fdea3 100%);
+        background: linear-gradient(270deg, var(--color-accent) 0%, #1fdea3 100%);
 
         position: absolute;
         top: 0;
@@ -502,7 +503,7 @@ body {
             display: block;
             filter: blur(15px);
             border-radius: 50px;
-            background: linear-gradient(270deg, #7755ea 0%, #1fdea3 100%);
+            background: linear-gradient(270deg, var(--color-accent) 0%, #1fdea3 100%);
 
             position: absolute;
             z-index: 2;
@@ -600,7 +601,7 @@ body {
         transition: .3s color;
 
         &:hover {
-            color: #7755EA;
+            color: var(--color-accent);
         }
     }
 }
@@ -904,7 +905,7 @@ body {
     }
 
     &-item {
-        --color: #7755EA;
+        --color: var(--color-accent);
 
         position: relative;
 
@@ -950,7 +951,7 @@ body {
         }
 
         &--purple {
-            --color: #7755EA;
+            --color: var(--color-accent);
             --max-width: 545px;
             --height: 150px;
             --img: url("../../images/services/bg-1.svg");
@@ -1005,7 +1006,7 @@ body {
                 font-weight: 600;
                 line-height: 130%;
                 text-transform: uppercase;
-                background: linear-gradient(225deg, #1fdea3 0%, #7755ea 100%);
+                background: linear-gradient(225deg, #1fdea3 0%, var(--color-accent) 100%);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -1223,7 +1224,7 @@ body {
                 font-size: 18px;
                 line-height: 130%;
                 text-transform: uppercase;
-                background: linear-gradient(225deg, #1fdea3 0%, #7755ea 100%);
+                background: linear-gradient(225deg, #1fdea3 0%, var(--color-accent) 100%);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -1301,7 +1302,7 @@ body {
         }
 
         &--purple {
-            --color: #7755ea;
+            --color: var(--color-accent);
         }
 
         &--green {
@@ -1426,7 +1427,7 @@ body {
         font-weight: 600;
         color: var(--color-black);
         background: #F4F5FB;
-        border: 2px dashed #7755EA;
+        border: 2px dashed var(--color-accent);
         border-radius: 72px;
 
         overflow: hidden;
@@ -1454,7 +1455,7 @@ body {
             top: -26px;
             left: calc(50% - 60px);
             filter: blur(26px);
-            background: linear-gradient(270deg, #7755ea 0%, #1fdea3 100%);
+            background: linear-gradient(270deg, var(--color-accent) 0%, #1fdea3 100%);
 
             opacity: 0;
 
@@ -1523,7 +1524,8 @@ body {
 
     &-slider {
         overflow: visible;
-
+        -webkit-user-select: none;
+        user-select: none;
         .swiper-wrapper {
             overflow: visible;
         }
@@ -1547,7 +1549,7 @@ body {
             height: 10px;
             flex-shrink: 0;
             border-radius: 50%;
-            background-color: #7755EA;
+            background-color: var(--color-accent);
         }
 
         &__button {
@@ -1558,7 +1560,7 @@ body {
             align-items: center;
             justify-content: center;
 
-            fill: #7755EA;
+            fill: var(--color-accent);
             transition: .3s fill;
 
             .icon {
@@ -1568,6 +1570,7 @@ body {
 
             &.swiper-button-disabled {
                 fill: #71758D;
+                pointer-events: none;
             }
 
             &--next {
@@ -1837,8 +1840,8 @@ body {
             font-size: 14px;
             font-weight: 600;
             line-height: 1.3;
-            color: #7755EA;
-            fill: #7755EA;
+            color: var(--color-accent);
+            fill: var(--color-accent);
 
             .icon {
                 width: 14px;
@@ -1982,7 +1985,7 @@ body {
             display: block;
             filter: blur(15px);
             border-radius: 50px;
-            background: linear-gradient(270deg, #7755ea 0%, #1fdea3 100%);
+            background: linear-gradient(270deg, var(--color-accent) 0%, #1fdea3 100%);
 
             position: absolute;
             z-index: 2;
@@ -2183,7 +2186,7 @@ body {
             transition: .3s color;
 
             &:hover {
-                color: #7755EA;
+                color: var(--color-accent);
             }
         }
 
@@ -2280,7 +2283,7 @@ body {
         font-size: 40px;
         font-weight: 600;
         line-height: 1.3;
-        color: #7755EA;
+        color: var(--color-accent);
 
         @media screen and (max-width:767px) {
             font-size: 36px;
@@ -2320,7 +2323,7 @@ body {
             display: block;
             filter: blur(15px);
             border-radius: 50px;
-            background: linear-gradient(270deg, #7755ea 0%, #1fdea3 100%);
+            background: linear-gradient(270deg, var(--color-accent) 0%, #1fdea3 100%);
 
             position: absolute;
             z-index: 2;

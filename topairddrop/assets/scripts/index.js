@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const navLinkArray = document.querySelectorAll('.nav__link');
 
-        if(navLinkArray.length){
-            navLinkArray.forEach(link=>{
-                link.addEventListener('click',()=>{
+        if (navLinkArray.length) {
+            navLinkArray.forEach(link => {
+                link.addEventListener('click', () => {
                     header.classList.remove('header--open')
                     burger.classList.remove('burger--active');
                     document.body.classList.remove('no-scroll');
@@ -68,11 +68,25 @@ document.addEventListener('DOMContentLoaded', () => {
             spaceBetween: 20,
             slidesPerView: 'auto',
 
-
+            rewind: true,
             // Navigation arrows
             navigation: {
                 nextEl: '.project-slider__button--next',
                 prevEl: '.project-slider__button--prev',
+            },
+            on: {
+                init: function () {
+                    if(this.realIndex === 0){
+                        // console.log('234');
+                       console.log(this.navigation.prevEl[0].classList.add('swiper-button-disabled'))
+                    }
+                },
+                slideChange: function () {
+                    if(this.realIndex === 0){
+                        // console.log('234');
+                       console.log(this.navigation.prevEl[0].classList.add('swiper-button-disabled'))
+                    }
+                },
             },
         });
     }
@@ -82,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (popups.length) {
         popupButtons.forEach(button => {
-            console.log(popupButtons)
             button.addEventListener('click', (e) => {
                 e.preventDefault();
 
