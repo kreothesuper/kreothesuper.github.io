@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const asideButtons = document.querySelectorAll('[data-aside]');
 
-    if(asideButtons.length){
-        asideButtons.forEach(button=>{
-            button.addEventListener('click',(e)=>{
+    if (asideButtons.length) {
+        asideButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
                 e.preventDefault();
 
                 const aside = document.querySelector(`${button.dataset.aside}`);
 
-                if(aside){
+                if (aside) {
                     aside.classList.toggle('aside--active');
                 }
             });
@@ -52,6 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener("keydown", mask, false);
 
     });
+
+
+    document.querySelectorAll('.form__input').forEach(input => {
+        input.addEventListener('input', () => {
+            console.log(input.value.length);
+        })
+    });
+
+
+    const video = document.querySelector('.video');
+    const windowWidth = window.innerWidth;
+    if (windowWidth < 1025) {
+        //It is a small screen
+        video.innerHTML = `<source src='${video.dataset.mobile}' type='video/mp4' >`;
+    } else {
+        //It is a big screen or desktop
+        video.innerHTML = `<source src='${video.dataset.desktop}' type='video/mp4'>`;
+    }
 
 });
 
