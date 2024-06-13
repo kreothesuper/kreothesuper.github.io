@@ -1,3 +1,13 @@
+const closeAllAside = () =>{
+    const asideLength = document.querySelectorAll('.aside');
+
+    if(asideLength.length){
+        asideLength.forEach(aside=>{
+            aside.classList.remove('aside--active');
+        });
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const asideButtons = document.querySelectorAll('[data-aside]');
 
@@ -54,23 +64,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    document.querySelectorAll('.form__input').forEach(input => {
-        input.addEventListener('input', () => {
-            console.log(input.value.length);
-        })
-    });
-
-
     const video = document.querySelector('.video');
     const windowWidth = window.innerWidth;
-    if (windowWidth < 1025) {
-        //It is a small screen
-        video.innerHTML = `<source src='${video.dataset.mobile}' type='video/mp4' >`;
-    } else {
-        //It is a big screen or desktop
-        video.innerHTML = `<source src='${video.dataset.desktop}' type='video/mp4'>`;
-    }
 
+    const videoSource = (windowWidth < 1025) ? video.dataset.mobile : video.dataset.desktop;
+    const videoHTML = `<source src='${videoSource}' type='video/mp4'>`;
+    video.innerHTML = videoHTML;
+
+
+    const formArray = document.querySelectorAll('form');
+
+    if (formArray.length) {
+        formArray.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(form);
+
+                fetch("/mail.php", {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => {
+                        if (response.ok) {
+                        } else {
+                        }
+                    })
+                    .catch(error => {
+                    });
+                    closeAllAside()
+            });
+        })
+    }
 });
 
 
