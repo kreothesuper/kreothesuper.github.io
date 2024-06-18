@@ -24,7 +24,7 @@
   :root {
     --text-big: 18px;
     --text-middle: 15px;
-    --text-tiny:15px;
+    --text-tiny: 15px;
   }
 }
 
@@ -186,6 +186,11 @@ body {
 .text--center {
   text-align: center;
 }
+.text--elipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 button:hover {
   cursor: pointer;
@@ -309,6 +314,14 @@ button:hover {
   color: #fff;
   background-color: #7A8FFF;
 }
+.button--pink {
+  color: #fff;
+  background: #FE7594;
+}
+.button--peach {
+  color: #fff;
+  background: #FEA991;
+}
 .button--big {
   height: 45px;
   font-size: 18px;
@@ -355,6 +368,10 @@ button:hover {
   width: 70px;
   height: 20px;
   font-size: 12px;
+}
+.button--tiny--tag--auto {
+  width: -moz-max-content;
+  width: max-content;
 }
 .button--editor {
   max-width: 250px;
@@ -536,7 +553,8 @@ button:hover {
 .input--light::-moz-placeholder, .input--light input::-moz-placeholder {
   color: var(--color-grey);
 }
-.input--light::placeholder, .input--light input::placeholder {
+.input--light::placeholder,
+.input--light input::placeholder {
   color: var(--color-grey);
 }
 .input--editor {
@@ -3023,6 +3041,21 @@ button:hover {
     grid-template-columns: 160px 70px minmax(0, 1fr);
   }
 }
+.table__row--history {
+  grid-template-columns: 130px 60px minmax(0, 1fr) 100px 100px;
+  gap: 15px;
+}
+.table__row--history:not(:last-child) {
+  border-bottom: 1px solid #D3D3D3;
+}
+.table__row--history:first-child {
+  border-bottom-color: #999999;
+}
+@media screen and (max-width: 767px) {
+  .table__row--history {
+    grid-template-columns: 160px 70px minmax(0, 1fr) 100px 100px;
+  }
+}
 .table__row--repeats {
   gap: 15px;
   grid-template-columns: 130px 100px 60px 110px 60px 110px 100px 55px;
@@ -3306,6 +3339,10 @@ button:hover {
   display: flex;
   align-items: center;
   gap: 15px;
+  overflow: auto;
+}
+.admin-tabs__nav::-webkit-scrollbar {
+  display: none;
 }
 .admin-tabs__nav--divider {
   padding: 15px 0;
@@ -3335,6 +3372,7 @@ button:hover {
   font-size: var(--text-tiny);
   font-weight: 500;
   color: #Fff;
+  flex-shrink: 0;
   background-color: #D9D9D9;
   transition: 0.3s background-color;
 }

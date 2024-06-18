@@ -152,7 +152,7 @@ const initTabs = () => {
                 });
             }
 
-            openTab(0)
+            openTab(1)
 
             tabLinks.forEach((link, i) => {
                 link.addEventListener("click", (e) => {
