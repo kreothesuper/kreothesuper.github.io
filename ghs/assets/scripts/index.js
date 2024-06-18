@@ -24,4 +24,26 @@ document.addEventListener('DOMContentLoaded',()=>{
             }
         });
     }
+
+    const searchArray = document.querySelectorAll('.search');
+
+    if(searchArray.length){
+        searchArray.forEach(search=>{
+            const searchInput = search.querySelector('input');
+            search.addEventListener('input',()=>{
+                search.classList.add('search--active')
+            });
+            search.addEventListener('click',()=>{
+                search.classList.add('search--active')
+            });
+            search.addEventListener('change',()=>{
+                search.classList.add('search--active')
+            });
+
+            searchInput.addEventListener('blur',()=>{
+                search.classList.remove('search--active');
+                search.reset();
+            });
+        });
+    }
 });
