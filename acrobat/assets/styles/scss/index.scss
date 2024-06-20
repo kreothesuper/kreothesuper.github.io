@@ -4669,6 +4669,67 @@ button {
 
 
 .chart{
+    &-grid{
+        display: flex;
+        align-items: stretch;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    &-card{
+        flex: 1 0 auto;
+        position: relative;
+        max-width: 100%;
+        &__percent{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        &__content{
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        &__divider{
+            width: 1px;
+            height:auto;
+            display: block;
+            flex-shrink: 0;
+            background: #18191E;
+            &--mobile{
+                &--full{
+                    @media screen and (max-width:767px) {
+                        width: 100%;
+                    height: 1px;
+                    }
+                }
+            }
+        }
+        &__icon{
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #F4F7FE;
+
+            align-self: center;
+
+            img{
+                width: 20px;
+                height: 20px;
+                object-fit: contain;
+            }
+        }
+        &__row{
+            display: flex;
+            align-items: stretch;
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+    }
     &-table{
         display: flex;
         flex-direction: column;
@@ -4736,17 +4797,40 @@ button {
         display: flex;
         align-items: center;
         gap: 10px;
+        &--big &__tag{
+            font-size: 24px;
+            padding-right: 24px;
+        }
+        &--big &__item{
+            &::after{
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                
+                border-top: 8px solid #A3AED0;
+            }
+        }
         &__tag{
             font-size: 12px;
             color: #A3AED0;
             letter-spacing: -0.02rem;
             font-weight: 700;
+
+            padding-right: 16px;
+
+            position: relative;
+            z-index: 2;
         }
         &__item{
             display: flex;
             align-items: center;
             gap: 7px;
+
+            position: relative;
             &::after{
+                position: absolute;
+                right: 0;
+                top: calc(50% - 2px);
+                
                 content: '';
                 width: 0; 
                 height: 0; 
@@ -4754,6 +4838,8 @@ button {
                 border-right: 4px solid transparent;
                 
                 border-top: 4px solid #A3AED0;
+
+                z-index: 1;
             }
         }
     }
