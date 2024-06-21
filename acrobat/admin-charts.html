@@ -723,9 +723,8 @@
 
         const trafficChart = document.getElementById('trafficchart');
         if (trafficChart) {
-            new Chart(trafficChart, {
+            const trafficChartItem = new Chart(trafficChart, {
                 type: 'bar',
-
                 data: {
                     labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
                     datasets: [
@@ -733,20 +732,10 @@
                             label: '',
                             data: createNumberArray(31, 2500),
                             borderWidth: 0,
-                            backgroundColor: '#4318FF',
+                            backgroundColor: ['#4318FF','#18FFFF'],
                             borderRadius: 50,
                             categoryPercentage: 1,
                             barPercentage: .95,
-                        },
-                        {
-                            label: '',
-                            data: createNumberArray(31, 2500),
-                            borderWidth: 0,
-                            backgroundColor: '#18FFFF',
-                            borderRadius: 50,
-                            categoryPercentage: 1,
-                            barPercentage: .95,
-
                         },
                     ]
                 },
@@ -786,6 +775,7 @@
                 }
             });
 
+            console.log(trafficChartItem)
         }
 
         const incomeChart = document.getElementById('incomechart');
@@ -838,6 +828,11 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'nearest',
+                        // axis: 'y',
+                        intersect: false
+                    },
                     elements: {
                         line: {
                             tension: 0.4,
@@ -1012,6 +1007,11 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'nearest',
+                        // axis: 'y',
+                        intersect: false
+                    },
                     elements: {
                         line: {
                             tension: 0.4,
