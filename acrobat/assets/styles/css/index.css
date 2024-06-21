@@ -3796,9 +3796,13 @@ button:hover {
   flex-wrap: wrap;
 }
 .chart-card {
-  flex: 1 0 auto;
   position: relative;
   max-width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .chart-card {
+    flex: 1 0 auto;
+  }
 }
 .chart-card__percent {
   position: absolute;
