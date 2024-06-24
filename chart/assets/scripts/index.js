@@ -453,22 +453,31 @@ const renderTrafficChart = (data) => {
         const trafficChartItem = new Chart(trafficChart, {
             type: 'bar',
             data: {
-                labels: [...Array(data.length).keys()].map(i => i + 1),
+                labels: [...Array(data[0].length).keys()].map(i => i + 1),
                 datasets: [
                     {
                         label: '',
-                        data: data,
+                        data: data[0],
                         borderWidth: 0,
-                        backgroundColor: ['#4318FF', '#18FFFF'],
+                        backgroundColor: '#18FFFF',
                         borderRadius: 50,
-                        categoryPercentage: 1,
-                        barPercentage: .9,
+                    
+                    },
+                    {
+                        label: '',
+                        data: data[1],
+                        borderWidth: 0,
+                        backgroundColor: '#4318FF',
+                        borderRadius: 50,
+                
                     },
                 ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                categoryPercentage: .85,
+                barPercentage: 1,
                 plugins: {
                     legend: {
                         display: false,
@@ -510,7 +519,7 @@ const renderTrafficChart = (data) => {
     }
 }
 
-renderTrafficChart(createNumberArray(31, 100))
+renderTrafficChart([createNumberArray(31, 100),createNumberArray(31, 100)])
 
 
 // Активность разделов
