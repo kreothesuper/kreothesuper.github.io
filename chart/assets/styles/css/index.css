@@ -976,6 +976,7 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  position: relative;
 }
 .card__row--gap--big {
   gap: 20px;
@@ -1113,7 +1114,7 @@ button:hover {
 }
 .chart-table__row {
   display: grid;
-  grid-template-columns: minmax(150px, 1fr) 70px 120px 70px 70px 70px 70px;
+  grid-template-columns: minmax(150px, 1fr) 70px 130px 70px 70px 80px 70px;
   gap: 10px;
 }
 .chart__item {
@@ -1158,6 +1159,16 @@ button:hover {
   flex-shrink: 0;
   background: #F4F7FE;
   border-radius: 12px;
+}
+.chart__icon--right {
+  margin-left: auto;
+}
+@media screen and (max-width: 767px) {
+  .chart__icon--mobile--absolute {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 .chart__icon img {
   width: 16px;

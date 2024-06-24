@@ -1241,6 +1241,7 @@ button {
         justify-content: space-between;
         gap: 10px;
 
+        position: relative;
         &--gap {
             &--big {
                 gap: 20px;
@@ -1370,6 +1371,8 @@ button {
                 height: 20px;
                 object-fit: contain;
             }
+
+           
         }
         &__row{
             display: flex;
@@ -1388,7 +1391,7 @@ button {
 
         &__row{
             display: grid;
-            grid-template-columns:minmax(150px,1fr) 70px 120px 70px 70px 70px 70px;
+            grid-template-columns:minmax(150px,1fr) 70px 130px 70px 70px 80px 70px;
             gap: 10px;
         }
     }
@@ -1436,6 +1439,18 @@ button {
         background: #F4F7FE;
         border-radius: 12px;
 
+        &--right{
+            margin-left: auto;
+        }
+        &--mobile{
+            &--absolute{
+                @media screen and (max-width:767px) {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+        }
         img{
             width: 16px;
             height: 16px;

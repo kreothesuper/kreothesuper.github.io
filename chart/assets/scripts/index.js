@@ -377,8 +377,7 @@ const renderOperationChart = (data) => {
                     borderWidth: 0,
                     backgroundColor: '#FAFF18',
                     borderRadius: 50,
-                    categoryPercentage: 1,
-                    barPercentage: .95,
+     
                 },
                 {
                     label: 'Претензии',
@@ -386,8 +385,7 @@ const renderOperationChart = (data) => {
                     borderWidth: 0,
                     backgroundColor: '#FFCC18',
                     borderRadius: 50,
-                    categoryPercentage: 1,
-                    barPercentage: .95,
+                    
                 },
                 {
                     label: 'Чарджи',
@@ -395,14 +393,15 @@ const renderOperationChart = (data) => {
                     borderWidth: 0,
                     backgroundColor: '#FF1818',
                     borderRadius: 50,
-                    categoryPercentage: 1,
-                    barPercentage: .95,
+             
                 },
             ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            categoryPercentage: .85,
+            barPercentage: 1,
             plugins: {
                 legend: {
                     display: false,
@@ -429,7 +428,6 @@ const renderOperationChart = (data) => {
                     }
                 },
                 x: {
-                    display: false,
                     beginAtZero: true,
                     barPercentage: 1,
                     categoryPercentage: 1,
@@ -464,7 +462,7 @@ const renderTrafficChart = (data) => {
                         backgroundColor: ['#4318FF', '#18FFFF'],
                         borderRadius: 50,
                         categoryPercentage: 1,
-                        barPercentage: .95,
+                        barPercentage: .9,
                     },
                 ]
             },
@@ -496,7 +494,6 @@ const renderTrafficChart = (data) => {
                         }
                     },
                     x: {
-                        display: false,
                         beginAtZero: true,
                         barPercentage: 1,
                         categoryPercentage: 1,
