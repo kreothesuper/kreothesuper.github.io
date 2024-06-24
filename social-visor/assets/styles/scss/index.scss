@@ -92,6 +92,9 @@ body {
 
     &--white {
         color: #fff;
+        &--dark{
+            color: #E7E7E7;
+        }
     }
 
     &--grey {
@@ -107,6 +110,10 @@ body {
         &--accent {
             font-family: var(--accent-font);
         }
+    }
+
+    &--uppercase {
+        text-transform: uppercase;
     }
 }
 
@@ -133,8 +140,12 @@ body {
             font-weight: 400;
         }
 
-        &--big{
+        &--big {
             font-size: 15px;
+        }
+
+        &--middle {
+            height: 40px;
         }
     }
 
@@ -154,7 +165,8 @@ body {
             font-weight: 500;
             height: 45px;
         }
-        &--big{
+
+        &--big {
             padding: 12px 40px;
             font-weight: 700;
             height: 50px;
@@ -349,6 +361,14 @@ body {
     &--tiny {
         max-width: 570px;
     }
+
+    &--padding{
+        &--big{
+            @media screen and (max-width:991px) {
+                padding: 0 35px;
+            }
+        }
+    }
 }
 
 .header {
@@ -361,6 +381,10 @@ body {
 
         @media screen and (max-width:991px) {
             padding: 25px 15px;
+
+            &--page{
+                padding: 25px 0;
+            }
         }
     }
 
@@ -396,6 +420,11 @@ body {
 
     &__nav {
         flex-grow: 1;
+
+        &--right {
+            margin-left: auto;
+            flex-grow: 0;
+        }
 
         @media screen and (max-width:991px) {
             position: fixed;
@@ -441,6 +470,12 @@ body {
         justify-content: space-between;
 
         width: 100%;
+
+        &--gap {
+            &--big {
+                gap: 30px;
+            }
+        }
 
         @media screen and (max-width:991px) {
             flex-direction: column;
@@ -558,6 +593,10 @@ body {
 
     &__wrapper {
         padding: 85px 0;
+
+        &--hero {
+            padding-top: 0;
+        }
 
         @media screen and (max-width:767px) {
             padding: 25px 0;
@@ -828,6 +867,12 @@ body {
         display: flex;
         flex-direction: column;
         gap: 43px;
+
+        &--gap {
+            &--small {
+                gap: 30px;
+            }
+        }
 
         &--mobile {
             &--gap {
@@ -1383,15 +1428,18 @@ body {
         font-size: 14px;
         color: #000;
 
-        &.active &__title{
+        &.active &__title {
             padding-bottom: 15px;
-            .icon{
+
+            .icon {
                 transform: rotate(180deg);
             }
         }
-        &.active &__content{
+
+        &.active &__content {
             display: flex;
         }
+
         &__wrapper {
             border-radius: 10px;
             background-color: #fff;
@@ -1407,6 +1455,7 @@ body {
             font-weight: 700;
 
             transition: .3s padding;
+
             .icon {
                 fill: none;
                 stroke: #212121;
@@ -1454,12 +1503,89 @@ body {
     }
 }
 
-.toggle-block{
+.toggle-block {
     user-select: none;
     -webkit-user-select: none;
-    &-link{
-        &:hover{
+
+    &-link {
+        &:hover {
             cursor: pointer;
+        }
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+
+    @media screen and (max-width:991px) {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    @media screen and (max-width:640px) {
+        grid-template-columns: minmax(0,1fr);
+    }
+}
+
+.card {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background: #3E3E3E;
+    border-radius: 10px;
+
+    &__img {
+        width: 100%;
+        height: 160px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        height: 36px;
+    }
+
+    &__title{
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &__text {
+        height: 45px;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &-tags{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex-wrap: wrap;
+        &__item{
+            padding: 2px 5px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+
+
+            font-size: 12px;
+            font-family: var(--accent-font);
+            font-weight: 500;
+
+            color: #fff;
+
+            border-radius: 20px;
+            background: #000;
         }
     }
 }
