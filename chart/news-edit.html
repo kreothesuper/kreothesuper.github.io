@@ -213,7 +213,7 @@
                                             <a href="#" class=" text--center text text--tiny text--grey--white">
                                                 Отменить
                                             </a>
-                                            <a href="#" class=" text--center text text--tiny text--red">
+                                            <a href="#" data-popup=".popup-delete" class=" text--center text text--tiny text--red">
                                                 Удалить
                                             </a>
                                         </form>
@@ -227,6 +227,27 @@
                 </div>
             </div>
         </main>
+    </div>
+
+    <div class="popup popup--modal popup-delete">
+        <div class="popup__wrapper popup__wrapper--modal">
+            <div class="popup__container popup__container--modal card">
+                <div class="card__wrapper card__wrapper--full card__wrapper--big card__wrapper--radius--middle">
+                    <form action="#" class="card__column card__column--big">
+                        <p class="text text--tiny text--grey">
+                            Вы действительно хотите удалить этот пост?
+                        </p>
+                        <button type="submit"
+                            class="button button--tiny button--tiny--mobile--small button--red button--full">
+                            Да, удалить
+                        </button>
+                        <a href="#" class="popup-close text--center text text--tiny text--grey--white">
+                            Отменить
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

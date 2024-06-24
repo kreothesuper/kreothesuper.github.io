@@ -606,7 +606,58 @@ const renderActivityChart = (data) => {
 renderActivityChart([createNumberArray(31, 100), createNumberArray(31, 100), createNumberArray(31, 100)]);
 
 
+
+// popup
+
+const checkTargetOrKey = event => {
+    if (
+        event.target.classList.contains('popup__wrapper') ||
+        event.key === 'Escape' ||
+        event.target.closest('.popup-close')
+    ) {
+        event.preventDefault();
+        hideAllPopups();
+    }
+};
+const showPopup = popupId => {
+    const popup = document.querySelector(popupId);
+    if (!popup) return
+
+    const pageWrapper = document.querySelector('body'),
+        popupGroup = document.querySelector('.popup-group');
+
+    hideAllPopups();
+
+    popup.classList.add('popup--active');
+    pageWrapper.classList.add('no-scroll');
+
+    if (popupGroup) popupGroup.classList.add('popup-group--active')
+
+    document.addEventListener('click', checkTargetOrKey);
+    document.addEventListener('keyup', checkTargetOrKey);
+};
+
+const hideAllPopups = () => {
+    const popups = document.querySelectorAll('.popup'),
+        pageWrapper = document.querySelector('body'),
+        popupGroup = document.querySelector('.popup-group');
+
+    popups.forEach(popup => {
+        popup.classList.remove('popup--active');
+    });
+    pageWrapper.classList.remove('no-scroll');
+
+    if (popupGroup) popupGroup.classList.remove('popup-group--active');
+
+
+    document.removeEventListener('click', checkTargetOrKey);
+    document.removeEventListener('keyup', checkTargetOrKey);
+};
+
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    // toggle block
 
     const editorBlockArray = document.querySelectorAll('.js-editor');
 
@@ -638,6 +689,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // popup
+
+    const popupButtons = document.querySelectorAll('[data-popup]');
+    const popups = document.querySelectorAll('.popup');
+
+    if (popups.length) {
+        popupButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const popupId = button.dataset.popup
+                showPopup(popupId);
+
+                if(popupId === '.popup-image' && document.querySelector('.popup-image__item')){
+                    document.querySelector('.popup-image__item').src = button.dataset.popupSrc;
+                }
+            });
+        });
+    }
+
+
+    // burger 
+
+    const burger = document.querySelector('.burger');
+    const aside = document.querySelector('.aside');
+
+    if (burger && aside) {
+        burger.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            burger.classList.toggle('burger--active');
+            aside.classList.toggle('aside--active');
+        });
+    }
+
+
+    // check input 
 
     const adminFilterArray = document.querySelectorAll('.admin-filter');
 
@@ -658,18 +746,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return false;
         }
 
-        const burger = document.querySelector('.burger');
-        const aside = document.querySelector('.aside');
-    
-        if (burger && aside) {
-            burger.addEventListener('click', (e) => {
-                e.preventDefault();
-    
-                burger.classList.toggle('burger--active');
-                aside.classList.toggle('aside--active');
-            });
-        }
-    
 
         adminFilterArray.forEach(adminFilter => {
             const inputs = adminFilter.querySelectorAll('input, select');
@@ -687,7 +763,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (selectArray.length) {
                     selectArray.forEach(select => {
-                        const event = new Event('reset', {bubbles: true});
+                        const event = new Event('reset', { bubbles: true });
                         select.dispatchEvent(event);
                     });
                 }
