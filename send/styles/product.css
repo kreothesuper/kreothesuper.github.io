@@ -1,0 +1,122 @@
+.product__wrapper {
+    margin: 95px auto 57px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+@media screen and (max-width: 1024px) {
+    .product__wrapper {
+        margin: 95px auto 0;
+    }
+}
+@media screen and (max-width: 540px) {
+    .product__wrapper {
+        margin-top: 0px;
+        gap: 0;
+    }
+}
+.product__row {
+    display: grid;
+    gap: 26px 120px;
+    grid-template-columns: 1fr 1fr;
+}
+.product__pictStyle {
+    border-radius: 20px;
+    border: 1px solid #E3E4E6;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product__pict {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.product__text {
+    font-weight: 600;
+    font-size: 16px;
+    color: #5F6163;
+    line-height: 1.25em;
+}
+.product__title {
+    font-weight: 500;
+    font-size: 40px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    line-height: 1.2em;
+    display: block;
+    margin: 0;
+}
+.product__subtitle {
+    font-family: 'Mont', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 1.2em;
+    margin-top: 26px;
+    margin-bottom: 18px;
+    display: block;
+}
+.product__subtitle:first-child {
+    margin-top: 0;
+}
+.product__text p + p {
+    margin-top: 1.2em;
+    display: block;
+}
+.product__img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .product__title {
+        font-size: 35px;
+        line-height: 1.2em;
+    }
+    .product__row {
+        gap: 40px 52px;
+    }
+    .product__title {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        order: 1;
+    }
+    .product__pict {
+        order: 2;
+        grid-row-start: auto;
+        grid-row-end: auto;
+    }
+    .product__text {
+        order: 3;
+    }
+
+}
+@media screen and (max-width: 768px) {
+    .product__title {
+        font-size: 20px;
+        line-height: 1.2em;
+        margin-top: 5px;
+    }
+    .product__subtitle {
+        font-size: 13px;
+        line-height: 1.2em;
+    }
+    .product__row {
+        gap: 25px 20px;
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+    }
+    .product__title {
+        grid-column-start: auto;
+        grid-column-end: auto;
+        order: 2;
+    }
+    .product__pict {
+        order: 1;
+    }
+    .product__text {
+        order: 3;
+        font-size: 13px;
+    }
+}

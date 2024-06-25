@@ -71,6 +71,58 @@ const servicesSwiper = new Swiper(".services__swiper", {
     el: ".swiper-scrollbar",
   },
 });
+/***popular***/
+const popularSwiperOpt = {
+  // Optional parameters
+  direction: "horizontal",
+  spaceBetween: 20,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  slidesPerView: 'auto',
+  slidesPerClick: 1,
+  loop: false,
+  // If we need pagination
+  breakpoints: {
+    1024: {
+      slidesPerView: 4,
+    }
+  }
+};
+const popularSwiper = new Swiper(".popular__slider", popularSwiperOpt);
+
+/***coopaeration****/
+$(function () {
+  const cooperateSwiperOpt = {
+    // Optional parameters
+    direction: "horizontal",
+    spaceBetween: 20,
+    loop: false,
+    autoHeight: true,
+    enabled: false,
+    observer: true,
+
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination",
+    }
+  };
+  var cooperateSwiper = new Swiper(".cooperation__slider", cooperateSwiperOpt);
+  let $window = $(window);
+  function reloadCoopSlider(init) {
+    if ($window.width() > 767) {
+      init.disable();
+    } else {
+      init.enable();
+    }
+  }
+  reloadCoopSlider(cooperateSwiper);
+  $window.on('resize', function (){
+    reloadCoopSlider(cooperateSwiper);
+  });
+
+});
 /***servis***/
 const weworkSwiper = new Swiper(".we-work__swiper", {
   // Optional parameters
