@@ -40,24 +40,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const hero = document.querySelector('.hero'),
     heroTitle = document.querySelector('.js-hero-title');
 
-    const switchWords = () => {
-        hero.style.setProperty('--accent-color',words[currentIndex].color);
-        heroTitle.textContent = words[currentIndex].label;
-        currentIndex = (currentIndex + 1) % words.length;
+    if(heroTitle){
+        const switchWords = () => {
+            hero.style.setProperty('--accent-color',words[currentIndex].color);
+            heroTitle.textContent = words[currentIndex].label;
+            currentIndex = (currentIndex + 1) % words.length;
+        }
+    
+        setInterval(switchWords, 3000);
     }
-
-    setInterval(switchWords, 3000);
 
     const switchImgElement = document.querySelector('.js-img-toggle')
 
-    const img = ['assets/images/analytics-img-2.png','assets/images/analytics-img-3.png','assets/images/analytics-img.png'];
-    let currentIndexImg = 0;
-    const switchImg = () => {
-        switchImgElement.src = img[currentIndexImg];
-        currentIndexImg = (currentIndexImg + 1) % img.length;
+    if(switchImgElement){
+        const img = ['assets/images/analytics-img-2.png','assets/images/analytics-img-3.png','assets/images/analytics-img.png'];
+        let currentIndexImg = 0;
+        const switchImg = () => {
+            switchImgElement.src = img[currentIndexImg];
+            currentIndexImg = (currentIndexImg + 1) % img.length;
+        }
+    
+        setInterval(switchImg, 3000);
     }
-
-    setInterval(switchImg, 3000);
 
     const headerNav = document.querySelector('.header__nav'),
     burger = document.querySelector('.burger');
