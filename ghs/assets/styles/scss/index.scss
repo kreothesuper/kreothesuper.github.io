@@ -234,7 +234,7 @@ body {
         @media screen and (max-width:1280px) {
             font-size: 18px;
         }
-        @media screen and (max-width:350px) {
+        @media screen and (max-width:375px) {
             font-size: 14px;
         }
     }
@@ -396,7 +396,11 @@ body {
 .hero{
     background: linear-gradient(204deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.45) 100%), url("../../images/pages/hero-bg.webp") center center/cover no-repeat;
     @media screen and (max-width:1024px) {
-        background: linear-gradient(225deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.45) 73.17%), url("../../images/pages/hero-bg.webp") center center/cover no-repeat;
+        background: linear-gradient(225deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.45) 73.17%), url("../../images/pages/hero-bg-table.webp") center center/cover no-repeat;
+    }
+
+    @media screen and (max-width:640px) {
+        background: linear-gradient(225deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.45) 73.17%), url("../../images/pages/hero-bg-m.webp") center center/cover no-repeat;
     }
 
     &__content{
@@ -499,7 +503,7 @@ body {
         position: relative;
         padding: 15px 0;
 
-        @media screen and (max-width:767px) {
+        @media screen and (max-width:800px) {
             padding: 10px 0;
         }
     }
@@ -510,7 +514,7 @@ body {
 
         position: relative;
         z-index: 12;
-        @media screen and (max-width:767px) {
+        @media screen and (max-width:800px) {
             height: 50px;
             width: 50px;
         }
@@ -586,7 +590,7 @@ body {
             }
         }
         &--header{
-            @media screen and (max-width:767px) {
+            @media screen and (max-width:800px) {
                 font-size: 20px;
                 letter-spacing: -0.02rem;
             }
@@ -834,7 +838,7 @@ body {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 30px;
 
-        @media screen and (max-width:800px) {
+        @media screen and (max-width:767px) {
             grid-template-columns: minmax(0, 1fr);
             gap: 15px;
         }
@@ -865,7 +869,7 @@ body {
         aspect-ratio: 1;
 
         width: 100%;
-        @media screen and (max-width:800px) {
+        @media screen and (max-width:767px) {
             aspect-ratio: 2/1;
         }
         @media screen and (max-width:640px) {
@@ -1258,6 +1262,13 @@ body {
                         right: 35px;
                     }
 
+                    @media screen and (max-width:991px) {
+                        width: 210px;
+                        height: 140px;
+                        right: 0;
+                        top: 0;
+                    }
+
                     @media screen and (max-width:767px) {
                         width: 210px;
                         height: 140px;
@@ -1272,6 +1283,8 @@ body {
         &__title {
             max-width: 455px;
             width: 100%;
+            position: relative;
+            z-index: 2;
 
             @media screen and (max-width:767px) {
                 max-width: 240px;
@@ -2473,7 +2486,7 @@ body {
         align-items: center;
         justify-content: space-between;
         gap: 20px;
-        @media screen and (max-width:880px) {
+        @media screen and (max-width:767px) {
             flex-direction: column;
             align-items: flex-start;
         }
@@ -2515,6 +2528,9 @@ body {
 
         position: relative;
         &__item{
+            display: flex;
+            align-items: center;
+            justify-content: center;
             @media screen and (max-width:1280px) {
                 height: calc(100% - 84px);
             }
@@ -2894,6 +2910,13 @@ body {
     }
 
     &.play{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100svh;
+        z-index: 20;
+
         &::before,&::after{
             opacity: 0;
         }
