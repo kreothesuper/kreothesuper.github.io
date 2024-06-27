@@ -4260,11 +4260,11 @@ p {
 }
 
 .section-grid--selection{
-  grid-auto-rows: 420px;
+  grid-auto-rows: minmax(420px,max-content);
 }
 
 .section-grid--info{
-  grid-auto-rows: 380px;
+  grid-auto-rows: minmax(380px,max-content);
 }
 
 .section-grid__item--img{
@@ -4290,15 +4290,19 @@ p {
   }
 }
 
+@media screen and (max-width:1440px) {
+  .section-grid--selection{
+    grid-auto-rows: minmax(350px,max-content);
+  }
+}
+
 @media screen and (max-width:1024px) {
   .section{
     margin-top: 151px;
   }
-  .section-grid--selection{
-    grid-auto-rows: 350px;
-  }
+
   .section-grid--info{
-    grid-auto-rows: 300px;
+    grid-auto-rows: minmax(300px,max-content);
   }
 
 }
@@ -4372,6 +4376,12 @@ p {
   object-fit: contain;
 }
 
+.card__icon{
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+}
+
 .card__title{
   font-size: 18px;
 }
@@ -4435,12 +4445,8 @@ p {
     gap: 25px;
     padding:30px 20px;
   }
-  .card__title{
-    font-size: 18px;
-  }
-  .card__text{
-    font-size: 15px;
-  }
+
+
   .card__number{
     font-size: 45px;
     line-height: 30px;
@@ -4451,11 +4457,20 @@ p {
   }
 }
 
+@media screen and (max-width:1024px) {
+  .card__title{
+    font-size: 18px;
+  }
+  .card__text{
+    font-size: 15px;
+  }
+}
+
 @media screen and (max-width:767px) {
   .card{
     padding: 20px;
   }
-  .card>svg{
+  .card__icon{
     width: 35px;
     height: 35px;
   }
