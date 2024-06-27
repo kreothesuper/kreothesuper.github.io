@@ -1874,10 +1874,31 @@ button:hover {
 .category-list__item:has(.category-list) {
   position: relative;
 }
+.category-list__item:has(.category-list) > .category-radio {
+  display: flex;
+  align-items: center;
+}
+.category-list__item:has(.category-list) > .category-radio::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex-shrink: 0;
+  transition: 0.3s transform;
+  background: url("../../images/icons/arrow-block.svg") center center/contain no-repeat;
+  margin-left: auto;
+}
+.category-list__item:has(:checked) > .category-list {
+  display: block;
+}
+.category-list__item:has(:checked) > .category-radio::after {
+  transform: rotate(180deg);
+}
 .category-list__item .category-list {
   padding-left: 15px;
   border-top: 1px solid #D3D3D3;
   position: relative;
+  display: none;
 }
 .category-list__item .category-list::before {
   content: "";
