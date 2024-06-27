@@ -1266,7 +1266,7 @@
                         </p>
                     </div>
                     <div class="hero__footer">
-                        <button  class="inner-button hero__button">
+                        <button  class="inner-button hero__button" data-toggle="modal" data-target="#modal-hero">
                             Получить коммерческое предложение
                         </button>
                         <p class="hero__text">
@@ -2243,6 +2243,65 @@
                 <div class="modal-title modal-title--small">
                     Наши специалисты специально подготовили полный список по всем категориям оборудования с указанием стоимости, вендора, номенклатуры и другой важной информации
                 </div>
+                <div class="modal-subtitle modal-subtitle--small">
+                    Для получения списка заполните форму:
+                </div>
+
+                <form action="">
+                    <div class="form_control">
+                        <input type="text" required placeholder="Ваше имя">
+                    </div>
+                    <div class="form_control">
+                        <input type="text" required placeholder="Ваша фамилия">
+                    </div>
+                    <div class="form_control">
+                        <input type="text" required placeholder="Название компании">
+                    </div>
+                    <div class="form_control">
+                        <input type="email" required placeholder="E-mail">
+                    </div>
+                    <div class="form_control">
+                        <button class="inner-button rel-section__button" type="submit">
+                            Получить прайс-лист
+                            <svg class="aspirations__svg" width="12" height="11" viewBox="0 0 12 11" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1189_349)">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M8.91939 1.52002L1.48006 1.52002L1.48006 0.0200195H9.98006H10.4194H11.4801V1.52002V10.02H9.98006V2.58067L1.58056 10.9802L0.519897 9.91951L8.91939 1.52002Z"
+                                        fill="white"></path>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_1189_349">
+                                        <rect width="11" height="11" fill="white" transform="translate(0.5)"></rect>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="modal-agreement">
+                    <input type="checkbox" required>
+                    Даю согласие на обработку
+                    <a href="#">персональных данных</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-hero" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.592 12.5206L23.4801 3.63234C24.0585 3.05419 24.0585 2.11937 23.4801 1.54128C22.902 0.963128 21.9671 0.963128 21.3891 1.54128L12.5007 10.4295L3.61277 1.54128C3.03434 0.963128 2.09987 0.963128 1.52171 1.54128C0.943283 2.11943 0.943283 3.05419 1.52171 3.63234L10.4096 12.5206L1.52178 21.4088C0.943352 21.9869 0.943352 22.9217 1.52178 23.4998C1.65892 23.6373 1.82189 23.7464 2.00131 23.8208C2.18074 23.8951 2.37309 23.9333 2.56731 23.9331C2.94582 23.9331 3.32446 23.7882 3.61284 23.4998L12.5007 14.6116L21.3891 23.4998C21.5262 23.6373 21.6892 23.7464 21.8686 23.8207C22.048 23.8951 22.2404 23.9333 22.4346 23.9331C22.8131 23.9331 23.1917 23.7882 23.4801 23.4998C24.0585 22.9217 24.0585 21.9869 23.4801 21.4088L14.592 12.5206Z"
+                            fill="#E3E4E6" />
+                    </svg>
+
+                </button>
+                <div class="modal-title modal-title--small">
+                    Для быстрой и эффективной обработки Вашего запроса, пожалуйста, заполните форму с указанием всех необходимых полей. Мы свяжемся с Вами в ближайшее время                                </div>
                 <div class="modal-subtitle modal-subtitle--small">
                     Для получения списка заполните форму:
                 </div>
