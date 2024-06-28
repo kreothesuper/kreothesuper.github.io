@@ -4,7 +4,7 @@ const horseArray = [
         name: 'Аполлон',
         discipline: 'Конкур',
         type: 'Кобыла',
-        location:'Германия',
+        location: 'Германия',
         age: 2,
         family: 'Имя х Имя',
         vetcheck: true,
@@ -15,7 +15,7 @@ const horseArray = [
         name: 'Зевс',
         discipline: 'Выездка',
         type: 'Кобыла',
-        location:'Россия',
+        location: 'Россия',
         age: 2,
         family: 'Имя х Имя',
         vetcheck: true,
@@ -26,7 +26,7 @@ const horseArray = [
         name: 'Аполлон 1',
         discipline: 'Троеборье',
         type: 'Мерин',
-        location:'Россия',
+        location: 'Россия',
         age: 12,
         family: 'Имя х Имя',
         vetcheck: true,
@@ -36,7 +36,7 @@ const horseArray = [
         id: 4,
         name: 'Аполлон 2',
         discipline: 'Конкур',
-        location:'Франция',
+        location: 'Франция',
         age: 13,
         family: 'Имя х Имя',
         vetcheck: true,
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!acc[key]) {
                     acc[key] = [];
                 }
-            
+
                 if (key === "age") {
                     const ageRange = obj.value.split("-").map(Number);
                     for (let i = ageRange[0]; i <= ageRange[1]; i++) {
@@ -195,10 +195,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         acc[key].push(obj.value);
                     }
                 }
-            
+
                 return acc;
             }, {});
-            console.log(combinedObject)
+
 
             // ignores case-sensitive
             const getValue = value => (typeof value === 'string' ? value.toUpperCase() : value);
@@ -214,13 +214,102 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            console.log(filterPlainArray(horseArray, combinedObject))
+            const currentArray = filterPlainArray(horseArray, combinedObject);
 
+            const catalog = document.querySelector('.catalog');
+            catalog.innerHTML = ''
+            currentArray.forEach(horse => {
+                const horseAgeLabel = horse.age <= 4 ? "года" : 'лет'
+                catalog.innerHTML += `
+                <div class="card">
+                <div class="card__img">
+                    <img src="assets/images/catalog/1.webp" alt="">
+                </div>
+                <div class="card__content">
+                    <p class="title title--small title--mobile--big title--black title--bold">${horse.name}</p>
+                    <div class="horse-info">
+                        <p class="text text--base text--base--mobile--small">
+                            <span class="text text--grey">
+                                Дисциплина:
+                            </span>
+                            ${horse.discipline}
+                        </p>
+                        <p class="text text--base text--base--mobile--small">
+                            <span class="text text--grey">
+                                Возраст: 
+                            </span>
+                            ${horse.age} ${horseAgeLabel}
+                        </p>
+                        <p class="text text--base text--base--mobile--small">
+                            <span class="text text--grey">
+                                Родословная: 
+                            </span>
+                            ${horse.family}
+                        </p>
+                    </div>
+                    <div class="star">
+                       ${horse.rate}
+                    </div>
+                    <a href="horse.html?id=${horse.id}" class="button button--mobile--full button--base button--bordered">
+                        подробнее о лошади
+                    </a>
+                </div>
+            </div>
+                `;
+            });
+            
+            filter.classList.remove('filter--active');
         });
         filter.addEventListener('click', (e) => {
             if (e.target.closest('.filter-label')) {
                 filter.classList.toggle('filter--active');
             }
+        });
+
+        filter.addEventListener('reset',(e)=>{
+            const catalog = document.querySelector('.catalog');
+            catalog.innerHTML = ''
+            horseArray.forEach(horse => {
+                const horseAgeLabel = horse.age <= 4 ? "года" : 'лет'
+                catalog.innerHTML += `
+                <div class="card">
+                <div class="card__img">
+                    <img src="assets/images/catalog/1.webp" alt="">
+                </div>
+                <div class="card__content">
+                    <p class="title title--small title--mobile--big title--black title--bold">${horse.name}</p>
+                    <div class="horse-info">
+                        <p class="text text--base text--base--mobile--small">
+                            <span class="text text--grey">
+                                Дисциплина:
+                            </span>
+                            ${horse.discipline}
+                        </p>
+                        <p class="text text--base text--base--mobile--small">
+                            <span class="text text--grey">
+                                Возраст: 
+                            </span>
+                            ${horse.age} ${horseAgeLabel}
+                        </p>
+                        <p class="text text--base text--base--mobile--small">
+                            <span class="text text--grey">
+                                Родословная: 
+                            </span>
+                            ${horse.family}
+                        </p>
+                    </div>
+                    <div class="star">
+                       ${horse.rate}
+                    </div>
+                    <a href="horse.html?id=${horse.id}" class="button button--mobile--full button--base button--bordered">
+                        подробнее о лошади
+                    </a>
+                </div>
+            </div>
+                `;
+            });
+
+            filter.classList.remove('filter--active');
         });
     }
 
