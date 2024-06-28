@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="assets/styles/css/font.css">
 
+    <link rel="stylesheet" href="assets/libs/range/range.css">
+
     <link rel="stylesheet" href="assets/styles/css/reset.css">
     <link rel="stylesheet" href="assets/styles/css/index.css">
 </head>
@@ -228,17 +230,17 @@
                                                     </p>
                                                     <div class="filter-block__list">
                                                         <label class="filter-checkbox">
-                                                            <input type="checkbox" name="horse"  value="Жеребец" class="filter-checkbox__input">
+                                                            <input type="checkbox" name="type"  value="Жеребец" class="filter-checkbox__input">
                                                             <span class="filter-checkbox__checkmark"></span>
                                                             <span class="text text--base text--base--mobile--small text--black">Жеребец</span>
                                                         </label>
                                                         <label class="filter-checkbox">
-                                                            <input type="checkbox" name="horse"  value="Кобыла" class="filter-checkbox__input">
+                                                            <input type="checkbox" name="type"  value="Кобыла" class="filter-checkbox__input">
                                                             <span class="filter-checkbox__checkmark"></span>
                                                             <span class="text text--base text--base--mobile--small text--black">Кобыла</span>
                                                         </label>
                                                         <label class="filter-checkbox">
-                                                            <input type="checkbox" name="horse"  value="Мерин" class="filter-checkbox__input">
+                                                            <input type="checkbox" name="type"  value="Мерин" class="filter-checkbox__input">
                                                             <span class="filter-checkbox__checkmark"></span>
                                                             <span class="text text--base text--base--mobile--small text--black">Мерин</span>
                                                         </label>
@@ -250,22 +252,22 @@
                                                     </p>
                                                     <div class="filter-block__list">
                                                         <label class="filter-checkbox">
-                                                            <input type="checkbox" name="age"  value="0-4 года" class="filter-checkbox__input">
+                                                            <input type="checkbox" name="age"  value="0-4" class="filter-checkbox__input">
                                                             <span class="filter-checkbox__checkmark"></span>
                                                             <span class="text text--base text--base--mobile--small text--black">0-4 года</span>
                                                         </label>
                                                         <label class="filter-checkbox">
-                                                            <input type="checkbox" name="age"  value="5-6 лет" class="filter-checkbox__input">
+                                                            <input type="checkbox" name="age"  value="5-6" class="filter-checkbox__input">
                                                             <span class="filter-checkbox__checkmark"></span>
                                                             <span class="text text--base text--base--mobile--small text--black">5-6 лет</span>
                                                         </label>
                                                         <label class="filter-checkbox">
-                                                            <input type="checkbox" name="age"  value="7-10 лет" class="filter-checkbox__input">
+                                                            <input type="checkbox" name="age"  value="7-10" class="filter-checkbox__input">
                                                             <span class="filter-checkbox__checkmark"></span>
                                                             <span class="text text--base text--base--mobile--small text--black">7-10 лет</span>
                                                         </label>
                                                         <label class="filter-checkbox">
-                                                            <input type="checkbox" name="age"  value="11-16 лет" class="filter-checkbox__input">
+                                                            <input type="checkbox" name="age"  value="11-16" class="filter-checkbox__input">
                                                             <span class="filter-checkbox__checkmark"></span>
                                                             <span class="text text--base text--base--mobile--small text--black">11-16 лет</span>
                                                         </label>
@@ -302,7 +304,24 @@
                                                     <p class="filter-block__title">
                                                         Ценовой диапазон:
                                                     </p>
-                                                    
+                                                    <div class="filter-range js-range">
+                                                        <div class="filter-range__header">
+                                                            <div class="filter-range__item range-slider" data-min="10000" data-max="120000">
+                                                            </div>
+                                                            <div class="filter-range__row">
+                                                                <p class="filter-range__text">
+                                                                    от
+                                                                </p>
+                                                                <p class="filter-range__text">
+                                                                    до
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="filter-range__row">
+                                                            <input type="text"  placeholder="20 000" class="filter-range__input js-range-from-input">
+                                                            <input type="text"  placeholder="150 000" class="filter-range__input js-range-to-input">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="filter-form__footer">
@@ -651,6 +670,8 @@
             </div>
         </div>
     </div>
+
+    <script src="assets/libs/range/range.js"></script>
 
     <script src="assets/scripts/index.js"></script>
 
