@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             spaceBetween: 44,
             loop: true,
             slidesPerView:1,
+            loopAdditionalSlides:4,
 
             pagination: {
                 el: '.slider-element__pagination',
