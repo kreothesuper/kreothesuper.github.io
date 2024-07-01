@@ -60,7 +60,7 @@ body {
         font-weight: 700;
         text-transform: uppercase;
         -webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: rgb(0, 0, 0);
+        -webkit-text-stroke-color: rgb(0, 0, 0);
 
         background: var(--bg-color);
         gap: 10px;
@@ -68,7 +68,7 @@ body {
         box-shadow: rgb(0, 0, 0) 0px -5px 0px 0px inset;
         border: 3px solid #000;
 
-        &--dark{
+        &--dark {
 
             color: #000;
         }
@@ -95,7 +95,7 @@ body {
         border: solid 4px #000;
     }
 
-    &--full{
+    &--full {
         max-width: 100%;
         width: 100%;
     }
@@ -646,6 +646,9 @@ body {
 }
 
 .about {
+
+    scroll-margin-block-start: 180px;
+
     &__header {
         padding: 70px 15px 40px 15px;
     }
@@ -819,14 +822,14 @@ body {
 
     &-grid {
         display: grid;
-        grid-template-columns: minmax(0,400px) minmax(0,1fr) minmax(0,400px);
+        grid-template-columns: minmax(0, 400px) minmax(0, 1fr) minmax(0, 400px);
         gap: 30px;
 
         @media screen and (max-width:1100px) {
             grid-template-columns: minmax(0, 1fr);
         }
 
-        &__item{
+        &__item {
             display: flex;
             flex-direction: column;
             gap: 30px;
@@ -840,15 +843,15 @@ body {
         border-radius: 12px;
 
 
-        &--small{
-            padding:15px 30px;
+        &--small {
+            padding: 15px 30px;
         }
 
         @media screen and (max-width:767px) {
             padding: 15px;
         }
 
-        &--transparent{
+        &--transparent {
             padding: 0;
             border: none;
         }
@@ -857,7 +860,7 @@ body {
             background-color: rgb(152, 213, 251);
         }
 
-        &--light{
+        &--light {
             background-color: rgba(100, 154, 192, 0.2);
         }
 
@@ -880,7 +883,8 @@ body {
             flex-direction: column;
             gap: 20px;
         }
-        &__img{
+
+        &__img {
             width: 32px;
             height: 32px;
             display: block;
@@ -902,9 +906,9 @@ body {
             gap: 15px;
         }
 
-        &__grid{
+        &__grid {
             display: grid;
-            grid-template-columns: repeat(2,minmax(0,1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 15px;
         }
 
@@ -914,16 +918,16 @@ body {
             font-size: 36px;
             font-weight: 900;
 
-            &--blue{
+            &--blue {
                 color: rgb(58, 163, 244);
             }
 
-            &--tiny{
+            &--tiny {
                 font-size: 22px;
                 font-weight: 700;
             }
 
-            &--small{
+            &--small {
                 font-size: 26px;
             }
         }
@@ -934,13 +938,16 @@ body {
             font-weight: 500;
 
             text-align: center;
-            &--number{
+
+            &--number {
                 overflow-wrap: break-word;
             }
-            &--small{
+
+            &--small {
                 font-size: 14px;
             }
-            &--red{
+
+            &--red {
                 color: rgb(251, 0, 0);
             }
         }
@@ -2441,7 +2448,7 @@ body {
             position: absolute;
             background: url("../../images/economics/decor.png") top left/contain no-repeat;
 
-            @media screen and (max-width:1280px) {
+            @media screen and (max-width:1100px) {
                 display: none;
             }
         }
@@ -2482,7 +2489,7 @@ body {
 
         padding-top: 60px;
 
-        @media screen and (max-width:1280px) {
+        @media screen and (max-width:1100px) {
             font-size: 40px;
             padding-top: 0;
         }
@@ -2498,7 +2505,7 @@ body {
         display: grid;
         grid-template-columns: minmax(0, 1fr) 500px minmax(0, 1fr);
 
-        @media screen and (max-width:1280px) {
+        @media screen and (max-width:1100px) {
             grid-template-columns: minmax(0, 1fr);
             gap: 20px;
         }
@@ -2509,7 +2516,7 @@ body {
             justify-content: flex-end;
             gap: 70px;
 
-            @media screen and (max-width:1280px) {
+            @media screen and (max-width:1100px) {
                 gap: 30px;
                 grid-row-start: 2;
             }
@@ -2519,7 +2526,7 @@ body {
                 gap: 150px;
 
 
-                @media screen and (max-width:1280px) {
+                @media screen and (max-width:1100px) {
                     gap: 30px;
                     padding-bottom: 0;
                     grid-row-start: 3;
@@ -2562,7 +2569,7 @@ body {
                 top: calc(50% + 20px);
                 left: 100px;
 
-                @media screen and (max-width:1280px) {
+                @media screen and (max-width:1100px) {
                     left: 0;
                     display: none;
                 }
@@ -2579,13 +2586,13 @@ body {
                 position: absolute;
                 top: calc(50% + 14px);
 
-                @media screen and (max-width:1280px) {
+                @media screen and (max-width:1100px) {
                     display: none;
                 }
             }
 
             &--right {
-                @media screen and (min-width:1281px) {
+                @media screen and (min-width:1101px) {
                     flex-direction: row-reverse;
 
                     &::before {
@@ -2606,7 +2613,7 @@ body {
             width: 100%;
             object-fit: contain;
 
-            @media screen and (max-width:1280px) {
+            @media screen and (max-width:1100px) {
                 margin: 0 auto;
             }
         }
