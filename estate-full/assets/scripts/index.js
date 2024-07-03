@@ -1,3 +1,20 @@
+const loader = document.querySelector('.loader');
+
+if (loader) {
+    const scrollbartWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.classList.add('hidden');
+    document.body.style.setProperty(`--scrollbar-width`, `${scrollbartWidth}px`);
+
+    window.addEventListener('load', () => {
+        document.body.classList.remove('hidden');
+        const loader = document.querySelector('.loader');
+        loader.classList.add('loaded');
+    });
+}
+
+
+
+
 const closeAllAside = () => {
     const asideLength = document.querySelectorAll('.aside');
 
@@ -48,6 +65,15 @@ const checkTargetOrKey = event => {
 // popup
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    const header = document.querySelector('.header');
+
+    if (header) {
+        header.classList.toggle("is-pinned", window.scrollY > 0);
+        window.addEventListener('scroll', (e) => {
+            header.classList.toggle("is-pinned", window.scrollY > 0)
+        });
+    }
 
     const asideButtons = document.querySelectorAll('[data-aside]');
 
@@ -258,4 +284,17 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener("keydown", mask, false);
 
     });
+
+    const faqItemArray = document.querySelectorAll('.faq-item');
+
+    if (faqItemArray.length) {
+        faqItemArray.forEach(item => {
+            const itemText = item.querySelector('.faq-item__text');
+
+            item.style.setProperty('--height', `${itemText.offsetHeight}px`)
+        });
+    }
 })
+
+
+

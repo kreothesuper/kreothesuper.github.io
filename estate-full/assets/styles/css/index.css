@@ -14,7 +14,7 @@
   --font-main: "Roboto", sans-serif;
   --text-size-base: 16px;
   --text-size-big: 30px;
-  --text-size-middle:24px;
+  --text-size-middle: 24px;
   --text-size-number: 60px;
   --title-size-base: 30px;
 }
@@ -27,14 +27,64 @@
   }
 }
 
+.loader {
+  background: var(--bg-color-dark);
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 16;
+  transition: 1s z-index;
+}
+.loader.loaded {
+  z-index: 0;
+}
+.loader.loaded .loader__logo::before {
+  top: 0;
+}
+.loader__logo {
+  width: 200px;
+  height: 50px;
+  position: relative;
+}
+.loader__logo::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color-dark);
+  left: 0;
+  top: -100%;
+  transition: 1s top;
+}
+
 body {
   font-family: var(--font-main);
   background: var(--bg-color);
   color: var(--color-white);
 }
+body.hidden {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body.hidden .page-wrapper {
+  transform: translateY(100svh);
+}
 
 .page-wrapper {
   position: relative;
+  z-index: 2;
+  transform: translateY(0);
+  transition: 1s 0.5s transform linear;
 }
 
 .logo {
@@ -393,6 +443,19 @@ body {
   min-height: max-content;
   height: 100%;
 }
+.card:hover .card__img img {
+  transform: scale(1.1);
+}
+.card:hover {
+  cursor: pointer;
+}
+.card:hover .card__arrow {
+  fill: var(--color-grey);
+}
+.card:hover .button {
+  background: #1E1E1E;
+  color: var(--color-white);
+}
 .card__date {
   padding-bottom: 18px;
   border-bottom: 2px solid var(--color-black);
@@ -492,6 +555,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 .card__img--contacts {
   height: 255px;
@@ -519,6 +583,7 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  transition: 0.3s transform;
 }
 .card__arrow {
   display: flex;
@@ -571,11 +636,12 @@ body {
   align-items: stretch;
 }
 .category-slider .card {
-  height: auto;
+  height: 100%;
 }
 .category-slider__item {
   max-width: 570px;
   width: 100%;
+  height: auto;
 }
 @media screen and (max-width: 767px) {
   .category-slider__item {
@@ -588,11 +654,12 @@ body {
   align-items: stretch;
 }
 .product-slider .swiper-wrapper .card {
-  height: auto;
+  height: 100%;
 }
 .product-slider__item {
   max-width: 430px;
   width: 100%;
+  height: auto;
 }
 @media screen and (max-width: 767px) {
   .product-slider__item {
@@ -675,6 +742,9 @@ body {
 .faq-item:has(:checked) .faq-item__text {
   display: flex;
 }
+.faq-item:has(:checked) .faq-item__desc {
+  height: var(--height);
+}
 .faq-item:has(:checked) .faq-item__img {
   opacity: 1;
   visibility: visible;
@@ -688,7 +758,20 @@ body {
   }
 }
 .faq-item__text {
-  display: none;
+  padding-top: 50px;
+}
+@media screen and (max-width: 767px) {
+  .faq-item__text {
+    padding-top: 25px;
+  }
+}
+.faq-item__desc {
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s linear;
+}
+.faq-item__title:hover .faq-item__icon::before, .faq-item__title:hover .faq-item__icon::after {
+  background: var(--color-grey);
 }
 .faq-item__title {
   padding: 0 30px 0 0;
@@ -696,6 +779,9 @@ body {
   align-items: center;
   gap: 20px;
   justify-content: space-between;
+}
+.faq-item__title:hover {
+  cursor: pointer;
 }
 @media screen and (max-width: 767px) {
   .faq-item__title {
@@ -761,7 +847,7 @@ body {
   position: absolute;
   top: 0;
   left: calc(50% - 1.5px);
-  transition: 0.3s transform;
+  transition: 0.3s transform, 0.3s background;
 }
 .faq-item__icon::before {
   transform: rotate(90deg);
@@ -1017,7 +1103,8 @@ body {
   height: 40px;
   fill: var(--color-white);
 }
-.social__link img, .social__link .icon {
+.social__link img,
+.social__link .icon {
   height: 100%;
   max-width: 140px;
 }
@@ -1171,6 +1258,10 @@ body {
   top: 0;
   width: 100%;
   z-index: 12;
+  transition: 0.3s background;
+}
+.header.is-pinned {
+  background: var(--color-black-light);
 }
 .header__wrapper {
   position: relative;
@@ -1608,7 +1699,7 @@ body {
 }
 .product__grid {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: calc(40% - 10px) calc(60% - 10px);
   gap: 20px;
   max-width: 100%;
 }
@@ -1880,7 +1971,7 @@ body {
   z-index: 4;
   background: #09090b;
   transform: translateX(100%);
-  transition: 0.5s linear transform;
+  transition: 0.5s ease-in-out transform;
 }
 .aside-menu {
   transform: translateX(-100%);
