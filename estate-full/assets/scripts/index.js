@@ -65,6 +65,15 @@ const checkTargetOrKey = event => {
 // popup
 
 document.addEventListener('DOMContentLoaded', () => {
+    const video = document.querySelector('.video-bg');
+    const windowWidth = window.innerWidth;
+
+    if (video) {
+        const videoSource = (windowWidth < 1025) ? video.dataset.mobile : video.dataset.desktop;
+        const videoHTML = `<source src='${videoSource}' type='video/mp4'>`;
+        video.innerHTML = videoHTML;
+    }
+
 
     const header = document.querySelector('.header');
 
