@@ -2,14 +2,19 @@ const loader = document.querySelector('.loader');
 
 if (loader) {
     const scrollbartWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.body.classList.add('hidden');
     document.body.style.setProperty(`--scrollbar-width`, `${scrollbartWidth}px`);
 
     window.addEventListener('load', () => {
-        document.body.classList.remove('hidden');
-        const loader = document.querySelector('.loader');
-        loader.classList.add('loaded');
+
+        setTimeout(() => {
+            document.body.classList.remove('hidden');
+            document.body.classList.add('loaded');
+            const loader = document.querySelector('.loader');
+            loader.classList.add('loaded');
+        }, 1000)
+
     });
+
 }
 
 
