@@ -36,6 +36,7 @@ const horseArray = [
         id: 4,
         name: 'Аполлон 2',
         discipline: 'Конкур',
+        type: 'Кобыла',
         location: 'Франция',
         age: 13,
         family: 'Имя х Имя',
@@ -247,9 +248,66 @@ document.addEventListener('DOMContentLoaded', () => {
                             ${horse.family}
                         </p>
                     </div>
-                    <div class="star">
-                       ${horse.rate}
+                    <div class="price-info">
+                    <div class="price-info__row">
+                        <p class="star">
+                        ${horse.rate}
+                        </p>
+                        <div class="price-info__label">
+                            <svg class="icon">
+                                <use xlink:href="assets/images/sprite.svg#info"></use>
+                            </svg>
+                            Ценовая политика
+                        </div>
                     </div>
+                    <div class="price-info__list">
+                        <p class="title title--center title--black title--bold title--small title--mobile--big">
+                            Оценивание лошади
+                        </p>
+                        <div class="price-list">
+                            <div class="price-list__item">
+                                <p class="star">
+                                    1
+                                </p>
+                                <p class="text text--base text--black text--base--mobile--small">
+                                    { от 1 000 до 20 000 € }
+                                </p>
+                            </div>
+                            <div class="price-list__item">
+                                <p class="star">
+                                    2
+                                </p>
+                                <p class="text text--base text--black text--base--mobile--small">
+                                    { от 20 000 до 40 000 € }
+                                </p>
+                            </div>
+                            <div class="price-list__item">
+                                <p class="star">
+                                    3
+                                </p>
+                                <p class="text text--base text--black text--base--mobile--small">
+                                    { от 40 000 до 60 000 € }
+                                </p>
+                            </div>
+                            <div class="price-list__item">
+                                <p class="star">
+                                    4
+                                </p>
+                                <p class="text text--base text--black text--base--mobile--small">
+                                    { от 60 000 до 100 000 € }
+                                </p>
+                            </div>
+                            <div class="price-list__item">
+                                <p class="star">
+                                    5
+                                </p>
+                                <p class="text text--base text--black text--base--mobile--small">
+                                    { от 100 000 до 300 000 € }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     <a href="horse.html?id=${horse.id}" class="button button--mobile--full button--base button--bordered">
                         подробнее о лошади
                     </a>
@@ -257,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
                 `;
             });
-            
+
             filter.classList.remove('filter--active');
         });
         filter.addEventListener('click', (e) => {
@@ -266,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        filter.addEventListener('reset',(e)=>{
+        filter.addEventListener('reset', (e) => {
             const catalog = document.querySelector('.catalog');
             catalog.innerHTML = ''
             horseArray.forEach(horse => {
@@ -298,9 +356,60 @@ document.addEventListener('DOMContentLoaded', () => {
                             ${horse.family}
                         </p>
                     </div>
-                    <div class="star">
-                       ${horse.rate}
+                    <div class="price-info">
+                    <div class="price-info__row">
+                        <p class="star">
+                        ${horse.rate}
+                        </p>
                     </div>
+                    <div class="price-info__list">
+                        <p class="title title--center title--black title--bold title--small title--mobile--big">
+                            Оценивание лошади
+                        </p>
+                        <div class="price-list">
+                            <div class="price-list__item">
+                                <p class="star">
+                                    1
+                                </p>
+                                <p class="text text--base text--black text--base--mobile--small">
+                                    { от 1 000 до 20 000 € }
+                                </p>
+                            </div>
+                            <div class="price-list__item">
+                                <p class="star">
+                                    2
+                                </p>
+                                <p class="text text--base text--black text--base--mobile--small">
+                                    { от 20 000 до 40 000 € }
+                                </p>
+                            </div>
+                            <div class="price-list__item">
+                                <p class="star">
+                                    3
+                                </p>
+                                <p class="text text--base text--black text--base--mobile--small">
+                                    { от 40 000 до 60 000 € }
+                                </p>
+                            </div>
+                            <div class="price-list__item">
+                                <p class="star">
+                                    4
+                                </p>
+                                <p class="text text--base text--black text--base--mobile--small">
+                                    { от 60 000 до 100 000 € }
+                                </p>
+                            </div>
+                            <div class="price-list__item">
+                                <p class="star">
+                                    5
+                                </p>
+                                <p class="text text--base text--black text--base--mobile--small">
+                                    { от 100 000 до 300 000 € }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     <a href="horse.html?id=${horse.id}" class="button button--mobile--full button--base button--bordered">
                         подробнее о лошади
                     </a>
@@ -392,18 +501,24 @@ document.addEventListener('DOMContentLoaded', () => {
                         </span>
                         ${searchHorse.vetcheck ? 'Имеется' : 'Отстуствует'}
                     </p>
+                    <p class="text text--base text--base--mobile--small">
+                    <span class="text text--grey">
+                        Лошадь:
+                    </span>
+                    ${searchHorse.type}
+                </p>
+                <p class="text text--base text--base--mobile--small">
+                    <span class="text text--grey">
+                        Локация:
+                    </span>
+                    ${searchHorse.location}
+                </p>
                 </div>
                 <div class="price-info">
                     <div class="price-info__row">
                         <p class="star">
                         ${searchHorse.rate}
                         </p>
-                        <div class="price-info__label">
-                            <svg class="icon">
-                                <use xlink:href="assets/images/sprite.svg#info"></use>
-                            </svg>
-                            Ценовая политика
-                        </div>
                     </div>
                     <div class="price-info__list">
                         <p class="title title--center title--black title--bold title--small title--mobile--big">
@@ -567,9 +682,60 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${horse.family}
                     </p>
                 </div>
-                <div class="star">
-                   ${horse.rate}
+                <div class="price-info">
+                <div class="price-info__row">
+                    <p class="star">
+                     ${horse.rate}
+                    </p>
                 </div>
+                <div class="price-info__list">
+                    <p class="title title--center title--black title--bold title--small title--mobile--big">
+                        Оценивание лошади
+                    </p>
+                    <div class="price-list">
+                        <div class="price-list__item">
+                            <p class="star">
+                                1
+                            </p>
+                            <p class="text text--base text--black text--base--mobile--small">
+                                { от 1 000 до 20 000 € }
+                            </p>
+                        </div>
+                        <div class="price-list__item">
+                            <p class="star">
+                                2
+                            </p>
+                            <p class="text text--base text--black text--base--mobile--small">
+                                { от 20 000 до 40 000 € }
+                            </p>
+                        </div>
+                        <div class="price-list__item">
+                            <p class="star">
+                                3
+                            </p>
+                            <p class="text text--base text--black text--base--mobile--small">
+                                { от 40 000 до 60 000 € }
+                            </p>
+                        </div>
+                        <div class="price-list__item">
+                            <p class="star">
+                                4
+                            </p>
+                            <p class="text text--base text--black text--base--mobile--small">
+                                { от 60 000 до 100 000 € }
+                            </p>
+                        </div>
+                        <div class="price-list__item">
+                            <p class="star">
+                                5
+                            </p>
+                            <p class="text text--base text--black text--base--mobile--small">
+                                { от 100 000 до 300 000 € }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 <a href="horse.html?id=${horse.id}" class="button button--mobile--full button--base button--bordered">
                     подробнее о лошади
                 </a>
@@ -592,7 +758,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const rangeSliderElement = rangeSlider(rangeElement, {
                     min: rangeMin,
                     max: rangeMax,
-                    step: 100,
+                    step: 1,
                     value: [rangeMin, rangeMax],
                     disabled: false,
                     rangeSlideDisabled: false,
