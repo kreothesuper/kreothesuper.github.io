@@ -79,6 +79,7 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  position: relative;
 }
 .hero__img {
   width: 100%;
@@ -495,6 +496,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  z-index: 12;
 }
 .page-nav::before {
   content: "";
@@ -513,9 +515,43 @@ body {
 .page-nav__item {
   width: 14px;
   height: 14px;
-  border: solid 3px #f4db5c;
+  border: solid 2px #f4db5c;
   background-color: #111;
   border-radius: 50%;
   position: relative;
   z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-nav__item::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background-color: #f4db5c;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+.page-nav__item:last-child::before {
+  display: none;
+}
+.page-nav__item::before {
+  content: "";
+  width: 1px;
+  height: 0;
+  border: 1px dashed rgba(244, 219, 92, 0.6);
+  position: absolute;
+  left: 4px;
+  top: 0;
+  transition: 0.3s height;
+}
+.page-nav__item.active {
+  box-shadow: 0px 0px 20px 10px rgba(244, 219, 92, 0.2);
+}
+.page-nav__item.active::after {
+  opacity: 1;
+}
+.page-nav__item.active::before {
+  height: 30px;
 }/*# sourceMappingURL=index.css.map */

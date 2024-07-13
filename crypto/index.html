@@ -16,10 +16,10 @@
 
     <div class="page-wraper">
         <div class="page-nav">
-            <div class="page-nav__item"></div>
-            <div class="page-nav__item active"></div>
-            <div class="page-nav__item"></div>
-            <div class="page-nav__item"></div>
+            <a href="#section-first" class="page-nav__item"></a>
+            <a href="#section-second" class="page-nav__item"></a>
+            <a href="#section-third" class="page-nav__item"></a>
+            <a href="#section-fourth" class="page-nav__item"></a>
         </div>
         <header class="header">
             <a href="#" class="header__logo logo">
@@ -80,10 +80,10 @@
             </div>
         </header>
         <main class="content">
-            <div class="hero">
-                <img src="assets/images/hero.png" alt="" class="hero__img">
+            <div class="hero section-count" id="section-first">
+                <img src="assets/images/hero.gif" alt="" class="hero__img">
             </div>
-            <div class="section section-count">
+            <div class="section">
                 <div class="container">
                     <div class="section__header">
                         <p class="section__number">
@@ -102,7 +102,7 @@
                 </div>
             </div>
             <div class="section-list">
-                <div class="section section-count">
+                <div class="section section-count" id="section-second">
                     <div class="container container--big">
                         <div class="section__wrapper">
                             <div class="section__header">
@@ -123,7 +123,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="section section-count">
+                <div class="section section-count" id="section-third">
                     <div class="container container--full">
                         <div class="section__wrapper">
                             <div class="section__header">
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
                             <div class="roadmap">
-                                <img src="assets/images/roadmap.png" alt="" class="roadmap__img">
+                                <img src="assets/images/roadmap.gif" alt="" class="roadmap__img">
                                 <div class="roadmap__content">
                                     <div class="roadmap-item">
                                         <p class="roadmap-item__tag">
@@ -186,7 +186,7 @@
                     </div>
                 </div>
             </div>
-            <div class="section section-count">
+            <div class="section section-count" id="section-fourth">
                 <div class="container container--big">
                     <div class="section__wrapper">
                         <div class="section__header">
@@ -301,27 +301,22 @@
 
 
     <script>
-        const getScrollPosition = (el = document.documentElement) => ({
-            x: el.scrollLeft,
-            y: el.scrollTop
-        });
-
-        const sectionCount = document.querySelectorAll('.section-count');
-        const pageNavItem = document.querySelectorAll('.page-nav__item');
-
-        console.log(getScrollPosition(document.querySelector('.section-count')));
-        if (sectionCount.length) {
-            window.addEventListener('scroll', () => {
-                console.log(getScrollPosition().y);
-
-                sectionCount.forEach(element=>{
-                    const getElementPosition = getScrollPosition(element);
-
-                    console.log(getElementPosition);
-                });
+        let sections = document.querySelectorAll('.section-count');
+        let navLinks = document.querySelectorAll('.page-nav__item');
+        window.onscroll = () => {
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                        document.querySelector('.page-nav__item[href*=' + id + ']').classList.add('active');
+                    });
+                };
             });
-        }
-
+        };
 
 
     </script>
