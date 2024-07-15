@@ -1290,6 +1290,47 @@ button:hover {
   grid-column: 1/-1;
 }
 
+.chart-checkbox {
+  padding: 5px 15px;
+  border: 1px solid rgba(130, 103, 157, 0.2);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.chart-checkbox:hover {
+  cursor: pointer;
+}
+.chart-checkbox__input {
+  display: none;
+}
+.chart-checkbox__input:checked ~ .chart-checkbox__checkmark::before {
+  left: calc(100% - 20px);
+}
+.chart-checkbox__checkmark {
+  width: 34px;
+  height: 14px;
+  background: #aa97bd;
+  border-radius: 7px;
+  position: relative;
+}
+.chart-checkbox__checkmark::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 0;
+  background: linear-gradient(45deg, #1c007f 0%, #a70096 100%);
+  transition: 0.3s left;
+}
+.chart-checkbox__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
 .chart-title {
   font-size: 14px;
   color: #82679d;
@@ -1329,8 +1370,9 @@ button:hover {
   }
 }
 .chart-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
   gap: 24px;
 }
 @media screen and (max-width: 1280px) {
@@ -1340,14 +1382,13 @@ button:hover {
 }
 @media screen and (max-width: 640px) {
   .chart-grid {
-    display: flex;
-    flex-wrap: wrap;
     gap: 8px;
     width: 1100px;
   }
 }
 .chart-grid__item {
   position: relative;
+  flex: 1 0 auto;
 }
 @media screen and (max-width: 640px) {
   .chart-grid__item {
@@ -1605,6 +1646,9 @@ button:hover {
   align-items: center;
   justify-content: center;
   gap: 40px;
+}
+.chart-block__row--small {
+  gap: 16px;
 }
 .chart-table {
   display: flex;
@@ -2591,7 +2635,8 @@ button:hover {
   border: 1px solid rgba(130, 103, 157, 0.2);
   border-top: none;
 }
-.select--chart--big .select__label, .select--chart--big .select__item {
+.select--chart--big .select__label,
+.select--chart--big .select__item {
   font-weight: 500;
 }
 .select--input {

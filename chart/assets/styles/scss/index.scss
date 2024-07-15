@@ -1663,6 +1663,56 @@ button {
 
 
 .chart {
+    &-checkbox {
+        padding: 5px 15px;
+        border: 1px solid rgba(130, 103, 157, 0.2);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        &__input {
+            display: none;
+        }
+
+        &__input:checked ~ &__checkmark{
+            &::before{
+                left: calc(100% - 20px);
+            }
+        }
+
+        &__checkmark {
+            width: 34px;
+            height: 14px;
+            background: #aa97bd;
+            border-radius: 7px;
+            position: relative;
+
+            &::before {
+                content: '';
+                width: 20px;
+                height: 20px;
+                display: block;
+                border-radius: 50%;
+                position: absolute;
+                top: calc(50% - 10px);
+                left: 0;
+                background: linear-gradient(45deg, #1c007f 0%, #a70096 100%);
+
+                transition: .3s left;
+            }
+        }
+
+        &__icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+    }
 
     &-title {
         font-size: 14px;
@@ -1709,8 +1759,9 @@ button {
     }
 
     &-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
         gap: 24px;
 
 
@@ -1720,8 +1771,6 @@ button {
         }
 
         @media screen and (max-width:640px) {
-            display: flex;
-            flex-wrap: wrap;
             gap: 8px;
 
             width: 1100px;
@@ -1729,6 +1778,7 @@ button {
 
         &__item {
             position: relative;
+            flex: 1 0 auto;
 
             @media screen and (max-width:640px) {
                 flex-shrink: 0;
@@ -2033,6 +2083,9 @@ button {
             align-items: center;
             justify-content: center;
             gap: 40px;
+            &--small{
+                gap: 16px;
+            }
         }
     }
 
@@ -3172,7 +3225,8 @@ button {
                 top: 100%;
 
                 padding: 5px 11px 12px 18px;
-                &::before{
+
+                &::before {
                     content: '';
                     height: 1px;
                     width: 100%;
@@ -3182,7 +3236,7 @@ button {
                     background: #82679d;
                 }
             }
-         
+
             &__label {
                 border: 1px solid rgba(130, 103, 157, 0.2);
                 border-radius: 90px;
@@ -3195,34 +3249,38 @@ button {
                 color: #82679d;
 
                 transition: .3s border-radius;
-                .icon{
+
+                .icon {
                     width: 24px;
                     height: 24px;
 
                     background: url("../../images/icons/arrow-chart-select.svg") center center/contain no-repeat;
                 }
-                &--active{
+
+                &--active {
                     border-radius: 16px;
                     border-bottom-left-radius: 0;
                     border-bottom-right-radius: 0;
                     border-bottom: transparent;
 
-                    .icon{
+                    .icon {
                         transform: rotate(180deg);
                     }
 
                 }
             }
-            &__item{
+
+            &__item {
                 font-size: 16px;
                 font-weight: 400;
                 color: #82679d;
 
                 padding: 4px 0;
                 border-top: none;
-              
+
             }
-            &__content{
+
+            &__content {
                 border-bottom-left-radius: 16px;
                 border-bottom-right-radius: 16px;
 
@@ -3230,13 +3288,14 @@ button {
                 border-top: none;
 
             }
-            &--active &__label{
-    
-            }
+
+            &--active &__label {}
         }
 
-        &--big{
-            .select__label,.select__item{
+        &--big {
+
+            .select__label,
+            .select__item {
                 font-weight: 500;
             }
         }
