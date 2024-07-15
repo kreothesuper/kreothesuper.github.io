@@ -16,24 +16,108 @@
 <body>
 
     <div class="page-wrapper">
-        <aside class="page-wrapper__aside aside">
-            <div class="aside__wrapper">
 
+        <header class="header">
+            <div class="header__logo logo">
+                <a href="#" class="aside__button"></a>
+                <img src="assets/images/logo.svg" alt="" class="logo__img">
+            </div>
+            <div class="header__content">
+                <div class="header__block">
+                    <p class="header__title">
+                        Дашборд
+                    </p>
+                    <div class="chart-select">
+                        <div class="select select--chart select--chart--big custom-select">
+                            <select class="select__tag" name="" id="">
+                                <option hidden value="">Сегодня</option>
+                                <option value="1">Вчера</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header__profile">
+                    <div class="header-profile">
+                        <a href="#" class="header-profile__notification">
+                            <img src="assets/images/icons/bell.svg" alt="" class="icon">
+                        </a>
+                        <label class="search-input">
+                            <input type="text" class="search-input__item" placeholder="Поиск">
+                        </label>
+                        <img src="assets/images/profile.jpg" alt="" class="header-profile__img">
+                    </div>
+                </div>
+
+                <div class="header__burger">
+                    <div class="burger burger--linear">
+                        <div class="burger__item "></div>
+                        <div class="burger__item"></div>
+                        <div class="burger__item"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <aside class="page-wrapper__aside page-wrapper__aside--big aside">
+            <div class="aside__wrapper">
+                <div class="aside__nav aside__nav--small">
+                    <div class="aside-block">
+                        <ul class="aside-list aside-list--big">
+                            <li class="aside-list__item aside-list__item--border--none">
+                                <a href="#" class="aside-list__link aside-list__link--fill">
+                                    <img src="assets/images/aside/dashboard.svg" alt="" class="icon icon--big">
+                                    Дашборд
+                                </a>
+                            </li>
+                            <li class="aside-list__item aside-list__item--border--none">
+                                <a href="#" class="aside-list__link aside-list__link--fill">
+                                    <img src="assets/images/aside/users.svg" alt="" class="icon icon--big">
+                                    Пользователи
+                                </a>
+                            </li>
+                            <li class="aside-list__item aside-list__item--border--none">
+                                <a href="#" class="aside-list__link aside-list__link--fill">
+                                    <img src="assets/images/aside/transaction.svg" alt="" class="icon icon--big">
+                                    Транзакции
+                                </a>
+                            </li>
+                            <li class="aside-list__item aside-list__item--border--none">
+                                <a href="#" class="aside-list__link aside-list__link--fill">
+                                    <img src="assets/images/aside/admin.svg" alt="" class="icon icon--big">
+                                    Администраторы
+                                </a>
+                            </li>
+                            <li class="aside-list__item aside-list__item--border--none">
+                                <a href="#" class="aside-list__link aside-list__link--fill">
+                                    <img src="assets/images/aside/settings.svg" alt="" class="icon icon--big">
+                                    Настройки
+                                </a>
+                            </li>
+                            <li class="aside-list__item aside-list__item--border--none">
+                                <a href="#" class="aside-list__link aside-list__link--fill">
+                                    <img src="assets/images/aside/stock.svg" alt="" class="icon icon--big">
+                                    Акции
+                                </a>
+                            </li>
+                            <li class="aside-list__item aside-list__item--border--none">
+                                <a href="#" class="aside-list__link aside-list__link--fill">
+                                    <img src="assets/images/aside/repeats.svg" alt="" class="icon icon--big">
+                                    Повторы
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </aside>
         <main class="page-wrapper__content content">
-            <div class="content__wrapper">
+            <div class="content__wrapper content__wrapper--header">
                 <div class="block ">
                     <div class="block__wrapper">
-                        <div class="block__item">
-                            <div class="chart-select chart-select--big">
-                                <label class="chart-select__item">
-                                    <select class="chart-select__tag">
-                                        <option value="30">Сегодня</option>
-                                        <option value="10">Вчера</option>
-                                    </select>
-                                </label>
-                            </div>
+                        <div class="block__item block__item--mobile">
+                            <p class="page-title">
+                                Дашборд
+                            </p>
                         </div>
                         <div class="block__item">
                             <div class="chart-page">
@@ -302,12 +386,13 @@
                                                 Общий доход
                                             </p>
                                             <div class="chart-select">
-                                                <label class="chart-select__item">
-                                                    <select class="chart-select__tag">
-                                                        <option value="30">30 дней</option>
-                                                        <option value="10">10 дней</option>
+                                                <div class="select select--chart custom-select">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option hidden value="">30 дней</option>
+                                                        <option value="1">10 дней</option>
+                                                        <option value="1">90 дней</option>
                                                     </select>
-                                                </label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="chart-block__item chart-block__content">
@@ -374,12 +459,13 @@
                                                 Активность разделов
                                             </p>
                                             <div class="chart-select">
-                                                <label class="chart-select__item">
-                                                    <select class="chart-select__tag">
-                                                        <option value="30">30 дней</option>
-                                                        <option value="10">10 дней</option>
+                                                <div class="select select--chart custom-select">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option hidden value="">30 дней</option>
+                                                        <option value="1">10 дней</option>
+                                                        <option value="1">90 дней</option>
                                                     </select>
-                                                </label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="chart-block__item chart-block__content">
@@ -444,12 +530,13 @@
                                                 Оплаты тарифов
                                             </p>
                                             <div class="chart-select">
-                                                <label class="chart-select__item">
-                                                    <select class="chart-select__tag">
-                                                        <option value="30">30 дней</option>
-                                                        <option value="10">10 дней</option>
+                                                <div class="select select--chart custom-select">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option hidden value="">30 дней</option>
+                                                        <option value="1">10 дней</option>
+                                                        <option value="1">90 дней</option>
                                                     </select>
-                                                </label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="chart-block__item chart-block__item--content">
@@ -713,7 +800,8 @@
                                                         <p class="chart-card__number chart-card__number--red">
                                                             43
                                                         </p>
-                                                        <p class="chart-card__count chart-card__count--plus chart-card__count--plus--top">
+                                                        <p
+                                                            class="chart-card__count chart-card__count--plus chart-card__count--plus--top">
                                                             7%
                                                         </p>
                                                     </div>
@@ -721,7 +809,8 @@
                                                         <p class="chart-card__number chart-card__number--red">
                                                             356
                                                         </p>
-                                                        <p class="chart-card__count chart-card__count--minus chart-card__count--minus--top">
+                                                        <p
+                                                            class="chart-card__count chart-card__count--minus chart-card__count--minus--top">
                                                             7%
                                                         </p>
                                                     </div>
@@ -737,12 +826,13 @@
                                                 Операции
                                             </p>
                                             <div class="chart-select">
-                                                <label class="chart-select__item">
-                                                    <select class="chart-select__tag">
-                                                        <option value="30">30 дней</option>
-                                                        <option value="10">10 дней</option>
+                                                <div class="select select--chart custom-select">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option hidden value="">30 дней</option>
+                                                        <option value="1">10 дней</option>
+                                                        <option value="1">90 дней</option>
                                                     </select>
-                                                </label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="chart-block__item chart-block__content">
@@ -758,7 +848,7 @@
                                                 </p>
                                                 <div class="chart-card__row">
                                                     <p class="chart-card__number">
-                                                       32
+                                                        32
                                                     </p>
                                                     <p class="chart-card__count chart-card__count--plus">
                                                         7%
@@ -774,7 +864,7 @@
                                                 </p>
                                                 <div class="chart-card__row">
                                                     <p class="chart-card__number">
-                                                     6
+                                                        6
                                                     </p>
                                                     <p class="chart-card__count chart-card__count--plus">
                                                         7%
@@ -790,7 +880,7 @@
                                                 </p>
                                                 <div class="chart-card__row">
                                                     <p class="chart-card__number">
-                                                      2
+                                                        2
                                                     </p>
                                                     <p class="chart-card__count chart-card__count--plus">
                                                         7%
@@ -807,15 +897,16 @@
                                                 Трафик
                                             </p>
                                             <div class="chart-select">
-                                                <label class="chart-select__item">
-                                                    <select class="chart-select__tag">
-                                                        <option value="30">30 дней</option>
-                                                        <option value="10">10 дней</option>
+                                                <div class="select select--chart custom-select">
+                                                    <select class="select__tag" name="" id="">
+                                                        <option hidden value="">30 дней</option>
+                                                        <option value="1">10 дней</option>
+                                                        <option value="1">90 дней</option>
                                                     </select>
-                                                </label>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="chart-block__item chart-block__content chart-block__content--big" >
+                                        <div class="chart-block__item chart-block__content chart-block__content--big">
                                             <canvas id="trafficchart"></canvas>
                                         </div>
                                         <div class="chart-block__item chart-block__footer">
@@ -828,7 +919,7 @@
                                                 </p>
                                                 <div class="chart-card__row">
                                                     <p class="chart-card__number">
-                                                       32
+                                                        32
                                                     </p>
                                                     <p class="chart-card__count chart-card__count--plus">
                                                         7%
@@ -844,7 +935,7 @@
                                                 </p>
                                                 <div class="chart-card__row">
                                                     <p class="chart-card__number">
-                                                     6
+                                                        6
                                                     </p>
                                                     <p class="chart-card__count chart-card__count--plus">
                                                         7%
@@ -856,7 +947,7 @@
                                 </div>
                             </div>
                         </div>
-                 
+
                     </div>
                 </div>
             </div>
