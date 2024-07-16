@@ -529,9 +529,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const formObjectRate = [];
 
             formData.forEach((value, key) => {
-                if(key !== 'rate'){
+                if (key !== 'rate') {
                     formObjectArray.push({ name: key, value: value });
-                }else{
+                } else {
                     formObjectRate.push({ name: key, value: +value });
                 }
             });
@@ -547,7 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     for (let i = ageRange[0]; i <= ageRange[1]; i++) {
                         acc[key].push(i);
                     }
-                }else{
+                } else {
                     if (!acc[key].includes(obj.value)) {
                         acc[key].push(obj.value);
                     }
@@ -573,10 +573,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let filteredData = [];
 
-            if(formObjectRate.length){
+            if (formObjectRate.length) {
                 filteredData = filterPlainArray(horseArray, combinedObject);
                 filteredData = filteredData.filter(item => item.rate >= formObjectRate[0].value && item.rate <= formObjectRate[1].value);
-            }else{
+            } else {
                 filteredData = filterPlainArray(horseArray, combinedObject);
             }
 
@@ -857,6 +857,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         rangeInputMax.value = valueSet[1];
                     },
                 });
+
+                rangeInputMin.value = rangeSliderElement.value()[0];
+                rangeInputMax.value = rangeSliderElement.value()[1];
 
                 rangeInputMin.addEventListener('change', () => {
                     rangeSliderElement.value([rangeInputMin.value, rangeInputMax.value])
