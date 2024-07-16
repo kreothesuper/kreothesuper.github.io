@@ -526,9 +526,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const formData = new FormData(filterForm);
             const formObjectArray = [];
+            const formObjectRate = [];
 
             formData.forEach((value, key) => {
-                formObjectArray.push({ name: key, value: value });
+                if(key !== 'rate'){
+                    formObjectArray.push({ name: key, value: value });
+                }else{
+                    formObjectRate.push({ name: key, value: +value });
+                }
             });
 
             const combinedObject = formObjectArray.reduce((acc, obj) => {
@@ -542,7 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     for (let i = ageRange[0]; i <= ageRange[1]; i++) {
                         acc[key].push(i);
                     }
-                } else {
+                }else{
                     if (!acc[key].includes(obj.value)) {
                         acc[key].push(obj.value);
                     }
@@ -566,8 +571,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            const currentArray = filterPlainArray(horseArray, combinedObject);
-            createHorseCatalog(currentArray);
+            let filteredData = [];
+
+            if(formObjectRate.length){
+                filteredData = filterPlainArray(horseArray, combinedObject);
+                filteredData = filteredData.filter(item => item.rate >= formObjectRate[0].value && item.rate <= formObjectRate[1].value);
+            }else{
+                filteredData = filterPlainArray(horseArray, combinedObject);
+            }
+
+            createHorseCatalog(filteredData);
 
             filter.classList.remove('filter--active');
         });
@@ -630,7 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!searchHorse) return;
 
-        const horseAgeLabel = (languageCurrent === 'ru' && horse.age[languageCurrent].name <= 4) ? "года" : (languageCurrent === 'ru' ? 'лет' : 'ans');
+        const horseAgeLabel = (languageCurrent === 'ru' && searchHorse.age[languageCurrent].name <= 4) ? "года" : (languageCurrent === 'ru' ? 'лет' : 'ans');
         const priceText = languageCurrent === 'fr' ? "Estimation du prix d'un cheval" : 'Оценивание лошади';
         const pleaFirst = languageCurrent === 'fr' ? "de" : 'от';
         const pleaSecond = languageCurrent === 'fr' ? "à" : 'до';
