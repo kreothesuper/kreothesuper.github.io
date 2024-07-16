@@ -520,7 +520,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const filter = document.querySelector('.filter');
 
     if (filter) {
-        const filterForm = filter.querySelector('form');
+        const filterForm = filter.querySelector('form'),
+            filterReset = filter.querySelector('.filter-form__reset');
         filter.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -556,7 +557,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return acc;
             }, {});
 
-
             // ignores case-sensitive
             const getValue = value => (typeof value === 'string' ? value.toUpperCase() : value);
             function filterPlainArray(array, filters) {
@@ -590,10 +590,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        filter.addEventListener('reset', (e) => {
-            createHorseCatalog(horseArray);
-            filter.classList.remove('filter--active');
-        });
+        if(filterReset){
+            filterReset.addEventListener('click',(e)=>{
+                e.preventDefault();
+
+                filterForm.reset();
+                createHorseCatalog(horseArray);
+                filter.classList.remove('filter--active');
+
+                const filterRate = filter.querySelectorAll('[name="rate"]');
+
+                if(filterRate.length){
+                    filterRate[0].value = 1;
+                    filterRate[1].value = 5;
+
+                    filterRate[0].dispatchEvent(new Event('change', { bubbles: true }));
+                    filterRate[1].dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            });
+        }
     }
 
     // popup init
@@ -837,6 +852,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (rangeArray.length > 0) {
         rangeArray.forEach(range => {
+            const closestForm = range.closest('form');
             const rangeElement = range.querySelector('.range-slider'),
                 rangeMax = rangeElement.dataset.max,
                 rangeMin = rangeElement.dataset.min,
@@ -857,6 +873,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         rangeInputMax.value = valueSet[1];
                     },
                 });
+
+                if(closestForm){
+                    closestForm.addEventListener('reset',()=>{
+                        rangeInputMin.value = rangeSliderElement.value()[0];
+                        rangeInputMax.value = rangeSliderElement.value()[1];
+                    });
+                }
 
                 rangeInputMin.value = rangeSliderElement.value()[0];
                 rangeInputMax.value = rangeSliderElement.value()[1];
