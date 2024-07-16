@@ -1152,6 +1152,10 @@ button {
 
         }
 
+        &--full{
+            max-width: 100%;
+        }
+
         @media screen and (max-width: 767px) {
             gap: 40px;
 
@@ -1780,6 +1784,8 @@ button {
             position: relative;
             flex: 1 0 auto;
 
+            min-width: 16%;
+
             @media screen and (max-width:640px) {
                 flex-shrink: 0;
             }
@@ -2016,6 +2022,7 @@ button {
             flex-direction: column;
             width: max-content;
             min-width: 100%;
+            width: 100%;
 
             @media screen and (max-width:1280px) {
                 min-width: 640px;
@@ -2028,6 +2035,14 @@ button {
             justify-content: space-evenly;
             flex-wrap: wrap;
             gap: 10px;
+
+            &--center{
+                justify-content: center;
+                gap: 40px;
+                @media screen and (max-width:1280px) {
+                    gap: 20px;
+                }
+            }
         }
 
         &__content {
@@ -2064,6 +2079,7 @@ button {
         &__footer {
             border-top: 1px solid #efefef;
 
+
             &--no {
                 &--padding {
                     padding-top: 0;
@@ -2097,7 +2113,8 @@ button {
             display: grid;
             grid-template-columns: minmax(120px, 1fr) 110px 110px 110px 110px 110px 110px;
 
-            width: max-content;
+            min-width: max-content;
+            width: 100%;
 
             &:nth-child(even) {
                 background: #fafafa;
@@ -3163,26 +3180,6 @@ button {
         display: block;
         position: relative;
         z-index: 2;
-
-
-        &::before {
-            content: '';
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-
-            border-right: 20px solid var(--background-triangle);
-
-            transform: rotate(-45deg);
-
-            position: absolute;
-            left: -7px;
-            bottom: -7px;
-
-            z-index: 3;
-
-        }
     }
 }
 

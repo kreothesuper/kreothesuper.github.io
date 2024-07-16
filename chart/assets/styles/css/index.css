@@ -890,6 +890,9 @@ button:hover {
 .content__wrapper--header {
   padding-top: 100px;
 }
+.content__wrapper--full {
+  max-width: 100%;
+}
 @media screen and (max-width: 767px) {
   .content__wrapper {
     gap: 40px;
@@ -1389,6 +1392,7 @@ button:hover {
 .chart-grid__item {
   position: relative;
   flex: 1 0 auto;
+  min-width: 16%;
 }
 @media screen and (max-width: 640px) {
   .chart-grid__item {
@@ -1591,6 +1595,7 @@ button:hover {
   width: -moz-max-content;
   width: max-content;
   min-width: 100%;
+  width: 100%;
 }
 @media screen and (max-width: 1280px) {
   .chart-block__wrapper {
@@ -1603,6 +1608,15 @@ button:hover {
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 10px;
+}
+.chart-block__footer--center {
+  justify-content: center;
+  gap: 40px;
+}
+@media screen and (max-width: 1280px) {
+  .chart-block__footer--center {
+    gap: 20px;
+  }
 }
 .chart-block__content {
   flex-grow: 1;
@@ -1657,8 +1671,9 @@ button:hover {
 .chart-table__row {
   display: grid;
   grid-template-columns: minmax(120px, 1fr) 110px 110px 110px 110px 110px 110px;
-  width: -moz-max-content;
-  width: max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  width: 100%;
 }
 .chart-table__row:nth-child(even) {
   background: #fafafa;
@@ -2540,19 +2555,6 @@ button:hover {
   display: block;
   position: relative;
   z-index: 2;
-}
-#chartjs-tooltip span::before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 20px solid var(--background-triangle);
-  transform: rotate(-45deg);
-  position: absolute;
-  left: -7px;
-  bottom: -7px;
-  z-index: 3;
 }
 
 @media screen and (max-width: 750px) {

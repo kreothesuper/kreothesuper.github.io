@@ -209,7 +209,7 @@ const renderIncomeChartSecond = (data) => {
 
         const formatMonth = (date) => new Date(date).toLocaleDateString("ru", { month: "short" });
         const formatDay = (date) => new Date(date).getDate();
-        const formatDate = (date) => `${new Date(date).getDate()} - ${formatMonth(date).substring(0, 3)}.`;
+        const formatDate = (date) => `${new Date(date).getDate()} ${formatMonth(date)}`;
 
         const dayValues = largestArray.map(item => item.day);
 
@@ -344,7 +344,6 @@ const renderIncomeChartSecond = (data) => {
                                     style += '; font-size:14px';
                                     style += '; text-align:center';
                                     style += '; border-radius:5px';
-                                    style += `; --background-triangle:${tooltipModel.dataPoints[0].dataset.backgroundColor}`;
                                     const span = '<span style="' + style + '">' + monthText + '<br>' + body + '₽' + '</span>';
                                     innerHtml += '<tr><td>' + span + '</td></tr>';
                                 });
@@ -408,7 +407,7 @@ const renderIncomeChart = (data) => {
         const largestArray = data.reduce((prev, current) => (prev.length > current.length) ? prev : current);
 
         const formatMonth = (date) => new Date(date).toLocaleDateString("ru", { month: "short" });
-        const formatDate = (date) => `${new Date(date).getDate()} - ${formatMonth(date).substring(0, 3)}.`;
+        const formatDate = (date) => `${new Date(date).getDate()} ${formatMonth(date)}`;
 
         const dayValues = largestArray.map(item => item.day);
 
@@ -592,6 +591,7 @@ const renderIncomeChart = (data) => {
         });
     }
 }
+
 renderIncomeChart(date)
 // Операции
 const renderOperationChart = (data) => {
@@ -599,7 +599,7 @@ const renderOperationChart = (data) => {
     if (operationchart) {
         const largestArray = data.reduce((prev, current) => (prev.length > current.length) ? prev : current);
 
-        const formatDate = (date) => `${new Date(date).getDate()} - ${formatMonth(date).substring(0, 3)}.`;
+        const formatDate = (date) => `${new Date(date).getDate()} ${formatMonth(date)}`;
         const formatDay = (date) => new Date(date).getDate();
         const formatMonth = (date) => new Date(date).toLocaleDateString("ru", { month: "short" });
 
@@ -810,7 +810,7 @@ const renderTrafficChart = (data) => {
     if (trafficChart) {
         const largestArray = data.reduce((prev, current) => (prev.length > current.length) ? prev : current);
 
-        const formatDate = (date) => `${new Date(date).getDate()} - ${formatMonth(date).substring(0, 3)}.`;
+        const formatDate = (date) => `${new Date(date).getDate()} ${formatMonth(date)}`;
         const formatDay = (date) => new Date(date).getDate();
         const formatMonth = (date) => new Date(date).toLocaleDateString("ru", { month: "short" });
 
@@ -1021,7 +1021,7 @@ const renderActivityChart = (data) => {
 
         const largestArray = data.reduce((prev, current) => (prev.length > current.length) ? prev : current);
 
-        const formatDate = (date) => `${new Date(date).getDate()} - ${formatMonth(date).substring(0, 3)}.`;
+        const formatDate = (date) => `${new Date(date).getDate()} ${formatMonth(date)}`;
         const formatDay = (date) => new Date(date).getDate();
         const formatMonth = (date) => new Date(date).toLocaleDateString("ru", { month: "short" });
 
@@ -1038,7 +1038,7 @@ const renderActivityChart = (data) => {
                 labels: dayValues,
                 datasets: [
                     {
-                        label: 'умный поиск',
+                        label: 'Умный поиск',
                         data: data[0].map(item => item.count),
                         borderWidth: 0,
                         backgroundColor: '#732ba2',
@@ -1049,7 +1049,7 @@ const renderActivityChart = (data) => {
                         customTooltipColor: '#fff',
                     },
                     {
-                        label: 'аналитика вк',
+                        label: 'Аналитика ВК',
                         data: data[1].map(item => item.count),
                         borderWidth: 0,
                         backgroundColor: '#4eb6e2',
@@ -1060,7 +1060,7 @@ const renderActivityChart = (data) => {
 
                     },
                     {
-                        label: 'мониторинг поиска',
+                        label: 'Мониторинг поиска',
                         data: data[2].map(item => item.count),
                         borderWidth: 0,
                         backgroundColor: '#e0d7e8',
@@ -1209,7 +1209,6 @@ const renderActivityChart = (data) => {
     }
 
 }
-
 
 renderActivityChart(date);
 
