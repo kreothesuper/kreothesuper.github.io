@@ -1315,4 +1315,22 @@ body {
   max-width: 950px;
   width: 100%;
   margin: 0 auto;
+}
+
+.animation-item {
+  opacity: 0;
+}
+.animation-item--animated {
+  animation: drop 1s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+}
+
+@keyframes drop {
+  0% {
+    opacity: 0;
+    transform: translateY(400px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }/*# sourceMappingURL=index.css.map */
