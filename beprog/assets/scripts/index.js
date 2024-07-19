@@ -24,34 +24,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const hero = document.querySelector('.hero');
+    const heroWrapper = document.querySelector('.hero-wrapper');
+    const header = document.querySelector('.header');
 
     var swiper = new Swiper('.hero', {
         spaceBetween: 30,
         effect: 'fade',
-        speed:1500,
+        speed: 1500,
         mousewheel: {
             invert: false,
             // forceToAxis: true,
             sensitivity: 1,
             releaseOnEdges: true,
-            thresholdTime:500,
+            thresholdTime: 500,
         },
-     
+
+        init: function () {
+            hero.dataset.current = this.realIndex;
+        },
+
         autoHeight: true,
+    });
+
+    swiper.on('init', function () {
     });
 
     swiper.on('slideChange', function () {
         hero.dataset.current = swiper.realIndex;
+        swiper.update();
         hero.scrollIntoView();
+        if (swiper.realIndex > 0) {
+            header.classList.remove('active')
+        } else {
+            header.classList.add('active');
+        }
     });
 
     const heroSection = document.querySelectorAll('.hero-section');
 
-    heroSection.forEach(element=>{
+    heroSection.forEach(element => {
         const heroSectionText = element.querySelectorAll('.hero-section-text');
 
-        if(heroSectionText.length){
-            heroSectionText.forEach((text,index) =>{
+        if (heroSectionText.length) {
+            heroSectionText.forEach((text, index) => {
                 text.style.transitionDelay = `${index * .2}s`
             });
         }
@@ -59,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     const burger = document.querySelector('.burger');
-    const header = document.querySelector('.header');
+
 
     burger.addEventListener('click', (e) => {
         e.preventDefault();
