@@ -607,4 +607,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    const asideButton = document.querySelector('.aside__button');
+    const asideElement = document.querySelector('.aside');
+
+    if (asideButton && asideElement) {
+        asideButton.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            asideElement.classList.toggle('hidden');
+        });
+    }
 });
