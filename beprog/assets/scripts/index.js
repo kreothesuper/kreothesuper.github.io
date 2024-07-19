@@ -22,4 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
     }
+
+    const burger = document.querySelector('.burger');
+    const header = document.querySelector('.header');
+
+    burger.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        burger.classList.toggle('burger--active');
+        header.classList.toggle('header--active');
+    });
+
+    const language = document.querySelector('.language');
+
+    if (language) {
+        const languageCurrent = language.querySelector('.language__current');
+
+        languageCurrent.addEventListener('click', () => {
+            language.classList.toggle('language--active');
+        });
+    }
 });
