@@ -635,6 +635,7 @@ button {
 
     display: flex;
     align-items: center;
+    gap: 2px;
 
     &--grey{
         color: var(--color-grey);
@@ -698,6 +699,9 @@ button {
     &--textarea {
         height: 130px;
 
+        &--medium{
+            height: 75px;
+        }
         &--big {
             height: 200px;
         }
@@ -705,6 +709,12 @@ button {
         &--small {
             height: 60px;
             font-size: 13px;
+        }
+
+        &--tiny{
+            font-size: 12px;
+            height: 56px;
+            font-weight: 500;
         }
 
         &--auto {
@@ -715,6 +725,7 @@ button {
                 min-height: 24px;
             }
         }
+
     }
 
     &--light {

@@ -461,7 +461,7 @@
         </main>
     </div>
 
-    <div class="popup popup--modal popup-return">
+    <div class="popup popup--modal popup-return popup--active">
         <div class="popup__wrapper popup__wrapper--modal">
             <div class="popup__container popup__container--modal card">
                 <div class="card__wrapper card__wrapper--full card__wrapper--big card__wrapper--radius--middle">
@@ -489,8 +489,19 @@
                             <p class="text text--tiny text--grey">
                                 99 ₽
                             </p>
-
                         </div>
+                        <label class="input-wrapper">
+                            <p class="text text--tiny text--grey--light">
+                                Причина возврата</p>
+                            <textarea class="input input--light input--small--padding--small input--textarea input--textarea--tiny "></textarea>
+                        </label>
+                        <label class="input-wrapper">
+                            <p class="text text--tiny text--grey--light">
+                                Сумма возврата</p>
+                            <span class="input input--light input--small input--small--padding--small">% <input type="text"></span>
+                            <p class="text text--tiny text--grey--light">
+                                = 56 ₽</p>
+                        </label>
                         <button type="submit" data-popup=".popup-thanks" class="button button--tiny button--orange button--full">
                             Вернуть средства
                         </button>
