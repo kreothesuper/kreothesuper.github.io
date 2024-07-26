@@ -618,4 +618,17 @@ document.addEventListener('DOMContentLoaded', () => {
             asideElement.classList.toggle('hidden');
         });
     }
+
+
+    const tooltipArray = document.querySelectorAll('.tooltip');
+
+    if(tooltipArray.length){
+        tooltipArray.forEach(tooltip=>{
+            tooltip.addEventListener('click',(e)=>{
+                if(e.target.classList.contains('tooltip-link')){
+                    tooltip.classList.toggle('tooltip--active');
+                }
+            });
+        });
+    }
 });

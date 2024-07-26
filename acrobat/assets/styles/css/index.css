@@ -4809,4 +4809,62 @@ button:hover {
 }
 .search-input__item::placeholder {
   color: #82679d;
+}
+
+.tooltip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+.tooltip--active .tooltip__content {
+  opacity: 1;
+  visibility: visible;
+}
+.tooltip__icon {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  display: block;
+  background: url("../../images/icons/tooltip-icon.svg") center center/contain no-repeat;
+  transition: 0.3s opacity;
+}
+.tooltip__icon:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.tooltip__content {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 10px;
+  width: 265px;
+  display: flex;
+  align-items: flex-start;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s visibility, 0.5s opacity;
+}
+.tooltip__text {
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 400;
+  color: #fff;
+  flex-grow: 1;
+}
+.tooltip__close {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  display: block;
+  align-self: center;
+  background: url("../../images/icons/tooltip-close.svg") center center/contain no-repeat;
+  transition: 0.3s opacity;
+}
+.tooltip__close:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }/*# sourceMappingURL=index.css.map */

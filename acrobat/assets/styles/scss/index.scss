@@ -5930,3 +5930,75 @@ button {
         }
     }
 }
+
+.tooltip{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+
+    &--active &__content{
+        opacity: 1;
+        visibility: visible;
+    }
+    &__icon{
+        width: 10px;
+        height: 10px;
+        flex-shrink: 0;
+        display: block;
+
+        background: url("../../images/icons/tooltip-icon.svg") center center/contain no-repeat;
+
+        transition: .3s opacity;
+        &:hover{
+            cursor: pointer;
+            opacity: .5;
+        }
+    }
+    &__content{
+        position: absolute;
+        right: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        padding: 10px;
+
+        width: 265px;
+
+
+
+        display: flex;
+        align-items: flex-start;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition: .3s visibility, .5s opacity;
+    }
+    &__text{
+        font-size: 10px;
+        line-height: 10px;
+        font-weight: 400;
+        color: #fff;
+
+        flex-grow: 1;
+    }
+    &__close{
+        width: 10px;
+        height: 10px;
+        flex-shrink: 0;
+        display: block;
+
+        align-self: center;
+
+        background: url("../../images/icons/tooltip-close.svg") center center/contain no-repeat;
+
+        transition: .3s opacity;
+        &:hover{
+            opacity: .5;
+            cursor: pointer;
+        }
+    }
+}
