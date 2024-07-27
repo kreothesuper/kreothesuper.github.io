@@ -66,38 +66,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroWrapper = document.querySelector('.hero-wrapper');
     const header = document.querySelector('.header');
 
-    var swiper = new Swiper('.hero', {
-        spaceBetween: 30,
-        effect: 'fade',
-        speed: 1500,
-        mousewheel: {
-            invert: false,
-            // forceToAxis: true,
-            sensitivity: 1,
-            releaseOnEdges: true,
-            thresholdTime: 500,
-        },
+    // var swiper = new Swiper('.hero', {
+    //     spaceBetween: 30,
+    //     effect: 'fade',
+    //     speed: 1500,
+    //     mousewheel: {
+    //         invert: false,
+    //         // forceToAxis: true,
+    //         sensitivity: 1,
+    //         releaseOnEdges: true,
+    //         thresholdTime: 500,
+    //     },
 
-        init: function () {
-            hero.dataset.current = this.realIndex;
-        },
+    //     init: function () {
+    //         hero.dataset.current = this.realIndex;
+    //     },
 
-        autoHeight: true,
-    });
+    // });
 
-    swiper.on('init', function () {
-    });
+    // swiper.on('init', function () {
+    // });
 
-    swiper.on('slideChange', function () {
-        hero.dataset.current = swiper.realIndex;
-        swiper.update();
-        hero.scrollIntoView();
-        if (swiper.realIndex > 0) {
-            header.classList.remove('active')
-        } else {
-            header.classList.add('active');
-        }
-    });
+    // swiper.on('slideChange', function () {
+    //     hero.dataset.current = swiper.realIndex;
+    //     swiper.update();
+    //     hero.scrollIntoView();
+    //     if (swiper.realIndex > 0) {
+    //         header.classList.remove('active')
+    //     } else {
+    //         header.classList.add('active');
+    //     }
+    // });
+
+    // scrollLock.disablePageScroll();
 
     const heroSection = document.querySelectorAll('.hero-section');
 
@@ -122,13 +123,64 @@ document.addEventListener('DOMContentLoaded', () => {
         header.classList.toggle('header--active');
     });
 
-    const language = document.querySelector('.language');
+    const languageArray = document.querySelectorAll('.language');
 
-    if (language) {
-        const languageCurrent = language.querySelector('.language__current');
+    if (languageArray.length) {
+        languageArray.forEach(language => {
+            const languageCurrent = language.querySelector('.language__current');
 
-        languageCurrent.addEventListener('click', () => {
-            language.classList.toggle('language--active');
-        });
+            languageCurrent.addEventListener('click', () => {
+                language.classList.toggle('language--active');
+            });
+        })
     }
+
+    const heroSectionArray = document.querySelectorAll('.hero-section');
+    const testBlock = document.querySelector('.test');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            console.log(entry);
+            if (entry.isIntersecting) {
+                heroSectionArray.forEach(block => {
+                    block.classList.remove('visible');
+                });
+                entry.target.classList.add('visible');
+                const id = Array.from(heroSectionArray).indexOf(entry.target)
+
+                heroSectionArray.forEach((el, index) => {
+                    el.classList.remove('prev');
+                    if (id === index) {
+                        el.classList.add('visible')
+                    } else {
+                        el.classList.remove('visible')
+                    }
+                });
+
+                // heroSectionArray[id - 1 || 0].classList.add('prev');
+                testBlock.dataset.current = id;
+                if(id > 0){
+                    header.classList.remove('active');
+                }else{
+                    header.classList.add('active');
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+
+    heroSectionArray.forEach(block => {
+        observer.observe(block);
+    });
+
+
+
+    // let scrollTimer;
+
+    // scrollableElement.addEventListener('scroll', function() {
+    //     clearTimeout(scrollTimer);
+    //     scrollTimer = setTimeout(function() {
+    //         // Your scroll action goes here
+    //         console.log('Scrolled after delay');
+    //     }, 3000); // Delay in milliseconds (e.g., 500ms)
+    // });
 });
