@@ -32,8 +32,91 @@ class Animations {
     }
 }
 
+const languageObject = {
+    en: [
+        ['hero-title', ' '],
+        ['hero-text', ' '],
+        ['hero-block', 'No phone number and registration required.'],
+        ['hero-title-second', 'In order to chat with someone, you need only a <span class="password-img"><img src="assets/images/password-img.svg" alt=""></span>password'],
+        ['hero-list-first', 'All chats are protected by <span>«one-time pad»</span> <span>symmetric</span> encryption, i.e. each message is encrypted with a new never repeating key.'],
+        ['hero-list-second', 'Use passwords to <span>make calls</span>, not your phone number.'],
+        ['how-title', 'How it works in practice:'],
+        ['about-title', 'BeProg is a truly anonymous communication app'],
+        ['about-card-title-first', 'There is no need for <br> a phone number'],
+        ['about-card-text-first', 'Instead of exchanging phone numbers - exchange passwords.'],
+        ['about-card-title-second', ' '],
+        ['about-card-text-second', 'Come up with a password, share it with the other person and create one private chat for both of you.'],
+        ['about-card-title-third', 'Create a channel'],
+        ['about-card-text-third', 'Publish protected messages'],
+        ['about-card-title-fourth', 'For an unlimited audience'],
+        ['about-card-text-fourth', 'BeProg app is ad-free and spam-free'],
+        ['anonymity-text', 'We have strived to achieve maximum anonymity combined with ease of use.'],
+        ['simplicity-text', 'The app has a minimal set of intuitive functions. Creating a chat is simple and done in two steps.'],
+        ['capability-text', 'The app does not request permission from other user applications such as: Contacts, Location, Phone, etc.'],
+        ['banner-text', 'The BeProg messaging app will give you that <br> peace of <img src="assets/images/icons/like-in-text.svg" alt=""> mind, that can only be provided by anonymity.'],
+        ['nav-link-first', 'About the app'],
+        ['nav-link-second', 'How it works        '],
+        ['nav-link-third', 'Benefits'],
+        ['nav-link-fourth', 'Description'],
+    ],
+    it: [
+        ['hero-title', ' '],
+        ['hero-text', ' '],
+        ['hero-block', ' '],
+        ['hero-title-second', ' '],
+        ['hero-list-first', 'All chats are protected by <span>«one-time pad»</span> <span>symmetric</span> encryption, i.e. each message is encrypted with a new never repeating key.'],
+        ['hero-list-second', ' '],
+        ['how-title', ' '],
+        ['about-title', ' '],
+        ['about-card-title-first', ' '],
+        ['about-card-text-first', ' '],
+        ['about-card-title-second', ' '],
+        ['about-card-text-second', ' '],
+        ['about-card-title-third', ' '],
+        ['about-card-text-third', ' '],
+        ['about-card-title-fourth', ' '],
+        ['about-card-text-fourth', ' '],
+        ['banner-text', 'The BeProg messaging app will give you that peace of mind, that can only be provided by anonymity.'],
+    ],
+    fr: [
+        ['hero-title', ' '],
+        ['hero-text', ' '],
+        ['hero-block', ' '],
+        ['hero-title-second', ' '],
+        ['hero-list-first', 'All chats are protected by <span>«one-time pad»</span> <span>symmetric</span> encryption, i.e. each message is encrypted with a new never repeating key.'],
+        ['hero-list-second', ' '],
+        ['how-title', ' '],
+        ['about-title', ' '],
+        ['about-card-title-first', ' '],
+        ['about-card-text-first', ' '],
+        ['about-card-title-second', ' '],
+        ['about-card-text-second', ' '],
+        ['about-card-title-third', ' '],
+        ['about-card-text-third', ' '],
+        ['about-card-title-fourth', ' '],
+        ['about-card-text-fourth', ' '],
+        ['banner-text', 'The BeProg messaging app will give you that peace of mind, that can only be provided by anonymity.'],
+    ],
+}
+
+
+const getCurrentLanguage = () => {
+    const currentUrl = window.location.search;
+    return new URLSearchParams(currentUrl).get('lang');
+}
+
+const changeLanguage = (langArray) => {
+    if(!langArray) return;
+    langArray.forEach(lang=>{
+        const element = document.querySelector(`.${lang[0]}`);
+
+        if(element) element.innerHTML = lang[1];
+    });
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
+    changeLanguage(languageObject[getCurrentLanguage()]);
     //animation init
     const animation = new Animations();
     animation.init();
@@ -123,24 +206,11 @@ document.addEventListener('DOMContentLoaded', () => {
         header.classList.toggle('header--active');
     });
 
-    const languageArray = document.querySelectorAll('.language');
-
-    if (languageArray.length) {
-        languageArray.forEach(language => {
-            const languageCurrent = language.querySelector('.language__current');
-
-            languageCurrent.addEventListener('click', () => {
-                language.classList.toggle('language--active');
-            });
-        })
-    }
-
     const heroSectionArray = document.querySelectorAll('.hero-section');
     const testBlock = document.querySelector('.test');
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            console.log(entry);
             if (entry.isIntersecting) {
                 heroSectionArray.forEach(block => {
                     block.classList.remove('visible');
@@ -159,9 +229,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // heroSectionArray[id - 1 || 0].classList.add('prev');
                 testBlock.dataset.current = id;
-                if(id > 0){
+                if (id > 0) {
                     header.classList.remove('active');
-                }else{
+                } else {
                     header.classList.add('active');
                 }
             }
@@ -183,4 +253,49 @@ document.addEventListener('DOMContentLoaded', () => {
     //         console.log('Scrolled after delay');
     //     }, 3000); // Delay in milliseconds (e.g., 500ms)
     // });
+
+
+    const languageList = document.querySelectorAll('.language');
+
+    if (languageList.length) {
+        languageList.forEach(language => {
+            const languageCurrent = language.querySelector('.language__current'),
+                languageCurrentText = languageCurrent.querySelector('.language__text'),
+                languageInput = language.querySelectorAll('input');
+
+                languageInput.forEach(element=>{
+                    if(element.value == getCurrentLanguage()){
+                        element.checked = true;
+                    }
+                });
+
+                const languageChecked = language.querySelector(':checked');
+
+            languageCurrent.addEventListener('click', () => {
+                language.classList.toggle('language--active');
+            });
+
+            language.addEventListener('change', (e) => {
+                languageCurrentText.textContent = e.target.closest('.language-input').querySelector('.language-input__text').textContent;
+                language.classList.remove('language--active');
+
+                const urlParams = new URLSearchParams(window.location.search);
+
+                urlParams.set('lang', e.target.value);
+                window.location.search = urlParams;
+            });
+
+        
+
+            languageCurrentText.textContent = languageChecked.closest('.language-input').querySelector('.language-input__text').textContent;
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.language')) {
+                // language.classList.remove('lanuguage--active');
+                languageList.forEach(language => {
+                    language.classList.remove('language--active');
+                });
+            }
+        });
+    }
 });

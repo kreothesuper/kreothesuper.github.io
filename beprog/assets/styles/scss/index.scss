@@ -519,7 +519,7 @@ body {
     flex-direction: column;
     gap: 10px;
 
-    &--active &__list {
+    &--active &__content {
         display: flex;
 
         opacity: 1;
@@ -532,7 +532,7 @@ body {
         }
     }
 
-    &__list {
+    &__content {
 
         display: flex;
         flex-direction: column;
@@ -591,12 +591,22 @@ body {
         }
     }
 
-    &__item {
+    &-input {
         font-size: 16px;
         letter-spacing: 0.02rem;
         color: var(--color-grey-dark);
 
         padding-left: 32px;
+        display: block;
+        &:hover{
+            cursor: pointer;
+        }
+        &:has(:checked){
+            display: none;
+        }
+        &__item{
+            display: none;
+        }
     }
 }
 
@@ -714,6 +724,8 @@ body {
             border-radius: 0;
         }
     }
+
+
 
     &[data-current="0"] &-section__wrapper {
         padding: 56px;

@@ -448,7 +448,7 @@ body {
   flex-direction: column;
   gap: 10px;
 }
-.language--active .language__list {
+.language--active .language__content {
   display: flex;
   opacity: 1;
   visibility: visible;
@@ -456,14 +456,14 @@ body {
 .language--active .language__current::after {
   transform: rotate(180deg);
 }
-.language__list {
+.language__content {
   display: flex;
   flex-direction: column;
   gap: 4px;
   display: none;
 }
 @media screen and (min-width: 1025px) {
-  .language__list {
+  .language__content {
     position: absolute;
     top: calc(100% + 10px);
     opacity: 0;
@@ -503,11 +503,21 @@ body {
     margin-left: auto;
   }
 }
-.language__item {
+.language-input {
   font-size: 16px;
   letter-spacing: 0.02rem;
   color: var(--color-grey-dark);
   padding-left: 32px;
+  display: block;
+}
+.language-input:hover {
+  cursor: pointer;
+}
+.language-input:has(:checked) {
+  display: none;
+}
+.language-input__item {
+  display: none;
 }
 
 .social__list {
