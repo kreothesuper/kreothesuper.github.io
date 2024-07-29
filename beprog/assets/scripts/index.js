@@ -150,16 +150,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
 
     var swiper = new Swiper('.hero', {
+        direction: "vertical",
         spaceBetween: 30,
         effect: 'fade',
+        crossFade:true,
         speed: 500,
+        autoHeight:true,
         preventInteractionOnTransition:false,
         mousewheel: {
             invert: false,
             // forceToAxis: true,
             sensitivity: 1,
             releaseOnEdges: true,
-            thresholdTime: 500,
+            // thresholdTime: 500,
         },
 
         init: function () {
@@ -168,32 +171,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    const swiper2 = new Swiper('.hero-section', {
+    const swiperNew = new Swiper('.hero-section', {
         direction: "vertical",
         slidesPerView: "auto",
         freeMode: true,
         nested:true,
-        scrollbar: {
-            el: ".swiper-scrollbar",
+        preventInteractionOnTransition:false,
+     
+        mousewheel: {
+            invert: false,
+            // forceToAxis: true,
+            sensitivity: 1,
+            releaseOnEdges: true,
+            // thresholdTime: 500,
         },
-        mousewheel: true,
-    });
 
-    swiper.on('init', function () {
+        reachEnd:function (){
+            console.log('234');
+
+        }
     });
 
     swiper.on('slideChange', function () {
         hero.dataset.current = swiper.realIndex;
-        swiper.update();
-        // hero.scrollIntoView();
+        // swiper.update();
+        hero.scrollIntoView();
 
-        const heroSectionText = swiper.slides[swiper.realIndex].querySelectorAll('.hero-section-text');
+        
 
-        if (heroSectionText.length) {
-            heroSectionText.forEach((text, index) => {
-                text.style.transitionDelay = `${index * .2 + .5}s`
-            });
-        }
+        heroSection.forEach((element, index) => {
+            const heroSectionText = element.querySelectorAll('.hero-section-text');
+
+            if (heroSectionText.length) {
+                if(index == swiper.realIndex){
+                    heroSectionText.forEach((text, index) => {
+                        text.style.transitionDelay = `${index * .2 + 1}s`
+                    });
+                }else{
+                    heroSectionText.forEach((text, index) => {
+                        text.style.transitionDelay = `${index * .2}s`
+                    });
+                }
+            }
+        });
 
         if (swiper.realIndex > 0) {
             header.classList.remove('active')
@@ -202,6 +222,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    swiper.on('slideChange', function () {              
+        setTimeout(function () {
+          swiper.params.mousewheel.releaseOnEdges = false;
+        }, 500);
+      });
+      
+      swiper.on('reachEnd', function () {           
+        setTimeout(function () {
+            swiper.params.mousewheel.releaseOnEdges = true;
+        }, 1500);    
+      });
     const heroSection = document.querySelectorAll('.hero-section');
 
     heroSection.forEach(element => {

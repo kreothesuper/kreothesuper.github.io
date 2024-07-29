@@ -284,17 +284,12 @@ body {
     left: 0;
     width: 100%;
 
-    z-index: 14;
+    z-index: 20;
 
     transition: 1s padding;
 
-    @media screen and (max-width:1024px) {
-        position: sticky;
-        top: 0;
-    }
 
     &.active {
-
         @media screen and (min-width:1025px) {
             padding: 28px;
         }
@@ -649,8 +644,9 @@ body {
 .hero {
     position: relative;
     height: 100svh;
-    transition: .3s border-radius;
+    transition: .3s border-radius, .5s padding;
     z-index: 4;
+
 
     &-item{
         height: auto;
@@ -677,9 +673,9 @@ body {
 
         @media screen and (max-width:1024px) {
             width: calc(100% - 28px);
-            height: calc(100% - 28px - 84px);
+            height: calc(100% - 28px);
             left: 14px;
-            top: 100px;
+            top: 14px;
         }
 
     }
@@ -730,7 +726,7 @@ body {
 
 
 
-    &[data-current="0"] &-section__wrapper {
+    &[data-current="0"] &-section__wrapper{
         padding: 56px;
 
         @media screen and (max-width:1440px) {
@@ -738,10 +734,6 @@ body {
         }
         @media screen and (max-width:1024px) {
             padding: 14px;
-        }
-
-        .container{
-            border-radius: 36px;           
         }
     }
 
@@ -941,10 +933,11 @@ body {
     &-section {
         width: 100%;
         height: 100%;
-        overflow: auto;
-        position: sticky;
-        top: 0;
-        left: 0;
+
+        &--header{
+            position: relative;
+            z-index: 14;
+        }
 
         &.swiper-slide-active &-text {
             opacity: 1;
@@ -976,18 +969,6 @@ body {
             transition: 1s padding;
 
             overflow: hidden;
-
-            .container {
-                height: 100%;
-                overflow: auto;
-
-                -ms-overflow-style: none;  /* IE and Edge */
-                scrollbar-width: none;     /* Firefox */
-                /* Hide scrollbar for Chrome, Safari, and Opera */
-                &::-webkit-scrollbar {
-                  display: none;
-                }
-            }
         }
 
         &__grid {
@@ -1004,7 +985,7 @@ body {
 
             @media screen and (max-width:1024px) {
                 flex-direction: column;
-                padding: 50px 0 50px 0;
+                padding: 100px 0 50px 0;
                 gap: 200px;
 
                 &--big {
@@ -1731,9 +1712,6 @@ body {
     height: 100svh;
     width: 100%;
 
-    @media screen and (max-width:1024px) {
-        height: calc(100svh - 84px);
-    }
 
     .hero-section {
 
@@ -1741,10 +1719,10 @@ body {
         height: 100%;
         flex: 1 0 auto;
 
-        border-radius: 36px;
+        overflow: hidden;
+
 
         position: relative;
-        z-index: 12;
 
         // overscroll-behavior: contain;
     }
