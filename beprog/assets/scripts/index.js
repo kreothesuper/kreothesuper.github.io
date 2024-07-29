@@ -149,39 +149,58 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroWrapper = document.querySelector('.hero-wrapper');
     const header = document.querySelector('.header');
 
-    // var swiper = new Swiper('.hero', {
-    //     spaceBetween: 30,
-    //     effect: 'fade',
-    //     speed: 1500,
-    //     mousewheel: {
-    //         invert: false,
-    //         // forceToAxis: true,
-    //         sensitivity: 1,
-    //         releaseOnEdges: true,
-    //         thresholdTime: 500,
-    //     },
+    var swiper = new Swiper('.hero', {
+        spaceBetween: 30,
+        effect: 'fade',
+        speed: 500,
+        preventInteractionOnTransition:false,
+        mousewheel: {
+            invert: false,
+            // forceToAxis: true,
+            sensitivity: 1,
+            releaseOnEdges: true,
+            thresholdTime: 500,
+        },
 
-    //     init: function () {
-    //         hero.dataset.current = this.realIndex;
-    //     },
+        init: function () {
+            hero.dataset.current = this.realIndex;
+        },
 
-    // });
+    });
 
-    // swiper.on('init', function () {
-    // });
+    const swiper2 = new Swiper('.hero-section', {
+        direction: "vertical",
+        slidesPerView: "auto",
+        freeMode: true,
+        nested:true,
+        scrollbar: {
+            el: ".swiper-scrollbar",
+        },
+        mousewheel: true,
+    });
 
-    // swiper.on('slideChange', function () {
-    //     hero.dataset.current = swiper.realIndex;
-    //     swiper.update();
-    //     hero.scrollIntoView();
-    //     if (swiper.realIndex > 0) {
-    //         header.classList.remove('active')
-    //     } else {
-    //         header.classList.add('active');
-    //     }
-    // });
+    swiper.on('init', function () {
+    });
 
-    // scrollLock.disablePageScroll();
+    swiper.on('slideChange', function () {
+        hero.dataset.current = swiper.realIndex;
+        swiper.update();
+        // hero.scrollIntoView();
+
+        const heroSectionText = swiper.slides[swiper.realIndex].querySelectorAll('.hero-section-text');
+
+        if (heroSectionText.length) {
+            heroSectionText.forEach((text, index) => {
+                text.style.transitionDelay = `${index * .2 + .5}s`
+            });
+        }
+
+        if (swiper.realIndex > 0) {
+            header.classList.remove('active')
+        } else {
+            header.classList.add('active');
+        }
+    });
 
     const heroSection = document.querySelectorAll('.hero-section');
 
@@ -204,42 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         burger.classList.toggle('burger--active');
         header.classList.toggle('header--active');
-    });
-
-    const heroSectionArray = document.querySelectorAll('.hero-section');
-    const testBlock = document.querySelector('.test');
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                heroSectionArray.forEach(block => {
-                    block.classList.remove('visible');
-                });
-                entry.target.classList.add('visible');
-                const id = Array.from(heroSectionArray).indexOf(entry.target)
-
-                heroSectionArray.forEach((el, index) => {
-                    el.classList.remove('prev');
-                    if (id === index) {
-                        el.classList.add('visible')
-                    } else {
-                        el.classList.remove('visible')
-                    }
-                });
-
-                // heroSectionArray[id - 1 || 0].classList.add('prev');
-                testBlock.dataset.current = id;
-                if (id > 0) {
-                    header.classList.remove('active');
-                } else {
-                    header.classList.add('active');
-                }
-            }
-        });
-    }, { threshold: 0.5 });
-
-    heroSectionArray.forEach(block => {
-        observer.observe(block);
     });
 
 
