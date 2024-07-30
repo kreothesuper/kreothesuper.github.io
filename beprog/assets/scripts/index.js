@@ -165,7 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
             thresholdTime: 1500,
         },
 
-        longSwipes:false,
+        resistanceRatio: 0,
+        // longSwipes:false,
 
         init: function () {
             hero.dataset.current = this.realIndex;
@@ -180,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: "auto",
         freeMode: true,
         nested: true,
-        preventInteractionOnTransition: false,
+        // preventInteractionOnTransition: false,
         mousewheel: {
             invert: false,
             // forceToAxis: true,
