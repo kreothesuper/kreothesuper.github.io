@@ -106,11 +106,11 @@ const getCurrentLanguage = () => {
 }
 
 const changeLanguage = (langArray) => {
-    if(!langArray) return;
-    langArray.forEach(lang=>{
+    if (!langArray) return;
+    langArray.forEach(lang => {
         const element = document.querySelector(`.${lang[0]}`);
 
-        if(element) element.innerHTML = lang[1];
+        if (element) element.innerHTML = lang[1];
     });
 }
 
@@ -153,10 +153,10 @@ document.addEventListener('DOMContentLoaded', () => {
         direction: "vertical",
         spaceBetween: 30,
         effect: 'fade',
-        crossFade:true,
+        crossFade: true,
         speed: 500,
-        autoHeight:true,
-        preventInteractionOnTransition:false,
+        autoHeight: true,
+        preventInteractionOnTransition: false,
         mousewheel: {
             invert: false,
             // forceToAxis: true,
@@ -175,9 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
         direction: "vertical",
         slidesPerView: "auto",
         freeMode: true,
-        nested:true,
-        preventInteractionOnTransition:false,
-     
+        nested: true,
+        preventInteractionOnTransition: false,
+
         mousewheel: {
             invert: false,
             // forceToAxis: true,
@@ -186,30 +186,35 @@ document.addEventListener('DOMContentLoaded', () => {
             // thresholdTime: 500,
         },
 
-        observer:true,
+        observer: true,
 
-        reachEnd:function (){
+        slideChange: function () {
             console.log('234');
-
         }
     });
+
+    swiperNew.forEach(slider=>{
+        slider.on('fromEdge', function () {
+            hero.scrollIntoView({  behavior: "smooth" });
+        });
+    })
 
     swiper.on('slideChange', function () {
         hero.dataset.current = swiper.realIndex;
         // swiper.update();
-        hero.scrollIntoView();
+        hero.scrollIntoView({ behavior: "smooth" });
 
-        
+
 
         heroSection.forEach((element, index) => {
             const heroSectionText = element.querySelectorAll('.hero-section-text');
 
             if (heroSectionText.length) {
-                if(index == swiper.realIndex){
+                if (index == swiper.realIndex) {
                     heroSectionText.forEach((text, index) => {
                         text.style.transitionDelay = `${index * .2 + 1}s`
                     });
-                }else{
+                } else {
                     heroSectionText.forEach((text, index) => {
                         text.style.transitionDelay = `${index * .2}s`
                     });
@@ -224,17 +229,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    swiper.on('slideChange', function () {              
+    swiper.on('slideChange', function () {
         setTimeout(function () {
-          swiper.params.mousewheel.releaseOnEdges = false;
+            swiper.params.mousewheel.releaseOnEdges = false;
         }, 500);
-      });
-      
-      swiper.on('reachEnd', function () {           
+    });
+
+    swiper.on('reachEnd', function () {
         setTimeout(function () {
             swiper.params.mousewheel.releaseOnEdges = true;
-        }, 1500);    
-      });
+        }, 1500);
+    });
     const heroSection = document.querySelectorAll('.hero-section');
 
     heroSection.forEach(element => {
@@ -279,13 +284,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 languageCurrentText = languageCurrent.querySelector('.language__text'),
                 languageInput = language.querySelectorAll('input');
 
-                languageInput.forEach(element=>{
-                    if(element.value == getCurrentLanguage()){
-                        element.checked = true;
-                    }
-                });
+            languageInput.forEach(element => {
+                if (element.value == getCurrentLanguage()) {
+                    element.checked = true;
+                }
+            });
 
-                const languageChecked = language.querySelector(':checked');
+            const languageChecked = language.querySelector(':checked');
 
             languageCurrent.addEventListener('click', () => {
                 language.classList.toggle('language--active');
@@ -301,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.search = urlParams;
             });
 
-        
+
 
             languageCurrentText.textContent = languageChecked.closest('.language-input').querySelector('.language-input__text').textContent;
         });
