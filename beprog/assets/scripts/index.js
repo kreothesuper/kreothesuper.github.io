@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    const swiperNew = new Swiper('.hero-section', {
+    const swiperNew = new Swiper('.hero-section-column', {
         direction: "vertical",
         slidesPerView: "auto",
         freeMode: true,
@@ -185,6 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
             releaseOnEdges: true,
             // thresholdTime: 500,
         },
+
+        observer:true,
 
         reachEnd:function (){
             console.log('234');

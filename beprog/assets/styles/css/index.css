@@ -576,9 +576,9 @@ body {
 @media screen and (max-width: 1024px) {
   .hero::before {
     width: calc(100% - 28px);
-    height: calc(100% - 28px);
+    height: calc(100% - 28px - 84px);
     left: 14px;
-    top: 14px;
+    top: 100px;
   }
 }
 .hero[data-current="1"] .hero-decor__phone {
@@ -615,17 +615,17 @@ body {
   left: 0;
   border-radius: 0;
 }
-.hero[data-current="0"] .hero-section__wrapper {
+.hero[data-current="0"] {
   padding: 56px;
 }
 @media screen and (max-width: 1440px) {
-  .hero[data-current="0"] .hero-section__wrapper {
+  .hero[data-current="0"] {
     padding: 28px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .hero[data-current="0"] .hero-section__wrapper {
-    padding: 14px;
+  .hero[data-current="0"] {
+    padding: 100px 14px 14px 14px;
   }
 }
 .hero[data-current="1"] .hero-decor, .hero[data-current="2"] .hero-decor {
@@ -793,6 +793,9 @@ body {
   width: 100%;
   height: 100%;
 }
+.hero-section-column {
+  height: auto;
+}
 .hero-section--header {
   position: relative;
   z-index: 14;
@@ -800,6 +803,17 @@ body {
 .hero-section.swiper-slide-active .hero-section-text {
   opacity: 1;
   transform: translate(0);
+}
+.hero-section.swiper-slide-active .password-img {
+  width: 182px;
+}
+@media screen and (max-width: 1024px) {
+  .hero-section.swiper-slide-active .password-img {
+    width: 125px;
+  }
+}
+.hero-section.swiper-slide-active .password-img img {
+  opacity: 1;
 }
 .hero-section.swiper-slide-prev .hero-section-text {
   opacity: 0;
@@ -837,6 +851,9 @@ body {
   }
   .hero-section__grid--big {
     gap: 350px;
+  }
+  .hero-section__grid--hero {
+    padding-top: 50px;
   }
 }
 .hero__block {
@@ -1486,18 +1503,6 @@ body {
   position: relative;
 }
 
-.swiper-slide-active .password-img {
-  width: 182px;
-}
-@media screen and (max-width: 1024px) {
-  .swiper-slide-active .password-img {
-    width: 125px;
-  }
-}
-.swiper-slide-active .password-img img {
-  opacity: 1;
-}
-
 .password-img {
   height: 72px;
   display: inline-flex;
@@ -1508,6 +1513,7 @@ body {
   padding: 16px;
   width: 72px;
   transition: 1s width;
+  transition-delay: 1.5s;
 }
 @media screen and (max-width: 1024px) {
   .password-img {
@@ -1522,5 +1528,6 @@ body {
   -o-object-fit: contain;
      object-fit: contain;
   opacity: 0;
-  transition: 0.5s 0.5s opacity;
+  transition: 0.5s opacity;
+  transition-delay: 2s;
 }/*# sourceMappingURL=index.css.map */
