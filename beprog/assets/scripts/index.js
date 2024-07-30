@@ -155,14 +155,14 @@ document.addEventListener('DOMContentLoaded', () => {
         effect: 'fade',
         crossFade: true,
         speed: 500,
-        autoHeight: true,
+        // autoHeight: true,
         preventInteractionOnTransition: false,
         mousewheel: {
             invert: false,
             // forceToAxis: true,
             sensitivity: 1,
             releaseOnEdges: true,
-            thresholdTime: 700,
+            thresholdTime: 1500,
         },
 
         longSwipes:false,
@@ -172,6 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
     });
+
+
 
     const swiperNew = new Swiper('.hero-section-column', {
         direction: "vertical",
@@ -190,6 +192,10 @@ document.addEventListener('DOMContentLoaded', () => {
         observer: true,
     });
 
+    swiper.on('reachEnd', function () {
+        console.log('234');
+        setTimeout(() => hero.scrollIntoView({ behavior: "smooth" }), 500);
+    });
 
     swiper.on('slideChange', function () {
         hero.dataset.current = swiper.realIndex;
