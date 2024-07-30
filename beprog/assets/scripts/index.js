@@ -183,22 +183,18 @@ document.addEventListener('DOMContentLoaded', () => {
             invert: false,
             // forceToAxis: true,
             sensitivity: 1,
-            releaseOnEdges: true,
-            thresholdTime: 500,
+            // releaseOnEdges: true,
+            // thresholdTime: 500,
         },
 
         observer: true,
-
-        slideChange: function () {
-            console.log('234');
-        }
     });
 
 
     swiper.on('slideChange', function () {
         hero.dataset.current = swiper.realIndex;
         // swiper.update();
-        hero.scrollIntoView({ behavior: "smooth" });
+        // hero.scrollIntoView({ behavior: "smooth" });
 
         heroSection.forEach((element, index) => {
             const heroSectionText = element.querySelectorAll('.hero-section-text');
