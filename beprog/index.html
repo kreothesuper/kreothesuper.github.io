@@ -28,22 +28,22 @@
                     <nav class="header__nav nav">
                         <ul class="nav__list">
                             <li class="nav__item">
-                                <a href="#" class="nav__link nav-link-first">
+                                <a href="#hero" data-slide="0" class="nav__link nav-link-first">
                                     О приложении
                                 </a>
                             </li>
                             <li class="nav__item">
-                                <a href="#" class="nav__link nav-link-second">
+                                <a href="#hero" data-slide="2" class="nav__link nav-link-second">
                                     Как работает
                                 </a>
                             </li>
                             <li class="nav__item">
-                                <a href="#" class="nav__link nav-link-third">
+                                <a href="#benefits" class="nav__link nav-link-third">
                                     Преимущества
                                 </a>
                             </li>
                             <li class="nav__item">
-                                <a href="#" class="nav__link nav-link-fourth">
+                                <a href="#hero" data-slide="1" class="nav__link nav-link-fourth">
                                     Описание
                                 </a>
                             </li>
@@ -64,19 +64,25 @@
                                             class="language-input__item">
                                     </label>
                                     <label class="language-input">
-                                        <span class="language-input__text">France</span>
+                                        <span class="language-input__text">Français</span>
                                         <input type="radio" name="language" value="fr" class="language-input__item">
                                     </label>
                                     <label class="language-input">
                                         <span class="language-input__text">English</span>
                                         <input type="radio" name="language" value="en" class="language-input__item">
                                     </label>
+                                    <label class="language-input">
+                                        <span class="language-input__text">Italiano</span>
+                                        <input type="radio" name="language" value="it" class="language-input__item">
+                                    </label>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <a href="#" class="button button--small button--green">
-                        Загрузить
+                        <span class="download-text">
+                            Загрузить
+                        </span>
                     </a>
                 </div>
                 <div class="header__burger">
@@ -93,22 +99,22 @@
                 <nav class="header__nav nav">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="#" class="nav__link nav-link-first">
+                            <a href="#hero" data-slide="0" class="nav__link nav-link-first">
                                 О приложении
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="#" class="nav__link nav-link-second">
+                            <a href="#hero" data-slide="2" class="nav__link nav-link-second">
                                 Как работает
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="#" class="nav__link nav-link-third">
+                            <a href="#benefits" class="nav__link nav-link-third">
                                 Преимущества
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="#" class="nav__link nav-link-fourth">
+                            <a href="#hero" data-slide="1" class="nav__link nav-link-fourth">
                                 Описание
                             </a>
                         </li>
@@ -129,22 +135,28 @@
                                         class="language-input__item">
                                 </label>
                                 <label class="language-input">
-                                    <span class="language-input__text">France</span>
+                                    <span class="language-input__text">Français</span>
                                     <input type="radio" name="language-header" value="fr" class="language-input__item">
                                 </label>
                                 <label class="language-input">
                                     <span class="language-input__text">English</span>
                                     <input type="radio" name="language-header" value="en" class="language-input__item">
                                 </label>
+                                <label class="language-input">
+                                    <span class="language-input__text">Italiano</span>
+                                    <input type="radio" name="language-header" value="it" class="language-input__item">
+                                </label>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="button-list button-list--center">
-                    <a href="#" class="button button--icon button--black">
+                    <a href="https://apps.apple.com/us/app/beprog/id1494214062" target="_blank"
+                        class="button button--icon button--black">
                         <img src="assets/images/icons/appstore-small.svg" alt="" class="button__img">
                     </a>
-                    <a href="#" class="button button--icon button--black">
+                    <a href="https://play.google.com/store/apps/details?id=com.beprog.org&hl=en_US&gl=US"
+                        target="_blank" class="button button--icon button--black">
                         <img src="assets/images/icons/googleplay-small.svg" alt="" class="button__img">
                     </a>
                     <a href="#" class="button button--icon button--bordered">
@@ -154,7 +166,7 @@
             </div>
         </header>
         <main class="content">
-            <div class="test hero" data-current="0">
+            <div class="test hero" data-current="0" id="hero">
                 <div class="hero-decor">
                     <div class="container">
                         <div class="hero-decor__wrapper">
@@ -170,72 +182,74 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide hero-section hero-section-column swiper">
                         <div class="swiper-wrapper">
-                            <div class="hero-section__hero swiper-slide">
-                                <div class="hero-section__wrapper">
-                                    <div class="container">
-                                        <div class="hero-section__grid hero-section__grid--hero">
-                                            <div class="hero__column">
-                                                <div class="hero__header">
-                                                    <p class="title title--big title--black hero-section-text">
-                                                        Анонимный мессенджер BeProg
-                                                    </p>
-                                                    <p
-                                                        class="text text--base text--dark--grey hero__text hero-section-text hero-text">
-                                                        Ваше личное пространство в сети, где можно общаться без
-                                                        регистрации
-                                                        и
-                                                        номера телефона. Просто придумайте с собеседником пароль и
-                                                        создайте
-                                                        уникальный чат.
-                                                    </p>
-                                                </div>
+                            <div class="hero-section__wrapper swiper-slide">
+                                <div class="container">
+                                    <div class="hero-section__grid hero-section__grid--hero">
+                                        <div class="hero__column">
+                                            <div class="hero__header">
+                                                <p class="title title--big title--black hero-section-text hero-title">
+                                                    Анонимный мессенджер BeProg
+                                                </p>
+                                                <p
+                                                    class="text text--base text--dark--grey hero__text hero-section-text hero-text">
+                                                    Ваше личное пространство в сети, где можно общаться без
+                                                    регистрации
+                                                    и
+                                                    номера телефона. Просто придумайте с собеседником пароль и
+                                                    создайте
+                                                    уникальный чат.
+                                                </p>
+                                            </div>
 
-                                                <div class="hero__footer">
-                                                    <div
-                                                        class="button-list button-list--desktop button-list--left hero-section-text">
-                                                        <a href="#" class="button button--base button--black">
-                                                            <svg class="button__img">
-                                                                <use xlink:href="assets/images/sprite.svg#appstore">
-                                                                </use>
-                                                            </svg>
-                                                        </a>
-                                                        <a href="#" class="button button--base button--black">
-                                                            <svg class="button__img">
-                                                                <use xlink:href="assets/images/sprite.svg#googleplay">
-                                                                </use>
-                                                            </svg>
-                                                        </a>
-                                                        <a href="#" class="button button--base button--bordered">
-                                                            <svg class="button__icon">
-                                                                <use xlink:href="assets/images/sprite.svg#apk"></use>
-                                                            </svg>
+                                            <div class="hero__footer">
+                                                <div
+                                                    class="button-list button-list--desktop button-list--left hero-section-text">
+                                                    <a href="https://apps.apple.com/us/app/beprog/id1494214062"
+                                                        target="_blank" class="button button--base button--black">
+                                                        <svg class="button__img">
+                                                            <use xlink:href="assets/images/sprite.svg#appstore">
+                                                            </use>
+                                                        </svg>
+                                                    </a>
+                                                    <a href="https://play.google.com/store/apps/details?id=com.beprog.org&hl=en_US&gl=US"
+                                                        target="_blank" class="button button--base button--black">
+                                                        <svg class="button__img">
+                                                            <use xlink:href="assets/images/sprite.svg#googleplay">
+                                                            </use>
+                                                        </svg>
+                                                    </a>
+                                                    <a href="#" class="button button--base button--bordered">
+                                                        <svg class="button__icon">
+                                                            <use xlink:href="assets/images/sprite.svg#apk"></use>
+                                                        </svg>
+                                                        <span class="download-text">
                                                             Загрузить
-                                                        </a>
-                                                    </div>
+                                                        </span>
+                                                    </a>
                                                 </div>
                                             </div>
-                                            <div class="hero__block">
-                                                <div class="hero-card hero-section-text">
-                                                    <img src="assets/images/icons/hero-card.svg" alt=""
-                                                        class="hero-card__img">
-                                                    <p class="title title--tiny title--black hero-block">
-                                                        не требует регистрации и номера телефона
-                                                    </p>
-                                                </div>
-                                                <div class="button-list button-list--mobile hero-section-text">
-                                                    <a href="#" class="button button--icon button--black">
-                                                        <img src="assets/images/icons/appstore-small.svg" alt=""
-                                                            class="button__img">
-                                                    </a>
-                                                    <a href="#" class="button button--icon button--black">
-                                                        <img src="assets/images/icons/googleplay-small.svg" alt=""
-                                                            class="button__img">
-                                                    </a>
-                                                    <a href="#" class="button button--icon button--bordered">
-                                                        <img src="assets/images/icons/apk-small.svg" alt=""
-                                                            class="button__img">
-                                                    </a>
-                                                </div>
+                                        </div>
+                                        <div class="hero__block">
+                                            <div class="hero-card hero-section-text">
+                                                <img src="assets/images/icons/hero-card.svg" alt=""
+                                                    class="hero-card__img">
+                                                <p class="title title--tiny title--black hero-block">
+                                                    не требует регистрации и номера телефона
+                                                </p>
+                                            </div>
+                                            <div class="button-list button-list--mobile hero-section-text">
+                                                <a href="#" class="button button--icon button--black">
+                                                    <img src="assets/images/icons/appstore-small.svg" alt=""
+                                                        class="button__img">
+                                                </a>
+                                                <a href="#" class="button button--icon button--black">
+                                                    <img src="assets/images/icons/googleplay-small.svg" alt=""
+                                                        class="button__img">
+                                                </a>
+                                                <a href="#" class="button button--icon button--bordered">
+                                                    <img src="assets/images/icons/apk-small.svg" alt=""
+                                                        class="button__img">
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -359,9 +373,8 @@
                     </div>
                 </div>
             </div>
-
             <div class="content__wrapper">
-                <div class="about animation-wrapper">
+                <div class="about animation-wrapper" id="benefits">
                     <div class="about__wrapper">
                         <div class="container">
                             <div class="about__header">
@@ -436,7 +449,8 @@
                             <div class="benefits__grid benefits__grid--big">
                                 <div class="anonymity">
                                     <div class="anonymity__content">
-                                        <p class="title title--base title--white animation-item">Анонимность</p>
+                                        <p class="title title--base title--white animation-item anonymity-title">
+                                            Анонимность</p>
                                         <p class="text text--base text--white animation-item anonymity-text">
                                             Мы стремились достичь максимальной анонимности в сочетании с простотой
                                             использования. Приложение не требует какой-либо идентификации, номера
@@ -450,7 +464,8 @@
                                 <div class="simplicity">
                                     <div class="simplicity__decor"></div>
                                     <div class="simplicity__content">
-                                        <p class="title title--base title--black animation-item">Простота</p>
+                                        <p class="title title--base title--black animation-item simplicity-title">
+                                            Простота</p>
                                         <p class="text text--base text--black animation-item simplicity-text">
                                             Приложение имеет минимальный набор интуитивно понятных функций. Создание
                                             чата
@@ -474,8 +489,10 @@
                                     <div class="capability">
                                         <img src="assets/images/icons/capability.svg" alt="" class="capability__icon">
                                         <div class="capability__content">
-                                            <h4 class="title title--tiny title--black animation-item ">Возможности</h4>
-                                            <p class="text text--base text--black animation-item capability-text">
+                                            <h4
+                                                class="title title--tiny title--black animation-item possibilities-title">
+                                                Возможности</h4>
+                                            <p class="text text--base text--black animation-item possibilities-text">
                                                 Создание анонимного канала для неограниченного числа участников. BeProg
                                                 позволяет создать канал, который имеет полный функционал с ролями
                                                 администраторов и т.д.
@@ -487,8 +504,9 @@
                                             <img src="assets/images/icons/safety.svg" alt="" class="safety__icon">
                                         </div>
                                         <div class="safety__content">
-                                            <h4 class="title title--tiny title--black animation-item">Возможности</h4>
-                                            <p class="text text--base text--black animation-item">
+                                            <h4 class="title title--tiny title--black animation-item safety-title">
+                                                Возможности</h4>
+                                            <p class="text text--base text--black animation-item safety-text">
                                                 Создание анонимного канала для неограниченного числа участников. BeProg
                                                 позволяет создать канал, который имеет полный функционал с ролями
                                                 администраторов и т.д.
@@ -518,12 +536,14 @@
                                     анонимность.
                                 </h3>
                                 <div class="button-list animation-item">
-                                    <a href="#" class="button button--base button--black">
+                                    <a href="https://apps.apple.com/us/app/beprog/id1494214062" target="_blank"
+                                        class="button button--base button--black">
                                         <svg class="button__img">
                                             <use xlink:href="assets/images/sprite.svg#appstore"></use>
                                         </svg>
                                     </a>
-                                    <a href="#" class="button button--base button--black">
+                                    <a href="https://play.google.com/store/apps/details?id=com.beprog.org&hl=en_US&gl=US"
+                                        target="_blank" class="button button--base button--black">
                                         <svg class="button__img">
                                             <use xlink:href="assets/images/sprite.svg#googleplay"></use>
                                         </svg>
@@ -532,7 +552,7 @@
                                         <svg class="button__icon">
                                             <use xlink:href="assets/images/sprite.svg#apk"></use>
                                         </svg>
-                                        Загрузить
+                                        <span class="download-text">Загрузить</span>
                                     </a>
                                 </div>
                             </div>
@@ -560,44 +580,30 @@
                 <div class="social footer__social">
                     <ul class="social__list">
                         <li class="social__item">
-                            <a href="#" class="social__link">
+                            <a href="https://www.facebook.com/beprog.org" target="_blank" class="social__link">
                                 <svg class="icon">
                                     <use xlink:href="assets/images/sprite.svg#facebook"></use>
                                 </svg>
                             </a>
                         </li>
                         <li class="social__item">
-                            <a href="#" class="social__link">
+                            <a href="https://www.instagram.com/be.prog/" target="_blank" class="social__link">
                                 <svg class="icon">
                                     <use xlink:href="assets/images/sprite.svg#instagram"></use>
                                 </svg>
                             </a>
                         </li>
                         <li class="social__item">
-                            <a href="#" class="social__link">
+                            <a href="https://x.com/Beprog_app" target="_blank" class="social__link">
                                 <svg class="icon">
                                     <use xlink:href="assets/images/sprite.svg#x"></use>
                                 </svg>
                             </a>
                         </li>
                         <li class="social__item">
-                            <a href="#" class="social__link">
-                                <svg class="icon">
-                                    <use xlink:href="assets/images/sprite.svg#reddit"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="social__item">
-                            <a href="#" class="social__link">
+                            <a href="https://www.threads.net/@be.prog" target="_blank" class="social__link">
                                 <svg class="icon">
                                     <use xlink:href="assets/images/sprite.svg#threads"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="social__item">
-                            <a href="#" class="social__link">
-                                <svg class="icon">
-                                    <use xlink:href="assets/images/sprite.svg#tiktok"></use>
                                 </svg>
                             </a>
                         </li>
@@ -612,7 +618,7 @@
         integrity="sha512-MBbICakhGbnckq5iFnAvaoTQwTyZqIEdhXGbzpNvGhkr+ZhjRdaVmJuNCVyZkObp5O/Mlows81qbzLAalgnoIg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="assets/libs/swiper/swiper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js" integrity="sha512-h5Vv+n+z0eRnlJoUlWMZ4PLQv4JfaCVtgU9TtRjNYuNltS5QCqi4D4eZn4UkzZZuG2p4VBz3YIlsB7A2NVrbww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/libs/gsap/index.js"></script>
     <script src="assets/libs/gsap/MotionPathPlugin.js"></script>
     <script src="assets/libs/gsap/scrollTrigger.js"></script>

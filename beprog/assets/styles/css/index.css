@@ -12,6 +12,10 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+* {
+  scroll-margin-top: var(--header-height);
+}
+
 .container {
   max-width: 1230px;
   width: 100%;
@@ -447,6 +451,9 @@ body {
   opacity: 1;
   visibility: visible;
 }
+.language--active .language__current {
+  background: #fff;
+}
 .language--active .language__current::after {
   transform: rotate(180deg);
 }
@@ -459,7 +466,11 @@ body {
 @media screen and (min-width: 1025px) {
   .language__content {
     position: absolute;
-    top: calc(100% + 10px);
+    top: 100%;
+    padding: 10px 0;
+    border-radius: 0 0 16px 16px;
+    background-color: #fff;
+    width: 100%;
     opacity: 0;
     visibility: hidden;
     transition: 0.3s visbility, 0.5s opacity;
@@ -471,6 +482,9 @@ body {
   font-size: 16px;
   letter-spacing: 0.02rem;
   color: var(--color-grey-dark);
+  padding: 10px;
+  border-radius: 16px 16px 0 0;
+  transition: 0.3s background-color;
 }
 .language__current:hover {
   cursor: pointer;
@@ -584,15 +598,17 @@ body {
 .hero[data-current="1"] .hero-decor__phone {
   transform: rotate(0) scale(1);
   left: calc(50% - 10vw);
-  top: calc(50% - 18vw);
+  top: calc(50% - 18vw + 108px);
 }
 @media screen and (max-width: 1024px) {
   .hero[data-current="1"] .hero-decor__phone {
     left: calc(50% - 90px);
-    top: 250px;
+    top: calc(100px + var(--offsetTop));
+    transition-delay: 0s;
+    transition: 1s transform, 1s left, 0s top, 1s opacity;
   }
 }
-.hero[data-current="2"] .hero-decor__phone {
+.hero[data-current="2"] .hero-decor__phone, .hero[data-current="2"] .hero-decor__circle {
   transform: translateY(-100%);
   opacity: 0;
 }
@@ -601,6 +617,7 @@ body {
 }
 .hero[data-current="1"] .hero-decor__circle {
   transform: rotate(90deg) scale(-1, 1);
+  opacity: 1;
 }
 .hero[data-current="1"] .hero-decor__circle circle {
   stroke-dashoffset: 0;
@@ -672,20 +689,23 @@ body {
   height: 100%;
 }
 .hero-decor__circle {
-  transition: 1s transform;
+  transition: 1s transform, 0.3s opacity;
   position: absolute;
   transform: scale(-1, 1);
   width: 30vw;
   height: 30vw;
   left: calc(50% - 15vw);
-  top: calc(50% - 15vw);
+  top: calc(50% - 15vw + 108px);
   z-index: 0;
+  opacity: 0;
 }
 @media screen and (max-width: 1024px) {
   .hero-decor__circle {
     width: 300px;
     height: 300px;
-    top: 280px;
+    top: calc(120px + var(--offsetTop));
+    transition-delay: 0s;
+    transition: 1s transform, 1s left, 0s top, 1s opacity;
     left: calc(50% - 150px);
   }
 }
@@ -713,6 +733,7 @@ body {
 .hero-decor__phone {
   width: 20vw;
   height: 36vw;
+  max-height: calc(100svh - 150px);
   position: absolute;
   left: calc(100% - 20vw);
   top: calc(50% - 10vw);
@@ -734,8 +755,10 @@ body {
   .hero-decor__phone {
     width: 180px;
     height: 350px;
-    left: 0;
-    top: 400px;
+    left: calc(100% - 220px);
+    top: calc(80px + var(--offsetTop));
+    transition: 1s transform, 1s left, 0s top, 1s opacity;
+    transition-delay: 0s;
   }
 }
 .hero-item {
@@ -807,13 +830,8 @@ body {
   opacity: 1;
   transform: translate(0);
 }
-.hero-section.swiper-slide-active .password-img {
-  width: 182px;
-}
-@media screen and (max-width: 1024px) {
-  .hero-section.swiper-slide-active .password-img {
-    width: 125px;
-  }
+.hero-section.swiper-slide-active .password-img::before {
+  width: 100%;
 }
 .hero-section.swiper-slide-active .password-img img {
   opacity: 1;
@@ -835,8 +853,12 @@ body {
   align-items: center;
   justify-content: center;
   height: auto;
+  min-height: 100%;
   transition: 1s padding;
   overflow: hidden;
+}
+.hero-section__wrapper .container {
+  height: 100%;
 }
 .hero-section__grid {
   display: flex;
@@ -845,6 +867,11 @@ body {
   height: 100%;
   padding: 150px 0 50px 0;
   transition: 1s height, 1s max-height;
+}
+@media screen and (max-height: 820px) {
+  .hero-section__grid--hero {
+    padding: 80px 0 50px 0;
+  }
 }
 @media screen and (max-width: 1024px) {
   .hero-section__grid {
@@ -857,6 +884,7 @@ body {
   }
   .hero-section__grid--hero {
     padding-top: 50px;
+    gap: calc(100svh - 150px - var(--heroHeaderHeight));
   }
 }
 .hero__block {
@@ -890,6 +918,7 @@ body {
 @media screen and (max-width: 1024px) {
   .hero__header {
     gap: 15px;
+    max-width: 320px;
   }
 }
 .hero__text {
@@ -1205,7 +1234,7 @@ body {
 
 .about {
   position: relative;
-  margin-top: 200px;
+  padding-top: 200px;
 }
 @media screen and (min-width: 1025px) {
   .about::before {
@@ -1222,7 +1251,7 @@ body {
 }
 @media screen and (max-width: 1024px) {
   .about {
-    margin-top: 100px;
+    padding-top: 100px;
   }
 }
 .about__header {
@@ -1509,20 +1538,38 @@ body {
 .password-img {
   height: 72px;
   display: inline-flex;
-  background: var(--color-green);
-  border-radius: 36px;
   align-items: center;
   justify-content: center;
   padding: 16px;
-  width: 72px;
   transition: 1s width;
   transition-delay: 1.5s;
+  width: 182px;
+  position: relative;
+}
+.password-img::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  transition: 1s width;
+  transition-delay: 1.5s;
+  background: var(--color-green);
+  border-radius: 36px;
+  display: block;
 }
 @media screen and (max-width: 1024px) {
   .password-img {
     padding: 10px;
     height: 48px;
-    width: 48px;
+    width: 125px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .password-img {
+    width: 100px;
+    height: 40px;
   }
 }
 .password-img img {
@@ -1533,4 +1580,6 @@ body {
   opacity: 0;
   transition: 0.5s opacity;
   transition-delay: 2s;
+  position: relative;
+  z-index: 2;
 }/*# sourceMappingURL=index.css.map */
