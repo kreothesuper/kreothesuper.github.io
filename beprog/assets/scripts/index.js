@@ -193,18 +193,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    swiperNew.forEach(slider=>{
-        slider.on('fromEdge', function () {
-            hero.scrollIntoView({  behavior: "smooth" });
-        });
-    })
-
     swiper.on('slideChange', function () {
         hero.dataset.current = swiper.realIndex;
         // swiper.update();
         hero.scrollIntoView({ behavior: "smooth" });
-
-
 
         heroSection.forEach((element, index) => {
             const heroSectionText = element.querySelectorAll('.hero-section-text');
