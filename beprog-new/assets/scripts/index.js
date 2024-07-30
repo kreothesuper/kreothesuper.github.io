@@ -179,7 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const swiperNew = new Swiper('.hero-section-column', {
         direction: "vertical",
         slidesPerView: "auto",
-        freeMode: true,
+        freeMode: {
+            enabled: true,
+            momentum:false,
+        },
         nested: true,
         // preventInteractionOnTransition: false,
         mousewheel: {
@@ -193,6 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
         observer: true,
     });
 
+    console.log(swiperNew[swiperNew.length - 1]);
+
     swiper.on('reachEnd', function () {
         console.log('234');
         setTimeout(() => hero.scrollIntoView({ behavior: "smooth" }), 500);
@@ -201,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     swiper.on('slideChange', function () {
         hero.dataset.current = swiper.realIndex;
         // swiper.update();
-        // hero.scrollIntoView({ behavior: "smooth" });
+        hero.scrollIntoView({ behavior: "smooth" });
 
         heroSection.forEach((element, index) => {
             const heroSectionText = element.querySelectorAll('.hero-section-text');
