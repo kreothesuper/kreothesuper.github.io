@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         crossFade: true,
         speed: 500,
         // autoHeight: true,
-        preventInteractionOnTransition: false,
+        // preventInteractionOnTransition: false,
         mousewheel: {
             invert: false,
             // forceToAxis: true,
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
             thresholdTime: 1500,
         },
 
-        resistanceRatio: 0,
+        // resistanceRatio: 0,
         // longSwipes:false,
 
         init: function () {
@@ -176,33 +176,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // const swiperNew = new Swiper('.hero-section-column', {
-    //     direction: "vertical",
-    //     slidesPerView: "auto",
-    //     freeMode: {
-    //         enabled: true,
-    //     },
-    //     nested: true,
-    //     // preventInteractionOnTransition: false,
-    //     mousewheel: {
-    //         invert: false,
-    //         // forceToAxis: true,
-    //         sensitivity: 1,
-    //         releaseOnEdges: true,
-    //         // thresholdTime: 500,
-    //     },
+    // // const swiperNew = new Swiper('.hero-section-column', {
+    // //     direction: "vertical",
+    // //     slidesPerView: "auto",
+    // //     freeMode: {
+    // //         enabled: true,
+    // //     },
+    // //     nested: true,
+    // //     // preventInteractionOnTransition: false,
+    // //     mousewheel: {
+    // //         invert: false,
+    // //         // forceToAxis: true,
+    // //         sensitivity: 1,
+    // //         releaseOnEdges: true,
+    // //         // thresholdTime: 500,
+    // //     },
 
-    //     observer: true,
+    // //     observer: true,
+    // // });
+
+    // console.log(swiperNew[swiperNew.length - 1]);
+
+    // swiperNew[swiperNew.length - 1].on('reachEnd', function () {
+    //     const yOffset = -200;
+    //     const y = hero.getBoundingClientRect().top + window.scrollY + yOffset;
+
+    //     window.scrollTo({ top: y, behavior: 'smooth' });
     // });
-
-    console.log(swiperNew[swiperNew.length - 1]);
-
-    swiperNew[swiperNew.length - 1].on('reachEnd', function () {
-        const yOffset = -200;
-        const y = hero.getBoundingClientRect().top + window.scrollY + yOffset;
-
-        window.scrollTo({ top: y, behavior: 'smooth' });
-    });
 
     swiper.on('reachEnd', function () {
         setTimeout(() => hero.scrollIntoView({ behavior: "smooth" }), 500);
