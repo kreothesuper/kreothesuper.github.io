@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         effect: 'fade',
         crossFade: true,
         speed: 500,
+        touchReleaseOnEdges:true,
         // autoHeight: true,
         preventInteractionOnTransition: false,
         mousewheel: {
@@ -189,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
             releaseOnEdges: true,
             // thresholdTime: 500,
         },
+        touchReleaseOnEdges:true,
 
         observer: true,
     });
