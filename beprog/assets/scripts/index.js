@@ -162,8 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // forceToAxis: true,
             sensitivity: 1,
             releaseOnEdges: true,
-            // thresholdTime: 500,
+            thresholdTime: 700,
         },
+
+        longSwipes:false,
 
         init: function () {
             hero.dataset.current = this.realIndex;
@@ -177,13 +179,12 @@ document.addEventListener('DOMContentLoaded', () => {
         freeMode: true,
         nested: true,
         preventInteractionOnTransition: false,
-
         mousewheel: {
             invert: false,
             // forceToAxis: true,
             sensitivity: 1,
             releaseOnEdges: true,
-            // thresholdTime: 500,
+            thresholdTime: 500,
         },
 
         observer: true,
@@ -192,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('234');
         }
     });
+
 
     swiper.on('slideChange', function () {
         hero.dataset.current = swiper.realIndex;
@@ -221,17 +223,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    swiper.on('slideChange', function () {
-        setTimeout(function () {
-            swiper.params.mousewheel.releaseOnEdges = false;
-        }, 500);
-    });
+    // swiper.on('slideChange', function () {
+    //     setTimeout(function () {
+    //         swiper.params.mousewheel.releaseOnEdges = false;
+    //     }, 500);
+    // });
 
-    swiper.on('reachEnd', function () {
-        setTimeout(function () {
-            swiper.params.mousewheel.releaseOnEdges = true;
-        }, 1500);
-    });
+    // swiper.on('reachEnd', function () {
+    //     setTimeout(function () {
+    //         swiper.params.mousewheel.releaseOnEdges = true;
+    //     }, 1500);
+    // });
     const heroSection = document.querySelectorAll('.hero-section');
 
     heroSection.forEach(element => {
