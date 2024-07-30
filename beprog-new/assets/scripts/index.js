@@ -181,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: "auto",
         freeMode: {
             enabled: true,
-            momentum:false,
         },
         nested: true,
         // preventInteractionOnTransition: false,
@@ -198,8 +197,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log(swiperNew[swiperNew.length - 1]);
 
+    swiperNew[swiperNew.length - 1].on('reachEnd', function () {
+        const yOffset = -10;
+        const y = hero.getBoundingClientRect().top + window.scrollY + yOffset;
+
+        window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+
     swiper.on('reachEnd', function () {
-        console.log('234');
         setTimeout(() => hero.scrollIntoView({ behavior: "smooth" }), 500);
     });
 
