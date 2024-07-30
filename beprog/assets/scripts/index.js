@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
             invert: false,
             // forceToAxis: true,
             sensitivity: 1,
-            // releaseOnEdges: true,
+            releaseOnEdges: true,
             // thresholdTime: 500,
         },
 
