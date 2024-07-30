@@ -176,29 +176,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    const swiperNew = new Swiper('.hero-section-column', {
-        direction: "vertical",
-        slidesPerView: "auto",
-        freeMode: {
-            enabled: true,
-        },
-        nested: true,
-        // preventInteractionOnTransition: false,
-        mousewheel: {
-            invert: false,
-            // forceToAxis: true,
-            sensitivity: 1,
-            releaseOnEdges: true,
-            // thresholdTime: 500,
-        },
+    // const swiperNew = new Swiper('.hero-section-column', {
+    //     direction: "vertical",
+    //     slidesPerView: "auto",
+    //     freeMode: {
+    //         enabled: true,
+    //     },
+    //     nested: true,
+    //     // preventInteractionOnTransition: false,
+    //     mousewheel: {
+    //         invert: false,
+    //         // forceToAxis: true,
+    //         sensitivity: 1,
+    //         releaseOnEdges: true,
+    //         // thresholdTime: 500,
+    //     },
 
-        observer: true,
-    });
+    //     observer: true,
+    // });
 
     console.log(swiperNew[swiperNew.length - 1]);
 
     swiperNew[swiperNew.length - 1].on('reachEnd', function () {
-        console.log('234');
         const yOffset = -200;
         const y = hero.getBoundingClientRect().top + window.scrollY + yOffset;
 
