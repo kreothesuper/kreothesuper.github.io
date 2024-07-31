@@ -279,14 +279,14 @@ document.addEventListener('DOMContentLoaded', () => {
             observer: true,
         });
     
-        swiperNew[swiperNew.length - 1].on('reachEnd', function () {
-            setTimeout(function () {
-                swiper.params.mousewheel.releaseOnEdges = true;
-                swiper.params.touchReleaseOnEdges = true;
+        // swiperNew[swiperNew.length - 1].on('reachEnd', function () {
+        //     setTimeout(function () {
+        //         swiper.params.mousewheel.releaseOnEdges = true;
+        //         swiper.params.touchReleaseOnEdges = true;
 
-            }, 500);
+        //     }, 500);
 
-        });
+        // });
         // swiperNew[swiperNew.length - 1].on('fromEdge', function () {
         //     hero.scrollIntoView({ behavior: 'smooth' });
         //     swiper.params.mousewheel.releaseOnEdges = false;
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
             slider.init();
         })
 
-        swiperNew[1].params.releaseOnEdges = false;
+        // swiperNew[1].params.releaseOnEdges = false;
     
         swiper.on('slideChange', function () {
             hero.dataset.current = swiper.realIndex;
