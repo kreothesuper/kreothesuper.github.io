@@ -240,14 +240,14 @@ document.addEventListener('DOMContentLoaded', () => {
             effect: 'fade',
             crossFade: true,
             speed: 500,
-            touchReleaseOnEdges: false,
+            touchReleaseOnEdges: true,
             // autoHeight: true,
             preventInteractionOnTransition: false,
             mousewheel: {
                 invert: false,
                 // forceToAxis: true,
                 sensitivity: 1,
-                releaseOnEdges: false,
+                releaseOnEdges: true,
                 thresholdTime: 1500,
             },
     
@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function () {
                 swiper.params.mousewheel.releaseOnEdges = true;
                 swiper.params.touchReleaseOnEdges = true;
-            console.log(swiper.params.touchReleaseOnEdges);
+       
 
             }, 500);
 
