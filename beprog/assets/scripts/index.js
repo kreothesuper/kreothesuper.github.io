@@ -270,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             spaceBetween: 30,
             slidesOffsetAfter:1,
             touchMoveStopPropagation:true,
+            shortSwipes:false,
             // preventInteractionOnTransition: false,
             mousewheel: {
                 invert: false,
