@@ -267,6 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
             freeMode: true,
             nested: true,
             init: false,
+            parallax:true,
             // preventInteractionOnTransition: false,
             mousewheel: {
                 invert: false,
