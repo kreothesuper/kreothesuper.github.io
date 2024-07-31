@@ -253,7 +253,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
             longSwipes:false,
             touchRatio:0.5,
+            resistance:false,
             resistanceRatio: 0,
+            edgeSwipeDetection:'prevent',
             // longSwipes:false,
     
             init: function () {
@@ -267,6 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
             slidesPerView: "auto",
             freeMode: true,
             nested: true,
+            edgeSwipeDetection:'prevent',
+            resistance:false,
             init: false,
             // preventInteractionOnTransition: false,
             mousewheel: {
@@ -297,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         swiperNew[1].on('setTranslate', function () {
             const heroHeader = this.el.querySelector('.hero__header');
-            hero.style.setProperty('--offsetTop-second', `${this.translate + heroHeader.getBoundingClientRect().height}px`);
+            hero.style.setProperty('--offsetTop-second', `${heroHeader.getBoundingClientRect().top + heroHeader.getBoundingClientRect().height}px`);
         });
         swiperNew[1].on('init', function () {
             const heroHeader = this.el.querySelector('.hero__header');
@@ -311,7 +315,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
         swiperNew[0].on('setTranslate', function () {
             const heroHeader = this.el.querySelector('.hero__header');
-            hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
+            console.log(heroHeader.getBoundingClientRect().top)
+            hero.style.setProperty('--offsetTop', `${heroHeader.getBoundingClientRect().top + heroHeader.getBoundingClientRect().height}px`)
         });
     
         swiperNew.forEach(slider => {
