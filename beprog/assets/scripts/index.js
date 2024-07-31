@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //     swiper.params.touchReleaseOnEdges = false;
         // });
     
-        swiperNew[1].on('touchMove', function () {
+        swiperNew[1].on('progress', function () {
             const heroHeader = this.el.querySelector('.hero__header');
             hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`);
         });
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
         });
     
-        swiperNew[0].on('touchMove', function () {
+        swiperNew[0].on('progress', function () {
             const heroHeader = this.el.querySelector('.hero__header');
             hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
         });
