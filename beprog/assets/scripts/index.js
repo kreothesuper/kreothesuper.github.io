@@ -187,6 +187,7 @@ const changeLanguage = (langArray) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
     changeLanguage(languageObject[getCurrentLanguage()]);
     //animation init
     const animation = new Animations();
@@ -217,162 +218,157 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const hero = document.querySelector('.hero');
-    const heroWrapper = document.querySelector('.hero-wrapper');
     const header = document.querySelector('.header');
 
-    const heroSection = document.querySelectorAll('.hero-section');
-
-    heroSection.forEach(element => {
-        const heroSectionText = element.querySelectorAll('.hero-section-text');
-
-        if (heroSectionText.length) {
-            heroSectionText.forEach((text, index) => {
-                text.style.transitionDelay = `${index * .2}s`
-            });
-        }
-    });
-
-    var swiper = new Swiper('.hero', {
-        direction: "vertical",
-        spaceBetween: 30,
-        effect: 'fade',
-        crossFade: true,
-        speed: 500,
-        touchReleaseOnEdges: true,
-        // autoHeight: true,
-        preventInteractionOnTransition: false,
-        mousewheel: {
-            invert: false,
-            // forceToAxis: true,
-            sensitivity: 1,
-            releaseOnEdges: true,
-            thresholdTime: 1500,
-        },
-
-        resistanceRatio: 0,
-        // longSwipes:false,
-
-        init: function () {
-            hero.dataset.current = this.realIndex;
-        },
-
-    });
-
-
-
-
-    const swiperNew = new Swiper('.hero-section-column', {
-        direction: "vertical",
-        slidesPerView: "auto",
-        freeMode: true,
-        nested: true,
-        init:false,
-        // preventInteractionOnTransition: false,
-        mousewheel: {
-            invert: false,
-            // forceToAxis: true,
-            sensitivity: 1,
-            releaseOnEdges: true,
-            // thresholdTime: 500,
-        },
-        touchReleaseOnEdges: true,
-        observer: true,
-    });
-
-    // swiper.on('reachEnd', function () {
-    //     setTimeout(() => hero.scrollIntoView({ behavior: "smooth" }), 500);
-    // });
-
-    swiperNew[1].on('progress', function () {
-        const heroHeader = this.el.querySelector('.hero__header');
-
-        hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`);
-    });
-    swiperNew[0].on('init', function () {
-        console.log('234');
-        const heroHeader = this.el.querySelector('.hero__header');
-        hero.style.setProperty('--heroHeaderHeight', `${heroHeader.getBoundingClientRect().height}px`)
-        hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
-    });
-
-    swiperNew[0].on('progress', function () {
-        const heroHeader = this.el.querySelector('.hero__header');
-
-        hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
-    });
-
-    swiperNew.forEach(slider=>{
-        slider.init();
-    })
-
-    swiper.on('slideChange', function () {
-        hero.dataset.current = swiper.realIndex;
-        // swiper.update();
-        // hero.scrollIntoView({ behavior: "smooth" });
-
-        heroSection.forEach((element, index) => {
+    if(hero){
+        const heroWrapper = document.querySelector('.hero-wrapper');
+        const heroSection = document.querySelectorAll('.hero-section');
+    
+        heroSection.forEach(element => {
             const heroSectionText = element.querySelectorAll('.hero-section-text');
-
+    
             if (heroSectionText.length) {
-                if (index == swiper.realIndex) {
-                    heroSectionText.forEach((text, index) => {
-                        text.style.transitionDelay = `${index * .2 + 1}s`
-                    });
-                } else {
-                    heroSectionText.forEach((text, index) => {
-                        text.style.transitionDelay = `${index * .2}s`
-                    });
-                }
+                heroSectionText.forEach((text, index) => {
+                    text.style.transitionDelay = `${index * .2}s`
+                });
             }
         });
-
-        if (swiper.realIndex > 0) {
-            header.classList.remove('active')
-        } else {
-            header.classList.add('active');
-        }
-    });
+    
+        var swiper = new Swiper('.hero', {
+            direction: "vertical",
+            spaceBetween: 30,
+            effect: 'fade',
+            crossFade: true,
+            speed: 500,
+            touchReleaseOnEdges: false,
+            // autoHeight: true,
+            preventInteractionOnTransition: false,
+            mousewheel: {
+                invert: false,
+                // forceToAxis: true,
+                sensitivity: 1,
+                releaseOnEdges: false,
+                thresholdTime: 1500,
+            },
+    
+            resistanceRatio: 0,
+            // longSwipes:false,
+    
+            init: function () {
+                hero.dataset.current = this.realIndex;
+            },
+    
+        });
+    
+        const swiperNew = new Swiper('.hero-section-column', {
+            direction: "vertical",
+            slidesPerView: "auto",
+            freeMode: true,
+            nested: true,
+            init: false,
+            // preventInteractionOnTransition: false,
+            mousewheel: {
+                invert: false,
+                // forceToAxis: true,
+                sensitivity: 1,
+                releaseOnEdges: true,
+                // thresholdTime: 500,
+            },
+            touchReleaseOnEdges: true,
+            observer: true,
+        });
+    
+        swiperNew[swiperNew.length - 1].on('reachEnd', function () {
+            setTimeout(function () {
+                swiper.params.mousewheel.releaseOnEdges = true;
+                swiper.params.touchReleaseOnEdges = true;
+            }, 500);
+        });
+        swiperNew[swiperNew.length - 1].on('fromEdge', function () {
+            hero.scrollIntoView({ behavior: 'smooth' });
+            swiper.params.mousewheel.releaseOnEdges = false;
+            swiper.params.touchReleaseOnEdges = false;
+        });
+    
+        swiperNew[1].on('progress', function () {
+            const heroHeader = this.el.querySelector('.hero__header');
+    
+            hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`);
+        });
+        swiperNew[0].on('init', function () {
+            const heroHeader = this.el.querySelector('.hero__header');
+            hero.style.setProperty('--heroHeaderHeight', `${heroHeader.getBoundingClientRect().height}px`)
+            hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
+        });
+    
+        swiperNew[0].on('progress', function () {
+            const heroHeader = this.el.querySelector('.hero__header');
+    
+            hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
+        });
+    
+        swiperNew.forEach(slider => {
+            slider.init();
+        })
+    
+        swiper.on('slideChange', function () {
+            hero.dataset.current = swiper.realIndex;
+            // swiper.update();
+            // hero.scrollIntoView({ behavior: "smooth" });
+    
+            heroSection.forEach((element, index) => {
+                const heroSectionText = element.querySelectorAll('.hero-section-text');
+    
+                if (heroSectionText.length) {
+                    if (index == swiper.realIndex) {
+                        heroSectionText.forEach((text, index) => {
+                            text.style.transitionDelay = `${index * .2 + 1}s`
+                        });
+                    } else {
+                        heroSectionText.forEach((text, index) => {
+                            text.style.transitionDelay = `${index * .2}s`
+                        });
+                    }
+                }
+            });
+    
+            if (swiper.realIndex > 0) {
+                header.classList.remove('active')
+            } else {
+                header.classList.add('active');
+            }
+        });
+    }
+ 
 
     const navLinkArray = document.querySelectorAll('.nav__link');
 
-    if(navLinkArray.length){
-        if(window.location.hash){
+    if (navLinkArray.length) {
+        if (window.location.hash) {
             const hashBlock = document.querySelector(`${window.location.hash}`);
             swiper.slideTo(swiper.slides.length - 1);
-            hashBlock.scrollIntoView({behavior:'smooth'});
+            hashBlock.scrollIntoView({ behavior: 'smooth' });
         }
-        navLinkArray.forEach(link=>{
-            link.addEventListener("click",(e)=>{
+        navLinkArray.forEach(link => {
+            link.addEventListener("click", (e) => {
                 e.preventDefault();
                 burger.classList.remove('burger--active');
                 header.classList.remove('header--active');
                 const linkHash = e.target.hash;
                 const hashBlock = document.querySelector(`${linkHash}`);
-                if(!hashBlock) return
-                if(linkHash === '#hero' && link.dataset.slide){
-                    hashBlock.scrollIntoView({behavior:'smooth'});
+                if (!hashBlock) return
+                window.location.hash = e.target.hash;
+                if (linkHash === '#hero' && link.dataset.slide) {
+                    hashBlock.scrollIntoView({ behavior: 'smooth' });
                     swiper.slideTo(link.dataset.slide);
-                }else{
+                } else {
                     swiper.slideTo(swiper.slides.length - 1);
-                    hashBlock.scrollIntoView({behavior:'smooth'});
-                    document.body.style.setProperty('--header-height',`${document.querySelector('.header').getBoundingClientRect().height}px`)
+                    hashBlock.scrollIntoView({ behavior: 'smooth' });
+                    document.body.style.setProperty('--header-height', `${document.querySelector('.header').getBoundingClientRect().height}px`)
                 }
             });
         });
     }
-    // swiper.on('slideChange', function () {
-    //     setTimeout(function () {
-    //         swiper.params.mousewheel.releaseOnEdges = false;
-    //     }, 500);
-    // });
-
-    // swiper.on('reachEnd', function () {
-    //     setTimeout(function () {
-    //         swiper.params.mousewheel.releaseOnEdges = true;
-    //     }, 1500);
-    // });
-
-
 
     const burger = document.querySelector('.burger');
 
@@ -383,18 +379,6 @@ document.addEventListener('DOMContentLoaded', () => {
         burger.classList.toggle('burger--active');
         header.classList.toggle('header--active');
     });
-
-
-
-    // let scrollTimer;
-
-    // scrollableElement.addEventListener('scroll', function() {
-    //     clearTimeout(scrollTimer);
-    //     scrollTimer = setTimeout(function() {
-    //         // Your scroll action goes here
-    //         console.log('Scrolled after delay');
-    //     }, 3000); // Delay in milliseconds (e.g., 500ms)
-    // });
 
 
     const languageList = document.querySelectorAll('.language');
