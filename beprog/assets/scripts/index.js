@@ -316,6 +316,8 @@ document.addEventListener('DOMContentLoaded', () => {
         swiperNew.forEach(slider => {
             slider.init();
         })
+
+        swiperNew[1].params.releaseOnEdges = false;
     
         swiper.on('slideChange', function () {
             hero.dataset.current = swiper.realIndex;
