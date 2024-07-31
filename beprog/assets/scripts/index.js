@@ -287,11 +287,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
 
         });
-        swiperNew[swiperNew.length - 1].on('fromEdge', function () {
-            hero.scrollIntoView({ behavior: 'smooth' });
-            swiper.params.mousewheel.releaseOnEdges = false;
-            swiper.params.touchReleaseOnEdges = false;
-        });
+        // swiperNew[swiperNew.length - 1].on('fromEdge', function () {
+        //     hero.scrollIntoView({ behavior: 'smooth' });
+        //     swiper.params.mousewheel.releaseOnEdges = false;
+        //     swiper.params.touchReleaseOnEdges = false;
+        // });
     
         swiperNew[1].on('touchMove', function () {
             const heroHeader = this.el.querySelector('.hero__header');
