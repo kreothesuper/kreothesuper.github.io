@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         var swiper = new Swiper('.hero', {
             direction: "vertical",
-            spaceBetween: 30,
+        
             effect: 'fade',
             crossFade: true,
             speed: 500,
@@ -267,6 +267,9 @@ document.addEventListener('DOMContentLoaded', () => {
             freeMode: true,
             nested: true,
             init: false,
+            spaceBetween: 30,
+            slidesOffsetAfter:1,
+            touchMoveStopPropagation:true,
             // preventInteractionOnTransition: false,
             mousewheel: {
                 invert: false,
