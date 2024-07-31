@@ -250,7 +250,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 releaseOnEdges: true,
                 thresholdTime: 1500,
             },
-    
+  
+            longSwipes:false,
+            touchRatio:0.5,
             resistanceRatio: 0,
             // longSwipes:false,
     
@@ -293,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //     swiper.params.touchReleaseOnEdges = false;
         // });
     
-        swiperNew[1].on('progress', function () {
+        swiperNew[1].on('setTranslate', function () {
             const heroHeader = this.el.querySelector('.hero__header');
             hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`);
         });
@@ -306,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
         });
     
-        swiperNew[0].on('progress', function () {
+        swiperNew[0].on('setTranslate', function () {
             const heroHeader = this.el.querySelector('.hero__header');
             hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
         });
