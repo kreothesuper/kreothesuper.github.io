@@ -251,11 +251,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 thresholdTime: 1500,
             },
   
-            longSwipes:false,
             touchRatio:0.5,
-            resistance:false,
             resistanceRatio: 0,
-            edgeSwipeDetection:'prevent',
             // longSwipes:false,
     
             init: function () {
@@ -269,8 +266,6 @@ document.addEventListener('DOMContentLoaded', () => {
             slidesPerView: "auto",
             freeMode: true,
             nested: true,
-            edgeSwipeDetection:'prevent',
-            resistance:false,
             init: false,
             // preventInteractionOnTransition: false,
             mousewheel: {
@@ -288,7 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function () {
                 swiper.params.mousewheel.releaseOnEdges = true;
                 swiper.params.touchReleaseOnEdges = true;
-       
 
             }, 500);
 
