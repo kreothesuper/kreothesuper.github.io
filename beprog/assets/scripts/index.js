@@ -282,7 +282,10 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function () {
                 swiper.params.mousewheel.releaseOnEdges = true;
                 swiper.params.touchReleaseOnEdges = true;
+            console.log(swiper.params.touchReleaseOnEdges);
+
             }, 500);
+
         });
         swiperNew[swiperNew.length - 1].on('fromEdge', function () {
             hero.scrollIntoView({ behavior: 'smooth' });
@@ -290,20 +293,21 @@ document.addEventListener('DOMContentLoaded', () => {
             swiper.params.touchReleaseOnEdges = false;
         });
     
-        swiperNew[1].on('progress', function () {
+        swiperNew[1].on('touchMove', function () {
             const heroHeader = this.el.querySelector('.hero__header');
-    
+            hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`);
+        });
+        swiperNew[1].on('init', function () {
+            const heroHeader = this.el.querySelector('.hero__header');
             hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`);
         });
         swiperNew[0].on('init', function () {
             const heroHeader = this.el.querySelector('.hero__header');
-            hero.style.setProperty('--heroHeaderHeight', `${heroHeader.getBoundingClientRect().height}px`)
             hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
         });
     
-        swiperNew[0].on('progress', function () {
+        swiperNew[0].on('touchMove', function () {
             const heroHeader = this.el.querySelector('.hero__header');
-    
             hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
         });
     
@@ -343,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const navLinkArray = document.querySelectorAll('.nav__link');
 
-    if (navLinkArray.length) {
+    if (navLinkArray.length && hero) {
         if (window.location.hash) {
             const hashBlock = document.querySelector(`${window.location.hash}`);
             swiper.slideTo(swiper.slides.length - 1);
