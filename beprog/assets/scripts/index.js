@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         swiperNew[1].on('setTranslate', function () {
             const heroHeader = this.el.querySelector('.hero__header');
-            hero.style.setProperty('--offsetTop-second', `${heroHeader.getBoundingClientRect().top + heroHeader.getBoundingClientRect().height}px`);
+            hero.style.setProperty('--offsetTop-second', `${this.translate + heroHeader.getBoundingClientRect().height}px`);
         });
         swiperNew[1].on('init', function () {
             const heroHeader = this.el.querySelector('.hero__header');
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
         swiperNew[0].on('setTranslate', function () {
             const heroHeader = this.el.querySelector('.hero__header');
             console.log(heroHeader.getBoundingClientRect().top)
-            hero.style.setProperty('--offsetTop', `${heroHeader.getBoundingClientRect().top + heroHeader.getBoundingClientRect().height}px`)
+            hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
         });
     
         swiperNew.forEach(slider => {
