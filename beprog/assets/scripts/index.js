@@ -175,6 +175,28 @@ const changeLanguage = (langArray) => {
         urlParams.set('lang', 'en');
         window.location.search = urlParams;
     }
+    if (getCurrentLanguage() === 'ru') {
+        const languageImgArray = document.querySelectorAll('.language-img');
+
+        if (languageImgArray.length) {
+            languageImgArray.forEach(img => {
+                const originalSrc = img.getAttribute('src');
+
+                // Extract the file name and extension
+                const parts = originalSrc.split('/');
+                const fileNameWithExtension = parts[parts.length - 1];
+                const extension = fileNameWithExtension.split('.').pop();
+                const fileNameWithoutExtension = fileNameWithExtension.slice(0, fileNameWithExtension.lastIndexOf('.'));
+
+                // Create the new src attribute value with "-ru" added
+                const newFileName = fileNameWithoutExtension + "-ru." + extension;
+                const newSrc = originalSrc.replace(fileNameWithExtension, newFileName);
+
+                // Update the src attribute with the new value
+                img.setAttribute('src', newSrc);
+            });
+        }
+    }
     langArray.forEach(lang => {
         const elementArray = document.querySelectorAll(`.${lang[0]}`);
         if (elementArray.length) {
@@ -220,23 +242,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const hero = document.querySelector('.hero');
     const header = document.querySelector('.header');
 
-    if(hero){
+    if (hero) {
         const heroWrapper = document.querySelector('.hero-wrapper');
         const heroSection = document.querySelectorAll('.hero-section');
-    
+
         heroSection.forEach(element => {
             const heroSectionText = element.querySelectorAll('.hero-section-text');
-    
+
             if (heroSectionText.length) {
                 heroSectionText.forEach((text, index) => {
                     text.style.transitionDelay = `${index * .2}s`
                 });
             }
         });
-    
+
         var swiper = new Swiper('.hero', {
             direction: "vertical",
-        
+
             effect: 'fade',
             crossFade: true,
             speed: 500,
@@ -250,17 +272,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 releaseOnEdges: true,
                 thresholdTime: 1500,
             },
-  
-            touchRatio:0.5,
+
+            touchRatio: 0.5,
             resistanceRatio: 0,
             // longSwipes:false,
-    
+
             init: function () {
                 hero.dataset.current = this.realIndex;
             },
-    
+
         });
-    
+
         const swiperNew = new Swiper('.hero-section-column', {
             direction: "vertical",
             slidesPerView: "auto",
@@ -268,9 +290,9 @@ document.addEventListener('DOMContentLoaded', () => {
             nested: true,
             init: false,
             spaceBetween: 30,
-            slidesOffsetAfter:1,
-            touchMoveStopPropagation:true,
-            shortSwipes:false,
+            slidesOffsetAfter: 1,
+            touchMoveStopPropagation: true,
+            shortSwipes: false,
             // preventInteractionOnTransition: false,
             mousewheel: {
                 invert: false,
@@ -282,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
             touchReleaseOnEdges: true,
             observer: true,
         });
-    
+
         // swiperNew[swiperNew.length - 1].on('reachEnd', function () {
         //     setTimeout(function () {
         //         swiper.params.mousewheel.releaseOnEdges = true;
@@ -296,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //     swiper.params.mousewheel.releaseOnEdges = false;
         //     swiper.params.touchReleaseOnEdges = false;
         // });
-    
+
         // swiperNew[1].on('setTranslate', function () {
         //     const heroHeader = this.el.querySelector('.hero__header');
         //     hero.style.setProperty('--offsetTop-second', `${this.translate + heroHeader.getBoundingClientRect().height}px`);
@@ -310,27 +332,27 @@ document.addEventListener('DOMContentLoaded', () => {
             hero.style.setProperty('--heroHeaderHeight', `${heroHeader.getBoundingClientRect().height}px`);
             hero.style.setProperty('--offsetTop', `${heroHeader.getBoundingClientRect().height}px`);
         });
-    
+
         // swiperNew[0].on('setTranslate', function () {
         //     const heroHeader = this.el.querySelector('.hero__header');
         //     console.log(heroHeader.getBoundingClientRect().top)
         //     hero.style.setProperty('--offsetTop', `${this.translate + heroHeader.getBoundingClientRect().height}px`)
         // });
-    
+
         swiperNew.forEach(slider => {
             slider.init();
         })
 
         // swiperNew[1].params.releaseOnEdges = false;
-    
+
         swiper.on('slideChange', function () {
             hero.dataset.current = swiper.realIndex;
             // swiper.update();
             // hero.scrollIntoView({ behavior: "smooth" });
-    
+
             heroSection.forEach((element, index) => {
                 const heroSectionText = element.querySelectorAll('.hero-section-text');
-    
+
                 if (heroSectionText.length) {
                     if (index == swiper.realIndex) {
                         heroSectionText.forEach((text, index) => {
@@ -343,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
-    
+
             if (swiper.realIndex > 0) {
                 header.classList.remove('active')
             } else {
@@ -351,15 +373,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
- 
+
 
     const navLinkArray = document.querySelectorAll('.nav__link');
 
     if (navLinkArray.length && hero) {
-        if (window.location.hash && window.location.hash === 'hero') {
+        if (window.location.hash) {
             const hashBlock = document.querySelector(`${window.location.hash}`);
-            swiper.slideTo(swiper.slides.length - 1);
             hashBlock.scrollIntoView({ behavior: 'smooth' });
+            if (window.location.hash !== '#hero') {
+                swiper.slideTo(swiper.slides.length - 1);
+            } else {
+                swiper.slideTo(0);
+            }
         }
         navLinkArray.forEach(link => {
             link.addEventListener("click", (e) => {
@@ -421,8 +447,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 urlParams.set('lang', e.target.value);
                 window.location.search = urlParams;
             });
-
-
 
             languageCurrentText.textContent = languageChecked.closest('.language-input').querySelector('.language-input__text').textContent;
         });
