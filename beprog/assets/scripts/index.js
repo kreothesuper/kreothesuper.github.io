@@ -286,14 +286,14 @@ document.addEventListener('DOMContentLoaded', () => {
             effect: 'fade',
             crossFade: true,
             speed: 500,
-            touchReleaseOnEdges: true,
+            touchReleaseOnEdges: false,
             // autoHeight: true,
             preventInteractionOnTransition: false,
             mousewheel: {
                 invert: false,
                 // forceToAxis: true,
                 sensitivity: 1,
-                releaseOnEdges: true,
+                releaseOnEdges: false,
                 thresholdTime: 1500,
             },
 
@@ -329,19 +329,22 @@ document.addEventListener('DOMContentLoaded', () => {
             observer: true,
         });
 
-        // swiperNew[swiperNew.length - 1].on('reachEnd', function () {
-        //     setTimeout(function () {
-        //         swiper.params.mousewheel.releaseOnEdges = true;
-        //         swiper.params.touchReleaseOnEdges = true;
+        if (window.screen.width >= 1280) {
 
-        //     }, 500);
+            swiper.on('slideChange', function () {
+                hero.scrollIntoView({ behavior: 'smooth' });
+                swiper.params.mousewheel.releaseOnEdges = false;
+                swiper.params.touchReleaseOnEdges = false;
+            });
+            swiperNew[swiperNew.length - 1].on('reachEnd', function () {
+                setTimeout(function () {
+                    swiper.params.mousewheel.releaseOnEdges = true;
+                    swiper.params.touchReleaseOnEdges = true;
+                }, 500);
+            });
+        }
 
-        // });
-        // swiperNew[swiperNew.length - 1].on('fromEdge', function () {
-        //     hero.scrollIntoView({ behavior: 'smooth' });
-        //     swiper.params.mousewheel.releaseOnEdges = false;
-        //     swiper.params.touchReleaseOnEdges = false;
-        // });
+
 
         // swiperNew[1].on('setTranslate', function () {
         //     const heroHeader = this.el.querySelector('.hero__header');
@@ -483,4 +486,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    const headerButton = document.querySelector('.header__button'),
+    headerQr = document.querySelector('.header__qr');
+
+    headerButton.addEventListener('click',(e)=>{
+        e.preventDefault();
+
+        headerQr.classList.toggle('active');
+        headerButton.classList.toggle('active');
+
+        if(headerQr.classList.contains('active')){
+            scrollLock.disablePageScroll();
+        }else{
+            scrollLock.enablePageScroll();
+        }
+    });
 });
