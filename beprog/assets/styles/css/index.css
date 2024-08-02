@@ -237,6 +237,7 @@ body {
 }
 .page-wrapper .content {
   flex-grow: 1;
+  overflow: hidden;
 }
 
 .logo {
@@ -605,7 +606,7 @@ body {
 .hero[data-current="1"] .hero-decor__phone {
   transform: rotate(0) scale(1);
   left: calc(50% - 10vw);
-  top: calc(50% - 18vw);
+  top: calc(50% - 18vw + 84px);
 }
 @media screen and (max-width: 1024px) {
   .hero[data-current="1"] .hero-decor__phone {
@@ -834,15 +835,10 @@ body {
 }
 .hero-section.swiper-slide-prev .hero-section-text {
   opacity: 0;
-  transform: translateY(-600px);
-}
-.hero-section.inactive .hero-section-text {
-  transform: translateY(-200px);
 }
 .hero-section-text {
   opacity: 0;
-  transform: translateY(400px);
-  transition: 0.75s transform, 0.75s opacity;
+  transition: 0.75s transform, 1s opacity;
 }
 .hero-section__wrapper {
   display: flex;
@@ -912,11 +908,11 @@ body {
 @media screen and (max-width: 1440px) {
   .hero__header {
     max-width: 500px;
+    gap: 15px;
   }
 }
 @media screen and (max-width: 1024px) {
   .hero__header {
-    gap: 15px;
     max-width: 320px;
   }
 }
@@ -928,6 +924,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 65px;
+}
+@media screen and (max-width: 1440px) {
+  .hero__column {
+    max-width: 500px;
+    gap: 30px;
+  }
 }
 @media screen and (max-width: 1024px) {
   .hero__column {
@@ -1586,6 +1588,9 @@ body {
 
 .page__content {
   padding: 50px 0;
+}
+.page__text a {
+  color: vaR(--color-green);
 }
 .page__text h1 {
   font-size: 44px;

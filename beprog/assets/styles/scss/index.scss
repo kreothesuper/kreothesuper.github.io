@@ -270,6 +270,7 @@ body {
 
     .content {
         flex-grow: 1;
+        overflow: hidden;
     }
 }
 
@@ -712,7 +713,7 @@ body {
     &[data-current="1"] &-decor__phone {
         transform: rotate(0) scale(1);
         left: calc(50% - 10vw);
-        top: calc(50% - 18vw);
+        top: calc(50% - 18vw + 84px);
 
         @media screen and (max-width:1024px) {
             left: calc(50% - 90px);
@@ -1008,18 +1009,18 @@ body {
 
         &.swiper-slide-prev &-text {
             opacity: 0;
-            transform: translateY(-600px);
+            // transform: translateY(-600px);
         }
 
         &.inactive &-text {
-            transform: translateY(-200px);
+            // transform: translateY(-200px);
         }
 
         &-text {
             opacity: 0;
-            transform: translateY(400px);
+            // transform: translateY(400px);
 
-            transition: .75s transform, .75s opacity;
+            transition: .75s transform, 1s opacity;
         }
 
         &__wrapper {
@@ -1109,10 +1110,11 @@ body {
 
         @media screen and (max-width:1440px) {
             max-width: 500px;
+            gap: 15px;
+
         }
 
         @media screen and (max-width:1024px) {
-            gap: 15px;
 
             max-width: 320px;
         }
@@ -1127,6 +1129,12 @@ body {
         display: flex;
         flex-direction: column;
         gap: 65px;
+
+        @media screen and (max-width:1440px) {
+            max-width: 500px;
+            gap: 30px;
+
+        }
 
         @media screen and (max-width:1024px) {
             justify-content: space-between;
@@ -1882,6 +1890,9 @@ body {
     }
 
     &__text {
+        a{
+            color: vaR(--color-green);
+        }
         h1 {
             font-size: 44px;
             line-height: 1.27;
