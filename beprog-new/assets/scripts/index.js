@@ -334,13 +334,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 swiper.params.mousewheel.releaseOnEdges = true;
                 swiper.params.touchReleaseOnEdges = true;
             }, 500);
-
         });
-        swiperNew[swiperNew.length - 1].on('fromEdge', function () {
-            hero.scrollIntoView({ behavior: 'smooth' });
-            swiper.params.mousewheel.releaseOnEdges = false;
-            swiper.params.touchReleaseOnEdges = false;
-        });
+        // swiperNew[swiperNew.length - 1].on('fromEdge', function () {
+        //     hero.scrollIntoView({ behavior: 'smooth' });
+        //     swiper.params.mousewheel.releaseOnEdges = false;
+        //     swiper.params.touchReleaseOnEdges = false;
+        // });
 
         // swiperNew[1].on('setTranslate', function () {
         //     const heroHeader = this.el.querySelector('.hero__header');
