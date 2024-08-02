@@ -10,6 +10,19 @@
 
 body {
     font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    line-height: 1.56;
+
+    @media screen and (max-width:1024px) {
+        font-size: 16px;
+        line-height: 1.62;
+    }
+
+    color: var(--color-black);
+}
+
+* {
+    scroll-margin-top: var(--header-height);
 }
 
 .container {
@@ -21,12 +34,6 @@ body {
     padding: 0 15px;
 }
 
-.content {
-    &__wrapper {
-        position: relative;
-        z-index: 12;
-    }
-}
 
 .button {
     display: flex;
@@ -263,6 +270,7 @@ body {
 
     .content {
         flex-grow: 1;
+        overflow: hidden;
     }
 }
 
@@ -287,6 +295,10 @@ body {
     z-index: 20;
 
     transition: 1s padding;
+
+    &--sticky {
+        position: sticky;
+    }
 
 
     &.active {
@@ -522,6 +534,8 @@ body {
     }
 
     &--active &__current {
+        background: #fff;
+
         &::after {
             transform: rotate(180deg);
         }
@@ -537,7 +551,13 @@ body {
 
         @media screen and (min-width:1025px) {
             position: absolute;
-            top: calc(100% + 10px);
+            top: 100%;
+
+
+            padding: 10px 0;
+            border-radius: 0 0 16px 16px;
+            background-color: #fff;
+            width: 100%;
 
             opacity: 0;
             visibility: hidden;
@@ -552,6 +572,11 @@ body {
         font-size: 16px;
         letter-spacing: 0.02rem;
         color: var(--color-grey-dark);
+
+        padding: 10px;
+        border-radius: 16px 16px 0 0;
+
+        transition: .3s background-color;
 
         &:hover {
             cursor: pointer;
@@ -652,8 +677,6 @@ body {
 
 
 
-
-
     &-item {
         height: auto;
     }
@@ -690,16 +713,19 @@ body {
     &[data-current="1"] &-decor__phone {
         transform: rotate(0) scale(1);
         left: calc(50% - 10vw);
-        top: calc(50% - 18vw);
+        top: calc(50% - 18vw + 84px);
 
         @media screen and (max-width:1024px) {
             left: calc(50% - 90px);
-            top: 250px;
+            top: calc(100px + var(--offsetTop-second));
+            transition-delay: 0s;
+            transition: 1s transform, 1s left, 0s top, 1s opacity;
         }
     }
 
-    &[data-current="2"] &-decor__phone {
-        transform: translateY(-100%);
+    &[data-current="2"] &-decor__phone,
+    &[data-current="2"] &-decor__circle {
+        // transform: translateY(-100%);
         opacity: 0;
     }
 
@@ -707,12 +733,14 @@ body {
         transform: rotate(180deg);
     }
 
-    &[data-current="1"] &-decor__circle {
+    &[data-current="1"]>&-decor__circle {
         transform: rotate(90deg) scale(-1, 1);
+        opacity: 1;
     }
 
     &[data-current="1"] &-decor__circle circle {
         stroke-dashoffset: 0;
+
     }
 
     &[data-current="2"] &-decor__sand {
@@ -732,15 +760,15 @@ body {
     }
 
 
-    &[data-current="0"]{
-        padding:56px;
+    &[data-current="0"] {
+        padding: 56px;
 
         @media screen and (max-width:1440px) {
-            padding:28px;
+            padding: 28px;
         }
-    
+
         @media screen and (max-width:1024px) {
-            padding:100px 14px 14px 14px;
+            padding: 100px 14px 14px 14px;
         }
     }
 
@@ -770,29 +798,14 @@ body {
 
     &-decor {
         position: absolute;
-        width: calc(100% - 112px);
-        height: calc(100% - 112px);
-        left: 56px;
-        top: 56px;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
 
         overflow: hidden;
         border-radius: 36px;
         transition: 1s width, 1s height, 1s top, 1s left, 1s border-radius;
-
-        @media screen and (max-width:1440px) {
-
-            width: calc(100% - 56px);
-            height: calc(100% - 56px);
-            left: 28px;
-            top: 28px;
-        }
-
-        @media screen and (max-width:1024px) {
-            width: calc(100% - 28px);
-            height: calc(100% - 28px - 84px);
-            left: 14px;
-            top: 100px;
-        }
 
         .container {
             width: 100%;
@@ -800,7 +813,7 @@ body {
         }
 
         &__circle {
-            transition: 1s transform;
+            transition: 1s transform, .3s opacity;
 
             position: absolute;
             transform: scale(-1, 1);
@@ -810,11 +823,15 @@ body {
             top: calc(50% - 15vw);
             z-index: 0;
 
+            opacity: 0;
+
             @media screen and (max-width:1024px) {
                 width: 300px;
                 height: 300px;
 
-                top: 280px;
+                top: calc(120px + var(--offsetTop-second));
+                transition-delay: 0s;
+                transition: 1s transform, 1s left, 0s top, 1s opacity;
                 left: calc(50% - 150px);
             }
         }
@@ -852,6 +869,7 @@ body {
         &__phone {
             width: 20vw;
             height: 36vw;
+            max-height: calc(100svh - 150px);
 
             position: absolute;
             left: calc(100% - 20vw);
@@ -871,6 +889,8 @@ body {
 
             transition-delay: .5s;
 
+            opacity: 0;
+
             @media screen and (max-width:1440px) {
                 left: calc(100% - 30vw);
             }
@@ -878,8 +898,11 @@ body {
             @media screen and (max-width:1024px) {
                 width: 180px;
                 height: 350px;
-                left: 0;
-                top: 400px;
+                left: calc(100% - 220px);
+                top: calc(80px + var(--offsetTop));
+
+                transition: 1s transform, 1s left, 0s top, 1s opacity;
+                transition-delay: 0s;
             }
         }
     }
@@ -944,13 +967,19 @@ body {
         }
     }
 
+    &-section.swiper-slide-active &-decor{
+        &__phone,&__circle{
+            opacity: 1;
+        }
+    }
+
     &-section {
         width: 100%;
         height: 100%;
 
         &-column {
             height: auto;
-            touch-action: none; 
+            position: relative;
         }
 
         &--header {
@@ -966,10 +995,9 @@ body {
 
         &.swiper-slide-active {
             .password-img {
-                width: 182px;
+                &::before {
+                    width: 100%;
 
-                @media screen and (max-width:1024px) {
-                    width: 125px;
                 }
 
                 img {
@@ -981,18 +1009,18 @@ body {
 
         &.swiper-slide-prev &-text {
             opacity: 0;
-            transform: translateY(-600px);
+            // transform: translateY(-600px);
         }
 
         &.inactive &-text {
-            transform: translateY(-200px);
+            // transform: translateY(-200px);
         }
 
         &-text {
             opacity: 0;
-            transform: translateY(400px);
+            // transform: translateY(400px);
 
-            transition: .75s transform, .75s opacity;
+            transition: .75s transform, 1s opacity;
         }
 
         &__wrapper {
@@ -1001,9 +1029,17 @@ body {
             justify-content: center;
 
             height: auto;
+            min-height: 100%;
             transition: 1s padding;
 
             overflow: hidden;
+
+            position: relative;
+            .container {
+                height: 100%;
+                position: relative;
+                z-index: 4;
+            }
         }
 
         &__grid {
@@ -1018,6 +1054,12 @@ body {
 
             transition: 1s height, 1s max-height;
 
+            @media screen and (max-height:820px) {
+                &--hero {
+                    padding: 80px 0 50px 0;
+                }
+            }
+
             @media screen and (max-width:1024px) {
                 flex-direction: column;
                 padding: 100px 0 50px 0;
@@ -1027,12 +1069,13 @@ body {
                     gap: 350px;
                 }
 
-                &--hero{
+                &--hero {
                     padding-top: 50px;
+                    gap: calc(100svh - 150px - var(--heroHeaderHeight));
                 }
             }
 
-        
+
 
 
         }
@@ -1067,10 +1110,13 @@ body {
 
         @media screen and (max-width:1440px) {
             max-width: 500px;
+            gap: 15px;
+
         }
 
         @media screen and (max-width:1024px) {
-            gap: 15px;
+
+            max-width: 320px;
         }
     }
 
@@ -1083,6 +1129,12 @@ body {
         display: flex;
         flex-direction: column;
         gap: 65px;
+
+        @media screen and (max-width:1440px) {
+            max-width: 500px;
+            gap: 30px;
+
+        }
 
         @media screen and (max-width:1024px) {
             justify-content: space-between;
@@ -1426,7 +1478,7 @@ body {
 .about {
     position: relative;
 
-    margin-top: 200px;
+    padding-top: 200px;
 
     @media screen and (min-width:1025px) {
         &::before {
@@ -1445,7 +1497,7 @@ body {
     }
 
     @media screen and (max-width:1024px) {
-        margin-top: 100px;
+        padding-top: 100px;
     }
 
     &__header {
@@ -1666,6 +1718,7 @@ body {
 
             @media screen and (max-width:1024px) {
                 clip-path: polygon(92% 0%, 28% 0%, 28% 0%, 26.486% 0.093%, 25.05% 0.363%, 23.711% 0.795%, 22.488% 1.375%, 21.4% 2.087%, 20.467% 2.917%, 19.708% 3.85%, 19.142% 4.873%, 18.789% 5.969%, 18.667% 7.125%, 18.667% 7.125%, 18.545% 8.28%, 18.191% 9.377%, 17.625% 10.399%, 16.866% 11.332%, 15.933% 12.163%, 14.845% 12.875%, 13.623% 13.454%, 12.283% 13.886%, 10.847% 14.156%, 9.333% 14.249%, 9.333% 14.249%, 7.819% 14.343%, 6.383% 14.613%, 5.044% 15.045%, 3.821% 15.624%, 2.734% 16.336%, 1.801% 17.166%, 1.042% 18.1%, 0.476% 19.122%, 0.122% 20.218%, 0% 21.374%, 0% 93.893%, 0% 93.893%, 0.105% 94.884%, 0.408% 95.823%, 0.893% 96.7%, 1.544% 97.5%, 2.343% 98.211%, 3.275% 98.822%, 4.324% 99.318%, 5.471% 99.689%, 6.702% 99.92%, 8% 100%, 92% 100%, 92% 100%, 93.298% 99.92%, 94.529% 99.689%, 95.676% 99.318%, 96.725% 98.822%, 97.657% 98.211%, 98.456% 97.5%, 99.107% 96.7%, 99.592% 95.823%, 99.895% 94.884%, 100% 93.893%, 100% 6.107%, 100% 6.107%, 99.895% 5.116%, 99.592% 4.177%, 99.107% 3.3%, 98.456% 2.5%, 97.657% 1.789%, 96.725% 1.178%, 95.676% 0.682%, 94.529% 0.311%, 93.298% 0.08%, 92% 0%);
+
             }
         }
 
@@ -1718,7 +1771,7 @@ body {
 
 
         @media screen and (max-width:1024px) {
-            padding: 0;
+            padding: 100px 0;
             gap: 60px;
         }
     }
@@ -1752,16 +1805,19 @@ body {
 }
 
 .test {
+    height: 100svh;
     width: 100%;
 
     .hero-section {
 
+     
         width: 100%;
         height: 100%;
         flex: 1 0 auto;
 
         overflow: hidden;
 
+        z-index: 4;
 
         position: relative;
 
@@ -1773,21 +1829,45 @@ body {
     height: 72px;
 
     display: inline-flex;
-    background: var(--color-green);
-    border-radius: 36px;
+
     align-items: center;
     justify-content: center;
 
     padding: 16px;
-    width: 72px;
 
     transition: 1s width;
     transition-delay: 1.5s;
 
+    width: 182px;
+
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+
+        transition: 1s width;
+        transition-delay: 1.5s;
+
+        background: var(--color-green);
+        border-radius: 36px;
+
+        display: block;
+    }
+
     @media screen and (max-width:1024px) {
         padding: 10px;
         height: 48px;
-        width: 48px;
+        width: 125px;
+    }
+
+    @media screen and (max-width:350px) {
+        width: 100px;
+        height: 40px;
     }
 
     img {
@@ -1798,5 +1878,51 @@ body {
 
         transition: .5s opacity;
         transition-delay: 2s;
+
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.page {
+    &__content {
+        padding: 50px 0;
+    }
+
+    &__text {
+        a{
+            color: vaR(--color-green);
+        }
+        h1 {
+            font-size: 44px;
+            line-height: 1.27;
+            font-weight: 800;
+    
+            margin-block-end: 60px;
+            @media screen and (max-width:1024px) {
+                font-size: 32px;
+                font-weight: 700;
+                line-height: 1.17;
+
+                margin-block-end: 30px;
+            }
+        }
+        h2{
+            font-size: 24px;
+            line-height: 1.17;
+            font-weight: 700;
+    
+
+            margin-block-end: 30px;
+            margin-block-start: 30px;
+            @media screen and (max-width:1024px) {
+                font-size: 20px;
+                line-height: 1.3;
+            }
+        }
+        p{
+            margin-block-start: 15px;
+            margin-block-end: 15px;
+        }
     }
 }
