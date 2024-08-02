@@ -494,13 +494,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const headerButton = document.querySelector('.header__button'),
-    headerQr = document.querySelector('.header__qr');
+    headerQr = document.querySelector('.header__qr'),
+    languageQr = document.querySelector('.qr-language');
 
     headerButton.addEventListener('click',(e)=>{
         e.preventDefault();
 
         headerQr.classList.toggle('active');
         headerButton.classList.toggle('active');
+        languageQr.classList.toggle('white');
 
         if(headerQr.classList.contains('active')){
             scrollLock.disablePageScroll();
