@@ -443,6 +443,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         burger.classList.toggle('burger--active');
         header.classList.toggle('header--active');
+
+        if(header.classList.contains('header--active')){
+            scrollLock.disablePageScroll();
+        }else{
+            scrollLock.enablePageScroll();
+        }
     });
 
 
