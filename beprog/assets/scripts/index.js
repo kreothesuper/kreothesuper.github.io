@@ -40,29 +40,42 @@ const languageObject = {
         ['hero-title-second', 'In order to chat with someone, you need only a <span class="password-img"><img src="assets/images/password-img.svg" alt=""></span> password'],
         ['hero-list-first', 'All chats are protected by <span>«one-time pad»</span> <span>symmetric</span> encryption, i.e. each message is encrypted with a new never repeating key.'],
         ['hero-list-second', 'Use passwords to <span>make calls</span>, not your phone number.'],
+        
         ['how-title', 'How it works in practice:'],
+        
         ['about-title', 'BeProg is a truly anonymous communication app'],
+        
         ['about-card-title-first', 'There is no need for <br> a phone number'],
         ['about-card-text-first', 'Instead of exchanging phone numbers - exchange passwords.'],
+        
         ['about-card-title-second', 'Password'],
         ['about-card-text-second', 'Come up with a password, share it with the other person and create one private chat for both of you.'],
+        
         ['about-card-title-third', 'Create a channel'],
-        ['about-card-text-third', 'Publish protected messages'],
-        ['about-card-title-fourth', 'For an unlimited audience'],
+        ['about-card-text-third', 'Publish protected messages for an unlimited audience'],
+        
+        ['about-card-title-fourth', '?'],
         ['about-card-text-fourth', 'BeProg app is ad-free and spam-free'],
+        
         ['banner-text', 'The BeProg messaging app will give you that <br> peace of <img src="assets/images/icons/like-in-text.svg" alt=""> mind, that can only be provided by anonymity.'],
+        
         ['nav-link-first', 'About the app'],
         ['nav-link-second', 'How it works'],
         ['nav-link-third', 'Benefits'],
         ['nav-link-fourth', 'Description'],
+        
         ['anonymity-title', 'Anonymity'],
         ['anonymity-text', 'We have strived to achieve maximum anonymity combined with ease of use. The app does not require any identification, phone number or device ID. The app does not request permission from other user applications such as: Contacts, Location, Phone, etc.'],
+        
         ['simplicity-title', 'Simplicity'],
         ['simplicity-text', 'The app has a minimal set of intuitive functions. Creating a chat is simple and done in two steps. We have developed an easy to use application.'],
+        
         ['possibilities-title', 'Possibilities'],
         ['possibilities-text', 'Create anonymous channels for an unlimited number of subscribers. '],
+        
         ['safety-title', 'Safety'],
         ['safety-text', 'We use our proprietary method based on symmetric end-to-end encryption combined with the one-time pad principle'],
+        
         ['download-text', 'Download'],
 
 
@@ -79,35 +92,52 @@ const languageObject = {
         ['hero-title-second', ' Для общения необходим только <br> <span class="password-img"><img src="assets/images/password-img.svg" alt=""></span> пароль'],
         ['hero-list-first', ' Все чаты защищены с помощью <span>симметричного</span> шифрования и, в дополнение, с использованием принципа <span>«одноразового блокнота»</span>, т.е. каждое сообщение шифруется новым ключом'],
         ['hero-list-second', '  Возможность совершать <span>анонимные звонки</span>, используя только пароль'],
+        
         ['how-title', 'Как это работает на практике:'],
+
         ['about-title', 'BeProg — действительно анонимное приложение для общения'],
+
         ['about-card-title-first', 'Без номера телефона'],
         ['about-card-text-first', 'Вместо обмена номерами телефонов, просто обменяйтесь паролями.'],
+        
         ['about-card-title-second', 'Пароль'],
         ['about-card-text-second', 'Придумайте пароль, поделитесь им со своим собеседником, создайте приватный чат'],
+        
         ['about-card-title-third', 'Создание канала'],
-        ['about-card-text-third', 'Публикация защищенных сообщений'],
+        ['about-card-text-third', 'Публикация защищенных сообщений для неограниченной аудитории'],
+        
         ['about-card-title-fourth', 'Без спама и рекламы'],
         ['about-card-text-fourth', 'В приложении BeProg мы не используем никакие виды рекламы или спама'],
+        
         ['banner-text', 'Приложение для обмена сообщениями BeProg обеспечит вам душевное <img src="assets/images/icons/like-in-text.svg" alt=""> спокойствие, дать которое может лишь полная анонимность.'],
+        
         ['nav-link-first', 'О приложении'],
         ['nav-link-second', ' Как работает'],
         ['nav-link-third', 'Преимущества'],
         ['nav-link-fourth', ' Описание'],
+        
         ['anonymity-title', 'Анонимность'],
         ['anonymity-text', 'Мы стремились достичь максимальной анонимности в сочетании с простотой использования. Приложение не требует какой-либо идентификации, номера телефона или идентификатора устройства. Приложение не запрашивает разрешения у других приложений пользователя, таких как: Контакты, Местоположение, Телефон и т.д. '],
+        
         ['simplicity-title', 'Простота'],
         ['simplicity-text', 'Приложение имеет минимальный набор интуитивно понятных функций. Создание чата отличается простотой и происходит в два шага. Мы разработали очень простое в использовании приложение.'],
+        
         ['possibilities-title', 'Возможности'],
         ['possibilities-text', 'Создание анонимного канала для неограниченного числа участников. BeProg позволяет создать канал, который имеет полный функционал с ролями администраторов и т.д.'],
+        
         ['safety-title', 'Безопасность'],
         ['safety-text', 'Мы используем наш собственный метод, основанный на симметричном сквозном шифровании с использованием принципа «одноразовый блокнот».'],
+        
         ['download-text', 'Загрузить'],
 
         ['how-card-first', 'В открытом приложении нажмите <img class="img-small" src="assets/images/icons/plus-text.svg" alt=""> внизу экрана'],
+        
         ['how-card-second', 'Выберите «Приватный чат»'],
+        
         ['how-card-third', 'Затем введите «Пароль» и название чата'],
+        
         ['how-card-fourth', '  Нажмите «Далее» и все!'],
+        
         ['how-card-text', 'Подождите, пока ваш визави сделает то же самое, и вы сможете <img src="assets/images/icons/how-icon.svg" alt=""> общаться!'],
     ],
     it: [
@@ -117,34 +147,49 @@ const languageObject = {
         ['hero-title-second', 'Per chattare con qualcuno, è sufficiente una <span class="password-img"><img src="assets/images/password-img.svg" alt=""></span> password. '],
         ['hero-list-first', 'Tutte le chat sono protette dalla crittografia <span>simmetrica “one-time pad”</span>, dove ogni messaggio viene crittografato con una nuova chiave che non si ripete mai.'],
         ['hero-list-second', '<span>Per telefonare</span>, usa la password, non il numero di telefono.'],
+        
         ['how-title', 'Come funziona in pratica:'],
+        
         ['about-title', "BeProg è un'app di comunicazione completamente anonima"],
+        
         ['about-card-title-first', 'Non richiede il numero di telefono'],
         ['about-card-text-first', 'Invece di scambiarsi i numeri di telefono, ci si scambia le password.'],
+        
         ['about-card-title-second', 'Password'],
         ['about-card-text-second', 'Imposta una password, condividila con il tuo interlocutore e crea una chat privata per entrambi.'],
+        
         ['about-card-title-third', 'Crea un canale'],
         ['about-card-text-third', 'Pubblica messaggi protetti per un pubblico illimitato'],
+        
         ['about-card-title-fourth', 'Senza spam e senza pubblicità'],
         ['about-card-text-fourth', "BeProg è un'app senza pubblicità e senza spam"],
+        
         ['banner-text', "L'app BeProg ti darà quella <img src='assets/images/icons/like-in-text.svg' alt=''> tranquillità che solo l'anonimato può garantire."],
+        
         ['nav-link-first', "Informazioni sull'app"],
         ['nav-link-second', ' Come funziona'],
         ['nav-link-third', 'Vantaggi'],
         ['nav-link-fourth', ' Descrizione'],
+        
         ['anonymity-title', 'Anonimato'],
         ['anonymity-text', "Abbiamo puntato sui massimi livelli di anonimato, ma allo stesso tempo l’app è facilissima da usare. L'app non richiede alcuna identificazione, numero di telefono o ID del dispositivo. L'app non richiede l'autorizzazione di altre applicazioni dell'utente come: Contatti, Posizione, Rubrica telefonica, ecc. "],
+        
         ['simplicity-title', 'Semplicità'],
         ['simplicity-text', "L'app ha un set minimo di funzioni intuitive. La creazione di una chat è molto semplice e avviene in due fasi. Abbiamo sviluppato un'applicazione facilissima da usare."],
+        
         ['possibilities-title', 'Possibilità'],
         ['possibilities-text', 'Crea canali anonimi per un numero illimitato di iscritti.'],
+        
         ['safety-title', 'Безопасность'],
         ['safety-text', 'Utilizziamo il nostro metodo proprietario basato sulla crittografia simmetrica end-to-end con il principio del one-time pad.'],
+        
         ['download-text', 'Scaricamento'],
+        
         ['how-card-first', "Aprire l'app, premere <img class='img-small' src='assets/images/icons/plus-text.svg' alt=''> nella parte bassa dello schermo"],
         ['how-card-second', 'Scegliere «Chat privata»'],
         ['how-card-third', 'Digitare la password e il nome della chat'],
         ['how-card-fourth', 'Premere «Avanti», ed è fatta!'],
+        
         ['how-card-text', "Aspettare finché l’altro utente faccia lo stesso, e ora potete <img src='assets/images/icons/how-icon.svg' alt=''> comunicare!"],
     ],
     fr: [
@@ -154,34 +199,49 @@ const languageObject = {
         ['hero-title-second', "Pour tchatter avec quelqu'un, il suffit d'un mot de <span class='password-img'><img src='assets/images/password-img.svg' alt=''></span> passe."],
         ['hero-list-first', "Tous les tchats sont protégés par un cryptage <span>symétrique « one-time pad »</span>, c'est-à-dire que chaque message est crypté à l'aide d'une nouvelle clé qui ne se répète jamais."],
         ['hero-list-second', 'Pour <span>passer des appels</span>, utilisez un mot de passe et non votre numéro de téléphone.'],
+        
         ['how-title', 'Comment cela fonctionne-t-il dans la pratique ?'],
+        
         ['about-title', 'BeProg est une application de communication totalement anonyme'],
+        
         ['about-card-title-first', "Le numéro de téléphone <br> n'est pas nécessaire"],
         ['about-card-text-first', "Au lieu d'échanger des numéros de téléphone, échangez des mots de passe."],
+        
         ['about-card-title-second', 'Mot de passe'],
         ['about-card-text-second', "Trouvez un mot de passe, partagez-le avec l'autre personne et créez un tchat privé pour vous deux."],
+        
         ['about-card-title-third', 'Créez un canal'],
-        ['about-card-text-third', 'Publiez des messages protégés'],
+        ['about-card-text-third', 'Publiez des messages protégés pour un public illimité'],
+        
         ['about-card-title-fourth', 'Sans spam et sans publicité'],
         ['about-card-text-fourth', "L'application BeProg est sans publicité et sans spam"],
+        
         ['banner-text', "L'application BeProg vous apportera la tranquillité d'esprit que seul l'anonymat <img src='assets/images/icons/like-in-text.svg' alt=''> peut procurer."],
+        
         ['nav-link-first', "À propos de l'application"],
         ['nav-link-second', 'Comment ça fonctionne'],
         ['nav-link-third', 'Les avantages '],
         ['nav-link-fourth', ' Description '],
+        
         ['anonymity-title', 'Anonymat'],
         ['anonymity-text', "Nous avons cherché à atteindre les plus hauts niveaux d'anonymat, tout en restant une application très facile à utiliser. L'application ne nécessite pas d'identification, de numéro de téléphone ou ID d'appareil. L'application ne demande pas la permission à d'autres applications de l'utilisateur telles que : Contacts, Localisation, Téléphone, etc."],
+        
         ['simplicity-title', 'Simplicité'],
         ['simplicity-text', "L'application dispose d'un ensemble minimal de fonctions intuitives. La création d'un tchat est simple et se fait en deux étapes. Nous avons développé une application facile à utiliser."],
+        
         ['possibilities-title', 'Possibilités'],
         ['possibilities-text', "Créez des canaux anonymes pour un nombre illimité d'abonnés."],
+        
         ['safety-title', 'Безопасность'],
         ['safety-text', "Nous utilisons notre propre méthode basée sur le cryptage symétrique end-to-end combiné au principe du one-time pad."],
+        
         ['download-text', 'Scaricamento'],
+        
         ['how-card-first', "Ouvrez l'application, appuyez sur <img class='img-small' src='assets/images/icons/plus-text.svg' alt=''> en bas de l'écran"],
         ['how-card-second', 'Choisissez «Tchat privé»'],
         ['how-card-third', 'Saisissez votre mot de passe et votre nom de chat'],
         ['how-card-fourth', 'Appuyez sur «Suivant», et vous avez terminé!'],
+        
         ['how-card-text', "Attendez que l'autre utilisateur fasse de même, et vous pouvez maintenant <img src='assets/images/icons/how-icon.svg' alt=''> communiquer!"],
 
     ],

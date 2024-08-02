@@ -263,7 +263,7 @@ body {
   z-index: 12;
   display: flex;
   overflow: auto;
-  padding: 50px 0;
+  padding: 50px 20px;
   opacity: 0;
   visibility: hidden;
   transition: 0.3s visibility, 0.5s opacity;
@@ -286,6 +286,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  flex-shrink: 0;
 }
 .qr-popup__block iframe {
   width: 100%;
@@ -638,6 +639,15 @@ body {
 }
 .language--active .language__current::after {
   transform: rotate(180deg);
+}
+.language--active.white .language__current {
+  background: #202020;
+}
+.language.white .language__content {
+  background: #202020;
+}
+.language.white .language-input {
+  color: #fff;
 }
 .language.white .language__current {
   color: #fff;
@@ -1556,6 +1566,11 @@ body {
   .footer__email {
     order: 3;
     margin-left: unset;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .footer__social {
+    width: 100%;
   }
 }
 .footer__logo {
