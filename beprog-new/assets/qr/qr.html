@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимированный QR</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .qr-container {
+            position: relative;
+            display: inline-block;
+        }
+        #qrcode {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            background: transparent; /* Прозрачный фон */
+        }
+        .qrcode-inner {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: transparent; /* Прозрачный фон внутри QR-кода */
+  
+        }
+        .qrcode-mask {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px; /* Уменьшенный размер круглого пространства */
+            height: 100px; /* Уменьшенный размер круглого пространства */
+            background: white; /* Белый фон вокруг черного круга */
+            border-radius: 50%; /* Круглая форма */
+            transform: translate(-50%, -50%); /* Центрирование */
+            z-index: 1; /* Поверх QR-кода */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .qrcode-mask .circle {
+            width: 80px; /* Уменьшенный размер черного круга */
+            height: 80px; /* Уменьшенный размер черного круга */
+            background: black; /* Черный круг */
+            border-radius: 50%; /* Круглая форма */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #lottie-animation {
+            width: 120px; /* Размер анимации */
+            height: 120px; /* Размер анимации */
+            z-index: 2; /* Поверх черного круга */
+			margin-bottom: 65px;
+        }
+    </style>
+</head>
+<body>
+    <div class="qr-container">
+        <!-- QR код -->
+        <div id="qrcode">
+            <!-- Внутренний контейнер для QR-кода -->
+            <div class="qrcode-inner"></div>
+            <!-- Белая маска с черным кругом -->
+            <div class="qrcode-mask">
+                <div class="circle">
+                    <!-- Анимация Lottie -->
+                    <div id="lottie-animation"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение Lottie-web -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.1/lottie.min.js"></script>
+    <!-- Подключение QR-код библиотеки -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Генерация QR-кода
+            var qrcode = new QRCode(document.querySelector(".qrcode-inner"), {
+                text: "https://beprog.app/install",
+                width: 300,
+                height: 300,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H // Увеличенный уровень коррекции ошибок
+            });
+            
+            // Инициализация анимации Lottie
+            var animationContainer = document.getElementById('lottie-animation');
+            var animation = lottie.loadAnimation({
+                container: animationContainer, // контейнер для анимации
+                renderer: 'svg', // тип рендеринга
+                loop: true, // зацикливать анимацию
+                autoplay: true, // автозапуск анимации
+                path: 'data.json' // путь к файлу анимации JSON
+            });
+        });
+    </script>
+</body>
+</html>

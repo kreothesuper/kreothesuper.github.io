@@ -173,7 +173,7 @@ body {
         font-weight: 800;
         line-height: 1.2;
 
-        @media screen and (max-width:1440px) {
+        @media screen and (max-width:1680px) {
             font-size: 64px;
         }
 
@@ -286,6 +286,173 @@ body {
     }
 }
 
+.qr-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100svh;
+
+    background: #202020;
+    z-index: 12;
+
+    display: flex;
+    overflow: auto;
+
+    padding: 50px 20px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s visibility, .5s opacity;
+    &.active{
+        opacity: 1;
+        visibility: visible;
+    }
+    &__wrapper{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+    &__block{
+        width: 300px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin: 0 auto;
+
+        flex-shrink: 0;
+
+        iframe{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__container{
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+        position: absolute;
+    
+        padding: 50px 0;
+        top: 50%;
+        max-height:calc(100% - 30px);
+        overflow: auto;
+        left: 50%;
+        transform: translate(-50%,-50%);
+
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    
+    }
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        counter-reset: qr-list;
+    }
+    &__title{
+        color: #F5F5F5;
+        font-size: 40px;
+        font-weight: 700;
+    }
+    &__item{
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        font-size: 30px;
+        font-weight: 500;
+        color: #F5F5F5;
+        counter-increment: qr-list;
+
+        &::before{
+            content: '0'counter(qr-list);
+
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--color-green);
+
+            flex-shrink: 0;
+
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+
+            border-radius: 50%;
+        }
+    }
+}
+
+.qr-container {
+    position: relative;
+    display: inline-block;
+
+    margin: 0 auto;
+}
+#qrcode {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    background: transparent; /* Прозрачный фон */
+}
+.qrcode-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent; /* Прозрачный фон внутри QR-кода */
+
+}
+.qrcode-mask {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px; /* Уменьшенный размер круглого пространства */
+    height: 100px; /* Уменьшенный размер круглого пространства */
+    background: white; /* Белый фон вокруг черного круга */
+    border-radius: 50%; /* Круглая форма */
+    transform: translate(-50%, -50%); /* Центрирование */
+    z-index: 1; /* Поверх QR-кода */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qrcode-mask .circle {
+    width: 80px; /* Уменьшенный размер черного круга */
+    height: 80px; /* Уменьшенный размер черного круга */
+    background: black; /* Черный круг */
+    border-radius: 50%; /* Круглая форма */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#lottie-animation {
+    width: 120px; /* Размер анимации */
+    height: 120px; /* Размер анимации */
+    z-index: 2; /* Поверх черного круга */
+    margin-bottom: 65px;
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -318,6 +485,34 @@ body {
 
     @media screen and (max-width:1024px) {
         background: #fff;
+    }
+
+    &__button{
+        position: relative;
+        z-index: 14;
+        transition: .5s width;
+        &::before{
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: url("../../images/icons/close.svg") center center/contain no-repeat;
+
+            position: absolute;
+            left: calc(50% - 8px);
+            top: calc(50% - 8px);
+
+            opacity: 0;
+
+            transition: .5s opacity;
+        }
+        &.active{
+            &::before{
+                opacity: 1;
+            }
+            span{
+                display: none;
+            }
+        }
     }
 
     &__wrapper {
@@ -400,6 +595,8 @@ body {
     }
 
     &__language {
+        position: relative;
+        z-index: 14;
         @media screen and (min-width:1025px) {
             margin-left: auto;
         }
@@ -541,6 +738,28 @@ body {
         }
     }
 
+    &--active.white &__current{
+        background: #202020;
+    }
+
+    &.white &__content{
+        background: #202020;
+    }
+
+    &.white &-input{
+        color: #fff;
+    }
+
+    &.white &__current{
+        color: #fff;
+        &::before{
+            background: url("../../images/icons/globe-white.svg") center center/contain no-repeat;
+        }   
+        &::after{
+            background: url("../../images/icons/arrow-language-white.svg") center center/contain no-repeat;
+        }
+    }
+
     &__content {
 
         display: flex;
@@ -674,8 +893,6 @@ body {
     height: 100svh;
     transition: .3s border-radius, .5s padding;
     z-index: 4;
-
-
 
     &-item {
         height: auto;
@@ -820,7 +1037,7 @@ body {
             width: 30vw;
             height: 30vw;
             left: calc(50% - 15vw);
-            top: calc(50% - 15vw);
+            top: calc(50% - 15vw + 84px);
             z-index: 0;
 
             opacity: 0;
@@ -1131,13 +1348,15 @@ body {
         gap: 65px;
 
         @media screen and (max-width:1440px) {
-            max-width: 500px;
             gap: 30px;
+            align-self: center;
 
         }
 
         @media screen and (max-width:1024px) {
             justify-content: space-between;
+            max-width: 500px;
+
         }
 
     }
@@ -1632,6 +1851,12 @@ body {
         }
     }
 
+
+    &__social{
+        @media screen and (max-width:1024px) {
+            width: 100%;
+        }
+    }
     &__logo {
         width: 170px;
         height: 60px;
