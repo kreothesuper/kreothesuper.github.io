@@ -389,20 +389,20 @@ document.addEventListener('DOMContentLoaded', () => {
             observer: true,
         });
 
-        // if (window.screen.width >= 1280) {
+        if (window.screen.width >= 1280) {
 
-        //     swiper.on('slideChange', function () {
-        //         hero.scrollIntoView({ behavior: 'smooth' });
-        //         swiper.params.mousewheel.releaseOnEdges = false;
-        //         swiper.params.touchReleaseOnEdges = false;
-        //     });
-        //     swiperNew[swiperNew.length - 1].on('reachEnd', function () {
-        //         setTimeout(function () {
-        //             swiper.params.mousewheel.releaseOnEdges = true;
-        //             swiper.params.touchReleaseOnEdges = true;
-        //         }, 500);
-        //     });
-        // }
+            swiper.on('slideChange', function () {
+                hero.scrollIntoView({ behavior: 'smooth' });
+                swiper.params.mousewheel.releaseOnEdges = false;
+                swiper.params.touchReleaseOnEdges = false;
+            });
+            swiperNew[swiperNew.length - 1].on('reachEnd', function () {
+                setTimeout(function () {
+                    swiper.params.mousewheel.releaseOnEdges = true;
+                    swiper.params.touchReleaseOnEdges = true;
+                }, 500);
+            });
+        }
 
 
 
@@ -470,7 +470,8 @@ document.addEventListener('DOMContentLoaded', () => {
             hashBlock.scrollIntoView({ behavior: 'smooth' });
             if (window.location.hash !== '#hero') {
                 swiper.slideTo(swiper.slides.length - 1);
-                
+                swiper.params.mousewheel.releaseOnEdges = true;
+                swiper.params.touchReleaseOnEdges = true;
             } else {
                 swiper.slideTo(0);
             }
