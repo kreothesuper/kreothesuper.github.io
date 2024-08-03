@@ -489,6 +489,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     hashBlock.scrollIntoView({ behavior: 'smooth' });
                     swiper.slideTo(link.dataset.slide);
                 } else {
+                    swiper.params.mousewheel.releaseOnEdges = true;
+                swiper.params.touchReleaseOnEdges = true;
                     swiper.slideTo(swiper.slides.length - 1);
                     hashBlock.scrollIntoView({ behavior: 'smooth' });
                     document.body.style.setProperty('--header-height', `${document.querySelector('.header').getBoundingClientRect().height}px`)
