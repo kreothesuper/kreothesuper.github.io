@@ -1,0 +1,230 @@
+@font-face {
+    font-family: 'Druk Text Wide';
+    src: url('../../fonts/DrukTextWide-Bold/DrukTextWide-Bold.woff2') format('woff2'),
+        url('../../fonts/DrukTextWide-Bold/DrukTextWide-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.video-slider {
+    height: 100svh;
+    position: relative;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &.animate &__button {
+        .circle {
+            &__item {
+                animation: fillAnimation 15s forwards;
+                /* Animation for filling the circle */
+            }
+        }
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__title {
+        font-family: 'Druk Text Wide';
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 30px;
+
+        @media screen and (max-width:1024px) {
+            font-size: 24px;
+        }
+    }
+
+    &__content {
+        max-width: calc(100% - 200px);
+        position: relative;
+        z-index: 4;
+
+        padding: 50px;
+
+        @media screen and (max-width:1024px) {
+            padding: 20px;
+            max-width: calc(100% - 160px);
+        }
+    }
+
+
+    &__frame {
+        pointer-events: none;
+        position: absolute;
+
+        width: 122%;
+        height: 122%;
+        top: 50%;
+        left: 50%;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+
+        @media (min-aspect-ratio: 16/9) {
+            /* height = 100 * (9 / 16) = 56.25 */
+            height: 56.25vw;
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            /* width = 100 / (9 / 16) = 177.777777 */
+            width: 177.78svh;
+        }
+    }
+
+    &__link{
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        display: block;
+
+        z-index: 5;
+    }
+
+    &__item {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        transform: scale(0.2);
+
+        opacity: 0;
+        z-index: 2;
+
+        text-decoration: none;
+
+        transition: 1s cubic-bezier(.17, .67, 1, .68) transform, 1s opacity, 1.5s z-index;
+        overflow: hidden;
+
+        &--active {
+            opacity: 1;
+            transform: translate(0);
+            z-index: 3;
+        }
+    }
+
+    &__button {
+        background: rgba(80, 78, 73, 0.5);
+        width: 70px;
+        height: 70px;
+
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        @media screen and (max-width:1024px) {
+            width: 40px;
+            height: 40px;
+        }
+
+        .icon {
+            fill: #fff;
+            width: 16px;
+            height: 16px;
+
+            @media screen and (max-width:1024px) {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        &--prev {
+            .icon {
+                transform: rotate(180deg);
+            }
+        }
+
+        .circle {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            overflow: visible;
+            transform: translate(-50%, -50%) rotate(-90deg);
+
+            @media screen and (max-width:1024px) {
+                width: 45px;
+                height: 45px;
+            }
+
+            &__item {
+                fill: none;
+                /* Start with no fill */
+                stroke: #fff;
+                /* Stroke color */
+                stroke-width: 1;
+                /* Stroke width */
+                stroke-dasharray: 235.62;
+                /* Circumference of the circle */
+                stroke-dashoffset: 235.62;
+
+                /* Start with the dash offset equal to the circumference */
+                @media screen and (max-width:1024px) {
+                    cx: 22.5px;
+                    cy: 22.5px;
+                    r: 22.5px;
+                }
+            }
+        }
+
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 40px;
+
+        padding: 50px;
+        margin-top: auto;
+
+        position: relative;
+        z-index: 5;
+
+        width: max-content;
+        margin-left: auto;
+
+        @media screen and (max-width:1024px) {
+            gap: 20px;
+            padding: 20px;
+        }
+    }
+}
+
+.circle {}
+
+@keyframes fillAnimation {
+    0% {
+        stroke-dashoffset: 235.62;
+        /* Start with no fill */
+        fill: none;
+        /* No fill */
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        /* Fill the circle */
+    }
+}

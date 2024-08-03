@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/styles/css/index.css">
+</head>
+
+<body>
+
+    <div class="video-slider">
+        <div class="video-slider__item">
+            <div class="video-slider__frame js-youtube-video" id="player" data-id="DG-55gGE7P8"></div>
+            <a href="#" class="video-slider__link"></a>
+            <div class="video-slider__content">
+                <p class="video-slider__title">
+                    Title video
+                </p>
+            </div>
+
+        </div>
+        <div class="video-slider__item">
+            <a href="#" class="video-slider__link"></a>
+            <div class="video-slider__content">
+                <p class="video-slider__title">
+                    Title video
+                </p>
+            </div>
+            <video class="video-slider__frame" preload="none" autoplay="false" muted="true" loop="true"
+                src="https://assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-through-a-mountain-range-41576-large.mp4"></video>
+        </div>
+
+        <div class="video-slider__item">
+            <a href="#" class="video-slider__link"></a>
+            <div class="video-slider__content">
+                <p class="video-slider__title">
+                    Title video
+                </p>
+            </div>
+            <div class="video-slider__frame js-youtube-video" id="player1" data-id="CPDdB7b6Ako"></div>
+        </div>
+
+        <div class="video-slider__nav">
+            <a href="#" data-slide="1" class="video-slider__button video-slider__button--next">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path
+                        d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z" />
+                </svg>
+            </a>
+            <a href="#" data-slide="-1" class="video-slider__button video-slider__button--prev">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path
+                        d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z" />
+                </svg>
+                <svg class="circle" width="75" height="75">
+                    <circle cx="37.5" cy="37.5" r="37.5" class="circle__item" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+        var players = []; // Array to hold player instances
+
+        function onYouTubeIframeAPIReady() {
+            const videoBlockArray = document.querySelectorAll('.js-youtube-video');
+            if (videoBlockArray.length) {
+                videoBlockArray.forEach(block => {
+                    const id = block.getAttribute('id'),
+                        videoId = block.dataset.id;
+
+                    // Create a new player instance for each video block
+                    const player = new YT.Player(id, {
+                        height: '360',
+                        width: '640',
+                        videoId: videoId,
+                        playerVars: {
+                            'mute': 1,
+                            'controls': 0,
+                            'wmode': 'opaque',
+                            'modestbranding': 1,
+                            'showinfo': 0,
+                            'loop': 1,
+                            'rel': 0,
+                            'enablejsapi': 1,
+                            'origin': window.location.origin
+                        },
+                        events: {
+                            'onReady': onPlayerReady,
+                        }
+                    });
+
+                    // Store the player instance in the players array
+                    players.push(player);
+                });
+            }
+        }
+
+        function onPlayerReady(event) {
+            event.target.playVideo(); // Automatically play the video when ready
+        }
+
+        function stopVideo() {
+            players.forEach(player => {
+                player.seekTo(0); // Reset all players to the beginning
+            });
+        }
+    </script>
+    <script src="assets/scripts/index.js"></script>
+</body>
+
+</html>
