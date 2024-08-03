@@ -54,7 +54,7 @@ const languageObject = {
         ['about-card-title-third', 'Create a channel'],
         ['about-card-text-third', 'Publish protected messages for an unlimited audience'],
         
-        ['about-card-title-fourth', '?'],
+        ['about-card-title-fourth', 'Spam-free & Ad-free'],
         ['about-card-text-fourth', 'BeProg app is ad-free and spam-free'],
         
         ['banner-text', 'The BeProg messaging app will give you that <br> peace of <img src="assets/images/icons/like-in-text.svg" alt=""> mind, that can only be provided by anonymity.'],
