@@ -357,7 +357,8 @@ body {
   width: 300px;
   height: 300px;
   position: relative;
-  background: transparent; /* Прозрачный фон */
+  background: transparent;
+  /* Прозрачный фон */
 }
 
 .qrcode-inner {
@@ -366,38 +367,52 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: transparent; /* Прозрачный фон внутри QR-кода */
+  background: transparent;
+  /* Прозрачный фон внутри QR-кода */
 }
 
 .qrcode-mask {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100px; /* Уменьшенный размер круглого пространства */
-  height: 100px; /* Уменьшенный размер круглого пространства */
-  background: white; /* Белый фон вокруг черного круга */
-  border-radius: 50%; /* Круглая форма */
-  transform: translate(-50%, -50%); /* Центрирование */
-  z-index: 1; /* Поверх QR-кода */
+  width: 100px;
+  /* Уменьшенный размер круглого пространства */
+  height: 100px;
+  /* Уменьшенный размер круглого пространства */
+  background: white;
+  /* Белый фон вокруг черного круга */
+  border-radius: 50%;
+  /* Круглая форма */
+  transform: translate(-50%, -50%);
+  /* Центрирование */
+  z-index: 1;
+  /* Поверх QR-кода */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .qrcode-mask .circle {
-  width: 80px; /* Уменьшенный размер черного круга */
-  height: 80px; /* Уменьшенный размер черного круга */
-  background: black; /* Черный круг */
-  border-radius: 50%; /* Круглая форма */
+  width: 80px;
+  /* Уменьшенный размер черного круга */
+  height: 80px;
+  /* Уменьшенный размер черного круга */
+  background: black;
+  /* Черный круг */
+  border-radius: 50%;
+  /* Круглая форма */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #lottie-animation {
-  width: 120px; /* Размер анимации */
-  height: 120px; /* Размер анимации */
-  z-index: 2; /* Поверх черного круга */
+  width: 120px;
+  /* Размер анимации */
+  height: 120px;
+  /* Размер анимации */
+  z-index: 2;
+  /* Поверх черного круга */
   margin-bottom: 65px;
 }
 
@@ -821,6 +836,7 @@ body {
 }
 .hero[data-current="1"] .hero-decor__circle circle {
   stroke-dashoffset: 0;
+  transition-delay: 0.5s;
 }
 .hero[data-current="2"] .hero-decor__sand {
   bottom: -300px;
@@ -897,7 +913,6 @@ body {
   stroke-dasharray: 1621;
   stroke-dashoffset: 1621;
   transition: 1s stroke-dashoffset;
-  transition-delay: 0.5s;
 }
 .hero-decor__wrapper {
   width: 100%;
@@ -1006,9 +1021,9 @@ body {
 .hero-section {
   width: 100%;
   height: 100%;
-}
-.hero-section-column {
-  height: auto;
+  flex: 1 0 auto;
+  overflow: hidden;
+  z-index: 4;
   position: relative;
 }
 .hero-section--header {
@@ -1722,19 +1737,6 @@ body {
     transform: translateY(0px);
   }
 }
-.test {
-  height: 100svh;
-  width: 100%;
-}
-.test .hero-section {
-  width: 100%;
-  height: 100%;
-  flex: 1 0 auto;
-  overflow: hidden;
-  z-index: 4;
-  position: relative;
-}
-
 .password-img {
   height: 72px;
   display: inline-flex;
@@ -1788,7 +1790,7 @@ body {
   padding: 50px 0;
 }
 .page__text a {
-  color: vaR(--color-green);
+  color: var(--color-green);
 }
 .page__text h1 {
   font-size: 44px;
