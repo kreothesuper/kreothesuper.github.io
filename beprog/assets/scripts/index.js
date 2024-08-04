@@ -44,6 +44,7 @@ const languageObject = {
         ['how-title', 'How it works in practice:'],
         
         ['about-title', 'BeProg is a truly anonymous communication app'],
+        ['about-subtitle', "Secure voice calls and messages made easy"],
         
         ['about-card-title-first', 'There is no need for <br> a phone number'],
         ['about-card-text-first', 'Instead of exchanging phone numbers - exchange passwords.'],
@@ -78,12 +79,15 @@ const languageObject = {
         
         ['download-text', 'Download'],
 
-
         ['how-card-first', "In the open app press <img class='img-small' src='assets/images/icons/plus-text.svg' alt=''> at the bottom of the screen"],
         ['how-card-second', 'Select «Private chat»'],
         ['how-card-third', 'Then, when prompted, enter the «Password» and name of the chat'],
         ['how-card-fourth', 'Сlick «Next» and that’s it!'],
         ['how-card-text', "Then wait, till your vis-à-vis does the same and you can start <img src='assets/images/icons/how-icon.svg' alt=''> chatting!"],
+
+        ['qr-title','QR code to download BeProg '],
+        ['qr-step-first','Activate camera'],
+        ['qr-step-second','Scan QR code and follow the link'],
     ],
     ru: [
         ['hero-title', 'Анонимный мессенджер BeProg'],
@@ -96,6 +100,7 @@ const languageObject = {
         ['how-title', 'Как это работает на практике:'],
 
         ['about-title', 'BeProg — действительно анонимное приложение для общения'],
+        ['about-subtitle', "Безопасный обмен текстовыми сообщениями и голосовыми звонками стали проще"],
 
         ['about-card-title-first', 'Без номера телефона'],
         ['about-card-text-first', 'Вместо обмена номерами телефонов, просто обменяйтесь паролями.'],
@@ -131,17 +136,17 @@ const languageObject = {
         ['download-text', 'Загрузить'],
 
         ['how-card-first', 'В открытом приложении нажмите <img class="img-small" src="assets/images/icons/plus-text.svg" alt=""> внизу экрана'],
-        
         ['how-card-second', 'Выберите «Приватный чат»'],
-        
         ['how-card-third', 'Затем введите «Пароль» и название чата'],
-        
         ['how-card-fourth', '  Нажмите «Далее» и все!'],
-        
         ['how-card-text', 'Подождите, пока ваш визави сделает то же самое, и вы сможете <img src="assets/images/icons/how-icon.svg" alt=""> общаться!'],
+
+        ['qr-title','Скачай BeProg с помощью QR кода'],
+        ['qr-step-first','Откройте камеру на вашем смартфоне'],
+        ['qr-step-second','Наведите камерой на QR код и нажмите на ссылку'],
     ],
     it: [
-        ['hero-title', 'Messaggero anonimo BeProg'],
+        ['hero-title', 'Messenger anonimo BeProg'],
         ['hero-text', 'Ora puoi comunicare in modo anonimo, senza numero di telefono o registrazione.'],
         ['hero-block', 'Non sono richiesti né numero di telefono né registrazione.'],
         ['hero-title-second', 'Per chattare con qualcuno, è sufficiente una <span class="password-img"><img src="assets/images/password-img.svg" alt=""></span> password. '],
@@ -151,6 +156,7 @@ const languageObject = {
         ['how-title', 'Come funziona in pratica:'],
         
         ['about-title', "BeProg è un'app di comunicazione completamente anonima"],
+        ['about-subtitle', "Chiamate vocali e messaggi sicuri facili da usare"],
         
         ['about-card-title-first', 'Non richiede il numero di telefono'],
         ['about-card-text-first', 'Invece di scambiarsi i numeri di telefono, ci si scambia le password.'],
@@ -191,6 +197,10 @@ const languageObject = {
         ['how-card-fourth', 'Premere «Avanti», ed è fatta!'],
         
         ['how-card-text', "Aspettare finché l’altro utente faccia lo stesso, e ora potete <img src='assets/images/icons/how-icon.svg' alt=''> comunicare!"],
+
+        ['qr-title','Codice QR per scaricare BeProg '],
+        ['qr-step-first','Attiva la fotocamera'],
+        ['qr-step-second','Scansiona il codice QR e segui il link'],
     ],
     fr: [
         ['hero-title', 'Messager anonyme BeProg'],
@@ -203,6 +213,7 @@ const languageObject = {
         ['how-title', 'Comment cela fonctionne-t-il dans la pratique ?'],
         
         ['about-title', 'BeProg est une application de communication totalement anonyme'],
+        ['about-subtitle', "Appels et messages vocaux sécurisés faciles à utiliser"],
         
         ['about-card-title-first', "Le numéro de téléphone <br> n'est pas nécessaire"],
         ['about-card-text-first', "Au lieu d'échanger des numéros de téléphone, échangez des mots de passe."],
@@ -244,6 +255,9 @@ const languageObject = {
         
         ['how-card-text', "Attendez que l'autre utilisateur fasse de même, et vous pouvez maintenant <img src='assets/images/icons/how-icon.svg' alt=''> communiquer!"],
 
+        ['qr-title','Code QR pour télécharger BeProg '],
+        ['qr-step-first','Activez la caméra'],
+        ['qr-step-second','Scannez le code QR et suivez le lien'],
     ],
 }
 
