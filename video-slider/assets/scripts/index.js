@@ -4,10 +4,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (videoSlider) {
  
         const videoButtonArray = videoSlider.querySelectorAll('.video-slider__button'),
-            videoSlidesArray = videoSlider.querySelectorAll('.video-slider__item');
+            videoSlidesArray = videoSlider.querySelectorAll('.video-slider__item'),
+            popupVideo = document.querySelector('.popup-video');
         let startIndex = 0;
 
+        if(!videoSlidesArray.length) return;
 
+        if(popupVideo){
+            popupVideo.addEventListener('click',(e)=>{
+                if(e.target.classList.contains('popup')){
+                    popupVideo.classList.remove('active');
+                }
+            });
+            const popupVideoElement = popupVideo.querySelector('video');
+            videoSlidesArray.forEach(video=>{
+                video.addEventListener('click',(e)=>{
+                    const videoSrc = video.querySelector('video').src;
+
+                    popupVideoElement.src = videoSrc;
+                    popupVideo.classList.add('active');
+                });
+            });
+        }
 
         const autoChangeSlide = () => {
             startIndex = (startIndex + 1) % videoSlidesArray.length;
@@ -26,15 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (slideIndex === startIndex) {
                     slide.classList.add('video-slider__item--active');
                     restartAnimation(); // Restart animation on active slide
-
-                    if (slideVideo.classList.contains('js-youtube-video')) {
-                        if(player){
-                            stopVideo();
-                        }
-                    } else {
-                        slideVideo.play();
-                        slideVideo.currentTime = 0;
-                    }
+                    slideVideo.play();
+                    slideVideo.currentTime = 0;
                 } else {
                     slide.classList.remove('video-slider__item--active');
                 }
