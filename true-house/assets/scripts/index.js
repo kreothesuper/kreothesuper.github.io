@@ -178,10 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (featuresBlockButton.length) {
             featuresBlockButton.forEach(button => {
-                const buttonText = button.closest('.features-block').querySelector('.features-block__text');
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
-
+                    const buttonText = button.closest('.features-block').querySelector('.features-block__text');
                     featuresBlockButton.forEach(newButton => {
                         if (newButton !== button) {
                             newButton.classList.remove('active')
@@ -192,6 +191,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 });
             });
+            const activeButton = featuresBlockButton[0];
+
+            if (activeButton) {
+                const buttonText = activeButton.closest('.features-block').querySelector('.features-block__text');
+                featuresBlockButton.forEach(newButton => {
+                    if (newButton !== activeButton) {
+                        newButton.classList.remove('active')
+                    } else {
+                        newButton.classList.add('active');
+                        featuresBlockText.innerHTML = buttonText.innerHTML
+                    }
+                });
+            }
         }
     }
 
@@ -250,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (hashLinks.length) {
             hashLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    if(!link.hash.length > 0) return
+                    if (!link.hash.length > 0) return
                     burger.classList.remove('burger--active');
                     header.classList.remove('active');
 
