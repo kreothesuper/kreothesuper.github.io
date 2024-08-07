@@ -76,7 +76,7 @@ body {
   opacity: 0;
   z-index: 2;
   text-decoration: none;
-  transition: 1s cubic-bezier(0.17, 0.67, 1, 0.68) transform, 1s opacity, 1.5s z-index;
+  transition: 1s linear transform, 1s opacity, 1.5s z-index;
   overflow: hidden;
 }
 .video-slider__item--active {
@@ -94,7 +94,7 @@ body {
   justify-content: center;
   position: relative;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .video-slider__button {
     width: 40px;
     height: 40px;
@@ -105,7 +105,7 @@ body {
   width: 16px;
   height: 16px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .video-slider__button .icon {
     width: 12px;
     height: 12px;
@@ -121,7 +121,7 @@ body {
   overflow: visible;
   transform: translate(-50%, -50%) rotate(-90deg);
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .video-slider__button .circle {
     width: 45px;
     height: 45px;
@@ -139,7 +139,7 @@ body {
   stroke-dashoffset: 235.62;
   /* Start with the dash offset equal to the circumference */
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .video-slider__button .circle__item {
     cx: 22.5px;
     cy: 22.5px;
@@ -196,6 +196,8 @@ body {
 .popup__video {
   width: 90vw;
   height: 90vh;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .popup.active {
   opacity: 1;

@@ -2,30 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoSlider = document.querySelector('.video-slider');
 
     if (videoSlider) {
- 
+
         const videoButtonArray = videoSlider.querySelectorAll('.video-slider__button'),
             videoSlidesArray = videoSlider.querySelectorAll('.video-slider__item'),
             popupVideo = document.querySelector('.popup-video');
         let startIndex = 0;
 
-        if(!videoSlidesArray.length) return;
+        if (!videoSlidesArray.length) return;
 
-        if(popupVideo){
-            popupVideo.addEventListener('click',(e)=>{
-                if(e.target.classList.contains('popup')){
-                    popupVideo.classList.remove('active');
-                }
-            });
-            const popupVideoElement = popupVideo.querySelector('video');
-            videoSlidesArray.forEach(video=>{
-                video.addEventListener('click',(e)=>{
-                    const videoSrc = video.querySelector('video').src;
 
-                    popupVideoElement.src = videoSrc;
-                    popupVideo.classList.add('active');
-                });
-            });
-        }
 
         const autoChangeSlide = () => {
             startIndex = (startIndex + 1) % videoSlidesArray.length;
@@ -67,5 +52,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 slideInterval = setInterval(autoChangeSlide, 15000);
             });
         });
+
+        if (popupVideo) {
+            popupVideo.addEventListener('click', (e) => {
+                if (e.target.classList.contains('popup')) {
+                    popupVideo.classList.remove('active');
+                    restartAnimation();
+                    slideInterval = setInterval(autoChangeSlide, 15000);
+                }
+            });
+            const popupVideoElement = popupVideo.querySelector('video');
+            videoSlidesArray.forEach(video => {
+                video.addEventListener('click', (e) => {
+                    const videoSrc = video.querySelector('video').src;
+
+                    popupVideoElement.src = videoSrc;
+                    popupVideo.classList.add('active');
+                    videoSlider.classList.remove('animate');
+                    clearInterval(slideInterval);
+                });
+            });
+        }
     }
 });
