@@ -54,10 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (popupVideo) {
+            const videoElement = videoSlidesArray[startIndex].querySelector('video');
             popupVideo.addEventListener('click', (e) => {
                 if (e.target.classList.contains('popup')) {
                     popupVideo.classList.remove('active');
                     restartAnimation();
+                    videoElement.currentTime = 0;
+                    videoElement.play();
                     slideInterval = setInterval(autoChangeSlide, 15000);
                 }
             });
@@ -65,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
             videoSlidesArray.forEach(video => {
                 video.addEventListener('click', (e) => {
                     const videoSrc = video.querySelector('video').src;
-
                     popupVideoElement.src = videoSrc;
                     popupVideo.classList.add('active');
+                    videoElement.pause();
                     videoSlider.classList.remove('animate');
                     clearInterval(slideInterval);
                 });
