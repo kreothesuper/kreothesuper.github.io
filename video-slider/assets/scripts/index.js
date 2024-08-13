@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const popupVideoElement = popupVideo.querySelector('video');
             videoSlidesArray.forEach(video => {
                 video.addEventListener('click', (e) => {
-                    const videoSrc = video.querySelector('video').src;
+                    const videoSrc = video.querySelector('video').dataset.big || video.querySelector('video').src;
                     popupVideoElement.src = videoSrc;
                     popupVideo.classList.add('active');
                     videoElement.pause();
