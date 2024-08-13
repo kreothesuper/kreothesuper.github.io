@@ -25,8 +25,12 @@ body {
     &.animate &__button {
         .circle {
             &__item {
-                animation: fillAnimation 15s forwards;
+                animation: fillAnimation 15s forwards linear;
                 /* Animation for filling the circle */
+
+                @media screen and (max-width:767px) {
+                    animation: fillAnimationMobile 15s forwards linear;
+                }
             }
         }
     }
@@ -152,16 +156,17 @@ body {
                 stroke: #fff;
                 /* Stroke color */
                 stroke-width: 1;
-                /* Stroke width */
-                stroke-dasharray: 235.62;
-                /* Circumference of the circle */
                 stroke-dashoffset: 235.62;
+                stroke-dasharray: 235.62;
 
                 /* Start with the dash offset equal to the circumference */
                 @media screen and (max-width:767px) {
                     cx: 22.5px;
                     cy: 22.5px;
                     r: 22.5px;
+
+                    stroke-dashoffset: 141.4;
+                    stroke-dasharray: 141.4;
                 }
             }
         }
@@ -195,6 +200,20 @@ body {
 @keyframes fillAnimation {
     0% {
         stroke-dashoffset: 235.62;
+        /* Start with no fill */
+        fill: none;
+        /* No fill */
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        /* Fill the circle */
+    }
+}
+
+@keyframes fillAnimationMobile {
+    0% {
+        stroke-dashoffset: 141.4;
         /* Start with no fill */
         fill: none;
         /* No fill */
