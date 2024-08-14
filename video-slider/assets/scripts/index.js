@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         videos.forEach(video => {
             video.addEventListener('loadeddata', () => {
                 loadedVideosCount++;
+                console.log(loadVideo);
                 if (loadedVideosCount === videos.length) {
                     initSlider(); // Initialize the slider after all videos are loaded
                 }
