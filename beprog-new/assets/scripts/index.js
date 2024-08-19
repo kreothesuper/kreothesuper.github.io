@@ -384,10 +384,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const heroDecorFirst = document.querySelector('.hero-decor-first');
         gsap.to(heroDecorFirst, {
             ease: 'none',
-            yPercent: 50,
+            yPercent: window.innerWidth > 1024 ? 50 : 200,
             scrollTrigger: {
                 trigger: heroDecorFirst,
                 start: "top top",
+                end: "bottom top",
+                scrub: true,
+            }
+        });
+        const heroDecorSecond = document.querySelector('.hero-decor-second');
+        gsap.from(heroDecorSecond, {
+            ease: 'none',
+            yPercent: -100,
+            xPercent:-10,
+            scrollTrigger: {
+                trigger: heroDecorSecond,
+                start: "top bottom",
                 end: "bottom top",
                 scrub: true,
             }
