@@ -286,7 +286,7 @@ body {
     }
 }
 
-.qr-popup{
+.qr-popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -305,21 +305,25 @@ body {
     opacity: 0;
     visibility: hidden;
 
+
     transition: .3s visibility, .5s opacity;
-    &.active{
+
+    &.active {
         opacity: 1;
         visibility: visible;
     }
-    &__wrapper{
+
+    &__wrapper {
         position: absolute;
         width: 100%;
         height: 100%;
         left: 0;
         top: 0;
     }
-    &__block{
-        width: 300px;
-        height: 300px;
+
+    &__block {
+        width: 200px;
+        height: 200px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -328,49 +332,52 @@ body {
 
         flex-shrink: 0;
 
-        iframe{
+        iframe {
             width: 100%;
             height: 100%;
         }
     }
 
-    &__container{
+    &__container {
         max-width: 600px;
         width: 100%;
         margin: 0 auto;
         position: absolute;
-    
+
         padding: 50px 0;
         top: 50%;
-        max-height:calc(100% - 30px);
+        max-height: calc(100% - 30px);
         overflow: auto;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
 
         display: flex;
         flex-direction: column;
         gap: 40px;
-    
+
     }
 
-    &__content{
+    &__content {
         display: flex;
         flex-direction: column;
         gap: 50px;
     }
-    &__list{
+
+    &__list {
         display: flex;
         flex-direction: column;
         gap: 32px;
 
         counter-reset: qr-list;
     }
-    &__title{
+
+    &__title {
         color: #F5F5F5;
         font-size: 40px;
         font-weight: 700;
     }
-    &__item{
+
+    &__item {
         display: flex;
         align-items: center;
         gap: 24px;
@@ -380,8 +387,8 @@ body {
         color: #F5F5F5;
         counter-increment: qr-list;
 
-        &::before{
-            content: '0'counter(qr-list);
+        &::before {
+            content: '0' counter(qr-list);
 
             width: 48px;
             height: 48px;
@@ -408,48 +415,68 @@ body {
 
     margin: 0 auto;
 }
+
 #qrcode {
     width: 300px;
     height: 300px;
     position: relative;
-    background: transparent; /* Прозрачный фон */
+    background: transparent;
+    /* Прозрачный фон */
 }
+
 .qrcode-inner {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    background: transparent; /* Прозрачный фон внутри QR-кода */
+    background: transparent;
+    /* Прозрачный фон внутри QR-кода */
 
 }
+
 .qrcode-mask {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100px; /* Уменьшенный размер круглого пространства */
-    height: 100px; /* Уменьшенный размер круглого пространства */
-    background: white; /* Белый фон вокруг черного круга */
-    border-radius: 50%; /* Круглая форма */
-    transform: translate(-50%, -50%); /* Центрирование */
-    z-index: 1; /* Поверх QR-кода */
+    width: 100px;
+    /* Уменьшенный размер круглого пространства */
+    height: 100px;
+    /* Уменьшенный размер круглого пространства */
+    background: white;
+    /* Белый фон вокруг черного круга */
+    border-radius: 50%;
+    /* Круглая форма */
+    transform: translate(-50%, -50%);
+    /* Центрирование */
+    z-index: 1;
+    /* Поверх QR-кода */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .qrcode-mask .circle {
-    width: 80px; /* Уменьшенный размер черного круга */
-    height: 80px; /* Уменьшенный размер черного круга */
-    background: black; /* Черный круг */
-    border-radius: 50%; /* Круглая форма */
+    width: 80px;
+    /* Уменьшенный размер черного круга */
+    height: 80px;
+    /* Уменьшенный размер черного круга */
+    background: black;
+    /* Черный круг */
+    border-radius: 50%;
+    /* Круглая форма */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 #lottie-animation {
-    width: 120px; /* Размер анимации */
-    height: 120px; /* Размер анимации */
-    z-index: 2; /* Поверх черного круга */
+    width: 120px;
+    /* Размер анимации */
+    height: 120px;
+    /* Размер анимации */
+    z-index: 2;
+    /* Поверх черного круга */
     margin-bottom: 65px;
 }
 
@@ -468,15 +495,15 @@ body {
     }
 
 
-    &.active {
-        @media screen and (min-width:1025px) {
-            padding: 28px;
-        }
+    // &.active {
+    //     @media screen and (min-width:1025px) {
+    //         padding: 28px;
+    //     }
 
-        @media screen and (min-width:1441px) {
-            padding: 56px;
-        }
-    }
+    //     @media screen and (min-width:1441px) {
+    //         padding: 56px;
+    //     }
+    // }
 
     &:not(.active) {
         background: #fff;
@@ -487,11 +514,12 @@ body {
         background: #fff;
     }
 
-    &__button{
+    &__button {
         position: relative;
         z-index: 14;
         transition: .5s width;
-        &::before{
+
+        &::before {
             content: '';
             width: 16px;
             height: 16px;
@@ -505,11 +533,13 @@ body {
 
             transition: .5s opacity;
         }
-        &.active{
-            &::before{
+
+        &.active {
+            &::before {
                 opacity: 1;
             }
-            span{
+
+            span {
                 display: none;
             }
         }
@@ -597,6 +627,7 @@ body {
     &__language {
         position: relative;
         z-index: 14;
+
         @media screen and (min-width:1025px) {
             margin-left: auto;
         }
@@ -738,24 +769,26 @@ body {
         }
     }
 
-    &--active.white &__current{
+    &--active.white &__current {
         background: #202020;
     }
 
-    &.white &__content{
+    &.white &__content {
         background: #202020;
     }
 
-    &.white &-input{
+    &.white &-input {
         color: #fff;
     }
 
-    &.white &__current{
+    &.white &__current {
         color: #fff;
-        &::before{
+
+        &::before {
             background: url("../../images/icons/globe-white.svg") center center/contain no-repeat;
-        }   
-        &::after{
+        }
+
+        &::after {
             background: url("../../images/icons/arrow-language-white.svg") center center/contain no-repeat;
         }
     }
@@ -890,42 +923,45 @@ body {
 
 .hero {
     position: relative;
-    height: 100svh;
+    // height: 100svh;
     transition: .3s border-radius, .5s padding;
     z-index: 4;
+
+    display: flex;
+    flex-direction: column;
 
     &-item {
         height: auto;
     }
 
-    &::before {
-        content: '';
-        position: absolute;
-        width: calc(100% - 112px);
-        height: calc(100% - 112px);
-        left: 56px;
-        top: 56px;
-        background: linear-gradient(173deg, #eee 0%, #aeb3ba 100%);
-        display: block;
-        border-radius: 36px;
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     width: calc(100% - 112px);
+    //     height: calc(100% - 112px);
+    //     left: 56px;
+    //     top: 56px;
+    //     background: linear-gradient(173deg, #eee 0%, #aeb3ba 100%);
+    //     display: block;
+    //     border-radius: 36px;
 
-        transition: 1s width, 1s height, 1s top, 1s left, 1s border-radius;
+    //     transition: 1s width, 1s height, 1s top, 1s left, 1s border-radius;
 
-        @media screen and (max-width:1440px) {
-            width: calc(100% - 56px);
-            height: calc(100% - 56px);
-            left: 28px;
-            top: 28px;
-        }
+    //     @media screen and (max-width:1440px) {
+    //         width: calc(100% - 56px);
+    //         height: calc(100% - 56px);
+    //         left: 28px;
+    //         top: 28px;
+    //     }
 
-        @media screen and (max-width:1024px) {
-            width: calc(100% - 28px);
-            height: calc(100% - 28px - 84px);
-            left: 14px;
-            top: 100px;
-        }
+    //     @media screen and (max-width:1024px) {
+    //         width: calc(100% - 28px);
+    //         height: calc(100% - 28px - 84px);
+    //         left: 14px;
+    //         top: 100px;
+    //     }
 
-    }
+    // }
 
     &[data-current="1"] &-decor__phone {
         transform: rotate(0) scale(1);
@@ -957,7 +993,7 @@ body {
 
     &[data-current="1"] &-decor__circle circle {
         stroke-dashoffset: 0;
-
+        transition-delay: .5s;
     }
 
     &[data-current="2"] &-decor__sand {
@@ -977,17 +1013,17 @@ body {
     }
 
 
-    &[data-current="0"] {
-        padding: 56px;
+    // &[data-current="0"] {
+    //     padding: 56px;
 
-        @media screen and (max-width:1440px) {
-            padding: 28px;
-        }
+    //     @media screen and (max-width:1440px) {
+    //         padding: 28px;
+    //     }
 
-        @media screen and (max-width:1024px) {
-            padding: 100px 14px 14px 14px;
-        }
-    }
+    //     @media screen and (max-width:1024px) {
+    //         padding: 100px 14px 14px 14px;
+    //     }
+    // }
 
 
 
@@ -1058,15 +1094,12 @@ body {
             stroke-dashoffset: 1621;
 
             transition: 1s stroke-dashoffset;
-            transition-delay: .5s;
         }
 
         &__wrapper {
             width: 100%;
             height: 100%;
             position: relative;
-
-
         }
 
         &__sand {
@@ -1080,7 +1113,7 @@ body {
             z-index: 0;
 
             transition: 1s transform;
-            transition-delay: .5s;
+        
         }
 
         &__phone {
@@ -1100,13 +1133,10 @@ body {
 
             transform: rotate(7deg) scale(1.2);
 
-            z-index: 1;
+            z-index: 6;
 
             transition: 1s transform, 1s left, 1s top, 1s opacity;
 
-            transition-delay: .5s;
-
-            opacity: 0;
 
             @media screen and (max-width:1440px) {
                 left: calc(100% - 30vw);
@@ -1116,7 +1146,7 @@ body {
                 width: 180px;
                 height: 350px;
                 left: calc(100% - 220px);
-                top: calc(80px + var(--offsetTop));
+                top: calc(150px + var(--offsetTop));
 
                 transition: 1s transform, 1s left, 0s top, 1s opacity;
                 transition-delay: 0s;
@@ -1184,8 +1214,10 @@ body {
         }
     }
 
-    &-section.swiper-slide-active &-decor{
-        &__phone,&__circle{
+    &-section.active &-decor {
+
+        &__phone,
+        &__circle {
             opacity: 1;
         }
     }
@@ -1193,24 +1225,23 @@ body {
     &-section {
         width: 100%;
         height: 100%;
-
-        &-column {
-            height: auto;
-            position: relative;
-        }
+        flex: 1 0 auto;
+        overflow: hidden;
+        z-index: 4;
+        position: relative;
 
         &--header {
             position: relative;
             z-index: 14;
         }
 
-        &.swiper-slide-active &-text {
+        &.active &-text {
             opacity: 1;
             transform: translate(0);
         }
 
 
-        &.swiper-slide-active {
+        &.active {
             .password-img {
                 &::before {
                     width: 100%;
@@ -1235,7 +1266,7 @@ body {
 
         &-text {
             opacity: 0;
-            // transform: translateY(400px);
+            transform: translateY(400px);
 
             transition: .75s transform, 1s opacity;
         }
@@ -1252,6 +1283,7 @@ body {
             overflow: hidden;
 
             position: relative;
+
             .container {
                 height: 100%;
                 position: relative;
@@ -1287,8 +1319,8 @@ body {
                 }
 
                 &--hero {
-                    padding-top: 50px;
-                    gap: calc(100svh - 150px - var(--heroHeaderHeight));
+                    padding-top: 150px;
+                    gap: calc(250px);
                 }
             }
 
@@ -1370,20 +1402,6 @@ body {
     @media screen and (max-width:767px) {
         background: url("../../images/banner-bg-m.webp") center center/cover no-repeat;
     }
-
-    // &::before {
-    //     content: '';
-    //     width: 100%;
-    //     height: 100%;
-    //     position: absolute;
-    //     left: 0;
-    //     top: 0;
-    //     display: block;
-
-    //     z-index: 1;
-
-    //     background: url("../../images/banner/banner-bg.jpg") center center/cover no-repeat;
-    // }
 
     &__wrapper {
         padding: 125px 0 145px 0;
@@ -1852,11 +1870,12 @@ body {
     }
 
 
-    &__social{
+    &__social {
         @media screen and (max-width:1024px) {
             width: 100%;
         }
     }
+
     &__logo {
         width: 170px;
         height: 60px;
@@ -2029,27 +2048,6 @@ body {
     }
 }
 
-.test {
-    height: 100svh;
-    width: 100%;
-
-    .hero-section {
-
-     
-        width: 100%;
-        height: 100%;
-        flex: 1 0 auto;
-
-        overflow: hidden;
-
-        z-index: 4;
-
-        position: relative;
-
-        // overscroll-behavior: contain;
-    }
-}
-
 .password-img {
     height: 72px;
 
@@ -2061,7 +2059,6 @@ body {
     padding: 16px;
 
     transition: 1s width;
-    transition-delay: 1.5s;
 
     width: 182px;
 
@@ -2076,7 +2073,6 @@ body {
         height: 100%;
 
         transition: 1s width;
-        transition-delay: 1.5s;
 
         background: var(--color-green);
         border-radius: 36px;
@@ -2102,7 +2098,7 @@ body {
         opacity: 0;
 
         transition: .5s opacity;
-        transition-delay: 2s;
+        transition-delay: .5s;
 
         position: relative;
         z-index: 2;
@@ -2115,15 +2111,17 @@ body {
     }
 
     &__text {
-        a{
-            color: vaR(--color-green);
+        a {
+            color: var(--color-green);
         }
+
         h1 {
             font-size: 44px;
             line-height: 1.27;
             font-weight: 800;
-    
+
             margin-block-end: 60px;
+
             @media screen and (max-width:1024px) {
                 font-size: 32px;
                 font-weight: 700;
@@ -2132,22 +2130,33 @@ body {
                 margin-block-end: 30px;
             }
         }
-        h2{
+
+        h2 {
             font-size: 24px;
             line-height: 1.17;
             font-weight: 700;
-    
+
 
             margin-block-end: 30px;
             margin-block-start: 30px;
+
             @media screen and (max-width:1024px) {
                 font-size: 20px;
                 line-height: 1.3;
             }
         }
-        p{
+
+        p {
             margin-block-start: 15px;
             margin-block-end: 15px;
         }
+    }
+}
+
+.overlay-section{
+    &__wrapper{
+        background: linear-gradient(173deg, #eee 0%, #aeb3ba 100%);
+
+       min-height: 100svh;
     }
 }
