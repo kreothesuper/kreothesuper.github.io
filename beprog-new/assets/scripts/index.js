@@ -343,19 +343,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: section,
                     pin: window.innerWidth > 1024 ? true : false,
                     pinSpacing: false,
-                    start: "top top",
+                    start: "-10% top",
                     end: "bottom top",
-                    onLeave() {
-                        section.classList.remove('active');
+                    onToggle: (self) => {
+                        console.log('toggled, isActive:', self.isActive, self)
+                        section.classList.toggle('active', self.isisActive);
+
+                        self.isActive ? overlayWrapper.dataset.current = section.dataset.current : null;
+                        
                     },
-                    onEnter() {
-                        section.classList.add('active');
-                        overlayWrapper.dataset.current = section.dataset.current;
-                    },
-                    onEnterBack() {
-                        section.classList.add('active');
-                        overlayWrapper.dataset.current = section.dataset.current;
-                    },
+                    // onLeave() {
+                    //     section.classList.remove('active');
+                    // },
+                    // onEnter() {
+                    //     section.classList.add('active');
+                      
+                    // },
+                    // onEnterBack() {
+                    //     section.classList.add('active');
+                    //     overlayWrapper.dataset.current = section.dataset.current;
+                    // },
                     // onLeaveBack() {
                     //     section.classList.remove('active');
                     // }
