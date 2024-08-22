@@ -107,6 +107,9 @@ class LanguageManager {
     }
 }
 
+
+
+
 const languageManager = new LanguageManager();
 window.addEventListener('DOMContentLoaded', () => {
     languageManager.init();
@@ -150,190 +153,192 @@ document.addEventListener('DOMContentLoaded', () => {
     const hero = document.querySelector('.hero');
     const header = document.querySelector('.header');
 
-    // if (hero) {
-    //     const heroSection = document.querySelectorAll('.hero-section');
+    if (hero) {
+        const heroSection = document.querySelectorAll('.hero-section');
 
-    //     if (heroSection.length) {
-    //         heroSection.forEach(element => {
-    //             const heroSectionText = element.querySelectorAll('.hero-section-text');
-    //             if (heroSectionText.length) {
-    //                 heroSectionText.forEach((text, index) => {
-    //                     text.style.transitionDelay = `${index * .2}s`
-    //                 });
-    //             }
-    //         });
-    //     }
+        if (heroSection.length) {
+            heroSection.forEach(element => {
+                const heroSectionText = element.querySelectorAll('.hero-section-text');
+                if (heroSectionText.length) {
+                    heroSectionText.forEach((text, index) => {
+                        text.style.transitionDelay = `${index * .2}s`
+                    });
+                }
+            });
+        }
 
-    //     const heroSlider = new Swiper('.hero', {
-    //         direction: "vertical",
-    //         effect: 'fade',
-    //         crossFade: true,
-    //         speed: 500,
-    //         touchReleaseOnEdges: true,
-    //         preventInteractionOnTransition: false,
-    //         hashNavigation: {
-    //             watchState: true,
-    //         },
-    //         mousewheel: {
-    //             invert: false,
-    //             sensitivity: 1,
-    //             releaseOnEdges: true,
-    //             thresholdTime: 1500,
-    //         },
+        const heroSlider = new Swiper('.hero', {
+            direction: "vertical",
+            effect: 'fade',
+            crossFade: true,
+            speed: 500,
+            touchReleaseOnEdges: true,
+            preventInteractionOnTransition: false,
+            hashNavigation: {
+                watchState: true,
+            },
+            mousewheel: {
+                invert: false,
+                sensitivity: 1,
+                releaseOnEdges: true,
+                thresholdTime: 1500,
+            },
 
-    //         touchRatio: 0.5,
-    //         resistanceRatio: 0,
+            touchRatio: 0.5,
+            resistanceRatio: 0,
 
-    //         init: function () {
-    //             hero.dataset.current = this.realIndex;
-    //         },
-    //     });
+            init: function () {
+                hero.dataset.current = this.realIndex;
+            },
+        });
 
-    //     const heroColumn = new Swiper('.hero-section-column', {
-    //         direction: "vertical",
-    //         slidesPerView: "auto",
-    //         freeMode: true,
-    //         nested: true,
-    //         init: false,
-    //         spaceBetween: 30,
-    //         slidesOffsetAfter: 1,
-    //         touchMoveStopPropagation: true,
-    //         shortSwipes: false,
-    //         mousewheel: {
-    //             invert: false,
-    //             sensitivity: 1,
-    //             releaseOnEdges: true,
-    //         },
-    //         touchReleaseOnEdges: true,
-    //         observer: true,
-    //     });
+        const heroColumn = new Swiper('.hero-section-column', {
+            direction: "vertical",
+            slidesPerView: "auto",
+            freeMode: true,
+            nested: true,
+            init: false,
+            spaceBetween: 30,
+            slidesOffsetAfter: 1,
+            touchMoveStopPropagation: true,
+            shortSwipes: false,
+            mousewheel: {
+                invert: false,
+                sensitivity: 1,
+                releaseOnEdges: true,
+            },
+            touchReleaseOnEdges: true,
+            observer: true,
+        });
 
-    //     if (window.screen.width >= 1280) {
-    //         heroSlider.on('slideChange', function () {
-    //             hero.scrollIntoView({ behavior: 'smooth' });
-    //             heroSlider.params.mousewheel.releaseOnEdges = false;
-    //             heroSlider.params.touchReleaseOnEdges = false;
-    //         });
-    //         heroColumn[heroColumn.length - 1].on('reachEnd', function () {
-    //             setTimeout(function () {
-    //                 heroSlider.params.mousewheel.releaseOnEdges = true;
-    //                 heroSlider.params.touchReleaseOnEdges = true;
-    //             }, 500);
-    //         });
-    //     }
+        if (window.screen.width >= 1280) {
+            heroSlider.on('slideChange', function () {
+                hero.scrollIntoView({ behavior: 'smooth' });
+                console.log('1234');
+                heroSlider.params.mousewheel.releaseOnEdges = false;
+                heroSlider.params.touchReleaseOnEdges = false;
+            });
+            heroSlider.on('reachEnd', function () {
+                hero.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(function () {
+                    heroSlider.params.mousewheel.releaseOnEdges = true;
+                    heroSlider.params.touchReleaseOnEdges = true;
+                }, 1500);
+            });
+            heroColumn[heroColumn.length - 1].on('reachEnd', function () {
+                console.log('222');
+                setTimeout(function () {
+                    heroSlider.params.mousewheel.releaseOnEdges = true;
+                    heroSlider.params.touchReleaseOnEdges = true;
+                }, 500);
+            });
+        }
 
-    //     heroColumn[1].on('init', function () {
-    //         const heroHeader = this.el.querySelector('.hero__header');
-    //         hero.style.setProperty('--offsetTop-second', `${heroHeader.getBoundingClientRect().height}px`);
-    //     });
-    //     heroColumn[0].on('init', function () {
-    //         const heroHeader = this.el.querySelector('.hero__header');
-    //         hero.style.setProperty('--heroHeaderHeight', `${heroHeader.getBoundingClientRect().height}px`);
-    //         hero.style.setProperty('--offsetTop', `${heroHeader.getBoundingClientRect().height}px`);
-    //     });
+        heroColumn[1].on('init', function () {
+            const heroHeader = this.el.querySelector('.hero__header');
+            hero.style.setProperty('--offsetTop-second', `${heroHeader.getBoundingClientRect().height}px`);
+        });
+        heroColumn[0].on('init', function () {
+            const heroHeader = this.el.querySelector('.hero__header');
+            hero.style.setProperty('--heroHeaderHeight', `${heroHeader.getBoundingClientRect().height}px`);
+            hero.style.setProperty('--offsetTop', `${heroHeader.getBoundingClientRect().height}px`);
+        });
 
-    //     heroColumn.forEach(slider => {
-    //         slider.init();
-    //     })
+        heroColumn.forEach(slider => {
+            slider.init();
+        })
 
-    //     heroSlider.on('slideChange', function () {
-    //         hero.dataset.current = heroSlider.realIndex;
-    //         heroSection.forEach((element, index) => {
-    //             const heroSectionText = element.querySelectorAll('.hero-section-text');
+        heroSlider.on('slideChange', function () {
+            hero.dataset.current = heroSlider.realIndex;
+            heroSection.forEach((element, index) => {
+                const heroSectionText = element.querySelectorAll('.hero-section-text');
 
-    //             if (heroSectionText.length) {
-    //                 if (index == heroSlider.realIndex) {
-    //                     heroSectionText.forEach((text, index) => {
-    //                         text.style.transitionDelay = `${index * .2 + 1}s`
-    //                     });
-    //                 } else {
-    //                     heroSectionText.forEach((text, index) => {
-    //                         text.style.transitionDelay = `${index * .2}s`
-    //                     });
-    //                 }
-    //             }
-    //         });
-    //         if (heroSlider.realIndex > 0) {
-    //             header.classList.remove('active')
-    //         } else {
-    //             header.classList.add('active');
-    //         }
-    //     });
+                if (heroSectionText.length) {
+                    if (index == heroSlider.realIndex) {
+                        heroSectionText.forEach((text, index) => {
+                            text.style.transitionDelay = `${index * .2 + 1}s`
+                        });
+                    } else {
+                        heroSectionText.forEach((text, index) => {
+                            text.style.transitionDelay = `${index * .2}s`
+                        });
+                    }
+                }
+            });
+            if (heroSlider.realIndex > 0) {
+                header.classList.remove('active')
+            } else {
+                header.classList.add('active');
+            }
+        });
 
-    //     heroSlider.on('hashChange', function () {
-    //         if (windowHash.length && !windowHash.includes('hero')) {
-    //             heroSlider.slideTo(heroSlider.slides.length - 1);
-    //         }
-    //     });
-
-
-    //     heroSlider.on('hashSet', function () {
-    //         hero.dataset.current = heroSlider.realIndex;
-    //         heroSection.forEach((element, index) => {
-    //             const heroSectionText = element.querySelectorAll('.hero-section-text');
-
-    //             if (heroSectionText.length) {
-    //                 if (index == heroSlider.realIndex) {
-    //                     heroSectionText.forEach((text, index) => {
-    //                         text.style.transitionDelay = `${index * .2 + 1}s`
-    //                     });
-    //                 } else {
-    //                     heroSectionText.forEach((text, index) => {
-    //                         text.style.transitionDelay = `${index * .2}s`
-    //                     });
-    //                 }
-    //             }
-    //         });
-    //         if (heroSlider.realIndex > 0) {
-    //             header.classList.remove('active')
-    //         } else {
-    //             header.classList.add('active');
-    //         }
-    //     });
-
-    //     const windowHash = window.location.hash;
-
-    //     if (windowHash.length && !windowHash.includes('hero')) {
-    //         heroSlider.slideTo(heroSlider.slides.length - 1);
-    //     }
+        heroSlider.on('hashChange', function () {
+            if (windowHash.length && !windowHash.includes('hero')) {
+                heroSlider.slideTo(heroSlider.slides.length - 1);
+            }
+        });
 
 
-    //     if (windowHash.length && windowHash.includes('hero')) {
-    //         hero.dataset.current = heroSlider.realIndex;
-    //         heroSection.forEach((element, index) => {
-    //             const heroSectionText = element.querySelectorAll('.hero-section-text');
+        heroSlider.on('hashSet', function () {
+            hero.dataset.current = heroSlider.realIndex;
+            heroSection.forEach((element, index) => {
+                const heroSectionText = element.querySelectorAll('.hero-section-text');
 
-    //             if (heroSectionText.length) {
-    //                 if (index == heroSlider.realIndex) {
-    //                     heroSectionText.forEach((text, index) => {
-    //                         text.style.transitionDelay = `${index * .2 + 1}s`
-    //                     });
-    //                 } else {
-    //                     heroSectionText.forEach((text, index) => {
-    //                         text.style.transitionDelay = `${index * .2}s`
-    //                     });
-    //                 }
-    //             }
-    //         });
-    //         if (heroSlider.realIndex > 0) {
-    //             header.classList.remove('active')
-    //         } else {
-    //             header.classList.add('active');
-    //         }
-    //     }
-    // }
+                if (heroSectionText.length) {
+                    if (index == heroSlider.realIndex) {
+                        heroSectionText.forEach((text, index) => {
+                            text.style.transitionDelay = `${index * .2 + 1}s`
+                        });
+                    } else {
+                        heroSectionText.forEach((text, index) => {
+                            text.style.transitionDelay = `${index * .2}s`
+                        });
+                    }
+                }
+            });
+            if (heroSlider.realIndex > 0) {
+                header.classList.remove('active')
+            } else {
+                header.classList.add('active');
+            }
+        });
+
+        const windowHash = window.location.hash;
+
+        if (windowHash.length && !windowHash.includes('hero')) {
+            heroSlider.slideTo(heroSlider.slides.length - 1);
+        }
+
+
+        if (windowHash.length && windowHash.includes('hero')) {
+            hero.dataset.current = heroSlider.realIndex;
+            heroSection.forEach((element, index) => {
+                const heroSectionText = element.querySelectorAll('.hero-section-text');
+
+                if (heroSectionText.length) {
+                    if (index == heroSlider.realIndex) {
+                        heroSectionText.forEach((text, index) => {
+                            text.style.transitionDelay = `${index * .2 + 1}s`
+                        });
+                    } else {
+                        heroSectionText.forEach((text, index) => {
+                            text.style.transitionDelay = `${index * .2}s`
+                        });
+                    }
+                }
+            });
+            if (heroSlider.realIndex > 0) {
+                header.classList.remove('active')
+            } else {
+                header.classList.add('active');
+            }
+        }
+    }
+
 
     const overlaySection = document.querySelectorAll('.overlay-section');
     const overlaySectionContent = document.querySelectorAll('.overlay-section__content');
     const overlayWrapper = document.querySelector('.hero');
-
-    if (overlayWrapper) {
-        const heroHeader = overlaySection[0].querySelector('.hero__header');
-        hero.style.setProperty('--offsetTop-second', `${heroHeader.getBoundingClientRect().height}px`);
-        const heroHeaderSecond = overlaySection[1].querySelector('.hero__header');
-        hero.style.setProperty('--heroHeaderHeight', `${heroHeaderSecond.getBoundingClientRect().height}px`);
-        hero.style.setProperty('--offsetTop', `${heroHeaderSecond.getBoundingClientRect().height}px`);
-    }
 
     if (overlaySection.length) {
         overlaySection.forEach((section, i) => {
@@ -343,10 +348,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: section,
                     pin: window.innerWidth > 1024 ? true : false,
                     pinSpacing: false,
-                    start: "-10% top",
+                    start: "top top",
                     end: "bottom top",
+                    scrub: true,
                     onToggle: (self) => {
-                        console.log('toggled, isActive:', self.isActive, self)
                         section.classList.toggle('active', self.isisActive);
 
                         self.isActive ? overlayWrapper.dataset.current = section.dataset.current : null;
@@ -387,31 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-
-        const heroDecorFirst = document.querySelector('.hero-decor-first');
-        gsap.to(heroDecorFirst, {
-            ease: 'none',
-            yPercent: window.innerWidth > 1024 ? 50 : 200,
-            scrollTrigger: {
-                trigger: heroDecorFirst,
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-            }
-        });
-        const heroDecorSecond = document.querySelector('.hero-decor-second');
-        gsap.from(heroDecorSecond, {
-            ease: 'none',
-            yPercent: -100,
-            xPercent:-10,
-            scrollTrigger: {
-                trigger: heroDecorSecond,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true,
-            }
-        });
     }
+    
 
     const navLinkArray = document.querySelectorAll('.nav__link');
 
@@ -472,6 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
             language.addEventListener('change', (e) => {
                 languageCurrentText.textContent = e.target.closest('.language-input').querySelector('.language-input__text').textContent;
                 language.classList.remove('language--active');
+
                 const urlParams = new URLSearchParams(window.location.search);
                 urlParams.set('lang', e.target.value);
                 window.location.search = urlParams;

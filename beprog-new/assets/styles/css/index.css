@@ -280,8 +280,8 @@ body {
   top: 0;
 }
 .qr-popup__block {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -426,6 +426,16 @@ body {
 }
 .header--sticky {
   position: sticky;
+}
+@media screen and (min-width: 1025px) {
+  .header.active {
+    padding: 28px;
+  }
+}
+@media screen and (min-width: 1441px) {
+  .header.active {
+    padding: 56px;
+  }
 }
 .header:not(.active) {
   background: #fff;
@@ -764,15 +774,46 @@ body {
   transition: 0.3s fill;
 }
 
+.how {
+  background: linear-gradient(173deg, #eee 0%, #aeb3ba 100%);
+}
+
 .hero {
   position: relative;
+  height: 100svh;
   transition: 0.3s border-radius, 0.5s padding;
   z-index: 4;
-  display: flex;
-  flex-direction: column;
 }
 .hero-item {
   height: auto;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  width: calc(100% - 112px);
+  height: calc(100% - 112px);
+  left: 56px;
+  top: 56px;
+  background: linear-gradient(173deg, #eee 0%, #aeb3ba 100%);
+  display: block;
+  border-radius: 36px;
+  transition: 1s width, 1s height, 1s top, 1s left, 1s border-radius;
+}
+@media screen and (max-width: 1440px) {
+  .hero::before {
+    width: calc(100% - 56px);
+    height: calc(100% - 56px);
+    left: 28px;
+    top: 28px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .hero::before {
+    width: calc(100% - 28px);
+    height: calc(100% - 28px - 84px);
+    left: 14px;
+    top: 100px;
+  }
 }
 .hero[data-current="1"] .hero-decor__phone {
   transform: rotate(0) scale(1);
@@ -810,6 +851,19 @@ body {
   top: 0;
   left: 0;
   border-radius: 0;
+}
+.hero[data-current="0"] {
+  padding: 56px;
+}
+@media screen and (max-width: 1440px) {
+  .hero[data-current="0"] {
+    padding: 28px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .hero[data-current="0"] {
+    padding: 100px 14px 14px 14px;
+  }
 }
 .hero[data-current="1"] .hero-decor, .hero[data-current="2"] .hero-decor {
   width: 100%;
@@ -877,6 +931,7 @@ body {
   bottom: -150px;
   z-index: 0;
   transition: 1s transform;
+  transition-delay: 0.5s;
 }
 .hero-decor__phone {
   width: 20vw;
@@ -890,8 +945,10 @@ body {
      object-fit: contain;
   background: url("../../images/phone.png") center center/contain no-repeat;
   transform: rotate(7deg) scale(1.2);
-  z-index: 6;
+  z-index: 1;
   transition: 1s transform, 1s left, 1s top, 1s opacity;
+  transition-delay: 0.5s;
+  opacity: 0;
 }
 @media screen and (max-width: 1440px) {
   .hero-decor__phone {
@@ -903,7 +960,7 @@ body {
     width: 180px;
     height: 350px;
     left: calc(100% - 220px);
-    top: calc(250px + var(--offsetTop));
+    top: calc(80px + var(--offsetTop));
     transition: 1s transform, 1s left, 0s top, 1s opacity;
     transition-delay: 0s;
   }
@@ -962,7 +1019,7 @@ body {
   width: 84px;
   height: 48px;
 }
-.hero-section.active .hero-decor__phone, .hero-section.active .hero-decor__circle {
+.hero-section.swiper-slide-active .hero-decor__phone, .hero-section.swiper-slide-active .hero-decor__circle {
   opacity: 1;
 }
 .hero-section {
@@ -977,14 +1034,14 @@ body {
   position: relative;
   z-index: 14;
 }
-.hero-section.active .hero-section-text {
+.hero-section.swiper-slide-active .hero-section-text {
   opacity: 1;
   transform: translate(0);
 }
-.hero-section.active .password-img::before {
+.hero-section.swiper-slide-active .password-img::before {
   width: 100%;
 }
-.hero-section.active .password-img img {
+.hero-section.swiper-slide-active .password-img img {
   opacity: 1;
 }
 .hero-section.swiper-slide-prev .hero-section-text {
@@ -992,7 +1049,6 @@ body {
 }
 .hero-section-text {
   opacity: 0;
-  transform: translateY(400px);
   transition: 0.75s transform, 1s opacity;
 }
 .hero-section__wrapper {
@@ -1033,8 +1089,8 @@ body {
     gap: 350px;
   }
   .hero-section__grid--hero {
-    padding-top: 150px;
-    gap: 250px;
+    padding-top: 50px;
+    gap: calc(100svh - 150px - var(--heroHeaderHeight));
   }
 }
 .hero__block {
@@ -1692,6 +1748,7 @@ body {
   justify-content: center;
   padding: 16px;
   transition: 1s width;
+  transition-delay: 1.5s;
   width: 182px;
   position: relative;
 }
@@ -1703,6 +1760,7 @@ body {
   width: 0;
   height: 100%;
   transition: 1s width;
+  transition-delay: 1.5s;
   background: var(--color-green);
   border-radius: 36px;
   display: block;
@@ -1727,7 +1785,7 @@ body {
      object-fit: contain;
   opacity: 0;
   transition: 0.5s opacity;
-  transition-delay: 0.5s;
+  transition-delay: 2s;
   position: relative;
   z-index: 2;
 }
@@ -1768,9 +1826,4 @@ body {
 .page__text p {
   margin-block-start: 15px;
   margin-block-end: 15px;
-}
-
-.overlay-section__wrapper {
-  background: linear-gradient(173deg, #eee 0%, #aeb3ba 100%);
-  min-height: 100svh;
 }/*# sourceMappingURL=index.css.map */
