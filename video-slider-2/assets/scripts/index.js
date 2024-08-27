@@ -78,13 +78,25 @@ document.addEventListener('DOMContentLoaded', () => {
         let loadedVideosCount = 0;
 
         videos.forEach(video => {
-            video.addEventListener('loadeddata', () => {
+            // Check if the video is already loaded
+            if (video.readyState >= 3) { // HAVE_FUTURE_DATA (3) means the video is ready to play
                 loadedVideosCount++;
                 console.log('loadVideo');
-                if (loadedVideosCount === videos.length) {
-                    initSlider(); // Initialize the slider after all videos are loaded
-                }
-            });
+            } else {
+                video.addEventListener('loadeddata', () => {
+                    loadedVideosCount++;
+                    console.log('loadVideo');
+                    // Check if all videos are loaded
+                    if (loadedVideosCount === videos.length) {
+                        initSlider(); // Initialize the slider after all videos are loaded
+                    }
+                });
+            }
         });
+
+        // If all videos were already loaded initially, initialize the slider
+        if (loadedVideosCount === videos.length) {
+            initSlider();
+        }
     }
 });
