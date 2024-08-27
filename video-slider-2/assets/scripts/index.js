@@ -22,14 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const changeSlide = () => {
             videoSlidesArray.forEach((slide, slideIndex) => {
                 const slideVideo = slide.querySelector('.video-slider__frame');
+                const player = videojs(slideVideo);
+
                 if (slideIndex === startIndex) {
                     slide.classList.add('video-slider__item--active');
                     restartAnimation(); // Restart animation on active slide
-                    slideVideo.play();
-                    slideVideo.currentTime = 0;
+                    player.currentTime(0); // Reset to start
+                    player.play(); // Play active video
                 } else {
                     slide.classList.remove('video-slider__item--active');
-                    slideVideo.pause(); // Pause non-active videos
+                    player.pause(); // Pause non-active videos
                 }
             });
         };
@@ -50,22 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (popupVideo) {
                 const videoElement = videoSlidesArray[startIndex].querySelector('video');
+                const popupPlayer = videojs(popupVideo.querySelector('video'));
+
                 popupVideo.addEventListener('click', (e) => {
                     if (e.target.classList.contains('popup')) {
                         popupVideo.classList.remove('active');
                         restartAnimation();
-                        videoElement.currentTime = 0;
-                        videoElement.play();
+                        popupPlayer.currentTime(0);
+                        popupPlayer.play();
                         slideInterval = setInterval(autoChangeSlide, 15000);
                     }
                 });
-                const popupVideoElement = popupVideo.querySelector('video');
+
                 videoSlidesArray.forEach(video => {
-                    video.addEventListener('click', (e) => {
+                    video.addEventListener('click', () => {
                         const videoSrc = video.querySelector('video').dataset.big || video.querySelector('video').src;
-                        popupVideoElement.src = videoSrc;
+                        popupPlayer.src({ type: 'video/mp4', src: videoSrc });
                         popupVideo.classList.add('active');
-                        videoElement.pause();
+                        player.pause();
                         videoSlider.classList.remove('animate');
                         clearInterval(slideInterval);
                     });
@@ -78,20 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
         let loadedVideosCount = 0;
 
         videos.forEach(video => {
-            // Check if the video is already loaded
-            if (video.readyState >= 3) { // HAVE_FUTURE_DATA (3) means the video is ready to play
+            const player = videojs(video);
+            player.ready(() => {
                 loadedVideosCount++;
                 console.log('loadVideo');
-            } else {
-                video.addEventListener('loadeddata', () => {
-                    loadedVideosCount++;
-                    console.log('loadVideo');
-                    // Check if all videos are loaded
-                    if (loadedVideosCount === videos.length) {
-                        initSlider(); // Initialize the slider after all videos are loaded
-                    }
-                });
-            }
+
+                // Check if all videos are loaded
+                if (loadedVideosCount === videos.length) {
+                    initSlider(); // Initialize the slider after all videos are loaded
+                }
+            });
         });
 
         // If all videos were already loaded initially, initialize the slider
