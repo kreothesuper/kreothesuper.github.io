@@ -214,19 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.screen.width >= 1280) {
             heroSlider.on('slideChange', function () {
                 hero.scrollIntoView({ behavior: 'smooth' });
-                console.log('1234');
                 heroSlider.params.mousewheel.releaseOnEdges = false;
                 heroSlider.params.touchReleaseOnEdges = false;
             });
-            heroSlider.on('reachEnd', function () {
-                hero.scrollIntoView({ behavior: 'smooth' });
-                setTimeout(function () {
-                    heroSlider.params.mousewheel.releaseOnEdges = true;
-                    heroSlider.params.touchReleaseOnEdges = true;
-                }, 1500);
-            });
             heroColumn[heroColumn.length - 1].on('reachEnd', function () {
-                console.log('222');
                 setTimeout(function () {
                     heroSlider.params.mousewheel.releaseOnEdges = true;
                     heroSlider.params.touchReleaseOnEdges = true;
@@ -334,66 +325,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
-
-    const overlaySection = document.querySelectorAll('.overlay-section');
-    const overlaySectionContent = document.querySelectorAll('.overlay-section__content');
-    const overlayWrapper = document.querySelector('.hero');
-
-    if (overlaySection.length) {
-        overlaySection.forEach((section, i) => {
-            gsap.to(section, {
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: section,
-                    pin: window.innerWidth > 1024 ? true : false,
-                    pinSpacing: false,
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-                    onToggle: (self) => {
-                        section.classList.toggle('active', self.isisActive);
-
-                        self.isActive ? overlayWrapper.dataset.current = section.dataset.current : null;
-                        
-                    },
-                    // onLeave() {
-                    //     section.classList.remove('active');
-                    // },
-                    // onEnter() {
-                    //     section.classList.add('active');
-                      
-                    // },
-                    // onEnterBack() {
-                    //     section.classList.add('active');
-                    //     overlayWrapper.dataset.current = section.dataset.current;
-                    // },
-                    // onLeaveBack() {
-                    //     section.classList.remove('active');
-                    // }
-                }
-            });
-        })
-
-    }
-
-    if (overlaySectionContent.length) {
-        overlaySectionContent.forEach((section, i) => {
-            const wrapper = section.closest('.hero-section')
-            gsap.to(section, {
-                ease: 'none',
-                yPercent: -20,
-                scrollTrigger: {
-                    trigger: section,
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-
-                }
-            });
-        });
-    }
-    
 
     const navLinkArray = document.querySelectorAll('.nav__link');
 

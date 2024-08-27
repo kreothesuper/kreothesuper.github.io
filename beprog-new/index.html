@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="assets/styles/css/index.css">
 </head>
 
-<body>
+<body style="opacity: 0;">
     <div class="page-wrapper">
         <header class="header active">
             <div class="header__wrapper">
@@ -28,22 +28,22 @@
                     <nav class="header__nav nav">
                         <ul class="nav__list">
                             <li class="nav__item">
-                                <a href="#hero" data-slide="0" class="nav__link nav-link-first">
+                                <a href="#hero1" data-slide="0" data-language="nav_link_first" class="nav__link">
                                     О приложении
                                 </a>
                             </li>
                             <li class="nav__item">
-                                <a href="#hero" data-slide="2" class="nav__link nav-link-second">
+                                <a href="#hero3" data-slide="2" data-language="nav_link_second" class="nav__link">
                                     Как работает
                                 </a>
                             </li>
                             <li class="nav__item">
-                                <a href="#benefits" class="nav__link nav-link-third">
+                                <a href="#benefits" data-language="nav_link_third" class="nav__link">
                                     Преимущества
                                 </a>
                             </li>
                             <li class="nav__item">
-                                <a href="#hero" data-slide="1" class="nav__link nav-link-fourth">
+                                <a href="#hero2" data-slide="1" data-language="nav_link_fourth" class="nav__link">
                                     Описание
                                 </a>
                             </li>
@@ -58,11 +58,7 @@
                                     </p>
                                 </div>
                                 <div class="language__content">
-                                    <label class="language-input">
-                                        <span class="language-input__text">Русский</span>
-                                        <input type="radio" name="language" value="ru" checked
-                                            class="language-input__item">
-                                    </label>
+                                    
                                     <label class="language-input">
                                         <span class="language-input__text">Français</span>
                                         <input type="radio" name="language" value="fr" class="language-input__item">
@@ -75,12 +71,17 @@
                                         <span class="language-input__text">Italiano</span>
                                         <input type="radio" name="language" value="it" class="language-input__item">
                                     </label>
+                                    <label class="language-input">
+                                        <span class="language-input__text">Русский</span>
+                                        <input type="radio" name="language" value="ru" checked
+                                            class="language-input__item">
+                                    </label>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <a href="#" class="button button--small button--green header__button">
-                        <span class="download-text">
+                        <span data-language="download_text">
                             Загрузить
                         </span>
                     </a>
@@ -96,24 +97,24 @@
                 </div>
                 <div class="header__qr qr-popup">
                     <div class="qr-popup__wrapper">
-                      <div class="qr-popup__container">
-                        <div class="qr-popup__block">
-                            <iframe src="assets/qr/qr.html" frameborder="0"></iframe>
+                        <div class="qr-popup__container">
+                            <div class="qr-popup__block">
+                                <iframe src="assets/qr/qr.html" frameborder="0"></iframe>
 
-                        </div>
-                        <div class="qr-popup__content">
-                            <p class="qr-popup__title">QR code to download BeProg </p>
-                            <div class="qr-popup__list">
-                                <p class="qr-popup__item">
-                                    Activate camera
-                                </p>
-                                <p class="qr-popup__item">
-                                    Scan QR code and follow the link
-                                </p>
+                            </div>
+                            <div class="qr-popup__content">
+                                <p class="qr-popup__title" data-language="qr_title">QR code to download BeProg </p>
+                                <div class="qr-popup__list">
+                                    <p class="qr-popup__item qr-step-first" data-language="qr_step_first">
+                                        Activate camera
+                                    </p>
+                                    <p class="qr-popup__item" data-language="qr_step_second">
+                                        Scan QR code and follow the link
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                      </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -121,22 +122,22 @@
                 <nav class="header__nav nav">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="#hero" data-slide="0" class="nav__link nav-link-first">
+                            <a href="#hero1" data-slide="0" data-language="nav_link_first" class="nav__link">
                                 О приложении
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="#hero" data-slide="2" class="nav__link nav-link-second">
+                            <a href="#hero3" data-slide="2" data-language="nav_link_second" class="nav__link">
                                 Как работает
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="#benefits" class="nav__link nav-link-third">
+                            <a href="#benefits" data-language="nav_link_third" class="nav__link">
                                 Преимущества
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="#hero" data-slide="1" class="nav__link nav-link-fourth">
+                            <a href="#hero2" data-slide="1" data-language="nav_link_fourth" class="nav__link">
                                 Описание
                             </a>
                         </li>
@@ -151,11 +152,7 @@
                                 </p>
                             </div>
                             <div class="language__content language__content--top">
-                                <label class="language-input">
-                                    <span class="language-input__text">Русский</span>
-                                    <input type="radio" name="language-header" value="ru" checked
-                                        class="language-input__item">
-                                </label>
+                             
                                 <label class="language-input">
                                     <span class="language-input__text">Français</span>
                                     <input type="radio" name="language-header" value="fr" class="language-input__item">
@@ -167,6 +164,11 @@
                                 <label class="language-input">
                                     <span class="language-input__text">Italiano</span>
                                     <input type="radio" name="language-header" value="it" class="language-input__item">
+                                </label>
+                                <label class="language-input">
+                                    <span class="language-input__text">Русский</span>
+                                    <input type="radio" name="language-header" value="ru" checked
+                                        class="language-input__item">
                                 </label>
                             </div>
                         </form>
@@ -188,20 +190,21 @@
             </div>
         </header>
         <main class="content">
-            <div class="test hero swiper" data-current="0" id="hero">
-              
+            <div class="hero swiper overlay-section" data-current="0" id="hero">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide hero-section hero-section-column swiper">
-                       
+                    <div class="swiper-slide hero-section hero-section-column swiper" data-hash="hero1">
                         <div class="swiper-wrapper">
                             <div class="hero-section__wrapper swiper-slide">
                                 <div class="hero-decor">
                                     <div class="container">
                                         <div class="hero-decor__wrapper">
-                                            <img src="assets/images/phone.png" alt="" class="hero-decor__phone language-img">
-                                            <svg class="hero-decor__circle" width="588" height="588" viewBox="0 0 588 588" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <circle opacity="0.35" cx="294" cy="294" r="258" stroke="white" stroke-width="72" />
+                                            <img src="assets/images/phone.png" alt=""
+                                                class="hero-decor__phone language-img">
+                                            <svg class="hero-decor__circle" width="588" height="588"
+                                                viewBox="0 0 588 588" stroke-dasharray="1621" stroke-dashoffset="1621"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle opacity="0.35" cx="294" cy="294" r="258" stroke="white"
+                                                    stroke-width="72" />
                                             </svg>
                                             <img src="assets/images/hero-decor.png" alt="" class="hero-decor__sand">
                                         </div>
@@ -209,14 +212,14 @@
                                 </div>
                                 <div class="container">
                                     <div class="hero-section__grid hero-section__grid--hero">
-
                                         <div class="hero__column">
                                             <div class="hero__header">
-                                                <p class="title title--big title--black hero-section-text hero-title">
+                                                <p class="title title--big title--black hero-section-text"
+                                                    data-language="hero_title">
                                                     Анонимный мессенджер BeProg
                                                 </p>
-                                                <p
-                                                    class="text text--base text--dark--grey hero__text hero-section-text hero-text">
+                                                <p class="text text--base text--dark--grey hero__text hero-section-text"
+                                                    data-language="hero_text">
                                                     Ваше личное пространство в сети, где можно общаться без
                                                     регистрации
                                                     и
@@ -247,7 +250,7 @@
                                                         <svg class="button__icon">
                                                             <use xlink:href="assets/images/sprite.svg#apk"></use>
                                                         </svg>
-                                                        <span class="download-text">
+                                                        <span data-language="download_text">
                                                             Загрузить
                                                         </span>
                                                     </a>
@@ -258,7 +261,7 @@
                                             <div class="hero-card hero-section-text">
                                                 <img src="assets/images/icons/hero-card.svg" alt=""
                                                     class="hero-card__img">
-                                                <p class="title title--tiny title--black hero-block">
+                                                <p class="title title--tiny title--black" data-language="hero_block">
                                                     не требует регистрации и номера телефона
                                                 </p>
                                             </div>
@@ -282,17 +285,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide hero-section hero-section-column swiper">
-                        
+                    <div class="swiper-slide hero-section hero-section-column swiper" data-hash="hero2">
                         <div class="swiper-wrapper">
                             <div class="hero-section__wrapper swiper-slide">
                                 <div class="hero-decor">
                                     <div class="container">
                                         <div class="hero-decor__wrapper">
-                                            <img src="assets/images/phone.png" alt="" class="hero-decor__phone language-img">
-                                            <svg class="hero-decor__circle" width="588" height="588" viewBox="0 0 588 588" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <circle opacity="0.35" cx="294" cy="294" r="258" stroke="white" stroke-width="72" />
+                                            <img src="assets/images/phone.png" alt=""
+                                                class="hero-decor__phone language-img">
+                                            <svg class="hero-decor__circle" width="588" height="588"
+                                                viewBox="0 0 588 588" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle opacity="0.35" cx="294" cy="294" r="258" stroke="white"
+                                                    stroke-width="72" />
                                             </svg>
                                             <img src="assets/images/hero-decor.png" alt="" class="hero-decor__sand">
                                         </div>
@@ -302,8 +306,8 @@
                                     <div class="hero-section__grid hero-section__grid--big">
                                         <div class="hero__column">
                                             <div class="hero__header">
-                                                <p
-                                                    class="title title--big title--black hero-section-text hero-title-second">
+                                                <p data-language="hero_title_second"
+                                                    class="title title--big title--black hero-section-text">
                                                     Для общения необходим только <br> <span class="password-img">
                                                         <img src="assets/images/password-img.svg" alt="">
                                                     </span> пароль
@@ -314,7 +318,7 @@
                                         <div class="hero__block hero__block--text">
                                             <div class="hero-item hero-section-text">
                                                 <img src="assets/images/icons/quote.svg" alt="" class="hero-item__icon">
-                                                <p class="hero-item__text hero-list-first">
+                                                <p class="hero-item__text" data-language="hero_list_first">
                                                     Все чаты защищены с помощью <span>симметричного</span> шифрования и,
                                                     в дополнение, с
                                                     использованием принципа <span>«одноразового блокнота»</span>, т.е.
@@ -325,7 +329,7 @@
                                             <div class="hero-item hero-section-text">
                                                 <img src="assets/images/icons/anon-call.svg" alt=""
                                                     class="hero-item__icon">
-                                                <p class="hero-item__text hero-list-second">
+                                                <p class="hero-item__text" data-language="hero_list_second">
                                                     Возможность совершать <span>анонимные звонки</span>, используя
                                                     только пароль
                                                 </p>
@@ -337,72 +341,77 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide hero-section hero-section-column ">
-                        <div class="swiper-wrapper">
-                            <div class="how swiper-slide hero-section__wrapper">
-                                <div class="container">
-                                    <div class="how__wrapper">
-                                        <p
-                                            class="title title--big title--black title--center hero-section-text how-title">
-                                            Как это работает на практике:
-                                        </p>
-                                        <div class="how__grid">
-                                            <div class="how-card hero-section-text">
-                                                <div class="how-card__wrapper">
-                                                    <div class="how-card__img">
-                                                        <img class="language-img" loading="lazy" src="assets/images/how/1.jpg" alt="">
-                                                    </div>
-                                                    <div class="how-card__content">
-                                                        <p class="title title--tiny title--black how-card-first">
-                                                            В открытом приложении нажмите <img class="img-small" src="assets/images/icons/plus-text.svg" alt=""> внизу экрана
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="how-card hero-section-text">
-                                                <div class="how-card__wrapper how-card__wrapper--small">
-                                                    <div class="how-card__img">
-                                                        <img class="language-img" loading="lazy"  src="assets/images/how/2.jpg" alt="">
-                                                    </div>
-                                                    <div class="how-card__content">
-                                                        <p class="title title--tiny title--black  how-card-second">
-                                                            Выберите «Приватный чат»
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="how-card hero-section-text">
-                                                <div class="how-card__wrapper">
-                                                    <div class="how-card__img">
-                                                        <img class="language-img" loading="lazy"  src="assets/images/how/3.jpg" alt="">
-                                                    </div>
-                                                    <div class="how-card__content">
-                                                        <p class="title title--tiny title--black  how-card-third">
-                                                            Затем введите «Пароль» и название чата
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="how-card hero-section-text">
-                                                <div class="how-card__wrapper how-card__wrapper--small">
-                                                    <div class="how-card__img">
-                                                        <img class="language-img" loading="lazy"  src="assets/images/how/4.jpg" alt="">
-                                                    </div>
-                                                    <div class="how-card__content">
-                                                        <p class="title title--tiny title--black  how-card-fourth">
-                                                            Нажмите «Далее» и все!
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                </div>
+            </div>
+            <div class="hero-section animation-wrapper" data-hash="hero3">
+                <div class="how hero-section__wrapper">
+                    <div class="container">
+                        <div class="how__wrapper">
+                            <p class="title title--big title--black title--center animation-item"
+                                data-language="how_title">
+                                Как это работает на практике:
+                            </p>
+                            <div class="how__grid">
+                                <div class="how-card animation-item">
+                                    <div class="how-card__wrapper">
+                                        <div class="how-card__img">
+                                            <img class="language-img" loading="lazy" src="assets/images/how/1.jpg"
+                                                alt="">
                                         </div>
-                                        <div class="how__footer hero-section-text">
-                                            <p class="title title--small title--black title--center  how-card-text">
-                                                Подождите, пока ваш визави сделает то же самое, и вы сможете <img src="assets/images/icons/how-icon.svg" alt=""> общаться!
+                                        <div class="how-card__content">
+                                            <p class="title title--tiny title--black title--center" data-language="how_card_first">
+                                                В открытом приложении нажмите <img class="img-small"
+                                                    src="assets/images/icons/plus-text.svg" alt=""> внизу
+                                                экрана
                                             </p>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="how-card animation-item">
+                                    <div class="how-card__wrapper how-card__wrapper--small">
+                                        <div class="how-card__img">
+                                            <img class="language-img" loading="lazy" src="assets/images/how/2.jpg"
+                                                alt="">
+                                        </div>
+                                        <div class="how-card__content">
+                                            <p class="title title--tiny title--black title--center" data-language="how_card_second">
+                                                Выберите «Приватный чат»
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="how-card animation-item">
+                                    <div class="how-card__wrapper">
+                                        <div class="how-card__img">
+                                            <img class="language-img" loading="lazy" src="assets/images/how/3.jpg"
+                                                alt="">
+                                        </div>
+                                        <div class="how-card__content">
+                                            <p class="title title--tiny title--black title--center" data-language="how_card_third">
+                                                Затем введите «Пароль» и название чата
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="how-card animation-item">
+                                    <div class="how-card__wrapper how-card__wrapper--small">
+                                        <div class="how-card__img">
+                                            <img class="language-img" loading="lazy" src="assets/images/how/4.jpg"
+                                                alt="">
+                                        </div>
+                                        <div class="how-card__content">
+                                            <p class="title title--tiny title--black title--center" data-language="how_card_fourth">
+                                                Нажмите «Далее» и все!
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="how__footer animation-item">
+                                <p class="title title--small title--black title--center" data-language="how_card_text">
+                                    Подождите, пока ваш визави сделает то же самое, и вы сможете <img
+                                        src="assets/images/icons/how-icon.svg" alt=""> общаться!
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -413,10 +422,11 @@
                     <div class="about__wrapper">
                         <div class="container">
                             <div class="about__header">
-                                <p class="title title--base title--black animation-item about-title">
+                                <p class="title title--base title--black animation-item" data-language="about_title">
                                     BeProg — действительно анонимное приложение для общения
                                 </p>
-                                <p class="text text--grey--dark text--base about__text animation-item">
+                                <p class="text text--grey--dark text--base about__text animation-item"
+                                    data-language="about_subtitle">
                                     Безопасный обмен текстовыми сообщениями и голосовыми звонками стали проще
                                 </p>
                             </div>
@@ -426,10 +436,12 @@
                                         <img src="assets/images/about/noPhone.svg" alt="" class="icon">
                                     </div>
                                     <div class="about-item__content">
-                                        <p class="title title--tiny title--black about-card-title-first">
+                                        <p class="title title--tiny title--black"
+                                            data-language="about_card_title_first">
                                             Без номера телефона
                                         </p>
-                                        <p class="text text--base text--grey--dark about-card-text-first">
+                                        <p class="text text--base text--grey--dark"
+                                            data-language="about_card_text_first">
                                             Вместо обмена номерами телефонов, просто обменяйтесь паролями.
                                         </p>
                                     </div>
@@ -439,10 +451,12 @@
                                         <img src="assets/images/about/pass.svg" alt="" class="icon">
                                     </div>
                                     <div class="about-item__content">
-                                        <p class="title title--tiny title--black about-card-title-second">
+                                        <p class="title title--tiny title--black"
+                                            data-language="about_card_title_second">
                                             Пароль
                                         </p>
-                                        <p class="text text--base text--grey--dark about-card-text-second">
+                                        <p class="text text--base text--grey--dark"
+                                            data-language="about_card_text_second">
                                             Придумайте пароль, поделитесь им со своим собеседником, создайте приватный
                                             чат
                                         </p>
@@ -453,10 +467,12 @@
                                         <img src="assets/images/about/mega.svg" alt="" class="icon">
                                     </div>
                                     <div class="about-item__content">
-                                        <p class="title title--tiny title--black about-card-title-third">
+                                        <p class="title title--tiny title--black"
+                                            data-language="about_card_title_third">
                                             Создание канала
                                         </p>
-                                        <p class="text text--base text--grey--dark about-card-text-third">
+                                        <p class="text text--base text--grey--dark"
+                                            data-language="about_card_text_third">
                                             Публикация защищенных сообщений для неограниченной аудитории
                                         </p>
                                     </div>
@@ -466,10 +482,12 @@
                                         <img src="assets/images/about/spam.svg" alt="" class="icon">
                                     </div>
                                     <div class="about-item__content">
-                                        <p class="title title--tiny title--black about-card-title-fourth">
+                                        <p class="title title--tiny title--black"
+                                            data-language="about_card_title_fourth">
                                             Без спама и рекламы
                                         </p>
-                                        <p class="text text--base text--grey--dark about-card-text-fourth">
+                                        <p class="text text--base text--grey--dark"
+                                            data-language="about_card_text_fourth">
                                             В приложении BeProg мы не используем никакие виды рекламы или спама
                                         </p>
                                     </div>
@@ -484,9 +502,11 @@
                             <div class="benefits__grid benefits__grid--big">
                                 <div class="anonymity">
                                     <div class="anonymity__content">
-                                        <p class="title title--base title--white animation-item anonymity-title">
+                                        <p class="title title--base title--white animation-item"
+                                            data-language="anonymity_title">
                                             Анонимность</p>
-                                        <p class="text text--base text--white animation-item anonymity-text">
+                                        <p class="text text--base text--white animation-item"
+                                            data-language="anonymity_text">
                                             Мы стремились достичь максимальной анонимности в сочетании с простотой
                                             использования. Приложение не требует какой-либо идентификации, номера
                                             телефона
@@ -499,9 +519,11 @@
                                 <div class="simplicity">
                                     <div class="simplicity__decor"></div>
                                     <div class="simplicity__content">
-                                        <p class="title title--base title--black animation-item simplicity-title">
+                                        <p class="title title--base title--black animation-item"
+                                            data-language="simplicity_title">
                                             Простота</p>
-                                        <p class="text text--base text--black animation-item simplicity-text">
+                                        <p class="text text--base text--black animation-item"
+                                            data-language="simplicity_text">
                                             Приложение имеет минимальный набор интуитивно понятных функций. Создание
                                             чата
                                             отличается простотой и происходит в два шага. Мы разработали очень простое в
@@ -509,10 +531,11 @@
                                         </p>
                                     </div>
                                     <div class="simplicity__img">
-                                        <picture>
-                                            <source media="(max-width: 767px)" srcset="assets/images/simplicity-m.png">
-                                            <source media="(min-width: 768px)" srcset="assets/images/simplicity.png">
-                                            <img src="assets/images/simplicity.png">
+                                        <picture class="language-img">
+                                            <source media="(max-width: 767px)"
+                                                srcset="assets/images/simplicity-m-ru.png">
+                                            <source media="(min-width: 768px)" srcset="assets/images/simplicity-ru.png">
+                                            <img src="assets/images/simplicity-ru.png">
                                         </picture>
                                     </div>
                                 </div>
@@ -524,10 +547,11 @@
                                     <div class="capability">
                                         <img src="assets/images/icons/capability.svg" alt="" class="capability__icon">
                                         <div class="capability__content">
-                                            <h4
-                                                class="title title--tiny title--black animation-item possibilities-title">
+                                            <h4 class="title title--tiny title--black animation-item"
+                                                data-language="possibilities_title">
                                                 Возможности</h4>
-                                            <p class="text text--base text--black animation-item possibilities-text">
+                                            <p class="text text--base text--black animation-item"
+                                                data-language="possibilities_text">
                                                 Создание анонимного канала для неограниченного числа участников. BeProg
                                                 позволяет создать канал, который имеет полный функционал с ролями
                                                 администраторов и т.д.
@@ -539,9 +563,11 @@
                                             <img src="assets/images/icons/safety.svg" alt="" class="safety__icon">
                                         </div>
                                         <div class="safety__content">
-                                            <h4 class="title title--tiny title--black animation-item safety-title">
+                                            <h4 class="title title--tiny title--black animation-item"
+                                                data-language="safety_title">
                                                 Возможности</h4>
-                                            <p class="text text--base text--black animation-item safety-text">
+                                            <p class="text text--base text--black animation-item"
+                                                data-language="safety_text">
                                                 Создание анонимного канала для неограниченного числа участников. BeProg
                                                 позволяет создать канал, который имеет полный функционал с ролями
                                                 администраторов и т.д.
@@ -563,8 +589,10 @@
                     <div class="banner__wrapper">
                         <div class="container">
                             <div class="banner__column">
-                                <h3 class="title title--small title--black title--center animation-item banner-text">
-                                    Приложение для обмена сообщениями BeProg обеспечит вам душевное <img src="assets/images/icons/like-in-text.svg" alt=""> спокойствие, дать которое
+                                <h3 class="title title--small title--black title--center animation-item"
+                                    data-language="banner_text">
+                                    Приложение для обмена сообщениями BeProg обеспечит вам душевное <img
+                                        src="assets/images/icons/like-in-text.svg" alt=""> спокойствие, дать которое
                                     может
                                     лишь полная
                                     анонимность.
@@ -586,7 +614,7 @@
                                         <svg class="button__icon">
                                             <use xlink:href="assets/images/sprite.svg#apk"></use>
                                         </svg>
-                                        <span class="download-text">Загрузить</span>
+                                        <span data-language="download_text">Загрузить</span>
                                     </a>
                                 </div>
                             </div>
@@ -652,10 +680,10 @@
         integrity="sha512-MBbICakhGbnckq5iFnAvaoTQwTyZqIEdhXGbzpNvGhkr+ZhjRdaVmJuNCVyZkObp5O/Mlows81qbzLAalgnoIg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <script src="assets/libs/swiper/swiper.js"></script>
     <script src="assets/libs/gsap/index.js"></script>
-    <script src="assets/libs/gsap/MotionPathPlugin.js"></script>
     <script src="assets/libs/gsap/scrollTrigger.js"></script>
+
+    <script src="assets/libs/swiper/swiper.js"></script>
     <script src="assets/scripts/index.js"></script>
 </body>
 
