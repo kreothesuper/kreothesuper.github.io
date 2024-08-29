@@ -90,8 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
               initSlider(); // Call the function when all videos are loaded
             }
           });
-    
-          video.play(); // Optionally play the video immediately
         });
     }
 });
