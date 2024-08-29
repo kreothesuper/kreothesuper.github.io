@@ -75,16 +75,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Start loading videos and checking if they are all loaded
         const videos = Array.from(videoSlidesArray).map(slide => slide.querySelector('.video-slider__frame'));
-        let loadedVideosCount = 0;
+        let loadedCount = 0; // Counter for loaded videos
 
         videos.forEach(video => {
-            video.addEventListener('loadeddata', () => {
-                loadedVideosCount++;
-                console.log('loadVideo');
-                if (loadedVideosCount === videos.length) {
-                    initSlider(); // Initialize the slider after all videos are loaded
-                }
-            });
+          video.src = video.dataset.src; // Set the video source
+          video.load(); // Load the video
+    
+          // Add an event listener to detect when the video is loaded
+          video.addEventListener('loadeddata', () => {
+            loadedCount++; // Increment the loaded count
+    
+            // Check if all videos are loaded
+            if (loadedCount === videos.length) {
+              initSlider(); // Call the function when all videos are loaded
+            }
+          });
+    
+          video.play(); // Optionally play the video immediately
         });
     }
 });
