@@ -90,6 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
               initSlider(); // Call the function when all videos are loaded
             }
           });
+
+          video.addEventListener('error', (event) => {
+            console.error('Error loading video:', event);
+        });
         });
     }
 });
