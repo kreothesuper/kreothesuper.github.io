@@ -49,23 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (popupVideo) {
-                const videoElement = videoSlidesArray[startIndex].querySelector('video');
                 popupVideo.addEventListener('click', (e) => {
-                    if (e.target.classList.contains('popup')) {
+                    const videoElement = videoSlidesArray[startIndex].querySelector('video');
+                    if (e.target.classList.contains('popup') || e.target.classList.contains('popup__close')) {
+                        const popupVideoFrame = popupVideo.querySelector('video');
                         popupVideo.classList.remove('active');
                         restartAnimation();
                         videoElement.currentTime = 0;
                         videoElement.play();
+                        popupVideoFrame.src = '';
                         slideInterval = setInterval(autoChangeSlide, 15000);
                     }
                 });
                 const popupVideoElement = popupVideo.querySelector('video');
                 videoSlidesArray.forEach(video => {
                     video.addEventListener('click', (e) => {
-                        const videoSrc = video.querySelector('video').dataset.big || video.querySelector('video').src;
+                        const videoSrc = video.querySelector('video').dataset.big || video.querySelector('video').src,
+                            videoFrame = video.querySelector('video');
                         popupVideoElement.src = videoSrc;
                         popupVideo.classList.add('active');
-                        videoElement.pause();
+                        videoFrame.pause();
                         videoSlider.classList.remove('animate');
                         clearInterval(slideInterval);
                     });
@@ -78,22 +81,22 @@ document.addEventListener('DOMContentLoaded', () => {
         let loadedCount = 0; // Counter for loaded videos
 
         videos.forEach(video => {
-          video.src = video.dataset.src; // Set the video source
-          video.load(); // Load the video
-    
-          // Add an event listener to detect when the video is loaded
-          video.addEventListener('loadeddata', () => {
-            loadedCount++; // Increment the loaded count
-    
-            // Check if all videos are loaded
-            if (loadedCount === videos.length) {
-              initSlider(); // Call the function when all videos are loaded
-            }
-          });
+            video.src = video.dataset.src; // Set the video source
+            video.load(); // Load the video
 
-          video.addEventListener('error', (event) => {
-            console.error('Error loading video:', event);
-        });
+            // Add an event listener to detect when the video is loaded
+            video.addEventListener('loadeddata', () => {
+                loadedCount++; // Increment the loaded count
+
+                // Check if all videos are loaded
+                if (loadedCount === videos.length) {
+                    initSlider(); // Call the function when all videos are loaded
+                }
+            });
+
+            video.addEventListener('error', (event) => {
+                console.error('Error loading video:', event);
+            });
         });
     }
 });

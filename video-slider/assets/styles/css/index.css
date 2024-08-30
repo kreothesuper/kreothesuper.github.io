@@ -220,4 +220,29 @@ body {
 .popup.active {
   opacity: 1;
   visibility: visible;
+}
+.popup__close {
+  position: absolute;
+  top: 5vh;
+  right: 5vw;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #000;
+}
+.popup__close::before, .popup__close::after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 7.5px);
+  top: 15px;
+  width: 15px;
+  height: 1px;
+  background: #fff;
+  display: block;
+}
+.popup__close::before {
+  transform: rotate(45deg);
+}
+.popup__close::after {
+  transform: rotate(-45deg);
 }/*# sourceMappingURL=index.css.map */
