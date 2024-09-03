@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
 
     <link rel="stylesheet" href="assets/styles/css/reset.css">
     <link rel="stylesheet" href="assets/styles/css/index.css">
@@ -148,51 +154,276 @@
         </header>
 
         <div class="content">
-            <div class="hero swiper">
-                <div class="swiper-wrapper"></div>
-            </div>
-            <div class="greetings">
-                <div class="container container--big container--mobile--full">
-                    <div class="greetings__wrapper">
-                        <div class="greetings__img">
-                            <img src="assets/images/greetings/governor.png" alt="">
-                        </div>
-                        <div class="greetings__content">
-                            <div class="greetings__header">
-                                <p class="greetings__title">
-                                    Приветствие Губернатора
-                                </p>
-                                <div class="greetings__text">
-                                    <p>
-                                        Дорогие друзья!
-                                    </p>
-                                    <p>
-                                        Приветствую Вас на официальном Интернет-портале, посвященном инвестиционной
-                                        деятельности
-                                        в Ставропольском крае!
-                                    </p>
-                                    <p>
-                                        Уверен, Вас заинтересуют деловые возможности, которые открывает наш регион.
-                                    </p>
+            <div class="hero-wrapper">
+                <div class="hero">
+                    <p class="hero-text__title hero-img__title">
+                        СТАВРОПОЛЬЕ
+                    </p>
+                    <div class="hero-img swiper">
+                      
+                        <div class="swiper-wrapper">
+                            
+                            <div class="swiper-slide hero-img__slide" data-bg="url('../../images/hero/hero-history-bg.png')">
+                                <div class="confetti-img confetti-img--big confetti-img-first">
+                                    <img src="assets/images/hero/history-confetti-first.png" alt="">
+                                </div>
+                                <div class="confetti-img confetti-img--big confetti-img-second">
+                                    <img src="assets/images/hero/history-confetti-second.png" alt="">
+                                </div>
+
+                          
+
+                            </div>
+                            <div class="swiper-slide hero-img__slide" data-bg="url('../../images/hero/hero-field-bg.png')">
+                                <img src="assets/images/hero/field-confetti.png" alt=""
+                                    class="confetti-img confetti-img-first">
+                                <img class="hero-img__bg" src="assets/images/hero/field-bg.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide hero-img__slide">
+                                <div class="hero-img__cloud"
+                                    style="background-image: url('assets/images/hero/health-cloud.jpg');"></div>
+                                <img class="hero-img__bg" src="assets/images/hero/health-face.png" alt="">
+                            </div>
+                            <div class="swiper-slide hero-img__slide" data-bg="url('../../images/hero/hero-unique-bg.png')">
+                                <div class="hero-img__cloud"
+                                    style="background-image: url('assets/images/hero/health-cloud.jpg');"></div>
+                                <img class="hero-img__bg" src="assets/images/hero/unique.png" alt="">
+                            </div>
+                            <div class="swiper-slide hero-img__slide" data-bg="url('../../images/hero/hero-industry-bg.jpg')">
+                                <img class="hero-img__bg" src="assets/images/hero/industry.jpg" alt="">
+                                <div class="follower"></div>
+                            </div>
+                            <div class="swiper-slide hero-img__slide" data-bg="url('../../images/hero/hero-food-bg.png')">
+                                <img src="assets/images/hero/food-cloud.png" alt="" class="hero-img__glade">
+                                <img class="hero-img__bg" src="assets/images/hero/food-bg.jpg" alt="">
+                            </div>
+                          
+                            <div class="swiper-slide hero-img__slide" data-bg="url('../../images/hero/hero-tourism-bg.png')">
+                                <div class="confetti-img confetti-img--big confetti-img-second">
+                                    <img src="assets/images/hero/tourism-confetti-bg.png" alt="">
+                                </div>
+                                <div class="confetti-img confetti-img--big confetti-img-first">
+                                    <img src="assets/images/hero/tourism-confetti-bg-second.png" alt="">
                                 </div>
                             </div>
-                            <div class="greetings-signature">
-                                <img src="assets/images/greetings/photo.jpg" alt="" class="greetings-signature__photo">
-                                <div class="greetings-signature__header">
-                                    <p class="greetings-signature__title">
-                                        Владимир Владимиров
-                                    </p>
-                                    <p class="greetings-signature__text">
-                                        Губернатор Ставропольского края
+                            <div class="swiper-slide hero-img__slide " data-bg="url('../../images/hero/hero-youth-bg.png')">
+                                <img src="assets/images/hero/youth-confetti-first.png" alt=""
+                                    class="confetti-img confetti-img-first">
+                                <img src="assets/images/hero/youth-confetti-second.png" alt=""
+                                    class="confetti-img confetti-img-second">
+                                <img class="hero-img__bg" src="assets/images/hero/youth-bg.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide hero-img__slide "  data-bg="url('../../images/hero/hero-national-bg.png')">
+                                <img src="assets/images/hero/national-confetti-first.png" alt=""
+                                    class="confetti-img confetti-img-first">
+                                <img src="assets/images/hero/national-confetti-second.png" alt=""
+                                    class="confetti-img confetti-img-second">
+                                <img class="hero-img__bg" src="assets/images/hero/national-bg.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-text">
+                        <div class="container">
+                            <div class="hero-text__wrapper">
+                                <div class="hero-text__header">
+                                    <div class="hero-title swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide hero-title__slide">
+                                                <p class="hero-title__label">
+                                                    историческое
+                                                </p>
+                                            </div>
+                                            <div class="swiper-slide hero-title__slide">
+                                                <p class="hero-title__label">
+                                                    изобильное
+                                                </p>
+                                            </div>
+                                            <div class="swiper-slide hero-title__slide">
+                                                <p class="hero-title__label">
+                                                    оздоровительное
+                                                </p>
+                                            </div>
+                                            <div class="swiper-slide hero-title__slide">
+                                                <p class="hero-title__label">
+                                                    уникальное
+                                                </p>
+                                            </div>
+                                            <div class="swiper-slide hero-title__slide">
+                                                <p class="hero-title__label">
+                                                    промышленное
+                                                </p>
+                                            </div>
+                                            <div class="swiper-slide hero-title__slide">
+                                                <p class="hero-title__label">
+                                                    гастрономическое
+                                                </p>
+                                            </div>
+                                            <div class="swiper-slide hero-title__slide">
+                                                <p class="hero-title__label">
+                                                    туристическое
+                                                </p>
+                                            </div>
+                                            <div class="swiper-slide hero-title__slide">
+                                                <p class="hero-title__label">
+                                                    молодёжное
+                                                </p>
+                                            </div>
+                                            <div class="swiper-slide hero-title__slide">
+                                                <p class="hero-title__label">
+                                                    многонациональное
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <p class="hero-text__title hero-text__title--hidden">
+                                        СТАВРОПОЛЬЕ
                                     </p>
                                 </div>
-                                <img src="assets/images/greetings/signiture.png" alt=""
-                                    class="greetings-signature__img">
+                                <div class="hero-text__footer">
+                                    <div class="hero-title hero-text__label swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="hero-label swiper-slide">
+                                                <img src="assets/images/hero/history.svg" alt=""
+                                                    class="hero-label__icon">
+                                                <p class="hero-label__text hero-label__text--base">
+                                                    В Ставропольском крае найден первый почти
+                                                    полный скелет древнего Южного слона
+                                                </p>
+                                            </div>
+                                            <div class="hero-label swiper-slide">
+                                                <img src="assets/images/hero/field.svg" alt="" class="hero-label__icon">
+                                                <p class="hero-label__text hero-label__text--middle">В Ставропольском
+                                                    крае
+                                                    выращивают
+                                                    хлеб для всей России</p>
+                                            </div>
+                                            <div class="hero-label swiper-slide">
+                                                <img src="assets/images/hero/health.svg" alt=""
+                                                    class="hero-label__icon">
+                                                <p class="hero-label__text hero-label__text--middle">Бальнеологические
+                                                    здравницы региона
+                                                    входят в пятерку лучших по стране</p>
+                                            </div>
+                                            <div class="hero-label swiper-slide">
+                                                <img src="assets/images/hero/unique.svg" alt=""
+                                                    class="hero-label__icon">
+                                                <p class="hero-label__text hero-label__text--base">
+                                                    В недрах Ставрополья зарождается более 100 видов
+                                                    питьевых минеральных вод
+                                                </p>
+                                            </div>
+                                            <div class="hero-label swiper-slide">
+                                                <img src="assets/images/hero/industry.svg" alt=""
+                                                    class="hero-label__icon">
+                                                <p class="hero-label__text hero-label__text--big">
+                                                    Промышленный комплекс края включает самые разные
+                                                    отрасли: от машиностроения и металлообработки
+                                                    до ветроэнергетики и пищевой промышленности
+                                                </p>
+                                            </div>
+                                            <div class="hero-label swiper-slide">
+                                                <img src="assets/images/hero/food.svg" alt="" class="hero-label__icon">
+                                                <p class="hero-label__text hero-label__text--base">
+                                                    В крае ежегодно проводят фестивали фермерской
+                                                    продукции и национальные подворья
+                                                </p>
+                                            </div>
+                                            <div class="hero-label swiper-slide">
+                                                <img src="assets/images/hero/tourism.svg" alt=""
+                                                    class="hero-label__icon">
+                                                <p class="hero-label__text hero-label__text--middle">
+                                                    Красоты и гостеприимство региона
+                                                    притягивают зарубежных туристов
+                                                </p>
+                                            </div>
+                                            <div class="hero-label swiper-slide">
+                                                <img src="assets/images/hero/youth.svg" alt="" class="hero-label__icon">
+                                                <p class="hero-label__text hero-label__text--student">
+                                                    Ставрополье ежегодно объединяет студентов
+                                                    из&nbsp;России и СНГ на творческих форумах и фестивалях
+                                                </p>
+                                            </div>
+                                            <div class="hero-label swiper-slide">
+                                                <img src="assets/images/hero/national.svg" alt=""
+                                                    class="hero-label__icon">
+                                                <p class="hero-label__text hero-label__text--base">
+                                                    На территории края проживает
+                                                    118&nbsp;национальностей и 25 этнических групп
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="hero-text__button">
+                                        «Одно окно» для инвестора
+                                    </a>
+                                </div>
+                                <div class="hero-navigation">
+                                    <div class="container container--mobile--full">
+                                        <div class="hero-navigation__wrapper">
+                                            <a href="#"
+                                                class="hero-navigation__arrow hero-navigation__arrow--prev hero-img-arrow-prev">
+                                                <img src="assets/images/icons/hero-arrow.svg" alt="" class="icon">
+                                            </a>
+                                            <a href="#"
+                                                class="hero-navigation__arrow hero-navigation__arrow--next hero-img-arrow-next">
+                                                <img src="assets/images/icons/hero-arrow.svg" alt="" class="icon">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="greetings">
+                        <div class="container container--big container--mobile--full">
+                            <div class="greetings__wrapper">
+                                <div class="greetings__img">
+                                    <img src="assets/images/greetings/governor.png" alt="">
+                                </div>
+                                <div class="greetings__content">
+                                    <div class="greetings__header">
+                                        <p class="greetings__title">
+                                            Приветствие Губернатора
+                                        </p>
+                                        <div class="greetings__text">
+                                            <p>
+                                                Дорогие друзья!
+                                            </p>
+                                            <p>
+                                                Приветствую Вас на официальном Интернет-портале, посвященном
+                                                инвестиционной
+                                                деятельности
+                                                в Ставропольском крае!
+                                            </p>
+                                            <p>
+                                                Уверен, Вас заинтересуют деловые возможности, которые открывает наш
+                                                регион.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="greetings-signature">
+                                        <img src="assets/images/greetings/photo.jpg" alt=""
+                                            class="greetings-signature__photo">
+                                        <div class="greetings-signature__header">
+                                            <p class="greetings-signature__title">
+                                                Владимир Владимиров
+                                            </p>
+                                            <p class="greetings-signature__text">
+                                                Губернатор Ставропольского края
+                                            </p>
+                                        </div>
+                                        <img src="assets/images/greetings/signiture.png" alt=""
+                                            class="greetings-signature__img">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
 
             <div class="section">
                 <div class="section__wrapper">
@@ -356,7 +587,8 @@
                         <div class="project-catalog">
                             <div class="project-grid">
                                 <div class="project-catalog__column">
-                                    <div class="project-grid__item project-grid__item--big project-card" data-popup=".popup-project">
+                                    <div class="project-grid__item project-grid__item--big project-card"
+                                        data-popup=".popup-project">
                                         <img src="assets/images/project/1.jpg" alt="" class="project-card__bg">
                                         <div class="project-card__wrapper">
                                             <img src="assets/images/project/logo-1.png" alt=""
@@ -765,7 +997,8 @@
                                 </p>
                                 <ul class="project-list">
                                     <li class="project-list__item project-list__item--black project-list__item--big">
-                                        <span class="project-list__icon project-list__icon--big project-list__icon--black">
+                                        <span
+                                            class="project-list__icon project-list__icon--big project-list__icon--black">
                                             <svg>
                                                 <use xlink:href="assets/images/sprite.svg#ruble"></use>
                                             </svg>
@@ -773,7 +1006,8 @@
                                         >37,5 млрд ₽
                                     </li>
                                     <li class="project-list__item project-list__item--black project-list__item--big">
-                                        <span class="project-list__icon project-list__icon--big project-list__icon--black">
+                                        <span
+                                            class="project-list__icon project-list__icon--big project-list__icon--black">
                                             <svg>
                                                 <use xlink:href="assets/images/sprite.svg#user"></use>
                                             </svg>
@@ -787,7 +1021,8 @@
                                     Строительство тепличного комплекса
                                 </p>
                                 <p class="popup-project__text">
-                                    Проект строительство свиноводческого комплекса с законченным производственным циклом на
+                                    Проект строительство свиноводческого комплекса с законченным производственным циклом
+                                    на
                                     270 тысяч голов свиней. Стоимость проекта – 5,1 млрд. руб. 143 новых рабочих места.
                                     Проект реализован. Выход на проектную мощность запланирован в текущем году.
                                 </p>
@@ -799,12 +1034,12 @@
 
                             </div>
                             <div class="project-gallery__item">
-                            <img class="project-gallery__img" src="assets/images/project/1-gallery-2.jpg" alt="">
-                                
+                                <img class="project-gallery__img" src="assets/images/project/1-gallery-2.jpg" alt="">
+
                             </div>
                             <div class="project-gallery__item">
-                            <img class="project-gallery__img" src="assets/images/project/1-gallery-3.jpg" alt="">
-                                
+                                <img class="project-gallery__img" src="assets/images/project/1-gallery-3.jpg" alt="">
+
                             </div>
                         </div>
                         <a href="#" class="popup__close popup__close--project"></a>
@@ -814,6 +1049,7 @@
         </div>
     </div>
 
+    <script src="assets/libs/swiper/swiper.js"></script>
     <script src="assets/scripts/index.js"></script>
 </body>
 
