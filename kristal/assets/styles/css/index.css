@@ -110,6 +110,7 @@ body.white-body {
   width: max-content;
   text-align: center;
   vertical-align: middle;
+  position: relative;
 }
 .button--round {
   width: 180px;
@@ -136,6 +137,55 @@ body.white-body {
     border-radius: 20px;
     font-size: 10px;
   }
+}
+.button--round .button__circle {
+  left: -2px;
+  top: -2px;
+  border-radius: 50%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  stroke-width: 4px;
+  overflow: visible;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
+  position: absolute;
+  z-index: 2;
+  transform: rotate(-90deg);
+}
+@media screen and (max-width: 640px) {
+  .button--round .button__circle {
+    border-radius: 0;
+    transform: rotate(0);
+  }
+}
+.button--round .button__circle rect {
+  rx: 180px;
+  ry: 180px;
+  width: 100%;
+  height: 100%;
+  stroke-dasharray: 321%;
+  stroke-dashoffset: 321%;
+  stroke-width: 4px;
+  fill: transparent;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
+}
+@media screen and (max-width: 991px) {
+  .button--round .button__circle rect {
+    rx: 150px;
+    ry: 150px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .button--round .button__circle rect {
+    rx: 20px;
+    ry: 20px;
+    stroke-width: 2px;
+  }
+}
+.button--round .button__circle:hover {
+  transform: rotate(0);
+}
+.button--round .button__circle:hover rect {
+  stroke-dashoffset: 0%;
 }
 .button--tiny {
   padding: 16px 30px;
@@ -164,6 +214,41 @@ body.white-body {
     height: 40px;
     font-size: 10px;
   }
+}
+.button--small .button__circle {
+  left: -2px;
+  top: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  stroke-width: 3px;
+  overflow: visible;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
+  position: absolute;
+  z-index: 2;
+}
+.button--small .button__circle rect {
+  rx: 30px;
+  ry: 30px;
+  width: 100%;
+  height: 100%;
+  stroke-dasharray: 321%;
+  stroke-dashoffset: 321%;
+  stroke-width: 3px;
+  fill: transparent;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
+}
+@media screen and (max-width: 640px) {
+  .button--small .button__circle rect {
+    stroke-width: 2px;
+    rx: 20px;
+    ry: 20px;
+  }
+}
+.button--small .button__circle:hover {
+  transform: rotate(0);
+}
+.button--small .button__circle:hover rect {
+  stroke-dashoffset: 0%;
 }
 .button--base {
   padding: 25px 30px 25px 40px;
@@ -195,11 +280,18 @@ body.white-body {
   border: solid 2px #ca9d75;
   background-color: #181d24;
   color: var(--color-white);
+  transition: 0.5s background;
 }
 @media screen and (max-width: 640px) {
   .button--dark {
     border-width: 1px;
   }
+}
+.button--dark:hover {
+  background: var(--color-accent);
+}
+.button--dark .button__circle {
+  stroke: var(--color-white);
 }
 .button--bordered {
   color: var(--color-dark);
@@ -225,6 +317,10 @@ body.white-body {
 .button--accent--dark {
   border-color: var(--color-accent);
   background-color: #53403c;
+  stroke: var(--color-white);
+}
+.button--accent--dark:hover {
+  background: var(--color-accent);
 }
 @media screen and (max-width: 640px) {
   .button--accent {
@@ -239,6 +335,7 @@ body.white-body {
   height: 180px;
   border-radius: 50%;
   border: solid 2px #ca9d75;
+  stroke: var(--color-white);
 }
 .button--arrow .icon {
   width: 32px;
@@ -248,6 +345,42 @@ body.white-body {
 }
 .button--arrow .icon--right {
   transform: rotate(180deg);
+}
+.button--arrow .button__circle {
+  left: -2px;
+  top: -2px;
+  border-radius: 50%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  stroke-width: 3px;
+  overflow: visible;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
+  position: absolute;
+  z-index: 2;
+  transform: rotate(-90deg);
+}
+.button--arrow .button__circle rect {
+  rx: 180px;
+  ry: 180px;
+  width: 100%;
+  height: 100%;
+  stroke-dasharray: 321%;
+  stroke-dashoffset: 321%;
+  stroke-width: 4px;
+  fill: transparent;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
+}
+@media screen and (max-width: 991px) {
+  .button--arrow .button__circle rect {
+    rx: 150px;
+    ry: 150px;
+  }
+}
+.button--arrow .button__circle:hover {
+  transform: rotate(0);
+}
+.button--arrow .button__circle:hover rect {
+  stroke-dashoffset: 0%;
 }
 .button--center {
   margin: 0 auto;
@@ -930,10 +1063,10 @@ body.white-body {
 }
 .hero-img {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0%;
-  top: 0;
+  width: 130%;
+  height: 130%;
+  left: -15%;
+  top: -30%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1158,6 +1291,47 @@ body.white-body {
   background: transparent;
   border: 1px solid var(--color-accent);
   fill: var(--color-dark);
+}
+.slider-button__circle {
+  left: -1px;
+  top: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  stroke: var(--color-dark);
+  stroke-width: 1px;
+  overflow: visible;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
+  position: absolute;
+  z-index: 2;
+}
+.slider-button__circle rect {
+  rx: 70px;
+  ry: 70px;
+  width: 100%;
+  height: 100%;
+  stroke-dasharray: 321%;
+  stroke-dashoffset: 321%;
+  stroke-width: 1px;
+  fill: transparent;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
+}
+@media screen and (max-width: 991px) {
+  .slider-button__circle rect {
+    rx: 50px;
+    ry: 50px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .slider-button__circle rect {
+    rx: 35px;
+    ry: 35px;
+  }
+}
+.slider-button__circle:hover {
+  transform: rotate(0);
+}
+.slider-button__circle:hover rect {
+  stroke-dashoffset: 0%;
 }
 @media screen and (max-width: 991px) {
   .slider-button {
@@ -1635,6 +1809,7 @@ body.white-body {
   justify-content: center;
   background: var(--color-accent);
   fill: #Fff;
+  position: relative;
 }
 .form__submit .icon {
   width: 20px;
@@ -1650,6 +1825,56 @@ body.white-body {
     width: 12px;
     height: 12px;
   }
+}
+.form__submit .circle {
+  left: -2px;
+  top: -2px;
+  border-radius: 50%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  stroke: var(--color-dark);
+  stroke-width: 4px;
+  overflow: visible;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
+  position: absolute;
+  z-index: 2;
+  transform: rotate(-90deg);
+}
+@media screen and (max-width: 640px) {
+  .form__submit .circle {
+    border-radius: 0;
+    transform: rotate(0);
+  }
+}
+.form__submit .circle rect {
+  rx: 180px;
+  ry: 180px;
+  width: 100%;
+  height: 100%;
+  stroke-dasharray: 321%;
+  stroke-dashoffset: 321%;
+  stroke-width: 4px;
+  fill: transparent;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
+}
+@media screen and (max-width: 991px) {
+  .form__submit .circle rect {
+    rx: 150px;
+    ry: 150px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .form__submit .circle rect {
+    rx: 20px;
+    ry: 20px;
+    stroke-width: 2px;
+  }
+}
+.form__submit .circle:hover {
+  transform: rotate(0);
+}
+.form__submit .circle:hover rect {
+  stroke-dashoffset: 0%;
 }
 .form-header {
   margin: 0 0 34px 0;
@@ -1753,19 +1978,57 @@ body.white-body {
   height: 15px;
 }
 .document__icon .circle {
+  left: -1px;
+  top: -1px;
+  border-radius: 50%;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  stroke: var(--color-white);
+  stroke-width: 2px;
+  overflow: visible;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
   position: absolute;
+  z-index: 2;
+  transform: rotate(-90deg);
+}
+@media screen and (max-width: 640px) {
+  .document__icon .circle {
+    border-radius: 0;
+    transform: rotate(0);
+  }
+}
+.document__icon .circle rect {
+  rx: 180px;
+  ry: 180px;
   width: 100%;
   height: 100%;
-  left: 0;
-  top: 0;
-  transform: rotate(-45deg);
-  stroke: var(--color-dark);
-  transition: 1s 0.2s cubic-bezier(0.74, 0, 0.24, 0.99);
+  stroke-dasharray: 321%;
+  stroke-dashoffset: 321%;
+  stroke-width: 2px;
+  fill: transparent;
+  transition: 1s cubic-bezier(0.74, 0, 0.24, 0.99);
 }
-.document__icon .circle circle {
-  cx: 15;
-  cy: 15;
-  transition: 1.3s cubic-bezier(0.74, 0, 0.24, 0.99);
+@media screen and (max-width: 991px) {
+  .document__icon .circle rect {
+    rx: 150px;
+    ry: 150px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .document__icon .circle rect {
+    rx: 20px;
+    ry: 20px;
+    stroke-width: 2px;
+  }
+}
+.document--white .document__icon .circle {
+  stroke: var(--color-dark);
+}
+.document:hover .document__icon .circle {
+  transform: rotate(0);
+}
+.document:hover .document__icon .circle rect {
+  stroke-dashoffset: 0%;
 }
 .document__text {
   font-family: var(--font-text-main);

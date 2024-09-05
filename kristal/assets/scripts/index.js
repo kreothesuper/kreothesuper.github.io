@@ -299,6 +299,17 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
+    gsap.to(".hero-img", {
+        y:'20%',
+        ease: "none",
+        scrollTrigger: {
+            scrub: true,
+            trigger: ".hero",
+            start: "top bottom",
+            end: "bottom top",
+        },
+    });
+
     const galleryImg = document.querySelectorAll('.park-gallery__img');
 
     if(galleryImg.length){
