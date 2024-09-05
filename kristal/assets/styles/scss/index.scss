@@ -1994,6 +1994,163 @@ body {
 
         transform: translate(-50%, -50%);
     }
+
+    &-gallery{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 30px;
+        flex-wrap: wrap;
+
+        position: relative;
+        overflow: hidden;
+        @media screen and (max-width:1024px) {
+            grid-row-start: 1;
+        }
+        &__row{
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            &--info{
+                padding-left: 100px;
+                @media screen and (max-width:1024px) {
+                    padding-left: 0;
+                }
+            }
+        }
+        &__img{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+
+            width: 100%;
+            height: 100%;
+        }
+        &__card{
+            width: 400px;
+            height: 230px;
+            background: #533f3c;
+
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            @media screen and (max-width:640px) {
+                width: 200px;
+                height: 120px;
+            }
+        }
+        &__subtitle{
+            width: max-content;
+            position: absolute;
+            transform: translateX(-30px);
+        }
+        &__item{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 420px;
+            height: 300px;
+            flex-shrink: 0;
+            @media screen and (max-width:1024px) {
+                width: 40vw;
+                height: auto;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+            }
+            &--small{
+                width: 330px;
+                height: 220px;
+                @media screen and (max-width:1024px) {
+                    height: auto;
+                    width: 30vw;
+                }
+            }
+            &--third{
+                position: absolute;
+                right: 0;
+                top: calc(50% - 200px);
+
+                width: 50%;
+                @media screen and (max-width:1024px) {
+                    width: 50vw;
+                    top: calc(50% - 25vw);
+                }
+            }
+            &--fourth{
+                width: 300px;
+                height: 400px;
+                position: relative;
+                z-index: 4;
+
+                transform: translateY(-50px);
+                @media screen and (max-width:1024px) {
+                    width: 30vw;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    &-page{
+        &__grid{
+            padding: 60px 0 0 0;
+            display: grid;
+            grid-template-columns: 300px minmax(0,1fr);
+            gap: 60px;
+
+            @media screen and (max-width:1024px) {
+                grid-template-columns: minmax(0,1fr);
+                padding: 0;
+            }
+            @media screen and (max-width:640px) {
+                gap: 30px;
+            }
+        }
+        &__wrapper{
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+            @media screen and (max-width:640px) {
+                gap: 30px;
+            }
+        }
+        &__header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            gap: 20px;
+        }
+        &__title{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -100px;
+            @media screen and (max-width:640px) {
+                top: -40px;
+            }
+        }
+        &__info{
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            @media screen and (max-width:640px) {
+                gap: 20px;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    }
 }
 
 .checkbox {
