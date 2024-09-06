@@ -91,9 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         init: false,
-        breakpoints:{
-            991:{
-                spaceBetween:60,
+        breakpoints: {
+            991: {
+                spaceBetween: 60,
             }
         },
     });
@@ -119,9 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
         speed: 750,
 
         init: false,
-        breakpoints:{
-            991:{
-                spaceBetween:40,
+        breakpoints: {
+            991: {
+                spaceBetween: 40,
                 slidesPerView: 3,
             }
         },
@@ -130,20 +130,67 @@ document.addEventListener('DOMContentLoaded', () => {
     advantagesSlider.init();
 
 
+
+    const spotsSlider = new Swiper('.spots-slider__item', {
+        slidesPerView: 1,
+        speed: 750,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        init: false,
+    });
+
+
+    const spotsItem = document.querySelectorAll('.spots-nav__item'),
+        spotsNavDecor = document.querySelectorAll('.spots-item__decor');
+
+
+    if (spotsItem.length) {
+        spotsItem.forEach((item, itemIndex) => {
+            item.addEventListener('click', () => {
+                spotsSlider.slideTo(itemIndex);
+
+                spotsItem.forEach((el, index) => {
+                    index == spotsSlider.realIndex ? el.classList.add('active') : el.classList.remove('active');
+                });
+                spotsNavDecor.forEach((el, index) => {
+                    index == spotsSlider.realIndex ? el.classList.add('active') : el.classList.remove('active');
+                });
+            });
+        });
+    }
+
+    spotsSlider.on('init', () => {
+        spotsItem.forEach((el, index) => {
+            index == spotsSlider.realIndex ? el.classList.add('active') : el.classList.remove('active');
+        });
+        spotsNavDecor.forEach((el, index) => {
+            index == spotsSlider.realIndex ? el.classList.add('active') : el.classList.remove('active');
+        });
+    });
+
+
+    spotsSlider.init();
+
+
+
+
+
     const choiceSlider = new Swiper('.choice-slider', {
         slidesPerView: 'auto',
         spaceBetween: 20,
         speed: 750,
 
         init: false,
-        breakpoints:{
-            991:{
-                spaceBetween:40,
+        breakpoints: {
+            991: {
+                spaceBetween: 40,
                 slidesPerView: 3,
             }
         },
 
-        
+
     });
 
     choiceSlider.init();
@@ -157,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         init: false,
         effect: 'fade',
         fadeEffect: {
-          crossFade: true
+            crossFade: true
         },
         navigation: {
             nextEl: '.places-slider-button-next',
@@ -166,6 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     placesSlider.init();
+
+
 
 
     const gallerySlider = new Swiper('.gallery-slider', {
@@ -178,10 +227,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         init: false,
-        breakpoints:{
-            991:{
+        breakpoints: {
+            991: {
                 slidesPerView: 3,
-                spaceBetween:60,
+                spaceBetween: 60,
             }
         },
     });
@@ -196,11 +245,11 @@ document.addEventListener('DOMContentLoaded', () => {
             nextEl: '.sport-slider-button-next',
             prevEl: '.sport-slider-button-prev',
         },
-        observer:true,
-        breakpoints:{
-            991:{
+        observer: true,
+        breakpoints: {
+            991: {
                 slidesPerView: 3,
-                spaceBetween:60,
+                spaceBetween: 60,
             }
         },
     });
@@ -221,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     gsap.to('.advantages__header', {
-        y:'-20vh',
+        y: '-20vh',
         ease: "none",
         scrollTrigger: {
             scrub: true,
@@ -232,19 +281,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     gsap.to('.location__bg', {
-        opacity:1,
+        opacity: 1,
         ease: "none",
         scrollTrigger: {
             scrub: true,
             trigger: '.location',
             start: "50% bottom",
             end: "25% top",
-      
+
         },
     });
 
     gsap.to(".choice-bg", {
-        y:'15%',
+        y: '15%',
         ease: "none",
         scrollTrigger: {
             scrub: true,
@@ -255,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     gsap.to(".structure-hero__img", {
-        y:'15%',
+        y: '15%',
         ease: "none",
         scrollTrigger: {
             scrub: true,
@@ -266,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     gsap.to(".structure-info__img", {
-        y:'15%',
+        y: '15%',
         ease: "none",
         scrollTrigger: {
             scrub: true,
@@ -277,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     gsap.to(".structure-about__img", {
-        y:'15%',
+        y: '15%',
         ease: "none",
         scrollTrigger: {
             scrub: true,
@@ -289,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     gsap.to(".park__branch", {
-        y:'-60%',
+        y: '-60%',
         ease: "none",
         scrollTrigger: {
             scrub: true,
@@ -300,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     gsap.to(".hero-img", {
-        y:'20%',
+        y: '20%',
         ease: "none",
         scrollTrigger: {
             scrub: true,
@@ -312,10 +361,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const galleryImg = document.querySelectorAll('.park-gallery__img');
 
-    if(galleryImg.length){
-        galleryImg.forEach(img=>{
+    if (galleryImg.length) {
+        galleryImg.forEach(img => {
             gsap.to(img, {
-                y:'-60%' || `-${img.dataset.count}%`,
+                y: '-60%' || `-${img.dataset.count}%`,
                 ease: "none",
                 scrollTrigger: {
                     scrub: true,
@@ -331,10 +380,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
 
 
-    window.addEventListener('scroll',(e)=>{
-        if(pageYOffset > 0){
+    window.addEventListener('scroll', (e) => {
+        if (pageYOffset > 0) {
             header.classList.add('fixed');
-        }else{
+        } else {
             header.classList.remove('fixed');
         }
     });
@@ -343,17 +392,16 @@ document.addEventListener('DOMContentLoaded', () => {
         menu = document.querySelector('.menu'),
         menuClose = document.querySelector('.menu__close');
 
-        burger.addEventListener('click',(e)=>{
-            e.preventDefault();
-            menu.classList.toggle('active');
-            header.classList.toggle('open');
-        });
+    burger.addEventListener('click', (e) => {
+        e.preventDefault();
+        menu.classList.toggle('active');
+        header.classList.toggle('open');
+    });
 
-        menuClose.addEventListener('click',(e)=>{
-            e.preventDefault();
-            menu.classList.remove('active');
-            header.classList.remove('open');
-        });
+    menuClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        menu.classList.remove('active');
+        header.classList.remove('open');
+    });
 
-       
 });
