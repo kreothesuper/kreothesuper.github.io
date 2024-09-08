@@ -1,6 +1,27 @@
 @font-face {
   font-family: "Nico Moji";
-  src: url("../../fonts/NicoMoji-Regular.woff2") format("woff2"), url("../../NicoMoji-Regular.woff") format("woff");
+  src: url("../../fonts/NicoMoji-Regular.woff2") format("woff2"), url("../../fonts/NicoMoji-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../../fonts/Inter-Bold.woff2") format("woff2"), url("../../fonts/Inter-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../../fonts/Inter-Regular.woff2") format("woff2"), url("../../fonts/Inter-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ropa Sans";
+  src: url("../../fonts/RopaSans-Regular.woff2") format("woff2"), url("../../fonts/RopaSans-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -14,6 +35,7 @@
 
 .app {
   font-family: var(--font-main);
+  font-weight: 400;
   color: #fff;
 }
 .app__wrapper {
@@ -54,7 +76,8 @@
 }
 .app-content {
   flex-grow: 1;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 60px 25px 0 25px;
   display: flex;
   flex-direction: column;
@@ -686,6 +709,7 @@
 }
 .boost__button--disabled {
   background: #ddd;
+  pointer-events: none;
 }
 
 .game {
@@ -724,22 +748,21 @@
   justify-content: space-between;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   position: relative;
-}
-.line::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 56%;
-  background: url("../../images/stamina.png") left center/cover no-repeat;
-  z-index: 0;
+  overflow: hidden;
 }
 .line__divider {
   flex: 1 0 auto;
   height: auto;
+  background: red;
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.line__divider.inactive {
+  background: #1d1721;
 }
 .line__divider:not(:last-child) {
   border-right: 2px solid #fff;
@@ -838,18 +861,9 @@
     opacity: 1;
   }
 }
-.skins-buy {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding-left: 20px;
-}
-.skins-buy__text {
-  font-size: 20px;
-}
 .skins-slider {
-  height: 220px;
+  height: 420px;
+  overflow: visible;
 }
 .skins-slider__item {
   width: 210px;
@@ -859,9 +873,28 @@
   flex-direction: column;
   gap: 40px;
 }
+.skins-slider__item.active .skins-buy {
+  opacity: 1;
+}
 .skins-slider__img {
   width: 100%;
   height: 160px;
+}
+.skins-buy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: calc(100vw - 70px);
+  opacity: 0;
+}
+@media screen and (max-width: 350px) {
+  .skins-buy {
+    width: calc(100vw - 50px);
+  }
+}
+.skins-buy__text {
+  font-size: 20px;
 }
 
 .result__title, .result__subtitle {
