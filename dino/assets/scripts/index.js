@@ -18,10 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(navLinkArray.length){
         navLinkArray.forEach(link=>{
             const linkImg = link.querySelector('.nav-list__img');
-            link.addEventListener('click',(e)=>{
-                e.preventDefault();
-
-
+            link.addEventListener('touchstart',(e)=>{
                 linkImg.src = linkImg.dataset.hover;
             });
         });
