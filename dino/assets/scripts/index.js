@@ -5,17 +5,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
         });
     }
-
-
-
-    const navLinkArray = document.querySelectorAll('.nav-list__link');
-
-    if (navLinkArray.length) {
-        navLinkArray.forEach(link => {
-            const linkImg = link.querySelector('.nav-list__img');
-            link.addEventListener('touchstart', (e) => {
-                linkImg.src = linkImg.dataset.hover;
-            });
-        });
-    }
 });

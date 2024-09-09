@@ -168,42 +168,43 @@
         align-items: center;
         justify-content: center;
 
-        &:hover {
-            &::before {
-                animation: playButton 1s linear infinite;
-            }
+        position: relative;
+
+        &:hover &__img--white {
+            animation: playButton 1s linear infinite;
         }
 
-        &::before {
-            content: '';
+        &__img {
             width: 100%;
             height: 100%;
-            display: block;
-            background-position: center center;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-image: url("../../images/play.png");
+            object-fit: contain;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &--white {
+                z-index: 2;
+                opacity: 0;
+            }
         }
     }
 }
 
 @keyframes playButton {
     0% {
-        background-image: url("../../images/play.png");
+        opacity: 0;
     }
 
     50% {
-        background-image: url("../../images/play-white.png");
-    }
-
-    75% {
-        background-image: url("../../images/play.png");
-
+        opacity: 1;
     }
 
     100% {
-        background-image: url("../../images/play-white.png");
-
+        opacity: 0;
     }
 }
 
@@ -222,18 +223,17 @@
 .nav {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    gap: clamp(24px, 4vw, 32px);
-
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
     width: 100%;
 
     &-list {
         display: flex;
         align-items: center;
-        justify-content: space-around;
-        gap: 38px;
+        justify-content: center;
+        gap: 20px;
         width: 100%;
-        gap: clamp(16px, 6vw, 38px);
 
         &__link {
             color: #fff;
@@ -244,10 +244,36 @@
             align-items: center;
             justify-content: center;
             height: 100%;
+
+            position: relative;
+        }
+
+        &__link:hover &__hover{
+            animation: navLinkAnim 1s linear;
+        }
+
+        &__hover{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+    
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            opacity: 0;
+            z-index: 2;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
         }
 
         &__img {
-            width: 100%;
+            width: auto;
             height: 100%;
             object-fit: contain;
         }
@@ -264,6 +290,21 @@
         width: 100px;
         height: 30px;
         object-fit: contain;
+    }
+}
+
+@keyframes navLinkAnim {
+    0%{
+        opacity: 0;
+    }
+
+    50%{
+
+    opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
     }
 }
 
@@ -637,6 +678,10 @@
 
             &--repeat {
                 background: #ffc737;
+
+                .icon {
+                    transform: translate(2px, 2px);
+                }
             }
         }
 
@@ -936,9 +981,10 @@
         justify-content: center;
         color: #fff;
 
-        &.inactive{
+        &.inactive {
             background: #1d1721;
         }
+
         &:not(:last-child) {
             border-right: 2px solid #fff;
         }
@@ -1067,12 +1113,12 @@
 }
 
 .skins {
- 
+
 
     &-slider {
         height: 420px;
         overflow: visible;
-     
+
         &__item {
             width: 210px;
 
@@ -1082,10 +1128,10 @@
             flex-direction: column;
             gap: 40px;
 
-            &.active .skins-buy{
+            &.active .skins-buy {
                 opacity: 1;
             }
-    
+
         }
 
         &__img {
@@ -1093,6 +1139,7 @@
             height: 160px;
         }
     }
+
     &-buy {
         display: flex;
         align-items: center;
@@ -1104,25 +1151,31 @@
 
         @media screen and (max-width:350px) {
             width: calc(100vw - 50px);
-            
+
         }
+
         &__text {
             font-size: 20px;
         }
     }
 }
 
-.result{
-    &__title,&__subtitle{
+.result {
+
+    &__title,
+    &__subtitle {
         font-family: var(--font-third);
         text-align: center;
     }
-    &__title{
+
+    &__title {
         font-size: 24px;
     }
-    &__subtitle{
+
+    &__subtitle {
         font-size: 18px;
     }
+
     &__button {
         display: flex;
         align-items: center;

@@ -126,33 +126,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
-.play-button:hover::before {
+.play-button:hover .play-button__img--white {
   animation: playButton 1s linear infinite;
 }
-.play-button::before {
-  content: "";
+.play-button__img {
   width: 100%;
   height: 100%;
-  display: block;
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url("../../images/play.png");
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.play-button__img--white {
+  z-index: 2;
+  opacity: 0;
 }
 
 @keyframes playButton {
   0% {
-    background-image: url("../../images/play.png");
+    opacity: 0;
   }
   50% {
-    background-image: url("../../images/play-white.png");
-  }
-  75% {
-    background-image: url("../../images/play.png");
+    opacity: 1;
   }
   100% {
-    background-image: url("../../images/play-white.png");
+    opacity: 0;
   }
 }
 .logo {
@@ -170,17 +174,17 @@
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  gap: clamp(24px, 4vw, 32px);
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
   width: 100%;
 }
 .nav-list {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  gap: 38px;
+  justify-content: center;
+  gap: 20px;
   width: 100%;
-  gap: clamp(16px, 6vw, 38px);
 }
 .nav-list__link {
   color: #fff;
@@ -190,9 +194,31 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  position: relative;
+}
+.nav-list__link:hover .nav-list__hover {
+  animation: navLinkAnim 1s linear;
+}
+.nav-list__hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 2;
+}
+.nav-list__hover img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .nav-list__img {
-  width: 100%;
+  width: auto;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
@@ -210,6 +236,17 @@
      object-fit: contain;
 }
 
+@keyframes navLinkAnim {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .count {
   display: flex;
   align-items: center;
@@ -515,6 +552,9 @@
 }
 .block-item__button--repeat {
   background: #ffc737;
+}
+.block-item__button--repeat .icon {
+  transform: translate(2px, 2px);
 }
 .block-item__img {
   width: 50px;
