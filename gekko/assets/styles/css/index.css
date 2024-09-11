@@ -9,8 +9,16 @@
   position: relative;
   background: url("../../images/bg.png") center center/cover no-repeat;
 }
+@media screen and (max-width: 640px) {
+  .app {
+    gap: 15px;
+  }
+}
 .app-img {
   height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 @media screen and (max-width: 640px) {
   .app-img {
@@ -18,7 +26,7 @@
   }
 }
 .app-img__item {
-  height: 400px;
+  height: 360px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -26,7 +34,7 @@
 }
 @media screen and (max-width: 640px) {
   .app-img__item {
-    height: 200px;
+    height: 280px;
   }
 }
 .app-img__item img {
@@ -45,7 +53,7 @@
 .app-title__text {
   font-style: italic;
   font-weight: 900;
-  font-size: 72px;
+  font-size: 90px;
   background: linear-gradient(180deg, #fff 0%, #0f8 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -59,17 +67,27 @@
   position: relative;
   z-index: 2;
 }
+@media screen and (max-width: 640px) {
+  .app-title__text {
+    font-size: 72px;
+  }
+}
 .app-title__shadow {
   position: absolute;
   font-style: italic;
   font-weight: 900;
-  font-size: 64px;
+  font-size: 82px;
   color: #247953;
   text-shadow: 0 6px 50px 0 rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 640px) {
+  .app-title__shadow {
+    font-size: 64px;
+  }
 }
 .app__header {
   flex-shrink: 0;
@@ -120,6 +138,7 @@
 @media screen and (max-width: 640px) {
   .app__text {
     font-size: 15px;
+    gap: 5px;
   }
 }
 .app__content {
@@ -181,9 +200,26 @@
   background: #0f8;
   border-radius: 32px;
   height: 60px;
-  width: 250px;
+  max-width: 300px;
+  width: 100%;
   margin: auto auto 0 auto;
   position: relative;
+}
+.app-button:hover::before {
+  filter: blur(40px);
+}
+.app-button::after {
+  content: "";
+  position: absolute;
+  width: 95%;
+  height: 80%;
+  left: 2.5%;
+  top: 10%;
+  background: linear-gradient(90deg, #0f8 1.46%, #0f8 99.81%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 71px;
+  box-shadow: 0 2px 72.7px rgba(15, 35, 104, 0.7411764706);
+  display: block;
 }
 .app-button__text {
   position: absolute;
@@ -195,11 +231,12 @@
   left: 0;
   top: 0;
   width: 100%;
-  border-radius: 24px;
+  border-radius: 32px;
   height: 100%;
   display: block;
-  filter: blur(60px);
+  filter: blur(20px);
   background: #0f8;
+  transition: 0.3s filter;
 }
 
 .ln-content-exchanges {
@@ -249,7 +286,8 @@
   border-radius: 6px;
 }
 
-.exchange-image img, .exchange-image svg {
+.exchange-image img,
+.exchange-image svg {
   display: block;
   height: auto;
   max-width: 100%;

@@ -13,23 +13,33 @@
 
     background: url("../../images/bg.png") center center/cover no-repeat;
 
-    &-img{
+    @media screen and (max-width:640px) {
+        gap: 15px;
+    }
+
+    &-img {
         height: 200px;
-      
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
         @media screen and (max-width:640px) {
             height: 150px;
         }
-        &__item{
-            height: 400px;
+
+        &__item {
+            height: 360px;
             width: 100%;
 
             display: flex;
             align-items: center;
             justify-content: center;
+
             @media screen and (max-width:640px) {
-                height: 200px;
+                height: 280px;
             }
-            img{
+
+            img {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
@@ -46,7 +56,7 @@
         &__text {
             font-style: italic;
             font-weight: 900;
-            font-size: 72px;
+            font-size: 90px;
             background: linear-gradient(180deg, #fff 0%, #0f8 100%);
             background-clip: text;
             -webkit-background-clip: text;
@@ -63,6 +73,10 @@
 
             position: relative;
             z-index: 2;
+
+            @media screen and (max-width:640px) {
+                font-size: 72px;
+            }
         }
 
         &__shadow {
@@ -70,7 +84,7 @@
 
             font-style: italic;
             font-weight: 900;
-            font-size: 64px;
+            font-size: 82px;
             color: #247953;
             text-shadow: 0 6px 50px 0 rgba(0, 0, 0, 0.5);
             text-transform: uppercase;
@@ -78,6 +92,10 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
+
+            @media screen and (max-width:640px) {
+                font-size: 64px;
+            }
         }
     }
 
@@ -135,6 +153,7 @@
 
         @media screen and (max-width:640px) {
             font-size: 15px;
+            gap: 5px;
         }
     }
 
@@ -213,9 +232,29 @@
 
         height: 60px;
 
-        width: 250px;
+        max-width: 300px;
+        width: 100%;
         margin: auto auto 0 auto;
         position: relative;
+
+        &:hover::before{
+            filter: blur(40px);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 95%;
+            height: 80%;
+            left: 2.5%;
+            top: 10%;
+
+            background: linear-gradient(90deg, #0f8 1.46%, #0f8 99.81%);
+            border: 1px solid rgba(#fff,.3);
+            border-radius: 71px;
+            box-shadow: 0 2px 72.7px #0f2368bd;
+            display: block;
+        }
 
         &__text {
             position: absolute;
@@ -228,11 +267,13 @@
             left: 0;
             top: 0;
             width: 100%;
-            border-radius: 24px;
+            border-radius: 32px;
             height: 100%;
             display: block;
-            filter: blur(60px);
+            filter: blur(20px);
             background: #0f8;
+
+            transition: .3s filter;
         }
     }
 }
@@ -241,12 +282,12 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-bottom:12px
+    margin-bottom: 12px
 }
 
 @media (min-width: 768px) {
     .ln-content-exchanges {
-        margin-bottom:20px
+        margin-bottom: 20px
     }
 }
 
@@ -260,35 +301,36 @@
     justify-content: center;
     margin-left: -24px;
     padding: 10px;
-    width:54px
+    width: 54px
 }
 
 @media (min-width: 1024px) {
     .ln-content-exchange {
         height: 64px;
-        width:64px
+        width: 64px
     }
 }
 
 .ln-content-exchange:first-child {
-    margin-left:0
+    margin-left: 0
 }
 
 .exchange-image {
-    overflow:hidden
+    overflow: hidden
 }
 
 .exchange-image.is-bingx {
-    border-radius:10px
+    border-radius: 10px
 }
 
 .exchange-image.is-bingx.is-border-6 {
-    border-radius:6px
+    border-radius: 6px
 }
 
-.exchange-image img, .exchange-image svg {
+.exchange-image img,
+.exchange-image svg {
     display: block;
     height: auto;
     max-width: 100%;
-    width:100%
+    width: 100%
 }
