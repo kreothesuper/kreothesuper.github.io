@@ -1,0 +1,231 @@
+.app {
+  min-height: 100svh;
+  background: #020b07;
+  font-family: "Roboto", sans-serif;
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  background: url("../../images/bg.png") center center/cover no-repeat;
+}
+.app-title {
+  position: relative;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  z-index: 2;
+}
+.app-title__text {
+  font-style: italic;
+  font-weight: 900;
+  font-size: 72px;
+  background: linear-gradient(180deg, #fff 0%, #0f8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  text-shadow: 0 6px 56px 0 rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.app-title__shadow {
+  position: absolute;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 64px;
+  color: #247953;
+  text-shadow: 0 6px 50px 0 rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.app__header {
+  flex-shrink: 0;
+  position: relative;
+}
+.app__header::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: #0f8;
+  opacity: 0.4;
+  filter: blur(350px);
+  -webkit-filter: blur(350px);
+  display: block;
+  z-index: 0;
+}
+.app__title {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 107%;
+  letter-spacing: -0.04em;
+  text-align: center;
+  background: linear-gradient(180deg, #fff 0%, #0f8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media screen and (max-width: 640px) {
+  .app__title {
+    font-size: 33px;
+  }
+}
+.app__text {
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+@media screen and (max-width: 640px) {
+  .app__text {
+    font-size: 15px;
+  }
+}
+.app__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-grow: 1;
+  position: relative;
+}
+.app-decor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+@media screen and (max-width: 1280px) {
+  .app-decor {
+    display: none;
+  }
+}
+.app-decor__img {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+}
+.app-decor__img:nth-child(1) {
+  left: 30px;
+  top: 100px;
+  transform: rotate(5deg);
+}
+.app-decor__img:nth-child(2) {
+  right: 30px;
+  top: 100px;
+  transform: rotate(-5deg);
+}
+.app-decor__img:nth-child(3) {
+  left: 30px;
+  bottom: 0px;
+  transform: rotate(-5deg);
+}
+.app-decor__img:nth-child(4) {
+  right: 30px;
+  bottom: 0px;
+  transform: rotate(5deg);
+}
+.app-button {
+  font-weight: 600;
+  font-size: 17px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #0f8;
+  border-radius: 32px;
+  height: 60px;
+  width: 250px;
+  margin: auto auto 0 auto;
+  position: relative;
+}
+.app-button__text {
+  position: absolute;
+  z-index: 2;
+}
+.app-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-radius: 24px;
+  height: 100%;
+  display: block;
+  filter: blur(60px);
+  background: #0f8;
+}
+
+.ln-content-exchanges {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .ln-content-exchanges {
+    margin-bottom: 20px;
+  }
+}
+.ln-content-exchange {
+  align-items: center;
+  background: #020b07;
+  border: 3px solid #0f8;
+  border-radius: 50%;
+  display: flex;
+  height: 54px;
+  justify-content: center;
+  margin-left: -24px;
+  padding: 10px;
+  width: 54px;
+}
+
+@media (min-width: 1024px) {
+  .ln-content-exchange {
+    height: 64px;
+    width: 64px;
+  }
+}
+.ln-content-exchange:first-child {
+  margin-left: 0;
+}
+
+.exchange-image {
+  overflow: hidden;
+}
+
+.exchange-image.is-bingx {
+  border-radius: 10px;
+}
+
+.exchange-image.is-bingx.is-border-6 {
+  border-radius: 6px;
+}
+
+.exchange-image img, .exchange-image svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}/*# sourceMappingURL=index.css.map */
