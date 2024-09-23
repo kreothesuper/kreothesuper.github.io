@@ -76,9 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const languageArray = document.querySelectorAll('.language');
 
-    console.log('1243');
     if (languageArray.length) {
-        console.log('1243');
         languageArray.forEach(language => {
             const currentLanguage = language.querySelector('.language__current');
 
@@ -186,14 +184,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    const fileItemArray = document.querySelectorAll('.file-item');
+    const fileItemArray = document.querySelectorAll('.file-item__link');
 
     if (fileItemArray.length) {
         fileItemArray.forEach(fileItem => {
             fileItem.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                fileItem.classList.toggle('file-item--active');
+                const parent = fileItem.closest('.file-item');
+                parent.classList.toggle('file-item--active');
             });
         });
     }
@@ -274,98 +273,147 @@ document.addEventListener('DOMContentLoaded', () => {
     const dpkCursor = document.querySelector(".follower");
     // dpkCursor.classList.add("dpkCursor");
     // document.body.appendChild(dpkCursor);
-    
-    
+
+
     function initCursor(speedOption = 0.25) {
-      
+
         let dpkCursorMouse = { x: -100, y: -100 };
         let dpkCursorPos = { x: 0, y: 0 };
         let speed = speedOption;
-       
+
         //center the circle around cursor       
-     
+
         window.addEventListener("mousemove", (e) => {
-          dpkCursorMouse.x = e.x;
-          dpkCursorMouse.y = e.y;
+            dpkCursorMouse.x = e.x;
+            dpkCursorMouse.y = e.y;
         });
-    
+
         const updatePosition = () => {
-          dpkCursorPos.x += (dpkCursorMouse.x - dpkCursorPos.x) * speed;
-          dpkCursorPos.y += (dpkCursorMouse.y - dpkCursorPos.y) * speed;
-    
-          dpkCursor.style.transform = `translate3d(calc(${dpkCursorPos.x}px - 50%) ,calc(${dpkCursorPos.y}px - 50%),0)`;
-        
+            dpkCursorPos.x += (dpkCursorMouse.x - dpkCursorPos.x) * speed;
+            dpkCursorPos.y += (dpkCursorMouse.y - dpkCursorPos.y) * speed;
+
+            dpkCursor.style.transform = `translate3d(calc(${dpkCursorPos.x}px - 50%) ,calc(${dpkCursorPos.y}px - 50%),0)`;
+
         };
-    
+
         function loop() {
-          updatePosition();
-          requestAnimationFrame(loop);
+            updatePosition();
+            requestAnimationFrame(loop);
         }
         requestAnimationFrame(loop);
-      
+
     }
 
 
-initCursor()
-
-    // const featuresEl = document.querySelector(".features");
-    // const featureEls = document.querySelectorAll(".feature");
-
-    // featuresEl.addEventListener("pointermove", (ev) => {
-    //     featureEls.forEach((featureEl) => {
-    //         // Not optimized yet, I know
-    //         const rect = featureEl.getBoundingClientRect();
-
-    //         featureEl.style.setProperty("--x", ev.clientX - rect.left);
-    //         featureEl.style.setProperty("--y", ev.clientY - rect.top);
-    //     });
-    // });
-
+    if (dpkCursor) {
+        initCursor()
+    }
 
 
 
     let lastX = 0; // Store the last X position for smoother animation
     const movementFactor = 0.1; // Adjust this for more or less movement
+    const inactivityTimeoutDuration = 2000; // Duration to wait before adding the 'not-moved' class
+    let inactivityTimeout; // Store the timeout ID
+    
+    if (parallaxContainer) {
+        parallaxContainer.classList.add('not-moved'); // Initially add the 'not-moved' class
+    
+        parallaxContainer.addEventListener('mousemove', function (e) {
+            const { clientX } = e; // Get the mouse's X position
+            const width = parallaxContainer.offsetWidth; // Get the width of the container
+            const midX = width / 2; // Calculate the middle of the container
+            // Calculate the movement based on mouse position
+            const xPos = (clientX - midX) * movementFactor;
+            // Smoothly interpolate the movement
+            const smoothX = lastX + (xPos - lastX) * 0.1; // Adjust the factor for smoothness
+            lastX = smoothX; // Update lastX for the next event
+            parallaxContainer.style.setProperty('--parallax', `${smoothX / 5}px`);
+            parallaxContainer.style.setProperty('--parallax-second', `${-smoothX / 5}px`);
+    
+            // Remove the 'not-moved' class when the mouse moves
+            parallaxContainer.classList.remove('not-moved');
+    
+            // Clear the previous timeout if the mouse is moving
+            clearTimeout(inactivityTimeout);
+    
+            // Set a timeout to add the 'not-moved' class after inactivity
+            inactivityTimeout = setTimeout(() => {
+                parallaxContainer.classList.add('not-moved');
+            }, inactivityTimeoutDuration);
+        });
+    }
 
 
-    parallaxContainer.addEventListener('mousemove', function (e) {
-        const { clientX } = e; // Get the mouse's X position
-        const width = parallaxContainer.offsetWidth; // Get the width of the container
-        const midX = width / 2; // Calculate the middle of the container
 
-        // Calculate the movement based on mouse position
-        const xPos = (clientX - midX) * movementFactor;
+    gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
-        // Smoothly interpolate the movement
-        const smoothX = lastX + (xPos - lastX) * 0.1; // Adjust the factor for smoothness
-        lastX = smoothX; // Update lastX for the next event
 
-        parallaxContainer.style.setProperty('--parralax', `${smoothX / 5}px`)
-        parallaxContainer.style.setProperty('--parralax-second', `${-smoothX / 5}px`)
-
-        // // Apply the transformation to each layer
-        // const layers = document.querySelectorAll('.parallax-layer');
-        // layers.forEach((layer, index) => {
-        //     const depth = index * 5; // Adjust depth for each layer
-        //     layer.style.transform = `translateX(${smoothX / depth}px)`;
-        // });
+    gsap.to(".industries__img", {
+        ease: "none",
+        xPercent: 100,
+        scrollTrigger: {
+            scrub: true,
+            trigger: ".industries",
+            start: "top bottom",
+            end: "bottom top",
+        },
     });
 
-    // parallaxContainer.addEventListener('mousemove', function (e) {
-    //     const { clientX } = e; // Get the mouse's X position
-    //     const width = parallaxContainer.offsetWidth; // Get the width of the container
-    //     const midX = width / 2; // Calculate the middle of the container
+    gsap.from(".video-section__item", {
+        ease: "none",
+        scale: 0,
+        borderRadius: '500px',
+        scrollTrigger: {
+            scrub: true,
+            trigger: ".video-section",
+            start: "top bottom",
+            end: "-30% top",
+        },
+    });
 
-    //     // Calculate the movement based on mouse position
-    //     const movementFactor = 0.1; // Adjust this for more or less movement
-    //     const xPos = (clientX - midX) * movementFactor;
 
-    //     // Apply the transformation to each layer
+    function handleMarquee() {
+        const marquee = document.querySelectorAll('.marquee');
+        let lastScrollPos = 0;
+        let timer;
+    
+        marquee.forEach(function (el) {
+            const container = el.querySelector('.inner');
+            const content = el.querySelector('.inner > *');
+            // Get total width
+            const speed = +el.dataset.speed || 4;
+            const elWidth = content.offsetWidth;
+            
+            // Duplicate content
+            let clone = content.cloneNode(true);
+            container.appendChild(clone);
+    
+            let progress = 0; // Start from 0 for the initial position
+            const direction = el.dataset.direction || 'left'; // Get the direction (default is 'left')
+    
+            function loop() {
+                if (direction === 'left') {
+                    progress = progress - speed;
+                    if (progress <= elWidth * -1) {
+                        progress = 0;
+                    }
+                } else if (direction === 'right') {
+                    progress = progress + speed;
+                    if (progress >= elWidth) {
+                        progress = 0;
+                    }
+                }
+    
+                container.style.transform = 'translateX(' + progress + 'px)';
+                container.style.transform += ' skewX(' + speed * 0.4 + 'deg)';
+                window.requestAnimationFrame(loop);
+            }
+    
+            loop();
+        });
+    }
+    
+    handleMarquee();
 
-    //     // const layers = document.querySelectorAll('.parallax-layer');
-    //     // layers.forEach((layer, index) => {
-    //     //     const depth = index * 10; // Adjust depth for each layer
-    //     //     layer.style.transform = `translateX(${xPos / depth}px)`;
-    //     // });
-    // });
 });
