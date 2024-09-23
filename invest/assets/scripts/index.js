@@ -414,6 +414,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    handleMarquee();
+    // handleMarquee();
 
+
+    const marqueeList = document.querySelectorAll('.marquee');
+
+    if(marqueeList.length){
+        marqueeList.forEach(marque=>{
+            new InfiniteMarquee({
+                element: marque,
+                speed: marque.dataset.speed || 25000,
+                direction: marque.dataset.direction || 'left',
+                gap: '20px',
+                duplicateCount: 2,
+            });
+        });
+    }
 });
