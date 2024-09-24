@@ -291,10 +291,16 @@ body {
   justify-content: center;
   fill: #fff;
   background: #020b07;
-  transition: 0.3s fill;
+  transition: 0.3s opacity;
+}
+.social__link--inst {
+  fill: #f00075;
+}
+.social__link--tg {
+  fill: #229ED9;
 }
 .social__link:hover {
-  fill: rgba(255, 255, 255, 0.6);
+  opacity: 0.8;
 }
 .social__link .icon {
   width: 30px;
@@ -314,17 +320,20 @@ body {
 .language__row {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
+}
+.language__text {
+  position: relative;
+  z-index: 3;
 }
 .language__item {
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-}
-.language__item.active {
-  border: 1px solid #fff;
+  text-transform: uppercase;
+  color: #Fff;
+  font-size: 20px;
 }
 .language__item.active::before {
   content: "";
@@ -337,11 +346,6 @@ body {
   background: #0f8;
   z-index: 1;
   filter: blur(20px);
-}
-@media screen and (max-width: 640px) {
-  .language__item {
-    height: 20px;
-  }
 }
 .language__item .icon {
   width: auto;

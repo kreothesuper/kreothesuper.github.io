@@ -327,10 +327,17 @@ body{
         fill: #fff;
         background: #020b07;
 
-        transition: .3s fill;
+        transition: .3s opacity;
+
+    &--inst{
+        fill: #f00075;
+    }
+        &--tg{
+            fill: #229ED9;
+        }
 
         &:hover{
-            fill: rgba(#fff,.6);
+            opacity: .8;
         }
 
         .icon{
@@ -354,17 +361,23 @@ body{
     &__row{
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 24px;
+    }
+    &__text{
+        position: relative;
+        z-index: 3;
     }
     &__item{
-    
-        height: 40px;
+
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
+
+        text-transform: uppercase;
+        color: #Fff;
+        font-size: 20px;
         &.active{
-            border: 1px solid #fff;
             &::before{
                 content: '';
                 position: absolute;
@@ -377,9 +390,6 @@ body{
                 z-index: 1;
                 filter: blur(20px);
             }
-        }
-        @media screen and (max-width:640px) {
-            height: 20px;
         }
         .icon{
             width: auto;
