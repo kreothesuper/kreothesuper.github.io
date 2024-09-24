@@ -317,6 +317,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     partnershipSlider.init();
 
+    const boxSlider = new Swiper('.box-slider', {
+        slidesPerView:'auto',
+        spaceBetween:0,
+        init:false,
+        autoHeight:true,
+        navigation: {
+            nextEl: '.box-slider__button--next',
+            prevEl: '.box-slider__button--prev',
+        },
+    });
+
+    boxSlider.init();
+
 
     const dpkCursor = document.querySelector(".follower");
     // dpkCursor.classList.add("dpkCursor");
