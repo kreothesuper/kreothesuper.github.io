@@ -54,6 +54,17 @@ body{
         }
     }
 
+    &-header{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 18px;
+        color: #fff;
+        &__text{
+            order: 2;
+        }
+    }
+
     &-info{
         display: flex;
         align-items: center;
@@ -373,6 +384,7 @@ body{
         align-items: center;
         justify-content: center;
         position: relative;
+        flex-direction: column;
 
         text-transform: uppercase;
         color: #Fff;
@@ -392,8 +404,7 @@ body{
             }
         }
         .icon{
-            width: auto;
-            height: 100%;
+            height: 30px;
             object-fit: contain;
             position: relative;
             z-index: 2;
