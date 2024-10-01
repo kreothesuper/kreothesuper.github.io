@@ -1,0 +1,281 @@
+@font-face {
+  font-family: "MADE Soulmaze";
+  src: url("../../fonts/MADESoulmaze.woff2") format("woff2"), url("../../fonts/MADESoulmaze.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.app {
+  font-family: "MADE Soulmaze", sans-serif;
+  background: url("../../images/app-bg.jpg") bottom center/cover no-repeat;
+  position: relative;
+}
+.app__wrapper {
+  height: 100svh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6vw;
+  padding: 15vw 3vw;
+}
+@media screen and (max-width: 640px) {
+  .app__wrapper {
+    padding: 60px 15px;
+  }
+}
+.app__close {
+  position: absolute;
+  width: 6vw;
+  height: 6vw;
+  top: 3.5vw;
+  right: 3.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app__close img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media screen and (max-width: 640px) {
+  .app__close {
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+  }
+}
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.app-header__title {
+  max-height: 13vw;
+  width: auto;
+  max-width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.app-stamina {
+  max-width: 70vw;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: url("../../images/stamina-bg.png") center center/contain no-repeat;
+  padding: 5vw 4.5vw 5.5vw 4.5vw;
+}
+.app-stamina__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #88dc4b 0%, #25aa43 100%);
+  border-radius: 1vw;
+  width: 20vw;
+  height: 8vw;
+  color: #Fff;
+  text-transform: uppercase;
+  text-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
+  font-size: 2.5vw;
+}
+
+.stamina {
+  height: 10vw;
+  width: 32vw;
+  background: url("../../images/stamina-bar-bg.png") center center/contain no-repeat;
+  position: relative;
+}
+.stamina__img {
+  width: 10vw;
+  height: 10vw;
+  padding: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stamina__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.stamina__count {
+  position: absolute;
+  width: 20vw;
+  height: 2.5vw;
+  right: 1.5vw;
+  bottom: 3.7vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.stamina__square {
+  flex-shrink: 0;
+  height: 2.5vw;
+  width: 2.5vw;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.stamina__square--red {
+  background: url("../../images/square-red.jpg");
+}
+.stamina__square--yellow {
+  background: url("../../images/square-yellow.jpg");
+}
+.stamina__square--green {
+  background: url("../../images/square-green.jpg");
+}
+
+.friends__box {
+  background: url("../../images/friends-bg.png") center center/contain no-repeat;
+  max-width: 70vw;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8vw 8vw;
+}
+.friends__title {
+  max-width: 50vw;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.friends__header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 2vw 0;
+}
+.friends__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4vw;
+}
+.friends__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 9vw;
+  max-width: 33vw;
+  width: 100%;
+  border-radius: 2vw;
+  font-weight: 400;
+  font-size: 2vw;
+  color: #fff;
+  text-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.19);
+  background: linear-gradient(180deg, #88dc4b 0%, #1ca542 100%);
+  text-transform: uppercase;
+  box-shadow: 0 0 25px 5px rgba(136, 220, 75, 0.5);
+}
+.friends-block {
+  padding: 3vw 5vw 5vw 5vw;
+  background: url("../../images/friends-block-bg.png") left center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+.friends-block__title {
+  height: 3.6vw;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  -o-object-position: left top;
+     object-position: left top;
+}
+.friends-block__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.friends-block__tag {
+  width: 18vw;
+  height: 7vw;
+  background: linear-gradient(180deg, #88dc4b 0%, #1ca542 100%);
+  border-radius: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.19);
+  color: #fff;
+  font-size: 2vw;
+}
+.friends-block__tag img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 6vw;
+}
+
+.quests__wrapper {
+  padding: 7vw 7vw 21vw 7vw;
+  background: url("../../images/friends-bg.png") top center/contain no-repeat;
+  max-width: 70vw;
+  width: 100%;
+  margin: 0 auto;
+}
+.quests__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 3vw 0;
+}
+.quests__title {
+  height: 6vw;
+  margin: 0 auto;
+}
+.quests__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8vw;
+  max-width: 55vw;
+  width: 100%;
+  margin: 0 auto;
+}
+.quests-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../../images/quests-item-bg.png") center center/cover no-repeat;
+  padding: 2.7vw 2.7vw 3.6vw 2.7vw;
+  gap: 2vw;
+}
+.quests-item__img {
+  width: 9vw;
+  height: 9vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+  flex-shrink: 0;
+}
+.quests-item__title {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quests-item__title img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.quests-item__button {
+  width: 12vw;
+  height: 5vw;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #88dc4b 0%, #25aa43 100%);
+  border-radius: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quests-item__button img {
+  width: 5.4vw;
+  height: 2.7vw;
+  -o-object-fit: contain;
+     object-fit: contain;
+}/*# sourceMappingURL=index.css.map */
