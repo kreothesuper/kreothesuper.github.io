@@ -55,11 +55,42 @@
         }
     }
 
+    &-count {
+        width: 22vw;
+        height: 10vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url("../../images/count-bg.png") center center/contain no-repeat;
+        position: relative;
+
+        &__number {
+            font-size: 3vw;
+            color: #fff;
+            text-transform: uppercase;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 14vw;
+            height: 7vw;
+            left: 1vw;
+            top: 1vw;
+        }
+    }
+
     &-header {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        &--left {
+            align-items: flex-start;
+            gap: 2vw;
+        }
 
         &__title {
             max-height: 13vw;
@@ -67,9 +98,46 @@
             max-width: 100%;
             object-fit: contain;
         }
+
+        &__text {
+            font-size: 2vw;
+            text-transform: uppercase;
+            color: #fff;
+        }
     }
 
-    &-stamina{
+    &-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 10vw;
+        max-width: 42vw;
+        width: 100%;
+
+        flex-shrink: 0;
+
+        border-radius: 2vw;
+        font-weight: 400;
+        font-size: 3.6vw;
+        color: #fff;
+        text-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.19);
+        background: linear-gradient(180deg, #88dc4b 0%, #1ca542 100%);
+
+        text-transform: uppercase;
+
+        box-shadow: 0 0 25px 5px rgba(#88dc4b, .5);
+
+        &.disabled {
+            background: linear-gradient(180deg, #a9a9a9 0%, #5a5a5a 100%);
+        }
+
+        &--game{
+            margin: auto auto 0 auto;
+        }
+    }
+
+    &-stamina {
         max-width: 70vw;
         width: 100%;
         margin: 0 auto;
@@ -79,7 +147,8 @@
         justify-content: space-between;
         background: url("../../images/stamina-bg.png") center center/contain no-repeat;
         padding: 5vw 4.5vw 5.5vw 4.5vw;
-        &__button{
+
+        &__button {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -93,17 +162,22 @@
             text-transform: uppercase;
             text-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
             font-size: 2.5vw;
+
+            &.disabled {
+                background: linear-gradient(180deg, #a9a9a9 0%, #5a5a5a 100%);
+            }
         }
     }
 }
 
-.stamina{
+.stamina {
     height: 10vw;
     width: 32vw;
     background: url("../../images/stamina-bar-bg.png") center center/contain no-repeat;
 
     position: relative;
-    &__img{
+
+    &__img {
         width: 10vw;
         height: 10vw;
 
@@ -112,13 +186,14 @@
         align-items: center;
         justify-content: center;
 
-        img{
+        img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
     }
-    &__count{
+
+    &__count {
         position: absolute;
         width: 20vw;
         height: 2.5vw;
@@ -129,7 +204,8 @@
         align-items: center;
         justify-content: space-between;
     }
-    &__square{
+
+    &__square {
         flex-shrink: 0;
         height: 2.5vw;
         width: 2.5vw;
@@ -137,13 +213,15 @@
         background-size: cover;
         background-repeat: no-repeat;
 
-        &--red{
+        &--red {
             background: url("../../images/square-red.jpg");
         }
-        &--yellow{
+
+        &--yellow {
             background: url("../../images/square-yellow.jpg");
         }
-        &--green{
+
+        &--green {
             background: url("../../images/square-green.jpg");
         }
     }
@@ -173,7 +251,7 @@
         margin: 0 0 2vw 0;
     }
 
-    &__content{
+    &__content {
         display: flex;
         flex-direction: column;
         gap: 4vw;
@@ -189,7 +267,7 @@
         width: 100%;
 
 
-        border-radius:2vw;
+        border-radius: 2vw;
         font-weight: 400;
         font-size: 2vw;
         color: #fff;
@@ -198,27 +276,34 @@
 
         text-transform: uppercase;
 
-        box-shadow: 0 0 25px 5px rgba(#88dc4b,.5);
+        box-shadow: 0 0 25px 5px rgba(#88dc4b, .5);
+
+        &.disabled {
+            background: linear-gradient(180deg, #a9a9a9 0%, #5a5a5a 100%);
+        }
     }
 
-    &-block{
+    &-block {
         padding: 3vw 5vw 5vw 5vw;
         background: url("../../images/friends-block-bg.png") left center/cover no-repeat;
         display: flex;
         flex-direction: column;
         gap: 2vw;
-        &__title{
+
+        &__title {
             height: 3.6vw;
             object-fit: contain;
             width: 100%;
             object-position: left top;
         }
-        &__row{
+
+        &__row {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        &__tag{
+
+        &__tag {
             width: 18vw;
             height: 7vw;
             background: linear-gradient(180deg, #88dc4b 0%, #1ca542 100%);
@@ -232,7 +317,7 @@
             color: #fff;
             font-size: 2vw;
 
-            img{
+            img {
                 object-fit: contain;
                 width: 6vw;
             }
@@ -240,26 +325,33 @@
     }
 }
 
-.quests{
-    &__wrapper{
+.quests {
+    &__wrapper {
         padding: 7vw 7vw 21vw 7vw;
         background: url("../../images/friends-bg.png") top center/contain no-repeat;
         max-width: 70vw;
         width: 100%;
         margin: 0 auto;
     }
-    &__header{
+
+    &__header {
         display: flex;
         align-items: center;
         justify-content: center;
 
         margin: 0 0 3vw 0;
     }
-    &__title{
+
+    &__title {
         height: 6vw;
         margin: 0 auto;
+
+        &--small {
+            height: 3.6vw;
+        }
     }
-    &__list{
+
+    &__list {
         display: flex;
         flex-direction: column;
         gap: 8vw;
@@ -267,8 +359,12 @@
         max-width: 55vw;
         width: 100%;
         margin: 0 auto;
+
+        max-height: 60vw;
+        overflow: auto;
     }
-    &-item{
+
+    &-item {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -276,24 +372,48 @@
 
         padding: 2.7vw 2.7vw 3.6vw 2.7vw;
         gap: 2vw;
-        &__img{
+
+        &--small {
+            padding: 1.5vw;
+        }
+
+        &__img {
             width: 9vw;
             height: 9vw;
             object-fit: cover;
             flex-shrink: 0;
         }
-        &__title{
+
+        &__title {
             flex-grow: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            img{
+
+            &--small {
+                height: 5vw;
+
+                img {
+                    object-position: left center;
+                }
+            }
+
+            &--tiny {
+                height: 3vw;
+
+                img {
+                    object-position: left center;
+                }
+            }
+
+            img {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
             }
         }
-        &__button{
+
+        &__button {
             width: 12vw;
             height: 5vw;
             flex-shrink: 0;
@@ -304,12 +424,154 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 1vw;
+            font-size: 2vw;
+            text-transform: uppercase;
+            color: #fff;
 
-            img{
+            &.disabled {
+                background: linear-gradient(180deg, #a9a9a9 0%, #5a5a5a 100%);
+            }
+
+            img {
                 width: 5.4vw;
                 height: 2.7vw;
                 object-fit: contain;
             }
         }
+    }
+}
+
+.boost {
+    &-item {
+        max-width: 70vw;
+        height: 20vw;
+        width: 100%;
+        margin: 0 auto;
+        background: url("../../images/boost-item.png") center center/cover no-repeat;
+        padding: 5vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__title {
+            height: 3.6vw;
+            object-fit: contain;
+        }
+
+        &__button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1vw;
+            text-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.19);
+
+            font-size: 3vw;
+            width: 20vw;
+            height: 8vw;
+
+            flex-shrink: 0;
+            border-radius: 1vw;
+
+            color: #fff;
+
+            background: linear-gradient(180deg, #88dc4b 0%, #1ca542 100%);
+
+            &.disabled {
+                background: linear-gradient(180deg, #a9a9a9 0%, #5a5a5a 100%);
+            }
+
+            img {
+                width: 4.4vw;
+                height: 2.2vw;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+.skins {
+    &-slider {
+        &__button {
+            width: 42vw;
+            height: 10vw;
+            font-size: 4vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-transform: uppercase;
+            border-radius: 2vw;
+            background: linear-gradient(180deg, #88dc4b 0%, #25aa43 100%);
+
+            position: absolute;
+            opacity: 0;
+            left: -6vw;
+            bottom: -10vw;
+            &.disabled {
+                background: linear-gradient(180deg, #a9a9a9 0%, #5a5a5a 100%);
+            }
+        }
+        &__item.active &__button{
+    
+            opacity: 1;
+        }
+    }
+}
+
+.carousel{
+    height: 50vw;
+}
+
+.carousel .carousel-item{
+    width: 30vw;
+    height: 30vw;
+}
+
+.tasks {
+    &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+    }
+}
+
+.play {
+    &-button {
+        max-width: 70vw;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.nav {
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20vw;
+        height: 20vw;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 }
