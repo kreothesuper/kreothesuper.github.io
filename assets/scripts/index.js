@@ -4,6 +4,7 @@ const horseArray = [
         name: {
             ru: 'Аполлон',
             fr: 'Apollon',
+            ar:'إسم الخيل'
         },
         discipline: {
             ru: {
@@ -13,6 +14,10 @@ const horseArray = [
             fr: {
                 name: 'CSO',
                 label: 'Discipline équestre'
+            },
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
             }
         },
         type: {
@@ -33,7 +38,8 @@ const horseArray = [
             fr: {
                 name: 'Hollande',
                 label: 'Localisation'
-            }
+            },
+           
         },
         family: {
             ru: {
@@ -43,6 +49,10 @@ const horseArray = [
             fr: {
                 name: 'Nom x Nom',
                 label: 'Généalogie'
+            },
+            ar:{
+                name:'النسب',
+                label:'إسم х إسم'
             }
         },
         age: {
@@ -53,6 +63,10 @@ const horseArray = [
             fr: {
                 name: 2,
                 label: 'Âge'
+            },
+            ar: {
+                name: 5,
+                label: 'العمر'
             }
         },
         vetcheck: {
@@ -62,6 +76,9 @@ const horseArray = [
             },
             fr: {
                 label: 'VetСheck'
+            },
+            ar: {
+                label: 'الفحص البيطري'
             }
         },
         rate: 2,
@@ -333,14 +350,50 @@ const getCurrentLanguage = () => {
 const createHorseCard = (horse) => {
     const languageCurrent = getCurrentLanguage();
 
-    const horseAgeLabel = (languageCurrent === 'ru' && horse.age[languageCurrent].name <= 4) ? "года" : (languageCurrent === 'ru' ? 'лет' : 'ans');
-    const buttonText = languageCurrent === 'fr' ? 'EN SAVOIR PLUS SUR LE CHEVAL' : 'подробнее о лошади';
-    const priceText = languageCurrent === 'fr' ? "Estimation du prix d'un cheval" : 'Оценивание лошади';
-    const pleaFirst = languageCurrent === 'fr' ? "de" : 'от';
-    const pleaSecond = languageCurrent === 'fr' ? "à" : 'до';
+    let horseAgeLabel, buttonText, priceText, pleaFirst, pleaSecond;
+
+    switch (languageCurrent) {
+        case 'ru':
+            horseAgeLabel = horse.age[languageCurrent].name <= 4 ? "года" : 'лет';
+            buttonText = 'подробнее о лошади';
+            priceText = 'Оценивание лошади';
+            pleaFirst = 'от';
+            pleaSecond = 'до';
+            break;
+        case 'fr':
+            horseAgeLabel = horse.age[languageCurrent].name <= 4 ? "ans" : 'ans';
+            buttonText = 'EN SAVOIR PLUS SUR LE CHEVAL';
+            priceText = "Estimation du prix d'un cheval";
+            pleaFirst = 'de';
+            pleaSecond = 'à';
+            break;
+        case 'de': 
+            horseAgeLabel = horse.age[languageCurrent].name <= 4 ? "Jahre" : 'Jahre';
+            buttonText = 'MEHR ÜBER DAS PFERD';
+            priceText = 'Bewertung eines Pferdes';
+            pleaFirst = 'von';
+            pleaSecond = 'bis';
+            break;
+        case 'ar': 
+            horseAgeLabel = horse.age[languageCurrent].name <= 4 ? "anni" : 'anni';
+            buttonText = 'SCOPRI DI PIÙ SUL CAVALLO';
+            priceText = 'Stima del prezzo di un cavallo';
+            pleaFirst = 'da';
+            pleaSecond = 'a';
+            break;
+        default:
+            horseAgeLabel = 'سنوات'; 
+            buttonText = 'تفاصيل عن الخيل';
+            priceText = 'تقييم الخيل';
+            pleaFirst = 'يورو';
+            pleaSecond = 'حتى';
+            break;
+    }
+
+    // Now you can use horseAgeLabel, buttonText, priceText, pleaFirst, and pleaSecond as needed
 
     return `
-    <div class="card">
+    <a  href="/${languageCurrent}/horse.html?id=${horse.id}" class="card">
         <div class="card__img">
             <img src="/assets/images/catalog/1.webp" alt="">
         </div>
@@ -420,12 +473,12 @@ const createHorseCard = (horse) => {
                     </div>
                 </div>
             </div>
-            <a href="/${languageCurrent}/horse.html?id=${horse.id}"
+            <div
                 class="button button--mobile--full button--base button--bordered">
                 ${buttonText}
-            </a>
+            </div>
         </div>
-    </div>
+    </a>
     `
 }
 
@@ -446,8 +499,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (languageList.length) {
         languageList.forEach(language => {
             const languageCurrent = language.querySelector('.language__current'),
-                languageCurrentText = languageCurrent.querySelector('.language__text'),
-                languageChecked = language.querySelector(':checked');
+                languageCurrentText = languageCurrent.querySelector('.language__text');
+
+
+            const currentLanguage = getCurrentLanguage(),
+                inputArray = language.querySelectorAll('input');
+            inputArray.forEach(input => input.value == currentLanguage ? input.checked = true : input.checked = false);
+
+            const languageChecked = language.querySelector(':checked');
 
             languageCurrent.addEventListener('click', () => {
                 language.classList.toggle('language--active');
@@ -590,8 +649,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        if(filterReset){
-            filterReset.addEventListener('click',(e)=>{
+        if (filterReset) {
+            filterReset.addEventListener('click', (e) => {
                 e.preventDefault();
 
                 filterForm.reset();
@@ -600,7 +659,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const filterRate = filter.querySelectorAll('[name="rate"]');
 
-                if(filterRate.length){
+                if (filterRate.length) {
                     filterRate[0].value = 1;
                     filterRate[1].value = 5;
 
@@ -874,8 +933,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                 });
 
-                if(closestForm){
-                    closestForm.addEventListener('reset',()=>{
+                if (closestForm) {
+                    closestForm.addEventListener('reset', () => {
                         rangeInputMin.value = rangeSliderElement.value()[0];
                         rangeInputMax.value = rangeSliderElement.value()[1];
                     });
