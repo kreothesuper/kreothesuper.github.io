@@ -15,6 +15,17 @@ body {
   color: var(--color-black);
 }
 
+.rtl {
+  text-align: right;
+}
+
+.rtl .view-list__item {
+  justify-content: flex-end;
+}
+.rtl .view-list__item::before {
+  order: 2;
+}
+
 .container {
   max-width: 1320px;
   width: 100%;
@@ -994,6 +1005,12 @@ body {
 .proccese-item--fr::before {
   content: "Étape " counter(list);
 }
+.proccese-item--en::before {
+  content: "Step " counter(list);
+}
+.proccese-item--de::before {
+  content: "Schritt " counter(list);
+}
 .proccese-item__img {
   width: 56px;
   height: 56px;
@@ -1877,6 +1894,8 @@ body {
 .price-info {
   position: relative;
   z-index: 6;
+  width: -moz-max-content;
+  width: max-content;
 }
 @media screen and (max-width: 767px) {
   .price-info {
@@ -1898,6 +1917,8 @@ body {
   display: flex;
   align-items: center;
   gap: 25px;
+  width: -moz-max-content;
+  width: max-content;
 }
 .price-info__label {
   display: flex;

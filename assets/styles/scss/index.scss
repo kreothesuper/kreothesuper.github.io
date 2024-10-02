@@ -14,6 +14,17 @@ body {
     color: var(--color-black);
 }
 
+.rtl{
+    text-align: right;
+}
+
+.rtl .view-list__item{
+    justify-content: flex-end;
+    &::before{
+        order: 2;
+    }
+}
+
 .container {
     max-width: 1320px;
     width: 100%;
@@ -1134,6 +1145,18 @@ body {
             }
         }
 
+        &--en{
+            &::before{
+                content: "Step " counter(list);
+            }
+        }
+
+        &--de{
+            &::before{
+                content: "Schritt " counter(list);
+            }
+        }
+
         &__img {
             width: 56px;
             height: 56px;
@@ -2041,6 +2064,7 @@ body {
     &-info{
         position: relative;
         z-index: 6;
+        width: max-content;
         @media screen and (max-width:767px) {
             width: 100%;
         }
@@ -2059,6 +2083,7 @@ body {
             display: flex;
             align-items: center;
             gap: 25px;
+            width: max-content;
         }
         &__label{
             display: flex;
