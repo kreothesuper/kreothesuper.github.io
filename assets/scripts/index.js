@@ -4,7 +4,9 @@ const horseArray = [
         name: {
             ru: 'Аполлон',
             fr: 'Apollon',
-            ar:'إسم الخيل'
+            ar: 'إسم الخيل',
+            en:'Apollon',
+            de:'Apollon'
         },
         discipline: {
             ru: {
@@ -18,6 +20,14 @@ const horseArray = [
             ar: {
                 name: 'إسم التخصص',
                 label: 'التخصص'
+            },
+            en: {
+                name: 'Dressage',
+                label: 'Discipline'
+            },
+            de:{
+                name:'Springreiten',
+                label:'Disziplin'
             }
         },
         type: {
@@ -28,7 +38,19 @@ const horseArray = [
             fr: {
                 name: 'Jument',
                 label: 'Cheval'
-            }
+            },
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
+            },
+            en: {
+                name: 'Stallion',
+                label: 'Horse'
+            },
+            de:{
+                name:'Hengst',
+                label:'Pferd'
+            },
         },
         location: {
             ru: {
@@ -39,7 +61,18 @@ const horseArray = [
                 name: 'Hollande',
                 label: 'Localisation'
             },
-           
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
+            },
+            en: {
+                name: 'Germany',
+                label: 'Location'
+            },
+            de:{
+                name: 'Deutschland',
+                label: 'Standort',
+            },
         },
         family: {
             ru: {
@@ -50,10 +83,18 @@ const horseArray = [
                 name: 'Nom x Nom',
                 label: 'Généalogie'
             },
-            ar:{
-                name:'النسب',
-                label:'إسم х إسم'
-            }
+            ar: {
+                name: 'النسب',
+                label: 'إسم х إسم'
+            },
+            en: {
+                name: 'Name x Name',
+                label: 'Pedigree'
+            },
+            de:{
+                name: 'Name x Name',
+                label: 'Stammbaum'
+            },
         },
         age: {
             ru: {
@@ -65,8 +106,16 @@ const horseArray = [
                 label: 'Âge'
             },
             ar: {
-                name: 5,
+                name: 2,
                 label: 'العمر'
+            },
+            en:{
+                name: 2,
+                label: 'Age'
+            },
+            de:{
+                name:2,
+                label:'Alter',
             }
         },
         vetcheck: {
@@ -79,6 +128,12 @@ const horseArray = [
             },
             ar: {
                 label: 'الفحص البيطري'
+            },
+            en:{
+                label:'Vet check',
+            },
+            de:{
+                label:'Tierärztliche Untersuchung',
             }
         },
         rate: 2,
@@ -87,7 +142,10 @@ const horseArray = [
         id: 2,
         name: {
             ru: 'Зевс',
-            fr: 'Zevs'
+            fr: 'Zevs',
+            ar: 'إسم الخيل',
+            en:'Zevs',
+            de:'Zevs'
         },
         discipline: {
             ru: {
@@ -97,6 +155,18 @@ const horseArray = [
             fr: {
                 name: 'Dressage',
                 label: 'Discipline équestre'
+            },
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
+            },
+            en: {
+                name: 'Dressage',
+                label: 'Discipline'
+            },
+            de:{
+                name:'Dressage',
+                label:'Disziplin'
             }
         },
         type: {
@@ -107,6 +177,18 @@ const horseArray = [
             fr: {
                 name: 'Jument',
                 label: 'Cheval'
+            },
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
+            },
+            en: {
+                name: 'Mare',
+                label: 'Discipline'
+            },
+            de:{
+                name:'Mare',
+                label:'Disziplin'
             }
         },
         location: {
@@ -117,7 +199,19 @@ const horseArray = [
             fr: {
                 name: 'Russie',
                 label: 'Localisation'
-            }
+            },
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
+            },
+            en: {
+                name: 'Germany',
+                label: 'Location'
+            },
+            de:{
+                name: 'Deutschland',
+                label: 'Standort',
+            },
         },
         family: {
             ru: {
@@ -127,7 +221,19 @@ const horseArray = [
             fr: {
                 name: 'Nom x Nom',
                 label: 'Généalogie'
-            }
+            },
+            ar: {
+                name: 'النسب',
+                label: 'إسم х إسم'
+            },
+            en: {
+                name: 'Name x Name',
+                label: 'Pedigree'
+            },
+            de:{
+                name: 'Name x Name',
+                label: 'Stammbaum'
+            },
         },
         age: {
             ru: {
@@ -137,6 +243,18 @@ const horseArray = [
             fr: {
                 name: 2,
                 label: 'Âge'
+            },
+            ar: {
+                name: 2,
+                label: 'العمر'
+            },
+            en:{
+                name: 2,
+                label: 'Age'
+            },
+            de:{
+                name:2,
+                label:'Alter',
             }
         },
         vetcheck: {
@@ -146,6 +264,15 @@ const horseArray = [
             },
             fr: {
                 label: 'VetСheck'
+            },
+            ar: {
+                label: 'الفحص البيطري'
+            },
+            en:{
+                label:'Vet check',
+            },
+            de:{
+                label:'Tierärztliche Untersuchung',
             }
         },
         rate: 5,
@@ -153,75 +280,11 @@ const horseArray = [
     {
         id: 3,
         name: {
-            ru: 'Аполлон 1',
-            fr: 'Apollon 1',
-        },
-        discipline: {
-            ru: {
-                name: 'Троеборье',
-                label: 'Дисциплина'
-            },
-            fr: {
-                name: 'Complet',
-                label: 'Discipline équestre'
-            }
-        },
-        type: {
-            ru: {
-                name: 'Мерин',
-                label: 'Лошадь'
-            },
-            fr: {
-                name: 'Hongre',
-                label: 'Cheval'
-            }
-        },
-        location: {
-            ru: {
-                name: 'Россия',
-                label: 'Локация'
-            },
-            fr: {
-                name: 'Russie',
-                label: 'Localisation'
-            }
-        },
-        family: {
-            ru: {
-                name: 'Имя х Имя',
-                label: 'Родословная'
-            },
-            fr: {
-                name: 'Nom x Nom',
-                label: 'Généalogie'
-            }
-        },
-        age: {
-            ru: {
-                name: 12,
-                label: 'Возраст'
-            },
-            fr: {
-                name: 12,
-                label: 'Âge'
-            }
-        },
-        vetcheck: {
-            name: true,
-            ru: {
-                label: 'Вет-чек'
-            },
-            fr: {
-                label: 'VetСheck'
-            }
-        },
-        rate: 4,
-    },
-    {
-        id: 4,
-        name: {
             ru: 'Аполлон 2',
             fr: 'Apollon 2',
+            ar: 'إسم الخيل',
+            en:'Apollon 2',
+            de:'Apollon 2'
         },
         discipline: {
             ru: {
@@ -231,6 +294,18 @@ const horseArray = [
             fr: {
                 name: 'CSO',
                 label: 'Discipline équestre'
+            },
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
+            },
+            en: {
+                name: 'Dressage',
+                label: 'Discipline'
+            },
+            de:{
+                name:'Springreiten',
+                label:'Disziplin'
             }
         },
         type: {
@@ -241,17 +316,41 @@ const horseArray = [
             fr: {
                 name: 'Jument',
                 label: 'Cheval'
-            }
+            },
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
+            },
+            en: {
+                name: 'Stallion',
+                label: 'Horse'
+            },
+            de:{
+                name:'Hengst',
+                label:'Pferd'
+            },
         },
         location: {
             ru: {
-                name: 'Франция',
+                name: 'Германия',
                 label: 'Локация'
             },
             fr: {
-                name: 'France',
+                name: 'Hollande',
                 label: 'Localisation'
-            }
+            },
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
+            },
+            en: {
+                name: 'Germany',
+                label: 'Location'
+            },
+            de:{
+                name: 'Deutschland',
+                label: 'Standort',
+            },
         },
         family: {
             ru: {
@@ -261,16 +360,40 @@ const horseArray = [
             fr: {
                 name: 'Nom x Nom',
                 label: 'Généalogie'
-            }
+            },
+            ar: {
+                name: 'النسب',
+                label: 'إسم х إسم'
+            },
+            en: {
+                name: 'Name x Name',
+                label: 'Pedigree'
+            },
+            de:{
+                name: 'Name x Name',
+                label: 'Stammbaum'
+            },
         },
         age: {
             ru: {
-                name: 13,
+                name: 2,
                 label: 'Возраст'
             },
             fr: {
-                name: 13,
+                name: 2,
                 label: 'Âge'
+            },
+            ar: {
+                name: 2,
+                label: 'العمر'
+            },
+            en:{
+                name: 2,
+                label: 'Age'
+            },
+            de:{
+                name:2,
+                label:'Alter',
             }
         },
         vetcheck: {
@@ -280,10 +403,158 @@ const horseArray = [
             },
             fr: {
                 label: 'VetСheck'
+            },
+            ar: {
+                label: 'الفحص البيطري'
+            },
+            en:{
+                label:'Vet check',
+            },
+            de:{
+                label:'Tierärztliche Untersuchung',
             }
         },
-        rate: 3,
-    }
+        rate: 2,
+    },
+    {
+        id:4,
+        name: {
+            ru: 'Зевс',
+            fr: 'Zevs',
+            ar: 'إسم الخيل',
+            en:'Zevs',
+            de:'Zevs'
+        },
+        discipline: {
+            ru: {
+                name: 'Выездка',
+                label: 'Дисциплина'
+            },
+            fr: {
+                name: 'Dressage',
+                label: 'Discipline équestre'
+            },
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
+            },
+            en: {
+                name: 'Dressage',
+                label: 'Discipline'
+            },
+            de:{
+                name:'Dressage',
+                label:'Disziplin'
+            }
+        },
+        type: {
+            ru: {
+                name: 'Кобыла',
+                label: 'Лошадь'
+            },
+            fr: {
+                name: 'Jument',
+                label: 'Cheval'
+            },
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
+            },
+            en: {
+                name: 'Mare',
+                label: 'Discipline'
+            },
+            de:{
+                name:'Mare',
+                label:'Disziplin'
+            }
+        },
+        location: {
+            ru: {
+                name: 'Россия',
+                label: 'Локация'
+            },
+            fr: {
+                name: 'Russie',
+                label: 'Localisation'
+            },
+            ar: {
+                name: 'إسم التخصص',
+                label: 'التخصص'
+            },
+            en: {
+                name: 'Germany',
+                label: 'Location'
+            },
+            de:{
+                name: 'Deutschland',
+                label: 'Standort',
+            },
+        },
+        family: {
+            ru: {
+                name: 'Имя х Имя',
+                label: 'Родословная'
+            },
+            fr: {
+                name: 'Nom x Nom',
+                label: 'Généalogie'
+            },
+            ar: {
+                name: 'النسب',
+                label: 'إسم х إسم'
+            },
+            en: {
+                name: 'Name x Name',
+                label: 'Pedigree'
+            },
+            de:{
+                name: 'Name x Name',
+                label: 'Stammbaum'
+            },
+        },
+        age: {
+            ru: {
+                name: 2,
+                label: 'Возраст'
+            },
+            fr: {
+                name: 2,
+                label: 'Âge'
+            },
+            ar: {
+                name: 2,
+                label: 'العمر'
+            },
+            en:{
+                name: 2,
+                label: 'Age'
+            },
+            de:{
+                name:2,
+                label:'Alter',
+            }
+        },
+        vetcheck: {
+            name: true,
+            ru: {
+                label: 'Вет-чек'
+            },
+            fr: {
+                label: 'VetСheck'
+            },
+            ar: {
+                label: 'الفحص البيطري'
+            },
+            en:{
+                label:'Vet check',
+            },
+            de:{
+                label:'Tierärztliche Untersuchung',
+            }
+        },
+        rate: 5,
+    },
 ];
 
 const searchAndFormatName = (array, searchName) => {
@@ -367,26 +638,26 @@ const createHorseCard = (horse) => {
             pleaFirst = 'de';
             pleaSecond = 'à';
             break;
-        case 'de': 
+        case 'de':
             horseAgeLabel = horse.age[languageCurrent].name <= 4 ? "Jahre" : 'Jahre';
             buttonText = 'MEHR ÜBER DAS PFERD';
             priceText = 'Bewertung eines Pferdes';
             pleaFirst = 'von';
             pleaSecond = 'bis';
             break;
-        case 'ar': 
-            horseAgeLabel = horse.age[languageCurrent].name <= 4 ? "anni" : 'anni';
-            buttonText = 'SCOPRI DI PIÙ SUL CAVALLO';
-            priceText = 'Stima del prezzo di un cavallo';
-            pleaFirst = 'da';
-            pleaSecond = 'a';
-            break;
-        default:
-            horseAgeLabel = 'سنوات'; 
+        case 'ar':
+            horseAgeLabel = 'سنوات';
             buttonText = 'تفاصيل عن الخيل';
             priceText = 'تقييم الخيل';
             pleaFirst = 'يورو';
             pleaSecond = 'حتى';
+            break;
+        default:
+            horseAgeLabel = 'y.o';
+            buttonText = 'MORE ABOUT THE HORSE';
+            priceText = 'Horse evaluation';
+            pleaFirst = 'from';
+            pleaSecond = 'to';
             break;
     }
 
@@ -717,10 +988,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!searchHorse) return;
 
-        const horseAgeLabel = (languageCurrent === 'ru' && searchHorse.age[languageCurrent].name <= 4) ? "года" : (languageCurrent === 'ru' ? 'лет' : 'ans');
-        const priceText = languageCurrent === 'fr' ? "Estimation du prix d'un cheval" : 'Оценивание лошади';
-        const pleaFirst = languageCurrent === 'fr' ? "de" : 'от';
-        const pleaSecond = languageCurrent === 'fr' ? "à" : 'до';
+        const languageCurrent = getCurrentLanguage();
+
+        let horseAgeLabel, buttonText, priceText, pleaFirst, pleaSecond;
+
+        switch (languageCurrent) {
+            case 'ru':
+                horseAgeLabel = searchHorse.age[languageCurrent].name <= 4 ? "года" : 'лет';
+                buttonText = 'подробнее о лошади';
+                priceText = 'Оценивание лошади';
+                pleaFirst = 'от';
+                pleaSecond = 'до';
+                break;
+            case 'fr':
+                horseAgeLabel = searchHorse.age[languageCurrent].name <= 4 ? "ans" : 'ans';
+                buttonText = 'EN SAVOIR PLUS SUR LE CHEVAL';
+                priceText = "Estimation du prix d'un cheval";
+                pleaFirst = 'de';
+                pleaSecond = 'à';
+                break;
+            case 'de':
+                horseAgeLabel = searchHorse.age[languageCurrent].name <= 4 ? "Jahre" : 'Jahre';
+                buttonText = 'MEHR ÜBER DAS PFERD';
+                priceText = 'Bewertung eines Pferdes';
+                pleaFirst = 'von';
+                pleaSecond = 'bis';
+                break;
+            case 'ar':
+                horseAgeLabel = 'سنوات';
+                buttonText = 'تفاصيل عن الخيل';
+                priceText = 'تقييم الخيل';
+                pleaFirst = 'يورو';
+                pleaSecond = 'حتى';
+                break;
+            default:
+                horseAgeLabel = 'y.o';
+                buttonText = 'MORE ABOUT THE HORSE';
+                priceText = 'Horse evaluation';
+                pleaFirst = 'from';
+                pleaSecond = 'to';
+                break;
+        }
 
         horseSingle.innerHTML = `
         <div class="horse__wrapper">
