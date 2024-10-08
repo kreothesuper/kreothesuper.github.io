@@ -999,6 +999,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 priceText = 'Оценивание лошади';
                 pleaFirst = 'от';
                 pleaSecond = 'до';
+                vetText = searchHorse.vetcheck.name ? 'Присутствует' : 'Отсутствует';
                 break;
             case 'fr':
                 horseAgeLabel = searchHorse.age[languageCurrent].name <= 4 ? "ans" : 'ans';
@@ -1006,6 +1007,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 priceText = "Estimation du prix d'un cheval";
                 pleaFirst = 'de';
                 pleaSecond = 'à';
+                vetText = searchHorse.vetcheck.name ? 'Présent' : 'Absent';
                 break;
             case 'de':
                 horseAgeLabel = searchHorse.age[languageCurrent].name <= 4 ? "Jahre" : 'Jahre';
@@ -1013,6 +1015,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 priceText = 'Bewertung eines Pferdes';
                 pleaFirst = 'von';
                 pleaSecond = 'bis';
+                vetText = searchHorse.vetcheck.name ? 'Gegenwärtig' : 'Abwesend';
                 break;
             case 'ar':
                 horseAgeLabel = 'سنوات';
@@ -1020,6 +1023,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 priceText = 'تقييم الخيل';
                 pleaFirst = 'يورو';
                 pleaSecond = 'حتى';
+                vetText = searchHorse.vetcheck.name ? 'حاضر' : 'غائب';
                 break;
             default:
                 horseAgeLabel = 'y.o';
@@ -1027,6 +1031,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 priceText = 'Horse evaluation';
                 pleaFirst = 'from';
                 pleaSecond = 'to';
+                vetText = searchHorse.vetcheck.name ? 'Present' : 'Absent';
                 break;
         }
 
@@ -1060,7 +1065,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="text text--grey">
                             ${searchHorse.vetcheck[languageCurrent].label}: 
                         </span>
-                        ${searchHorse.vetcheck.name ? (languageCurrent === 'fr' ? 'Présent' : 'Присутствует') : (languageCurrent === 'fr' ? 'Non Présent' : 'Отсутствует')}
+                        ${vetText}
                     </p>
                     <p class="text text--base text--base--mobile--small">
                     <span class="text text--grey">
