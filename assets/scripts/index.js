@@ -790,8 +790,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const url = window.location.href;
                 const urlObj = new URL(url);
 
+
+                const urlSeatch = urlObj.search ? urlObj.search : '';
                 const urlPath = urlObj.pathname.replace(/.*\//, '');
-                const baseUrl = `${urlObj.protocol}//${urlObj.host}/${e.target.value}/${urlPath}`;
+                const baseUrl = `${urlObj.protocol}//${urlObj.host}/${e.target.value}/${urlPath}${urlSeatch}`;
 
                 window.location.href = baseUrl;
             });
