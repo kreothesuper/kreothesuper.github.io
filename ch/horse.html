@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="/assets/styles/css/font.css">
 
+    <link rel="stylesheet" href="/assets/libs/swiper/swiper.css">
+
     <link rel="stylesheet" href="/assets/styles/css/reset.css">
     <link rel="stylesheet" href="/assets/styles/css/index.css">
 </head>
@@ -26,22 +28,22 @@
                             <ul class="nav__list nav__list--header">
                                 <li class="nav__item">
                                     <a href="about.html" class="nav__link nav__link--header">
-                                        ÜBER UNS
+                                        介绍我们
                                     </a>
                                 </li>
                                 <li class="nav__item">
                                     <a href="catalog.html" class="nav__link nav__link--header">
-                                        PFERDE
+                                        马
                                     </a>
                                 </li>
                                 <li class="nav__item">
                                     <a href="personal.html" class="nav__link nav__link--header">
-                                        PERSÖNLICHE AUSWAHL
+                                        个人选择
                                     </a>
                                 </li>
                                 <li class="nav__item">
                                     <a href="sell.html" class="nav__link nav__link--header">
-                                        VERKAUF
+                                        销售
                                     </a>
                                 </li>
                             </ul>
@@ -147,8 +149,7 @@
                                     </label>
                                     <label class="language-input">
                                         <span class="language-input__text">ch</span>
-                                        <input type="radio" name="language" value="ch"
-                                            class="language-input__item">
+                                        <input type="radio" name="language" value="ch" class="language-input__item">
                                     </label>
                                 </div>
                             </form>
@@ -166,58 +167,207 @@
             </div>
         </header>
         <main class="page-wrapper__content content">
-            <div class="content-header">
-                <picture class="content-header__img">
-                    <source media="(max-width: 767px)" srcset="/assets/images/pages/sell-m.webp" />
-                    <source media="(min-width: 768px)" srcset="/assets/images/pages/sell.webp" />
-                    <img class="content-header__img" src="/assets/images/pages/sell.webp" />
-                </picture>
-                <div class="content-header__wrapper">
+            <div class="content__wrapper">
+                <div class="section">
                     <div class="container">
-                        <div class="content-header__box">
-                            <div class="breadcrumbs">
-                                <ul class="breadcrumbs__list">
-                                    <li class="breadcrumbs__item">
-                                        <a href="./" class="breadcrumbs__link">Startseite</a>
-                                    </li>
-                                    <li class="breadcrumbs__item">
-                                        <a href="#" class="breadcrumbs__link">Verkauf</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <p class="title title--base title--white">
-                                Verkauf
-                            </p>
+                        <div class="breadcrumbs">
+                            <ul class="breadcrumbs__list">
+                                <li class="breadcrumbs__item breadcrumbs__item--black">
+                                    <a href="./" class="breadcrumbs__link">首页</a>
+                                </li>
+                                <li class="breadcrumbs__item breadcrumbs__item--black">
+                                    <a href="catalog.html" class="breadcrumbs__link">马</a>
+                                </li>
+                                <li class="breadcrumbs__item breadcrumbs__item--black">
+                                    <a href="#" class="breadcrumbs__link"> 马名</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="content__wrapper">
                 <div class="section">
                     <div class="section__wrapper">
                         <div class="container">
-                            <div class="section__grid section__grid--gap--big">
-                                <form action="#" class=" form">
-                                    <div class="form__wrapper">
-                                        <p class="title title--base title--black title--mobile--center">
-                                            Möchten Sie Ihr Pferd verkaufen?
-                                        </p>
-                                        <div class="form__list">
-                                            <input type="text" placeholder="IHR NAME" class="form-input">
-                                            <input type="text" placeholder="+7 (999) 999-99-99" class="form-input">
-                                            <input type="text" placeholder="EMAIL" class="form-input">
-                                        </div>
-                                        <button type="submit"
-                                            class="button button--base button--green button--mobile--full">
-                                            ANFRAGE ERSTELLEN</button>
-                                    </div>
-                                    <p class="form__text">
-                                        Durch Anklicken des Buttons erklären Sie sich mit der Vertraulichkeitspolitik einverstanden
-                                    </p>
-                                </form>
+                            <div class="horse js-horse">
+                                <div class="horse__wrapper">
+                                    <div class="horse__content">
+                                        <div class="horse__header">
+                                            <p class="title title--base title--black">
+                                                Horse name
 
-                                <div class="section__rectangle">
-                                    <img src="/assets/images/sell.webp" alt="" class="section__img">
+                                            </p>
+                                            <div class="horse-info">
+                                                <p class="text text--base text--base--mobile--small">
+                                                    <span class="text text--grey">
+                                                        Discipline:
+                                                    </span>
+                                                    Name of the discipline
+                                                </p>
+                                                <p class="text text--base text--base--mobile--small">
+                                                    <span class="text text--grey">
+                                                        Age:
+                                                    </span>
+                                                    5 y.o.
+
+                                                </p>
+                                                <p class="text text--base text--base--mobile--small">
+                                                    <span class="text text--grey">
+                                                        Pedigree:
+                                                    </span>
+                                                    Name x Name
+                                                </p>
+                                                <p class="text text--base text--base--mobile--small">
+                                                    <span class="text text--grey">
+                                                        Vet check:
+                                                    </span>
+                                                    Available
+                                                </p>
+                                            </div>
+                                            <div class="price-info">
+                                                <div class="price-info__row">
+                                                    <p class="star">
+                                                        4
+                                                    </p>
+                                                    <div class="price-info__label">
+                                                        <svg class="icon">
+                                                            <use xlink:href="/assets/images/sprite.svg#info"></use>
+                                                        </svg>
+                                                        PRICING POLICY
+                                                    </div>
+                                                </div>
+                                                <div class="price-info__list">
+                                                    <p class="title title--center title--black title--bold title--small title--mobile--big">
+                                                        Horse evaluation
+                                                    </p>
+                                                    <div class="price-list">
+                                                        <div class="price-list__item">
+                                                            <p class="star">
+                                                                1
+                                                            </p>
+                                                            <p class="text text--base text--black text--base--mobile--small">
+                                                                {from 1,000 to 20,000 €}
+                                                            </p>
+                                                        </div>
+                                                        <div class="price-list__item">
+                                                            <p class="star">
+                                                                2
+                                                            </p>
+                                                            <p class="text text--base text--black text--base--mobile--small">
+                                                                {from 20,000 to 40,000 €}
+                                                            </p>
+                                                        </div>
+                                                        <div class="price-list__item">
+                                                            <p class="star">
+                                                                3
+                                                            </p>
+                                                            <p class="text text--base text--black text--base--mobile--small">
+                                                                {from 40,000 to 60,000 €}
+                                                            </p>
+                                                        </div>
+                                                        <div class="price-list__item">
+                                                            <p class="star">
+                                                                4
+                                                            </p>
+                                                            <p class="text text--base text--black text--base--mobile--small">
+                                                                {from 60,000 to 100,000 €}
+                                                            </p>
+                                                        </div>
+                                                        <div class="price-list__item">
+                                                            <p class="star">
+                                                                5
+                                                            </p>
+                                                            <p class="text text--base text--black text--base--mobile--small">
+                                                                {from 100,000 to 300,000 €}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="video horse-video">
+                                            <div class="video__wrapper">
+                                                <svg class="video__resize">
+                                                    <use xlink:href="/assets/images/sprite.svg#resize"></use>
+                                                </svg>
+                                                <video class="video__item" src="https:///assets.mixkit.co/videos/preview/mixkit-going-down-a-curved-highway-through-a-mountain-range-41576-large.mp4"></video>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="horse__slider swiper horse-slider">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide horse-slider__item">
+                                                <img src="/assets/images/catalog/1.webp" alt="">
+                                            </div>
+                                            <div class="swiper-slide horse-slider__item">
+                                                <img src="/assets/images/catalog/1.webp" alt="">
+                                            </div>
+                                            <div class="swiper-slide horse-slider__item">
+                                                <img src="/assets/images/catalog/1.webp" alt="">
+                                            </div>
+                                            <div class="swiper-slide horse-slider__item">
+                                                <img src="/assets/images/catalog/1.webp" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="horse-slider__navigation">
+                                            <div class="horse-slider__button horse-slider__button--prev"></div>
+                                            <div class="horse-slider__pagination"></div>
+                                            <div class="horse-slider__button horse-slider__button--next"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section ">
+                    <div class="section__wrapper">
+                        <div class="container">
+                            <div class="section section--green">
+                                <div class="section__wrapper">
+                                    <div class="section__column section__column--center section__column--gap--big">
+                                        <div class="section__column section__column--padding section__column--center">
+                                            <p class="title title--white title--center title--base">
+                                                您喜欢一个匹马吗？
+
+
+                                            </p>
+                                            <p class="text text--base text--white text--center">
+                                                表现出您的兴趣
+                                            </p>
+                                        </div>
+                                        <a href="#" data-popup=".popup-request" class="button button--white button--base button--white--green--dark">
+                                            下一个
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section__wrapper">
+                        <div class="container">
+                            <div class="section__header">
+                                <p class="title title--base title--black title--center"> 通过视频购买</p>
+                            </div>
+                            <div class="section__content section__grid section__grid--buy">
+                                <div class="buy-item buy-item--dark">
+                                    <p class="title title--small title--white buy-item__title">
+                                        您选择的马要接受兽医检查。提供兽医选择。
+                                        
+                                    </p>
+                                    <a href="#" data-popup=".popup-request" class="button button--base button--white button--white--green--dark">
+                                        留下请求
+                                    </a>
+                                </div>
+                                <div class="buy-item">
+                                    <p class="title title--small title--white buy-item__title">
+                                        专业运动员通过视频和评论虚拟观看马匹。
+
+                                    </p>
+                                    <a href="#" data-popup=".popup-request" class="button button--base button--white button--white--green">
+                                        留下请求
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -236,7 +386,7 @@
                                 </a>
                                 <div class="footer__header">
                                     <p class="footer__title">
-                                        Finden Sie Ihren Champion 
+                                        找到您的冠军马
                                     </p>
                                     <a href="mailto:horses@hello.ru"
                                         class="footer__title footer__title--link">horses@hello.ru</a>
@@ -247,22 +397,26 @@
                                     <ul class="nav__list nav__list--column">
                                         <li class="nav__item">
                                             <a href="about.html" class="nav__link nav__link--footer">
-                                                ÜBER UNS
+                                                介绍我们
+
+
                                             </a>
                                         </li>
                                         <li class="nav__item">
                                             <a href="catalog.html" class="nav__link nav__link--footer">
-                                                PFERDE
+                                                马
                                             </a>
                                         </li>
                                         <li class="nav__item">
                                             <a href="personal.html" class="nav__link nav__link--footer">
-                                                PERSÖNLICHE AUSWAHL
+                                                个人选择
+
+
                                             </a>
                                         </li>
                                         <li class="nav__item">
                                             <a href="sell.html" class="nav__link nav__link--footer">
-                                                FÜR DIE ZÜCHTER
+                                                对于驯马者
                                             </a>
                                         </li>
                                     </ul>
@@ -281,12 +435,12 @@
                         <ul class="footer-list">
                             <li class="footer-list__item">
                                 <p class="footer-list__text">
-                                    © 2024 GHS. All rights reserved.
+                                    © 2024 GHS. All rights reserved.
                                 </p>
                             </li>
                             <li class="footer-list__item">
                                 <a href="#" class="footer-list__text footer-list__text--link">
-                                    Vertraulichkeitspolitik
+                                    隐私政策
                                 </a>
                             </li>
                         </ul>
@@ -297,29 +451,30 @@
     </div>
 
 
-    
-
-       <div class="popup popup-request">
+   
+    <div class="popup popup-request">
         <div class="popup__wrapper">
             <div class="popup__container">
                 <a href="#" class="popup__close popup-close"></a>
                 <form action="#" class=" form">
                     <div class="form__wrapper">
                         <p class="title title--base title--base--small title--black title--mobile--center">
-                            Lassen Sie uns Ihre Daten und wir werden uns mit Ihnen in Verbindung setzen
+                            留下您的详细信息，
+                            我们将与您联系
                         </p>
                         <div class="form__list">
-                            <input type="text" placeholder="IHR NAME" class="form-input form-input--center">
+                            <input type="text" placeholder="您的姓名
+                            " class="form-input form-input--center">
                             <input type="text" placeholder="+7 (999) 999-99-99" class="form-input form-input--center">
                             <input type="text" placeholder="EMAIL" class="form-input form-input--center">
                         </div>
                         <button type="submit"
                             class="button button--base button--green button--mobile--full form__button form__button--center">
-                            ANFRAGE SENDEN
+                            发送申请
                         </button>
                     </div>
                     <p class="form__text form__text--center">
-                        Durch Anklicken des Buttons erklären Sie sich mit der Vertraulichkeitspolitik einverstanden
+                        单击该按钮即表示您同意遵守隐私政策
                     </p>
                 </form>
             </div>
@@ -333,25 +488,26 @@
                 <form action="#" class=" form">
                     <div class="form__wrapper">
                         <p class="title title--base title--base--small title--black title--center">
-                            Kriterien der Anfrage
+                            请求标准
                         </p>
                         <div class="form__list">
-                            <input type="email" placeholder="email" required class="form-input form-input--center">
-                            <input type="text" placeholder="BITTE GEBEN SIE EIN ALTER AN" class="form-input form-input--center">
-                            <input type="text" placeholder="BUDGET" class="form-input form-input--center">
-                            <input type="text" placeholder="STUTE, WALLACH ODER HENGST"
+                            <input type="email" placeholder="           输入年龄     " required
                                 class="form-input form-input--center">
-                            <input type="text" placeholder="WETTKAMPFERFAHRUNG"
+                            <input type="text" placeholder="   预算" class="form-input form-input--center">
+                            <input type="text" placeholder="                 母马、骟马或种马"
                                 class="form-input form-input--center">
-                            <textarea class="form-input form-input--textarea form-input--center"
-                                placeholder="ETWAS NOCH…"></textarea>
+                            <input type="text" placeholder="MARE, GELDING OR STALLION"
+                                class="form-input form-input--center">
+                            <input type="text" placeholder="               表演经验" class="form-input form-input--center">
+                            <textarea class="form-input form-input--textarea form-input--center" placeholder="更多
+                                "></textarea>
                         </div>
                         <button type="submit"
                             class="button button--base button--green button--mobile--full form__button form__button--center">
-                            ANFRAGE SENDEN</button>
+                            发送申请</button>
                     </div>
                     <p class="form__text form__text--center">
-                        Durch Anklicken des Buttons erklären Sie sich mit der Vertraulichkeitspolitik einverstanden
+                        单击该按钮即表示您同意遵守隐私政策
                     </p>
                 </form>
             </div>
@@ -366,17 +522,20 @@
                     <div class="thanks__header">
                         <img src="/assets/images/icons/thanks-check.webp" alt="" class="thanks__img">
                         <p class="title title--middle title--black title--center">
-                            Ihre Anfrage wurde gesendet
+                            您的申请已发送的
+
+
                         </p>
                     </div>
                     <p class="text text--base text--base--mobile--small text--center text--black">
-                        Wir werden Sie in Kürze kontaktieren
+                        我们快要尽快与您联系了
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="/assets/libs/swiper/swiper.js"></script>
 
     <script src="/assets/scripts/index.js"></script>
 
