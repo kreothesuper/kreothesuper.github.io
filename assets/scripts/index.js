@@ -5,8 +5,10 @@ const horseArray = [
             ru: 'Аполлон',
             fr: 'Apollon',
             ar: 'إسم الخيل',
-            en:'Apollon',
-            de:'Apollon'
+            en: 'Apollon',
+            de: 'Apollon',
+            ch: '马名',
+
         },
         discipline: {
             ru: {
@@ -25,9 +27,13 @@ const horseArray = [
                 name: 'Dressage',
                 label: 'Discipline'
             },
-            de:{
-                name:'Springreiten',
-                label:'Disziplin'
+            de: {
+                name: 'Springreiten',
+                label: 'Disziplin'
+            },
+            ch: {
+                name: '障碍赛马',
+                label: '分项'
             }
         },
         type: {
@@ -47,9 +53,13 @@ const horseArray = [
                 name: 'Stallion',
                 label: 'Horse'
             },
-            de:{
-                name:'Hengst',
-                label:'Pferd'
+            de: {
+                name: 'Hengst',
+                label: 'Pferd'
+            },
+            ch: {
+                name: '木马',
+                label: '马'
             },
         },
         location: {
@@ -69,9 +79,13 @@ const horseArray = [
                 name: 'Germany',
                 label: 'Location'
             },
-            de:{
+            de: {
                 name: 'Deutschland',
                 label: 'Standort',
+            },
+            ch: {
+                name: '德国',
+                label: '地点',
             },
         },
         family: {
@@ -91,10 +105,14 @@ const horseArray = [
                 name: 'Name x Name',
                 label: 'Pedigree'
             },
-            de:{
+            de: {
                 name: 'Name x Name',
                 label: 'Stammbaum'
             },
+            ch: {
+                name: '姓名 x 姓名',
+                label: '血统'
+            }
         },
         age: {
             ru: {
@@ -109,13 +127,17 @@ const horseArray = [
                 name: 2,
                 label: 'العمر'
             },
-            en:{
+            en: {
                 name: 2,
                 label: 'Age'
             },
-            de:{
-                name:2,
-                label:'Alter',
+            de: {
+                name: 2,
+                label: 'Alter',
+            },
+            ch: {
+                name: 2,
+                label: '岁',
             }
         },
         vetcheck: {
@@ -129,11 +151,14 @@ const horseArray = [
             ar: {
                 label: 'الفحص البيطري'
             },
-            en:{
-                label:'Vet check',
+            en: {
+                label: 'Vet check',
             },
-            de:{
-                label:'Tierärztliche Untersuchung',
+            de: {
+                label: 'Tierärztliche Untersuchung',
+            },
+            ch: {
+                label: '兽医检查',
             }
         },
         rate: 2,
@@ -144,8 +169,9 @@ const horseArray = [
             ru: 'Зевс',
             fr: 'Zevs',
             ar: 'إسم الخيل',
-            en:'Zevs',
-            de:'Zevs'
+            en: 'Zevs',
+            de: 'Zevs',
+            ch: '马名',
         },
         discipline: {
             ru: {
@@ -164,9 +190,13 @@ const horseArray = [
                 name: 'Dressage',
                 label: 'Discipline'
             },
-            de:{
-                name:'Dressage',
-                label:'Disziplin'
+            de: {
+                name: 'Dressage',
+                label: 'Disziplin'
+            },
+            ch: {
+                name: '盛装舞步',
+                label: '分项'
             }
         },
         type: {
@@ -186,9 +216,13 @@ const horseArray = [
                 name: 'Mare',
                 label: 'Discipline'
             },
-            de:{
-                name:'Mare',
-                label:'Disziplin'
+            de: {
+                name: 'Mare',
+                label: 'Disziplin'
+            },
+            ch: {
+                name: '木马',
+                label: '马'
             }
         },
         location: {
@@ -208,9 +242,13 @@ const horseArray = [
                 name: 'Germany',
                 label: 'Location'
             },
-            de:{
+            de: {
                 name: 'Deutschland',
                 label: 'Standort',
+            },
+            ch: {
+                name: '俄罗斯',
+                label: '地点',
             },
         },
         family: {
@@ -230,10 +268,14 @@ const horseArray = [
                 name: 'Name x Name',
                 label: 'Pedigree'
             },
-            de:{
+            de: {
                 name: 'Name x Name',
                 label: 'Stammbaum'
             },
+            ch: {
+                name: '姓名 x 姓名',
+                label: '血统'
+            }
         },
         age: {
             ru: {
@@ -248,13 +290,17 @@ const horseArray = [
                 name: 2,
                 label: 'العمر'
             },
-            en:{
+            en: {
                 name: 2,
                 label: 'Age'
             },
-            de:{
-                name:2,
-                label:'Alter',
+            de: {
+                name: 2,
+                label: 'Alter',
+            },
+            ch: {
+                name: 2,
+                label: '岁',
             }
         },
         vetcheck: {
@@ -268,23 +314,28 @@ const horseArray = [
             ar: {
                 label: 'الفحص البيطري'
             },
-            en:{
-                label:'Vet check',
+            en: {
+                label: 'Vet check',
             },
-            de:{
-                label:'Tierärztliche Untersuchung',
+            de: {
+                label: 'Tierärztliche Untersuchung',
+            },
+            ch: {
+                label: '兽医检查',
             }
         },
         rate: 5,
     },
     {
-        id: 3,
+        id: 1,
         name: {
-            ru: 'Аполлон 2',
-            fr: 'Apollon 2',
+            ru: 'Аполлон',
+            fr: 'Apollon',
             ar: 'إسم الخيل',
-            en:'Apollon 2',
-            de:'Apollon 2'
+            en: 'Apollon',
+            de: 'Apollon',
+            ch: '马名',
+
         },
         discipline: {
             ru: {
@@ -303,9 +354,13 @@ const horseArray = [
                 name: 'Dressage',
                 label: 'Discipline'
             },
-            de:{
-                name:'Springreiten',
-                label:'Disziplin'
+            de: {
+                name: 'Springreiten',
+                label: 'Disziplin'
+            },
+            ch: {
+                name: '障碍赛马',
+                label: '分项'
             }
         },
         type: {
@@ -325,9 +380,13 @@ const horseArray = [
                 name: 'Stallion',
                 label: 'Horse'
             },
-            de:{
-                name:'Hengst',
-                label:'Pferd'
+            de: {
+                name: 'Hengst',
+                label: 'Pferd'
+            },
+            ch: {
+                name: '木马',
+                label: '马'
             },
         },
         location: {
@@ -347,9 +406,13 @@ const horseArray = [
                 name: 'Germany',
                 label: 'Location'
             },
-            de:{
+            de: {
                 name: 'Deutschland',
                 label: 'Standort',
+            },
+            ch: {
+                name: '德国',
+                label: '地点',
             },
         },
         family: {
@@ -369,10 +432,14 @@ const horseArray = [
                 name: 'Name x Name',
                 label: 'Pedigree'
             },
-            de:{
+            de: {
                 name: 'Name x Name',
                 label: 'Stammbaum'
             },
+            ch: {
+                name: '姓名 x 姓名',
+                label: '血统'
+            }
         },
         age: {
             ru: {
@@ -387,13 +454,17 @@ const horseArray = [
                 name: 2,
                 label: 'العمر'
             },
-            en:{
+            en: {
                 name: 2,
                 label: 'Age'
             },
-            de:{
-                name:2,
-                label:'Alter',
+            de: {
+                name: 2,
+                label: 'Alter',
+            },
+            ch: {
+                name: 2,
+                label: '岁',
             }
         },
         vetcheck: {
@@ -407,23 +478,27 @@ const horseArray = [
             ar: {
                 label: 'الفحص البيطري'
             },
-            en:{
-                label:'Vet check',
+            en: {
+                label: 'Vet check',
             },
-            de:{
-                label:'Tierärztliche Untersuchung',
+            de: {
+                label: 'Tierärztliche Untersuchung',
+            },
+            ch: {
+                label: '兽医检查',
             }
         },
         rate: 2,
     },
     {
-        id:4,
+        id: 2,
         name: {
             ru: 'Зевс',
             fr: 'Zevs',
             ar: 'إسم الخيل',
-            en:'Zevs',
-            de:'Zevs'
+            en: 'Zevs',
+            de: 'Zevs',
+            ch: '马名',
         },
         discipline: {
             ru: {
@@ -442,9 +517,13 @@ const horseArray = [
                 name: 'Dressage',
                 label: 'Discipline'
             },
-            de:{
-                name:'Dressage',
-                label:'Disziplin'
+            de: {
+                name: 'Dressage',
+                label: 'Disziplin'
+            },
+            ch: {
+                name: '盛装舞步 2',
+                label: '分项'
             }
         },
         type: {
@@ -464,9 +543,13 @@ const horseArray = [
                 name: 'Mare',
                 label: 'Discipline'
             },
-            de:{
-                name:'Mare',
-                label:'Disziplin'
+            de: {
+                name: 'Mare',
+                label: 'Disziplin'
+            },
+            ch: {
+                name: '木马',
+                label: '马'
             }
         },
         location: {
@@ -486,9 +569,13 @@ const horseArray = [
                 name: 'Germany',
                 label: 'Location'
             },
-            de:{
+            de: {
                 name: 'Deutschland',
                 label: 'Standort',
+            },
+            ch: {
+                name: '俄罗斯',
+                label: '地点',
             },
         },
         family: {
@@ -508,10 +595,14 @@ const horseArray = [
                 name: 'Name x Name',
                 label: 'Pedigree'
             },
-            de:{
+            de: {
                 name: 'Name x Name',
                 label: 'Stammbaum'
             },
+            ch: {
+                name: '姓名 x 姓名',
+                label: '血统'
+            }
         },
         age: {
             ru: {
@@ -526,13 +617,17 @@ const horseArray = [
                 name: 2,
                 label: 'العمر'
             },
-            en:{
+            en: {
                 name: 2,
                 label: 'Age'
             },
-            de:{
-                name:2,
-                label:'Alter',
+            de: {
+                name: 2,
+                label: 'Alter',
+            },
+            ch: {
+                name: 2,
+                label: '岁',
             }
         },
         vetcheck: {
@@ -546,11 +641,14 @@ const horseArray = [
             ar: {
                 label: 'الفحص البيطري'
             },
-            en:{
-                label:'Vet check',
+            en: {
+                label: 'Vet check',
             },
-            de:{
-                label:'Tierärztliche Untersuchung',
+            de: {
+                label: 'Tierärztliche Untersuchung',
+            },
+            ch: {
+                label: '兽医检查',
             }
         },
         rate: 5,
@@ -651,6 +749,13 @@ const createHorseCard = (horse) => {
             priceText = 'تقييم الخيل';
             pleaFirst = 'يورو';
             pleaSecond = 'حتى';
+            break;
+        case 'ch':
+            horseAgeLabel = '岁';
+            buttonText = '关于马的更多信息';
+            priceText = '马匹估计';
+            pleaFirst = '从';
+            pleaSecond = '到';
             break;
         default:
             horseAgeLabel = 'y.o';
@@ -1026,6 +1131,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 pleaFirst = 'يورو';
                 pleaSecond = 'حتى';
                 vetText = searchHorse.vetcheck.name ? 'حاضر' : 'غائب';
+                break;
+            case 'ch':
+                horseAgeLabel = '岁';
+                buttonText = '关于马的更多信息';
+                priceText = '马匹估计';
+                pleaFirst = '从';
+                pleaSecond = '到';
+                vetText = searchHorse.vetcheck.name ? '有' : '有';
                 break;
             default:
                 horseAgeLabel = 'y.o';
