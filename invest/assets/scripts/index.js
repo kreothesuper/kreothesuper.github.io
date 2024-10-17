@@ -25,7 +25,7 @@ class Animations {
 
 
         const observer = new IntersectionObserver(this.handleIntersection.bind(this), {
-            threshold: 0.1
+            threshold: 0.3
         });
         this.animationWrapperArray.forEach(animationWrapper => {
             observer.observe(animationWrapper);
@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gsap.to(".industries__img", {
         ease: "none",
-        xPercent: 100,
+        xPercent: 20,
         scrollTrigger: {
             scrub: true,
             trigger: ".industries",
