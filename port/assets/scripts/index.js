@@ -264,6 +264,12 @@ class Quiz {
             index !== this.currentIndex ? navItem.classList.remove('nav__step--current') : navItem.classList.add('nav__step--current');
             index > this.currentIndex ? navItem.classList.add('nav__step--hidden') : navItem.classList.remove('nav__step--hidden');
         });
+
+        if(this.currentIndex === this.quizSteps.length - 1){
+            this.quiz.classList.add('quiz-final');
+        }else{
+            this.quiz.classList.remove('quiz-final')
+        }
     }
 
        // choosing a path function
@@ -351,9 +357,10 @@ class Quiz {
                 }));
                 if (!this.checkInputValidity(stepRequiredInput)) return
 
+                const lastElement = this.quiz.classList.contains('quiz-register') ? this.quizSteps.length - 2 : this.quizSteps.length - 1;
                 // form navigation
-                this.currentIndex === this.quizSteps.length - 1 ?
-                    showPopup('.popup--thanks')
+                this.currentIndex === lastElement ?
+                    (showPopup('.popup--thanks'), this.changeStep(this.quizSteps.length - 1))
                     :
                     this.changeStep(this.currentIndex + 1)
             });

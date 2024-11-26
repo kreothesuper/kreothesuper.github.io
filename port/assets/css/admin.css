@@ -73,6 +73,11 @@ body {
   font-weight: 400;
   line-height: 1.3;
 }
+.text--middle{
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3;
+}
 .text--big {
   font-size: 25px;
   font-weight: 400;
@@ -262,6 +267,23 @@ body {
   text-transform: uppercase;
 }
 
+.quiz-register.quiz-final .quiz-back-step{
+  display: none;
+}
+
+.quiz-register.quiz-final .quiz-next-step{
+  display: none;
+}
+
+.quiz-register.quiz-final .quiz-register__reload{
+  display: flex;
+}
+
+.quiz-register .quiz-register__reload{
+  display: none;
+}
+
+
 .quiz__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 460px;
@@ -411,6 +433,9 @@ body {
   padding: 30px 0;
   display: flex;
   flex-direction: column;
+}
+.nav__item--noclick{
+  pointer-events: none;
 }
 .nav__item:not(:last-child) {
   border-bottom: 1px solid #434444;
