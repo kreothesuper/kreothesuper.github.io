@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,600&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+
+<body>
+
+<div class="page-wrapper">
+    <header class="page-wrapper__header header">
+        <div class="header__wrapper">
+            <div class="container">
+                <div class="header__row">
+                    <div class="header__logo logo">
+                        <img src="assets/images/logo.svg" alt="" class="logo__img">
+                    </div>
+                    <div class="header__control">
+                        <a href="tel:88000000000" class="phone-link">
+                            <svg class="phone-link__icon">
+                                <use xlink:href="assets/images/sprite.svg#phone"></use>
+                            </svg>
+                            <span class="phone-link__text">
+                                    8 (800) 000-00-00
+                                </span>
+                        </a>
+                        <a href="/" class="button button--base button--bordered">
+                                <span class="button__text">
+                                    Выход
+                                </span>
+                            <svg class="button__icon button__icon--accent">
+                                <use xlink:href="assets/images/sprite.svg#exit"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="page-wrapper__content content">
+        <div class="profile">
+            <div class="container">
+                <div class="profile__wrapper">
+                    <div class="profile__header">
+                        <p class="title title--base title--white">личный кабинет</p>
+                    </div>
+                    <div class="profile__box">
+                        <div class="profile-block">
+                            <div class="profile-block__wrapper">
+                                <div class="input-photo">
+                                    <div class="input-photo__grid input-photo__grid--reverse">
+                                        <div class="input-photo__content input-photo__content--start">
+                                            <div class="input-photo__title">
+                                                <p class="title title--small title--white">Общая информация</p>
+                                            </div>
+                                            <div class="profile__list profile__list--grid">
+                                                <div class="profile__item">
+                                                    <p
+                                                            class="text text--semibold text--small text--grey">
+                                                        Название компании</p>
+                                                    <p
+                                                            class="text text--semibold text--middle text--white">
+                                                        Company</p>
+                                                </div>
+                                                <div class="profile__item">
+                                                    <p
+                                                            class="text text--semibold text--small text--grey">
+                                                        ИНН</p>
+                                                    <p
+                                                            class="text text--semibold text--middle text--white">
+                                                        7123456789</p>
+                                                </div>
+                                                <div class="profile__item">
+                                                    <p
+                                                            class="text text--semibold text--small text--grey">
+                                                        Юридический адрес </p>
+                                                    <p
+                                                            class="text text--semibold text--middle text--white">
+                                                        г. Москва, ул. Пушкина, д.5, оф.153</p>
+                                                </div>
+                                                <div class="profile__item">
+                                                    <p
+                                                            class="text text--semibold text--small text--grey">
+                                                        Контактное лицо компании (ФИО)</p>
+                                                    <p
+                                                            class="text text--semibold text--middle text--white">
+                                                        Иванов Иван Иванович</p>
+                                                </div>
+                                                <div class="profile__item profile__item--full">
+                                                    <p
+                                                            class="text text--semibold text--small text--grey">
+                                                        Род деятельности по ОКВЭД</p>
+                                                    <p
+                                                            class="text text--semibold text--middle text--white">
+                                                        Перевозка грузов морскими судами заграничного плавания</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-photo__preview" data-popup=".popup--photo">
+                                            <img src="assets/images/admin/main-photo.jpg" alt="">
+                                            <div class="icon">
+                                                <svg>
+                                                    <use xlink:href="assets/images/sprite.svg#pencil"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-block">
+                            <div class="profile-block__wrapper">
+                                <div class="input-photo">
+                                    <div class="input-photo__grid input-photo__grid--reverse">
+                                        <div class="input-photo__content input-photo__content--start">
+                                            <div class="input-photo__title">
+                                                <p class="title title--small title--white">Контактная информация</p>
+                                            </div>
+                                            <div class="profile__list profile__list--grid">
+                                                <div class="profile__item">
+                                                    <div class="input">
+                                                        <div class="input__header">
+                                                            <label for="phone" class="input__label">Телефон</label>
+                                                        </div>
+                                                        <div class="input__content">
+                                                            <input id="phone" required="" name="phone" type="text" class="input__item" value="+7 (999) 999-99-99" placeholder="+7 (999) 999-99-99">
+                                                            <svg class="input__icon">
+                                                                <use xlink:href="assets/images/sprite.svg#pencil"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="profile__item">
+                                                    <div class="input">
+                                                        <div class="input__header">
+                                                            <label for="email" class="input__label">E-mail (рабочий)</label>
+                                                        </div>
+                                                        <div class="input__content">
+                                                            <input id="email" required="" name="email" type="text" class="input__item" value="mail@mail.ru" placeholder="mail@mail.ru">
+                                                            <svg class="input__icon">
+                                                                <use xlink:href="assets/images/sprite.svg#pencil"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-photo__button">
+                                            <a href="quiz.html"
+                                               class="button button--base button--big button--accent button--full">
+                                                <span class="button__text">Сохранить изменения</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="page-wrapper__footer footer">
+        <div class="footer__wrapper">
+            <div class="container">
+                <div class="footer__row">
+                    <div class="footer__block">
+                        <p class="footer__text footer__text--uppercase">
+                            port service group 2023
+                        </p>
+                    </div>
+                    <div class="footer__block">
+                        <a href="mailto:info@portsg.ru" class="footer__text">info@portsg.ru</a>
+                        <a href="tel:88000000000" class="phone-link">
+                            <svg class="phone-link__icon phone-link__icon--small phone-link__icon--grey">
+                                <use xlink:href="assets/images/sprite.svg#phone"></use>
+                            </svg>
+                            <span class="phone-link__text phone-link__text--small phone-link__text--grey">
+                                    8 (800) 000-00-00
+                                </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="popup popup--photo">
+    <div class="popup__wrapper">
+        <div class="popup__container">
+            <a href="#" class="popup__close"></a>
+            <div class="popup__box">
+                <div class="input-photo file-input js-file">
+                    <div class="input-photo__box">
+
+                        <div class="input-photo__preview">
+                            <img class="js-file-img"
+                                 src="assets/images/photo-preview.png" alt="">
+                            <div class="input-photo__overlay">
+                                                                <span class="file-input__row file-input__row--name">
+                                                                    <svg class="file-input__icon">
+                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                    </svg>
+                                                                    <span class="file-input__text js-file-name">
+                                                                        Документ 17.08.2021.jpg
+                                                                    </span>
+                                                                </span>
+                            </div>
+                        </div>
+                        <div class="input-photo__content">
+                            <p class="text text--base text--white">
+                                Загрузите любую фотографию, где хорошо видно ваше лицо или лого вашей компании
+                            </p>
+                            <p class="text text--base text--white">
+                                Фото может быть только в формате PNG, JPG или JPEG, размером не более 5 МБ
+                            </p>
+                            <label class="input-photo__label">
+                                <input type="file" required name="passport-1"
+                                       class="input-photo__tag js-file-input">
+                                <span class="input-photo__checkmark">Выбрать фото</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/scripts/admin.js"></script>
+</body>
+
+</html>

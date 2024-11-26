@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Port Service Group</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+		/>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="assets/css/layout.css" />
+		<link rel="stylesheet" href="assets/css/master.css" />
+		<link rel="stylesheet" href="assets/css/index.css" />
+	</head>
+	<body>
+		<div class="body-wrapper page-wrapper">
+			<header class="page-wrapper__header header" data-aos="fade-down">
+				<div class="header__wrapper">
+					<div class="container">
+						<div class="header__row">
+							<div class="header__logo logo">
+								<img src="assets/images/logo.svg" alt="" class="logo__img">
+							</div>
+							<div class="header__control">
+								<a href="tel:88000000000" class="phone-link">
+									<svg class="phone-link__icon">
+										<use xlink:href="assets/images/sprite.svg#phone"></use>
+									</svg>
+									<span class="phone-link__text">
+                                    8 (800) 000-00-00
+                                </span>
+								</a>
+								<a href="#" data-popup=".popup-login" class="button button--header button--base button--bordered button--bordered--accent">
+                                <span class="button__text">
+                                	Вход <span class="button__text button__text--desktop">
+									в личный кабинет
+								</span>
+                                </span>
+									<svg class="button__icon button__icon--header button__icon--accent">
+										<use xlink:href="assets/images/sprite.svg#exit"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<main>
+
+				<section class="home" id="home">
+					<div class="home-wrapper">
+						<video
+							src="assets/video/home.MP4"
+							class="home-bg"
+							autoplay
+							muted
+							loop
+							playsinline
+							data-aos="zoom-out"
+							poster="assets/images/home.png"
+							preload="auto"
+						></video>
+						<div class="container">
+							<div class="home-body">
+								<h1 class="home-title" data-aos="fade-up">
+									Предлагаем эффективные, экономичные и безопасные решения в
+									обработке и транспортировке ваших грузов
+								</h1>
+								<div class="home-body__right" data-aos="fade-up">
+									<p class="home-text">
+										Поможем повысить общую эффективность в вашей цепи поставок
+									</p>
+									<a href="#contact" class="home-link icon-after">
+										связаться с нами
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="container">
+						<div class="register-wrapper">
+							<a href="quiz.html" class="register-link">
+								<span class="register-link__text">Регистрация для&nbsp;специалиста</span>
+								<svg class="register-link__icon">
+									<use xlink:href="assets/images/sprite.svg#arrow-back"></use>
+								</svg>
+							</a>
+							<a href="quiz-legal.html" class="register-link register-link--legal">
+								<span class="register-link__text">
+									Регистрация для юр. лица
+								</span>
+								<svg class="register-link__icon">
+									<use xlink:href="assets/images/sprite.svg#arrow-back"></use>
+								</svg>
+							</a>
+
+						</div>
+					</div>
+				</section>
+				<section class="about" id="about">
+					<div class="container">
+						<div class="about-body">
+							<div class="about-body__left">
+								<h2 class="about-title" data-aos="fade-up">о компании</h2>
+								<p class="about-subtitle" data-aos="fade-up">
+									ПортСервисГрупп — ведущий поставщик транспортно-логистических
+									и экспедиторских услуг в области морских перевозок.
+								</p>
+								<div class="about-body__img" data-aos="zoom-in">
+									<img
+										src="assets/images/about/left.png"
+										alt="ПортСервисГрупп — ведущий поставщик транспортно-логистических
+									и экспедиторских услуг в области морских перевозок."
+										class="about-body__left-img about-body__img"
+									/>
+								</div>
+							</div>
+							<div class="about-body__right">
+								<div class="about-body__right-block">
+									<div class="about-body__img" data-aos="zoom-in">
+										<img
+											src="assets/images/about/right.png"
+											alt="Благодаря команде опытных профессионалов с многолетним знанием рынка, мы предоставляем клиентам эффективные и рентабельные решения для всех их потребностей по доставкам грузов."
+											class="about-body__right-img"
+										/>
+									</div>
+									<p class="about-body__right-text" data-aos="fade-down">
+										Благодаря команде опытных профессионалов с многолетним
+										знанием рынка, мы предоставляем клиентам эффективные и
+										рентабельные решения для всех их потребностей по доставкам
+										грузов.
+									</p>
+								</div>
+								<div class="about-body__right-partners">
+									<div
+										class="about-body__right-partners__img"
+										data-aos="fade-left"
+									>
+										<img src="assets/images/about/partners/1.png" alt="" />
+									</div>
+									<div
+										class="about-body__right-partners__img"
+										data-aos="fade-left"
+										data-aos-delay="200"
+									>
+										<img src="assets/images/about/partners/2.png" alt="" />
+									</div>
+									<div
+										class="about-body__right-partners__img"
+										data-aos="fade-left"
+										data-aos-delay="400"
+									>
+										<img src="assets/images/about/partners/3.png" alt="" />
+									</div>
+									<div
+										class="about-body__right-partners__img"
+										data-aos="fade-left"
+										data-aos-delay="600"
+									>
+										<img src="assets/images/about/partners/4.png" alt="" />
+									</div>
+									<div
+										class="about-body__right-partners__img"
+										data-aos="fade-left"
+										data-aos-delay="800"
+									>
+										<img src="assets/images/about/partners/5.png" alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="services" id="services">
+					<div class="services-wrapper">
+						<div class="container">
+							<div class="services-body">
+								<div class="services-body__left">
+									<h2 class="services-title" data-aos="fade-up">Услуги</h2>
+									<p class="services-subtitle" data-aos="fade-up">
+										Мы гарантируем высокое качество услуг
+										<br />и полную безопасность при перевозке.
+									</p>
+								</div>
+								<div class="services-btns">
+									<div
+										class="services-btn__prev swiper-btn__prev"
+										data-aos="zoom-in"
+										data-aos-delay="300"
+									></div>
+									<div
+										class="services-btn__next swiper-btn__next"
+										data-aos="zoom-in"
+									></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper services-swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide services-card" tabindex="0">
+								<img
+									src="assets/images/services/card/1.png"
+									alt="Фрахтование"
+									class="services-card__img"
+								/>
+								<div class="services-card__info">
+									<h3 class="services-card__name">Фрахтование</h3>
+								</div>
+							</div>
+							<div class="swiper-slide services-card" tabindex="0">
+								<img
+									src="assets/images/services/card/2.png"
+									alt="Сюрвейерские услуги"
+									class="services-card__img"
+								/>
+								<div class="services-card__info">
+									<h3 class="services-card__name">Сюрвейерские услуги</h3>
+								</div>
+							</div>
+							<div class="swiper-slide services-card" tabindex="0">
+								<img
+									src="assets/images/services/card/3.png"
+									alt="Экспедирование грузов на морском/речном транспорте"
+									class="services-card__img"
+								/>
+								<div class="services-card__info">
+									<h3 class="services-card__name">
+										Экспедирование грузов на морском/речном транспорте
+									</h3>
+								</div>
+							</div>
+							<div class="swiper-slide services-card" tabindex="0">
+								<img
+									src="assets/images/services/card/4.png"
+									alt="Тальманские услуги"
+									class="services-card__img"
+								/>
+								<div class="services-card__info">
+									<h3 class="services-card__name">Тальманские услуги</h3>
+								</div>
+							</div>
+							<div class="swiper-slide services-card" tabindex="0">
+								<img
+									src="assets/images/services/card/5.png"
+									alt="Погрузка и выгрузка судов"
+									class="services-card__img"
+								/>
+								<div class="services-card__info">
+									<h3 class="services-card__name">Погрузка и выгрузка судов</h3>
+								</div>
+							</div>
+						</div>
+						<div class="services-pagination"></div>
+					</div>
+				</section>
+			</main>
+
+			<footer class="contact" id="contact">
+				<div class="container">
+					<h2 class="contact-title" data-aos="fade-up">Контакты</h2>
+					<div class="contact-body">
+						<div class="contact-body__left">
+							<a
+								href="tel:89944305878"
+								class="contact-phone"
+								data-aos="fade-up"
+							>
+								8 (994) 430-58-78
+							</a>
+							<a
+								href="mailto:info@portsg.ru"
+								class="contact-email"
+								data-aos="fade-up"
+							>
+								info@portsg.ru
+							</a>
+							<div data-aos="fade-up">
+								<a
+									href="assets/doc/requisites.docx"
+									class="contact-download icon-after"
+									download
+								>
+									Скачать реквизиты
+								</a>
+							</div>
+						</div>
+						<address class="contact-body__right">
+							<span class="contact-city" data-aos="fade-up">
+								г. Санкт-Петербург
+							</span>
+							<span class="contact-street" data-aos="fade-up">
+								пр. Стачек, д. 37, корпassets/ст. А, помещassets/офис 14/107
+							</span>
+						</address>
+					</div>
+				</div>
+				<div class="contact-map__wrapper">
+					<div style="position: relative; overflow: hidden" class="contact-map">
+						<iframe
+							src="https://yandex.ru/map-widget/v1/?ll=30.270147%2C59.891279&mode=usermaps&source=constructorLink&um=constructor%3Acaee1e4b38e86d1b005af4ee93cca2882b8dd2d3d26921e372ee8a8d9bac98c1&z=13"
+							allowfullscreen
+							style="position: relative"
+						></iframe>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<div class="popup">
+			<div class="popup-body">
+				<div class="popup-btn__prev swiper-btn__prev"></div>
+				<div class="popup-btn__next swiper-btn__next"></div>
+				<div class="swiper popup-swiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide popup-card">
+							<button
+								type="button"
+								name="closePopup"
+								class="popup-close"
+							></button>
+							<div class="popup-card__img">
+								<img src="assets/images/services/open-card/1.png" alt="Фрахтование" />
+							</div>
+							<div class="popup-card__block">
+								<div class="popup-card__block-window">
+									<h4 class="popup-card__block-heading">Фрахтование</h4>
+									<div class="popup-card__block-layout">
+										<p>
+											Наша команда обладает обширными знаниями рынка
+											и многолетним опытом работы, чтобы вести переговоры
+											о выгодных условиях морских перевозок от вашего имени.
+										</p>
+										<p>
+											Мы выберем подходящее судно для перевозки вашего груза,
+											проведём мониторинг производительности судна и найдём
+											<span class="help">
+												экономически эффективные и рациональные решения.
+											</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide popup-card">
+							<button
+								type="button"
+								name="closePopup"
+								class="popup-close"
+							></button>
+							<div class="popup-card__img">
+								<img
+									src="assets/images/services/open-card/2.png"
+									alt="Сюрвейерские услуги"
+								/>
+							</div>
+							<div class="popup-card__block">
+								<div class="popup-card__block-window">
+									<h4 class="popup-card__block-heading">Сюрвейерские услуги</h4>
+									<div class="popup-card__block-layout">
+										<p>
+											Поможем обеспечить соответствие транспортных средств
+											и портовых сооружений нормативным требованиям
+											для обеспечения безопасной и эффективной транспортировки,
+											перевалки и хранению грузов. Минимизируем риск аварий,
+											повреждений и потери груза во время транспортировки.
+										</p>
+										<div class="popup-card__block-content">
+											<h5>В Сюрвейерские услуги входит:</h5>
+											<ul>
+												<li>
+													осмотр повреждений груза, контейнеров и других
+													транспортных средств, оценка ущерба;
+												</li>
+												<li>
+													инспекция грузов при выгрузке/погрузке, контроль
+													прохождения грузов;
+												</li>
+												<li>взятие проб для лабораторных исследований;</li>
+												<li>
+													инспекция грузов перед отгрузкой, проверка состояния
+													упаковки и маркировки;
+												</li>
+												<li>
+													инспекция и контроль условий складирования, хранения
+													груза;
+												</li>
+												<li>
+													освидетельствование технического состояния
+													контейнеров;
+												</li>
+												<li>
+													инспекция транспортных средств на предмет пригодности
+													к перевозке грузов;
+												</li>
+												<li>
+													контроль правильности укладки, размещения, крепления
+													грузов.
+												</li>
+												<li>
+													консультации и экспертиза в случае возникновения
+													споров и претензий;
+												</li>
+												<li>
+													опломбировка — распломбировка вагонов, автомобилей,
+													контейнеров, судовых трюмов;
+												</li>
+												<li>
+													расследование страховых случаев, сбор информации;
+												</li>
+											</ul>
+										</div>
+										<p>
+											Опыт и рекомендации сюрвейера помогут ускорить прохождение
+											грузов через морские порты, обеспечить высокую
+											эффективность погрузочно-разгрузочных и внутрипортовых
+											операций, сократить простои и задержки, обеспечивая
+											тем самым надёжную и устойчивую линию в поставок.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide popup-card">
+							<button
+								type="button"
+								name="closePopup"
+								class="popup-close"
+							></button>
+							<div class="popup-card__img">
+								<img
+									src="assets/images/services/open-card/3.png"
+									alt="Экспедирование грузов на морском/речном транспорте"
+								/>
+							</div>
+							<div class="popup-card__block">
+								<div class="popup-card__block-window">
+									<h4 class="popup-card__block-heading">
+										Экспедирование грузов на морском/речном транспорте
+									</h4>
+									<div class="popup-card__block-layout">
+										<p>
+											Обеспечим безопасную, эффективную и максимально выгодную
+											доставку товаров с минимальными затратами.
+										</p>
+										<div class="popup-card__block-content">
+											<h5>В услуги экспедирования грузов входит:</h5>
+											<ul>
+												<li>
+													оценка потребностей грузоотправителя и выбора
+													оптимального вида транспорта;
+												</li>
+												<li>
+													координация действий с перевозчиками для обеспечения
+													наилучших тарифов и графиков перевозок;
+												</li>
+												<li>
+													подготовка и обработка транспортных документов,
+													включая коносаменты, таможенные декларации и страховые
+													сертификаты;
+												</li>
+												<li>подготовка сопроводительных документов;</li>
+												<li>оформление разрешительных документов;</li>
+												<li>
+													отправка документации в контролирующие организации;
+												</li>
+												<li>
+													проведение переговоров по размещению груза в местах
+													хранения;
+												</li>
+												<li>
+													проведения досмотров груза, его дополнительная
+													обработка;
+												</li>
+												<li>
+													проведение работ по упаковке и маркировке груза;
+												</li>
+												<li>получение дополнительных сертификатов;</li>
+												<li>
+													взаимодействие с портовым терминалом и контролирующими
+													органами;
+												</li>
+												<li>общение с агентами морских линий;</li>
+												<li>контроль за погрузкой и разгрузкой;</li>
+												<li>
+													контроль процесса доставки и предоставление
+													обновлённой информации грузоотправителю о состоянии
+													его товаров;
+												</li>
+												<li>
+													решение любых вопросов, возникающих в процессе
+													доставки, таких как задержки или повреждение товара.
+												</li>
+											</ul>
+										</div>
+										<p>
+											Используя свой опыт и связи в судоходной отрасли, упростим
+											процесс доставки и минимизируем риски повреждения, потери
+											или задержки груза во время транспортировки.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide popup-card">
+							<button
+								type="button"
+								name="closePopup"
+								class="popup-close"
+							></button>
+							<div class="popup-card__img">
+								<img
+									src="assets/images/services/open-card/4.png"
+									alt="Тальманские услуги"
+								/>
+							</div>
+							<div class="popup-card__block">
+								<div class="popup-card__block-window">
+									<h4 class="popup-card__block-heading">Тальманские услуги</h4>
+									<div class="popup-card__block-layout">
+										<div class="popup-card__block-content">
+											<h5>
+												Предоставляем надёжную и точную информацию о грузе:
+											</h5>
+											<ul>
+												<li>количество и состояние грузовых мест;</li>
+												<li>качество упаковки и маркировки;</li>
+												<li>
+													соответствие маркировки данным грузовых документов;
+												</li>
+											</ul>
+										</div>
+										<p>
+											Поможем ускорить процесс доставки грузов, снизить риски
+											потерь и повреждений груза, минимизировать затраты.
+										</p>
+										<div class="popup-card__block-content">
+											<h5>В Тальманские услуги входит:</h5>
+											<ul>
+												<li>
+													приём и сдача экспортно-импортных, каботажных, местных
+													грузов и багажа в трюмах и на палубе морских и речных
+													судов, на причалах и грузовых складах и участие
+													в их погрузке и выгрузке;
+												</li>
+												<li>
+													осуществление контроля при выдаче грузов
+													грузополучателям, а также при передаче грузов
+													для дальнейшей транспортировки;
+												</li>
+												<li>
+													проверка маркировки и внешнего состояния «мест» груза
+													и багажа;
+												</li>
+												<li>
+													проверка готовности рабочих мест на причалах, осмотр
+													вагонов и контейнеров на пригодность их к погрузке
+													грузов;
+												</li>
+												<li>
+													организация сортировки и подработки грузов
+													в соответствии со сменно-суточным планом стивидорной
+													компании;
+												</li>
+												<li>
+													осуществление контроля за соблюдением портовыми
+													рабочими правил погрузки, выгрузки и сохранности
+													грузов в процессе погрузо-разгрузочных работ,
+													складирования грузов, правил техники безопасности;
+												</li>
+												<li>
+													оформление нарядов на фактически выполненную работу,
+													перевозочных документов и ведение учёта переработки,
+													приёма, отправления грузов и багажа.
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide popup-card">
+							<button
+								type="button"
+								name="closePopup"
+								class="popup-close"
+							></button>
+							<div class="popup-card__img">
+								<img
+									src="assets/images/services/open-card/5.png"
+									alt="Погрузка и выгрузка судов"
+								/>
+							</div>
+							<div class="popup-card__block">
+								<div class="popup-card__block-window">
+									<h4 class="popup-card__block-heading">
+										Погрузка и выгрузка судов
+									</h4>
+									<div class="popup-card__block-layout">
+										<p>
+											Обеспечим безопасную и эффективную передачу грузов
+											между судном и портом.
+										</p>
+										<div class="popup-card__block-content">
+											<h5>В услуги по погрузке и выгрузке судов входит:</h5>
+											<ul>
+												<li>
+													обеспечение безопасных и высоко технологичных методов
+													производства погрузо-разгрузочных работ
+													с использованием специализированного оборудования;
+												</li>
+												<li>
+													закрепление груза на борту судна с помощью
+													удерживающих устройств (ремни, цепи и другие
+													материалы) в соответствии с «Правилами безопасности
+													морской перевозки грузов» и типовых схем размещения
+													и крепления грузов на судне;
+												</li>
+												<li>
+													контроль процесса разгрузки и выгрузки для обеспечения
+													его эффективного и безопасного исполнения;
+												</li>
+												<li>
+													быстрое принятие обоснованных решений для обеспечения
+													безопасной и эффективной обработки грузов.
+												</li>
+											</ul>
+										</div>
+										<p>
+											Использование специализированного оборудования, знание
+											и применение технологии производства
+											погрузочно-разгрузочных работ и многолетний опыт
+											работников, участвующих в процессе, помогут минимизировать
+											риски повреждений грузов, их потери или задержки во время
+											транспортировки, сократить время стоянки судна
+											под грузовыми операциями.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-pagination popup-swiper__pagination"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="popup js-popup popup-login">
+			<div class="popup__wrapper">
+				<a href="#" class="popup__close popup__close--mobile popup__close--mobile--outside"></a>
+				<div class="popup__container">
+					<a href="#" class="popup__close popup__close--desktop"></a>
+					<div class="tabs">
+						<div class="tabs__nav">
+							<a href="#" class="tabs__link">
+								Сотрудник
+							</a>
+							<a href="#" class="tabs__link">
+								юр. лицо
+							</a>
+						</div>
+						<div class="tabs__content">
+							<div class="popup__box">
+								<div class="popup__block">
+									<p class="title title--small title--mobile--small title--white">
+										Вход в личный кабинет сотрудника
+									</p>
+								</div>
+								<div class="popup__block">
+									<div class="input">
+										<div class="input__header input__header--small--margin">
+											<label for="phone" class="input__label">Телефон</label>
+										</div>
+										<div class="input__content">
+											<input id="phone" name="phone" type="text" class="input__item"
+												   placeholder="+7 (999) 999-99-99">
+										</div>
+									</div>
+									<div class="input">
+										<div class="input__header input__header--small--margin">
+											<label for="password" class="input__label">Пароль</label>
+										</div>
+										<div class="input__content">
+											<input id="password" name="password" type="password" class="input__item"
+												   placeholder="• • • • • • •">
+										</div>
+									</div>
+								</div>
+								<div class="popup__block">
+									<a href="#" class="button button--base button--big button--accent button--full">
+										<span class="button__text">Войти</span>
+									</a>
+									<a href="#" class="button button--base button--link button--full" data-popup=".popup-forgot">
+										<span class="button__text">Забыли пароль?</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="tabs__content">
+							<div class="popup__box">
+								<div class="popup__block">
+									<p class="title title--small title--mobile--small title--white">
+										Вход в личный кабинет юр. лица
+									</p>
+								</div>
+								<div class="popup__block">
+									<div class="input">
+										<div class="input__header input__header--small--margin">
+											<label for="phone" class="input__label">Телефон</label>
+										</div>
+										<div class="input__content">
+											<input id="phone" name="phone" type="text" class="input__item"
+												   placeholder="+7 (999) 999-99-99">
+										</div>
+									</div>
+									<div class="input">
+										<div class="input__header input__header--small--margin">
+											<label for="password" class="input__label">Пароль</label>
+										</div>
+										<div class="input__content">
+											<input id="password" name="password" type="password" class="input__item"
+												   placeholder="• • • • • • •">
+										</div>
+									</div>
+								</div>
+								<div class="popup__block">
+									<a href="#" class="button button--base button--big button--accent button--full">
+										<span class="button__text">Войти</span>
+									</a>
+									<a href="#" class="button button--base button--link button--full" data-popup=".popup-forgot">
+										<span class="button__text">Забыли пароль?</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="popup js-popup popup-forgot">
+			<div class="popup__wrapper">
+				<div class="popup__container">
+					<a href="#" class="popup__close"></a>
+					<div class="popup__box">
+						<div class="popup__block">
+							<p class="title title--small title--white">
+								Восстановление пароля
+							</p>
+						</div>
+						<div class="popup__block">
+							<p class="text text--base text--white">
+								Для восстановления введите номер вашего телефона
+							</p>
+							<p class="text text--base text--white">
+								На него придёт новый пароль, используйте его для входа в личный кабинет
+							</p>
+						</div>
+						<div class="popup__block">
+							<div class="input">
+								<div class="input__content">
+									<input id="code" name="code" type="text" class="input__item"
+										   placeholder="+7 (999) 999-99-99">
+								</div>
+							</div>
+						</div>
+						<div class="popup__block">
+							<a href="#" class="button button--base button--big button--accent button--full">
+								<span class="button__text">Отправить пароль</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
+		<script src="assets/scripts/index.js"></script>
+	</body>
+</html>

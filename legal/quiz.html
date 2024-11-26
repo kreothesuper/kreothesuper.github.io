@@ -1,0 +1,1947 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+        <header class="page-wrapper__header header">
+            <div class="header__wrapper">
+                <div class="container">
+                    <div class="header__row">
+                        <div class="header__logo logo">
+                            <img src="assets/images/logo.svg" alt="" class="logo__img">
+                        </div>
+                        <div class="header__control">
+                            <a href="tel:88000000000" class="phone-link">
+                                <svg class="phone-link__icon">
+                                    <use xlink:href="assets/images/sprite.svg#phone"></use>
+                                </svg>
+                                <span class="phone-link__text">
+                                    8 (800) 000-00-00
+                                </span>
+                            </a>
+                            <a href="#" class="button button--base button--bordered">
+                                <span class="button__text">
+                                    Вернуться на главную
+                                </span>
+                                <svg class="button__icon button__icon--accent">
+                                    <use xlink:href="assets/images/sprite.svg#exit"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="page-wrapper__content content">
+            <form action="#" method="post" enctype="multipart/form-data" class="quiz">
+                <div class="container">
+                    <div class="quiz__grid">
+                        <div class="quiz-content">
+                            <div class="quiz-step step">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">личная информация</p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="input">
+                                            <div class="input__header">
+                                                <label for="fio" class="input__label">ФИО</label>
+                                            </div>
+                                            <div class="input__content">
+                                                <input id="fio" name="fio" required type="text" class="input__item"
+                                                    placeholder="Иванов Иван Иванович">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="input">
+                                            <div class="input__header">
+                                                <p class="input__label">Фото</p>
+                                            </div>
+                                            <div class="input__content">
+                                                <div class="input-photo js-file">
+                                                    <div class="input-photo__grid">
+                                                        <div class="input-photo__preview">
+                                                            <img class="js-file-img"
+                                                                src="assets/images/photo-preview.png" alt="">
+                                                        </div>
+                                                        <div class="input-photo__content">
+                                                            <div class="input-photo__text">
+                                                                <p class="text text--base text--white">
+                                                                    Загрузите любую фотографию, где хорошо видно лицо
+                                                                </p>
+                                                                <p class="text text--base text--white">
+                                                                    Фото может быть только в формате PNG, JPG или JPEG,
+                                                                    размером не более 5 МБ
+                                                                </p>
+                                                            </div>
+                                                            <label class="input-photo__label">
+                                                                <input type="file" required name="main-photo"
+                                                                    class="input-photo__tag js-file-input">
+                                                                <span class="input-photo__checkmark">Выбрать фото</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quiz-step step step--changer">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Специализация</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Выберите вашу специализацию и загрузите документ, подтверждающий вашу подготовку. 
+                                        </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-list">
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="slinger" required type="radio" value="slinger" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="slinger" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Стропальщик</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="loader-driver" type="radio" value="driver" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="loader-driver" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Водитель погрузчика</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="crane-operator" type="radio" value="crane" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="crane-operator" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Крановщик</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="docker-mechanic" value="docker" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="docker-mechanic" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Докер-механизатор</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check-content">
+                                                            <div class="check-content__heder">
+                                                                <p class="text text--base text--white">
+                                                                    Выберите подспециализацию (можно выбрать несколько):
+                                                                </p>
+                                                            </div>
+                                                            <div class="check-content__list">
+                                                                <div class="check">
+                                                                    <input type="checkbox" id="dop-1" name="name" class="check__input">
+                                                                    <div class="check__header">
+                                                                        <label for="dop-1" class="check__label">
+                                                                            <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                            <span class="check__text text text--base text--white text--white--clear">Стропальщик</span>
+                                                                        </label>
+                                                                        <div class="check__file file-input js-file">
+                                                                            <div class="file-input__wrapper">
+                                                                                <span class="file-input__row file-input__row--name">
+                                                                                    <svg class="file-input__icon">
+                                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                                    </svg>
+                                                                                    <span class="file-input__text js-file-name">
+                                                                                        Документ 17.08.2021.jpg
+                                                                                    </span>
+                                                                                </span>
+                                                                                <label class="file-input__label">
+                                                                                    <input type="file" class="file-input__tag js-file-input">
+                                                                                    <span class="file-input__row">
+                                                                                        <span class="file-input__text">
+                                                                                            Загрузить документ
+                                                                                        </span>
+                                                                                        <svg class="file-input__icon">
+                                                                                            <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                                        </svg>
+                                                                                    </span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="check">
+                                                                    <input type="checkbox" id="dop-2" name="name" class="check__input">
+                                                                    <div class="check__header">                                                                        
+                                                                        <label for="dop-2" class="check__label">
+                                                                            <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                            <span class="check__text text text--base text--white text--white--clear">Водитель погрузчика</span>
+                                                                        </label>
+                                                                        <div class="check__file file-input js-file">
+                                                                            <div class="file-input__wrapper">
+                                                                                <span class="file-input__row file-input__row--name">
+                                                                                    <svg class="file-input__icon">
+                                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                                    </svg>
+                                                                                    <span class="file-input__text js-file-name">
+                                                                                        Документ 17.08.2021.jpg
+                                                                                    </span>
+                                                                                </span>
+                                                                                <label class="file-input__label">
+                                                                                    <input type="file" class="file-input__tag js-file-input">
+                                                                                    <span class="file-input__row">
+                                                                                        <span class="file-input__text">
+                                                                                            Загрузить документ
+                                                                                        </span>
+                                                                                        <svg class="file-input__icon">
+                                                                                            <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                                        </svg>
+                                                                                    </span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="check">
+                                                                    <input type="checkbox" id="dop-3" name="name" class="check__input">
+                                                                    <div class="check__header">
+                                                                        <label for="dop-3" class="check__label">
+                                                                            <span class="check__checkmark check__checkmark--checkbox"></span>
+                                                                            <span class="check__text text text--base text--white text--white--clear">Крановщик</span>
+                                                                        </label>
+                                                                        <div class="check__file file-input js-file">
+                                                                            <div class="file-input__wrapper">
+                                                                                <span class="file-input__row file-input__row--name">
+                                                                                    <svg class="file-input__icon">
+                                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                                    </svg>
+                                                                                    <span class="file-input__text js-file-name">
+                                                                                        Документ 17.08.2021.jpg
+                                                                                    </span>
+                                                                                </span>
+                                                                                <label class="file-input__label">
+                                                                                    <input type="file" class="file-input__tag js-file-input">
+                                                                                    <span class="file-input__row">
+                                                                                        <span class="file-input__text">
+                                                                                            Загрузить документ
+                                                                                        </span>
+                                                                                        <svg class="file-input__icon">
+                                                                                            <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                                        </svg>
+                                                                                    </span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="talman" type="radio" value="talman" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="talman" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Тальман</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="surveyor" type="radio" value="surveyor" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="surveyor" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Сюрвейер</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="stevedore" type="radio" value="stevedore" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="stevedore" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Стивидор</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input id="handyman" type="radio" value="handyman" name="specialization" class="check__input">
+                                                        <div class="check__header">
+                                                            <label for="handyman" class="check__label">
+                                                                <span class="check__checkmark"></span>
+                                                                <span class="check__text text text--base text--white text--white--clear">Разнорабочий</span>
+                                                            </label>
+                                                            <div class="check__file file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quiz-step step step--static">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Категории транспорта</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Выберите категории транспорта, указанные в вашем удостоверении тракториста-машиниста и загрузите документ для подтверждения 
+                                        </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-list">
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="b-category-yes" name="b-category" class="check__input check__input--yes">
+                                                        <input type="radio" id="b-category-no" name="b-category" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">B категория</span>
+                                                            <div class="check__list">
+                                                                <label for="b-category-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="b-category-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <div class="check-content__grid">
+                                                                <input id="b-category-text" name="b-category-text" type="text" class="input__item"
+                                                            placeholder="Дата получения ДД.ММ.ГГ">
+                                                            <div class="file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="c-category-yes" name="c-category" class="check__input check__input--yes">
+                                                        <input type="radio" id="c-category-no" name="c-category" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">C категория</span>
+                                                            <div class="check__list">
+                                                                <label for="c-category-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="c-category-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <div class="check-content__grid">
+                                                                <input id="c-category-text" name="c-category-text" type="text" class="input__item"
+                                                            placeholder="Дата получения ДД.ММ.ГГ">
+                                                            <div class="file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="d-category-yes" name="d-category" class="check__input check__input--yes">
+                                                        <input type="radio" id="d-category-no" name="d-category" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">D категория</span>
+                                                            <div class="check__list">
+                                                                <label for="d-category-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="d-category-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <div class="check-content__grid">
+                                                                <input id="d-category-text" name="d-category-text" type="text" class="input__item"
+                                                            placeholder="Дата получения ДД.ММ.ГГ">
+                                                            <div class="file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="e-category-yes" name="e-category" class="check__input check__input--yes">
+                                                        <input type="radio" id="e-category-no" name="e-category" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">E категория</span>
+                                                            <div class="check__list">
+                                                                <label for="e-category-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="e-category-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <div class="check-content__grid">
+                                                                <input id="e-category-text" name="e-category-text" type="text" class="input__item"
+                                                            placeholder="Дата получения ДД.ММ.ГГ">
+                                                            <div class="file-input js-file">
+                                                                <div class="file-input__wrapper">
+                                                                    <span class="file-input__row file-input__row--name">
+                                                                        <svg class="file-input__icon">
+                                                                            <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                        </svg>
+                                                                        <span class="file-input__text js-file-name">
+                                                                            Документ 17.08.2021.jpg
+                                                                        </span>
+                                                                    </span>
+                                                                    <label class="file-input__label">
+                                                                        <input type="file" class="file-input__tag js-file-input">
+                                                                        <span class="file-input__row">
+                                                                            <span class="file-input__text">
+                                                                                Загрузить документ
+                                                                            </span>
+                                                                            <svg class="file-input__icon">
+                                                                                <use xlink:href="assets/images/sprite.svg#upload"></use>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quiz-step step step--skills step--dynamic">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Навыки и опыт работы</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Отметьте наличие указанных навыков и опыта работы 
+                                        </p>
+                                    </div>
+                                    <div class="step__content">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quiz-step step step--static">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Портальные краны</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Отметьте умение пользования указанными категориями техники, напишите вашу квалификацию и опыт работы. Можно добавить свои варианты
+                                                                                </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-list">
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="knight-yes" name="knight" class="check__input check__input--yes">
+                                                        <input type="radio" id="knight-no" name="knight" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Витязь</span>
+                                                            <div class="check__list">
+                                                                <label for="knight-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="knight-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="knight-text" name="knight-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="albatross-yes" name="albatross" class="check__input check__input--yes">
+                                                        <input type="radio" id="albatross-no" name="albatross" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Альбатрос</span>
+                                                            <div class="check__list">
+                                                                <label for="albatross-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="albatross-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="albatross-text" name="albatross-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="falcon-yes" name="falcon" class="check__input check__input--yes">
+                                                        <input type="radio" id="falcon-no" name="falcon" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Сокол</span>
+                                                            <div class="check__list">
+                                                                <label for="falcon-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="falcon-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="falcon-text" name="falcon-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="condor-yes" name="condor" class="check__input check__input--yes">
+                                                        <input type="radio" id="condor-no" name="condor" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Кондор</span>
+                                                            <div class="check__list">
+                                                                <label for="condor-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="condor-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="condor-text" name="condor-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="cone-yes" name="cone" class="check__input check__input--yes">
+                                                        <input type="radio" id="cone-no" name="cone" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Конэ</span>
+                                                            <div class="check__list">
+                                                                <label for="cone-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="cone-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="cone-text" name="cone-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="atlant-yes" name="atlant" class="check__input check__input--yes">
+                                                        <input type="radio" id="atlant-no" name="atlant" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Атлант</span>
+                                                            <div class="check__list">
+                                                                <label for="atlant-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="atlant-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="atlant-text" name="atlant-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="kirovets-yes" name="kirovets" class="check__input check__input--yes">
+                                                        <input type="radio" id="kirovets-no" name="kirovets" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Кировец</span>
+                                                            <div class="check__list">
+                                                                <label for="kirovets-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="kirovets-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="kirovets-text" name="kirovets-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="mantsinen-yes" name="mantsinen" class="check__input check__input--yes">
+                                                        <input type="radio" id="mantsinen-no" name="mantsinen" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Mantsinen ES-250</span>
+                                                            <div class="check__list">
+                                                                <label for="mantsinen-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="mantsinen-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="mantsinen-text" name="mantsinen-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="liebherr-yes" name="liebherr" class="check__input check__input--yes">
+                                                        <input type="radio" id="liebherr-no" name="liebherr" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Liebherr</span>
+                                                            <div class="check__list">
+                                                                <label for="liebherr-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="liebherr-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="liebherr-text" name="liebherr-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="liebherr-auto-yes" name="liebherr-auto" class="check__input check__input--yes">
+                                                        <input type="radio" id="liebherr-auto-no" name="liebherr-auto" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Liebherr (автом.)</span>
+                                                            <div class="check__list">
+                                                                <label for="liebherr-auto-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="liebherr-auto-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="liebherr-auto-text" name="liebherr-auto-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="rtg-yes" name="rtg" class="check__input check__input--yes">
+                                                        <input type="radio" id="rtg-no" name="rtg" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">RTG</span>
+                                                            <div class="check__list">
+                                                                <label for="rtg-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="rtg-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="rtg-text" name="rtg-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="sts-yes" name="sts" class="check__input check__input--yes">
+                                                        <input type="radio" id="sts-no" name="sts" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">STS</span>
+                                                            <div class="check__list">
+                                                                <label for="sts-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="sts-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="sts-text" name="sts-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a href="#" class="step-list__add add-link" data-name="crane">
+                                                <svg class="add-link__icon">
+                                                    <use xlink:href="assets/images/sprite.svg#plus"></use>
+                                                </svg>
+                                                <span class="add-link__text">
+                                                     Добавить вариант
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="quiz-step step step--static">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Колесная техника</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Отметьте умение пользования указанными категориями техники, напишите вашу квалификацию и опыт работы. Можно добавить свои варианты
+                                        </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-list">
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="8-ton-yes" name="8-ton" class="check__input check__input--yes">
+                                                        <input type="radio" id="8-ton-no" name="8-ton" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">а/п г/п до 8 тн.</span>
+                                                            <div class="check__list">
+                                                                <label for="8-ton-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="8-ton-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="8-ton-text" name="8-ton-text" type="text" class="input__item"
+                                                            placeholder="Укажите ваш стаж">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="10-ton-yes" name="10-ton" class="check__input check__input--yes">
+                                                        <input type="radio" id="10-ton-no" name="10-ton" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">а/п г/п до 10 тн.</span>
+                                                            <div class="check__list">
+                                                                <label for="10-ton-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="10-ton-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="10-ton-text" name="10-ton-text" type="text" class="input__item"
+                                                            placeholder="Укажите ваш стаж">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="10-ton-second-yes" name="10-ton-second" class="check__input check__input--yes">
+                                                        <input type="radio" id="10-ton-second-no" name="10-ton-second" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">а/п г/п 10 тн. сцеп</span>
+                                                            <div class="check__list">
+                                                                <label for="10-ton-second-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="10-ton-second-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="10-ton-second-text" name="10-ton-second-text" type="text" class="input__item"
+                                                            placeholder="Укажите ваш стаж">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="16-ton-yes" name="16-ton" class="check__input check__input--yes">
+                                                        <input type="radio" id="16-ton-no" name="16-ton" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">а/п г/п до 16-42 тн.</span>
+                                                            <div class="check__list">
+                                                                <label for="16-ton-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="16-ton-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="16-ton-text" name="16-ton-text" type="text" class="input__item"
+                                                            placeholder="Укажите ваш стаж">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="stacker-yes" name="stacker" class="check__input check__input--yes">
+                                                        <input type="radio" id="stacker-no" name="stacker" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Ричстакер (конт/п)</span>
+                                                            <div class="check__list">
+                                                                <label for="stacker-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="stacker-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="stacker-text" name="stacker-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="port-tractor-yes" name="port-tractor" class="check__input check__input--yes">
+                                                        <input type="radio" id="port-tractor-no" name="port-tractor" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Портовой тягач</span>
+                                                            <div class="check__list">
+                                                                <label for="port-tractor-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="port-tractor-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="port-tractor-text" name="port-tractor-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="tractor-yes" name="tractor" class="check__input check__input--yes">
+                                                        <input type="radio" id="tractor-no" name="tractor" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Трактор</span>
+                                                            <div class="check__list">
+                                                                <label for="tractor-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="tractor-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="tractor-text" name="tractor-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="manipulator-yes" name="manipulator" class="check__input check__input--yes">
+                                                        <input type="radio" id="manipulator-no" name="manipulator" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Манипулятор (Атлас, Фукс)</span>
+                                                            <div class="check__list">
+                                                                <label for="manipulator-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="manipulator-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="manipulator-text" name="manipulator-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="bobcat-yes" name="bobcat" class="check__input check__input--yes">
+                                                        <input type="radio" id="bobcat-no" name="bobcat" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Бобкет</span>
+                                                            <div class="check__list">
+                                                                <label for="bobcat-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="bobcat-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="bobcat-text" name="bobcat-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="volvo-yes" name="volvo" class="check__input check__input--yes">
+                                                        <input type="radio" id="volvo-no" name="volvo" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Вольво, Амкадор, Камацу</span>
+                                                            <div class="check__list">
+                                                                <label for="volvo-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="volvo-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check__content check__content--visible check__content--full check-content">
+                                                            <input id="volvo-text" name="volvo-text" type="text" class="input__item"
+                                                            placeholder="Квалификация и опыт работы">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                            <a href="#" class="step-list__add add-link" data-name="wheel">
+                                                <svg class="add-link__icon">
+                                                    <use xlink:href="assets/images/sprite.svg#plus"></use>
+                                                </svg>
+                                                <span class="add-link__text">
+                                                     Добавить вариант
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="quiz-step step step--static">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Дополнительная квалификация</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Отметьте наличие указанных дополнительных квалификаций
+                                        </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-list">
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="additional-1-yes" name="additional-1" class="check__input check__input--yes">
+                                                        <input type="radio" id="additional-1-no" name="additional-1" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Судовые краны, суд. лебедка</span>
+                                                            <div class="check__list">
+                                                                <label for="additional-1-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="additional-1-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="additional-2-yes" name="additional-2" class="check__input check__input--yes">
+                                                        <input type="radio" id="additional-2-no" name="additional-2" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Сигнальщик-сцепщик ж/д вагонов</span>
+                                                            <div class="check__list">
+                                                                <label for="additional-2-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="additional-2-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="additional-3-yes" name="additional-3" class="check__input check__input--yes">
+                                                        <input type="radio" id="additional-3-no" name="additional-3" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Пневмоустановка для производства крепёжных работ «Титан»</span>
+                                                            <div class="check__list">
+                                                                <label for="additional-3-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="additional-3-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="additional-4-yes" name="additional-4" class="check__input check__input--yes">
+                                                        <input type="radio" id="additional-4-no" name="additional-4" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Химический комплекс для перевалки навалочных удобрений</span>
+                                                            <div class="check__list">
+                                                                <label for="additional-4-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="additional-4-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="additional-5-yes" name="additional-5" class="check__input check__input--yes">
+                                                        <input type="radio" id="additional-5-no" name="additional-5" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Зерновой комплекс</span>
+                                                            <div class="check__list">
+                                                                <label for="additional-5-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="additional-5-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="additional-6-yes" name="additional-6" class="check__input check__input--yes">
+                                                        <input type="radio" id="additional-6-no" name="additional-6" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Матрос береговой – швартовщик</span>
+                                                            <div class="check__list">
+                                                                <label for="additional-6-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="additional-6-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="additional-7-yes" name="additional-7" class="check__input check__input--yes">
+                                                        <input type="radio" id="additional-7-no" name="additional-7" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Работы на высоте</span>
+                                                            <div class="check__list">
+                                                                <label for="additional-7-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="additional-7-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="additional-8-yes" name="additional-8" class="check__input check__input--yes">
+                                                        <input type="radio" id="additional-8-no" name="additional-8" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Оператор судо-погрузочной машины</span>
+                                                            <div class="check__list">
+                                                                <label for="additional-8-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="additional-8-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="additional-9-yes" name="additional-9" class="check__input check__input--yes">
+                                                        <input type="radio" id="additional-9-no" name="additional-9" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Парогенератор</span>
+                                                            <div class="check__list">
+                                                                <label for="additional-9-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="additional-9-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-list__item step-list__item--profile">
+                                                <div class="check">
+                                                    <div class="check__wrapper">
+                                                        <input type="radio" id="additional-10-yes" name="additional-10" class="check__input check__input--yes">
+                                                        <input type="radio" id="additional-10-no" name="additional-10" class="check__input check__input--no">
+                                                        <div class="check__header">
+                                                            <span class="text text--base text--semibold text--white text--white--clear">Желание обучаться</span>
+                                                            <div class="check__list">
+                                                                <label for="additional-10-yes" class="check__label check__label--yes check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Да</span>
+                                                                </label>
+                                                                <label for="additional-10-no" class="check__label check__label--no check__label--padding--none">
+                                                                    <span class="check__checkmark"></span>
+                                                                    <span class="check__text text text--base text--semibold text--white text--white--clear">Нет</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="quiz-step step">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Паспортные данные</p>
+                                    </div>
+                                    <div class="step__block">
+                                        <p class="text text--base text--white">
+                                            Загрузите изображения указанных страниц паспорта в любом из данных форматов: PNG, JPG, JPEG или PDF
+                                        </p>
+                                    </div>
+                                    <div class="step__content">
+                                        <div class="step-photo__grid">
+                                            <div class="input-photo file-input js-file">
+                                                <div class="input-photo__box">
+                                                    <div class="input-photo__header">
+                                                        <p class="text text--base text--semibold text--white--clear">
+                                                            2 страница
+                                                        </p>
+                                                    </div>
+                                                    <div class="input-photo__preview">
+                                                        <img class="js-file-img"
+                                                            src="assets/images/photo-preview.png" alt="">
+                                                            <div class="input-photo__overlay">
+                                                                <span class="file-input__row file-input__row--name">
+                                                                    <svg class="file-input__icon">
+                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                    </svg>
+                                                                    <span class="file-input__text js-file-name">
+                                                                        Документ 17.08.2021.jpg
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                    </div>
+                                                    <div class="input-photo__content">
+                                                        
+                                                        <label class="input-photo__label">
+                                                            <input type="file" required name="passport-1"
+                                                                class="input-photo__tag js-file-input">
+                                                            <span class="input-photo__checkmark">Выбрать фото</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-photo file-input js-file">
+                                                <div class="input-photo__box">
+                                                    <div class="input-photo__header">
+                                                        <p class="text text--base text--semibold text--white--clear">
+                                                            3 страница
+                                                        </p>
+                                                    </div>
+                                                    <div class="input-photo__preview">
+                                                        <img class="js-file-img"
+                                                            src="assets/images/photo-preview.png" alt="">
+                                                            <div class="input-photo__overlay">
+                                                                <span class="file-input__row file-input__row--name">
+                                                                    <svg class="file-input__icon">
+                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                    </svg>
+                                                                    <span class="file-input__text js-file-name">
+                                                                        Документ 17.08.2021.jpg
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                    </div>
+                                                    <div class="input-photo__content">
+                                                        
+                                                        <label class="input-photo__label">
+                                                            <input type="file" required name="passport-2"
+                                                                class="input-photo__tag js-file-input">
+                                                            <span class="input-photo__checkmark">Выбрать фото</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-photo file-input js-file">
+                                                <div class="input-photo__box">
+                                                    <div class="input-photo__header">
+                                                        <p class="text text--base text--semibold text--white--clear">
+                                                            5 страница
+                                                        </p>
+                                                    </div>
+                                                    <div class="input-photo__preview">
+                                                        <img class="js-file-img"
+                                                            src="assets/images/photo-preview.png" alt="">
+                                                            <div class="input-photo__overlay">
+                                                                <span class="file-input__row file-input__row--name">
+                                                                    <svg class="file-input__icon">
+                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                    </svg>
+                                                                    <span class="file-input__text js-file-name">
+                                                                        Документ 17.08.2021.jpg
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                    </div>
+                                                    <div class="input-photo__content">
+                                                        
+                                                        <label class="input-photo__label">
+                                                            <input type="file" required name="passport-3"
+                                                                class="input-photo__tag js-file-input">
+                                                            <span class="input-photo__checkmark">Выбрать фото</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-photo file-input js-file">
+                                                <div class="input-photo__box">
+                                                    <div class="input-photo__header">
+                                                        <p class="text text--base text--semibold text--white--clear">
+                                                            13 страница
+                                                        </p>
+                                                    </div>
+                                                    <div class="input-photo__preview">
+                                                        <img class="js-file-img"
+                                                            src="assets/images/photo-preview.png" alt="">
+                                                            <div class="input-photo__overlay">
+                                                                <span class="file-input__row file-input__row--name">
+                                                                    <svg class="file-input__icon">
+                                                                        <use xlink:href="assets/images/sprite.svg#document"></use>
+                                                                    </svg>
+                                                                    <span class="file-input__text js-file-name">
+                                                                        Документ 17.08.2021.jpg
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                    </div>
+                                                    <div class="input-photo__content">
+                                                        
+                                                        <label class="input-photo__label">
+                                                            <input type="file" required name="passport-4"
+                                                                class="input-photo__tag js-file-input">
+                                                            <span class="input-photo__checkmark">Выбрать фото</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="quiz-step step">
+                                <div class="step__wrapper">
+                                    <div class="step__header">
+                                        <p class="title title--base title--white">Контактные данные</p>
+                                    </div>
+                                    <div class="step__content step-content">
+                                        <div class="step-content__grid">
+                                            <div class="step-content__block">
+                                                <div class="input">
+                                                    <div class="input__header">
+                                                        <label for="phone" required class="input__label">Телефон</label>
+                                                    </div>
+                                                    <div class="input__content">
+                                                        <input id="phone" required name="phone" type="text" class="input__item"
+                                                            placeholder="+7 (999) 999-99-99">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-content__block">
+                                                <div class="input">
+                                                    <div class="input__header">
+                                                        <label for="email" class="input__label">E-mail</label>
+                                                    </div>
+                                                    <div class="input__content">
+                                                        <input id="email" required name="email" type="text" class="input__item"
+                                                            placeholder="mail@mail.ru">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-content__block step-content__block--full">
+                                                <div class="step__text">
+                                                    <p class="text text--base text--white">
+                                                        На указанный номер телефона поступит SMS-сообщение c <span class="text text--base text--white--clear text--semibold">паролем</span>, который в дальнейшем будет использоваться для доступа в ваш Личный кабинет. Запомните или запишите его
+                                                    </p>
+                                                    <p class="text text--base text--white">
+                                                        Введите его в поле, которое появится после нажатия на кнопку «Отправить пароль»
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz-nav">
+                            <div class="quiz-nav__wrapper">
+                                <div class="quiz-nav__list">
+                                    <nav class="nav">
+                                        <ul class="nav__list">
+                                            <li class="nav__item">
+                                                <p class="nav__title">Этап 1</p>
+                                                <ul class="nav__sublist">
+                                                    <li class="nav__step nav__step--current">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 1
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Личная информация
+                                                        </p>
+                                                    </li>
+                                                    <li class="nav__step">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 2
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Специализация
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="nav__item">
+                                                <p class="nav__title">Этап 2</p>
+                                                <ul class="nav__sublist">
+                                                    <li class="nav__step nav__step--dynamic">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 3
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Навыки и опыт работы
+                                                        </p>
+                                                    </li>
+                                                    <li class="nav__step nav__step--static">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 3
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Категории транспорта
+                                                        </p>
+                                                    </li>
+                                                    <li class="nav__step nav__step--static">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 4
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Портальные краны
+                                                        </p>
+                                                    </li>
+                                                    <li class="nav__step nav__step--static">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 5
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Колесная техника
+                                                        </p>
+                                                    </li>
+                                                    <li class="nav__step nav__step--static">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 6
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Доп. квалификация
+                                                        </p>
+                                                    </li>
+                                                </ul>                     
+                                            </li>
+                                            <li class="nav__item">
+                                                <p class="nav__title">Этап 3</p>
+                                                <ul class="nav__sublist">
+                                                    <li class="nav__step nav__step--dynamic">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 4
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Паспортные данные
+                                                        </p>
+                                                    </li>
+                                                    <li class="nav__step nav__step--dynamic">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 5
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Контактные данные
+                                                        </p>
+                                                    </li>
+                                                    <li class="nav__step nav__step--static">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 7
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Паспортные данные
+                                                        </p>
+                                                    </li>
+                                                    <li class="nav__step nav__step--static">
+                                                        <p class="nav__text nav__text--step">
+                                                            Шаг 8
+                                                        </p>
+                                                        <p class="nav__text">
+                                                            Контактные данные
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="quiz-nav__footer">
+                                    
+                                    <a href="#" class="button button--base button--big button--accent button--full quiz-next-step">
+                                        <span class="button__text">Следующий шаг</span>
+                                    </a>
+                                    <a href="#" class="button button--full button--back quiz-back-step">
+                                        <svg class="button__icon">
+                                            <use xlink:href="assets/images/sprite.svg#arrow-back"></use>
+                                        </svg>
+                                        <span class="button__text">Предыдущий шаг</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+        <footer class="page-wrapper__footer footer">
+            <div class="footer__wrapper">
+                <div class="container">
+                    <div class="footer__row">
+                        <div class="footer__block">
+                            <p class="footer__text footer__text--uppercase">
+                                port service group 2023
+                            </p>
+                        </div>
+                        <div class="footer__block">
+                            <a href="mailto:info@portsg.ru" class="footer__text">info@portsg.ru</a>
+                            <a href="tel:88000000000" class="phone-link">
+                                <svg class="phone-link__icon phone-link__icon--small phone-link__icon--grey">
+                                    <use xlink:href="assets/images/sprite.svg#phone"></use>
+                                </svg>
+                                <span class="phone-link__text phone-link__text--small phone-link__text--grey">
+                                    8 (800) 000-00-00
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="popup popup--thanks">
+        <div class="popup__wrapper">
+            <div class="popup__container">
+                <a href="#" class="popup__close"></a>
+                <div class="popup__box">
+                    <div class="popup__block">
+                        <p class="title title--small title--white">
+                            Подтверждение регистрации
+                        </p>
+                        <p class="text text--base text--white">
+                            Введите пароль из SMS-сообщения, отправленного на указанный номер
+                        </p>
+                    </div>
+                    <div class="popup__block">
+                        <div class="input">
+                            <div class="input__content">
+                                <input id="fio" name="fio" type="text" class="input__item"
+                                    placeholder="• • • • • • •">
+                            </div>
+                        </div>
+                        <a href="#" class="button button--base button--big button--accent button--full">
+                            <span class="button__text">Завершить регистрацию</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/scripts/admin.js"></script>
+</body>
+
+</html>
