@@ -9,6 +9,13 @@ body {
   background-color: #141515;
 }
 
+body.no-scroll {
+  overflow: hidden;
+  touch-action: none;
+  -ms-touch-action: none;
+}
+
+
 .page-wrapper {
   min-height: 100vh;
   display: flex;
@@ -460,7 +467,6 @@ body {
 }
 .nav__step {
   display: flex;
-  align-items: center;
   gap: 17px;
   padding-top: 30px;
 }
@@ -488,6 +494,7 @@ body {
 }
 .nav__text--step {
   font-weight: 600;
+  flex-shrink: 0;
 }
 .nav--hidden {
   display: none;
