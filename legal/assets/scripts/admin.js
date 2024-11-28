@@ -212,12 +212,11 @@ const showPopup = popupId => {
     const popup = document.querySelector(popupId);
     if (!popup) return
 
-    const pageWrapper = document.querySelector('.page-wrapper');
 
     hideAllPopups();
 
     popup.classList.add('popup--active');
-    pageWrapper.classList.add('no-scroll');
+    document.body.classList.add('no-scroll');
 
     document.addEventListener('click', checkTargetOrKey);
     document.addEventListener('keyup', checkTargetOrKey);
@@ -229,7 +228,7 @@ const hideAllPopups = () => {
     popups.forEach(popup => {
         popup.classList.remove('popup--active');
     });
-    pageWrapper.classList.remove('no-scroll');
+    document.body.classList.remove('no-scroll');
 
     document.removeEventListener('click', checkTargetOrKey);
     document.removeEventListener('keyup', checkTargetOrKey);
