@@ -34,16 +34,34 @@ const hideAllPopups = () => {
 
 
 document.addEventListener('DOMContentLoaded',()=>{
-    const popups = document.querySelectorAll(".popup:not(.js-popup)");
-    popups.forEach((popup) => {
-        popup.addEventListener("click", (e) => {
-            if (
-                e.target.classList.contains("popup") ||
-                e.target.classList.contains("popup-close")
-            ) {
-                popup.classList.remove("open");
-                enableScroll();
-            }
+    const popupButtons = document.querySelectorAll('[data-popup]');
+    const popups = document.querySelectorAll('.popup');
+
+    if (popups.length) {
+        popupButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const popupId = button.dataset.popup
+                showPopup(popupId);
+            });
         });
-    });
+    }
+
+
+    const parallaxSection = document.querySelectorAll('.parallax');
+
+    parallaxSection.forEach(parallax => {
+        const wrapper = parallax.closest('.parallax-wrapper')
+        gsap.to(parallax, {
+            yPercent:Math.floor(Math.random() * (100)) - 150,
+            ease: "none",
+            scrollTrigger: {
+                scrub: true,
+                trigger: wrapper,
+                start: "-10vh top",
+                end: "bottom top",
+            },
+        });
+    })
 });
