@@ -868,6 +868,65 @@ const createHorseCatalog = (array) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const quizSliderElement = document.querySelector('.quiz-slider');
+
+    const quizSlider = new Swiper(".quiz-slider", {
+        slidesPerView:1,
+        pagination: {
+            el: ".quiz-slider-pagination",
+        },
+        navigation: {
+            nextEl: ".quiz-slider-button-next",
+            prevEl: ".quiz-slider-button-prev",
+        },
+
+        init:false,
+    });
+
+    quizSlider.on('init',()=>{
+        const maxSliderElement = document.querySelector('.quiz-slider-max'),
+            currentSliderElement = document.querySelector('.quiz-slider-current');
+        if(maxSliderElement) maxSliderElement.textContent = quizSlider.slides.length;
+
+        const buttonNext = document.querySelector('.quiz-slider-button-next');
+        buttonNext.classList.add('disabled');
+
+        const currentSlideInputs = quizSlider.slides[quizSlider.realIndex].querySelectorAll('input');
+
+        currentSlideInputs.forEach(input=>{
+           input.addEventListener('change',()=>{
+               buttonNext.classList.remove('disabled');
+           });
+        });
+
+        if(currentSliderElement) currentSliderElement.textContent = quizSlider.realIndex + 1;
+    });
+
+    quizSlider.on('slideChange',()=>{
+        const currentSliderElement = document.querySelector('.quiz-slider-current');
+        if(currentSliderElement) currentSliderElement.textContent = quizSlider.realIndex + 1;
+
+        const buttonSend = document.querySelector('.quiz-slider-button-send'),
+            buttonNext = document.querySelector('.quiz-slider-button-next');
+
+        buttonNext.classList.add('disabled');
+
+        const currentSlideInputs = quizSlider.slides[quizSlider.realIndex].querySelectorAll('input');
+        currentSlideInputs.forEach(input=>{
+            input.addEventListener('change',()=>{
+                buttonNext.classList.remove('disabled');
+            });
+        });
+
+        if(quizSlider.slides.length - 1 == quizSlider.realIndex){
+            quizSliderElement.classList.add('quiz-slider--end')
+        }else{
+            quizSliderElement.classList.remove('quiz-slider--end')
+        }
+    });
+
+    if(quizSliderElement) quizSlider.init();
+
     const languageCurrent = getCurrentLanguage();
 
     const languageList = document.querySelectorAll('.language');
@@ -880,9 +939,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const currentLanguage = getCurrentLanguage(),
                 inputArray = language.querySelectorAll('input');
-            inputArray.forEach(input => input.value == currentLanguage ? input.checked = true : input.checked = false);
+            inputArray.forEach(input => input.value === currentLanguage ? input.checked = true : input.checked = false);
 
-            const languageChecked = language.querySelector(':checked');
+            const languageChecked = language.querySelector(':checked') || language.querySelector('input');
+
 
             languageCurrent.addEventListener('click', () => {
                 language.classList.toggle('language--active');
@@ -1070,7 +1130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             form.addEventListener('submit', e => {
                 e.preventDefault();
 
-                showPopup('.popup-thanks')
+                showPopup('.popup-thanks');
             });
         });
     }
