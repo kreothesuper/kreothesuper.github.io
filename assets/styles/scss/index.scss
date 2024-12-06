@@ -14,6 +14,12 @@ body {
     color: var(--color-black);
 }
 
+body.no-scroll {
+    overflow: hidden;
+    touch-action: none;
+    -ms-touch-action: none;
+}
+
 .rtl{
     text-align: right;
 }
@@ -222,13 +228,13 @@ body {
         border: 2px solid transparent;
 
         transition: .3s color,.3s background, .3s border-color;
-        &:hover{
+        &:not(p):hover{
             color: #Fff;
             background: var(--color-black);
         }
         &--green {
             color: var(--color-green);
-            &:hover{
+            &:not(p):hover{
                 background: var(--color-green);
                 border-color: #fff;
             }
@@ -413,6 +419,11 @@ body {
                 @media screen and (max-width:767px) {
                     font-size: 20px;
                     font-weight: 700;
+                }
+            }
+            &--same{
+                @media screen and (max-width: 767px) {
+                    font-size: 25px;
                 }
             }
         }
@@ -3571,6 +3582,8 @@ body {
         height: 250px;
         @media screen and (max-width: 400px) {
             aspect-ratio: 1;
+            width: 100%;
+            height: auto;
         }
     }
     &--big &__button{
@@ -3715,6 +3728,7 @@ body {
 }
 
 .review{
+
     &-list{
         display: flex;
         flex-direction: column;
@@ -3886,17 +3900,30 @@ body {
         width: max-content;
         max-width: 100%;
 
-        &--left{
-            margin-left: auto;
 
-        }
 
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: 1024px) {
             padding: 15px;
             font-size: 12px;
-
-            order: 4;
         }
+        @media screen and (max-width: 767px) {
+            order: 4;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        &--left{
+            margin-left: auto;
+            @media screen and (max-width: 1024px) {
+                max-width: 175px;
+                width: 100%;
+            }
+            @media screen and (max-width: 767px) {
+                max-width: 275px;
+                margin: 0 auto;
+            }
+        }
+
         &::before{
             content: '';
             width: 15px;
@@ -3906,5 +3933,39 @@ body {
 
             background: url("/assets/images/icons/review-ai.svg") center center/contain no-repeat;
         }
+    }
+
+
+    &-calc{
+        position: relative;
+        &--finish &__start{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            opacity: 0;
+        }
+        &--finish &__finish{
+            display: block;
+            animation: animateBlock 1s forwards;
+        }
+        &__start{
+            transition: .5s opacity;
+        }
+        &__finish{
+            opacity: 0;
+            display: none;
+        }
+    }
+}
+
+@keyframes animateBlock {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }

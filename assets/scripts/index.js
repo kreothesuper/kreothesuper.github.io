@@ -886,7 +886,7 @@ const initTabs = () => {
                 });
             }
 
-            openTab(1)
+            openTab(0)
 
             tabLinks.forEach((link, i) => {
                 link.addEventListener("click", (e) => {
@@ -898,69 +898,103 @@ const initTabs = () => {
     }
 }
 
+const animateValue = (obj, start, end, duration) => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = `${Math.floor(progress * (end - start) + start)}%`;
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
+    const calcReview = document.querySelector('.review-calc');
+
+    if(calcReview){
+        const calcReviewButton = calcReview.querySelector('.review-calc__button');
+
+        if(calcReviewButton){
+            const calcReviewNumber = calcReview.querySelector('.review-calc-number');
+            calcReviewButton.addEventListener('click',(e)=>{
+                e.preventDefault();
+
+                if(calcReviewNumber) animateValue(calcReviewNumber, 0, +calcReviewNumber.textContent, 3000);
+                calcReview.classList.add('review-calc--finish');
+            });
+        }
+    }
 
     initTabs();
 
     const quizSliderElement = document.querySelector('.quiz-slider');
 
-    const quizSlider = new Swiper(".quiz-slider", {
-        slidesPerView:1,
-        pagination: {
-            el: ".quiz-slider-pagination",
-        },
-        navigation: {
-            nextEl: ".quiz-slider-button-next",
-            prevEl: ".quiz-slider-button-prev",
-        },
+    if(quizSliderElement){
+        const quizSlider = new Swiper(".quiz-slider", {
+            slidesPerView:1,
+            pagination: {
+                el: ".quiz-slider-pagination",
+            },
+            navigation: {
+                nextEl: ".quiz-slider-button-next",
+                prevEl: ".quiz-slider-button-prev",
+            },
 
-        init:false,
-    });
-
-    quizSlider.on('init',()=>{
-        const maxSliderElement = document.querySelector('.quiz-slider-max'),
-            currentSliderElement = document.querySelector('.quiz-slider-current');
-        if(maxSliderElement) maxSliderElement.textContent = quizSlider.slides.length;
-
-        const buttonNext = document.querySelector('.quiz-slider-button-next');
-        buttonNext.classList.add('disabled');
-
-        const currentSlideInputs = quizSlider.slides[quizSlider.realIndex].querySelectorAll('input');
-
-        currentSlideInputs.forEach(input=>{
-           input.addEventListener('change',()=>{
-               buttonNext.classList.remove('disabled');
-           });
+            init:false,
         });
 
-        if(currentSliderElement) currentSliderElement.textContent = quizSlider.realIndex + 1;
-    });
+        quizSlider.on('init',()=>{
+            const maxSliderElement = document.querySelector('.quiz-slider-max'),
+                currentSliderElement = document.querySelector('.quiz-slider-current');
+            if(maxSliderElement) maxSliderElement.textContent = quizSlider.slides.length;
 
-    quizSlider.on('slideChange',()=>{
-        const currentSliderElement = document.querySelector('.quiz-slider-current');
-        if(currentSliderElement) currentSliderElement.textContent = quizSlider.realIndex + 1;
+            const buttonNext = document.querySelector('.quiz-slider-button-next');
+            buttonNext.classList.add('disabled');
 
-        const buttonSend = document.querySelector('.quiz-slider-button-send'),
-            buttonNext = document.querySelector('.quiz-slider-button-next');
+            const currentSlideInputs = quizSlider.slides[quizSlider.realIndex].querySelectorAll('input');
 
-        buttonNext.classList.add('disabled');
-
-        const currentSlideInputs = quizSlider.slides[quizSlider.realIndex].querySelectorAll('input');
-        currentSlideInputs.forEach(input=>{
-            input.addEventListener('change',()=>{
-                buttonNext.classList.remove('disabled');
+            currentSlideInputs.forEach(input=>{
+                if(input.checked) buttonNext.classList.remove('disabled');
+                input.addEventListener('change',()=>{
+                    buttonNext.classList.remove('disabled');
+                });
             });
+
+            if(currentSliderElement) currentSliderElement.textContent = quizSlider.realIndex + 1;
         });
 
-        if(quizSlider.slides.length - 1 == quizSlider.realIndex){
-            quizSliderElement.classList.add('quiz-slider--end')
-        }else{
-            quizSliderElement.classList.remove('quiz-slider--end')
-        }
-    });
+        quizSlider.on('slideChange',()=>{
+            const currentSliderElement = document.querySelector('.quiz-slider-current');
+            if(currentSliderElement) currentSliderElement.textContent = quizSlider.realIndex + 1;
 
-    if(quizSliderElement) quizSlider.init();
+            const buttonSend = document.querySelector('.quiz-slider-button-send'),
+                buttonNext = document.querySelector('.quiz-slider-button-next');
+
+            buttonNext.classList.add('disabled');
+
+            const currentSlideInputs = quizSlider.slides[quizSlider.realIndex].querySelectorAll('input');
+            currentSlideInputs.forEach(input=>{
+                if(input.checked) buttonNext.classList.remove('disabled');
+                input.addEventListener('change',()=>{
+                    buttonNext.classList.remove('disabled');
+                });
+            });
+
+            if(quizSlider.slides.length - 1 == quizSlider.realIndex){
+                quizSliderElement.classList.add('quiz-slider--end')
+            }else{
+                quizSliderElement.classList.remove('quiz-slider--end')
+            }
+        });
+
+        if(quizSliderElement) quizSlider.init();
+    }
+
+
 
     const languageCurrent = getCurrentLanguage();
 
@@ -1165,7 +1199,10 @@ document.addEventListener('DOMContentLoaded', () => {
             form.addEventListener('submit', e => {
                 e.preventDefault();
 
-                showPopup('.popup-thanks');
+                if(!form.classList.contains('js-no-thanks')){
+                    showPopup('.popup-thanks');
+                }
+
             });
         });
     }

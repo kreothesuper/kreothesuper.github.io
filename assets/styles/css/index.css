@@ -15,6 +15,12 @@ body {
   color: var(--color-black);
 }
 
+body.no-scroll {
+  overflow: hidden;
+  touch-action: none;
+  -ms-touch-action: none;
+}
+
 .rtl {
   text-align: right;
 }
@@ -210,14 +216,14 @@ body {
   border: 2px solid transparent;
   transition: 0.3s color, 0.3s background, 0.3s border-color;
 }
-.button--white:hover {
+.button--white:not(p):hover {
   color: #Fff;
   background: var(--color-black);
 }
 .button--white--green {
   color: var(--color-green);
 }
-.button--white--green:hover {
+.button--white--green:not(p):hover {
   background: var(--color-green);
   border-color: #fff;
 }
@@ -379,6 +385,11 @@ body {
   .title--small--mobile--big {
     font-size: 20px;
     font-weight: 700;
+  }
+}
+@media screen and (max-width: 767px) {
+  .title--small--mobile--same {
+    font-size: 25px;
   }
 }
 .title--base {
@@ -3300,6 +3311,8 @@ body {
 @media screen and (max-width: 400px) {
   .questionnaire-card--big {
     aspect-ratio: 1;
+    width: 100%;
+    height: auto;
   }
 }
 .questionnaire-card--big .questionnaire-card__button {
@@ -3612,14 +3625,32 @@ body {
   width: max-content;
   max-width: 100%;
 }
-.review__ai--left {
-  margin-left: auto;
-}
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1024px) {
   .review__ai {
     padding: 15px;
     font-size: 12px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .review__ai {
     order: 4;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+.review__ai--left {
+  margin-left: auto;
+}
+@media screen and (max-width: 1024px) {
+  .review__ai--left {
+    max-width: 175px;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .review__ai--left {
+    max-width: 275px;
+    margin: 0 auto;
   }
 }
 .review__ai::before {
@@ -3629,6 +3660,37 @@ body {
   display: block;
   flex-shrink: 0;
   background: url("/assets/images/icons/review-ai.svg") center center/contain no-repeat;
+}
+.review-calc {
+  position: relative;
+}
+.review-calc--finish .review-calc__start {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.review-calc--finish .review-calc__finish {
+  display: block;
+  animation: animateBlock 1s forwards;
+}
+.review-calc__start {
+  transition: 0.5s opacity;
+}
+.review-calc__finish {
+  opacity: 0;
+  display: none;
+}
+
+@keyframes animateBlock {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
