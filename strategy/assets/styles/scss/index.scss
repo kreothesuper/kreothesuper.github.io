@@ -89,6 +89,15 @@ body.no-scroll {
   -ms-touch-action: none;
 }
 
+.page-wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  .content{
+    flex-grow: 1;
+  }
+}
+
 .container {
   padding: 0 clamp(20px, 1.4vw, 1.4vw);
 }
@@ -1073,65 +1082,35 @@ background: #D9D9D9;
 .principles {
   &-scroll {
     overflow: hidden;
-    @media screen and (max-width: 1240px) {
-      overflow: auto;
-      width: calc(100% + 40px);
-      transform: translateX(-20px);
-
-      -ms-overflow-style: none;
-      overflow: -moz-scrollbars-none;
-      scrollbar-width: none;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
   }
 
   &-grid {
-    padding: .7vw 0;
+    padding: clamp(10px,.7vw,.7vw) 0;
     display: flex;
     align-items: stretch;
   }
 
-  &-grid.active &-card{
-    animation: cards 1s var(--animation-delay) var(--animation-func);
-  }
-
   &-card {
-    width: 10%;
+    width: 35%;
     overflow: hidden;
     flex-shrink: 0;
 
-    transition: .5s width var(--animation-func);
-
-    &--big {
-      width: 50%;
+    &:last-child{
+      overflow: visible;
     }
 
-    &--middle {
-      width: 20%;
-    }
-
-    &--animated{
-      width: 35%;
-    }
 
     &:not(:first-child) {
       border-left: 1px solid rgba(#fff, .3);
     }
 
     @media screen and (max-width: 1240px) {
-      width: 50%;
-    }
-    
-    @media screen and (max-width: 350px) {
       width: 60%;
     }
 
     &__wrapper {
       width: 37vw;
-      height: 37vw;
+      height:calc(100vh - 13vw);
       padding: 3vw 3vw 3.4vw 3vw;
       display: flex;
       flex-direction: column;
@@ -1144,7 +1123,8 @@ background: #D9D9D9;
         padding: 30px 10px 30px 20px;
       }
       @media screen and (max-width: 767px) {
-        height: 320px;
+
+        height:calc(100vh - 110px);
       }
     }
   }
