@@ -121,27 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const teamSlider = new Swiper('.team-slider-element', {
             slidesPerView: 'auto',
             spaceBetween: 10,
-            grid: {
-                fill: 'column',
-                rows: 1,
-                slidesOffsetAfter: 50,
-            },
-            breakpoints: {
-                1239: {
-                    slidesPerView: 4,
-                    grid: {
-                        fill: 'row',
-                        rows: 2,
-                    },
-                },
-                767: {
-                    slidesPerView: 2,
-                    grid: {
-                        fill: 'row',
-                        rows: 4,
-                    },
-                }
-            }
         });
     }
 

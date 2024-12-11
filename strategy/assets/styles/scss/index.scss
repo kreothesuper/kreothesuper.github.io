@@ -725,6 +725,16 @@ body.no-scroll {
       }
     }
 
+    &--team {
+      gap: var(--section-gap) 1.4vw;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      @media screen and (max-width: 1240px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--section-gap) 10px;
+      }
+    }
+
     &--gap {
       &--small {
         gap: 1.4vw;
@@ -1048,7 +1058,7 @@ body.no-scroll {
     overflow: hidden;
     flex-shrink: 0;
 
-    transition: 1s width var(--animation-func);
+    transition: .5s width var(--animation-func);
 
     &--big {
       width: 50%;
@@ -1163,7 +1173,6 @@ body.no-scroll {
 
 .team {
   position: relative;
-
   &__box {
     display: flex;
     flex-direction: column;
@@ -1217,7 +1226,6 @@ body.no-scroll {
 
     &.animated {
       animation: circleAnimation 1s 1.5s forwards var(--animation-func);
-
     }
 
     &.animated &__item {
@@ -1266,10 +1274,6 @@ body.no-scroll {
   &-main {
     background: #D9D9D9;
     position: relative;
-    @media screen and (max-width: 1240px) {
-      width: calc(100% + 40px);
-      transform: translateX(-20px);
-    }
 
     &__img {
       position: absolute;
@@ -1379,28 +1383,25 @@ body.no-scroll {
       gap: 5px;
     }
   }
+  
+  &-grid{
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
 
   &-slider {
-    margin-bottom: clamp(-75px, -5.2vw, -5.2vw);
     overflow: hidden;
-    @media screen and (max-width: 1240px) {
-      margin-bottom: -50px;
-    }
-    @media screen and (max-width: 767px) {
-      margin-bottom: 0;
+    @media screen and (min-width: 768px) {
+      display: none;
     }
 
     &-element {
       overflow: visible;
-
     }
 
     &__item {
       width: 42vw;
-      margin: 0 0 var(--section-gap) 0;
-      @media screen and (max-width: 767px) {
-        margin: 0;
-      }
     }
   }
 }
