@@ -129,12 +129,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+    const lenis = new Lenis();
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+
     const principlesBlock = document.querySelector('.principles');
 
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: ".principles",
-            // pin: true,
+            pin: true,
             start: "top top",
             end: "bottom top",
             scrub: 1,
@@ -165,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const items = document.querySelectorAll('.principles-card');
 
+
     items.forEach((item, i)=> {
         item.addEventListener("click", function() {
             gsap.to(window, {
@@ -175,11 +183,3 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 });
-
-
-(function () {
-    const scroll = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true
-    })
-})();

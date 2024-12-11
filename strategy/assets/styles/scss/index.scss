@@ -1172,8 +1172,6 @@ background: #D9D9D9;
 
 .principles {
   &-scroll {
-    overflow: auto;
-    scroll-snap-stop: always;
   }
 
   &-grid {
@@ -1542,32 +1540,42 @@ background: #D9D9D9;
   &__content{
     display: flex;
     flex-direction: column;
-    gap: clamp(75px,5.2vw,5.2vw);
+    gap: calc(75px - 2.7vw);
+    @media screen and (max-width: 1240px) {
+      gap: 35px;
+    }
+    @media screen and (max-width: 767px) {
+      gap: 45px;
+    }
   }
 
   &-block{
     display: flex;
     flex-direction: column;
-    gap: 2.7vw;
-    @media screen and (max-width: 1240px) {
-      gap: 40px;
-    }
-    @media screen and (max-width: 767px) {
-      gap: 30px;
-    }
 
     &__header{
+      padding: 2.7vw 0;
+      @media screen and (max-width: 1240px) {
+        padding: 40px 0;
+      }
+      @media screen and (max-width: 767px) {
+        padding: 30px 0;
+      }
       &--sticky{
-
         @media screen and (min-width: 1240px) {
           position: sticky;
-          top: 20px;
+          top: 0px;
+
+          z-index: 4;
+          background: #F2F2F2;
+          border-bottom: 1px solid rgba(16, 65, 54, 0.3);
         }
       }
     }
 
     &__content{
-      border-top: 1px solid rgba(#104136,.3);
+      position: relative;
+      z-index: 3;
     }
   }
   &-list{
