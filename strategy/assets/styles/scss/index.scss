@@ -212,6 +212,14 @@ body.no-scroll {
   &--center {
     margin: 0 auto;
   }
+  
+  &--tablet{
+    &--center{
+      @media screen and (max-width: 1240px) {
+        margin: 0 auto;
+      }
+    }
+  }
 
   &__text {
     padding: var(--padding-size);
@@ -221,6 +229,12 @@ body.no-scroll {
 
     line-height: 1.2;
     flex-shrink: 0;
+
+    transition: .3s background-color,.3s color;
+    &:hover{
+      background: var(--main-button-color);
+      color: var(--fill-color);
+    }
   }
 
   &__icon {
@@ -420,6 +434,30 @@ body.no-scroll {
     gap: 20px;
     @media screen and (max-width: 767px) {
       gap: 15px;
+      align-items: flex-end;
+    }
+    &__link{
+      display: block;
+      position: relative;
+      width: max-content;
+      max-width: 100%;
+
+      &:hover{
+        &::before{
+          width: 100%;
+        }
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 0;
+        background: #fff;
+        left: 0;
+        bottom: -2px;
+
+        transition: .3s width;
+      }
     }
   }
 }
@@ -495,6 +533,24 @@ body.no-scroll {
       font-size: var(--text-size-base);
       font-weight: 500;
       color: var(--header-color);
+
+      position: relative;
+      &:hover{
+        &::before{
+          width: 100%;
+        }
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 0;
+        background: var(--header-color);
+        left: 0;
+        bottom: -2px;
+
+        transition: .3s width;
+      }
     }
   }
 
@@ -516,7 +572,6 @@ body.no-scroll {
 background: #D9D9D9;
   &__wrapper {
     min-height: 100svh;
-    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -526,9 +581,11 @@ background: #D9D9D9;
     padding-top: clamp(120px, 7vw, 7vw);
     @media screen and (max-width: 1240px) {
       padding: 80px 0 50px 0;
+      height: 600px;
     }
     @media screen and (max-width: 767px) {
       padding: 80px 0 20px 0;
+      height: 400px;
     }
   }
 
@@ -536,7 +593,7 @@ background: #D9D9D9;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    padding: clamp(10px, .7vw, .7vw) 0 0 0;
+    padding: clamp(10px, .7vw, .7vw) 0 clamp(10px, .7vw, .7vw) 0;
     border-top: 1px solid rgba(#fff, .3);
 
     @media screen and (max-width: 1240px) {
@@ -608,7 +665,6 @@ background: #D9D9D9;
     color: var(--color);
 
     transition: .3s color;
-
     @media screen and (max-width: 767px) {
       font-size: 20px;
     }
@@ -619,6 +675,32 @@ background: #D9D9D9;
 
     &:has(:checked) {
       color: var(--active-color);
+    }
+    &:has(:checked) &__checkmark{
+      &::before{
+        background: var(--active-color);
+      }
+    }
+
+    &__checkmark{
+      position: relative;
+      display: block;
+      &:hover{
+        &::before{
+          width: 100%;
+        }
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 0;
+        background: var(--color);
+        left: 0;
+        bottom: -2px;
+
+        transition: .3s width;
+      }
     }
 
     &__item {
@@ -778,6 +860,7 @@ background: #D9D9D9;
   }
 
   &__column {
+
     &--end {
       grid-column-start: 2;
       @media screen and (max-width: 767px) {
@@ -787,6 +870,14 @@ background: #D9D9D9;
       &--footer {
         @media screen and (max-width: 767px) {
           grid-column-start: 2;
+        }
+      }
+    }
+
+    &--tablet{
+      &--start{
+        @media screen and (max-width: 1240px) {
+          grid-column-start: 1;
         }
       }
     }
@@ -1118,7 +1209,7 @@ background: #D9D9D9;
 
       @media screen and (max-width: 1240px) {
         width: 100%;
-        height: 600px;
+        height:calc(100vh - 150px);
 
         padding: 30px 10px 30px 20px;
       }
@@ -1257,7 +1348,7 @@ background: #D9D9D9;
     }
 
     &.animated {
-      animation: circleAnimation 1s 1.5s forwards var(--animation-func);
+      animation: circleAnimation 1s .8s forwards var(--animation-func);
     }
 
     &.animated &__item {
