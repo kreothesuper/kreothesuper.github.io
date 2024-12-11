@@ -1014,7 +1014,8 @@ body.no-scroll {
   }
 }
 .principles-scroll {
-  overflow: hidden;
+  overflow: auto;
+  scroll-snap-stop: always;
 }
 .principles-grid {
   padding: clamp(10px, 0.7vw, 0.7vw) 0;
@@ -1366,6 +1367,12 @@ body.no-scroll {
 @media screen and (max-width: 767px) {
   .resume-block {
     gap: 30px;
+  }
+}
+@media screen and (min-width: 1240px) {
+  .resume-block__header--sticky {
+    position: sticky;
+    top: 20px;
   }
 }
 .resume-block__content {

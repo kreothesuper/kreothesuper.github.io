@@ -13,10 +13,17 @@
 
     <link rel="stylesheet" href="assets/styles/css/reset.css">
     <link rel="stylesheet" href="assets/styles/css/index.css">
+
+    <script src="
+https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js
+"></script>
+    <link href="
+https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css
+" rel="stylesheet">
 </head>
 <body>
 
-<div class="page-wrapper">
+<div class="page-wrapper" data-scroll-container="">
     <header class="header">
         <div class="header__wrapper">
             <div class="container">
@@ -170,18 +177,25 @@
         </div>
     </div>
     <main class="content">
-        <section class="hero video-bg animation-wrapper">
+        <section class="hero video-bg animation-wrapper" data-scroll-section="">
             <div class="video-bg__item">
                 <video src="assets/video/hero-bg.mp4" playsinline loop muted autoplay></video>
             </div>
             <div class="hero__wrapper">
                 <div class="container">
                     <div class="hero__content">
-                        <div class="hero-header grid ">
-                            <div class="animation-item animation-text">
-                                <h2 class="title title--big title--white animation-text__item">
-                                    Стратегический консалтинг
-                                </h2>
+                        <div class="hero-header grid">
+                            <div class="hero__title">
+                                <div class="animation-item animation-text">
+                                    <p class="title title--big title--white animation-text__item">
+                                        Стратегический
+                                    </p>
+                                </div>
+                                <div class="animation-item animation-text">
+                                    <p class="title title--big title--white animation-text__item">
+                                        консалтинг
+                                    </p>
+                                </div>
                             </div>
                             <div class="grid__row">
                                 <div class="grid__column grid__column--end">
@@ -216,7 +230,7 @@
             </div>
         </section>
 
-        <section class="section" id="about">
+        <section class="section" id="about" data-scroll-section>
             <div class="section__wrapper">
                 <div class="container">
                     <div class="grid ">
@@ -338,89 +352,87 @@
                 </div>
             </div>
         </section>
-        <div class="section section--accent">
-            <section class="section section--accent principles" id="principles">
-                <div class="section__column">
-                    <div class="container">
-                        <div class="section__row grid animation-wrapper">
-                            <div class="grid__row grid__row--line">
-                                <div class="grid__column section__title grid__column--title">
-                                    <div class="animation-item animation-text">
-                                        <h2 class="title title--base title--white animation-text__item">
-                                            Наши принципы
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="grid__column section__title grid__column--title grid__column--title--right">
-                                    <div class="animation-item animation-text">
-                                        <p class="title title--base title--white--light title--right animation-text__item">
-                                            [5]
-                                        </p>
-                                    </div>
+        <section class="section section--accent principles" data-scroll-section id="principles">
+            <div class="section__column">
+                <div class="container">
+                    <div class="section__row grid animation-wrapper">
+                        <div class="grid__row grid__row--line">
+                            <div class="grid__column section__title grid__column--title">
+                                <div class="animation-item animation-text">
+                                    <h2 class="title title--base title--white animation-text__item">
+                                        Наши принципы
+                                    </h2>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="principles-scroll">
-                        <div class="principles-grid">
-                            <div class="principles-card">
-                                <div class="principles-card__wrapper">
-                                    <p class="title title--middle title--white">
-                                        1.
-                                    </p>
-                                    <p class="title title--middle title--white">
-                                        Действие в&nbsp;интересах клиента с&nbsp;опорой на&nbsp;этические принципы и&nbsp;оценкой
-                                        отложенных эффектов
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="principles-card">
-                                <div class="principles-card__wrapper">
-                                    <p class="title title--middle title--white">
-                                        2.
-                                    </p>
-                                    <p class="title title--middle title--white">
-                                        Работа с&nbsp;опорой на исследовательский подход и&nbsp;обоснованность вариантов
-                                        решения
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="principles-card">
-                                <div class="principles-card__wrapper">
-                                    <p class="title title--middle title--white">
-                                        3.
-                                    </p>
-                                    <p class="title title--middle title--white">
-                                        Определение баланса плюсов и&nbsp;минусов при выборе решения
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="principles-card">
-                                <div class="principles-card__wrapper">
-                                    <p class="title title--middle title--white">
-                                        4.
-                                    </p>
-                                    <p class="title title--middle title--white">
-                                        Win-Win подход: выстраивание взаимовыгодного сотрудничества
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="principles-card">
-                                <div class="principles-card__wrapper">
-                                    <p class="title title--middle title--white">
-                                        5.
-                                    </p>
-                                    <p class="title title--middle title--white">
-                                        Фокусирование на&nbsp;решаемом, выделенном из&nbsp;общего
+                            <div class="grid__column section__title grid__column--title grid__column--title--right">
+                                <div class="animation-item animation-text">
+                                    <p class="title title--base title--white--light title--right animation-text__item">
+                                        [5]
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-        <section class="section">
+                <div class="principles-scroll" data-scroll-container data-scroll-direction="horizontal">
+                    <div class="principles-grid">
+                        <div class="principles-card">
+                            <div class="principles-card__wrapper">
+                                <p class="title title--middle title--white">
+                                    1.
+                                </p>
+                                <p class="title title--middle title--white">
+                                    Действие в&nbsp;интересах клиента с&nbsp;опорой на&nbsp;этические принципы и&nbsp;оценкой
+                                    отложенных эффектов
+                                </p>
+                            </div>
+                        </div>
+                        <div class="principles-card">
+                            <div class="principles-card__wrapper">
+                                <p class="title title--middle title--white">
+                                    2.
+                                </p>
+                                <p class="title title--middle title--white">
+                                    Работа с&nbsp;опорой на исследовательский подход и&nbsp;обоснованность вариантов
+                                    решения
+                                </p>
+                            </div>
+                        </div>
+                        <div class="principles-card">
+                            <div class="principles-card__wrapper">
+                                <p class="title title--middle title--white">
+                                    3.
+                                </p>
+                                <p class="title title--middle title--white">
+                                    Определение баланса плюсов и&nbsp;минусов при выборе решения
+                                </p>
+                            </div>
+                        </div>
+                        <div class="principles-card">
+                            <div class="principles-card__wrapper">
+                                <p class="title title--middle title--white">
+                                    4.
+                                </p>
+                                <p class="title title--middle title--white">
+                                    Win-Win подход: выстраивание взаимовыгодного сотрудничества
+                                </p>
+                            </div>
+                        </div>
+                        <div class="principles-card">
+                            <div class="principles-card__wrapper">
+                                <p class="title title--middle title--white">
+                                    5.
+                                </p>
+                                <p class="title title--middle title--white">
+                                    Фокусирование на&nbsp;решаемом, выделенном из&nbsp;общего
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" data-scroll-section>
             <div class="section__wrapper">
                 <div class="container">
                     <div class="grid">
@@ -578,7 +590,7 @@
                 </div>
             </div>
         </section>
-        <div class="section team" id="team">
+        <div class="section team" id="team" data-scroll-section>
             <div class="section__wrapper section__wrapper--top--small">
                 <div class="team__box">
                     <div class="container">
@@ -957,7 +969,7 @@
                 </div>
             </div>
         </div>
-        <section class="section section--accent clients">
+        <section class="section section--accent clients" data-scroll-section>
             <div class="container">
                 <div class="section__column">
                     <div class="section__row grid">
@@ -1032,7 +1044,7 @@
                 </div>
             </div>
         </section>
-        <section class="section" id="contact">
+        <section class="section" id="contact" data-scroll-section>
             <div class="section__wrapper">
                 <div class="container">
                     <div class="grid">
@@ -1092,7 +1104,7 @@
             </div>
         </section>
     </main>
-    <footer class="footer video-bg">
+    <footer class="footer video-bg" data-scroll-section>
         <div class="video-bg__item">
             <video src="assets/video/hero-bg.mp4" playsinline loop muted autoplay></video>
         </div>

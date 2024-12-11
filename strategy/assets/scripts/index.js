@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: ".principles",
-            pin: true,
+            // pin: true,
             start: "top top",
             end: "bottom top",
             scrub: 1,
@@ -174,5 +174,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })
 
-
 });
+
+
+(function () {
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true
+    })
+})();
