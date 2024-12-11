@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     animation.init();
 
     const burger = document.querySelector('.burger'),
-        menu = document.querySelector('.menu');
+        menu = document.querySelector('.menu'),
+        header = document.querySelector('.header');
 
     if (burger && menu) {
         burger.addEventListener('click', (e) => {
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             burger.classList.toggle('burger--active');
             menu.classList.toggle('menu--active');
+            header.classList.toggle('header--fixed');
             document.body.classList.toggle('no-scroll');
         });
 
