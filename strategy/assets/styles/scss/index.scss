@@ -1534,25 +1534,21 @@ background: #D9D9D9;
     flex-direction: column;
     gap: 7vw;
     @media screen and (max-width: 1240px) {
-      gap: 75px;
+      gap: 35px;
+    }
+    @media screen and (max-width: 767px) {
+      gap: 30px;
     }
   }
   &__content{
     display: flex;
     flex-direction: column;
-    gap: calc(75px - 2.7vw);
-    @media screen and (max-width: 1240px) {
-      gap: 35px;
-    }
-    @media screen and (max-width: 767px) {
-      gap: 45px;
-    }
+    gap: 75px;
   }
 
   &-block{
     display: flex;
     flex-direction: column;
-
     &__header{
       padding: 2.7vw 0;
       @media screen and (max-width: 1240px) {
@@ -1562,13 +1558,13 @@ background: #D9D9D9;
         padding: 30px 0;
       }
       &--sticky{
-        @media screen and (min-width: 1240px) {
+        @media screen and (max-width: 1240px) {
+          border-bottom: 1px solid rgba(16, 65, 54, 0.3);
+        }
+        @media screen and (min-width: 1241px) {
           position: sticky;
           top: 0px;
-
           z-index: 4;
-          background: #F2F2F2;
-          border-bottom: 1px solid rgba(16, 65, 54, 0.3);
         }
       }
     }
@@ -1576,6 +1572,11 @@ background: #D9D9D9;
     &__content{
       position: relative;
       z-index: 3;
+
+
+      @media screen and (min-width: 1241px) {
+        border-top: 1px solid rgba(16, 65, 54, 0.3);
+      }
     }
   }
   &-list{
@@ -1688,10 +1689,34 @@ background: #D9D9D9;
   }
 }
 
+.animation-card {
+  overflow: hidden;
+
+  &.animated &__item {
+    animation: cardAnimation 1s var(--animation-delay) var(--animation-func) forwards;
+  }
+
+  &__item {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
 @keyframes textAnimation {
   0% {
     opacity: 0;
     transform: translateY(10vw);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes cardAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
   }
   100% {
     opacity: 1;
