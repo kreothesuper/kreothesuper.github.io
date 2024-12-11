@@ -7,9 +7,9 @@
   --title-size-middle: 2.7vw;
   --title-size-big: 5.9vw;
   --section-gap: clamp(75px, 5.2vw, 5.2vw);
-  --section-outer-padding: clamp(200px,14vw,14vw) 0;
-  --section-outer-padding-small: clamp(100px,7vw,7vw);
-  --animation-func:cubic-bezier(0.42, 0, 0.58, 1);
+  --section-outer-padding: clamp(200px, 14vw, 14vw) 0;
+  --section-outer-padding-small: clamp(100px, 7vw, 7vw);
+  --animation-func: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 @media screen and (max-width: 1240px) {
@@ -32,7 +32,7 @@
     --title-size-big: 45px;
     --section-gap: 30px;
     --section-outer-padding: 100px 0;
-    --section-outer-padding-small:50px;
+    --section-outer-padding-small: 50px;
   }
 }
 @media screen and (max-width: 375px) {
@@ -874,8 +874,85 @@ body.no-scroll {
   opacity: 0.5;
 }
 
+@keyframes cards {
+  0% {
+    width: 35%;
+  }
+  100% {
+    width: 10%;
+  }
+}
+.principles-scroll {
+  overflow: hidden;
+}
+@media screen and (max-width: 1240px) {
+  .principles-scroll {
+    overflow: auto;
+    width: calc(100% + 40px);
+    transform: translateX(-20px);
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+  }
+  .principles-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
 .principles-grid {
   padding: 0.7vw 0;
+  display: flex;
+  align-items: stretch;
+}
+.principles-grid.active .principles-card {
+  animation: cards 1s var(--animation-delay) var(--animation-func);
+}
+.principles-card {
+  width: 10%;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: 1s width var(--animation-func);
+}
+.principles-card--big {
+  width: 50%;
+}
+.principles-card--middle {
+  width: 20%;
+}
+.principles-card--animated {
+  width: 35%;
+}
+.principles-card:not(:first-child) {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+@media screen and (max-width: 1240px) {
+  .principles-card {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 350px) {
+  .principles-card {
+    width: 60%;
+  }
+}
+.principles-card__wrapper {
+  width: 37vw;
+  height: 37vw;
+  padding: 3vw 3vw 3.4vw 3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media screen and (max-width: 1240px) {
+  .principles-card__wrapper {
+    width: 100%;
+    height: 600px;
+    padding: 30px 10px 30px 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .principles-card__wrapper {
+    height: 320px;
+  }
 }
 .video-bg__item {
   position: absolute;
