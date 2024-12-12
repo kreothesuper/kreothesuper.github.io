@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollTrigger: {
                 trigger: ".principles",
                 pin: true,
-                start: "top 15%",
+                start: window.innerWidth > 767 ? "top top" : "top 20%",
                 end: "bottom top",
                 scrub: .5,
                 ease: "linear",
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.addEventListener("click", function() {
                 gsap.to(window, {
                     scrollTo: tl.scrollTrigger.labelToScroll(`label${i+1}`),
-                    duration: 0,
+                    duration: 1,
                 });
             });
         })
