@@ -583,7 +583,7 @@
                                 <div class="grid__column grid__column--end">
                                     <div class="animation-item animation-text">
                                         <p class="text text--base text--white--light animation-text__item">
-                                            (Мы) ищем ключ к решению <br> ваших проблем
+                                            Подбираем ключ к решению проблем
                                         </p>
                                     </div>
                                 </div>
@@ -1468,6 +1468,7 @@
 
 
 <script>
+    document.body.classList.add('fixed');
     window.onload = (event) => {
         const headerLogo = document.querySelector('.header__logo'),
             preloaderLogo = document.querySelector('.preloader-logo'),
@@ -1485,12 +1486,14 @@
             //animation init
             const animation = new Animations();
             animation.init();
+
+            document.body.classList.remove('fixed');
         });
     };
 </script>
 
 <script src="assets/libs/lenis/lenis.js"></script>
-<script src="https://unpkg.com/imask"></script>
+<script src="assets/libs/imask/imask.js"></script>
 
 <script src="assets/libs/gsap/gsap.js"></script>
 <script src="assets/libs/gsap/scrollTrigger.js"></script>
@@ -1498,7 +1501,7 @@
 
 <script src="assets/libs/swiper/swiper.js"></script>
 
-<script src="assets/scripts/index.js"></script>
+<script defer src="assets/scripts/index.js"></script>
 
 </body>
 </html>

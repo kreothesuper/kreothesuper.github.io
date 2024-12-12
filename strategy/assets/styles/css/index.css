@@ -62,6 +62,15 @@ body.no-scroll {
   -ms-touch-action: none;
 }
 
+body.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -1535,14 +1544,6 @@ a.text--white--light:hover {
   transform: translateY(100%);
 }
 
-@keyframes wrapperAnimation {
-  0% {
-    overflow: hidden;
-  }
-  100% {
-    overflow: unset;
-  }
-}
 @keyframes textAnimation {
   0% {
     opacity: 0;
@@ -1570,13 +1571,6 @@ a.text--white--light:hover {
   100% {
     width: 100%;
   }
-}
-.test {
-  background: red;
-}
-.test-card {
-  background: blue;
-  height: 50vh;
 }
 
 /*# sourceMappingURL=index.css.map */

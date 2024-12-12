@@ -5,9 +5,11 @@ class Animations {
 
     toggleAnimation(animationWrapperElement) {
         const animationItemArray = animationWrapperElement.querySelectorAll('.animation-item');
+
+        // if preloader present need to set value (preloader animation end + 0.5) if(preloader transition .5s) 1
         const counter = animationWrapperElement.closest('.hero') && document.querySelector('.preloader') ? 1.5 : 0;
+
         animationItemArray.forEach((animationItemElement, animationItemIndex) => {
-            // animationItemElement.style.animationDelay = `${animationItemIndex * 0.2}s`;
             animationItemElement.style.setProperty('--animation-delay', `${animationItemIndex * 0.2 + counter}s`);
             animationItemElement.classList.add('animated');
         });
@@ -35,11 +37,9 @@ class Animations {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
     const preloader = document.querySelector('.preloader');
 
     if(!preloader){
-
         //animation init
         const animation = new Animations();
         animation.init();
@@ -68,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
             menu.classList.toggle('menu--active');
             header.classList.toggle('header--fixed');
             document.body.classList.toggle('no-scroll');
+
+            lenis && !burger.classList.contains('active') ? lenis.stop() : lenis.start();
         });
 
         const anchorLinks = document.querySelectorAll('a[href^="#"]');
@@ -126,11 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
             x: () => -(principlesScroll.scrollWidth - document.documentElement.clientWidth) + "px",
             ease: "none",
 
-            end: () => "+=" + principlesScroll.offsetWidth,
-
+            // end: () => "+=" + principlesScroll.offsetWidth,
         });
     }
-
 
     const teamSliderElement = document.querySelector('.team-slider-element');
 

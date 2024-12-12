@@ -89,6 +89,16 @@ body.no-scroll {
   -ms-touch-action: none;
 }
 
+
+body.fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -184,7 +194,7 @@ body.no-scroll {
   }
 }
 
-a.text--white--light:hover{
+a.text--white--light:hover {
   color: #fff;
 }
 
@@ -284,8 +294,9 @@ a.text--white--light:hover{
     line-height: .75;
     font-weight: 500;
     letter-spacing: -0.01em;
-    &--line{
-      &--normal{
+
+    &--line {
+      &--normal {
         line-height: 1;
       }
     }
@@ -586,7 +597,8 @@ a.text--white--light:hover{
       padding: 80px 0 20px 0;
       height: 400px;
     }
-    &--small{
+
+    &--small {
       min-height: 60svh;
       height: 60svh;
     }
@@ -676,9 +688,10 @@ a.text--white--light:hover{
       cursor: pointer;
     }
 
-    &:has(:checked) &__checkmark{
+    &:has(:checked) &__checkmark {
       opacity: 1;
-      &:hover{
+
+      &:hover {
         opacity: .5;
       }
     }
@@ -690,6 +703,7 @@ a.text--white--light:hover{
 
       opacity: .3;
       transition: .3s opacity;
+
       &:hover {
         opacity: .8;
       }
@@ -892,9 +906,9 @@ a.text--white--light:hover{
 .about {
   &-tag {
     padding: 1.7vw 0 0 0;
-    //border-top: 1px solid rgba(#104136, .3);
     position: relative;
-    &::before{
+
+    &::before {
       content: '';
       position: absolute;
       width: 0%;
@@ -904,11 +918,13 @@ a.text--white--light:hover{
       background: rgba(#104136, .3);
       transition: 1s width;
     }
-    &.animated{
-      &::before{
+
+    &.animated {
+      &::before {
         animation: lineAnimation 1s var(--animation-delay) var(--animation-func) forwards;
       }
     }
+
     @media screen and (max-width: 767px) {
       padding: 10px 0;
     }
@@ -1028,7 +1044,7 @@ a.text--white--light:hover{
 
     flex: 1 0 auto;
 
-    &--small{
+    &--small {
       padding: clamp(50px, 5.5vw, 5.5vw);
     }
 
@@ -1087,7 +1103,7 @@ a.text--white--light:hover{
     }
   }
 
-  &__box{
+  &__box {
     @media screen and (max-width: 767px) {
       min-height: 100svh;
       display: flex;
@@ -1121,10 +1137,10 @@ a.text--white--light:hover{
     @media screen and (max-width: 1240px) {
       max-width: 100%;
 
-      color: rgba(#fff,.5);
+      color: rgba(#fff, .5);
     }
     @media screen and (max-width: 767px) {
-      color: rgba(#fff,.75);
+      color: rgba(#fff, .75);
     }
   }
 
@@ -1215,9 +1231,11 @@ a.text--white--light:hover{
 
 .principles {
   overflow: hidden;
-  &-scroll{
+
+  &-scroll {
     padding-right: 100vw;
   }
+
   &-grid {
     padding: clamp(10px, .7vw, .7vw) 0;
     display: flex;
@@ -1229,7 +1247,7 @@ a.text--white--light:hover{
     overflow: hidden;
     flex-shrink: 0;
 
-    .active{
+    .active {
       width: 50vw;
     }
 
@@ -1396,10 +1414,6 @@ a.text--white--light:hover{
       animation: circleAnimation 1s .8s forwards var(--animation-func);
     }
 
-    &.animated &__item {
-      //animation: circleAnimationElement .5s 1s forwards var(--animation-func);
-    }
-
     &__icon {
       width: 100%;
       height: 100%;
@@ -1528,9 +1542,9 @@ a.text--white--light:hover{
     }
   }
 
-  &-grid{
-    &__item{
-      &:not(:has(p)){
+  &-grid {
+    &__item {
+      &:not(:has(p)) {
         @media screen and (max-width: 1240px) {
           display: none;
         }
@@ -1551,10 +1565,11 @@ a.text--white--light:hover{
 
       aspect-ratio: .8;
       background: #D9D9D9;
-      
+
       @media screen and (max-width: 640px) {
         aspect-ratio: .74;
       }
+
       img {
         width: 100%;
         height: 100%;
@@ -1696,9 +1711,10 @@ a.text--white--light:hover{
     flex-direction: column;
     gap: .5vw;
 
-    &__item a{
+    &__item a {
       transition: .3s opacity;
-      &:hover{
+
+      &:hover {
         opacity: .5;
       }
     }
@@ -1718,8 +1734,6 @@ a.text--white--light:hover{
   }
 
   &-row {
-
-
     &__content {
       display: flex;
       align-items: center;
@@ -1740,10 +1754,6 @@ a.text--white--light:hover{
     animation: textAnimation 1s var(--animation-delay) var(--animation-func) forwards;
   }
 
-  &.animated{
-    //animation: wrapperAnimation 1s var(--animation-delay) var(--animation-func) forwards;
-  }
-
   &__item {
     opacity: 0;
     transform: translateY(10vw);
@@ -1760,15 +1770,6 @@ a.text--white--light:hover{
   &__item {
     opacity: 0;
     transform: translateY(100%);
-  }
-}
-
-@keyframes wrapperAnimation {
-  0% {
-    overflow: hidden;
-  }
-  100% {
-    overflow: unset;
   }
 }
 
@@ -1800,13 +1801,5 @@ a.text--white--light:hover{
   }
   100% {
     width: 100%;
-  }
-}
-
-.test{
-  background: red;
-  &-card{
-    background: blue;
-    height: 50vh;
   }
 }
