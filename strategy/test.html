@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenis Vertical and Horizontal Scroll</title>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+
+            height: 100%;
+        }
+
+        .vertical-scroll {
+            height: 100vh;
+        }
+
+        .vertical-section {
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        .horizontal-section {
+            height: 100vh; /* Full viewport height */
+            overflow-x: auto; /* Allow horizontal scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .horizontal-scroll {
+            display: flex; /* Align items horizontally */
+            height: 100%; /* Full height of the section */
+        }
+
+        .horizontal-item {
+            min-width: 600px; /* Minimum width for horizontal items */
+            height: 100%; /* Full height of the section */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            margin: 0 10px; /* Space between items */
+        }
+    </style>
+</head>
+<body>
+<div class="vertical-scroll">
+    <section class="vertical-section" style="background-color: #ffcccc;">
+        <h1>Vertical Section 1</h1>
+    </section>
+    <section class="horizontal-section">
+        <div class="horizontal-scroll">
+            <div class="horizontal-item" style="background-color: #ccffcc;">Item 1</div>
+            <div class="horizontal-item" style="background-color: #ccccff;">Item 2</div>
+            <div class="horizontal-item" style="background-color: #ffffcc;">Item 3</div>
+            <div class="horizontal-item" style="background-color: #ffccff;">Item 4</div>
+        </div>
+    </section>
+    <section class="vertical-section" style="background-color: #ccccff;">
+        <h1>Vertical Section 2</h1>
+    </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis"></script>
+<script>
+    // Check if Lenis is defined
+    if (typeof Lenis !== 'undefined') {
+        try {
+            const lenis = new Lenis({
+                autoRaf: true,
+            });
+
+            // Start Lenis
+            requestAnimationFrame(function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            });
+        } catch (error) {
+            console.error('Error initializing Lenis:', error);
+        }
+    } else {
+        console.error('Lenis is not defined. Please ensure the library is loaded.');
+    }
+</script>
+</body>
+</html>

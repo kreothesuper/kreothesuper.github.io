@@ -38,6 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const animation = new Animations();
     animation.init();
 
+    const lenis = typeof Lenis !== 'undefined' ? new Lenis({smoothWheel: true, duration: 1.2}) : null;
+    const gsapCheck = typeof gsap !== 'undefined';
+
+    if(lenis){
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    }
+
     const burger = document.querySelector('.burger'),
         menu = document.querySelector('.menu'),
         header = document.querySelector('.header');
@@ -57,64 +68,57 @@ document.addEventListener('DOMContentLoaded', () => {
         if (anchorLinks.length) {
             anchorLinks.forEach(link => {
                 if (link.hash.length > 0) {
-                    link.addEventListener('click', () => {
+                    link.addEventListener('click', (e) => {
                         burger.classList.remove('burger--active');
                         menu.classList.remove('menu--active');
                         document.body.classList.remove('no-scroll');
+
+                        if(lenis){
+                            e.preventDefault();
+                            lenis.scrollTo(`${link.hash}`);
+                        }
                     })
                 }
             });
         }
     }
 
-    //
-    // const principlesCardList = document.querySelectorAll('.principles-card'),
-    //     principlesCardGrid = document.querySelector('.principles-grid');
-    //
-    // if (principlesCardList.length) {
-    //     principlesCardList[principlesCardList.length - 1].classList.add('principles-card--big');
-    //     principlesCardList[principlesCardList.length - 2].classList.add('principles-card--middle');
-    //
-    //     const targetElements = document.querySelectorAll('.principles');
-    //
-    //     const observer = new IntersectionObserver((entries) => {
-    //         entries.forEach(entry => {
-    //             if (entry.isIntersecting) {
-    //                 principlesCardList.forEach((card,cardIndex)=>{
-    //                     setTimeout(()=>{
-    //                         card.classList.remove('principles-card--animated');
-    //                     }, cardIndex * 1000)
-    //                 })
-    //             }
-    //         });
-    //     }, {
-    //         threshold: 0.1
-    //     });
-    //
-    //     targetElements.forEach(element => {
-    //         observer.observe(element);
-    //     });
-    //
-    //     principlesCardList.forEach((card, cardIndex) => {
-    //         card.classList.add('principles-card--animated')
-    //
-    //         card.addEventListener('click', (e) => {
-    //             e.preventDefault();
-    //
-    //             if (card.classList.contains('principles-card--big')) return;
-    //
-    //             principlesCardList.forEach(otherCard => {
-    //                 otherCard.classList.remove('principles-card--active');
-    //                 otherCard.classList.remove('principles-card--middle');
-    //                 if (otherCard.classList.contains('principles-card--big')) otherCard.classList.add('principles-card--middle');
-    //
-    //                 otherCard.classList.remove('principles-card--big');
-    //             });
-    //
-    //             card.classList.add('principles-card--big');
-    //         });
-    //     });
-    // }
+    const principlesBlock = document.querySelector('.principles');
+
+    if(principlesBlock){
+        const principlesCardArray = document.querySelectorAll('.principles-card'),
+            principlesScroll = document.querySelector(".principles-scroll")
+
+        if(!gsapCheck) return;
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        if(lenis){
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+        }
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".principles",
+                pin: true,
+                start: "top top",
+                scrub: 1,
+                end: "bottom top",
+                snap: 1 / (principlesCardArray.length - 1),
+                ease: 'none',
+                // markers:true,
+            }
+        });
+
+        tl.to(".principles .principles-card", {
+            x: () => -(principlesScroll.scrollWidth - document.documentElement.clientWidth) + "px",
+            ease: "none",
+            end: () => "+=" + principlesScroll.offsetWidth,
+        });
+    }
 
 
     const teamSliderElement = document.querySelector('.team-slider-element');
@@ -135,68 +139,4 @@ document.addEventListener('DOMContentLoaded', () => {
             IMask(input, maskOptions);
         })
     }
-
-
-    const principlesBlock = document.querySelector('.principles');
-
-    if(principlesBlock){
-        const lenis = new Lenis();
-        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => {
-            lenis.raf(time * 1000);
-        });
-        gsap.ticker.lagSmoothing(0);
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".principles",
-                pin: true,
-                start: window.innerWidth > 767 ? "top top" : "top 20%",
-                end: "bottom top",
-                scrub: .5,
-                ease: "linear",
-                // markers:true,
-            }
-        });
-
-        tl.to(".principles .principles-card", {
-            width:principlesBlock.getBoundingClientRect().width / 10,
-            paddingBottom: 0,
-            stagger: .5
-        });
-        tl.to(
-            ".principles",
-            {
-                marginBottom: -15,
-                stagger: .5,
-            },
-            "<"
-        );
-
-        tl.addLabel('label1', 0)
-        tl.addLabel('label2', 0.5)
-        tl.addLabel('label3', 1)
-        tl.addLabel('label4', 1.5)
-        tl.addLabel('label5', 2)
-
-        const items = document.querySelectorAll('.principles-card');
-
-        items.forEach((item, i)=> {
-            item.addEventListener("click", function() {
-                gsap.to(window, {
-                    scrollTo: tl.scrollTrigger.labelToScroll(`label${i+1}`),
-                    duration: 1,
-                });
-            });
-        })
-    }else{
-        const lenis = new Lenis({
-            autoRaf: true,
-        });
-    }
-
-
-
 });
