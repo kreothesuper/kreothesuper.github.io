@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollTrigger: {
                 trigger: ".principles",
                 pin: true,
-                start: "top top",
+                start: "top 15%",
                 end: "bottom top",
                 scrub: .5,
                 ease: "linear",
