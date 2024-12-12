@@ -18,6 +18,12 @@
 
             background: #104136;
 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5.5vw;
+
             overflow: hidden;
 
 
@@ -25,36 +31,27 @@
             padding: 0;
             box-sizing: border-box;
 
-            transition: 1s width, .8s 1s visibility;
+            transition: 1s 1s opacity, .8s 1s visibility;
         }
 
-        .preloader__wrapper{
-            width: 100vw;
-            height: 100svh;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 5.5vw;
-        }
-
-        .preloader.hidden .preloader-text__wrapper span{
+        .preloader.hidden .preloader-text__wrapper span {
             animation: none !important;
         }
-        .preloader.hidden .preloader-line__current{
-            animation: none!important;
+
+        .preloader.hidden .preloader-line__current {
+            animation: none !important;
         }
 
-        .preloader.hidden .preloader-logo__icon{
-            animation: none!important;
+        .preloader.hidden .preloader-logo__icon {
+            animation: none !important;
         }
 
-        .preloader-logo{
+        .preloader-logo {
             overflow: hidden;
         }
 
-        .preloader-logo__icon{
+        .preloader-logo__icon {
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -62,8 +59,8 @@
             animation: preloaderIcon 4s .3s ease-in infinite;
         }
 
-        .preloader.hidden{
-            width: 0;
+        .preloader.hidden {
+            opacity: 0;
             visibility: hidden;
             pointer-events: none;
         }
@@ -94,7 +91,7 @@
             text-align: center;
         }
 
-        .preloader-text__wrapper{
+        .preloader-text__wrapper {
             display: inline-block;
             line-height: 1.1;
             overflow: hidden;
@@ -105,39 +102,39 @@
             display: inline-block;
         }
 
-        .preloader-text__wrapper{
+        .preloader-text__wrapper {
             &:nth-child(1) {
-                span{
+                span {
                     animation: preloaderText 4s .3s ease-in infinite;
                 }
             }
 
             &:nth-child(2) {
-                span{
+                span {
                     animation: preloaderText2 4s .3s ease-in infinite;
                 }
             }
 
             &:nth-child(3) {
-                span{
+                span {
                     animation: preloaderText3 4s .3s ease-in infinite;
                 }
             }
 
             &:nth-child(4) {
-                span{
+                span {
                     animation: preloaderText4 4s .3s ease-in infinite;
                 }
             }
 
             &:nth-child(5) {
-                span{
+                span {
                     animation: preloaderText5 4s .3s ease-in infinite;
                 }
             }
 
             &:nth-child(6) {
-                span{
+                span {
                     animation: preloaderText6 4s .3s ease-in infinite;
                 }
             }
@@ -170,10 +167,10 @@
             10% {
                 transform: translateY(0);
             }
-            99%{
+            99% {
                 transform: translateY(0);
             }
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
@@ -185,7 +182,7 @@
             20% {
                 transform: translateY(0);
             }
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
@@ -200,7 +197,7 @@
             30% {
                 transform: translateY(0);
             }
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
@@ -219,7 +216,7 @@
                 transform: translateY(0);
             }
 
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
@@ -240,7 +237,7 @@
             60% {
                 transform: translateY(0);
             }
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
@@ -264,7 +261,7 @@
             75% {
                 transform: translateY(0);
             }
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
@@ -292,12 +289,12 @@
                 transform: translateY(0);
             }
 
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
 
-        .preloader-header{
+        .preloader-header {
             fill: #fff;
             width: 3.5vw;
             height: 3.5vw;
@@ -306,7 +303,7 @@
             display: block;
         }
 
-        .preloader-logo{
+        .preloader-logo {
             position: fixed;
             left: 50%;
             top: calc(50% - 7vw);
@@ -316,7 +313,7 @@
             transition: 1s linear;
         }
 
-        .preloader-logo.loaded{
+        .preloader-logo.loaded {
             position: fixed;
             left: 50%;
             top: 0;
@@ -324,26 +321,31 @@
         }
 
         @media screen and (max-width: 767px) {
-            .preloader__wrapper {
+            .preloader {
                 gap: 17vw;
             }
-            .preloader-header{
+
+            .preloader-header {
                 width: 12vw;
                 height: 12vw;
             }
-            .preloader-logo{
+
+            .preloader-logo {
                 width: 12vw;
                 height: 12vw;
                 top: calc(50% - 30vw);
             }
+
             .preloader-text {
                 font-size: 10vw;
             }
-            .preloader-logo.loaded{
+
+            .preloader-logo.loaded {
                 left: 20px;
                 transform: translateY(0);
             }
-            .preloader-text__wrapper:first-child{
+
+            .preloader-text__wrapper:first-child {
                 width: 100%;
             }
         }
@@ -360,43 +362,47 @@
 <body>
 
 <div class="preloader">
-    <div class="preloader__wrapper">
-        <div class="preloader-header">
-            <div class="preloader-logo">
-                <svg class="preloader-logo__icon" width="41" height="52" viewBox="0 0 41 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M40.1656 34.0204H34.9414L25.4438 42.8197C25.3782 42.8805 25.3782 42.9792 25.4438 43.04L35.0839 51.971H40.3076L30.5489 42.9301L40.1656 34.0204Z" fill="white"/>
-                    <path d="M24.1883 51.971H30.0356L20.2769 42.9301L29.8931 34.0204H24.0463L14.664 42.712C14.5342 42.8323 14.5342 43.0274 14.664 43.1477L24.1883 51.971Z" fill="white"/>
-                    <path d="M21.0215 22.2699L5.67332 8.05073L9.02448 4.94654L24.3727 19.1657L21.0215 22.2699Z" fill="white"/>
-                    <path d="M26.7917 16.9242L11.443 2.70507L14.0592 0.282189C14.4654 -0.094063 15.1234 -0.094063 15.5296 0.282189L29.4065 13.1378C29.8131 13.5145 29.8131 14.1256 29.4065 14.5023L26.7917 16.9242Z" fill="white"/>
-                    <path d="M18.8685 34.5105L14.5577 38.4902V27.3676C14.5577 27.1148 14.4492 26.8724 14.2561 26.6935L0.593244 14.0356C0.212408 13.6828 0.212408 13.1101 0.593244 12.7568L3.25423 10.2921L18.8096 24.7027C19.1214 24.9916 19.2965 25.3836 19.2965 25.7923V33.5552C19.2965 33.9139 19.1428 34.2573 18.8685 34.5105Z" fill="white"/>
-                    <path d="M19.6052 52H14.5712V47.3363L19.6052 52Z" fill="white"/>
-                </svg>
-            </div>
+    <div class="preloader-header">
+        <div class="preloader-logo">
+            <svg class="preloader-logo__icon" width="41" height="52" viewBox="0 0 41 52" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M40.1656 34.0204H34.9414L25.4438 42.8197C25.3782 42.8805 25.3782 42.9792 25.4438 43.04L35.0839 51.971H40.3076L30.5489 42.9301L40.1656 34.0204Z"
+                      fill="white"/>
+                <path d="M24.1883 51.971H30.0356L20.2769 42.9301L29.8931 34.0204H24.0463L14.664 42.712C14.5342 42.8323 14.5342 43.0274 14.664 43.1477L24.1883 51.971Z"
+                      fill="white"/>
+                <path d="M21.0215 22.2699L5.67332 8.05073L9.02448 4.94654L24.3727 19.1657L21.0215 22.2699Z"
+                      fill="white"/>
+                <path d="M26.7917 16.9242L11.443 2.70507L14.0592 0.282189C14.4654 -0.094063 15.1234 -0.094063 15.5296 0.282189L29.4065 13.1378C29.8131 13.5145 29.8131 14.1256 29.4065 14.5023L26.7917 16.9242Z"
+                      fill="white"/>
+                <path d="M18.8685 34.5105L14.5577 38.4902V27.3676C14.5577 27.1148 14.4492 26.8724 14.2561 26.6935L0.593244 14.0356C0.212408 13.6828 0.212408 13.1101 0.593244 12.7568L3.25423 10.2921L18.8096 24.7027C19.1214 24.9916 19.2965 25.3836 19.2965 25.7923V33.5552C19.2965 33.9139 19.1428 34.2573 18.8685 34.5105Z"
+                      fill="white"/>
+                <path d="M19.6052 52H14.5712V47.3363L19.6052 52Z" fill="white"/>
+            </svg>
         </div>
-        <div class="preloader-text">
+    </div>
+    <div class="preloader-text">
         <span class="preloader-text__wrapper">
             <span>Подбираем</span>
         </span>
-            <span class="preloader-text__wrapper">
+        <span class="preloader-text__wrapper">
             <span> ключ</span>
         </span>
-            <span class="preloader-text__wrapper">
+        <span class="preloader-text__wrapper">
             <span>к</span>
         </span>
-            <span class="preloader-text__wrapper">
+        <span class="preloader-text__wrapper">
             <span> решению</span>
         </span>
-            <span class="preloader-text__wrapper">
+        <span class="preloader-text__wrapper">
             <span> ваших</span>
         </span>
-            <span class="preloader-text__wrapper">
+        <span class="preloader-text__wrapper">
             <span>проблем</span>
         </span>
-        </div>
-        <span class="preloader-line">
+    </div>
+    <span class="preloader-line">
         <span class="preloader-line__current"></span>
     </span>
-    </div>
 </div>
 
 <div class="page-wrapper">
@@ -635,7 +641,8 @@
                                                     <p class="text text--middle text--accent animation-text__item">
                                                         Наша команда обладает глубоким пониманием принципов и&nbsp;механизмов
                                                         работы с&nbsp;разными группами стейкхолдеров. Мы&nbsp;объективно
-                                                        оцениваем внешний контекст, что позволяет предлагать нам эффективные
+                                                        оцениваем внешний контекст, что позволяет предлагать нам
+                                                        эффективные
                                                         коммуникационные решения.
                                                     </p>
                                                 </div>
@@ -741,7 +748,7 @@
                     </div>
                 </div>
 
-                <div class="principles-scroll" >
+                <div class="principles-scroll">
                     <div class="principles-grid">
                         <div class="principles-card">
                             <div class="principles-card__wrapper">
@@ -1338,7 +1345,8 @@
                                             <div class="form__content">
                                                 <div class="form__column">
                                                     <input type="text" class="form-input" placeholder="Имя">
-                                                    <input type="text" class="form-input js-phone" placeholder="Телефон">
+                                                    <input type="text" class="form-input js-phone"
+                                                           placeholder="Телефон">
                                                     <textarea
                                                             class="form-input form-input--textarea"
                                                             placeholder="Сообщение"></textarea>
@@ -1447,7 +1455,8 @@
                         <p class="text text--base text--white--light text--medium">
                             © 2024. Все права защищены.
                         </p>
-                        <a href="https://blago.agency/" target="_blank" class="text text--base text--white--light text--medium">
+                        <a href="https://blago.agency/" target="_blank"
+                           class="text text--base text--white--light text--medium">
                             Дизайн & Разработка — Blago
                         </a>
                     </div>
@@ -1472,6 +1481,10 @@
             preloaderLogo.style.top = `${headerLogo.getBoundingClientRect().top}px`;
 
             document.querySelector('.preloader').classList.add('hidden');
+
+            //animation init
+            const animation = new Animations();
+            animation.init();
         });
     };
 </script>

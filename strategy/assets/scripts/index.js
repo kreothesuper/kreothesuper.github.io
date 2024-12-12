@@ -5,9 +5,10 @@ class Animations {
 
     toggleAnimation(animationWrapperElement) {
         const animationItemArray = animationWrapperElement.querySelectorAll('.animation-item');
+        const counter = animationWrapperElement.closest('.hero') && document.querySelector('.preloader') ? 2 : 0;
         animationItemArray.forEach((animationItemElement, animationItemIndex) => {
             // animationItemElement.style.animationDelay = `${animationItemIndex * 0.2}s`;
-            animationItemElement.style.setProperty('--animation-delay', `${animationItemIndex * 0.2}s`);
+            animationItemElement.style.setProperty('--animation-delay', `${animationItemIndex * 0.2 + counter}s`);
             animationItemElement.classList.add('animated');
         });
     }
@@ -34,9 +35,15 @@ class Animations {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    //animation init
-    const animation = new Animations();
-    animation.init();
+
+    const preloader = document.querySelector('.preloader');
+
+    if(!preloader){
+
+        //animation init
+        const animation = new Animations();
+        animation.init();
+    }
 
     const lenis = typeof Lenis !== 'undefined' ? new Lenis({smoothWheel: true, duration: 1.2}) : null;
     const gsapCheck = typeof gsap !== 'undefined';
