@@ -1528,10 +1528,21 @@ a.text--white--light:hover{
     }
   }
 
+  &-grid{
+    &__item{
+      &:not(:has(p)){
+        @media screen and (max-width: 1240px) {
+          display: none;
+        }
+      }
+    }
+  }
+
   &-card {
     display: flex;
     flex-direction: column;
     gap: clamp(10px, .7vw, .7vw);
+
 
     &__img {
       display: flex;
@@ -1555,27 +1566,6 @@ a.text--white--light:hover{
       display: flex;
       flex-direction: column;
       gap: 5px;
-    }
-  }
-
-  &-grid {
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-  }
-
-  &-slider {
-    overflow: hidden;
-    @media screen and (min-width: 768px) {
-      display: none;
-    }
-
-    &-element {
-      overflow: visible;
-    }
-
-    &__item {
-      width: 42vw;
     }
   }
 }

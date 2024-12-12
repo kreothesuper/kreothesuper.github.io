@@ -1335,6 +1335,11 @@ a.text--white--light:hover {
     max-width: 320px;
   }
 }
+@media screen and (max-width: 1240px) {
+  .team-grid__item:not(:has(p)) {
+    display: none;
+  }
+}
 .team-card {
   display: flex;
   flex-direction: column;
@@ -1361,25 +1366,6 @@ a.text--white--light:hover {
   display: flex;
   flex-direction: column;
   gap: 5px;
-}
-@media screen and (max-width: 767px) {
-  .team-grid {
-    display: none;
-  }
-}
-.team-slider {
-  overflow: hidden;
-}
-@media screen and (min-width: 768px) {
-  .team-slider {
-    display: none;
-  }
-}
-.team-slider-element {
-  overflow: visible;
-}
-.team-slider__item {
-  width: 42vw;
 }
 
 .resume__wrapper {
