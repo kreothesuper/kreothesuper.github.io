@@ -126,6 +126,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const phoneInputArray = document.querySelectorAll('.js-phone');
+    const maskOptions = {
+        mask: '+{7}(000)000-00-00'
+    };
+    if(phoneInputArray.length){
+        phoneInputArray.forEach(input=>{
+            IMask(input, maskOptions);
+        })
+    }
+
 
     const principlesBlock = document.querySelector('.principles');
 
@@ -147,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 end: "bottom top",
                 scrub: 1,
                 ease: "linear",
+                // markers:true,
             }
         });
 

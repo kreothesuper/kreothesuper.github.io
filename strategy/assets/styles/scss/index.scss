@@ -284,18 +284,23 @@ a.text--white--light:hover{
     line-height: .75;
     font-weight: 500;
     letter-spacing: -0.01em;
+    &--line{
+      &--normal{
+        line-height: 1;
+      }
+    }
   }
 
   &--middle {
     font-size: var(--title-size-middle);
-    line-height: .9;
+    line-height: 1;
     font-weight: 500;
   }
 
   &--base {
     font-size: var(--title-size-base);
     font-weight: 500;
-    line-height: .9;
+    line-height: 1;
     letter-spacing: -0.03em;
   }
 
@@ -809,6 +814,7 @@ a.text--white--light:hover{
       }
       @media screen and (max-width: 767px) {
         grid-template-columns: minmax(0, 1fr);
+        grid-auto-rows: 1fr;
         &--mobile {
         }
       }
@@ -880,7 +886,23 @@ a.text--white--light:hover{
 .about {
   &-tag {
     padding: 1.7vw 0 0 0;
-    border-top: 1px solid rgba(#104136, .3);
+    //border-top: 1px solid rgba(#104136, .3);
+    position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      top: -.5px;
+      left: 0;
+      background: rgba(#104136, .3);
+      transition: 1s width;
+    }
+    &.animated{
+      &::before{
+        animation: lineAnimation 1s var(--animation-delay) var(--animation-func) forwards;
+      }
+    }
     @media screen and (max-width: 767px) {
       padding: 10px 0;
     }
@@ -908,6 +930,7 @@ a.text--white--light:hover{
       &--mobile {
         &--column {
           flex-direction: column;
+          justify-content: space-between;
           gap: 30px;
         }
       }
@@ -935,6 +958,8 @@ a.text--white--light:hover{
     gap: clamp(10px, .7vw, .7vw);
     @media screen and (max-width: 767px) {
       gap: 30px;
+      justify-content: space-between;
+      height: 100%;
     }
   }
 }
@@ -1089,7 +1114,7 @@ a.text--white--light:hover{
       color: rgba(#fff,.5);
     }
     @media screen and (max-width: 767px) {
-      color: rgab(#fff,.75);
+      color: rgba(#fff,.75);
     }
   }
 
@@ -1179,6 +1204,7 @@ a.text--white--light:hover{
 }
 
 .principles {
+  overflow: hidden;
   &-grid {
     padding: clamp(10px, .7vw, .7vw) 0;
     display: flex;
@@ -1713,6 +1739,10 @@ a.text--white--light:hover{
     animation: textAnimation 1s var(--animation-delay) var(--animation-func) forwards;
   }
 
+  &.animated{
+    //animation: wrapperAnimation 1s var(--animation-delay) var(--animation-func) forwards;
+  }
+
   &__item {
     opacity: 0;
     transform: translateY(10vw);
@@ -1729,6 +1759,15 @@ a.text--white--light:hover{
   &__item {
     opacity: 0;
     transform: translateY(100%);
+  }
+}
+
+@keyframes wrapperAnimation {
+  0% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: unset;
   }
 }
 
@@ -1751,5 +1790,14 @@ a.text--white--light:hover{
   100% {
     opacity: 1;
     transform: translate(0);
+  }
+}
+
+@keyframes lineAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }

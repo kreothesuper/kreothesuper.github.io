@@ -212,15 +212,18 @@ a.text--white--light:hover {
   font-weight: 500;
   letter-spacing: -0.01em;
 }
+.title--big--line--normal {
+  line-height: 1;
+}
 .title--middle {
   font-size: var(--title-size-middle);
-  line-height: 0.9;
+  line-height: 1;
   font-weight: 500;
 }
 .title--base {
   font-size: var(--title-size-base);
   font-weight: 500;
-  line-height: 0.9;
+  line-height: 1;
   letter-spacing: -0.03em;
 }
 .title--team {
@@ -671,6 +674,7 @@ a.text--white--light:hover {
 @media screen and (max-width: 767px) {
   .grid__row--services {
     grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: 1fr;
   }
 }
 .grid__row--team {
@@ -729,7 +733,20 @@ a.text--white--light:hover {
 
 .about-tag {
   padding: 1.7vw 0 0 0;
-  border-top: 1px solid rgba(16, 65, 54, 0.3);
+  position: relative;
+}
+.about-tag::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: -0.5px;
+  left: 0;
+  background: rgba(16, 65, 54, 0.3);
+  transition: 1s width;
+}
+.about-tag.animated::before {
+  animation: lineAnimation 1s var(--animation-delay) var(--animation-func) forwards;
 }
 @media screen and (max-width: 767px) {
   .about-tag {
@@ -757,6 +774,7 @@ a.text--white--light:hover {
   }
   .services-card__wrapper--mobile--column {
     flex-direction: column;
+    justify-content: space-between;
     gap: 30px;
   }
 }
@@ -780,6 +798,8 @@ a.text--white--light:hover {
 @media screen and (max-width: 767px) {
   .services-card__text {
     gap: 30px;
+    justify-content: space-between;
+    height: 100%;
   }
 }
 
@@ -931,7 +951,7 @@ a.text--white--light:hover {
 }
 @media screen and (max-width: 767px) {
   .clients__text {
-    color: rgab(#fff, 0.75);
+    color: rgba(255, 255, 255, 0.75);
   }
 }
 .clients__header {
@@ -1014,6 +1034,9 @@ a.text--white--light:hover {
   100% {
     width: 10%;
   }
+}
+.principles {
+  overflow: hidden;
 }
 .principles-grid {
   padding: clamp(10px, 0.7vw, 0.7vw) 0;
@@ -1519,6 +1542,14 @@ a.text--white--light:hover {
   transform: translateY(100%);
 }
 
+@keyframes wrapperAnimation {
+  0% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: unset;
+  }
+}
 @keyframes textAnimation {
   0% {
     opacity: 0;
@@ -1537,6 +1568,14 @@ a.text--white--light:hover {
   100% {
     opacity: 1;
     transform: translate(0);
+  }
+}
+@keyframes lineAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }
 
