@@ -8,21 +8,17 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
+    <link rel="stylesheet" href="assets/libs/lenis/lenis.css">
 
     <link rel="stylesheet" href="assets/styles/css/fonts.css">
 
     <link rel="stylesheet" href="assets/styles/css/reset.css">
     <link rel="stylesheet" href="assets/styles/css/index.css">
-
-    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
-
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-
 </head>
 <body>
 
-<div class="page-wrapper" data-scroll-container="">
-    <header data-scroll-section class="header">
+<div class="page-wrapper">
+    <header class="header">
         <div class="header__wrapper">
             <div class="container">
                 <div class="header__row">
@@ -175,7 +171,7 @@
         </div>
     </div>
     <main class="content">
-        <section class="hero video-bg animation-wrapper" data-scroll-section="">
+        <section class="hero video-bg animation-wrapper">
             <div class="video-bg__item">
                 <video src="assets/video/hero-bg.mp4" playsinline loop muted autoplay></video>
             </div>
@@ -228,7 +224,7 @@
             </div>
         </section>
 
-        <section class="section" id="about" data-scroll-section>
+        <section class="section" id="about">
             <div class="section__wrapper">
                 <div class="container">
                     <div class="grid ">
@@ -350,7 +346,7 @@
                 </div>
             </div>
         </section>
-        <section class="section section--accent principles" data-scroll-section id="principles">
+        <section class="section section--accent principles" id="principles">
             <div class="section__column">
                 <div class="container">
                     <div class="section__row grid animation-wrapper">
@@ -372,7 +368,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="principles-scroll" data-scroll data-scroll-target="#principles" data-scroll-direction="horizontal">
+                <div class="principles-scroll">
                     <div class="principles-grid">
                         <div class="principles-card">
                             <div class="principles-card__wrapper">
@@ -430,7 +426,7 @@
                 </div>
             </div>
         </section>
-        <section class="section" data-scroll-section>
+        <section class="section"sn>
             <div class="section__wrapper">
                 <div class="container">
                     <div class="grid">
@@ -595,7 +591,7 @@
                 </div>
             </div>
         </section>
-        <div class="section team" id="team" data-scroll-section>
+        <div class="section team" id="team">
             <div class="section__wrapper section__wrapper--top--small">
                 <div class="team__box">
                     <div class="container">
@@ -974,7 +970,7 @@
                 </div>
             </div>
         </div>
-        <section class="section section--accent clients" data-scroll-section>
+        <section class="section section--accent clients">
             <div class="container">
                 <div class="section__column clients__box">
                     <div class="section__row grid">
@@ -1049,7 +1045,7 @@
                 </div>
             </div>
         </section>
-        <section class="section" id="contact" data-scroll-section>
+        <section class="section" id="contact">
             <div class="section__wrapper">
                 <div class="container">
                     <div class="grid">
@@ -1115,7 +1111,7 @@
             </div>
         </section>
     </main>
-    <footer class="footer video-bg" data-scroll-section>
+    <footer class="footer video-bg">
         <div class="video-bg__item">
             <video src="assets/video/hero-bg.mp4" playsinline loop muted autoplay></video>
         </div>
@@ -1178,7 +1174,7 @@
                                             </li>
                                             <li class="footer-list__item">
                                                 <a href="mailto:info@key-consulting.ru"
-                                                   class="text text--medium text--base text--white">
+                                                   class="text text--medium text--base text--white text--white--clear">
                                                     info@key-consulting.ru
                                                 </a>
                                             </li>
@@ -1197,15 +1193,17 @@
                         <p class="text text--base text--white--light text--medium">
                             © 2024. Все права защищены.
                         </p>
-                        <p class="text text--base text--white--light text--medium">
+                        <a href="https://blago.agency/" target="_blank" class="text text--base text--white--light text--medium">
                             Дизайн & Разработка — Blago
-                        </p>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 </div>
+
+<script src="assets/libs/lenis/lenis.js"></script>
 
 <script src="assets/libs/gsap/gsap.js"></script>
 <script src="assets/libs/gsap/scrollTrigger.js"></script>

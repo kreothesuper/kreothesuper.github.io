@@ -102,6 +102,7 @@ body.no-scroll {
 }
 .text--white--light {
   color: rgba(255, 255, 255, 0.5);
+  transition: 0.3s color;
 }
 .text--line--big {
   line-height: 1.5;
@@ -114,6 +115,7 @@ body.no-scroll {
 }
 .text--accent--light {
   color: rgba(16, 65, 54, 0.5);
+  transition: 0.3s color;
 }
 .text--accent--dark {
   color: rgba(16, 65, 54, 0.7);
@@ -128,6 +130,10 @@ body.no-scroll {
   .text--mobile--left {
     text-align: left;
   }
+}
+
+a.text--white--light:hover {
+  color: #fff;
 }
 
 .button {
@@ -788,6 +794,7 @@ body.no-scroll {
 }
 .marquee__text {
   font-size: clamp(80px, 9vw, 9vw);
+  font-weight: 500;
   color: #fff;
   display: flex;
   align-items: center;
@@ -1482,14 +1489,12 @@ body.no-scroll {
     padding: 70px 0 100px 0;
   }
 }
-.footer-row {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
 .footer-row__content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.25vw 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .animation-text {

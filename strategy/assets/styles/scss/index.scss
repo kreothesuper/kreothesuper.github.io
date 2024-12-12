@@ -115,6 +115,7 @@ body.no-scroll {
   }
 }
 
+
 .text {
   &--base {
     font-size: var(--text-size-base);
@@ -135,6 +136,8 @@ body.no-scroll {
 
     &--light {
       color: rgba(#fff, .5);
+
+      transition: .3s color;
     }
   }
 
@@ -154,6 +157,8 @@ body.no-scroll {
 
     &--light {
       color: rgba(#104136, .5);
+
+      transition: .3s color;
     }
 
     &--dark {
@@ -177,6 +182,10 @@ body.no-scroll {
       }
     }
   }
+}
+
+a.text--white--light:hover{
+  color: #fff;
 }
 
 .button {
@@ -943,6 +952,7 @@ body.no-scroll {
 
   &__text {
     font-size: clamp(80px, 9vw, 9vw);
+    font-weight: 500;
     color: #fff;
 
     display: flex;
@@ -1681,7 +1691,7 @@ body.no-scroll {
   }
 
   &-row {
-    border-top: 1px solid rgba(#fff, .1);
+
 
     &__content {
       display: flex;
@@ -1689,6 +1699,8 @@ body.no-scroll {
       justify-content: space-between;
 
       padding: 1.25vw 0;
+
+      border-top: 1px solid rgba(#fff, .1);
     }
 
   }
