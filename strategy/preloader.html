@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/styles/css/fonts.css">
 
     <style>
-        .preloader{
+        .preloader {
             position: fixed;
             z-index: 100;
             left: 0;
@@ -34,52 +34,93 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+
+            transition: .3s opacity, .5s visibility;
         }
-        .preloader-line{
-            width: 30vw;
+
+        .preloader.hidden{
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .preloader-line {
+            width: clamp(215px, 30vw, 30vw);
             height: 2px;
-            background: rgba(256,256,256,.3);
+            background: rgba(256, 256, 256, .3);
             display: block;
             position: relative;
         }
 
-        .preloader-text{
+        .preloader-text {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
 
             font-family: 'PP Neue Montreal', sans-serif;
-            font-size: 4vw;
+            font-size: clamp(45px, 4vw, 4vw);
             color: #fff;
             font-weight: 500;
+            line-height: 1;
 
+            letter-spacing: -0.03rem;
+
+            overflow: hidden;
+
+            text-align: center;
+        }
+
+        .preloader-text__wrapper{
+            display: inline-block;
+            line-height: 1.1;
             overflow: hidden;
         }
 
-        .preloader-text span{
+        .preloader-text__wrapper span {
             transform: translateY(-100%);
             display: inline-block;
-            &:nth-child(1){
-                animation: preloaderText 4s linear infinite;
+        }
+
+        .preloader-text__wrapper{
+            &:nth-child(1) {
+                span{
+                    animation: preloaderText 4s linear infinite;
+
+                }
             }
-            &:nth-child(2){
-                animation: preloaderText2 4s linear infinite;
+
+            &:nth-child(2) {
+                span{
+                    animation: preloaderText2 4s linear infinite;
+                }
             }
-            &:nth-child(3){
-                animation: preloaderText3 4s linear infinite;
+
+            &:nth-child(3) {
+                span{
+                    animation: preloaderText3 4s linear infinite;
+                }
             }
-            &:nth-child(4){
-                animation: preloaderText4 4s linear infinite;
+
+            &:nth-child(4) {
+                span{
+                    animation: preloaderText4 4s linear infinite;
+                }
             }
-            &:nth-child(5){
-                animation: preloaderText5 4s linear infinite;
+
+            &:nth-child(5) {
+                span{
+                    animation: preloaderText5 4s linear infinite;
+                }
             }
-            &:nth-child(6){
-                animation: preloaderText6 4s linear infinite;
+
+            &:nth-child(6) {
+                span{
+                    animation: preloaderText6 4s linear infinite;
+                }
             }
         }
 
-        .preloader-line__current{
+        .preloader-line__current {
             position: absolute;
             left: 0;
             top: 0;
@@ -91,134 +132,191 @@
         }
 
         @keyframes preloaderLine {
-            0%{
+            0% {
                 width: 0%;
             }
-            15%{
+            15% {
                 width: 15%;
             }
-            30%{
+            30% {
                 width: 30%;
             }
-            60%{
+            60% {
                 width: 60%;
             }
-            90%{
+            90% {
                 width: 90%;
             }
-            100%{
+            100% {
                 width: 100%;
             }
         }
+
         @keyframes preloaderText {
-            0%{
+            0% {
                 transform: translateY(-100%);
             }
-            10%{
+            10% {
                 transform: translateY(0);
             }
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
+
         @keyframes preloaderText2 {
-            0%{
+            0% {
                 transform: translateY(-100%);
             }
-            10%{
+            10% {
                 transform: translateY(-100%);
             }
-            20%{
+            20% {
                 transform: translateY(0);
             }
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
+
         @keyframes preloaderText3 {
-            0%{
+            0% {
                 transform: translateY(-100%);
             }
-            10%{
+            10% {
                 transform: translateY(-100%);
             }
-            20%{
+            20% {
                 transform: translateY(-100%);
             }
-            30%{
+            30% {
                 transform: translateY(0);
             }
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
+
         @keyframes preloaderText4 {
-            0%{
+            0% {
                 transform: translateY(-100%);
             }
-            10%{
+            10% {
                 transform: translateY(-100%);
             }
-            20%{
+            20% {
                 transform: translateY(-100%);
             }
-            30%{
+            30% {
                 transform: translateY(-100%);
             }
-            40%{
+            40% {
                 transform: translateY(0);
             }
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
+
         @keyframes preloaderText5 {
-            0%{
+            0% {
                 transform: translateY(-100%);
             }
-            10%{
+            10% {
                 transform: translateY(-100%);
             }
-            20%{
+            20% {
                 transform: translateY(-100%);
             }
-            30%{
+            30% {
                 transform: translateY(-100%);
             }
-            40%{
+            40% {
                 transform: translateY(-100%);
             }
-            50%{
+            50% {
                 transform: translateY(0);
             }
-            100%{
+            100% {
                 transform: translateY(0);
             }
         }
+
         @keyframes preloaderText6 {
-            0%{
+            0% {
                 transform: translateY(-100%);
             }
-            10%{
+            10% {
                 transform: translateY(-100%);
             }
-            20%{
+            20% {
                 transform: translateY(-100%);
             }
-            30%{
+            30% {
                 transform: translateY(-100%);
             }
-            40%{
+            40% {
                 transform: translateY(-100%);
             }
-            50%{
+            50% {
                 transform: translateY(-100%);
             }
-            60%{
+            60% {
                 transform: translateY(0);
             }
-            100%{
+            100% {
                 transform: translateY(0);
+            }
+        }
+
+        .preloader-header{
+            fill: #fff;
+            width: 3.5vw;
+            height: 3.5vw;
+            position: relative;
+
+            display: block;
+        }
+
+        .preloader-logo{
+            position: fixed;
+            left: 50%;
+            top: 15vw;
+            transform: translateX(-50%);
+            width: 3.5vw;
+            height: 3.5vw;
+            transition: 1s linear;
+        }
+
+        .preloader-logo.loaded{
+            position: fixed;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+        
+        @media screen and (max-width: 767px) {
+            .preloader {
+                gap: 17vw;
+            }
+            .preloader-header{
+                width: 12vw;
+                height: 12vw;
+            }
+            .preloader-logo{
+                width: 12vw;
+                height: 12vw;
+                top: 30vw;
+            }
+            .preloader-text {
+                font-size: 10vw;
+            }
+            .preloader-logo.loaded{
+                left: 20px;
+                transform: translateY(0);
+            }
+            .preloader-text__wrapper:first-child{
+                width: 100%;
             }
         }
     </style>
@@ -229,13 +327,30 @@
 <body>
 
 <div class="preloader">
+    <div class="preloader-header">
+        <svg class="preloader-logo">
+            <use xlink:href="assets/images/sprite.svg#logo"></use>
+        </svg>
+    </div>
     <div class="preloader-text">
-        <span>Подбираем</span>
-        <span> ключ</span>
-        <span>к</span>
-        <span> решению</span>
-        <span> ваших</span>
-        <span>проблем</span>
+        <span class="preloader-text__wrapper">
+            <span>Подбираем</span>
+        </span>
+        <span class="preloader-text__wrapper">
+            <span> ключ</span>
+        </span>
+        <span class="preloader-text__wrapper">
+            <span>к</span>
+        </span>
+        <span class="preloader-text__wrapper">
+            <span> решению</span>
+        </span>
+        <span class="preloader-text__wrapper">
+            <span> ваших</span>
+        </span>
+        <span class="preloader-text__wrapper">
+            <span>проблем</span>
+        </span>
     </div>
     <span class="preloader-line">
         <span class="preloader-line__current"></span>
@@ -316,17 +431,20 @@
                                     <div class="menu__column">
                                         <ul class="menu-list">
                                             <li class="menu-list__item">
-                                                <a href="#about" class="title title--middle title--white menu-list__link">
+                                                <a href="#about"
+                                                   class="title title--middle title--white menu-list__link">
                                                     О компании
                                                 </a>
                                             </li>
                                             <li class="menu-list__item">
-                                                <a href="#team" class="title title--middle title--white menu-list__link">
+                                                <a href="#team"
+                                                   class="title title--middle title--white menu-list__link">
                                                     Команда
                                                 </a>
                                             </li>
                                             <li class="menu-list__item">
-                                                <a href="#principles" class="title title--middle title--white menu-list__link">
+                                                <a href="#principles"
+                                                   class="title title--middle title--white menu-list__link">
                                                     Принципы
                                                 </a>
                                             </li>
@@ -404,45 +522,66 @@
             <div class="section__wrapper section__wrapper--top--small">
                 <div class="container">
                     <div class="resume__wrapper">
-                        <div class="resume__header grid">
+                        <div class="resume__header grid ">
                             <div class="grid__row grid__row--gap--small grid__row--tablet--base">
-                                <div class="grid__column">
-                                    <p class="title title--base title--accent">
-                                        Сергей Зверев
-                                    </p>
+                                <div class="grid__column animation-wrapper">
+                                    <div class="animation-item animation-text">
+                                        <p class="title title--base title--accent animation-text__item">
+                                            Сергей Зверев
+                                        </p>
+                                    </div>
+
                                 </div>
-                                <div class="grid__column">
+                                <div class="grid__column animation-wrapper">
                                     <div class="grid__row grid__row--tablet--column grid__row--gap--small">
                                         <div class="grid__column">
                                             <div class="grid__text">
-                                                <p class="text text--middle text--accent">
-                                                    Ведущий эксперт в области консалтинга с опытом работы более 25 лет.
-                                                    Основатель и президент группы компаний КРОС, одного из лидеров на рынке
-                                                    коммуникационных услуг. В группу входят КРОС, КРОС.Маркетинг,
-                                                    Heads'made.
-                                                </p>
-                                                <p class="text text--middle text--accent">
-                                                    Руководитель Департамента интегрированных коммуникаций НИУ «Высшая школа
-                                                    экономики».Член российских и международных объединений в области
-                                                    коммуникаций, а также консультативных советов при органах власти.
-                                                </p>
+                                                <div class="animation-item animation-text">
+                                                    <p class="text text--middle text--accent animation-text__item">
+                                                        Ведущий эксперт в области консалтинга с опытом работы более 25
+                                                        лет.
+                                                        Основатель и президент группы компаний КРОС, одного из лидеров
+                                                        на рынке
+                                                        коммуникационных услуг. В группу входят КРОС, КРОС.Маркетинг,
+                                                        Heads'made.
+                                                    </p>
+                                                </div>
+                                                <div class="animation-item animation-text">
+                                                    <p class="text text--middle text--accent animation-text__item">
+                                                        Руководитель Департамента интегрированных коммуникаций НИУ
+                                                        «Высшая школа
+                                                        экономики».Член российских и международных объединений в области
+                                                        коммуникаций, а также консультативных советов при органах
+                                                        власти.
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="grid__column">
                                             <div class="grid__text">
-                                                <p class="text text--middle text--accent">
-                                                    Член Общественного совета при Министерстве финансов РФ. Член Экспертного
-                                                    совета Агентства стратегических инициатив. Член Ассоциации независимых
-                                                    директоров (АНД).
-                                                </p>
-                                                <p class="text text--middle text--accent">
-                                                    Имею сертификацию «Независимый директор» (Финансовый ун-т при
-                                                    Правительстве РФ) и IoD Chartered Director (Institute of Directors UK)
-                                                    для квалифицированной работы в Советах директоров компаний.
-                                                </p>
-                                                <p class="text text--middle text--accent">
-                                                    Женат, 5 детей. Свободно владею английским языком.
-                                                </p>
+                                                <div class="animation-item animation-text">
+                                                    <p class="text text--middle text--accent animation-text__item">
+                                                        Член Общественного совета при Министерстве финансов РФ. Член
+                                                        Экспертного
+                                                        совета Агентства стратегических инициатив. Член Ассоциации
+                                                        независимых
+                                                        директоров (АНД).
+                                                    </p>
+                                                </div>
+
+                                                <div class="animation-item animation-text">
+                                                    <p class="text text--middle text--accent animation-text__item">
+                                                        Имею сертификацию «Независимый директор» (Финансовый ун-т при
+                                                        Правительстве РФ) и IoD Chartered Director (Institute of
+                                                        Directors UK)
+                                                        для квалифицированной работы в Советах директоров компаний.
+                                                    </p>
+                                                </div>
+                                                <div class="animation-item animation-text">
+                                                    <p class="text text--middle text--accent animation-text__item">
+                                                        Женат, 5 детей. Свободно владею английским языком.
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -451,12 +590,18 @@
                         </div>
                         <div class="resume__content">
                             <div class="resume-block">
-                                <div class="resume-block__header">
-                                    <p class="title title--middle title--accent">Опыт работы</p>
-                                </div>
                                 <div class="resume-block__content grid">
                                     <div class="grid__row grid__row--tablet--column">
-                                        <ul class="resume-list grid__column grid__column--end">
+                                        <div class="grid__column">
+                                            <div class="resume-block__header resume-block__header--sticky animation-wrapper">
+                                                <div class="animation-item animation-text">
+                                                    <p class="title title--middle title--accent animation-text__item">
+                                                        Опыт
+                                                        работы</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="resume-list grid__column">
                                             <li class="resume-list__item grid">
                                                 <div class="grid__row grid__row--tablet--base grid__row--gap--small">
                                                     <div class="grid__column">
@@ -480,7 +625,8 @@
                                                     </div>
                                                     <div class="grid__column">
                                                         <p class="text text--middle text--medium text--accent">
-                                                            Руководитель Департамента интегрированных коммуникаций НИУ «Высшая школа экономики», профессор
+                                                            Руководитель Департамента интегрированных коммуникаций НИУ
+                                                            «Высшая школа экономики», профессор
                                                         </p>
                                                     </div>
                                                 </div>
@@ -494,7 +640,8 @@
                                                     </div>
                                                     <div class="grid__column">
                                                         <p class="text text--middle text--medium text--accent">
-                                                            Президент и председатель Совета директоров коммуникационной группы КРОС
+                                                            Президент и председатель Совета директоров коммуникационной
+                                                            группы КРОС
                                                         </p>
                                                     </div>
                                                 </div>
@@ -550,7 +697,8 @@
                                                     </div>
                                                     <div class="grid__column">
                                                         <p class="text text--middle text--medium text--accent">
-                                                            Руководитель информационно-аналитического сектора Центра экономических и политических исследований (ЭПИцентр)
+                                                            Руководитель информационно-аналитического сектора Центра
+                                                            экономических и политических исследований (ЭПИцентр)
                                                         </p>
                                                     </div>
                                                 </div>
@@ -578,7 +726,8 @@
                                                     </div>
                                                     <div class="grid__column">
                                                         <p class="text text--middle text--medium text--accent">
-                                                            Экономист планово-экономического бюро Производственного объединения "АвтоЗИЛ"
+                                                            Экономист планово-экономического бюро Производственного
+                                                            объединения "АвтоЗИЛ"
                                                         </p>
                                                     </div>
                                                 </div>
@@ -588,12 +737,17 @@
                                 </div>
                             </div>
                             <div class="resume-block">
-                                <div class="resume-block__header">
-                                    <p class="title title--middle title--accent">Образование</p>
-                                </div>
                                 <div class="resume-block__content grid">
                                     <div class="grid__row grid__row--tablet--column">
-                                        <ul class="resume-list grid__column grid__column--end">
+                                        <div class="grid__column">
+                                            <div class="resume-block__header resume-block__header--sticky animation-wrapper">
+                                                <div class="animation-item animation-text">
+                                                    <p class="title title--middle title--accent animation-text__item">
+                                                        Образование</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="resume-list grid__column">
                                             <li class="resume-list__item grid">
                                                 <div class="grid__row grid__row--tablet--base grid__row--gap--small">
                                                     <div class="grid__column">
@@ -645,7 +799,8 @@
                                                     </div>
                                                     <div class="grid__column">
                                                         <p class="text text--middle text--medium text--accent">
-                                                            IoD Chartered Director / Institute of Directors UK, Москва-АНД
+                                                            IoD Chartered Director / Institute of Directors UK,
+                                                            Москва-АНД
                                                         </p>
                                                     </div>
                                                 </div>
@@ -659,7 +814,8 @@
                                                     </div>
                                                     <div class="grid__column">
                                                         <p class="text text--middle text--medium text--accent">
-                                                            Независимый директор / Финансовый университет при Правительстве РФ, АНД, 2019
+                                                            Независимый директор / Финансовый университет при
+                                                            Правительстве РФ, АНД, 2019
                                                         </p>
                                                     </div>
                                                 </div>
@@ -673,7 +829,8 @@
                                                     </div>
                                                     <div class="grid__column">
                                                         <p class="text text--middle text--medium text--accent">
-                                                            Экономист / Российский экономический университет имени Г.В. Плеханова
+                                                            Экономист / Российский экономический университет имени Г.В.
+                                                            Плеханова
                                                         </p>
                                                     </div>
                                                 </div>
@@ -683,12 +840,19 @@
                                 </div>
                             </div>
                             <div class="resume-block">
-                                <div class="resume-block__header">
-                                    <p class="title title--middle title--accent">Награды и признание</p>
-                                </div>
+
                                 <div class="resume-block__content grid">
                                     <div class="grid__row grid__row--tablet--column">
-                                        <ul class="resume-list grid__column grid__column--end">
+                                        <div class="grid__column">
+                                            <div class="resume-block__header resume-block__header--sticky animation-wrapper">
+                                                <div class="animation-item animation-text">
+                                                    <p class="title title--middle title--accent animation-text__item">
+                                                        Награды и
+                                                        признание</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="resume-list grid__column">
                                             <li class="resume-list__item grid">
                                                 <div class="grid__row grid__row--tablet--base grid__row--gap--small">
                                                     <div class="grid__column">
@@ -735,7 +899,8 @@
                                                 <div class="grid__row grid__row--tablet--base grid__row--gap--small">
                                                     <div class="grid__column grid__column--end">
                                                         <p class="text text--middle  text--accent--dark">
-                                                            и другие профессиональные российские и международные награды, государственные награды.
+                                                            и другие профессиональные российские и международные
+                                                            награды, государственные награды.
                                                         </p>
                                                     </div>
                                                 </div>
@@ -746,58 +911,55 @@
                                 </div>
                             </div>
                             <div class="resume-block">
-                                <div class="resume-block__header">
-                                    <p class="title title--middle title--accent">Экспертиза</p>
+                                <div class="resume-block__header animation-wrapper">
+                                    <div class="animation-item animation-text">
+                                        <p class="title title--middle title--accent animation-text__item">Экспертиза</p>
+                                    </div>
                                 </div>
                                 <div class="grid">
                                     <div class="grid__wrapper">
-                                        <div class="grid__row grid__row--services">
-                                            <div class="services-card">
-                                                <div class="services-card__wrapper services-card__wrapper--mobile--column">
+                                        <div class="grid__row grid__row--services animation-wrapper">
+                                            <div class="services-card animation-card animation-item">
+                                                <div class="services-card__wrapper animation-card__item services-card__wrapper--mobile--column">
                                                     <p class="text text--middle text--accent">
                                                         I.
                                                     </p>
-                                                    <div class="services-card__text">
-                                                        <p class="text text--middle text--accent">
-                                                            Разработка комплексных стратегий
-                                                        </p>
-                                                    </div>
+                                                    <p class="text text--middle text--accent">
+                                                        Разработка комплексных стратегий
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="services-card">
-                                                <div class="services-card__wrapper services-card__wrapper--mobile--column ">
+                                            <div class="services-card animation-card animation-item">
+                                                <div class="services-card__wrapper animation-card__item services-card__wrapper--mobile--column ">
                                                     <p class="text text--middle text--accent">
                                                         II.
                                                     </p>
-                                                    <div class="services-card__text">
-                                                        <p class="text text--middle text--accent">
-                                                            Антикризисный консалтинг и&nbsp;разработка мер долгосрочной стабилизации
-                                                        </p>
-                                                    </div>
+                                                    <p class="text text--middle text--accent">
+                                                        Антикризисный консалтинг и&nbsp;разработка мер долгосрочной
+                                                        стабилизации
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="services-card">
-                                                <div class="services-card__wrapper services-card__wrapper--mobile--column">
+                                            <div class="services-card animation-card animation-item">
+                                                <div class="services-card__wrapper animation-card__item services-card__wrapper--mobile--column">
                                                     <p class="text text--middle text--accent">
                                                         III.
                                                     </p>
-                                                    <div class="services-card__text">
-                                                        <p class="text text--middle text--accent">
-                                                            Мониторинг регуляторной повестки, бизнес-контекста, социального пространства и&nbsp;медиа
-                                                        </p>
-                                                    </div>
+                                                    <p class="text text--middle text--accent">
+                                                        Мониторинг регуляторной повестки, бизнес-контекста,
+                                                        социального пространства и&nbsp;медиа
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="services-card">
-                                                <div class="services-card__wrapper services-card__wrapper--mobile--column">
+                                            <div class="services-card animation-card animation-item">
+                                                <div class="services-card__wrapper animation-card__item services-card__wrapper--mobile--column">
                                                     <p class="text text--middle text--accent">
                                                         IV.
                                                     </p>
-                                                    <div class="services-card__text">
-                                                        <p class="text text--middle text--accent">
-                                                            Определение трендов, прогнозирование и&nbsp;сценарное планирование
-                                                        </p>
-                                                    </div>
+                                                    <p class="text text--middle text--accent">
+                                                        Определение трендов, прогнозирование и&nbsp;сценарное
+                                                        планирование
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -873,7 +1035,7 @@
                                             </li>
                                             <li class="footer-list__item">
                                                 <a href="mailto:info@key-consulting.ru"
-                                                   class="text text--medium text--base text--white">
+                                                   class="text text--medium text--base text--white text--white--clear">
                                                     info@key-consulting.ru
                                                 </a>
                                             </li>
@@ -892,15 +1054,35 @@
                         <p class="text text--base text--white--light text--medium">
                             © 2024. Все права защищены.
                         </p>
-                        <p class="text text--base text--white--light text--medium">
+                        <a href="https://blago.agency/" target="_blank"
+                           class="text text--base text--white--light text--medium">
                             Дизайн & Разработка — Blago
-                        </p>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 </div>
+
+
+<script>
+    window.onload = (event) => {
+        const headerLogo = document.querySelector('.header__logo'),
+            preloaderLogo = document.querySelector('.preloader-logo');
+
+        setTimeout(()=>{
+            preloaderLogo.classList.add('loaded');
+            preloaderLogo.style.height = `${headerLogo.getBoundingClientRect().height}px`;
+            preloaderLogo.style.width = `${headerLogo.getBoundingClientRect().width}px`;
+            preloaderLogo.style.top = `${headerLogo.getBoundingClientRect().top}px`;
+        },1000)
+
+        setTimeout(()=>{
+            document.querySelector('.preloader').classList.add('hidden');
+        },2000)
+    };
+</script>
 
 <script src="assets/libs/swiper/swiper.js"></script>
 <script src="assets/scripts/index.js"></script>

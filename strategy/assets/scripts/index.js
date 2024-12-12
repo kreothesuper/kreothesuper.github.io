@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pin: true,
                 start: "top top",
                 end: "bottom top",
-                scrub: 1,
+                scrub: .5,
                 ease: "linear",
                 // markers:true,
             }
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ".principles",
             {
                 marginBottom: -15,
-                stagger: .5
+                stagger: .5,
             },
             "<"
         );
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.addEventListener("click", function() {
                 gsap.to(window, {
                     scrollTo: tl.scrollTrigger.labelToScroll(`label${i+1}`),
-                    duration: 0.3
+                    duration: 0,
                 });
             });
         })
@@ -196,4 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
             autoRaf: true,
         });
     }
+
+
+
 });
