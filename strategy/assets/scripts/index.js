@@ -100,11 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.ticker.lagSmoothing(0);
         }
 
+        const startPos = window.innerWidth > 767 ? "top top" : "top 25%";
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ".principles",
                 pin: true,
-                start: "top top",
+                start: startPos,
                 scrub: 1,
                 end: "bottom top",
                 snap: 1 / (principlesCardArray.length - 1),
@@ -116,7 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
         tl.to(".principles .principles-card", {
             x: () => -(principlesScroll.scrollWidth - document.documentElement.clientWidth) + "px",
             ease: "none",
+
             end: () => "+=" + principlesScroll.offsetWidth,
+
         });
     }
 

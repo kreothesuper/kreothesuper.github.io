@@ -1216,8 +1216,7 @@ a.text--white--light:hover{
 .principles {
   overflow: hidden;
   &-scroll{
-    width: max-content;
-    overscroll-behavior: contain;
+    padding-right: 100vw;
   }
   &-grid {
     padding: clamp(10px, .7vw, .7vw) 0;
@@ -1229,6 +1228,10 @@ a.text--white--light:hover{
     width: 35vw;
     overflow: hidden;
     flex-shrink: 0;
+
+    .active{
+      width: 50vw;
+    }
 
     &:last-child {
       overflow: visible;
