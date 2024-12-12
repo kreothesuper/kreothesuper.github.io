@@ -41,10 +41,15 @@
             animation: none!important;
         }
 
+        .preloader.hidden .preloader-logo{
+            animation: none!important;
+            opacity: 1;
+        }
+
         .preloader.hidden{
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
+            /*opacity: 0;*/
+            /*visibility: hidden;*/
+            /*pointer-events: none;*/
         }
 
         .preloader-line {
@@ -87,37 +92,37 @@
         .preloader-text__wrapper{
             &:nth-child(1) {
                 span{
-                    animation: preloaderText 4s linear infinite;
+                    animation: preloaderText 4s .3s ease-in infinite;
                 }
             }
 
             &:nth-child(2) {
                 span{
-                    animation: preloaderText2 4s linear infinite;
+                    animation: preloaderText2 4s .3s ease-in infinite;
                 }
             }
 
             &:nth-child(3) {
                 span{
-                    animation: preloaderText3 4s linear infinite;
+                    animation: preloaderText3 4s .3s ease-in infinite;
                 }
             }
 
             &:nth-child(4) {
                 span{
-                    animation: preloaderText4 4s linear infinite;
+                    animation: preloaderText4 4s .3s ease-in infinite;
                 }
             }
 
             &:nth-child(5) {
                 span{
-                    animation: preloaderText5 4s linear infinite;
+                    animation: preloaderText5 4s .3s ease-in infinite;
                 }
             }
 
             &:nth-child(6) {
                 span{
-                    animation: preloaderText6 4s linear infinite;
+                    animation: preloaderText6 4s .3s ease-in infinite;
                 }
             }
         }
@@ -137,20 +142,18 @@
             0% {
                 width: 0%;
             }
-            15% {
-                width: 15%;
-            }
-            30% {
-                width: 30%;
-            }
-            60% {
-                width: 60%;
-            }
-            90% {
-                width: 90%;
-            }
             100% {
                 width: 100%;
+            }
+        }
+
+        @keyframes preloaderIcon {
+            0% {
+                opacity: 0;
+            }
+
+            100%{
+                opacity: 1;
             }
         }
 
@@ -158,10 +161,13 @@
             0% {
                 transform: translateY(-100%);
             }
-            10% {
+            15% {
                 transform: translateY(0);
             }
-            100% {
+            99%{
+                transform: translateY(0);
+            }
+            100%{
                 transform: translateY(0);
             }
         }
@@ -170,13 +176,13 @@
             0% {
                 transform: translateY(-100%);
             }
-            10% {
+            15% {
                 transform: translateY(-100%);
             }
-            20% {
+            30% {
                 transform: translateY(0);
             }
-            100% {
+            100%{
                 transform: translateY(0);
             }
         }
@@ -185,16 +191,17 @@
             0% {
                 transform: translateY(-100%);
             }
-            10% {
-                transform: translateY(-100%);
-            }
-            20% {
+            15% {
                 transform: translateY(-100%);
             }
             30% {
+                transform: translateY(-100%);
+            }
+            45% {
                 transform: translateY(0);
             }
-            100% {
+
+            100%{
                 transform: translateY(0);
             }
         }
@@ -203,19 +210,19 @@
             0% {
                 transform: translateY(-100%);
             }
-            10% {
-                transform: translateY(-100%);
-            }
-            20% {
+            15% {
                 transform: translateY(-100%);
             }
             30% {
                 transform: translateY(-100%);
             }
-            40% {
+            45% {
+                transform: translateY(-100%);
+            }
+            60% {
                 transform: translateY(0);
             }
-            100% {
+            100%{
                 transform: translateY(0);
             }
         }
@@ -224,22 +231,22 @@
             0% {
                 transform: translateY(-100%);
             }
-            10% {
-                transform: translateY(-100%);
-            }
-            20% {
+            15% {
                 transform: translateY(-100%);
             }
             30% {
                 transform: translateY(-100%);
             }
-            40% {
+            45% {
                 transform: translateY(-100%);
             }
-            50% {
+            60% {
+                transform: translateY(-100%);
+            }
+            75% {
                 transform: translateY(0);
             }
-            100% {
+            100%{
                 transform: translateY(0);
             }
         }
@@ -248,25 +255,26 @@
             0% {
                 transform: translateY(-100%);
             }
-            10% {
-                transform: translateY(-100%);
-            }
-            20% {
+            15% {
                 transform: translateY(-100%);
             }
             30% {
                 transform: translateY(-100%);
             }
-            40% {
-                transform: translateY(-100%);
-            }
-            50% {
+            45% {
                 transform: translateY(-100%);
             }
             60% {
+                transform: translateY(-100%);
+            }
+            75% {
+                transform: translateY(-100%);
+            }
+            90% {
                 transform: translateY(0);
             }
-            100% {
+
+            100%{
                 transform: translateY(0);
             }
         }
@@ -288,6 +296,10 @@
             width: 3.5vw;
             height: 3.5vw;
             transition: 1s linear;
+
+            opacity: 0;
+
+            animation: preloaderIcon 4s .2s cubic-bezier(0.42, 0, 0.58, 1) infinite;
         }
 
         .preloader-logo.loaded{
