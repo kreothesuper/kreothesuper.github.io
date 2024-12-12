@@ -5,7 +5,7 @@ class Animations {
 
     toggleAnimation(animationWrapperElement) {
         const animationItemArray = animationWrapperElement.querySelectorAll('.animation-item');
-        const counter = animationWrapperElement.closest('.hero') && document.querySelector('.preloader') ? 2 : 0;
+        const counter = animationWrapperElement.closest('.hero') && document.querySelector('.preloader') ? 1.5 : 0;
         animationItemArray.forEach((animationItemElement, animationItemIndex) => {
             // animationItemElement.style.animationDelay = `${animationItemIndex * 0.2}s`;
             animationItemElement.style.setProperty('--animation-delay', `${animationItemIndex * 0.2 + counter}s`);
