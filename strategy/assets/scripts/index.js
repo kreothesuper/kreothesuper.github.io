@@ -35,8 +35,22 @@ class Animations {
     }
 }
 
+window.addEventListener('load', () => {
+    const videoBgItemArray = document.querySelectorAll('.video-bg__item');
+
+    if(videoBgItemArray.length){
+        videoBgItemArray.forEach(video=>{
+            const videoElement = video.querySelector('video');
+
+            if(videoElement) videoElement.play();
+        });
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
+
     const preloader = document.querySelector('.preloader');
 
     if(!preloader){
