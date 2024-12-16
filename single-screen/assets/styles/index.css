@@ -1,0 +1,147 @@
+@font-face {
+  font-family: "Circe Extra";
+  src: url("../fonts/Circe-ExtraBold.woff2") format("woff2"), url("../fonts/Circe-ExtraBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  max-height: 56.25vw;
+  min-height: 42vw;
+}
+.hero-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.hero-tag {
+  position: absolute;
+  background: rgba(0, 54, 59, 0.5);
+  height: 4.2%;
+  font-family: "Circe Extra", sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: 0.72vw;
+  line-height: 1.1;
+  text-transform: uppercase;
+  border-radius: 0.2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2%;
+  gap: 5%;
+  text-decoration: none;
+  transition: 0.3s background-color, 0.3s transform;
+}
+.hero-tag:hover {
+  background: rgba(0, 54, 59, 0.8);
+  transform: translateY(-5%);
+}
+.hero-tag--train {
+  width: 8.6%;
+  top: 14.8%;
+  left: 18%;
+}
+.hero-tag--train .hero-tag__icon {
+  padding-left: 0;
+}
+.hero-tag--train .hero-tag__icon img {
+  object-position: left center;
+}
+.hero-tag--wheels {
+  width: 9.9%;
+  top: 26.8%;
+  right: 37.2%;
+}
+.hero-tag--wheels-shaped {
+  width: 11.4%;
+  top: 33.8%;
+  left: 42%;
+}
+.hero-tag--bars {
+  width: 6.5%;
+  top: 46.3%;
+  left: 35.4%;
+}
+.hero-tag--axes {
+  width: 9.9%;
+  top: 51%;
+  left: 42.2%;
+}
+.hero-tag--rail {
+  width: 8%;
+  left: 30.4%;
+  top: 51.4%;
+}
+.hero-tag--rail .hero-tag__icon {
+  padding: 2% 0 0 0;
+}
+.hero-tag--rail .hero-tag__icon img {
+  object-position: bottom center;
+}
+.hero-tag--arrow {
+  width: 8%;
+  top: 55.5%;
+  right: 41.6%;
+}
+.hero-tag--arrow .hero-tag__icon {
+  padding-left: 0;
+  padding-right: 0;
+}
+.hero-tag--polymer {
+  bottom: 22.6%;
+  left: 33.85%;
+  width: 6.8%;
+  justify-content: center;
+  padding: 0.2% 3%;
+}
+.hero-tag__icon {
+  flex-shrink: 0;
+  height: 95%;
+  aspect-ratio: 1;
+  border: 1px solid #21B0AB;
+  border-radius: 0.2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3%;
+}
+.hero-tag__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.hero-bg {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-bg__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=index.css.map */
