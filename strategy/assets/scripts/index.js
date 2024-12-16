@@ -42,7 +42,10 @@ window.addEventListener('load', () => {
         videoBgItemArray.forEach(video=>{
             const videoElement = video.querySelector('video');
 
-            if(videoElement) videoElement.play();
+            if(videoElement) {
+                videoElement.play();
+                videoElement.controls = false;
+            }
         });
     }
 });
