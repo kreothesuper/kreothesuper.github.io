@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
 
     lenis.on('scroll', ()=>{
-        lenis.actualScroll > 0 ? header.classList.add('fixed') : header.classList.remove('fixed');
+        lenis.actualScroll > 100 ? header.classList.add('fixed') : header.classList.remove('fixed');
     });
 
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
