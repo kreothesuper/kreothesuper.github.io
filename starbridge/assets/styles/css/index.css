@@ -89,9 +89,6 @@ body.no-scroll {
   font-weight: 600;
   text-transform: capitalize;
 }
-.title--medium {
-  font-weight: 500;
-}
 .title--black {
   color: var(--color-text-black);
 }
@@ -164,7 +161,7 @@ body.no-scroll {
   cursor: pointer;
 }
 .button--base {
-  --arrow-size:.8vw;
+  --arrow-size:1.2vw;
   padding: 1vw 2vw;
   font-weight: 300;
   font-size: 1.75vw;
@@ -181,7 +178,7 @@ body.no-scroll {
   }
 }
 .button--small {
-  --arrow-size:.8vw;
+  --arrow-size:1.2vw;
   font-weight: 300;
   font-size: 1vw;
   padding: 0.6vw 2vw;
@@ -241,38 +238,36 @@ body.no-scroll {
 }
 
 .page-wrapper, .content {
-  padding: 1.3vw 0 0 0;
+  padding: 4.7vw 0 0 0;
 }
 @media screen and (max-width: 1240px) {
   .page-wrapper, .content {
-    padding: 0;
+    padding: 30px 0 0 0;
   }
 }
 
 .header {
-  padding: 0 6vw;
+  padding: 4.7vw 6vw;
   background: #fff;
   z-index: 12;
-  position: sticky;
-  top: -1px;
+  position: fixed;
+  top: 0;
   width: 100%;
+  transition: 0.3s padding;
+}
+@media screen and (min-width: 1241px) {
+  .header.fixed {
+    padding: 2.7vw 6vw;
+  }
 }
 @media screen and (max-width: 1240px) {
   .header {
-    padding: 0 16px;
+    padding: 16px;
   }
 }
 .header__logo {
   position: relative;
   z-index: 4;
-}
-.header__wrapper {
-  padding: 2vw 0;
-}
-@media screen and (max-width: 1240px) {
-  .header__wrapper {
-    padding: 16px 0;
-  }
 }
 .header__row {
   display: flex;
@@ -382,8 +377,8 @@ body.no-scroll {
   display: flex;
   align-items: center;
   position: relative;
+  color: #AA825F;
   font-size: clamp(16px, 1.4vw, 1.4vw);
-  color: rgba(170, 130, 95, 0.48);
   font-weight: 300;
   text-transform: capitalize;
   transition: 0.3s color;
@@ -399,7 +394,7 @@ body.no-scroll {
   transition: 0.3s width, 0.3s background-color;
 }
 .nav-list__link:hover {
-  color: #AA825F;
+  color: rgba(170, 130, 95, 0.48);
 }
 .nav-list__link:hover::before {
   width: 100%;
@@ -420,7 +415,7 @@ body.no-scroll {
 @media screen and (max-width: 767px) {
   .hero__grid {
     flex-direction: column;
-    gap: 32px;
+    gap: 64px;
   }
 }
 .hero__header {
@@ -433,7 +428,7 @@ body.no-scroll {
 @media screen and (max-width: 767px) {
   .hero__header {
     max-width: 100%;
-    gap: 16px;
+    gap: 32px;
   }
 }
 .hero__button {
@@ -513,7 +508,7 @@ body.no-scroll {
 }
 @media screen and (max-width: 767px) {
   .section__wrapper {
-    padding: 30px 0;
+    padding: 45px 0;
   }
 }
 .section__wrapper--partners {
@@ -521,7 +516,7 @@ body.no-scroll {
 }
 @media screen and (max-width: 767px) {
   .section__wrapper--partners {
-    padding-bottom: 30px;
+    padding-bottom: 45px;
   }
 }
 .section__wrapper--core {
@@ -529,7 +524,7 @@ body.no-scroll {
 }
 @media screen and (max-width: 767px) {
   .section__wrapper--core {
-    padding-bottom: 30px;
+    padding-bottom: 45px;
   }
 }
 .section__header:not(:last-child) {
@@ -603,13 +598,30 @@ body.no-scroll {
 .persons-info {
   display: flex;
   flex-direction: column;
+  transition: 0.3s gap;
+}
+.persons-info.active {
   gap: clamp(16px, 2vw, 2vw);
 }
 .persons-info.active .persons-info__box {
-  display: block;
+  height: var(--height);
+  opacity: 1;
 }
 .persons-info__box {
-  display: none;
+  position: relative;
+  transition: 0.3s height, 0.3s opacity;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+.persons-info__value {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 .persons-info__text {
   padding: 0 clamp(10px, 0.7vw, 0.7vw);
@@ -822,8 +834,8 @@ body.no-scroll {
 .partners__row {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: clamp(16px, 2.35vw, 2.35vw);
+  justify-content: space-between;
+  gap: clamp(16px, 6.4vw, 6.4vw);
 }
 @media screen and (max-width: 450px) {
   .partners__row {
@@ -834,6 +846,18 @@ body.no-scroll {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media screen and (min-width: 767px) {
+  .partners__block {
+    max-width: 35vw;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .partners__block--small {
+    max-width: 32vw;
+    width: 100%;
+  }
 }
 .partners__img {
   width: 100%;

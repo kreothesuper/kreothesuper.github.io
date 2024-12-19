@@ -69,9 +69,44 @@ const hideAllPopups = () => {
     document.removeEventListener('keyup', checkTargetOrKey);
 };
 
+const type = (text, outputElement) => {
+    let lines = text.split('<br>');
+    let lineIndex = 0;
+    let charIndex = 0;
+    const duration = 4000;
+    const delay = duration / text.length;
+
+    function typeCharacter() {
+        if (lineIndex < lines.length) {
+            if (charIndex < lines[lineIndex].length) {
+                outputElement.innerHTML += lines[lineIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeCharacter, delay);
+            } else {
+                outputElement.innerHTML += '<br>';
+                lineIndex++;
+                charIndex = 0;
+                setTimeout(typeCharacter, delay);
+            }
+        }
+    }
+
+    typeCharacter(); // Start typing
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
     const animation = new Animations();
     animation.init();
+
+    const lenis = typeof Lenis !== 'undefined' ? new Lenis({smoothWheel: true, duration: 1.2}) : null;
+
+    if(lenis){
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    }
 
     const popupButtons = document.querySelectorAll('[data-popup]');
     const popups = document.querySelectorAll('.popup');
@@ -88,7 +123,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
 
     const burger = document.querySelector('.burger'),
-        headerNav = document.querySelector('.header__nav');
+        headerNav = document.querySelector('.header__nav'),
+        header = document.querySelector('.header');
 
     burger.addEventListener('click',(e)=>{
         e.preventDefault();
@@ -96,6 +132,16 @@ document.addEventListener('DOMContentLoaded',()=>{
         burger.classList.toggle('burger--active');
         headerNav.classList.toggle('header__nav--active');
         document.body.classList.toggle('no-scroll');
+
+        if(burger.classList.contains('burger--active')){
+            lenis.stop()
+        }else{
+            lenis.start();
+        }
+    });
+
+    lenis.on('scroll', ()=>{
+        lenis.actualScroll > 0 ? header.classList.add('fixed') : header.classList.remove('fixed');
     });
 
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
@@ -104,6 +150,9 @@ document.addEventListener('DOMContentLoaded',()=>{
         anchorLinks.forEach(link => {
             if (link.hash.length > 0) {
                 link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    lenis.start();
+                    lenis.scrollTo(`${e.target.hash}`)
                     burger.classList.remove('burger--active');
                     headerNav.classList.remove('header__nav--active');
                     document.body.classList.remove('no-scroll');
@@ -112,50 +161,26 @@ document.addEventListener('DOMContentLoaded',()=>{
         });
     }
 
-    const stickyElm = document.querySelector('.header')
-
-    const observer = new IntersectionObserver(
-        ([e]) => e.target.classList.toggle('header--sticky', e.intersectionRatio < 1),
-        {threshold: [1]}
-    );
-
-    observer.observe(stickyElm)
-
-    function type(text, outputElement) {
-        let index = 0; // Initialize index here
-        const duration = 4000; // Total duration for the typing effect in milliseconds
-        const delay = duration / text.length; // Calculate delay per character
-
-        function typeCharacter() {
-
-            if (index < text.length) {
-                outputElement.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeCharacter, delay); // Pass the function itself as a callback
-            }
-        }
-
-        typeCharacter(); // Start typing
-    }
-
     const personsInfoArray = document.querySelectorAll('.persons-info');
     if (personsInfoArray.length) {
         personsInfoArray.forEach(personsInfo => {
             const personsInfoButton = personsInfo.querySelector('.persons-info__button'),
-                personsInfoValue = personsInfo.querySelector('.persons-info__value').value.trim(),
-                personsInfoText = personsInfo.querySelector('.persons-info-text');
+                personsInfoValue = personsInfo.querySelector('.persons-info__value'),
+                personsInfoText = personsInfo.querySelector('.persons-info-text'),
+                textValue = personsInfo.querySelector('.persons-info-value');
 
             let typingInProgress = false;
 
             personsInfoButton.addEventListener('click', e => {
                 e.preventDefault();
-                if (typingInProgress) return;
 
+                personsInfo.style.setProperty('--height',`${personsInfoValue.getBoundingClientRect().height}px`)
+                if (typingInProgress) return;
                 typingInProgress = true;
                 personsInfoButton.classList.toggle('active');
                 personsInfo.classList.toggle('active');
                 personsInfoText.innerHTML = '';
-                type(personsInfoValue, personsInfoText);
+                type(textValue.innerHTML, personsInfoText);
 
                 setTimeout(() => {
                     typingInProgress = false;
