@@ -147,6 +147,9 @@ body.no-scroll {
   display: flex;
   align-items: center;
   gap: clamp(10px,.8vw,.8vw);
+
+  --logo-size:clamp(20px,2.35vw,2.35vw);
+  --text-size:clamp(20px,2.35vw,2.35vw);
   &--white{
     fill: #fff;
     color: #fff;
@@ -156,17 +159,21 @@ body.no-scroll {
     fill: #AA825F;
   }
   &__icon{
-    width: clamp(20px,2.35vw,2.35vw);
-    height:clamp(20px,2.35vw,2.35vw);
+    width: var(--logo-size);
+    height:var(--logo-size);
     flex-shrink: 0;
     object-fit: contain;
+
+    transition: .3s width,.3s height;
   }
   &__text{
     font-family: var(--font-title);
-    font-size: clamp(20px,2.35vw,2.35vw);
+    font-size: var(--text-size);
     font-weight: 500;
 
     text-transform: capitalize;
+
+    transition: .3s font-size;
   }
 }
 
@@ -281,7 +288,18 @@ body.no-scroll {
   transition: .3s padding;
   &.fixed{
     @media screen and (min-width: 1241px) {
-      padding: 2.7vw 6vw;
+      padding: 1.7vw 6vw;
+    }
+  }
+  &.fixed &__logo{
+    @media screen and (min-width: 1241px) {
+      --logo-size: 1.35vw;
+      --text-size: 1.35vw;
+    }
+  }
+  &.fixed .nav-list__link{
+    @media screen and (min-width: 1241px) {
+      font-size: 1vw;
     }
   }
   @media screen and (max-width: 1240px) {
@@ -420,7 +438,7 @@ display: none;
 
       text-transform: capitalize;
 
-      transition: .3s color;
+      transition: .3s color,.3s font-size;
 
       &::before{
         content: '';

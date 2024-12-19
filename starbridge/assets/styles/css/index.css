@@ -126,6 +126,8 @@ body.no-scroll {
   display: flex;
   align-items: center;
   gap: clamp(10px, 0.8vw, 0.8vw);
+  --logo-size:clamp(20px,2.35vw,2.35vw);
+  --text-size:clamp(20px,2.35vw,2.35vw);
 }
 .logo--white {
   fill: #fff;
@@ -136,16 +138,18 @@ body.no-scroll {
   fill: #AA825F;
 }
 .logo__icon {
-  width: clamp(20px, 2.35vw, 2.35vw);
-  height: clamp(20px, 2.35vw, 2.35vw);
+  width: var(--logo-size);
+  height: var(--logo-size);
   flex-shrink: 0;
   object-fit: contain;
+  transition: 0.3s width, 0.3s height;
 }
 .logo__text {
   font-family: var(--font-title);
-  font-size: clamp(20px, 2.35vw, 2.35vw);
+  font-size: var(--text-size);
   font-weight: 500;
   text-transform: capitalize;
+  transition: 0.3s font-size;
 }
 
 .button {
@@ -257,7 +261,18 @@ body.no-scroll {
 }
 @media screen and (min-width: 1241px) {
   .header.fixed {
-    padding: 2.7vw 6vw;
+    padding: 1.7vw 6vw;
+  }
+}
+@media screen and (min-width: 1241px) {
+  .header.fixed .header__logo {
+    --logo-size: 1.35vw;
+    --text-size: 1.35vw;
+  }
+}
+@media screen and (min-width: 1241px) {
+  .header.fixed .nav-list__link {
+    font-size: 1vw;
   }
 }
 @media screen and (max-width: 1240px) {
@@ -381,7 +396,7 @@ body.no-scroll {
   font-size: clamp(16px, 1.4vw, 1.4vw);
   font-weight: 300;
   text-transform: capitalize;
-  transition: 0.3s color;
+  transition: 0.3s color, 0.3s font-size;
 }
 .nav-list__link::before {
   content: "";
