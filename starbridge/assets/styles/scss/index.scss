@@ -163,6 +163,7 @@ display: flex;
 
   --logo-size:clamp(20px,2.35vw,2.35vw);
   --text-size:clamp(20px,2.35vw,2.35vw);
+  --sub-text-size:clamp(10px,1.1vw,1.1vw);
   &--white{
     fill: #fff;
     color: #fff;
@@ -197,7 +198,7 @@ display: flex;
 
   }
   &__subtext{
-    font-size: var(--text-size-base);
+    font-size: var(--sub-text-size);
     margin-left: auto;
   }
 }
@@ -324,6 +325,7 @@ display: flex;
     @media screen and (min-width: 1241px) {
       --logo-size: 1.35vw;
       --text-size: 1.35vw;
+      --sub-text-size: .6vw;
     }
   }
   &.fixed .nav-list__link{
