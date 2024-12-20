@@ -133,8 +133,7 @@ body.no-scroll {
 
 .logo {
   display: flex;
-  align-items: center;
-  gap: clamp(10px, 0.8vw, 0.8vw);
+  flex-direction: column;
   --logo-size:clamp(20px,2.35vw,2.35vw);
   --text-size:clamp(20px,2.35vw,2.35vw);
 }
@@ -146,6 +145,11 @@ body.no-scroll {
   color: var(--color-text-accent);
   fill: var(--color-accent);
 }
+.logo__row {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 0.8vw, 0.8vw);
+}
 .logo__icon {
   width: var(--logo-size);
   height: var(--logo-size);
@@ -153,12 +157,18 @@ body.no-scroll {
   object-fit: contain;
   transition: 0.3s width, 0.3s height;
 }
-.logo__text {
+.logo__text, .logo__subtext {
   font-family: var(--font-title);
-  font-size: var(--text-size);
   font-weight: 500;
   text-transform: capitalize;
   transition: 0.3s font-size;
+}
+.logo__text {
+  font-size: var(--text-size);
+}
+.logo__subtext {
+  font-size: var(--text-size-base);
+  margin-left: auto;
 }
 
 .button {
@@ -217,6 +227,10 @@ body.no-scroll {
   .button__arrow {
     right: 16px;
   }
+}
+.button__text {
+  display: block;
+  transform: translateY(2px);
 }
 .button--black {
   color: #Fff;
@@ -872,7 +886,7 @@ body.no-scroll {
   content: "";
   width: clamp(30px, 3vw, 3vw);
   height: clamp(30px, 3vw, 3vw);
-  background: url("../../images/icons/mail.png") center center/contain no-repeat;
+  background: url("../../images/icons/mail.webp") center center/contain no-repeat;
   flex-shrink: 0;
   display: block;
 }

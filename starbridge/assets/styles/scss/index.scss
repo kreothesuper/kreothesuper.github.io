@@ -158,9 +158,8 @@ body.no-scroll {
 }
 
 .logo{
-  display: flex;
-  align-items: center;
-  gap: clamp(10px,.8vw,.8vw);
+display: flex;
+  flex-direction: column;
 
   --logo-size:clamp(20px,2.35vw,2.35vw);
   --text-size:clamp(20px,2.35vw,2.35vw);
@@ -172,6 +171,11 @@ body.no-scroll {
     color: var(--color-text-accent);
     fill: var(--color-accent);
   }
+  &__row{
+    display: flex;
+    align-items: center;
+    gap: clamp(10px,.8vw,.8vw);
+  }
   &__icon{
     width: var(--logo-size);
     height:var(--logo-size);
@@ -180,14 +184,21 @@ body.no-scroll {
 
     transition: .3s width,.3s height;
   }
-  &__text{
+  &__text,&__subtext{
     font-family: var(--font-title);
-    font-size: var(--text-size);
     font-weight: 500;
 
     text-transform: capitalize;
 
     transition: .3s font-size;
+  }
+  &__text{
+    font-size: var(--text-size);
+
+  }
+  &__subtext{
+    font-size: var(--text-size-base);
+    margin-left: auto;
   }
 }
 
@@ -247,6 +258,10 @@ body.no-scroll {
       @media screen and (max-width: 767px) {
         right: 16px;
     }
+  }
+  &__text{
+    display: block;
+    transform: translateY(2px);
   }
   &--black{
     color: #Fff;
@@ -939,7 +954,7 @@ display: none;
       width: clamp(30px, 3vw, 3vw);
       height: clamp(30px, 3vw, 3vw);
 
-      background: url("../../images/icons/mail.png") center center/contain no-repeat;
+      background: url("../../images/icons/mail.webp") center center/contain no-repeat;
 
       flex-shrink: 0;
       display: block;
