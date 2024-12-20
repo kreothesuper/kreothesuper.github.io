@@ -10,8 +10,8 @@
   --text-size-small: 1vw;
   --color-accent:#AA825F;
   --color-accent-light:rgba(170, 130, 95, 0.48);
-  --color-text-black: #48403a;
-  --color-text-black-light: rgba(170, 130, 95, 0.48);
+  --color-text-accent: #48403a;
+  --color-text-accent-light: rgba(170, 130, 95, 0.48);
   --animation-func: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
@@ -43,7 +43,7 @@ section {
 }
 
 ::selection {
-  background: var(--color-text-black-light);
+  background: var(--color-text-accent-light);
   color: #fff;
 }
 
@@ -96,7 +96,10 @@ body.no-scroll {
   line-height: 1;
 }
 .title--black {
-  color: var(--color-text-black);
+  color: #000;
+}
+.title--accent {
+  color: var(--color-text-accent);
 }
 
 .text {
@@ -119,10 +122,10 @@ body.no-scroll {
   color: #fff;
 }
 .text--black {
-  color: var(--color-text-black);
+  color: var(--color-text-accent);
 }
 .text--black--light {
-  color: var(--color-text-black-light);
+  color: var(--color-text-accent-light);
 }
 .text--heavy {
   font-weight: 900;
@@ -140,7 +143,7 @@ body.no-scroll {
   color: #fff;
 }
 .logo--black {
-  color: var(--color-text-black);
+  color: var(--color-text-accent);
   fill: var(--color-accent);
 }
 .logo__icon {
@@ -345,7 +348,7 @@ body.no-scroll {
   content: "";
   width: 100%;
   height: 2px;
-  background: var(--color-text-black);
+  background: var(--color-text-accent);
   position: absolute;
   transition: 0.5s top, 0.5s transform;
 }
@@ -814,7 +817,7 @@ body.no-scroll {
     width: 6px;
     height: 6px;
     flex-shrink: 0;
-    background: var(--color-text-black);
+    background: var(--color-text-accent);
     border-radius: 50%;
     transform: translateY(6px);
   }
@@ -863,7 +866,7 @@ body.no-scroll {
   gap: clamp(10px, 1.4vw, 1.4vw);
   font-size: var(--title-size-small);
   font-weight: 900;
-  color: var(--color-text-black);
+  color: var(--color-text-accent);
 }
 .mail__link::before {
   content: "";
@@ -1209,7 +1212,7 @@ body.no-scroll {
   width: 100%;
   height: 100%;
   font-size: var(--text-size-base);
-  color: var(--color-text-black);
+  color: var(--color-text-accent);
   padding: 1.75vw;
   background: #fff;
   z-index: 2;
