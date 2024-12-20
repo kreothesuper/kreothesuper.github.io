@@ -4,12 +4,12 @@
   --font-text: "Avenir", sans-serif;
   --section-padding-base: 6vw;
   --title-size-small: 1.75vw;
-  --title-size-middle:2.35vw;
+  --title-size-middle: 2.35vw;
   --title-size-base: 4.7vw;
   --text-size-base: 1.1vw;
   --text-size-small: 1vw;
-  --color-accent:#AA825F;
-  --color-accent-light:rgba(170, 130, 95, 0.48);
+  --color-accent: #AA825F;
+  --color-accent-light: rgba(170, 130, 95, 0.48);
   --color-text-accent: #48403a;
   --color-text-accent-light: rgba(170, 130, 95, 0.48);
   --animation-func: cubic-bezier(0.42, 0, 0.58, 1);
@@ -18,7 +18,7 @@
 @media screen and (max-width: 767px) {
   :root {
     --title-size-small: 20px;
-    --title-size-middle:24px;
+    --title-size-middle: 24px;
     --title-size-base: 40px;
     --text-size-base: 18px;
     --text-size-small: 16px;
@@ -50,6 +50,7 @@ section {
 body {
   font-family: var(--font-text);
   font-size: var(--text-size-base);
+  color: var(--color-text-accent);
   line-height: 1.2;
   font-weight: 300;
 }
@@ -121,22 +122,28 @@ body.no-scroll {
 .text--white {
   color: #fff;
 }
-.text--black {
+.text--accent {
   color: var(--color-text-accent);
 }
-.text--black--light {
+.text--accent--light {
   color: var(--color-text-accent-light);
 }
 .text--heavy {
   font-weight: 900;
 }
+.text--italic {
+  font-style: italic;
+}
+.text--link {
+  color: var(--color-accent);
+}
 
 .logo {
   display: flex;
   flex-direction: column;
-  --logo-size:clamp(20px,2.35vw,2.35vw);
-  --text-size:clamp(20px,2.35vw,2.35vw);
-  --sub-text-size:clamp(10px,1.1vw,1.1vw);
+  --logo-size: clamp(20px, 2.35vw, 2.35vw);
+  --text-size: clamp(20px, 2.35vw, 2.35vw);
+  --sub-text-size: clamp(10px, 1.1vw, 1.1vw);
 }
 .logo--white {
   fill: #fff;
@@ -185,7 +192,7 @@ body.no-scroll {
   cursor: pointer;
 }
 .button--base {
-  --arrow-size:1.5vw;
+  --arrow-size: 1.5vw;
   padding: 1vw 2vw;
   font-weight: 300;
   font-size: 1.75vw;
@@ -202,7 +209,7 @@ body.no-scroll {
   }
 }
 .button--small {
-  --arrow-size:1.5vw;
+  --arrow-size: 1.5vw;
   font-weight: 300;
   font-size: 1vw;
   padding: 0.6vw 2vw;
@@ -569,6 +576,14 @@ body.no-scroll {
 }
 .section__header:not(:last-child) {
   margin: 0 0 clamp(30px, 3.5vw, 3.5vw) 0;
+}
+.section__text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 1vw, 1vw);
+}
+.section__text--justify {
+  text-align: justify;
 }
 
 .dna-grid {
@@ -1148,12 +1163,6 @@ body.no-scroll {
   background: #fff;
   border-bottom: 3px solid var(--color-accent);
 }
-@media screen and (max-width: 767px) {
-  .popup__container {
-    padding: 16px;
-    max-width: 99vw;
-  }
-}
 .popup__container::-webkit-scrollbar {
   width: 5px; /* Width of the scrollbar */
   height: 5px; /* Height of the scrollbar */
@@ -1174,7 +1183,8 @@ body.no-scroll {
 }
 @media screen and (max-width: 767px) {
   .popup__container {
-    padding: 16px;
+    padding: 32px 16px;
+    max-width: 99vw;
   }
 }
 
