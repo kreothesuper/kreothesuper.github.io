@@ -131,5 +131,12 @@ document.addEventListener('DOMContentLoaded',()=>{
             modal.style.display = "none";
             document.body.classList.remove('no-scroll');
         }
+
+        modal.onclick = function (e){
+            if(e.target.classList.contains('modal')){
+                modal.style.display = "none";
+                document.body.classList.remove('no-scroll');
+            }
+        }
     }
 });
