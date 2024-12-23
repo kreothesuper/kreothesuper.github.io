@@ -22,6 +22,12 @@ body:has([name=menu]:checked) {
   -ms-touch-action: none;
 }
 
+body.no-scroll {
+  overflow: hidden;
+  touch-action: none;
+  -ms-touch-action: none;
+}
+
 .container {
   max-width: 100%;
   width: var(--container-full-size);
@@ -1670,7 +1676,7 @@ body:has([name=menu]:checked) {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 10; /* Sit on top */
+  z-index: 14; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */

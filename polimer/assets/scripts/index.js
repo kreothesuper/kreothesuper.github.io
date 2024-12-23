@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 img.onclick = function(){
                     modal.style.display = "flex";
                     modalImg.src = this.src;
+                    document.body.classList.add('no-scroll');
                 }
             })
         }
@@ -128,6 +129,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         span.onclick = function() {
             modal.style.display = "none";
+            document.body.classList.remove('no-scroll');
         }
     }
 });
