@@ -51,12 +51,12 @@ document.addEventListener('DOMContentLoaded',()=>{
         loop:true,
         init:false,
         initialSlide: 2,
-        spaceBetween:10,
+        spaceBetween:30,
         coverflowEffect: {
-            depth:100,
+            depth:108,
             modifier:1,
             scale:.8,
-            stretch:220,
+            stretch:125,
             rotate:0,
             slideShadows: false,
         },
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     if(documentSliderElement){
         const documentSliderText = documentSliderElement.querySelector('.document-slider-text');
-
+        documentSliderElement.style.setProperty('--height',`${documentSliderElement.getBoundingClientRect().height}px`)
         if(documentSliderText){
             documentSlider.on("slideChange",()=>{
                 const currentText = documentSlider.slides[documentSlider.realIndex].querySelector('[data-text]');

@@ -1562,6 +1562,9 @@ body:has([name=menu]:checked) {
   .document-slider {
     gap: 24px;
   }
+  .document-slider .swiper-wrapper {
+    align-items: center;
+  }
 }
 .document-slider-button {
   width: 48px;
@@ -1598,7 +1601,9 @@ body:has([name=menu]:checked) {
     width: 24px;
     height: 24px;
     top: calc(50% - 12px);
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(1, 60, 129, 0.3);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
   .document-slider-button::before {
     width: 10px;
