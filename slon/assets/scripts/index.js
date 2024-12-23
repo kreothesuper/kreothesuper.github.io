@@ -8,6 +8,44 @@ document.addEventListener('DOMContentLoaded',()=>{
         });
         gsap.ticker.lagSmoothing(0);
     }
+
+
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+    if (anchorLinks.length) {
+        anchorLinks.forEach(link => {
+            if (link.hash.length > 0) {
+                link.addEventListener('click', (e) => {
+                    if(lenis){
+                        e.preventDefault();
+                        lenis.scrollTo(`${link.hash}`);
+                    }
+                })
+            }
+        });
+    }
+
+    const backLink = document.querySelector('.back-anchor');
+
+    if(backLink){
+        lenis.on('scroll',()=>{
+            const scrollPercentage = (lenis.scroll / lenis.limit) * 100;
+
+            scrollPercentage > 5 ? backLink.classList.add('active') : backLink.classList.remove('active');
+
+            const circle = document.querySelector('.progress-circle-fill');
+            const radius = circle.r.baseVal.value; // Get the radius of the circle
+            const circumference = 2 * Math.PI * radius; // Calculate the circumference
+
+            // Calculate the offset based on the percentage
+            const offset = circumference - (scrollPercentage / 100 * circumference);
+
+            // Set the stroke-dasharray and stroke-dashoffset
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            circle.style.strokeDashoffset = offset;
+        });
+
+    }
     // cards.forEach((card, index) => {
     //     const tween = gsap.to(card, {
     //         scrollTrigger: {
@@ -47,7 +85,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     function initCards() {
         animation.clear();
         cardHeight = cards[0].offsetHeight; // Get the height of the first card
-        console.log("initCards()", cardHeight);
 
         cards.forEach((card, index) => {
             // Set initial position and scale for each card

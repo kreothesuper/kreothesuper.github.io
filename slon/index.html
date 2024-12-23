@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<div class="page-wrapper">
+<div class="page-wrapper" id="main">
     <header class="header">
         <div class="header__wrapper">
             <div class="container container--big">
@@ -27,7 +27,7 @@
                     <a href="#" class="header__logo logo">
                         <img src="assets/images/logo.svg" class="logo__img" alt="">
                     </a>
-                    <div class="header-social"">
+                    <div class="header-social">
                         <ul class="social social--mobile--column">
                             <li class="social__item">
                                 <a href="https://slonstories.ru" target="_blank"
@@ -76,7 +76,7 @@
             </div>
         </div>
     </header>
-    <main class="content">
+    <main class="content" id="content">
         <div class="hero">
             <div class="hero__wrapper">
                 <div class="container container--big">
@@ -774,6 +774,15 @@
         </div>
     </footer>
 </div>
+
+<a href="#main" class="back-anchor">
+    <svg class="back-anchor__circle" width="100%" height="100%" viewBox="0 0 100 100">
+        <circle class="progress-circle-fill" cx="50" cy="50" r="49" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"></circle>
+    </svg>
+    <svg class="back-anchor__arrow">
+        <use xlink:href="assets/images/sprite.svg#chevron-up"></use>
+    </svg>
+</a>
 
 <script src="assets/libs/lenis/lenis.js"></script>
 <script src="assets/libs/gsap/gsap.js"></script>
