@@ -501,6 +501,7 @@ body.no-scroll {
 .section--decor--dark::before {
   background: url("../../images/decor/section-top-dark.png") top right/contain no-repeat;
   height: 100%;
+  opacity: 0.3;
   max-height: 100%;
 }
 @media screen and (max-width: 767px) {
@@ -510,6 +511,7 @@ body.no-scroll {
 }
 .section--decor--dark::after {
   height: 1200px;
+  opacity: 0.3;
   max-height: 100%;
   background: url("../../images/decor/section-bottom-dark.png") bottom left/contain no-repeat;
 }
@@ -573,6 +575,12 @@ body.no-scroll {
   align-items: center;
   justify-content: center;
 }
+.section__wrapper--screen--start {
+  align-items: flex-start;
+}
+.section__wrapper--screen--big {
+  min-height: 110svh;
+}
 @media screen and (max-width: 767px) {
   .section__wrapper--screen--mobile {
     min-height: 100svh;
@@ -586,6 +594,14 @@ body.no-scroll {
 }
 @media screen and (max-width: 767px) {
   .section__wrapper--big {
+    padding: 80px 0;
+  }
+}
+.section__wrapper--biggest {
+  padding: 290px 0;
+}
+@media screen and (max-width: 767px) {
+  .section__wrapper--biggest {
     padding: 80px 0;
   }
 }
@@ -1299,18 +1315,18 @@ body.no-scroll {
   border-color: #4499FD;
 }
 @media screen and (min-width: 1241px) {
-  .object-nav__item:first-child.swiper-slide-thumb-active {
+  .object-nav__item:first-child {
     border-bottom-left-radius: 18px;
     overflow: hidden;
   }
-  .object-nav__item:first-child.swiper-slide-thumb-active::before {
+  .object-nav__item:first-child::before {
     border-bottom-left-radius: 18px;
   }
-  .object-nav__item:last-child.swiper-slide-thumb-active {
+  .object-nav__item:last-child {
     border-bottom-right-radius: 18px;
     overflow: hidden;
   }
-  .object-nav__item:last-child.swiper-slide-thumb-active::before {
+  .object-nav__item:last-child::before {
     border-bottom-right-radius: 18px;
   }
 }
@@ -1502,6 +1518,14 @@ body.no-scroll {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.employees-slider__nav {
+  max-width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .employees-slider__nav {
+    overflow: visible;
+  }
 }
 .employees-card__title {
   font-size: 40px;
