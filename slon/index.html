@@ -27,10 +27,11 @@
                     <a href="#" class="header__logo logo">
                         <img src="assets/images/logo.svg" class="logo__img" alt="">
                     </a>
-                    <div class="header-social">
+                    <div class="header-social"">
                         <ul class="social social--mobile--column">
                             <li class="social__item">
-                                <a href="https://slonstories.ru" target="_blank" class="social-link social-link--mobile--white social-link--white">
+                                <a href="https://slonstories.ru" target="_blank"
+                                   class="social-link social-link--mobile--white social-link--white">
                                 <span class="social-link__text">
                                           Москва:
                                         </span>
@@ -40,7 +41,8 @@
                                 </a>
                             </li>
                             <li class="social__item">
-                                <a href="tel:+7 (495) 663-72-13" target="_blank" class="social-link social-link--mobile--white social-link--white">
+                                <a href="tel:+7 (495) 663-72-13" target="_blank"
+                                   class="social-link social-link--mobile--white social-link--white">
                               <span class="social-link__text">
                                          Астана:
                                         </span>
@@ -50,7 +52,8 @@
                                 </a>
                             </li>
                             <li class="social__item">
-                                <a href="mailto:welcome@slongroup.ru" target="_blank" class="social-link social-link--mobile--white social-link--square social-link--white">
+                                <a href="mailto:welcome@slongroup.ru" target="_blank"
+                                   class="social-link social-link--mobile--white social-link--square social-link--white">
                                     <svg class="social-link__icon">
                                         <use xlink:href="assets/images/sprite.svg#mail"></use>
                                     </svg>
@@ -59,10 +62,13 @@
                         </ul>
                     </div>
                     <div class="header__burger">
-                        <label class="social-link social-link--burger  social-link--square social-link--white">
+                        <label class="social-link social-link--burger  social-link--square social-link--white ">
                             <input type="checkbox" name="burger" class="social-link__input">
                             <svg class="social-link__icon">
                                 <use xlink:href="assets/images/sprite.svg#phone"></use>
+                            </svg>
+                            <svg class="social-link__icon social-link__icon--active">
+                                <use xlink:href="assets/images/sprite.svg#close"></use>
                             </svg>
                         </label>
                     </div>
@@ -81,11 +87,22 @@
                             </p>
                         </div>
                         <div class="hero__quote quote">
-                            <div class="quote__content">
-                                <p class="text text--middle text--white quote__text">
-                                    Счастлив представить вам, пожалуй, лучшую команду на рынке корпоративных услуг. Мы большие, при этом быстро реагируем на изменения рынка, мы опытные, при этом с легкостью отрабатываем все ваши пожелания
-                                    Счастлив представить вам, пожалуй, лучшую команду на рынке корпоративных услуг. Мы большие, при этом быстро реагируем на изменения рынка, мы опытные, при этом с легкостью отрабатываем все ваши пожелания
-                                </p>
+                            <div class="quote__content js-text-expand">
+                                <div class="quote__text">
+                                    <p class="text text--middle text--white js-text-expand-item">
+                                        Счастлив представить вам, пожалуй, лучшую команду на рынке корпоративных услуг.
+                                        Мы большие, при этом быстро реагируем на изменения рынка, мы опытные, при этом с
+                                        легкостью отрабатываем все ваши пожелания.
+                                        <br>
+                                        В Вашем распоряжении знания 20-ти лет работы в отрасли, мы объединяем
+                                        креативность, технологии и глубокое понимание актуальных задач, чтобы создавать
+                                        проекты, которые вдохновляют, развивают и усиливают ваш бизнес.
+                                        Слон – это добрый, трудолюбивый, внимательный и ответственный человек.
+                                        <br>
+                                        До встречи!
+
+                                    </p>
+                                </div>
                                 <label class="quote-label">
                                     <input type="checkbox" name="quote" class="quote-label__input" id="">
                                     <span class="quote-label__text text text--base text--white">читать далее</span>
@@ -94,7 +111,7 @@
                             <img src="assets/images/quote/divider.svg" alt="" class="quote__divider">
                             <div class="quote-person">
                                 <div class="quote-person__img">
-                                    <img src="assets/images/quote/1.jpg" alt="">
+                                    <img src="assets/images/quote/1.jpg" class="quote-person-img" alt="">
                                 </div>
                                 <div class="quote-person__content">
                                     <p class="text text--base text--white">
@@ -111,7 +128,7 @@
                 </div>
             </div>
         </div>
-        <div class="section">
+        <div class="section section-card">
             <div class="container">
                 <div class="card-grid">
                     <div class="card">
@@ -174,51 +191,59 @@
                                 </div>
                             </div>
                             <div class="card-list">
-                                <label class="card-info">
+                                <label class="card-info js-text-expand">
                                     <input type="radio" checked name="card-info-1" class="card-info__input">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                HR events
                                              </span>
-                                             <span class="card-info__text">
+                                            <span class="card-info__text">
+                                                <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
                                                  Трансформационные программы
                                                  и корпоративное менторство
                                              </span>
+                                            </span>
                                          </span>
                                 </label>
-                                <label class="card-info">
+                                <label class="card-info js-text-expand">
                                     <input type="radio" name="card-info-1" class="card-info__input">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                 Маркетинговые события
                                              </span>
                                              <span class="card-info__text">
+                                                   <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
                                                  Трансформационные программы
                                                  и корпоративное менторство
+                                                   </span>
                                              </span>
                                          </span>
                                 </label>
-                                <label class="card-info">
+                                <label class="card-info js-text-expand">
                                     <input type="radio" name="card-info-1" class="card-info__input">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                Деловые мероприятия
                                              </span>
                                              <span class="card-info__text">
+                                                  <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
                                                  Трансформационные программы
                                                  и корпоративное менторство
+                                                  </span>
                                              </span>
                                          </span>
                                 </label>
-                                <label class="card-info">
+                                <label class="card-info js-text-expand">
                                     <input type="radio" name="card-info-1" class="card-info__input">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                Специальные проекты
                                              </span>
                                              <span class="card-info__text">
+                                                  <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
                                                  Трансформационные программы
                                                  и корпоративное менторство
+                                                  </span>
                                              </span>
                                          </span>
                                 </label>
@@ -281,56 +306,63 @@
                                     <p>
                                         Мы объединяем международную экспертизу и глубокое понимание локальных
                                         особенностей, создавая решения, которые вдохновляют и приносят результат.
-
                                     </p>
                                 </div>
                             </div>
                             <div class="card-list">
-                                <label class="card-info">
-                                    <input type="radio" checked name="card-info" class="card-info__input">
+                                <label class="card-info js-text-expand">
+                                    <input type="radio" checked name="card-info js-text-expand"
+                                           class="card-info__input">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                  Marketing & PR Stories
                                              </span>
                                              <span class="card-info__text">
-                                                 Трансформационные программы
-                                                 и корпоративное менторство
+                                                  <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
+                                               Комплексные стратегии для роста бизнеса
+
+                                                  </span>
                                              </span>
                                          </span>
                                 </label>
-                                <label class="card-info">
-                                    <input type="radio" name="card-info" class="card-info__input">
+                                <label class="card-info js-text-expand">
+                                    <input type="radio" name="card-info js-text-expand" class="card-info__input">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                Leadership Stories
                                              </span>
                                              <span class="card-info__text">
-                                                 Трансформационные программы
-                                                 и корпоративное менторство
+                                                  <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
+                                               Трансформационные программы и корпоративное менторство
+
+                                                  </span>
                                              </span>
                                          </span>
                                 </label>
-                                <label class="card-info">
-                                    <input type="radio" name="card-info" class="card-info__input">
+                                <label class="card-info js-text-expand">
+                                    <input type="radio" name="card-info js-text-expand" class="card-info__input">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                             Impact Stories
                                              </span>
                                              <span class="card-info__text">
-                                                 Трансформационные программы
-                                                 и корпоративное менторство
+                                                  <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
+                                              Разработка и реализация социальных проектов
+
+                                                  </span>
                                              </span>
                                          </span>
                                 </label>
-                                <label class="card-info">
-                                    <input type="radio" name="card-info" class="card-info__input">
+                                <label class="card-info js-text-expand">
+                                    <input type="radio" name="card-info js-text-expand" class="card-info__input">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                Event Stories
                                              </span>
                                              <span class="card-info__text">
-                                                 Трансформационные программы
-                                                 и корпоративное менторство
+                                                  <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
+                                              Организация мероприятий для бизнеса
+                                                  </span>
                                              </span>
                                          </span>
                                 </label>
@@ -380,48 +412,52 @@
                                 </p>
                                 <div class="card__text">
                                     <p>
-                                        Интерактивные решения для промышленности.
-                                        Более 10 лет мы лидируем на рынке визуальных решений в странах СНГ, создавая
-                                        яркие, динамичные и научно обоснованные проекты.
+                                        Интерактивные решения для промышленности. <br>
+                                        Более 10 лет мы лидируем на рынке визуальных решений в странах СНГ, создавая яркие, динамичные и научно обоснованные проекты.
 
 
                                     </p>
                                 </div>
                             </div>
                             <div class="card-list">
-                                <label class="card-info">
+                                <label class="card-info js-text-expand">
                                     <input type="radio" checked name="card-info-2" class="card-info__input">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                 Интерактивные презентации
                                              </span>
                                              <span class="card-info__text">
-                                                 Трансформационные программы
-                                                 и корпоративное менторство
+                                                  <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
+                                              эффективный инструмент вовлечения аудитории в контекст, выделяет ваш бренд и эффективно передаёт суть самых сложных идей.
+
+                                                  </span>
                                              </span>
                                          </span>
                                 </label>
-                                <label class="card-info">
+                                <label class="card-info js-text-expand">
                                     <input type="radio" name="card-info-2" class="card-info__input">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                 Визуализация процессов
                                              </span>
                                              <span class="card-info__text">
-                                                 Трансформационные программы
-                                                 и корпоративное менторство
+                                                  <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
+                                               превращение сложных и технических задач в простые и понятные визуальные схемы. Мы делаем сложное доступным, позволяя эффективно демонстрировать работу оборудования, сложных технологий или обучать сотрудников. 
+
+                                                  </span>
                                              </span>
                                          </span>
                                 </label>
-                                <label class="card-info">
+                                <label class="card-info js-text-expand">
                                     <input type="radio" name="card-info-2" class="card-info__input">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                Корпоративные шоурумы
                                              </span>
                                              <span class="card-info__text">
-                                                 Трансформационные программы
-                                                 и корпоративное менторство
+                                                  <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
+                                               создаем проекты, представляющие вашу компанию в живой, интерактивной форме.
+                                                  </span>
                                              </span>
                                          </span>
                                 </label>
@@ -682,7 +718,8 @@
                     <div class="footer__row">
                         <ul class="social ">
                             <li class="social__item">
-                                <a href="https://slonstories.ru" target="_blank" class="social-link  social-link--white">
+                                <a href="https://slonstories.ru" target="_blank"
+                                   class="social-link  social-link--white">
                                 <span class="social-link__text">
                                           Москва:
                                         </span>
@@ -702,7 +739,8 @@
                                 </a>
                             </li>
                             <li class="social__item">
-                                <a href="mailto:welcome@slongroup.ru" target="_blank" class="social-link  social-link--square social-link--white">
+                                <a href="mailto:welcome@slongroup.ru" target="_blank"
+                                   class="social-link  social-link--square social-link--white">
                                     <svg class="social-link__icon">
                                         <use xlink:href="assets/images/sprite.svg#mail"></use>
                                     </svg>
@@ -711,14 +749,16 @@
                         </ul>
                         <ul class="social">
                             <li class="social__item">
-                                <a href="mailto:welcome@slongroup.ru" target="_blank" class="social-link  social-link--square social-link--white">
+                                <a href="mailto:welcome@slongroup.ru" target="_blank"
+                                   class="social-link  social-link--square social-link--white">
                                     <svg class="social-link__icon">
                                         <use xlink:href="assets/images/sprite.svg#tg"></use>
                                     </svg>
                                 </a>
                             </li>
                             <li class="social__item">
-                                <a href="mailto:welcome@slongroup.ru" target="_blank" class="social-link  social-link--square social-link--white">
+                                <a href="mailto:welcome@slongroup.ru" target="_blank"
+                                   class="social-link  social-link--square social-link--white">
                                     <svg class="social-link__icon">
                                         <use xlink:href="assets/images/sprite.svg#wa"></use>
                                     </svg>

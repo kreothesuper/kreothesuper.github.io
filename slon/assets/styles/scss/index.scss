@@ -8,6 +8,29 @@ body{
   font-family: 'Fira Sans', sans-serif;
 }
 
+.page-wrapper{
+  position: relative;
+  &::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 110vw;
+    z-index: 0;
+    background: url("../../images/bg/header.png") top center/cover no-repeat;
+    @media screen and (max-width: 767px) {
+      background: url("../../images/bg/header-m.png") top center/cover no-repeat;
+      height: 220vw;
+    }
+  }
+}
+
+.header,.content,.footer{
+  position: relative;
+  z-index: 2;
+}
+
 .container{
   width: clamp(820px,57vw,57vw);
   max-width: 100%;
@@ -51,6 +74,9 @@ body{
 
   &--grey{
     color: #A8A8A8;
+    &--dark{
+      color: #777777;
+    }
   }
 }
 
@@ -150,6 +176,7 @@ body{
   &__title{
     font-size: clamp(48px,3.3vw,3.3vw);
     color: #E2E2E2;
+    line-height: 1;
     @media screen and (max-width: 767px) {
       font-size: 9vw;
     }
@@ -160,13 +187,18 @@ body{
   &:has(:checked) &__text{
     line-clamp: unset;
     -webkit-line-clamp: unset;
+    max-height: var(--text-height);
   }
   &__content{
     max-width: 40vw;
     width: 100%;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px,1.1vw,1.1vw);
     @media screen and (max-width: 767px) {
       max-width: 100%;
+      gap: 3.5vw;
+
     }
   }
   &__divider{
@@ -182,11 +214,10 @@ body{
     display: inline-block;
     text-align: justify;
 
-    display: -webkit-box; /* Use flexbox model */
-    -webkit-box-orient: vertical; /* Set the orientation */
-    -webkit-line-clamp: 4; /* Limit to 4 lines */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis */
+    max-height: calc(clamp(20px,1.4vw,1.4vw) * 4 * 1.2);
+    overflow: hidden;
+
+    transition: .3s max-height;
   }
   &-person{
     display: flex;
@@ -204,9 +235,19 @@ body{
 
       width: clamp(60px,4.1vw,4.1vw);
       height: clamp(60px,4.1vw,4.1vw);
+
+      background: #000;
       @media screen and (max-width: 767px) {
         width: 15vw;
         height: 15vw;
+      }
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        transition: .3s opacity;
       }
     }
     &__content{
@@ -215,7 +256,30 @@ body{
       justify-content: space-evenly;
     }
   }
+  &-label{
+    &:hover{
+      cursor: pointer;
+    }
+  }
 }
+
+@keyframes changeImg {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.card-grid{
+  position: relative;
+  height: clamp(470px,32vw,32vw);
+  @media screen and (max-width: 767px) {
+    height: 120vw;
+  }
+}
+
 
 .card{
   box-shadow: 0 0 200px 0 rgba(0, 0, 0, 0.25);
@@ -225,10 +289,18 @@ body{
   display: flex;
   flex-direction: column;
 
-
-
   width: 100%;
-  height: clamp(470px,32vw,32vw);
+  height: 100%;
+
+  &:not(:first-child){
+    //position: absolute;
+    //left: 0;
+    //top: 0;
+  }
+
+  position: absolute;
+
+
   @media screen and (min-width: 768px) {
     grid-template-columns: 4fr 6fr;
     grid-template-rows: clamp(200px,13.8vw,13.8vw) 1fr;
@@ -237,11 +309,12 @@ body{
   @media screen and (max-width: 767px) {
     padding: 5vw;
     gap: 4vw;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.25);
   }
   &-grid{
     display: flex;
     flex-direction: column;
-    gap: clamp(20px,1.4vw,1.4vw);
+    //gap: clamp(20px,1.4vw,1.4vw);
   }
   &-list{
     display: flex;
@@ -366,15 +439,18 @@ body{
       cursor: pointer;
     }
     &__input:checked ~ &__content &__text{
-      display: block;
+      max-height: var(--text-height);
+    }
+    &__input:checked ~ &__content &__title{
+      padding-bottom: clamp(16px,1.1vw,1.1vw);
+      @media screen and (max-width: 767px) {
+        padding-bottom: 2vw;
+      }
     }
     &__content{
       display: flex;
       flex-direction: column;
-      gap: clamp(16px,1.1vw,1.1vw);
-      @media screen and (max-width: 767px) {
-        gap: 2vw;
-      }
+      transition: .3s gap;
     }
     &__input{
       display: none;
@@ -382,17 +458,18 @@ body{
     &__title{
       font-size: clamp(16px,1.1vw,1.1vw);
       color: #272727;
+      transition: .3s padding-bottom;
       @media screen and (max-width: 767px) {
         font-size: 3.5vw;
       }
     }
     &__text{
-      display: none;
-      font-size: clamp(12px,.8vw,.8vw);
-      color: #777777;
-      @media screen and (max-width: 767px) {
-        font-size: 3vw;
-      }
+      max-height: 0;
+      transition: .3s max-height, .3s padding-top;
+      overflow: hidden;
+    }
+    &-text{
+      display: block;
     }
   }
   &__title{
@@ -473,9 +550,24 @@ body{
     fill: #1E1E1E;
     font-size: clamp(16px,1.1vw,1.1vw);
     color: #1E1E1E;
+    position: relative;
+
+    transition: .3s fill,.3s color,.3s background-color, .3s border-color;
+    &:hover{
+      fill: #1E1E1E;
+      color: #1E1E1E;
+      background: #F7F7F7;
+      border-color: #F7F7F7;
+    }
     &--white{
       fill: rgba(#F7F7F7,.5);
       color: rgba(#F7F7F7,.5);
+      &:hover{
+        fill: #F7F7F7;
+        color: #F7F7F7;
+        background: transparent;
+        border-color: #F7F7F7;
+      }
     }
 
     @media screen and (max-width: 767px) {
@@ -496,6 +588,7 @@ body{
         width: 8.5vw;
       }
     }
+
     &--burger{
       padding: 0;
       border-radius: 0;
@@ -505,6 +598,11 @@ body{
     }
     &--burger &__input:checked ~ &__icon{
       fill: #F7F7F7;
+      opacity: 0;
+    }
+    &--burger &__input:checked ~ &__icon--active{
+      fill: #F7F7F7;
+      opacity: 1;
     }
     &--burger &__icon{
       width: 100%;
@@ -519,11 +617,19 @@ body{
       width: clamp(16px,1.1vw,1.1vw);
       height: clamp(16px,1.1vw,1.1vw);
       flex-shrink: 0;
+      &--active{
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
       @media screen and (max-width: 767px) {
         width: 3.5vw;
         height: 3.5vw;
       }
     }
+
+
   }
 }
 
