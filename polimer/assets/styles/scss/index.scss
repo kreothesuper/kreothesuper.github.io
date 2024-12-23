@@ -9,6 +9,8 @@
   --container-full-size: calc(var(--container-size) + 2 * (var(--container-padding-side)));
 
   --color-white: #FAFDFF;
+
+  --color-link:#4499FD;
 }
 
 
@@ -224,6 +226,16 @@ body {
 
     border-radius: 14px;
 
+    &--middle{
+      max-width: 500px;
+      &--big{
+        max-width: 534px;
+      }
+    }
+    &--small{
+      max-width: 450px;
+    }
+
     @media screen and (max-width: 767px) {
       height: 40px;
       padding: 8px;
@@ -236,11 +248,37 @@ body {
     &--gradient {
       color: #fff;
       background: linear-gradient(90deg, #137ffe 0%, #94c3fa 77.1%, #3687e6 100%);
+      position: relative;
+      overflow: hidden;
+      &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: linear-gradient(90deg, #8ec0fa 0%, #94c3fa 94%);
+        opacity: 0;
+
+        transition: .3s opacity;
+
+      }
+      &:hover{
+        &::before{
+          opacity: 1;
+        }
+      }
     }
   }
 
   &--center {
     margin: 0 auto;
+  }
+
+  &__text{
+    display: block;
+    position: relative;
+    z-index: 2;
   }
 }
 
@@ -386,6 +424,7 @@ body {
 
 .nav {
   --link-color: var(--color-white);
+  --link-color-hover: var(--color-link);
   --link-size: 20px;
   --link-padding: 10px 10px;
   --padding-size: 16px;
@@ -456,6 +495,11 @@ body {
       color: var(--link-color);
       font-size: var(--link-size);
       font-weight: 500;
+
+      transition: .3s color;
+      &:hover{
+        color: var(--link-color-hover);
+      }
     }
   }
 }
@@ -520,11 +564,12 @@ body {
         }
       }
       &::after{
-        height: 1300px;
-        max-height: 70%;
+        height: 1200px;
+        max-height: 100%;
         background: url("../../images/decor/section-bottom-dark.png") bottom left/contain no-repeat;
         @media screen and (max-width: 767px) {
           display: block;
+          max-height: 80%;
         }
       }
     }
@@ -590,6 +635,14 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
+      &--mobile{
+        @media screen and (max-width: 767px) {
+          min-height: 100svh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     }
     &--big{
       padding: 200px 0;
@@ -678,7 +731,7 @@ body {
   &__column{
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 28px;
 
     @media screen and (max-width: 767px) {
       gap: 16px;
@@ -772,7 +825,7 @@ body {
     padding: 12px 55px;
 
     width: max-content;
-    height: 70px;
+    height: 68px;
     max-width: 100%;
 
     backdrop-filter: blur(5px);
@@ -783,6 +836,10 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    
+    @media screen and (max-width: 1300px) {
+      font-size: 22px;
+    }
 
     @media screen and (max-width: 767px) {
       padding: 7px 10px;
@@ -961,7 +1018,7 @@ body {
     flex-direction: column;
     gap: 180px;
     @media screen and (max-width: 767px) {
-      gap: 60px;
+      gap: 120px;
     }
   }
 
@@ -1030,7 +1087,7 @@ body {
 
     &__img {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
 
       img {
@@ -1330,7 +1387,7 @@ body {
     user-select: none;
 
     &__item {
-      width: 10%;
+      width: calc(10% - 9px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1338,7 +1395,7 @@ body {
       aspect-ratio: .75;
 
       position: relative;
-
+      transition:.3s border-radius;
       &::before {
         content: '';
         position: absolute;
@@ -1348,11 +1405,30 @@ body {
         height: 100%;
 
         border: 5px solid transparent;
+
+        transition: .3s border-color, .3s border-radius;
       }
 
       &.swiper-slide-thumb-active {
         &::before {
           border-color: #4499FD;
+        }
+      }
+
+      @media screen and (min-width: 1241px) {
+        &:first-child.swiper-slide-thumb-active{
+          border-bottom-left-radius: 18px;
+          overflow: hidden;
+          &::before{
+            border-bottom-left-radius: 18px;
+          }
+        }
+        &:last-child.swiper-slide-thumb-active{
+          border-bottom-right-radius: 18px;
+          overflow: hidden;
+          &::before{
+            border-bottom-right-radius: 18px;
+          }
         }
       }
 
@@ -1484,6 +1560,7 @@ body {
 
 
 .employees{
+  overflow: hidden;
   &__grid{
     display: grid;
     grid-template-columns: repeat(2,minmax(0,1fr));
@@ -1701,6 +1778,11 @@ body {
 
     }
   }
+}
+
+.map{
+  width: 100%;
+  height: 100%;
 }
 
 

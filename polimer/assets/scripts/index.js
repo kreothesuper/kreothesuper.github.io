@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             depth:100,
             modifier:1,
             scale:.8,
-            stretch:108,
+            stretch:220,
             rotate:0,
             slideShadows: false,
         },
