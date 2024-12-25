@@ -20,6 +20,15 @@
 <body>
 
 <div class="page-wrapper" id="main">
+    <div class="page-bg page-bg--first" data-lenis-prevent>
+        <div class="page-bg__item"></div>
+        <div class="page-bg__item"></div>
+        <div class="page-bg__item"></div>
+    </div>
+    <div class="page-bg page-bg--second" data-lenis-prevent>
+        <div class="page-bg__item"></div>
+        <div class="page-bg__item"></div>
+    </div>
     <header class="header">
         <div class="header__wrapper">
             <div class="container container--big">
@@ -27,39 +36,53 @@
                     <a href="#" class="header__logo logo">
                         <img src="assets/images/logo.svg" class="logo__img" alt="">
                     </a>
-                    <div class="header-social">
-                        <ul class="social social--mobile--column">
-                            <li class="social__item">
-                                <a href="https://slonstories.ru" target="_blank"
-                                   class="social-link social-link--mobile--white social-link--white">
-                                <span class="social-link__text">
-                                          Москва:
-                                        </span>
-                                    <span class="social-link__text">
+                    <div class="header-social social social--header">
+                        <div class="social__wrapper social__wrapper--row">
+                            <p class="social__title">
+                                Москва:
+                            </p>
+                            <ul class="social__list social__list--mobile--column">
+                                <li class="social__item">
+                                    <a href="tel:+7 (495) 663-72-13" target="_blank"
+                                       class="social-link social-link--mobile--white social-link--white">
+                                        <span class="social-link__text">
                                         +7 (495) 663-72-13
                                         </span>
-                                </a>
-                            </li>
-                            <li class="social__item">
-                                <a href="tel:+7 (495) 663-72-13" target="_blank"
-                                   class="social-link social-link--mobile--white social-link--white">
-                              <span class="social-link__text">
-                                         Астана:
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="mailto:welcome@slongroup.ru" target="_blank"
+                                       class="social-link social-link--mobile--white social-link--square social-link--white">
+                                        <svg class="social-link__icon">
+                                            <use xlink:href="assets/images/sprite.svg#mail"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="social__wrapper social__wrapper--row">
+                            <p class="social__title">
+                                Астана:
+                            </p>
+                            <ul class="social__list social__list--mobile--column">
+                                <li class="social__item">
+                                    <a href="tel:+7 (747) 801-10-98" target="_blank"
+                                       class="social-link social-link--mobile--white social-link--white">
+                                        <span class="social-link__text">
+                                       +7 (747) 801-10-98
                                         </span>
-                                    <span class="social-link__text">
-                                         +7 (495) 663-72-13
-                                        </span>
-                                </a>
-                            </li>
-                            <li class="social__item">
-                                <a href="mailto:welcome@slongroup.ru" target="_blank"
-                                   class="social-link social-link--mobile--white social-link--square social-link--white">
-                                    <svg class="social-link__icon">
-                                        <use xlink:href="assets/images/sprite.svg#mail"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="mailto:welcome@slonstories.kz" target="_blank"
+                                       class="social-link social-link--mobile--white social-link--square social-link--white">
+                                        <svg class="social-link__icon">
+                                            <use xlink:href="assets/images/sprite.svg#mail"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="header__burger">
                         <label class="social-link social-link--burger  social-link--square social-link--white ">
@@ -100,11 +123,10 @@
                                         Слон – это добрый, трудолюбивый, внимательный и ответственный человек.
                                         <br>
                                         До встречи!
-
                                     </p>
                                 </div>
                                 <label class="quote-label">
-                                    <input type="checkbox" name="quote" class="quote-label__input" id="">
+                                    <input type="checkbox" name="quote" class="quote-label__input">
                                     <span class="quote-label__text text text--base text--white">читать далее</span>
                                 </label>
                             </div>
@@ -135,8 +157,8 @@
                         <div class="card-header">
                             <img src="assets/images/cards/slon.png" alt="" class="card-header__logo">
                         </div>
-                        <div class="card-social">
-                            <ul class="social">
+                        <div class="card-social social">
+                            <ul class="social social__list">
                                 <li class="social__item">
                                     <a href="https://slonstories.ru" target="_blank"
                                        class="social-link social-link--square">
@@ -191,59 +213,31 @@
                                 </div>
                             </div>
                             <div class="card-list">
-                                <label class="card-info js-text-expand">
-                                    <input type="radio" checked name="card-info-1" class="card-info__input">
+                                <label class="card-info">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                HR events
                                              </span>
-                                            <span class="card-info__text">
-                                                <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
-                                                 Трансформационные программы
-                                                 и корпоративное менторство
-                                             </span>
-                                            </span>
                                          </span>
                                 </label>
-                                <label class="card-info js-text-expand">
-                                    <input type="radio" name="card-info-1" class="card-info__input">
+                                <label class="card-info">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                 Маркетинговые события
                                              </span>
-                                             <span class="card-info__text">
-                                                   <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
-                                                 Трансформационные программы
-                                                 и корпоративное менторство
-                                                   </span>
-                                             </span>
                                          </span>
                                 </label>
-                                <label class="card-info js-text-expand">
-                                    <input type="radio" name="card-info-1" class="card-info__input">
+                                <label class="card-info">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                Деловые мероприятия
                                              </span>
-                                             <span class="card-info__text">
-                                                  <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
-                                                 Трансформационные программы
-                                                 и корпоративное менторство
-                                                  </span>
-                                             </span>
                                          </span>
                                 </label>
-                                <label class="card-info js-text-expand">
-                                    <input type="radio" name="card-info-1" class="card-info__input">
+                                <label class="card-info">
                                     <span class="card-info__content">
                                              <span class="card-info__title">
                                                Специальные проекты
-                                             </span>
-                                             <span class="card-info__text">
-                                                  <span class="text text--small text--grey--dark card-info-text js-text-expand-item">
-                                                 Трансформационные программы
-                                                 и корпоративное менторство
-                                                  </span>
                                              </span>
                                          </span>
                                 </label>
@@ -255,8 +249,8 @@
                             <img src="assets/images/cards/slon-kz.png" alt="" class="card-header__logo">
 
                         </div>
-                        <div class="card-social">
-                            <ul class="social">
+                        <div class="card-social social">
+                            <ul class="social social__list">
                                 <li class="social__item">
                                     <a href="https://slonstories.ru" target="_blank"
                                        class="social-link social-link--square">
@@ -373,8 +367,8 @@
                         <div class="card-header">
                             <img src="assets/images/cards/dgline.svg" alt="" class="card-header__logo">
                         </div>
-                        <div class="card-social">
-                            <ul class="social">
+                        <div class="card-social social">
+                            <ul class="social social__list">
                                 <li class="social__item">
                                     <a href="https://slonstories.ru" target="_blank"
                                        class="social-link social-link--square">
@@ -413,7 +407,8 @@
                                 <div class="card__text">
                                     <p>
                                         Интерактивные решения для промышленности. <br>
-                                        Более 10 лет мы лидируем на рынке визуальных решений в странах СНГ, создавая яркие, динамичные и научно обоснованные проекты.
+                                        Более 10 лет мы лидируем на рынке визуальных решений в странах СНГ, создавая
+                                        яркие, динамичные и научно обоснованные проекты.
 
 
                                     </p>
@@ -469,8 +464,8 @@
                         <div class="card-header">
                             <img src="assets/images/cards/private.png" alt="" class="card-header__logo">
                         </div>
-                        <div class="card-social">
-                            <ul class="social">
+                        <div class="card-social social">
+                            <ul class="social social__list">
                                 <li class="social__item">
                                     <a href="https://happytectura.ru" target="_blank" class="social-link">
                                         <svg class="social-link__icon">
@@ -512,8 +507,8 @@
                             <img src="assets/images/cards/video.png" alt=""
                                  class="card-header__logo card-header__logo--square">
                         </div>
-                        <div class="card-social">
-                            <ul class="social">
+                        <div class="card-social social">
+                            <ul class="social social__list">
                                 <li class="social__item">
                                     <a href="https://slonvideo.ru" target="_blank" class="social-link">
                                         <svg class="social-link__icon">
@@ -587,8 +582,8 @@
                             <img src="assets/images/cards/life.png" alt=""
                                  class="card-header__logo card-header__logo--square">
                         </div>
-                        <div class="card-social">
-                            <ul class="social">
+                        <div class="card-social social">
+                            <ul class="social social__list">
                                 <li class="social__item">
                                     <a href="https://abzh.ru" target="_blank" class="social-link">
                                         <svg class="social-link__icon">
@@ -663,8 +658,8 @@
                             <img src="assets/images/cards/bishop.png" alt=""
                                  class="card-header__logo card-header__logo--square card-header__logo--square--small">
                         </div>
-                        <div class="card-social">
-                            <ul class="social">
+                        <div class="card-social social">
+                            <ul class="social social__list">
 
                                 <li class="social__item">
                                     <a href="tel:+7 (747) 801 10 98" target="_blank" class="social-link">
@@ -715,59 +710,104 @@
                     <a href="#" class="footer__logo logo">
                         <img src="assets/images/logo.svg" class="logo__img" alt="">
                     </a>
-                    <div class="footer__row">
-                        <ul class="social ">
-                            <li class="social__item">
-                                <a href="https://slonstories.ru" target="_blank"
-                                   class="social-link  social-link--white">
-                                <span class="social-link__text">
-                                          Москва:
+                    <div class="social">
+                        <div class="social__wrapper">
+                            <p class="social__title">
+                                Москва:
+                            </p>
+                            <ul class="social__list">
+                                <li class="social__item">
+                                    <a href="tel:+7 (495) 663-72-13" target="_blank"
+                                       class="social-link  social-link--white">
+                                        <svg class="social-link__icon">
+                                            <use xlink:href="assets/images/sprite.svg#phone"></use>
+                                        </svg>
+                                        <span class="social-link__text">
+                                       +7 (495) 663-72-13
                                         </span>
-                                    <span class="social-link__text">
-                                        +7 (495) 663-72-13
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="mailto:welcome@slongroup.ru" target="_blank"
+                                       class="social-link  social-link--white">
+
+                                        <svg class="social-link__icon">
+                                            <use xlink:href="assets/images/sprite.svg#mail"></use>
+                                        </svg>
+                                        <span class="social-link__text">
+                                       welcome@slongroup.ru
                                         </span>
-                                </a>
-                            </li>
-                            <li class="social__item">
-                                <a href="tel:+7 (495) 663-72-13" target="_blank" class="social-link social-link--white">
-                              <span class="social-link__text">
-                                         Астана:
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#" target="_blank"
+                                       class="social-link social-link--square social-link--white">
+                                        <svg class="social-link__icon">
+                                            <use xlink:href="assets/images/sprite.svg#wa"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#" target="_blank"
+                                       class="social-link social-link--square social-link--white">
+                                        <svg class="social-link__icon">
+                                            <use xlink:href="assets/images/sprite.svg#tg"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="social">
+                        <div class="social__wrapper">
+                            <p class="social__title">
+                                Москва:
+                            </p>
+                            <ul class="social__list">
+                                <li class="social__item">
+                                    <a href="tel:+7 (495) 663-72-13" target="_blank"
+                                       class="social-link  social-link--white">
+                                        <svg class="social-link__icon">
+                                            <use xlink:href="assets/images/sprite.svg#phone"></use>
+                                        </svg>
+                                        <span class="social-link__text">
+                                       +7 (495) 663-72-13
                                         </span>
-                                    <span class="social-link__text">
-                                         +7 (495) 663-72-13
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="mailto:welcome@slongroup.ru" target="_blank"
+                                       class="social-link  social-link--white">
+
+                                        <svg class="social-link__icon">
+                                            <use xlink:href="assets/images/sprite.svg#mail"></use>
+                                        </svg>
+                                        <span class="social-link__text">
+                                       welcome@slongroup.ru
                                         </span>
-                                </a>
-                            </li>
-                            <li class="social__item">
-                                <a href="mailto:welcome@slongroup.ru" target="_blank"
-                                   class="social-link  social-link--square social-link--white">
-                                    <svg class="social-link__icon">
-                                        <use xlink:href="assets/images/sprite.svg#mail"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="social">
-                            <li class="social__item">
-                                <a href="mailto:welcome@slongroup.ru" target="_blank"
-                                   class="social-link  social-link--square social-link--white">
-                                    <svg class="social-link__icon">
-                                        <use xlink:href="assets/images/sprite.svg#tg"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li class="social__item">
-                                <a href="mailto:welcome@slongroup.ru" target="_blank"
-                                   class="social-link  social-link--square social-link--white">
-                                    <svg class="social-link__icon">
-                                        <use xlink:href="assets/images/sprite.svg#wa"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#" target="_blank"
+                                       class="social-link social-link--square social-link--white">
+                                        <svg class="social-link__icon">
+                                            <use xlink:href="assets/images/sprite.svg#wa"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#" target="_blank"
+                                       class="social-link social-link--square social-link--white">
+                                        <svg class="social-link__icon">
+                                            <use xlink:href="assets/images/sprite.svg#tg"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <p class="text text--base text--white">
-                        © 2007–2025 SLON GROUP
+                        © 2007–<span class="current-year"></span> SLON GROUP
                     </p>
                 </div>
             </div>
@@ -777,7 +817,8 @@
 
 <a href="#main" class="back-anchor">
     <svg class="back-anchor__circle" width="100%" height="100%" viewBox="0 0 100 100">
-        <circle class="progress-circle-fill" cx="50" cy="50" r="49" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"></circle>
+        <circle class="progress-circle-fill" cx="50" cy="50" r="49" fill="none" stroke="#fff" stroke-width="2"
+                stroke-linecap="round"></circle>
     </svg>
     <svg class="back-anchor__arrow">
         <use xlink:href="assets/images/sprite.svg#chevron-up"></use>
