@@ -104,6 +104,8 @@ body.fixed{
   flex-direction: column;
   min-height: 100svh;
 
+  position: relative;
+
   .content {
     flex-grow: 1;
   }
@@ -489,7 +491,6 @@ a.text--white--light:hover {
 
   --header-color: #fff;
   --header-border-color: rgba(256, 256, 256, .3);
-
   .language {
     --active-color: var(--header-color);
     --color: var(--header-border-color);
@@ -504,7 +505,7 @@ a.text--white--light:hover {
     position: fixed;
     --header-color: #fff;
     --header-border-color: rgba(256, 256, 256, .3);
-  }
+  }ƒ
 
   &__burger {
     @media screen and (min-width: 1241px) {
@@ -1749,9 +1750,13 @@ a.text--white--light:hover {
 
 .animation-text {
   overflow: hidden;
-
   &.animated &__item {
     animation: textAnimation 1s var(--animation-delay) var(--animation-func) forwards;
+  }
+
+  &.animated{
+    overflow: visible;
+    animation: textWrapperAnimation 2s var(--animation-delay) var(--animation-func) forwards;
   }
 
   &__item {
@@ -1770,6 +1775,15 @@ a.text--white--light:hover {
   &__item {
     opacity: 0;
     transform: translateY(100%);
+  }
+}
+
+@keyframes textWrapperAnimation {
+  0%{
+    overflow: hidden;
+  }
+  100%{
+    overflow: visible;
   }
 }
 

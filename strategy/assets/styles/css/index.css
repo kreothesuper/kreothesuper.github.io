@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --main-font: "PP Neue Montreal", sans-serif;
   --accent-color: #104136;
@@ -75,6 +76,7 @@ body.fixed {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
+  position: relative;
 }
 .page-wrapper .content {
   flex-grow: 1;
@@ -395,7 +397,7 @@ a.text--white--light:hover {
   --header-border-color: rgba(256, 256, 256, .3);
 }
 @media screen and (min-width: 1241px) {
-  .header__burger {
+  ƒ .header__burger {
     display: none;
   }
 }
@@ -1528,6 +1530,10 @@ a.text--white--light:hover {
 .animation-text.animated .animation-text__item {
   animation: textAnimation 1s var(--animation-delay) var(--animation-func) forwards;
 }
+.animation-text.animated {
+  overflow: visible;
+  animation: textWrapperAnimation 2s var(--animation-delay) var(--animation-func) forwards;
+}
 .animation-text__item {
   opacity: 0;
   transform: translateY(10vw);
@@ -1544,6 +1550,14 @@ a.text--white--light:hover {
   transform: translateY(100%);
 }
 
+@keyframes textWrapperAnimation {
+  0% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: visible;
+  }
+}
 @keyframes textAnimation {
   0% {
     opacity: 0;
