@@ -106,16 +106,16 @@ const showAutoPopup = (id) => {
     const autoSingleStar = autoSingle.querySelectorAll('.auto-star__item');
 
     const points = +newData.find(car => car.id === id).points;
-    autoSingleStar.forEach((star,starIndex)=>{
+    autoSingleStar.forEach((star, starIndex) => {
         star.classList.remove('auto-star__item--half');
-        if(starIndex+1 < points){
+        if (starIndex + 1 < points) {
             star.classList.add('active')
-        }else{
+        } else {
             star.classList.remove('active');
         }
     });
 
-    if(isFloat(points)){
+    if (isFloat(points)) {
         autoSingleStar[Math.floor(points)].classList.add('auto-star__item--half');
     }
 
@@ -130,7 +130,7 @@ const createPopupCard = (car) => {
     let imageArray = '';
     for (let i = 0; i < car.imagesCount; i++) {
         imageArray += `<div class="swiper-slide single-slider__item">
-                            <img src="assets/images/auto/${car.id}/${i+1}.jpg" alt="" class="single-slider__img">
+                            <img src="assets/images/auto/${car.id}/${i + 1}.jpg" alt="" class="single-slider__img">
                         </div>`
 
     }
@@ -427,6 +427,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+    const popupGallery = new Swiper('.popup-gallery', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        navigation: {
+            nextEl: '.popup-gallery-button-next',
+            prevEl: '.popup-gallery-button-prev',
+        },
+    });
+
+
     const textExpandArray = document.querySelectorAll('.questions-item');
 
     if (textExpandArray.length) {
@@ -452,4 +466,54 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
     }
+    const galleryImgArray = [...document.querySelectorAll('.gallery-img')]
+    galleryImgArray.forEach(img => {
+        const src = img.src;
+        const match = src.match(/\/(\d+)\.jpg$/);
+
+        if (match) {
+            const numberBeforeJpg = match[1];
+            img.dataset.index = numberBeforeJpg;
+        } else {
+            console.log("No match found");
+        }
+        img.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            showPopup('.popup-reviews');
+            popupGallery.slideTo(+img.dataset.index - 1);
+        });
+    })
+
+
+
+    const uniqueArray = galleryImgArray.filter((img, index, self) =>
+            index === self.findIndex((t) => (
+                t.src === img.src
+            ))
+    ).sort((a, b) => {
+        const indexA = Number(a.dataset.index);
+        const indexB = Number(b.dataset.index);
+
+        if (indexA < indexB) {
+            return -1;
+        }
+        if (indexA > indexB) {
+            return 1;
+        }
+        return 0;
+    });
+
+    popupGallery.removeAllSlides();
+    uniqueArray.forEach((element,index) => {
+        const slide = document.createElement('div');
+        slide.classList.add('swiper-slide', 'popup-gallery__item');
+
+        const clonedElement = element.cloneNode(true); // true for deep clone
+        slide.append(clonedElement);
+
+        popupGallery.addSlide(index, slide);
+    });
+
+
 });
