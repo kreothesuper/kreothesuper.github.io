@@ -15,6 +15,16 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
     window.addEventListener('scroll', () => header.classList.toggle('header--fixed', window.scrollY > 0));
 
+    new InfiniteMarquee({
+        element: '.marquee-container',
+        speed: 25000,
+        spaceBetween:"20px",
+        smoothEdges: true,
+        direction: 'right',
+        gap: '15px',
+        on: {
+        }
+    });
 
     const autoSlider = new Swiper('.auto-slider-element', {
         slidesPerView: 'auto',
@@ -35,7 +45,30 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
     });
 
-    autoSlider.init();
+    const heroSlider = new Swiper('.hero-slider-element', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop:true,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: {
+            el: ".hero-slider-pagination",
+        },
+        navigation: {
+            nextEl: '.hero-slider-button-next',
+            prevEl: '.hero-slider-button-prev',
+        },
+        init:false,
+        breakpoints: {
+            767: {
+                spaceBetween: 30,
+            }
+        }
+    });
+
+    heroSlider.init();
 
 
     const textExpandArray = document.querySelectorAll('.questions-item');
