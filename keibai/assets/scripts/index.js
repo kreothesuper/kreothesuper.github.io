@@ -1,7 +1,56 @@
+const checkTargetOrKey = event => {
+    if (
+        event.target.classList.contains('popup__wrapper') ||
+        event.key === 'Escape' ||
+        event.target.closest('.popup__close')
+    ) {
+        hideAllPopups();
+    }
+};
+const showPopup = popupId => {
+    const popup = document.querySelector(popupId);
+    if (!popup) return
+
+
+    hideAllPopups();
+
+    popup.classList.add('popup--active');
+    document.body.classList.add('no-scroll');
+
+    document.addEventListener('click', checkTargetOrKey);
+    document.addEventListener('keyup', checkTargetOrKey);
+};
+const hideAllPopups = () => {
+    const popups = document.querySelectorAll('.popup');
+
+    popups.forEach(popup => {
+        popup.classList.remove('popup--active');
+    });
+    document.body.classList.remove('no-scroll');
+
+    document.removeEventListener('click', checkTargetOrKey);
+    document.removeEventListener('keyup', checkTargetOrKey);
+};
+
+
 document.addEventListener('DOMContentLoaded',()=>{
     const burger = document.querySelector('.burger'),
         menu = document.querySelector('.menu'),
         header = document.querySelector('.header');
+
+    const popupButtons = document.querySelectorAll('[data-popup]');
+    const popups = document.querySelectorAll('.popup');
+
+    if (popups.length) {
+        popupButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const popupId = button.dataset.popup
+                showPopup(popupId);
+            });
+        });
+    }
 
     if(burger){
         burger.addEventListener('click',(e)=>{
@@ -70,6 +119,34 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     heroSlider.init();
 
+    const objectNavSlider = new Swiper('.single-slider-nav', {
+        spaceBetween: 10,
+        slidesPerView: 'auto',
+        // freeMode: true,
+        watchSlidesProgress: true,
+        direction:'horizontal',
+        breakpoints:{
+            768:{
+                direction:'vertical',
+                spaceBetween: 20,
+            },
+            1025:{
+                direction:'horizontal'
+            }
+        }
+    });
+    const objectSlider = new Swiper('.single-slider-main', {
+        spaceBetween: 20,
+        slidesPerView: 1,
+        navigation: {
+            nextEl: '.single-slider-button-next',
+            prevEl: '.single-slider-button-prev',
+        },
+        thumbs: {
+            swiper: objectNavSlider,
+        },
+    });
+
 
     const textExpandArray = document.querySelectorAll('.questions-item');
 
@@ -82,5 +159,18 @@ document.addEventListener('DOMContentLoaded',()=>{
                 textExpand.style.setProperty('--text-height', `${textExpandElement.clientHeight}px`)
             });
         });
+    }
+
+
+    const form = document.querySelectorAll('form');
+
+    if(form.length){
+        form.forEach(element=>{
+            element.addEventListener('submit',(e)=>{
+                e.preventDefault();
+
+                showPopup('.popup-thanks')
+            });
+        })
     }
 });
