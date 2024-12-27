@@ -745,12 +745,32 @@ body.no-scroll {
     height: 45px;
   }
 }
+.auto-grade__item--info {
+  margin-left: 20px;
+  opacity: 0;
+  font-size: clamp(12px, 0.93vw, 16px);
+  transition: 0.3s opacity;
+  padding: 15px 20px;
+}
+@media screen and (max-width: 767px) {
+  .auto-grade__item--info {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+}
+.auto-grade__item--question:hover {
+  cursor: pointer;
+}
+.auto-grade__item--question:hover ~ .auto-grade__item--info {
+  opacity: 1;
+}
 .auto-grade__item--square {
   width: 50px;
   padding: 0;
   font-size: 18px;
   color: #2284CB;
   font-weight: 600;
+  flex-shrink: 0;
 }
 @media screen and (max-width: 767px) {
   .auto-grade__item--square {
@@ -1334,14 +1354,14 @@ body.no-scroll {
   padding: 40px;
   border-radius: 35px;
   border: 1px solid #1C2532;
-  height: 580px;
+  height: clamp(30vw, 30vw, 580px);
   background: var(--background-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: 0.3s background-color;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1024px) {
   .documents-card__wrapper {
     height: 450px;
   }
@@ -1412,28 +1432,31 @@ body.no-scroll {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   position: relative;
   z-index: 2;
+  gap: 60px;
 }
 .block-grid--contact {
   grid-template-columns: 4fr 6fr;
   gap: 60px;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1024px) {
   .block-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
 }
 .block-grid__img {
-  height: 780px;
+  min-height: clamp(40vw, 40vw, 780px);
+  height: 100%;
   border-radius: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1024px) {
   .block-grid__img {
     height: 600px;
+    min-height: auto;
   }
 }
 @media screen and (max-width: 767px) {
@@ -1458,13 +1481,13 @@ body.no-scroll {
   }
 }
 .block-grid__info {
-  padding: 110px 0 110px clamp(10px, 6.25vw, 6.25vw);
+  padding: clamp(5.7vw, 5.7vw, 110px) 0 clamp(5.7vw, 5.7vw, 110px) clamp(10px, 6.25vw, 6.25vw);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1024px) {
   .block-grid__info {
     padding: 60px 40px 74px 40px;
     align-items: flex-end;
@@ -1487,7 +1510,7 @@ body.no-scroll {
   max-width: 564px;
   width: 100%;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1024px) {
   .block-grid__title {
     max-width: 515px;
   }
@@ -1531,7 +1554,7 @@ body.no-scroll {
   background: radial-gradient(50% 50% at 50% 50%, rgb(34, 132, 203) 0%, rgb(8, 11, 15) 100%);
   opacity: 0.6;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1024px) {
   .block__wrapper--circles::before {
     width: 650px;
     height: 650px;
@@ -1556,7 +1579,7 @@ body.no-scroll {
   opacity: 0.4;
   background: radial-gradient(50% 50% at 50% 50%, rgb(34, 132, 203) 0%, rgb(8, 11, 15) 100%);
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1024px) {
   .block__wrapper--circles::after {
     width: 1080px;
     height: 1080px;
@@ -1922,7 +1945,7 @@ body.no-scroll {
   align-items: center;
   gap: 50px;
 }
-@media screen and (min-width: 1281px) {
+@media screen and (min-width: 1441px) {
   .footer-links {
     position: absolute;
     left: 50%;
@@ -2104,7 +2127,8 @@ body.no-scroll {
 }
 .social-card__wrapper {
   padding: 40px;
-  height: 420px;
+  min-height: clamp(21.875vw, 21.875vw, 420px);
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -2457,7 +2481,7 @@ body.no-scroll {
   color: #34455C;
 }
 .input__item--textarea {
-  height: 120px;
+  height: 130px;
   border-radius: 30px;
 }
 @media screen and (max-width: 767px) {
@@ -2709,6 +2733,127 @@ body.no-scroll {
 @media screen and (max-width: 767px) {
   .popup-gallery-button-next {
     right: 20px;
+  }
+}
+
+.video-widget {
+  position: fixed;
+  z-index: 11;
+  bottom: 40px;
+  left: 40px;
+  width: 200px;
+  height: 280px;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s width, 0.3s height;
+}
+@media screen and (max-width: 1024px) {
+  .video-widget {
+    width: 170px;
+    height: 240px;
+    bottom: 30px;
+    left: 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .video-widget {
+    width: 80px;
+    height: 114px;
+    border-radius: 15px;
+    left: 10px;
+    bottom: 10px;
+  }
+}
+.video-widget.active {
+  width: 280px;
+  height: 380px;
+}
+@media screen and (max-width: 1024px) {
+  .video-widget.active {
+    width: 210px;
+    height: 300px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .video-widget.active {
+    width: 110px;
+    height: 155px;
+  }
+}
+.video-widget.active .video-widget__controls {
+  opacity: 1;
+  pointer-events: auto;
+}
+.video-widget::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  background: rgba(8, 11, 15, 0.3);
+}
+.video-widget__video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+.video-widget__control {
+  width: 30px;
+  height: 30px;
+  background: rgba(8, 11, 15, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 50%;
+  fill: #fff;
+}
+@media screen and (max-width: 767px) {
+  .video-widget__control {
+    width: 20px;
+    height: 20px;
+  }
+}
+.video-widget__control .icon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 767px) {
+  .video-widget__control .icon {
+    width: 10px;
+    height: 10px;
+  }
+}
+.video-widget__controls {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 3;
+  opacity: 0;
+  transition: 0.3s opacity;
+  pointer-events: none;
+}
+@media screen and (max-width: 767px) {
+  .video-widget__controls {
+    top: 5px;
+    right: 5px;
+    gap: 5px;
   }
 }
 

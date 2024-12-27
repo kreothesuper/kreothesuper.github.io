@@ -271,9 +271,12 @@ const createPopupCard = (car) => {
                                         </div>
                                     </div>
                     </div>
-                    <div class="auto-grade__item auto-grade__item--square">
-                        ?
-                    </div>
+                   <div class="auto-grade__item auto-grade__item--question auto-grade__item--square">
+                                    ?
+                                </div>
+                                <div class="auto-grade__item auto-grade__item--info ">
+                                    Аукционная оценка
+                                </div>
                 </div>
                 <div class="auto-table">
                     <div class="auto-table__row">
@@ -368,6 +371,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('scroll', () => header.classList.toggle('header--fixed', window.scrollY > 0));
 
+    const heroSlider = new Swiper('.hero-slider-element', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: {
+            el: ".hero-slider-pagination",
+        },
+        navigation: {
+            nextEl: '.hero-slider-button-next',
+            prevEl: '.hero-slider-button-prev',
+        },
+        init: false,
+        breakpoints: {
+            767: {
+                spaceBetween: 30,
+            }
+        }
+    });
+
+    heroSlider.init();
+
     const autoSlider = new Swiper('.auto-slider-element', {
         slidesPerView: 'auto',
         spaceBetween: 20,
@@ -403,28 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 
-    const heroSlider = new Swiper('.hero-slider-element', {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        loop: true,
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true
-        },
-        pagination: {
-            el: ".hero-slider-pagination",
-        },
-        navigation: {
-            nextEl: '.hero-slider-button-next',
-            prevEl: '.hero-slider-button-prev',
-        },
-        init: false,
-        breakpoints: {
-            767: {
-                spaceBetween: 30,
-            }
-        }
-    });
+
 
 
     const popupGallery = new Swiper('.popup-gallery', {
@@ -449,7 +456,11 @@ document.addEventListener('DOMContentLoaded', () => {
             textExpand.style.setProperty('--text-height', `${textExpandElement.clientHeight}px`)
             textExpand.addEventListener('change', () => {
                 const textExpandElement = textExpand.querySelector('.questions-item__text');
-                textExpand.style.setProperty('--text-height', `${textExpandElement.clientHeight}px`)
+                textExpand.style.setProperty('--text-height', `${textExpandElement.clientHeight}px`);
+                textExpandArray.forEach(element=>{
+                    const input = element.querySelector('input');
+                    element !== textExpand ? input.checked = false : null;
+                })
             });
         });
     }
@@ -481,7 +492,8 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             showPopup('.popup-reviews');
-            popupGallery.slideTo(+img.dataset.index - 1);
+            popupGallery.slideTo(+img.dataset.index - 1
+            );
         });
     })
 
@@ -515,5 +527,39 @@ document.addEventListener('DOMContentLoaded', () => {
         popupGallery.addSlide(index, slide);
     });
 
+
+    const videoWidget = document.querySelector('.video-widget');
+
+    if(videoWidget){
+        const video = videoWidget.querySelector('video'),
+            videoClose = videoWidget.querySelector('.video-widget-close'),
+            videoMute = videoWidget.querySelector('.video-widget-mute');
+
+        video.play();
+        video.controls = false;
+        video.muted = true;
+        video.loop = true;
+
+        videoWidget.addEventListener('click',(e)=>{
+           e.preventDefault();
+
+            if(!e.target.closest('.video-widget__controls')){
+                videoWidget.classList.add('active');
+                video.muted = false;
+                video.currentTime = 0;
+            }
+        });
+
+        videoClose.addEventListener('click',(e)=>{
+            e.preventDefault();
+            videoWidget.classList.remove('active');
+            video.muted = true;
+        });
+
+        videoMute.addEventListener('click',(e)=>{
+            e.preventDefault();
+            video.muted = true;
+        });
+    }
 
 });
