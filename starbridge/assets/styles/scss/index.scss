@@ -4,13 +4,13 @@
   --section-padding-base: 6vw;
 
   //title size
-  --title-size-small: 1.75vw;
-  --title-size-middle: 2.35vw;
-  --title-size-base: 4.7vw;
+  --title-size-small:30px;
+  --title-size-middle:40px;
+  --title-size-base: 80px;
 
   //text sizes
-  --text-size-base: 1.1vw;
-  --text-size-small: 1vw;
+  --text-size-base:20px;
+  --text-size-small: 18px;
 
   //colors
   --color-accent: #AA825F;
@@ -47,7 +47,7 @@ html {
 }
 
 section {
-  scroll-margin-top: 6.7vw;
+  scroll-margin-top:100px;
   @media screen and (max-width: 767px) {
     scroll-margin-top: 56px;
   }
@@ -74,10 +74,10 @@ body.no-scroll {
 
 .container {
   max-width: 100%;
-  width: 73vw;
+  width: 1240px;
   margin: 0 auto;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1240px) {
     width: 100%;
     padding: 0 16px;
   }
@@ -170,9 +170,9 @@ body.no-scroll {
   display: flex;
   flex-direction: column;
 
-  --logo-size: clamp(20px, 2.35vw, 2.35vw);
-  --text-size: clamp(20px, 2.35vw, 2.35vw);
-  --sub-text-size: clamp(10px, 1.1vw, 1.1vw);
+  --logo-size: clamp(20px, 2.35vw, 37px);
+  --text-size: clamp(20px, 2.35vw, 37px);
+  --sub-text-size: clamp(10px, 1.1vw, 20px);
 
   &--white {
     fill: #fff;
@@ -236,12 +236,12 @@ body.no-scroll {
   }
 
   &--base {
-    --arrow-size: 1.5vw;
-    padding: 1vw 2vw;
+    --arrow-size: 26px;
+    padding: 18px 32px;
     font-weight: 300;
-    font-size: 1.75vw;
-    height: 3.5vw;
-    line-height: .9vw;
+    font-size: 30px;
+    height: 60px;
+    line-height: 1;
 
     text-transform: uppercase;
     @media screen and (max-width: 767px) {
@@ -253,12 +253,12 @@ body.no-scroll {
   }
 
   &--small {
-    --arrow-size: 1.5vw;
+    --arrow-size: 20px;
 
     font-weight: 300;
-    font-size: 1vw;
-    padding: .6vw 2vw;
-    height: 2vw;
+    font-size:18px;
+    padding: 10px 32px;
+    height: 34px;
     @media screen and (max-width: 767px) {
       --arrow-size: 12px;
 
@@ -328,14 +328,14 @@ body.no-scroll {
 }
 
 .page-wrapper, .content {
-  padding: 4.7vw 0 0 0;
+  padding: 80px 0 0 0;
   @media screen and (max-width: 1240px) {
     padding: 30px 0 0 0;
   }
 }
 
 .header {
-  padding: 4.7vw 6vw;
+  padding: 80px 0;
   background: #fff;
   z-index: 12;
   position: fixed;
@@ -346,21 +346,21 @@ body.no-scroll {
 
   &.fixed {
     @media screen and (min-width: 1241px) {
-      padding: 1.7vw 6vw;
+      padding: 30px 0;
     }
   }
 
   &.fixed &__logo {
     @media screen and (min-width: 1241px) {
-      --logo-size: 1.35vw;
-      --text-size: 1.35vw;
-      --sub-text-size: .6vw;
+      --logo-size: 23px;
+      --text-size: 23px;
+      --sub-text-size: 10px;
     }
   }
 
   &.fixed .nav-list__link {
     @media screen and (min-width: 1241px) {
-      font-size: 1vw;
+      font-size: 20px;
     }
   }
 
@@ -380,6 +380,12 @@ body.no-scroll {
     justify-content: space-between;
     position: relative;
     z-index: 4;
+
+    max-width: 1452px;
+    width: 100%;
+    margin: 0 auto;
+
+    padding: 0 16px;
   }
 
   &__burger {
@@ -485,7 +491,7 @@ body.no-scroll {
   &-list {
     display: flex;
     align-items: center;
-    gap: 2.7vw;
+    gap: 46px;
     @media screen and (max-width: 767px) {
       flex-direction: column;
       align-items: flex-end;
@@ -498,7 +504,7 @@ body.no-scroll {
       align-items: center;
       position: relative;
       color: var(--color-accent);
-      font-size: clamp(16px, 1.4vw, 1.4vw);
+      font-size: 24px;
 
       font-weight: 300;
 
@@ -539,7 +545,7 @@ body.no-scroll {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: clamp(32px, 2vw, 2vw);
+    gap: 36px;
     @media screen and (max-width: 767px) {
       flex-direction: column;
       gap: 64px;
@@ -547,20 +553,19 @@ body.no-scroll {
   }
 
   &__header {
-    max-width: 36vw;
+    max-width: 605px;
     width: 100%;
 
     display: flex;
     flex-direction: column;
-    gap: 2vw;
+    gap: 32px;
     @media screen and (max-width: 767px) {
       max-width: 100%;
-      gap: 32px;
     }
   }
 
   &__button {
-    max-width: 32vw;
+    max-width: 530px;
     @media screen and (max-width: 767px) {
       max-width: 100%;
     }
@@ -573,14 +578,14 @@ body.no-scroll {
   }
 
   &-list {
-    max-width: 28vw;
+    max-width:480px;
     width: 100%;
     @media screen and (max-width: 767px) {
       max-width: 100%;
     }
 
     &__item {
-      padding: 3.7vw 0;
+      padding:63px 0;
       @media screen and (max-width: 767px) {
         padding: 16px 0;
       }
@@ -614,16 +619,16 @@ body.no-scroll {
     &__wrapper {
       display: flex;
       align-items: center;
-      gap: 1.8vw;
-      padding: 0 3vw;
+      gap: 32px;
+      padding: 0 30px;
       @media screen and (max-width: 767px) {
         gap: 16px;
       }
     }
 
     &__icon {
-      width: 3vw;
-      height: 3vw;
+      width: 50px;
+      height: 50px;
       object-fit: contain;
       flex-shrink: 0;
       @media screen and (max-width: 767px) {
@@ -636,21 +641,21 @@ body.no-scroll {
 
 .section {
   &__wrapper {
-    padding: clamp(30px, 6vw, 6vw) 0;
+    padding:100px 0;
 
     @media screen and (max-width: 767px) {
       padding: 45px 0;
     }
 
     &--partners {
-      padding-bottom: clamp(80px, 10vw, 10vw);
+      padding-bottom: 200px;
       @media screen and (max-width: 767px) {
         padding-bottom: 45px;
       }
     }
 
     &--core {
-      padding-bottom: clamp(80px, 12vw, 12vw);
+      padding-bottom: 200px;
       @media screen and (max-width: 767px) {
         padding-bottom: 45px;
       }
@@ -659,14 +664,27 @@ body.no-scroll {
 
   &__header {
     &:not(:last-child) {
-      margin: 0 0 clamp(30px, 3.5vw, 3.5vw) 0;
+      margin: 0 0 40px 0;
+      @media screen and (max-width: 767px) {
+        margin: 0 0 30px 0;
+      }
+    }
+    &--margin{
+      &--big{
+        &:not(:last-child) {
+          margin: 0 0 65px 0;
+          @media screen and (max-width: 767px) {
+            margin: 0 0 30px 0;
+          }
+        }
+      }
     }
   }
 
   &__text {
     display: flex;
     flex-direction: column;
-    gap: clamp(20px, 1vw, 1vw);
+    gap: 20px;
 
     &--justify{
       text-align: justify;
@@ -677,8 +695,8 @@ body.no-scroll {
 .dna {
   &-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.75vw;
+    grid-template-columns: 5.2fr 4.8fr;
+    gap: 30px;
     @media screen and (max-width: 991px) {
       grid-template-columns: minmax(0, 1fr);
       gap: 16px;
@@ -700,18 +718,20 @@ body.no-scroll {
     box-shadow: 4px 4px 10px 0 rgba(170, 130, 95, 0.15), 1px 1px 3px 0 rgba(170, 130, 95, 0.05);
 
     &__wrapper {
-      padding: clamp(16px, 2.7vw, 2.7vw);
+      padding: 46px;
       display: grid;
-      grid-template-columns:clamp(100px, 6.4vw, 6.4vw) minmax(0, 1fr);
-      gap: clamp(16px, 1.75vw, 1.75vw);
+      grid-template-columns:100px minmax(0, 1fr);
+      gap: 44px;
       @media screen and (max-width: 767px) {
         grid-template-columns: minmax(0, 1fr);
+        padding: 16px;
+        gap: 16px;
       }
 
       &--column {
         grid-template-columns: minmax(0, 1fr);
-        gap: clamp(16px, 3.2vw, 3.2vw);
-        padding: clamp(16px, 3.5vw, 3.5vw) clamp(16px, 2.7vw, 2.7vw) clamp(16px, 2.7vw, 2.7vw) clamp(16px, 2.7vw, 2.7vw);
+        gap: 32px;
+        padding:64px 46px 46px 46px;
       }
     }
 
@@ -726,11 +746,14 @@ body.no-scroll {
     padding-left: var(--text-size-base);
     display: flex;
     flex-direction: column;
-    gap: clamp(15px, 2.7vw, 2.7vw);
+    gap:46px;
+    @media screen and (max-width: 767px) {
+      gap: 16px;
+    }
 
     &__item {
       &--small {
-        max-width: 20vw;
+        max-width: 440px;
         width: 100%;
         @media screen and (max-width: 767px) {
           max-width: 100%;
@@ -754,7 +777,10 @@ body.no-scroll {
     transition: .3s gap;
 
     &.active {
-      gap: clamp(16px, 2vw, 2vw);
+      gap: 34px;
+      @media screen and (max-width: 767px) {
+        gap: 16px;
+      }
     }
 
     &.active &__box {
@@ -784,11 +810,10 @@ body.no-scroll {
     &__text {
       display: flex;
       align-items: flex-start;
-      gap: clamp(5px, .35vw, .35vw);
-
+      gap: 5px;
       &::before {
         content: '“';
-        font-size: 3vw;
+        font-size: 50px;
         font-weight: 300;
         color: rgba(#000, .3);
         line-height: .9;
@@ -803,7 +828,7 @@ body.no-scroll {
   &-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.8vw 10.5vw;
+    gap: 32px 180px;
     @media screen and (max-width: 767px) {
       grid-template-columns: minmax(0, 1fr);
       gap: 16px 32px;
@@ -822,7 +847,7 @@ body.no-scroll {
 
     &--gap {
       &--small {
-        gap: 7vw;
+        gap: 120px;
         @media screen and (max-width: 767px) {
           gap: 32px;
         }
@@ -834,10 +859,11 @@ body.no-scroll {
     &__wrapper {
       display: grid;
       grid-template-columns: 30% minmax(0, 1fr);
-      gap: clamp(16px, 1.75vw, 1.75vw);
+      gap: 20px;
       height: 100%;
       @media screen and (max-width: 450px) {
         grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
       }
 
       &--bordered {
@@ -883,10 +909,13 @@ body.no-scroll {
     }
 
     &__box {
-      padding: 0 0 clamp(5px, .5vw, .5vw) 0;
+      padding: 0 0 10px 0;
       display: flex;
       flex-direction: column;
-      gap: clamp(16px, 2.35vw, 2.35vw);
+      gap: 40px;
+      @media screen and (max-width: 767px) {
+        gap: 16px;
+      }
 
       &--main {
         padding: 0;
@@ -904,7 +933,7 @@ body.no-scroll {
     }
 
     &__social {
-      max-width: 14.7vw;
+      max-width: 250px;
       width: 100%;
       height: auto;
 
@@ -942,7 +971,7 @@ body.no-scroll {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    gap: 1.4vw;
+    gap: 24px;
     @media screen and (max-width: 767px) {
       flex-direction: column;
       gap: 16px;
@@ -953,7 +982,7 @@ body.no-scroll {
     max-width: 100%;
     width: 100%;
     @media screen and (min-width: 768px) {
-      max-width: 18vw;
+      max-width: 335px;
     }
     @media screen and (max-width: 767px) {
       order: 2;
@@ -989,7 +1018,7 @@ body.no-scroll {
   }
 
   &__img {
-    width: 32vw;
+    width: 536px;
     max-width: 100%;
     flex-shrink: 0;
     @media screen and (max-width: 767px) {
@@ -1016,22 +1045,27 @@ body.no-scroll {
   &__link {
     display: flex;
     align-items: center;
-    gap: clamp(10px, 1.4vw, 1.4vw);
+    gap: 24px;
     font-size: var(--title-size-small);
     font-weight: 900;
     color: var(--color-text-accent);
     @media screen and (max-width: 767px) {
+      gap: 10px;
     }
 
     &::before {
       content: '';
-      width: clamp(30px, 3vw, 3vw);
-      height: clamp(30px, 3vw, 3vw);
+      width:50px;
+      height:50px;
 
       background: url("../../images/icons/mail.webp") center center/contain no-repeat;
 
       flex-shrink: 0;
       display: block;
+      @media screen and (max-width: 767px) {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 }
@@ -1041,7 +1075,11 @@ body.no-scroll {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: clamp(16px, 6.4vw, 6.4vw);
+    gap: 110px;
+
+    @media screen and (max-width: 767px) {
+      gap: 32px;
+    }
     @media screen and (max-width: 450px) {
       flex-direction: column;
       align-items: flex-start;
@@ -1053,7 +1091,7 @@ body.no-scroll {
     align-items: center;
     justify-content: center;
     @media screen and (min-width: 767px) {
-      max-width: 35vw;
+      max-width: 600px;
       width: 100%;
     }
     @media screen and (max-width: 450px) {
@@ -1063,7 +1101,7 @@ body.no-scroll {
 
     &--small {
       @media screen and (min-width: 768px) {
-        max-width: 32vw;
+        max-width:530px;
         width: 100%;
       }
     }
@@ -1080,14 +1118,14 @@ body.no-scroll {
   &__wrapper {
     background: var(--color-accent);
 
-    padding: 5vw 0;
+    padding: 90px 0;
   }
 
   &__row {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: clamp(32px, 7vw, 7vw);
+    gap: 32px;
     @media screen and (max-width: 767px) {
       flex-direction: column;
     }
@@ -1100,9 +1138,10 @@ body.no-scroll {
   &__block {
     display: flex;
     flex-direction: column;
-    gap: clamp(16px, 2vw, 2vw);
+    gap: 40px;
     @media screen and (max-width: 767px) {
       order: 2;
+      gap: 16px;
     }
   }
 }
@@ -1110,14 +1149,18 @@ body.no-scroll {
 .social {
   display: flex;
   align-items: center;
-  gap: clamp(15px, .9vw, .9vw);
+  gap: 15px;
 
   &__link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: clamp(30px, 3vw, 3vw);
-    height: clamp(30px, 3vw, 3vw);
+    width: 50px;
+    height: 50px;
+    @media screen and (max-width: 767px) {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   &__icon {
@@ -1245,12 +1288,12 @@ body.no-scroll {
   }
 
   &__close {
-    width: 1.17vw;
-    height: 1.17vw;
+    width: 18px;
+    height: 18px;
     display: block;
     position: absolute;
-    top: .8vw;
-    right: .8vw;
+    top: 10px;
+    right: 10px;
     @media screen and (max-width: 767px) {
       width: 16px;
       height: 16px;
@@ -1302,12 +1345,12 @@ body.no-scroll {
   }
 
   &__container {
-    max-width: 50vw;
+    max-width: 830px;
     width: calc(100% - 40px);
     max-height: 90%;
     height: -moz-max-content;
     height: max-content;
-    padding: 4vw;
+    padding: 70px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1349,7 +1392,7 @@ body.no-scroll {
   &__wrapper {
     display: flex;
     flex-direction: column;
-    gap: 2.35vw;
+    gap: 40px;
     @media screen and (max-width: 767px) {
       gap: 16px;
     }
@@ -1358,7 +1401,7 @@ body.no-scroll {
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 0.8vw;
+    gap: 15px;
     @media screen and (max-width: 767px) {
       gap: 10px;
     }
@@ -1367,7 +1410,7 @@ body.no-scroll {
   &__button {
     margin-left: auto;
 
-    max-width: 20vw;
+    max-width: 340px;
     width: 100%;
     @media screen and (max-width: 767px) {
       max-width: 100%;
@@ -1376,7 +1419,7 @@ body.no-scroll {
 
   &-input {
     width: 100%;
-    height: 4.7vw;
+    height:80px;
     position: relative;
     padding: 1px;
 
@@ -1396,7 +1439,7 @@ body.no-scroll {
       height: 100%;
       font-size: var(--text-size-base);
       color: var(--color-text-accent);
-      padding: 1.75vw;
+      padding: 15px 30px;
       background: #fff;
       z-index: 2;
       position: relative;
