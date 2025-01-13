@@ -1,4 +1,3 @@
-@charset "UTF-8";
 :root {
   --main-font: "PP Neue Montreal", sans-serif;
   --accent-color: #104136;
@@ -397,7 +396,7 @@ a.text--white--light:hover {
   --header-border-color: rgba(256, 256, 256, .3);
 }
 @media screen and (min-width: 1241px) {
-  ƒ .header__burger {
+  .header__burger {
     display: none;
   }
 }
@@ -1057,21 +1056,39 @@ a.text--white--light:hover {
 .principles {
   overflow: hidden;
 }
+.principles > .section__column {
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 767px) {
+  .principles > .section__column {
+    height: 60svh;
+  }
+}
 .principles-scroll {
-  padding-right: 100vw;
+  flex-grow: 1;
+}
+@media screen and (max-width: 767px) {
+  .principles-scroll {
+    overflow: auto;
+    scrollbar-width: none; /* For Firefox */
+  }
+  .principles-scroll::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
 }
 .principles-grid {
   padding: clamp(10px, 0.7vw, 0.7vw) 0;
   display: flex;
   align-items: stretch;
+  height: 100%;
 }
 .principles-card {
   width: 35vw;
   overflow: hidden;
   flex-shrink: 0;
-}
-.principles-card .active {
-  width: 50vw;
+  height: 100%;
 }
 .principles-card:last-child {
   overflow: visible;
@@ -1085,7 +1102,7 @@ a.text--white--light:hover {
   }
 }
 .principles-card__wrapper {
-  height: calc(100vh - 13vw);
+  height: 100%;
   padding: 3vw 3vw 3.4vw 3vw;
   display: flex;
   flex-direction: column;
@@ -1093,13 +1110,7 @@ a.text--white--light:hover {
 }
 @media screen and (max-width: 1240px) {
   .principles-card__wrapper {
-    height: calc(100vh - 180px);
     padding: 30px 10px 30px 20px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .principles-card__wrapper {
-    height: calc(60vh - 110px);
   }
 }
 .video-bg__item {
@@ -1529,10 +1540,6 @@ a.text--white--light:hover {
 }
 .animation-text.animated .animation-text__item {
   animation: textAnimation 1s var(--animation-delay) var(--animation-func) forwards;
-}
-.animation-text.animated {
-  overflow: visible;
-  animation: textWrapperAnimation 2s var(--animation-delay) var(--animation-func) forwards;
 }
 .animation-text__item {
   opacity: 0;
